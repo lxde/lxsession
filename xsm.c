@@ -502,9 +502,10 @@ StartSession ( char *name )
 
     if ( !LockSession ( name, True ) )
     {
+    g_debug("unable to lock");
         return ( 0 );
     }
-
+g_debug("lock ok");
     /*
      * Get important environment variables.
      */
@@ -518,7 +519,7 @@ StartSession ( char *name )
 
     set_session_save_file_name ( name );
     database_read = ReadSave ( name, &sm_id );
-
+g_debug("read save = %d", database_read);
     /* FIXME: this should be totally re-write */
     if ( !database_read )
     {
