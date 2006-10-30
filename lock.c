@@ -34,7 +34,7 @@ static void
 GetLockPath( char* buf, const char* session_name, gboolean is_tmp )
 {
 #ifndef __UNIXOS2__
-    sprintf ( buf, "/tmp/.LSM%slock-%s%s-%s", is_tmp ? "t":"",
+    sprintf ( buf, "/tmp/.LXSM%slock-%s%s-%s", is_tmp ? "t":"",
               session_name, gdk_get_display(), g_get_user_name() );
 #else
     // FIXME: Is this needed?
@@ -59,7 +59,6 @@ g_debug("Lock: %s", temp_lock_file);
         return ( 0 );
     }
     len = strlen ( networkIds );
-
     if ( ( write_id &&
             ( write ( fd, networkIds, len ) != len ) ) ||
             ( write ( fd, "\n", 1 ) != 1 ) )
@@ -68,7 +67,6 @@ g_debug("Lock: %s", temp_lock_file);
         // g_debug ( "write error" );
         return ( 0 );
     }
-
     close ( fd );
 #ifndef __UNIXOS2__
     status = 1;

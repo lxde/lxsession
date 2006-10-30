@@ -173,7 +173,7 @@ sig_term_handler ( int sig )
     /* FIXME: all lists should be freed */
     EndSession(0);
 }
-
+/*
 static gboolean
 on_back_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* pix )
 {
@@ -185,32 +185,38 @@ on_back_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* pix )
                      evt->area.width, evt->area.height);
     return TRUE;
 }
-
+*/
 static gboolean
 popup_logout( gpointer user_data )
 {
-    GtkWidget *back, *draw, *dlg, *check;
-    GdkPixbuf *shot;
+    GtkWidget *back, *img, *dlg, *check;
+    GdkPixbuf *tmp, *shot;
     GdkScreen *screen;
     GDK_THREADS_ENTER();
     screen = gdk_screen_get_default();
+
+    tmp = gdk_pixbuf_get_from_drawable( NULL,
+                                        gdk_get_default_root_window(),
+                                        NULL,
+                                        0, 0, 0, 0,
+                                        gdk_screen_get_width(screen),
+                                        gdk_screen_get_height(screen) );
+
+    shot = tmp;
 /*
- ret2 = gdk_pixbuf_composite_color_simple(ret, w, h,
-          GDK_INTERP_HYPER, 255-alpha, MIN(w, h), tintcolor, tintcolor);
+    shot = gdk_pixbuf_composite_color_simple( tmp,
+                                              gdk_screen_get_width(screen),
+                                              gdk_screen_get_height(screen),
+                                              GDK_INTERP_NEAREST,
+					      128, gdk_screen_get_width(screen),
+					      0x000000, 0x000000);
+    g_object_unref( shot );
 */
-    shot = gdk_pixbuf_get_from_drawable( NULL,
-                                         gdk_get_default_root_window(),
-                                         NULL,
-                                         0, 0, 0, 0,
-                                         gdk_screen_get_width(screen),
-                                         gdk_screen_get_height(screen) );
     back = gtk_window_new( GTK_WINDOW_TOPLEVEL );
-    draw = gtk_drawing_area_new();
-    gtk_widget_add_events( draw, GDK_EXPOSURE_MASK );
-    gtk_container_add( back, draw );
-    g_object_weak_ref( draw, g_object_unref, shot );
-    g_signal_connect( draw, "expose-event",
-                      G_CALLBACK(on_back_expose), shot );
+    gtk_widget_set_double_buffered( back, FALSE );
+    img = gtk_image_new_from_pixbuf( shot );
+    g_object_unref( shot );
+    gtk_container_add( back, img );
     gtk_window_fullscreen( back );
     gtk_window_set_decorated( back, FALSE );
     gtk_widget_show_all( back );

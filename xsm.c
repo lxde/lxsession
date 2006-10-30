@@ -504,7 +504,6 @@ StartSession ( char *name )
     {
         return ( 0 );
     }
-
     /*
      * Get important environment variables.
      */
@@ -518,7 +517,6 @@ StartSession ( char *name )
 
     set_session_save_file_name ( name );
     database_read = ReadSave ( name, &sm_id );
-
     /* FIXME: this should be totally re-write */
     if ( !database_read )
     {
@@ -528,7 +526,6 @@ StartSession ( char *name )
 
         StartDefaultApps (name);
         // g_spawn_command_line_async ( "smproxy", NULL );
-        g_debug("START DEFAULTS");
     }
     else
     {
@@ -538,7 +535,6 @@ StartSession ( char *name )
          * the window manager is running.  At that time, we can start
          * the rest of the applications.
          */
-g_debug("RESTART");
         Restart ( RESTART_MANAGERS );
         Restart ( RESTART_REST_OF_CLIENTS );
         StartNonSessionAwareApps ();

@@ -541,13 +541,13 @@ StartDefaultApps ( char* session_name )
     home = ( char * ) getenv ( "HOME" );
     if ( !home )
         home = ".";
-    sprintf ( filename, "%s/.LXS-%s-Default", home, session_name );
+    sprintf ( filename, "%s/.LXSM-%s-Default", home, session_name );
 
     f = fopen ( filename, "r" );
 
     if ( !f )
     {
-        sprintf ( filename, "/etc/LXS-%s-Default", session_name );
+        sprintf ( filename, "/etc/LXSM-%s-Default", session_name );
         f = fopen ( filename, "r" );
         if ( !f )
         {
