@@ -77,7 +77,7 @@ mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES = LXDE.desktop startlxde
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
-	"$(DESTDIR)$(xsessiondir)"
+	"$(DESTDIR)$(defaultsdir)" "$(DESTDIR)$(xsessiondir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_lxsession_OBJECTS = lxsession-auth.$(OBJEXT) \
@@ -113,8 +113,9 @@ am__vpath_adj = case $$p in \
     *) f=$$p;; \
   esac;
 am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
+defaultsDATA_INSTALL = $(INSTALL_DATA)
 xsessionDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(xsession_DATA)
+DATA = $(defaults_DATA) $(xsession_DATA)
 ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
@@ -306,32 +307,12 @@ lxsession_SOURCES = \
         xsm.h
 
 
-# Currently this path is hardcoded.
+# Currently these paths are hardcoded.
 xsessiondir = /usr/share/xsessions
 xsession_DATA = LXDE.desktop
-
-# App default files  (*.ad)
-
-# appdefaultdir = @appdefaultdir@
-
-# APPDEFAULTFILES = \
-#        XSm
-
-# SUFFIXES = .ad
-
-#.ad:
-#	cp $< $@
-
-# appdefault_DATA = $(APPDEFAULTFILES)
-
-# system init file
-
-# systeminitdir = $(SYSTEM_INIT_DIR)
-
-# systeminit_DATA = system.xsm
-
-#
-EXTRA_DIST = LXDE.desktop.in startlxde.in
+defaultsdir = /etc
+defaults_DATA = LXSM-LXDE-Default
+EXTRA_DIST = LXDE.desktop.in startlxde.in $(defaults_DATA)
 CLEANFILES = $(bin_SCRIPTS)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -639,6 +620,23 @@ lxsession-xsm.obj: xsm.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -c -o lxsession-xsm.obj `if test -f 'xsm.c'; then $(CYGPATH_W) 'xsm.c'; else $(CYGPATH_W) '$(srcdir)/xsm.c'; fi`
 uninstall-info-am:
+install-defaultsDATA: $(defaults_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(defaultsdir)" || $(mkdir_p) "$(DESTDIR)$(defaultsdir)"
+	@list='$(defaults_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f=$(am__strip_dir) \
+	  echo " $(defaultsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(defaultsdir)/$$f'"; \
+	  $(defaultsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(defaultsdir)/$$f"; \
+	done
+
+uninstall-defaultsDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(defaults_DATA)'; for p in $$list; do \
+	  f=$(am__strip_dir) \
+	  echo " rm -f '$(DESTDIR)$(defaultsdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(defaultsdir)/$$f"; \
+	done
 install-xsessionDATA: $(xsession_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(xsessiondir)" || $(mkdir_p) "$(DESTDIR)$(xsessiondir)"
@@ -936,7 +934,7 @@ check: check-recursive
 all-am: Makefile $(PROGRAMS) $(SCRIPTS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(xsessiondir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(defaultsdir)" "$(DESTDIR)$(xsessiondir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-recursive
@@ -985,7 +983,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-xsessionDATA
+install-data-am: install-defaultsDATA install-xsessionDATA
 
 install-exec-am: install-binPROGRAMS install-binSCRIPTS
 
@@ -1015,7 +1013,8 @@ ps: ps-recursive
 ps-am:
 
 uninstall-am: uninstall-binPROGRAMS uninstall-binSCRIPTS \
-	uninstall-info-am uninstall-xsessionDATA
+	uninstall-defaultsDATA uninstall-info-am \
+	uninstall-xsessionDATA
 
 uninstall-info: uninstall-info-recursive
 
@@ -1027,23 +1026,17 @@ uninstall-info: uninstall-info-recursive
 	distclean-recursive distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
 	install install-am install-binPROGRAMS install-binSCRIPTS \
-	install-data install-data-am install-exec install-exec-am \
-	install-info install-info-am install-man install-strip \
-	install-xsessionDATA installcheck installcheck-am installdirs \
-	installdirs-am maintainer-clean maintainer-clean-generic \
-	maintainer-clean-recursive mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-recursive pdf pdf-am ps ps-am \
-	tags tags-recursive uninstall uninstall-am \
-	uninstall-binPROGRAMS uninstall-binSCRIPTS uninstall-info-am \
+	install-data install-data-am install-defaultsDATA install-exec \
+	install-exec-am install-info install-info-am install-man \
+	install-strip install-xsessionDATA installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic maintainer-clean-recursive \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-recursive pdf pdf-am ps ps-am tags tags-recursive \
+	uninstall uninstall-am uninstall-binPROGRAMS \
+	uninstall-binSCRIPTS uninstall-defaultsDATA uninstall-info-am \
 	uninstall-xsessionDATA
 
-
-# appmandir = $(APP_MAN_DIR)
-
-# appman_DATA = $(appman_PRE:man=@APP_MAN_SUFFIX@)
-
-# EXTRA_DIST += $(appman_PRE)
-# CLEANFILES += $(appman_DATA)
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

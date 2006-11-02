@@ -1,0 +1,2 @@
+#!/bin/sh
+exec @prefix@/bin/lxsession -s LXDE

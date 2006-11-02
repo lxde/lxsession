@@ -54,42 +54,14 @@ lxsession_SOURCES =	\
         xsm.c \
         xsm.h
 
-# Currently this path is hardcoded.
+# Currently these paths are hardcoded.
 xsessiondir=/usr/share/xsessions
 xsession_DATA = LXDE.desktop
 
-# App default files  (*.ad)
+defaultsdir=/etc
+defaults_DATA = LXSM-LXDE-Default
 
-# appdefaultdir = @appdefaultdir@
-
-
-# APPDEFAULTFILES = \
-#        XSm
-
-# SUFFIXES = .ad
-
-#.ad:
-#	cp $< $@
-
-# appdefault_DATA = $(APPDEFAULTFILES)
-
-# system init file
-
-# systeminitdir = $(SYSTEM_INIT_DIR)
-
-# systeminit_DATA = system.xsm
-
-#
-
-EXTRA_DIST = LXDE.desktop.in startlxde.in
+EXTRA_DIST = LXDE.desktop.in startlxde.in $(defaults_DATA)
 
 CLEANFILES = $(bin_SCRIPTS)
-
-
-# appmandir = $(APP_MAN_DIR)
-
-# appman_DATA = $(appman_PRE:man=@APP_MAN_SUFFIX@)
-
-# EXTRA_DIST += $(appman_PRE)
-# CLEANFILES += $(appman_DATA)
 
