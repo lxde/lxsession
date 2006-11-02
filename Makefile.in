@@ -36,6 +36,7 @@
 #  PERFORMANCE OF THIS SOFTWARE.
 
 
+
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
 VPATH = @srcdir@
@@ -61,9 +62,10 @@ host_triplet = @host@
 bin_PROGRAMS = lxsession$(EXEEXT)
 DIST_COMMON = README $(am__configure_deps) $(srcdir)/LXDE.desktop.in \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
-	$(srcdir)/config.h.in $(top_srcdir)/configure ABOUT-NLS \
-	AUTHORS COPYING ChangeLog INSTALL NEWS compile config.guess \
-	config.sub depcomp install-sh ltmain.sh missing
+	$(srcdir)/config.h.in $(srcdir)/startlxde.in \
+	$(top_srcdir)/configure ABOUT-NLS AUTHORS COPYING ChangeLog \
+	INSTALL NEWS compile config.guess config.sub depcomp \
+	install-sh ltmain.sh missing mkinstalldirs
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -71,10 +73,11 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno configure.status.lineno
-mkinstalldirs = $(install_sh) -d
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = LXDE.desktop
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(xsessiondir)"
+CONFIG_CLEAN_FILES = LXDE.desktop startlxde
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
+	"$(DESTDIR)$(xsessiondir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am_lxsession_OBJECTS = lxsession-auth.$(OBJEXT) \
@@ -87,6 +90,8 @@ am_lxsession_OBJECTS = lxsession-auth.$(OBJEXT) \
 lxsession_OBJECTS = $(am_lxsession_OBJECTS)
 am__DEPENDENCIES_1 =
 lxsession_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+binSCRIPT_INSTALL = $(INSTALL_SCRIPT)
+SCRIPTS = $(bin_SCRIPTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -272,6 +277,7 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 SUBDIRS = po
+bin_SCRIPTS = startlxde
 SYSTEM_INIT_DIR = $(libdir)/X11/xsm
 lxsession_CFLAGS = $(GTK_CFLAGS) $(SM_CFLAGS) -DRSHCMD=\"@RSH@\" \
                    -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\"
@@ -303,6 +309,30 @@ lxsession_SOURCES = \
 # Currently this path is hardcoded.
 xsessiondir = /usr/share/xsessions
 xsession_DATA = LXDE.desktop
+
+# App default files  (*.ad)
+
+# appdefaultdir = @appdefaultdir@
+
+# APPDEFAULTFILES = \
+#        XSm
+
+# SUFFIXES = .ad
+
+#.ad:
+#	cp $< $@
+
+# appdefault_DATA = $(APPDEFAULTFILES)
+
+# system init file
+
+# systeminitdir = $(SYSTEM_INIT_DIR)
+
+# systeminit_DATA = system.xsm
+
+#
+EXTRA_DIST = LXDE.desktop.in startlxde.in
+CLEANFILES = $(bin_SCRIPTS)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -360,6 +390,8 @@ distclean-hdr:
 	-rm -f config.h stamp-h1
 LXDE.desktop: $(top_builddir)/config.status $(srcdir)/LXDE.desktop.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
+startlxde: $(top_builddir)/config.status $(srcdir)/startlxde.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 install-binPROGRAMS: $(bin_PROGRAMS)
 	@$(NORMAL_INSTALL)
 	test -z "$(bindir)" || $(mkdir_p) "$(DESTDIR)$(bindir)"
@@ -386,6 +418,25 @@ clean-binPROGRAMS:
 lxsession$(EXEEXT): $(lxsession_OBJECTS) $(lxsession_DEPENDENCIES) 
 	@rm -f lxsession$(EXEEXT)
 	$(LINK) $(lxsession_LDFLAGS) $(lxsession_OBJECTS) $(lxsession_LDADD) $(LIBS)
+install-binSCRIPTS: $(bin_SCRIPTS)
+	@$(NORMAL_INSTALL)
+	test -z "$(bindir)" || $(mkdir_p) "$(DESTDIR)$(bindir)"
+	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  if test -f $$d$$p; then \
+	    f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
+	    echo " $(binSCRIPT_INSTALL) '$$d$$p' '$(DESTDIR)$(bindir)/$$f'"; \
+	    $(binSCRIPT_INSTALL) "$$d$$p" "$(DESTDIR)$(bindir)/$$f"; \
+	  else :; fi; \
+	done
+
+uninstall-binSCRIPTS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(bin_SCRIPTS)'; for p in $$list; do \
+	  f=`echo "$$p" | sed 's|^.*/||;$(transform)'`; \
+	  echo " rm -f '$(DESTDIR)$(bindir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(bindir)/$$f"; \
+	done
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -882,10 +933,10 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(PROGRAMS) $(DATA) config.h
+all-am: Makefile $(PROGRAMS) $(SCRIPTS) $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(xsessiondir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" "$(DESTDIR)$(xsessiondir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-recursive
@@ -905,6 +956,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -935,7 +987,7 @@ info-am:
 
 install-data-am: install-xsessionDATA
 
-install-exec-am: install-binPROGRAMS
+install-exec-am: install-binPROGRAMS install-binSCRIPTS
 
 install-info: install-info-recursive
 
@@ -962,8 +1014,8 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-info-am \
-	uninstall-xsessionDATA
+uninstall-am: uninstall-binPROGRAMS uninstall-binSCRIPTS \
+	uninstall-info-am uninstall-xsessionDATA
 
 uninstall-info: uninstall-info-recursive
 
@@ -974,42 +1026,17 @@ uninstall-info: uninstall-info-recursive
 	distclean-compile distclean-generic distclean-hdr \
 	distclean-recursive distclean-tags distcleancheck distdir \
 	distuninstallcheck dvi dvi-am html html-am info info-am \
-	install install-am install-binPROGRAMS install-data \
-	install-data-am install-exec install-exec-am install-info \
-	install-info-am install-man install-strip install-xsessionDATA \
-	installcheck installcheck-am installdirs installdirs-am \
-	maintainer-clean maintainer-clean-generic \
+	install install-am install-binPROGRAMS install-binSCRIPTS \
+	install-data install-data-am install-exec install-exec-am \
+	install-info install-info-am install-man install-strip \
+	install-xsessionDATA installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
 	maintainer-clean-recursive mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-recursive pdf pdf-am ps ps-am \
 	tags tags-recursive uninstall uninstall-am \
-	uninstall-binPROGRAMS uninstall-info-am uninstall-xsessionDATA
+	uninstall-binPROGRAMS uninstall-binSCRIPTS uninstall-info-am \
+	uninstall-xsessionDATA
 
-
-# App default files  (*.ad)
-
-# appdefaultdir = @appdefaultdir@
-
-# APPDEFAULTFILES = \
-#        XSm
-
-# SUFFIXES = .ad
-
-#.ad:
-#	cp $< $@
-
-# appdefault_DATA = $(APPDEFAULTFILES)
-
-# system init file
-
-# systeminitdir = $(SYSTEM_INIT_DIR)
-
-# systeminit_DATA = system.xsm
-
-#
-
-# EXTRA_DIST = $(APPDEFAULTFILES:%=%.ad) globals.c system.xsm
-
-# CLEANFILES = $(APPDEFAULTFILES)
 
 # appmandir = $(APP_MAN_DIR)
 

@@ -88,5 +88,6 @@ AM_GLIB_GNU_GETTEXT
 AC_OUTPUT([
   Makefile
   LXDE.desktop
+  startlxde
   po/Makefile.in
 ])

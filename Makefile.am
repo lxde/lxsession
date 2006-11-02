@@ -21,6 +21,8 @@
 
 SUBDIRS=po
 
+bin_SCRIPTS = startlxde
+
 bin_PROGRAMS = lxsession
 
 SYSTEM_INIT_DIR = $(libdir)/X11/xsm
@@ -79,9 +81,9 @@ xsession_DATA = LXDE.desktop
 
 #
 
-# EXTRA_DIST = $(APPDEFAULTFILES:%=%.ad) globals.c system.xsm
+EXTRA_DIST = LXDE.desktop.in startlxde.in
 
-# CLEANFILES = $(APPDEFAULTFILES)
+CLEANFILES = $(bin_SCRIPTS)
 
 
 # appmandir = $(APP_MAN_DIR)
