@@ -113,7 +113,7 @@ ReadSave ( char *session_name, char **sm_id )
         if ( !*p )
         {
             if ( version_number >= 3 &&
-                    g_list_length ( PendingList ) == num_clients_in_last_session )
+                    g_slist_length ( PendingList ) == num_clients_in_last_session )
             {
                 state = 5;
                 break;
@@ -138,7 +138,7 @@ ReadSave ( char *session_name, char **sm_id )
 
                 c->props = NULL;
 
-                PendingList = g_list_append ( PendingList, c );
+                PendingList = g_slist_append ( PendingList, c );
 
                 state = 1;
                 break;
@@ -158,7 +158,7 @@ ReadSave ( char *session_name, char **sm_id )
 
                 prop->type = NULL;
 
-                c->props = g_list_append ( c->props, prop );
+                c->props = g_slist_append ( c->props, prop );
 
                 state = 3;
                 break;
@@ -197,7 +197,7 @@ ReadSave ( char *session_name, char **sm_id )
                 val->value = g_strdup ( p );
             }
 
-            prop->values = g_list_append ( prop->values, val );
+            prop->values = g_slist_append ( prop->values, val );
         }
     }
 
@@ -226,22 +226,6 @@ ReadSave ( char *session_name, char **sm_id )
                 strcpy ( non_session_aware_clients[i], buf );
                 bufsize += ( strlen ( buf ) + 1 );
             }
-            /*
-                        strbuf = ( String ) malloc ( bufsize + 1 );
-                        strbuf[0] = '\0';
-
-                        for ( i = 0; i < non_session_aware_count; i++ )
-                        {
-                            strcat ( strbuf, non_session_aware_clients[i] );
-                            strcat ( strbuf, "\n" );
-                        }
-
-                        XtVaSetValues ( manualRestartCommands,
-                                        XtNstring, strbuf,
-                                        NULL );
-
-                        free ( ( char * ) strbuf );
-            */
         }
     }
 
@@ -253,25 +237,62 @@ ReadSave ( char *session_name, char **sm_id )
     return 1;
 }
 
-
+gboolean is_default_app( ClientRec *client )
+{
+    GSList *pl;
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
+    {
+        Prop *pprop = ( Prop * ) pl->data;
+        GSList *vl;
+        PropValue *pval;
+        gboolean check_program = !strcmp( pprop->name, "Program" );
+        if( !check_program )
+            continue;
+        if ( strcmp ( pprop->type, SmCARD8 )
+             && pprop->values && pprop->values->data )
+        {
+            pval = (PropValue*)pprop->values->data;
+            char* program = (char*)pval->value;
+            GSList* def;
+            /*
+              NOTE:
+              Check if the program we try to save is a default app.
+              Default apps should not be saved since they are started by
+              StartDefaultApps(), not through X11 session management.
+            */
+            for( def = DefaultApps; def; def = g_slist_next( def ) ) {
+                char* def_app = (char*)def->data;
+                /* FIXME: Is this simple check enough? */
+                if( ! strcmp( program, def_app ) )
+                    return TRUE;
+            }
+            /* We shouldn't save our own process, lxsession. */
+            if( !strcmp(program, "lxsession") )
+                return TRUE;
+        }
+    }
+    return FALSE;
+}
 
 static void
 SaveClient ( FILE *f, ClientRec *client )
 {
-    GList *pl;
+    GSList *pl;
+
+    if( is_default_app( client ) )
+        return;
 
     fprintf ( f, "%s\n", client->clientId );
     fprintf ( f, "%s\n", client->clientHostname );
 
-    for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         Prop *pprop = ( Prop * ) pl->data;
-        GList *pj, *vl;
+        GSList *pj, *vl;
         PropValue *pval;
-
+        gboolean check_program = !strcmp( pprop->name, "Program" );
         fprintf ( f, "%s\n", pprop->name );
         fprintf ( f, "%s\n", pprop->type );
-
         if ( strcmp ( pprop->type, SmCARD8 ) == 0 )
         {
             char *card8;
@@ -286,14 +307,13 @@ SaveClient ( FILE *f, ClientRec *client )
         }
         else
         {
-            for ( pj = pprop->values; pj; pj = g_list_next ( pj ) )
+            for ( pj = pprop->values; pj; pj = g_slist_next ( pj ) )
             {
                 pval = ( PropValue * ) pj->data;
                 fprintf ( f, "\t%s\n", ( char * ) pval->value );
             }
         }
     }
-
     fprintf ( f, "\n" );
 }
 
@@ -304,7 +324,7 @@ WriteSave ( char *sm_id )
 {
     ClientRec *client;
     FILE *f;
-    GList *cl;
+    GSList *cl;
     String commands;
     char *p, *c;
     int count;
@@ -325,20 +345,20 @@ WriteSave ( char *sm_id )
         fprintf ( f, "%s\n", sm_id );
 
         count = 0;
-        for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
             if ( client->restartHint != SmRestartNever )
                 count++;
         }
-        count += g_list_length ( RestartAnywayList );
+        count += g_slist_length ( RestartAnywayList );
 
         fprintf ( f, "%d\n", count );
         if ( count == 0 )
             fprintf ( f, "\n" );
 
-        for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
@@ -347,7 +367,7 @@ WriteSave ( char *sm_id )
             SaveClient ( f, client );
         }
 
-        for ( cl = RestartAnywayList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RestartAnywayList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
@@ -401,7 +421,7 @@ WriteSave ( char *sm_id )
             fprintf ( f, "%s\n", c );
 #endif
         fclose ( f );
-        g_debug ( "end saving file" );
+        // g_debug ( "end saving file" );
     }
 }
 

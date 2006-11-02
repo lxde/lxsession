@@ -1,24 +1,24 @@
 /* $Xorg: info.c,v 1.5 2001/02/09 02:05:59 xorgcvs Exp $ */
 /******************************************************************************
- 
+
 Copyright 1993, 1998  The Open Group
- 
+
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
 the above copyright notice appear in all copies and that both that
 copyright notice and this permission notice appear in supporting
 documentation.
- 
+
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
- 
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
 OPEN GROUP BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
 AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 Except as contained in this notice, the name of The Open Group shall not be
 used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
@@ -94,7 +94,7 @@ UpdateClientList ( void )
     int maxlen1, maxlen2;
     char extraBuf1[80], extraBuf2[80];
     char *restart_service_prop;
-    GList *cl, *pl;
+    GSList *cl, *pl;
     int i, k;
     static int reenable_asap = 0;
 
@@ -125,17 +125,17 @@ UpdateClientList ( void )
     maxlen1 = maxlen2 = 0;
     numClientListNames = 0;
 
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
 
         progName = NULL;
         restart_service_prop = NULL;
 
-        for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+        for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
         {
             Prop *pprop = ( Prop * ) pl->data;
-            GList *vl = pprop->values;
+            GSList *vl = pprop->values;
             if ( vl != NULL )
             {
                 PropValue *pval = ( PropValue * ) vl->data;
@@ -193,7 +193,7 @@ UpdateClientList ( void )
                          numClientListNames * sizeof ( ClientRec * ) );
 
     i = 0;
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         ClientRec *client = ( ClientRec * ) cl->data;
         int extra1, extra2;
@@ -202,10 +202,10 @@ UpdateClientList ( void )
         progName = NULL;
         restart_service_prop = NULL;
 
-        for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+        for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
         {
             Prop *pprop = ( Prop * ) pl->data;
-            GList *vl = pprop->values;
+            GSList *vl = pprop->values;
 
             if ( vl != NULL )
             {

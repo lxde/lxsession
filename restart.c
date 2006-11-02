@@ -145,7 +145,7 @@ GetRestartInfo ( char *restart_service_prop, char *client_host_name,
 Status
 Restart ( int flag )
 {
-    GList  *cl, *pl, *vl;
+    GSList  *cl, *pl, *vl;
     PendingClient *c;
     Prop  *prop;
     char *cwd;
@@ -162,7 +162,7 @@ Restart ( int flag )
     Bool is_manager;
     Bool ran_manager = 0;
 
-    for ( cl = PendingList; cl; cl = g_list_next ( cl ) )
+    for ( cl = PendingList; cl; cl = g_slist_next ( cl ) )
     {
         c = ( PendingClient * ) cl->data;
 
@@ -179,7 +179,7 @@ Restart ( int flag )
 
         is_manager = 0;
 
-        for ( pl = c->props; pl; pl = g_list_next ( pl ) )
+        for ( pl = c->props; pl; pl = g_slist_next ( pl ) )
         {
             prop = ( Prop * ) pl->data;
             if ( !strcmp ( prop->name, SmProgram ) )
@@ -202,10 +202,10 @@ Restart ( int flag )
             }
             else if ( !strcmp ( prop->name, SmRestartCommand ) )
             {
-                cnt = g_list_length ( prop->values );
+                cnt = g_slist_length ( prop->values );
                 args = ( char ** ) g_malloc ( ( cnt+1 ) * sizeof ( char * ) );
                 pp = args;
-                for ( vl = prop->values; vl; vl = g_list_next ( vl ) )
+                for ( vl = prop->values; vl; vl = g_slist_next ( vl ) )
                 {
                     *pp++ = ( ( PropValue * ) vl->data ) ->value;
                 }
@@ -213,10 +213,10 @@ Restart ( int flag )
             }
             else if ( !strcmp ( prop->name, SmEnvironment ) )
             {
-                cnt = g_list_length ( prop->values );
+                cnt = g_slist_length ( prop->values );
                 env = ( char ** ) g_malloc ( ( cnt+3+1 ) * sizeof ( char * ) );
                 pp = env;
-                for ( vl = prop->values; vl; vl = g_list_next ( vl ) )
+                for ( vl = prop->values; vl; vl = g_slist_next ( vl ) )
                 {
                     p = ( ( PropValue * ) vl->data ) ->value;
                     if ( ( display_env && strbw ( p, "DISPLAY=" ) )
@@ -370,7 +370,7 @@ Clone ( ClientRec *client, Bool useSavedState )
     char *restart_protocol;
     char *restart_machine;
     Bool run_local;
-    GList *pl, *pj;
+    GSList *pl, *pj;
 
     if ( verbose )
     {
@@ -385,10 +385,10 @@ Clone ( ClientRec *client, Bool useSavedState )
     args = NULL;
     restart_service_prop = NULL;
 
-    for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         Prop *pprop = ( Prop * ) pl->data;
-        GList *vl = pprop->values;
+        GSList *vl = pprop->values;
         PropValue *pval = ( PropValue * ) vl->data;
 
         if ( strcmp ( pprop->name, SmProgram ) == 0 )
@@ -402,11 +402,11 @@ Clone ( ClientRec *client, Bool useSavedState )
             ( useSavedState && strcmp ( pprop->name, SmRestartCommand ) == 0 ) )
         {
             args = ( char ** ) g_malloc (
-                       ( g_list_length ( pprop->values ) + 1 ) * sizeof ( char * ) );
+                       ( g_slist_length ( pprop->values ) + 1 ) * sizeof ( char * ) );
 
             pp = args;
 
-            for ( pj = pprop->values; pj; pj = g_list_next ( pj ) )
+            for ( pj = pprop->values; pj; pj = g_slist_next ( pj ) )
             {
                 pval = ( PropValue * ) pj->data;
                 *pp++ = ( char * ) pval->value;
@@ -416,10 +416,10 @@ Clone ( ClientRec *client, Bool useSavedState )
         else if ( strcmp ( pprop->name, SmEnvironment ) == 0 )
         {
             env = ( char ** ) g_malloc (
-                      ( g_list_length ( pprop->values ) + 3 + 1 ) * sizeof ( char * ) );
+                      ( g_slist_length ( pprop->values ) + 3 + 1 ) * sizeof ( char * ) );
             pp = env;
 
-            for ( pj = pprop->values; pj; pj = g_list_next ( pj ) )
+            for ( pj = pprop->values; pj; pj = g_slist_next ( pj ) )
             {
                 pval = ( PropValue * ) pj->data;
                 p = ( char * ) pval->value;
@@ -554,9 +554,15 @@ StartDefaultApps ( char* session_name )
             f = fopen ( SYSTEM_INIT_FILE, "r" );
             if( ! f )
             {
-                execute_system_command( "twm" );
-                execute_system_command( "smproxy" );
-                execute_system_command( "xterm" );
+                DefaultApps = g_slist_append( DefaultApps,
+                                              g_strdup("twm") );
+                execute_system_command( "twm &" );
+                DefaultApps = g_slist_append( DefaultApps,
+                                              g_strdup("smproxy") );
+                execute_system_command( "smproxy &" );
+                DefaultApps = g_slist_append( DefaultApps,
+                                              g_strdup("xterm") );
+                execute_system_command( "xterm &" );
                 return;
             }
         }
@@ -582,9 +588,11 @@ StartDefaultApps ( char* session_name )
 
         len = strlen ( buf );
 
+        /* using append is inefficient, but we need to keep the order. */
+        DefaultApps = g_slist_append( DefaultApps, g_strdup(buf) );
+
         buf[len] = '&';
         buf[len+1] = '\0';
-
         /* let the shell parse the stupid args */
 
         execute_system_command ( buf );
@@ -607,11 +615,11 @@ StartNonSessionAwareApps ( void )
          * at the end of the command.  We previously allocated an extra
          * byte for this.
          */
-
+#if 0
         sprintf ( logtext, "Restarting locally : %s\n",
                   non_session_aware_clients[i] );
         add_log_text ( logtext );
-
+#endif
         strcat ( non_session_aware_clients[i], "&" );
         execute_system_command ( non_session_aware_clients[i] );
         free ( ( char * ) non_session_aware_clients[i] );

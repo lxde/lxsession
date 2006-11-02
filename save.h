@@ -32,7 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #include <gtk/gtk.h>
 
 extern void DoSave ( int saveType, int interactStyle, Bool fast );
-extern void LetClientInteract ( GList *cl );
+extern void LetClientInteract ( GSList *cl );
 extern void StartPhase2 ( void );
 extern void FinishUpSave ( void );
 extern void SetSaveSensitivity ( Bool on );

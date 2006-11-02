@@ -96,18 +96,19 @@ extern int checkpoint_from_signal;
 static IceListenObj *listenObjs;
 
 /* Global varibles */
-int     Argc;
-char        **Argv;
+int  Argc;
+char **Argv;
 
-GList* RunningList = NULL;
-GList* PendingList = NULL;
-GList* RestartAnywayList = NULL;
-GList* RestartImmedList = NULL;
-GList* WaitForSaveDoneList = NULL;
-GList* InitialSaveList = NULL;
-GList* FailedSaveList = NULL;
-GList* WaitForInteractList = NULL;
-GList* WaitForPhase2List = NULL;
+GSList* RunningList = NULL;
+GSList* PendingList = NULL;
+GSList* RestartAnywayList = NULL;
+GSList* RestartImmedList = NULL;
+GSList* WaitForSaveDoneList = NULL;
+GSList* InitialSaveList = NULL;
+GSList* FailedSaveList = NULL;
+GSList* WaitForInteractList = NULL;
+GSList* WaitForPhase2List = NULL;
+GSList* DefaultApps = NULL;
 
 Bool        wantShutdown = False;
 Bool        shutdownInProgress = False;
@@ -516,18 +517,11 @@ StartSession ( char *name )
      */
 
     set_session_save_file_name ( name );
+    StartDefaultApps (name);
+
     database_read = ReadSave ( name, &sm_id );
     /* FIXME: this should be totally re-write */
-    if ( !database_read )
-    {
-        /*
-         * Start default apps (e.g. twm, smproxy)
-         */
-
-        StartDefaultApps (name);
-        // g_spawn_command_line_async ( "smproxy", NULL );
-    }
-    else
+    if ( database_read )
     {
         /*
          * Restart window manager first.  When the session manager
@@ -538,7 +532,6 @@ StartSession ( char *name )
         Restart ( RESTART_MANAGERS );
         Restart ( RESTART_REST_OF_CLIENTS );
         StartNonSessionAwareApps ();
-
 #if 0
         if ( !Restart ( RESTART_MANAGERS ) )
         {
@@ -560,7 +553,6 @@ StartSession ( char *name )
         }
 #endif
     }
-
     return ( 1 );
 }
 
@@ -612,12 +604,12 @@ FreeClient ( ClientRec *client, Bool freeProps )
 {
     if ( freeProps )
     {
-        GList *pl;
+        GSList *pl;
 
-        for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+        for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
             FreeProp ( ( Prop * ) pl->data );
 
-        g_list_free ( client->props );
+        g_slist_free ( client->props );
 
         client->props = NULL;
     }
@@ -648,7 +640,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
 {
     ClientRec *client = ( ClientRec * ) managerData;
     char  *id;
-    GList *cl;
+    GSList *cl;
     int  send_save;
 
     if ( verbose )
@@ -670,7 +662,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
         int found_match = 0;
         send_save = 1;
 
-        for ( cl = PendingList; cl; cl = g_list_next ( cl ) )
+        for ( cl = PendingList; cl; cl = g_slist_next ( cl ) )
         {
             PendingClient *pendClient = ( PendingClient * ) cl->data;
 
@@ -680,7 +672,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
                 g_free ( pendClient->clientId );
                 g_free ( pendClient->clientHostname );
                 g_free ( ( char * ) pendClient );
-                PendingList = g_list_delete_link ( PendingList, cl );
+                PendingList = g_slist_delete_link ( PendingList, cl );
                 found_match = 1;
                 send_save = 0;
                 break;
@@ -689,7 +681,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
 
         if ( !found_match )
         {
-            for ( cl = RestartAnywayList; cl; cl = g_list_next ( cl ) )
+            for ( cl = RestartAnywayList; cl; cl = g_slist_next ( cl ) )
             {
                 ClientRec *rClient = ( ClientRec * ) cl->data;
 
@@ -697,7 +689,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
                 {
                     SetInitialProperties ( client, rClient->props );
                     FreeClient ( rClient, False /* don't free props */ );
-                    RestartAnywayList = g_list_delete_link ( RestartAnywayList, cl );
+                    RestartAnywayList = g_slist_delete_link ( RestartAnywayList, cl );
                     found_match = 1;
                     send_save = 0;
                     break;
@@ -707,7 +699,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
 
         if ( !found_match )
         {
-            for ( cl = RestartImmedList; cl; cl = g_list_next ( cl ) )
+            for ( cl = RestartImmedList; cl; cl = g_slist_next ( cl ) )
             {
                 ClientRec *rClient = ( ClientRec * ) cl->data;
 
@@ -715,7 +707,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
                 {
                     SetInitialProperties ( client, rClient->props );
                     FreeClient ( rClient, False /* don't free props */ );
-                    RestartImmedList = g_list_delete_link ( RestartImmedList, cl );
+                    RestartImmedList = g_slist_delete_link ( RestartImmedList, cl );
                     found_match = 1;
                     send_save = 0;
                     break;
@@ -758,7 +750,7 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
         SmsSaveYourself ( smsConn, SmSaveLocal,
                           False, SmInteractStyleNone, False );
 
-        InitialSaveList = g_list_append ( InitialSaveList, ( char * ) client );
+        InitialSaveList = g_slist_append ( InitialSaveList, ( char * ) client );
     }
 
     return ( 1 );
@@ -769,8 +761,8 @@ RegisterClientProc ( SmsConn smsConn, SmPointer managerData, char *previousId )
 static Bool
 OkToEnterInteractPhase ( void )
 {
-    return ( ( g_list_length ( WaitForInteractList ) +
-               g_list_length ( WaitForPhase2List ) ) == g_list_length ( WaitForSaveDoneList ) );
+    return ( ( g_slist_length ( WaitForInteractList ) +
+               g_slist_length ( WaitForPhase2List ) ) == g_slist_length ( WaitForSaveDoneList ) );
 }
 
 
@@ -793,7 +785,7 @@ InteractRequestProc ( SmsConn smsConn, SmPointer managerData, int dialogType )
             printf ( "Error in SMlib: should have checked for bad value]\n" );
     }
 
-    WaitForInteractList = g_list_append ( WaitForInteractList, ( char * ) client );
+    WaitForInteractList = g_slist_append ( WaitForInteractList, ( char * ) client );
 
     if ( OkToEnterInteractPhase () )
     {
@@ -807,7 +799,7 @@ static void
 InteractDoneProc ( SmsConn smsConn, SmPointer managerData, Bool cancelShutdown )
 {
     ClientRec *client = ( ClientRec * ) managerData;
-    GList *cl;
+    GSList *cl;
 
     if ( verbose )
     {
@@ -822,14 +814,14 @@ InteractDoneProc ( SmsConn smsConn, SmPointer managerData, Bool cancelShutdown )
 
         if ( WaitForInteractList )
         {
-            g_list_free ( WaitForInteractList->next );
+            g_slist_free ( WaitForInteractList->next );
             WaitForInteractList->next = NULL;
         }
 
 // ListFreeAllButHead (WaitForPhase2List);
         if ( WaitForPhase2List )
         {
-            g_list_free ( WaitForPhase2List->next );
+            g_slist_free ( WaitForPhase2List->next );
             WaitForPhase2List->next = NULL;
         }
     }
@@ -844,7 +836,7 @@ InteractDoneProc ( SmsConn smsConn, SmPointer managerData, Bool cancelShutdown )
 
         shutdownCancelled = True;
 
-        for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
@@ -872,7 +864,7 @@ InteractDoneProc ( SmsConn smsConn, SmPointer managerData, Bool cancelShutdown )
                 printf ( "\n" );
             }
 
-            if ( g_list_length ( WaitForPhase2List ) > 0 )
+            if ( g_slist_length ( WaitForPhase2List ) > 0 )
             {
                 StartPhase2 ();
             }
@@ -896,7 +888,7 @@ static Bool
 OkToEnterPhase2 ( void )
 
 {
-    return ( g_list_length ( WaitForPhase2List ) == g_list_length ( WaitForSaveDoneList ) );
+    return ( g_slist_length ( WaitForPhase2List ) == g_slist_length ( WaitForSaveDoneList ) );
 }
 
 
@@ -924,9 +916,9 @@ SaveYourselfPhase2ReqProc ( SmsConn smsConn, SmPointer managerData )
     }
     else
     {
-        WaitForPhase2List = g_list_append ( WaitForPhase2List, ( char * ) client );
+        WaitForPhase2List = g_slist_append ( WaitForPhase2List, ( char * ) client );
 
-        if ( g_list_length ( WaitForInteractList ) > 0 && OkToEnterInteractPhase () )
+        if ( g_slist_length ( WaitForInteractList ) > 0 && OkToEnterInteractPhase () )
         {
             LetClientInteract ( WaitForInteractList );
         }
@@ -943,7 +935,7 @@ static void
 SaveYourselfDoneProc ( SmsConn smsConn, SmPointer managerData, Bool success )
 {
     ClientRec *client = ( ClientRec * ) managerData;
-    GList* elem;
+    GSList* elem;
 
     if ( verbose )
     {
@@ -951,17 +943,17 @@ SaveYourselfDoneProc ( SmsConn smsConn, SmPointer managerData, Bool success )
                  client->clientId, success ? "True" : "False" );
     }
 
-    elem = g_list_find ( WaitForSaveDoneList, ( char* ) client );
+    elem = g_slist_find ( WaitForSaveDoneList, ( char* ) client );
     if ( elem )
     {
-        WaitForSaveDoneList = g_list_delete_link ( WaitForSaveDoneList, elem );
+        WaitForSaveDoneList = g_slist_delete_link ( WaitForSaveDoneList, elem );
     }
     else
     {
-        elem = g_list_find ( InitialSaveList, ( char* ) client );
+        elem = g_slist_find ( InitialSaveList, ( char* ) client );
         if ( elem )
         {
-            InitialSaveList = g_list_remove ( InitialSaveList, elem );
+            InitialSaveList = g_slist_remove ( InitialSaveList, elem );
             SmsSaveComplete ( client->smsConn );
         }
 
@@ -970,22 +962,22 @@ SaveYourselfDoneProc ( SmsConn smsConn, SmPointer managerData, Bool success )
 
     if ( !success )
     {
-        FailedSaveList = g_list_append ( FailedSaveList, ( char * ) client );
+        FailedSaveList = g_slist_append ( FailedSaveList, ( char * ) client );
     }
-    if ( g_list_length ( WaitForSaveDoneList ) == 0 )
+    if ( g_slist_length ( WaitForSaveDoneList ) == 0 )
     {
-        if ( g_list_length ( FailedSaveList ) > 0 && !checkpoint_from_signal )
+        if ( g_slist_length ( FailedSaveList ) > 0 && !checkpoint_from_signal )
         {
             // FIXME: PopupBadSave ();
         }
         else
             FinishUpSave ();
     }
-    else if ( g_list_length ( WaitForInteractList ) > 0 && OkToEnterInteractPhase () )
+    else if ( g_slist_length ( WaitForInteractList ) > 0 && OkToEnterInteractPhase () )
     {
         LetClientInteract ( WaitForInteractList );
     }
-    else if ( g_list_length ( WaitForPhase2List ) > 0 && OkToEnterPhase2 () )
+    else if ( g_slist_length ( WaitForPhase2List ) > 0 && OkToEnterPhase2 () )
     {
         StartPhase2 ();
     }
@@ -997,7 +989,7 @@ void
 CloseDownClient ( ClientRec *client )
 {
     int index_deleted = 0;
-    GList* elem;
+    GSList* elem;
 
     if ( verbose )
     {
@@ -1023,40 +1015,40 @@ CloseDownClient ( ClientRec *client )
         }
     }
 
-    RunningList = g_list_remove ( RunningList, client );
+    RunningList = g_slist_remove ( RunningList, client );
 
     if ( saveInProgress )
     {
-        if ( elem = g_list_find ( WaitForSaveDoneList, client ) )
+        if ( elem = g_slist_find ( WaitForSaveDoneList, client ) )
         {
-            WaitForSaveDoneList = g_list_delete_link ( WaitForSaveDoneList, elem );
+            WaitForSaveDoneList = g_slist_delete_link ( WaitForSaveDoneList, elem );
         }
 
         if ( elem )
         {
-            FailedSaveList = g_list_append ( FailedSaveList, ( char * ) client );
+            FailedSaveList = g_slist_append ( FailedSaveList, ( char * ) client );
             client->freeAfterBadSavePopup = True;
         }
 
-        WaitForInteractList = g_list_remove ( WaitForInteractList, client );
-        WaitForPhase2List = g_list_remove ( WaitForPhase2List, client );
+        WaitForInteractList = g_slist_remove ( WaitForInteractList, client );
+        WaitForPhase2List = g_slist_remove ( WaitForPhase2List, client );
 
-        if ( elem && g_list_length ( WaitForSaveDoneList ) == 0 )
+        if ( elem && g_slist_length ( WaitForSaveDoneList ) == 0 )
         {
-            if ( g_list_length ( FailedSaveList ) > 0 && !checkpoint_from_signal )
+            if ( g_slist_length ( FailedSaveList ) > 0 && !checkpoint_from_signal )
             {
                 // FIXME: PopupBadSave ();
             }
             else
                 FinishUpSave ();
         }
-        else if ( g_list_length ( WaitForInteractList ) > 0 &&
+        else if ( g_slist_length ( WaitForInteractList ) > 0 &&
                   OkToEnterInteractPhase () )
         {
             LetClientInteract ( WaitForInteractList );
         }
         else if ( !phase2InProgress &&
-                  g_list_length ( WaitForPhase2List ) > 0 && OkToEnterPhase2 () )
+                  g_slist_length ( WaitForPhase2List ) > 0 && OkToEnterPhase2 () )
         {
             StartPhase2 ();
         }
@@ -1066,11 +1058,11 @@ CloseDownClient ( ClientRec *client )
     {
         Clone ( client, True /* use saved state */ );
 
-        RestartImmedList = g_list_append ( RestartImmedList, ( char * ) client );
+        RestartImmedList = g_slist_append ( RestartImmedList, ( char * ) client );
     }
     else if ( client->restartHint == SmRestartAnyway )
     {
-        RestartAnywayList = g_list_append ( RestartAnywayList, ( char * ) client );
+        RestartAnywayList = g_slist_append ( RestartAnywayList, ( char * ) client );
     }
     else if ( !client->freeAfterBadSavePopup )
     {
@@ -1079,7 +1071,7 @@ CloseDownClient ( ClientRec *client )
 
     if ( shutdownInProgress )
     {
-        if ( g_list_length ( RunningList ) == 0 )
+        if ( g_slist_length ( RunningList ) == 0 )
             EndSession ( 0 );
     }
 }
@@ -1144,7 +1136,7 @@ NewClientProc ( SmsConn smsConn, SmPointer managerData, unsigned long *maskRet,
     newClient->saveDiscardCommand = NULL;
     newClient->restartHint = SmRestartIfRunning;
 
-    RunningList = g_list_append ( RunningList, ( char * ) newClient );
+    RunningList = g_slist_append ( RunningList, ( char * ) newClient );
 
     if ( verbose )
     {
@@ -1342,7 +1334,7 @@ ice_process_messages ( GIOChannel *channel, GIOCondition condition,
                        IceConn ice_conn )
 {
     IceProcessMessagesStatus status;
-    GList *lp;
+    GSList *lp;
     // g_debug("ice_process_messages");
     status = IceProcessMessages ( ice_conn, NULL, NULL );
 
@@ -1428,6 +1420,8 @@ Cleanup ( void )
 {
     CloseListeners();
     g_unsetenv("_LXSESSION_PID");
+    g_slist_foreach( DefaultApps, (GFunc)g_free, NULL );
+    g_slist_free( DefaultApps );
     UnlockSession( session_name );
 }
 

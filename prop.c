@@ -1,24 +1,24 @@
 /* $Xorg: prop.c,v 1.4 2001/02/09 02:06:01 xorgcvs Exp $ */
 /******************************************************************************
- 
+
 Copyright 1993, 1998  The Open Group
- 
+
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
 the above copyright notice appear in all copies and that both that
 copyright notice and this permission notice appear in supporting
 documentation.
- 
+
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
- 
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
 OPEN GROUP BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
 AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 Except as contained in this notice, the name of The Open Group shall not be
 used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
@@ -30,19 +30,19 @@ in this Software without prior written authorization from The Open Group.
 #include "prop.h"
 
 void
-FreePropValues ( GList *propValues )
+FreePropValues ( GSList *propValues )
 {
-    GList *pv;
+    GSList *pv;
     PropValue *pval;
 
-    for ( pv = propValues; pv; pv = g_list_next ( pv ) )
+    for ( pv = propValues; pv; pv = g_slist_next ( pv ) )
     {
         pval = ( PropValue * ) pv->data;
         g_free ( ( char * ) pval->value );
         g_free ( ( char * ) pval );
     }
 
-    g_list_free ( propValues );
+    g_slist_free ( propValues );
 }
 
 
@@ -59,9 +59,9 @@ FreeProp ( Prop *prop )
 
 
 void
-SetInitialProperties ( ClientRec *client, GList *props )
+SetInitialProperties ( ClientRec *client, GSList *props )
 {
-    GList *pl;
+    GSList *pl;
 
     if ( verbose )
         printf ( "Setting initial properties for %s\n", client->clientId );
@@ -79,11 +79,11 @@ SetInitialProperties ( ClientRec *client, GList *props )
 
     client->props = props;
 
-    for ( pl = props; pl; pl = g_list_next ( pl ) )
+    for ( pl = props; pl; pl = g_slist_next ( pl ) )
     {
         Prop  *pprop;
         PropValue *pval;
-        GList  *vl;
+        GSList  *vl;
 
         pprop = ( Prop * ) pl->data;
 
@@ -121,7 +121,7 @@ SetInitialProperties ( ClientRec *client, GList *props )
 void
 SetProperty ( ClientRec *client, SmProp *theProp, Bool freeIt )
 {
-    GList  *pl;
+    GSList  *pl;
     Prop *pprop = NULL;
     int  found = 0, i;
 
@@ -130,7 +130,7 @@ SetProperty ( ClientRec *client, SmProp *theProp, Bool freeIt )
      * re-use the actual property header.
      */
 
-    for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         pprop = ( Prop * ) pl->data;
 
@@ -166,13 +166,13 @@ SetProperty ( ClientRec *client, SmProp *theProp, Bool freeIt )
         memcpy ( pval->value, theProp->vals[i].value, theProp->vals[i].length );
         ( ( char * ) pval->value ) [theProp->vals[i].length] = '\0';
 
-        pprop->values = g_list_append ( pprop->values, pval );
+        pprop->values = g_slist_append ( pprop->values, pval );
     }
 
     if ( pl )
         pl->data = ( char * ) pprop;
     else
-        client->props = g_list_append ( client->props, pprop );
+        client->props = g_slist_append ( client->props, pprop );
 
     if ( strcmp ( theProp->name, SmDiscardCommand ) == 0 )
     {
@@ -219,16 +219,16 @@ SetProperty ( ClientRec *client, SmProp *theProp, Bool freeIt )
 void
 DeleteProperty ( ClientRec *client, char *propname )
 {
-    GList *pl;
+    GSList *pl;
 
-    for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         Prop *pprop = ( Prop * ) pl->data;
 
         if ( strcmp ( pprop->name, propname ) == 0 )
         {
             FreeProp ( pprop );
-            client->props = g_list_delete_link ( client->props, pl );
+            client->props = g_slist_delete_link ( client->props, pl );
 
             if ( strcmp ( propname, SmDiscardCommand ) == 0 )
             {
@@ -264,7 +264,7 @@ SetPropertiesProc ( SmsConn smsConn, SmPointer managerData, int numProps,
         printf ( "[Num props = %d]\n", numProps );
     }
 
-    updateList = ( g_list_length ( client->props ) == 0 ) &&
+    updateList = ( g_slist_length ( client->props ) == 0 ) &&
                  numProps > 0 && client_info_visible;
 
     for ( i = 0; i < numProps; i++ )
@@ -312,7 +312,7 @@ GetPropertiesProc ( SmsConn smsConn, SmPointer managerData )
     SmPropValue *propValRet;
     Prop *pprop;
     PropValue *pval;
-    GList *pl, *pj;
+    GSList *pl, *pj;
     int  numProps;
     int  index, i;
 
@@ -327,11 +327,11 @@ GetPropertiesProc ( SmsConn smsConn, SmPointer managerData )
      * from the one required by SMlib.
      */
 
-    numProps = g_list_length ( client->props );
+    numProps = g_slist_length ( client->props );
     propsRet = ( SmProp ** ) g_malloc ( numProps * sizeof ( SmProp * ) );
 
     index = 0;
-    for ( pl = client->props; pl; pl = g_list_next ( pl ) )
+    for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         propsRet[index] = propRet = ( SmProp * ) g_malloc ( sizeof ( SmProp ) );
 
@@ -339,11 +339,11 @@ GetPropertiesProc ( SmsConn smsConn, SmPointer managerData )
 
         propRet->name = g_strdup ( pprop->name );
         propRet->type = g_strdup ( pprop->type );
-        propRet->num_vals = g_list_length ( pprop->values );
+        propRet->num_vals = g_slist_length ( pprop->values );
         propRet->vals = propValRet = ( SmPropValue * ) g_malloc (
                                          propRet->num_vals * sizeof ( SmPropValue ) );
 
-        for ( pj = pprop->values; pj; pj = g_list_next ( pj ) )
+        for ( pj = pprop->values; pj; pj = g_slist_next ( pj ) )
         {
             pval = ( PropValue * ) pj->data;
 

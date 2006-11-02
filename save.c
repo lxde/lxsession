@@ -1,24 +1,24 @@
 /* $Xorg: save.c,v 1.5 2001/02/09 02:06:01 xorgcvs Exp $ */
 /******************************************************************************
- 
+
 Copyright 1993, 1998  The Open Group
- 
+
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
 the above copyright notice appear in all copies and that both that
 copyright notice and this permission notice appear in supporting
 documentation.
- 
+
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
- 
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
 OPEN GROUP BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
 AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- 
+
 Except as contained in this notice, the name of The Open Group shall not be
 used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
@@ -59,7 +59,7 @@ void
 DoSave ( int saveType, int interactStyle, Bool fast )
 {
     ClientRec *client;
-    GList *cl;
+    GSList *cl;
     char *_saveType;
     char *_shutdown;
     char *_interactStyle;
@@ -88,17 +88,17 @@ DoSave ( int saveType, int interactStyle, Bool fast )
     shutdownCancelled = False;
     phase2InProgress = False;
 
-    if ( g_list_length ( RunningList ) == 0 )
+    if ( g_slist_length ( RunningList ) == 0 )
         FinishUpSave ();
 
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
 
         SmsSaveYourself ( client->smsConn,
                           saveType, wantShutdown, interactStyle, fast );
 
-        WaitForSaveDoneList = g_list_append ( WaitForSaveDoneList, client );
+        WaitForSaveDoneList = g_slist_append ( WaitForSaveDoneList, client );
 
         client->userIssuedCheckpoint = True;
         client->receivedDiscardCommand = False;
@@ -123,13 +123,13 @@ DoSave ( int saveType, int interactStyle, Bool fast )
 
 
 void
-LetClientInteract ( GList *cl )
+LetClientInteract ( GSList *cl )
 {
     ClientRec *client = ( ClientRec * ) cl->data;
 
     SmsInteract ( client->smsConn );
 
-    WaitForInteractList = g_list_remove ( WaitForInteractList, client );
+    WaitForInteractList = g_slist_remove ( WaitForInteractList, client );
 
     if ( verbose )
     {
@@ -140,7 +140,7 @@ LetClientInteract ( GList *cl )
 void
 StartPhase2 ( void )
 {
-    GList *cl;
+    GSList *cl;
 
     if ( verbose )
     {
@@ -149,7 +149,7 @@ StartPhase2 ( void )
         printf ( "\n" );
     }
 
-    for ( cl = WaitForPhase2List; cl; cl = g_list_next ( cl ) )
+    for ( cl = WaitForPhase2List; cl; cl = g_slist_next ( cl ) )
     {
         ClientRec *client = ( ClientRec * ) cl->data;
 
@@ -165,7 +165,7 @@ StartPhase2 ( void )
     /* ListFreeAllButHead ( WaitForPhase2List ); */
     if ( WaitForPhase2List && WaitForPhase2List->next )
     {
-        g_list_free ( WaitForPhase2List->next );
+        g_slist_free ( WaitForPhase2List->next );
         WaitForPhase2List->next = NULL;
     }
 
@@ -177,7 +177,7 @@ void
 FinishUpSave ( void )
 {
     ClientRec *client;
-    GList *cl;
+    GSList *cl;
     g_debug ( "FinishUpSave" );
     if ( verbose )
     {
@@ -192,7 +192,7 @@ FinishUpSave ( void )
     /*
      * Now execute discard commands
      */
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
 
@@ -226,12 +226,12 @@ FinishUpSave ( void )
     }
     else if ( wantShutdown )
     {
-        if ( g_list_length ( RunningList ) == 0 )
+        if ( g_slist_length ( RunningList ) == 0 )
             EndSession ( 0 );
 
         shutdownInProgress = True;
 
-        for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
@@ -245,7 +245,7 @@ FinishUpSave ( void )
     }
     else
     {
-        for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+        for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
 
@@ -272,10 +272,10 @@ FinishUpSave ( void )
 void
 ShutdownDontSaveXtProc ( Widget w, gpointer client_data, gpointer callData )
 {
-    GList *cl;
+    GSList *cl;
     ClientRec  *client;
 
-    if ( g_list_length ( RunningList ) == 0 )
+    if ( g_slist_length ( RunningList ) == 0 )
         EndSession ( 0 );
 
     /*
@@ -285,7 +285,7 @@ ShutdownDontSaveXtProc ( Widget w, gpointer client_data, gpointer callData )
      * file using the discard command.
      */
 
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
 
@@ -301,7 +301,7 @@ ShutdownDontSaveXtProc ( Widget w, gpointer client_data, gpointer callData )
 
     shutdownInProgress = True;
 
-    for ( cl = RunningList; cl; cl = g_list_next ( cl ) )
+    for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
 

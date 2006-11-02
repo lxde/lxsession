@@ -97,7 +97,7 @@ typedef struct _ClientRec
     IceConn  ice_conn;
     char   *clientId;
     char  *clientHostname;
-    GList  *props;
+    GSList  *props;
     char  *discardCommand;
     char  *saveDiscardCommand;
 
@@ -113,7 +113,7 @@ typedef struct _PendingClient
 {
     char  *clientId;
     char  *clientHostname;
-    GList  *props;
+    GSList  *props;
 }
 PendingClient;
 
@@ -121,7 +121,7 @@ typedef struct _Prop
 {
     char  *name;
     char  *type;
-    GList  *values;
+    GSList  *values;
 }
 Prop;
 
@@ -156,15 +156,17 @@ extern char  *sm_id;
 extern char  *networkIds;
 extern char  *session_name;
 
-extern GList  *RunningList;
-extern GList  *PendingList;
-extern GList  *RestartAnywayList;
-extern GList  *RestartImmedList;
+extern GSList  *RunningList;
+extern GSList  *PendingList;
+extern GSList  *RestartAnywayList;
+extern GSList  *RestartImmedList;
 
-extern GList  *WaitForSaveDoneList;
-extern GList  *FailedSaveList;
-extern GList  *WaitForInteractList;
-extern GList  *WaitForPhase2List;
+extern GSList  *WaitForSaveDoneList;
+extern GSList  *FailedSaveList;
+extern GSList  *WaitForInteractList;
+extern GSList  *WaitForPhase2List;
+
+extern GSList *DefaultApps;
 
 extern Bool  client_info_visible;
 extern Bool  client_prop_visible;
