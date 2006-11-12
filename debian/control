@@ -1,0 +1,19 @@
+Source: lxsession
+Section: x11
+Priority: optional
+Maintainer: PCMan <pcman.tw@gmail.com>
+Build-Depends: debhelper (>= 5), pkg-config, libgtk2.0-dev (>=2.6), libsm-dev, libice-dev
+Standards-Version: 3.7.2
+
+Package: lxsession
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Lightweight X11 session manager derived from XSM.
+ LXSession is the default GPL'd X11 session manager of LXDE.
+ (LXDE: Lightweight X11 Desktop Environment)
+ http://lxde.sourceforge.net/
+ .
+ Though being part of LXDE, it's totally desktop-independent.
+ It doesn't depend on any desktop environment, and has few dependencies.
+ The goal of this project is to make a simple and clean a X11 session 
+ manager which isn't tight to any desktop environment.

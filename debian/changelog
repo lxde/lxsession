@@ -1,0 +1,6 @@
+lxsession (0.1.1-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- PCMan <pcman.tw@gmail.com>  Sun, 12 Nov 2006 19:49:14 +0800
+
