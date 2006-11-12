@@ -1,0 +1,49 @@
+LXSession is the default X11 session manager of LXDE.
+(LXDE: Lightweight X11 Desktop Environment)
+http://lxde.sourceforge.net/
+
+Though being part of LXDE, it's totally desktop-independent.
+It doesn't depend on any desktop environment, and has few dependencies.
+The goal of this project is to make a simple and clean a X11 session 
+manager which isn't tight to any desktop environment.
+
+We know that GNOME session by default loads GNOME, XFCE4 session by 
+default loads XFCE, and what will LXSession load then?
+"It's all up to you." You can give it a list of applications you want to 
+launch, including window manager and other components of a regular 
+desktop environment should have. Then, give this combination a new name, 
+and you can have "your own custom desktop environment" now.
+At the end of this README file, there will be a tutorial telling you how 
+to create your own new desktop environment. So, be patient. :-)
+
+By default LXSession ships with a set of config files giving you a 
+new desktop environment called LXDE. When you choose LXDE in GDM, KDM, 
+or simply execute startlxde in xinitrc, When launching, LXDE will load 
+icewm (window manager), pcmanfm (file manager), and lxpanel (desktop panel).
+This, of course, can be changed, but I guess users will be intrested in 
+creating their own new customized DE.
+
+Check these files with text editors to see how LXSession works.
+These files define a default session named LXDE:
+/usr/share/xsessions/LXDE.desktop:  Add an entry in GDM & KDM
+/usr/bin/startlxde:  Convinient script launching LXDE
+/etc/LXSM-LXDE-Default:  Default programs loaded when LXDE is started,
+                         containing window manager, desktop panel...etc.
+
+You can create your own desktop session and give it a new name.
+For example, let's create a new desktop environment called MyDE.
+1. Copy /usr/share/xsessions/LXDE.desktop to 
+   /usr/share/xsessions/MyDE.desktop
+2. Edit MyDE.desktop with the text editor you like. Replace all LXDE 
+   with MyDE, and replace startlxde with startmyde.
+3. Copy /usr/bin/startlxde to /usr/bin/startmyde.
+4. Edit startmyde with text editor, and again, replace LXDE with MyDE.
+5. Copy /etc/LXSM-LXDE-Default to /etc/LXSM-MyDE-Default
+6. Edit LXSM-MyDE-Default, and list the programs you want to launch when 
+   MyDE gets started in the file. Note that you had better not remove 
+   "smproxy" since this can make programs without session management 
+   support supported by session manager.
+7. Done. Logout to check if your DE appears in the menu of GDM or KDM.
+   If not, restart them. If you don't use display manager, you can add 
+   startmyde to your xinitrc to see if it works.
+   Cheers!  :-)
