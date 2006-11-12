@@ -191,11 +191,12 @@ on_back_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* pix )
 static gboolean
 popup_logout( gpointer user_data )
 {
-    GtkWidget *back, *img, *dlg, *check;
+    GtkWidget *back = NULL, *img, *dlg, *check;
     GdkPixbuf *tmp, *shot;
     GdkScreen *screen;
     int res;
     GDK_THREADS_ENTER();
+#if 0
     screen = gdk_screen_get_default();
 
     tmp = gdk_pixbuf_get_from_drawable( NULL,
@@ -216,6 +217,7 @@ popup_logout( gpointer user_data )
     g_object_unref( shot );
 */
     back = gtk_window_new( GTK_WINDOW_TOPLEVEL );
+    gtk_widget_set_app_paintable( back, TRUE );
     gtk_widget_set_double_buffered( back, FALSE );
     img = gtk_image_new_from_pixbuf( shot );
     g_object_unref( shot );
@@ -223,6 +225,7 @@ popup_logout( gpointer user_data )
     gtk_window_fullscreen( back );
     gtk_window_set_decorated( back, FALSE );
     gtk_widget_show_all( back );
+#endif
 
     dlg = gtk_message_dialog_new_with_markup( back,
                                               GTK_DIALOG_MODAL,
@@ -236,18 +239,26 @@ popup_logout( gpointer user_data )
     */
 
     gtk_dialog_add_button( (GtkDialog*)dlg, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL );
+
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
         gtk_dialog_add_button( (GtkDialog*)dlg, _("Sh_utdown"), GDM_LOGOUT_ACTION_SHUTDOWN );
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_REBOOT) )
         gtk_dialog_add_button( (GtkDialog*)dlg, _("_Reboot"), GDM_LOGOUT_ACTION_REBOOT );
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SUSPEND) )
         gtk_dialog_add_button( (GtkDialog*)dlg, _("_Suspend"), GDM_LOGOUT_ACTION_SUSPEND );
+
     gtk_dialog_add_button( (GtkDialog*)dlg, _("_Logout"), GTK_RESPONSE_OK );
 
     gtk_toggle_button_set_active( check, TRUE );
     gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, check, FALSE, FALSE, 2);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
     gtk_widget_show_all( dlg );
+
+    gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
+
+    gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
+    gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
+
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
         case GDM_LOGOUT_ACTION_SHUTDOWN:
@@ -257,10 +268,18 @@ popup_logout( gpointer user_data )
             break;
         default:
             gtk_widget_destroy( dlg );
+#if 0
             gtk_widget_destroy( back );
+#endif
             GDK_THREADS_LEAVE();
+            gdk_pointer_ungrab( GDK_CURRENT_TIME );
+            gdk_keyboard_ungrab( GDK_CURRENT_TIME );
             return;
     }
+
+    gdk_pointer_ungrab( GDK_CURRENT_TIME );
+    gdk_keyboard_ungrab( GDK_CURRENT_TIME );
+
     if( gtk_toggle_button_get_active( check ) )
     {
         wantShutdown = 1;
@@ -270,7 +289,9 @@ popup_logout( gpointer user_data )
     else
         sig_term_handler( SIGTERM );
     gtk_widget_destroy( dlg );
+#if 0
     gtk_widget_destroy( back );
+#endif
     GDK_THREADS_LEAVE();
 
     if( res != GTK_RESPONSE_OK ) {
