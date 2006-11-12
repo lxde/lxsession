@@ -2,12 +2,12 @@
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxsession package.
 # SZERVÁC Attila <sas@321>, 2006.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-28 08:01+0800\n"
+"POT-Creation-Date: 2006-11-12 16:28+0800\n"
 "PO-Revision-Date: 2006-11-01 10:15+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -18,11 +18,26 @@ msgstr ""
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
-#: ../signals.c:222
+#: ../signals.c:231
 msgid "<b><big>Logout Session?</big></b>"
 msgstr "<b><big>Kilépsz a folyamatból?</big></b>"
 
-#: ../signals.c:223
+#: ../signals.c:232
 msgid "Save current session"
 msgstr "Folyamat mentése"
 
+#: ../signals.c:238
+msgid "Sh_utdown"
+msgstr ""
+
+#: ../signals.c:240
+msgid "_Reboot"
+msgstr ""
+
+#: ../signals.c:242
+msgid "_Suspend"
+msgstr ""
+
+#: ../signals.c:243
+msgid "_Logout"
+msgstr ""

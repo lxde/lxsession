@@ -36,6 +36,8 @@ in this Software without prior written authorization from The Open Group.
 
 #include "save.h"
 
+#include "gdm-logout-action.h"
+
 #include <errno.h>
 #ifdef USG
 #ifndef __TYPES__
@@ -192,6 +194,7 @@ popup_logout( gpointer user_data )
     GtkWidget *back, *img, *dlg, *check;
     GdkPixbuf *tmp, *shot;
     GdkScreen *screen;
+    int res;
     GDK_THREADS_ENTER();
     screen = gdk_screen_get_default();
 
@@ -224,18 +227,37 @@ popup_logout( gpointer user_data )
     dlg = gtk_message_dialog_new_with_markup( back,
                                               GTK_DIALOG_MODAL,
                                               GTK_MESSAGE_QUESTION,
-                                              GTK_BUTTONS_OK_CANCEL,
+                                              GTK_BUTTONS_NONE,
                                               _("<b><big>Logout Session?</big></b>") );
     check = gtk_check_button_new_with_label(_("Save current session"));
+    gtk_message_dialog_set_image( (GtkMessageDialog*)dlg,
+                                  gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_DIALOG) );
+
+    gtk_dialog_add_button( (GtkDialog*)dlg, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL );
+    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
+        gtk_dialog_add_button( (GtkDialog*)dlg, _("Sh_utdown"), GDM_LOGOUT_ACTION_SHUTDOWN );
+    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_REBOOT) )
+        gtk_dialog_add_button( (GtkDialog*)dlg, _("_Reboot"), GDM_LOGOUT_ACTION_REBOOT );
+    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SUSPEND) )
+        gtk_dialog_add_button( (GtkDialog*)dlg, _("_Suspend"), GDM_LOGOUT_ACTION_SUSPEND );
+    gtk_dialog_add_button( (GtkDialog*)dlg, _("_Logout"), GTK_RESPONSE_OK );
+
+    gtk_toggle_button_set_active( check, TRUE );
     gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, check, FALSE, FALSE, 2);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
     gtk_widget_show_all( dlg );
-    if( gtk_dialog_run( dlg ) != GTK_RESPONSE_OK )
+    switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
-        gtk_widget_destroy( dlg );
-        gtk_widget_destroy( back );
-        GDK_THREADS_LEAVE();
-        return;
+        case GDM_LOGOUT_ACTION_SHUTDOWN:
+        case GDM_LOGOUT_ACTION_REBOOT:
+        case GDM_LOGOUT_ACTION_SUSPEND:
+        case GTK_RESPONSE_OK:
+            break;
+        default:
+            gtk_widget_destroy( dlg );
+            gtk_widget_destroy( back );
+            GDK_THREADS_LEAVE();
+            return;
     }
     if( gtk_toggle_button_get_active( check ) )
     {
@@ -249,6 +271,9 @@ popup_logout( gpointer user_data )
     gtk_widget_destroy( back );
     GDK_THREADS_LEAVE();
 
+    if( res != GTK_RESPONSE_OK ) {
+        gdm_set_logout_action( res );
+    }
     return FALSE;
 }
 

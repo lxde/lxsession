@@ -7,19 +7,35 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-28 08:01+0800\n"
-"PO-Revision-Date: 2006-10-28 08:02+0800\n"
+"POT-Creation-Date: 2006-11-12 16:28+0800\n"
+"PO-Revision-Date: 2006-11-12 16:28+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../signals.c:222
+#: ../signals.c:231
 msgid "<b><big>Logout Session?</big></b>"
 msgstr "<b><big>登出作業階段？</big></b>"
 
-#: ../signals.c:223
+#: ../signals.c:232
 msgid "Save current session"
 msgstr "儲存目前的作業階段"
+
+#: ../signals.c:238
+msgid "Sh_utdown"
+msgstr "關機(_U)"
+
+#: ../signals.c:240
+msgid "_Reboot"
+msgstr "重新啟動(_R)"
+
+#: ../signals.c:242
+msgid "_Suspend"
+msgstr "休眠(_S)"
+
+#: ../signals.c:243
+msgid "_Logout"
+msgstr "登出(_L)"
 

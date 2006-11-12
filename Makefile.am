@@ -33,6 +33,8 @@ lxsession_CFLAGS = $(GTK_CFLAGS) $(SM_CFLAGS) -DRSHCMD=\"@RSH@\" \
 lxsession_LDADD = $(GTK_LIBS) $(SM_LIBS)
 
 lxsession_SOURCES =	\
+        gdm-logout-action.c \
+        gdm-logout-action.h \
         auth.c \
         auth.h \
         info.c \

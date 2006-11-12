@@ -80,13 +80,13 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(bindir)" \
 	"$(DESTDIR)$(defaultsdir)" "$(DESTDIR)$(xsessiondir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
-am_lxsession_OBJECTS = lxsession-auth.$(OBJEXT) \
-	lxsession-info.$(OBJEXT) lxsession-lock.$(OBJEXT) \
-	lxsession-misc.$(OBJEXT) lxsession-prop.$(OBJEXT) \
-	lxsession-remote.$(OBJEXT) lxsession-restart.$(OBJEXT) \
-	lxsession-save.$(OBJEXT) lxsession-saveutil.$(OBJEXT) \
-	lxsession-signals.$(OBJEXT) lxsession-printhex.$(OBJEXT) \
-	lxsession-xsm.$(OBJEXT)
+am_lxsession_OBJECTS = lxsession-gdm-logout-action.$(OBJEXT) \
+	lxsession-auth.$(OBJEXT) lxsession-info.$(OBJEXT) \
+	lxsession-lock.$(OBJEXT) lxsession-misc.$(OBJEXT) \
+	lxsession-prop.$(OBJEXT) lxsession-remote.$(OBJEXT) \
+	lxsession-restart.$(OBJEXT) lxsession-save.$(OBJEXT) \
+	lxsession-saveutil.$(OBJEXT) lxsession-signals.$(OBJEXT) \
+	lxsession-printhex.$(OBJEXT) lxsession-xsm.$(OBJEXT)
 lxsession_OBJECTS = $(am_lxsession_OBJECTS)
 am__DEPENDENCIES_1 =
 lxsession_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
@@ -285,6 +285,8 @@ lxsession_CFLAGS = $(GTK_CFLAGS) $(SM_CFLAGS) -DRSHCMD=\"@RSH@\" \
 
 lxsession_LDADD = $(GTK_LIBS) $(SM_LIBS)
 lxsession_SOURCES = \
+        gdm-logout-action.c \
+        gdm-logout-action.h \
         auth.c \
         auth.h \
         info.c \
@@ -426,6 +428,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxsession-auth.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxsession-gdm-logout-action.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxsession-info.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxsession-lock.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxsession-misc.Po@am__quote@
@@ -451,6 +454,20 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+lxsession-gdm-logout-action.o: gdm-logout-action.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -MT lxsession-gdm-logout-action.o -MD -MP -MF "$(DEPDIR)/lxsession-gdm-logout-action.Tpo" -c -o lxsession-gdm-logout-action.o `test -f 'gdm-logout-action.c' || echo '$(srcdir)/'`gdm-logout-action.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lxsession-gdm-logout-action.Tpo" "$(DEPDIR)/lxsession-gdm-logout-action.Po"; else rm -f "$(DEPDIR)/lxsession-gdm-logout-action.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdm-logout-action.c' object='lxsession-gdm-logout-action.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -c -o lxsession-gdm-logout-action.o `test -f 'gdm-logout-action.c' || echo '$(srcdir)/'`gdm-logout-action.c
+
+lxsession-gdm-logout-action.obj: gdm-logout-action.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -MT lxsession-gdm-logout-action.obj -MD -MP -MF "$(DEPDIR)/lxsession-gdm-logout-action.Tpo" -c -o lxsession-gdm-logout-action.obj `if test -f 'gdm-logout-action.c'; then $(CYGPATH_W) 'gdm-logout-action.c'; else $(CYGPATH_W) '$(srcdir)/gdm-logout-action.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/lxsession-gdm-logout-action.Tpo" "$(DEPDIR)/lxsession-gdm-logout-action.Po"; else rm -f "$(DEPDIR)/lxsession-gdm-logout-action.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='gdm-logout-action.c' object='lxsession-gdm-logout-action.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -c -o lxsession-gdm-logout-action.obj `if test -f 'gdm-logout-action.c'; then $(CYGPATH_W) 'gdm-logout-action.c'; else $(CYGPATH_W) '$(srcdir)/gdm-logout-action.c'; fi`
 
 lxsession-auth.o: auth.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(lxsession_CFLAGS) $(CFLAGS) -MT lxsession-auth.o -MD -MP -MF "$(DEPDIR)/lxsession-auth.Tpo" -c -o lxsession-auth.o `test -f 'auth.c' || echo '$(srcdir)/'`auth.c; \

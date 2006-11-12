@@ -4,6 +4,9 @@ Copyright 1993, 1998  The Open Group
 We modified XSM, and create our own session manager, LXSession.
 Copyright 2006 Hong Jen Yee (PCMan) <pcman.tw (at) gmail.com>
 
+gdm-logout-action.c & gdm-logout-action.h are taken from gnome-session.
+These 2 files are released under GNU General Public License.
+
 LXSession, is released under GNU General Public License.
 
 		    GNU GENERAL PUBLIC LICENSE
