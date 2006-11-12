@@ -230,8 +230,10 @@ popup_logout( gpointer user_data )
                                               GTK_BUTTONS_NONE,
                                               _("<b><big>Logout Session?</big></b>") );
     check = gtk_check_button_new_with_label(_("Save current session"));
+    /*
     gtk_message_dialog_set_image( (GtkMessageDialog*)dlg,
                                   gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_DIALOG) );
+    */
 
     gtk_dialog_add_button( (GtkDialog*)dlg, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL );
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
