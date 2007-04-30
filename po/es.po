@@ -1,0 +1,44 @@
+# Spanish translation of lxsession
+# Copyright (C) 2006 Alejandro Zárate
+# This file is distributed under the same license as the lxsession package.
+# Alejandro Zárate <alejandroazarate@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-12 16:28+0800\n"
+"PO-Revision-Date: 2007-04-30 14:14-0300\n"
+"Last-Translator: Alejandro Zárate <alejandroazarate@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: ARGENTINA\n"
+
+#: ../signals.c:231
+msgid "<b><big>Logout Session?</big></b>"
+msgstr "<b><big>¿Cerrar sesión?</big></b>"
+
+#: ../signals.c:232
+msgid "Save current session"
+msgstr "Guardar la sesión actual"
+
+#: ../signals.c:238
+msgid "Sh_utdown"
+msgstr "_Apagar"
+
+#: ../signals.c:240
+msgid "_Reboot"
+msgstr "_Reiniciar"
+
+#: ../signals.c:242
+msgid "_Suspend"
+msgstr "_Suspender"
+
+#: ../signals.c:243
+msgid "_Logout"
+msgstr "_Cerrar Sesión"
+
