@@ -67,9 +67,6 @@ in this Software without prior written authorization from The Open Group.
 #include <ctype.h>
 #include <stdlib.h>
 
-#include <X11/StringDefs.h>
-#include <X11/Intrinsic.h>
-
 #include <X11/SM/SMlib.h>
 
 #include <gtk/gtk.h>

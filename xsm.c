@@ -44,11 +44,9 @@ in this Software without prior written authorization from The Open Group.
 
 #include <unistd.h>
 #include <signal.h>
-#include <X11/Shell.h>
 #include <X11/Xatom.h>
 
 #include <X11/ICE/ICElib.h>
-#include <X11/Intrinsic.h>
 
 Atom wmStateAtom;
 Atom wmDeleteAtom;
@@ -489,7 +487,6 @@ Status
 StartSession ( char *name )
 {
     int database_read = 0;
-    Dimension width;
     char title[256];
 
     /*

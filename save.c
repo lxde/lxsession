@@ -31,8 +31,6 @@ in this Software without prior written authorization from The Open Group.
 #include "info.h"
 #include "lock.h"
 
-#include <X11/Shell.h>
-
 extern int checkpoint_from_signal;
 
 static int saveTypeData[] = {

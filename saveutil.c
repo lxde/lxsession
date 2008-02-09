@@ -205,7 +205,7 @@ ReadSave ( char *session_name, char **sm_id )
 
     if ( state == 5 )
     {
-        String strbuf;
+        char *strbuf;
         int bufsize = 0;
 
         getnextline ( &buf, &buflen, f );
@@ -325,7 +325,7 @@ WriteSave ( char *sm_id )
     ClientRec *client;
     FILE *f;
     GSList *cl;
-    String commands;
+    char *commands;
     char *p, *c;
     int count;
     // g_debug ( "write: session_save_file = %s", session_save_file );

@@ -28,7 +28,6 @@ in this Software without prior written authorization from The Open Group.
 #ifndef _SAVE_H_
 #define _SAVE_H_
 
-#include <X11/Intrinsic.h>
 #include <gtk/gtk.h>
 
 extern void DoSave ( int saveType, int interactStyle, Bool fast );

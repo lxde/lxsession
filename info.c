@@ -30,7 +30,6 @@ in this Software without prior written authorization from The Open Group.
 #include "info.h"
 #include "prop.h"
 
-#include <X11/Shell.h>
 #include <gtk/gtk.h>
 
 typedef struct
@@ -90,7 +89,7 @@ UpdateClientList ( void )
 {
     ClientRec *client;
     char *progName, *hostname, *tmp1, *tmp2;
-    String clientInfo;
+    char *clientInfo;
     int maxlen1, maxlen2;
     char extraBuf1[80], extraBuf2[80];
     char *restart_service_prop;
@@ -187,8 +186,8 @@ UpdateClientList ( void )
         reenable_asap = 0;
     }
 
-    clientListNames = ( String * ) g_malloc (
-                          numClientListNames * sizeof ( String ) );
+    clientListNames = ( char ** ) g_malloc (
+                          numClientListNames * sizeof ( char * ) );
     clientListRecs = ( ClientRec ** ) g_malloc (
                          numClientListNames * sizeof ( ClientRec * ) );
 
@@ -250,7 +249,7 @@ UpdateClientList ( void )
         else
             hint = "";
 
-        clientInfo = ( String ) g_malloc ( strlen ( progName ) +
+        clientInfo = ( char * ) g_malloc ( strlen ( progName ) +
                                            extra1 + extra2 + 3 + strlen ( hostname ) + 3 + strlen ( hint ) + 1 );
 
         for ( k = 0; k < extra1; k++ )
