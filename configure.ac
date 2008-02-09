@@ -33,6 +33,7 @@ AM_CONFIG_HEADER(config.h)
 
 AC_PROG_CC
 AC_PROG_INSTALL
+AM_PROG_CC_C_O
 
 RSH=
 if [[ -z $RSH ]] ; then
