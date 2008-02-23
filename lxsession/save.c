@@ -30,6 +30,7 @@ in this Software without prior written authorization from The Open Group.
 #include "saveutil.h"
 #include "info.h"
 #include "lock.h"
+#include <string.h>
 
 extern int checkpoint_from_signal;
 
@@ -92,6 +93,12 @@ DoSave ( int saveType, int interactStyle, Bool fast )
     for ( cl = RunningList; cl; cl = g_slist_next ( cl ) )
     {
         client = ( ClientRec * ) cl->data;
+
+        /* Don't save our own logout-helper - lxsession-logout */
+        if( client->saveDiscardCommand && strstr( "lxsession-logout", client->saveDiscardCommand ) )
+            continue;
+        if( client->discardCommand && strstr( "lxsession-logout", client->discardCommand ) )
+            continue;
 
         SmsSaveYourself ( client->smsConn,
                           saveType, wantShutdown, interactStyle, fast );
