@@ -154,25 +154,25 @@ SetAuthentication ( int count, IceListenObj *listenObjs,
             path = ".";
     }
 #ifndef HAS_MKSTEMP
-    if ( ( addAuthFile = unique_filename ( path, ".xsm" ) ) == NULL )
+    if ( ( addAuthFile = unique_filename ( path, ".lxsm" ) ) == NULL )
         goto bad;
 
     if ( ! ( addfp = fopen ( addAuthFile, "w" ) ) )
         goto bad;
 
-    if ( ( remAuthFile = unique_filename ( path, ".xsm" ) ) == NULL )
+    if ( ( remAuthFile = unique_filename ( path, ".lxsm" ) ) == NULL )
         goto bad;
 
     if ( ! ( removefp = fopen ( remAuthFile, "w" ) ) )
         goto bad;
 #else
-    if ( ( addAuthFile = unique_filename ( path, ".xsm", &fd ) ) == NULL )
+    if ( ( addAuthFile = unique_filename ( path, ".lxsm", &fd ) ) == NULL )
         goto bad;
 
     if ( ! ( addfp = fdopen ( fd, "wb" ) ) )
         goto bad;
 
-    if ( ( remAuthFile = unique_filename ( path, ".xsm", &fd ) ) == NULL )
+    if ( ( remAuthFile = unique_filename ( path, ".lxsm", &fd ) ) == NULL )
         goto bad;
 
     if ( ! ( removefp = fdopen ( fd, "wb" ) ) )

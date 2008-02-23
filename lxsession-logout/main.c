@@ -1,5 +1,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <signal.h>
+#include <gdk/gdk.h>
 
 #include "gdm-logout-action.h"
 
@@ -24,6 +26,7 @@ int main( int argc, char** argv )
     GdkScreen *screen;
     int res;
     const char* p;
+    char* file;
     GPid pid;
 
 #ifdef ENABLE_NLS
@@ -67,7 +70,6 @@ int main( int argc, char** argv )
     gtk_window_fullscreen( back );
     gtk_window_set_decorated( back, FALSE );
     gtk_widget_show_all( back );
-//#endif
 
     dlg = gtk_message_dialog_new_with_markup( back,
                                               GTK_DIALOG_MODAL,
@@ -75,10 +77,8 @@ int main( int argc, char** argv )
                                               GTK_BUTTONS_NONE,
                                               _("<b><big>Logout Session?</big></b>") );
     check = gtk_check_button_new_with_label(_("Save current session"));
-    /*
     gtk_message_dialog_set_image( (GtkMessageDialog*)dlg,
                                   gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_DIALOG) );
-    */
 
     gtk_dialog_add_button( (GtkDialog*)dlg, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL );
 
@@ -110,36 +110,39 @@ int main( int argc, char** argv )
             break;
         default:
             gtk_widget_destroy( dlg );
-//#if 0
             gtk_widget_destroy( back );
-//#endif
-            GDK_THREADS_LEAVE();
             gdk_pointer_ungrab( GDK_CURRENT_TIME );
             gdk_keyboard_ungrab( GDK_CURRENT_TIME );
-            return;
+            return 0;
     }
 
     gdk_pointer_ungrab( GDK_CURRENT_TIME );
     gdk_keyboard_ungrab( GDK_CURRENT_TIME );
 
+    file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
+
     if( gtk_toggle_button_get_active( check ) )
     {
-#if 0
-        wantShutdown = 1;
-        checkpoint_from_signal = 1;
-#endif
+        creat( file, 0600 );
     }
-    /*
     else
-        sig_term_handler( SIGTERM );
-    */
+    {
+        unlink( file );
+    }
+    g_free( file );
 
     gtk_widget_destroy( dlg );
     gtk_widget_destroy( back );
 
-
-    if( res != GTK_RESPONSE_OK ) {
+    if( res != GTK_RESPONSE_OK )
+    {
         gdm_set_logout_action( res );
+        if( res != GDM_LOGOUT_ACTION_SUSPEND )
+            kill( pid, SIGTERM );   /* ask the session manager to do fast log out */
+    }
+    else
+    {
+        kill( pid, SIGUSR1 );   /* ask the session manager to slow log out */
     }
 
     return 0;

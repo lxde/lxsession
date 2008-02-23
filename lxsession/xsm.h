@@ -92,7 +92,6 @@ typedef struct _ClientRec
 {
     SmsConn   smsConn;
     IceConn  ice_conn;
-    GPid pid;
     char   *clientId;
     char  *clientHostname;
     GSList  *props;
@@ -147,7 +146,8 @@ extern Bool  remote_allowed;
         This is dirty hack used to remove all verbose strings, since
         all if(0) statements will be removed during compiler optimization.
 */
-#define  verbose    0
+/*#define  verbose    0*/
+extern Bool verbose;
 
 extern char  *sm_id;
 

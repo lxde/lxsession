@@ -115,7 +115,7 @@ Bool        shutdownInProgress = False;
 Bool        phase2InProgress = False;
 Bool        saveInProgress = False;
 Bool        shutdownCancelled = False;
-/* Bool        verbose = False; */
+Bool        verbose = False;
 
 char        *sm_id = NULL;
 
@@ -202,11 +202,9 @@ main ( int argc, char *argv[] )
                     }
                 }
                 break;
-#if 0
             case 'v':     /* -verbose */
                 verbose = True;
                 continue;
-#endif
             }
         }
 

@@ -98,6 +98,8 @@ in this Software without prior written authorization from The Open Group.
 #include <stddef.h>
 #include <glib.h>
 
+#include <semaphore.h>
+
 int checkpoint_from_signal = 0;
 
 extern Bool wantShutdown;
@@ -161,22 +163,40 @@ sig_child_handler ( gpointer closure )
     errno = olderrno;
 }
 
+static void logout( gboolean term )
+{
+    char* file;
+    gboolean need_save;
+    wantShutdown = 1;
+    checkpoint_from_signal = 1;
+    g_debug("logout!!!!");
+    file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
+    if( need_save = g_file_test( file, G_FILE_TEST_EXISTS) )
+        unlink( file );
+    g_free( file );
+
+    if( need_save )    /* need to save */
+    {
+        g_debug( "do save" );
+        DoSave ( SmSaveLocal, SmInteractStyleNone, (term==TRUE) /* fast */ );
+        if( term )
+            EndSession(0);
+    }
+    else
+        EndSession(0);
+}
 
 void
 sig_term_handler ( int sig )
 {
-    wantShutdown = 1;
-    checkpoint_from_signal = 1;
-    // DoSave ( SmSaveLocal, SmInteractStyleNone, 1 /* fast */ );
-    /* FIXME: all lists should be freed */
-    EndSession(0);
+    logout( TRUE );
 }
 
 
 /* Save status of all clients */
 void sig_usr1_handler ( int sig )
 {
-
+    logout( FALSE );
 }
 
 

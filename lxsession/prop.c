@@ -85,7 +85,7 @@ SetInitialProperties ( ClientRec *client, GSList *props )
         GSList  *vl;
 
         pprop = ( Prop * ) pl->data;
-g_debug( "prop name=%s", pprop->name );
+
         if ( strcmp ( pprop->name, SmDiscardCommand ) == 0 )
         {
             if ( client->discardCommand )
@@ -268,7 +268,6 @@ SetPropertiesProc ( SmsConn smsConn, SmPointer managerData, int numProps,
 
     for ( i = 0; i < numProps; i++ )
     {
-        g_debug( "prop: %s", props[i]->name );
         SetProperty ( client, props[i], True /* free it */ );
     }
 
