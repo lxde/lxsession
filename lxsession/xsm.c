@@ -52,6 +52,8 @@ Atom wmStateAtom;
 Atom wmDeleteAtom;
 static char *cmd_line_display = NULL;
 
+static GMainLoop* main_loop = NULL;
+
 /*
  * Forward declarations
  */
@@ -113,7 +115,6 @@ Bool        shutdownInProgress = False;
 Bool        phase2InProgress = False;
 Bool        saveInProgress = False;
 Bool        shutdownCancelled = False;
-
 /* Bool        verbose = False; */
 
 char        *sm_id = NULL;
@@ -163,13 +164,7 @@ main ( int argc, char *argv[] )
     static char environment_name[] = "SESSION_MANAGER";
     int  success, i;
 
-    gtk_init ( &argc, &argv );
-
-#ifdef ENABLE_NLS
-    bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
-    bind_textdomain_codeset ( GETTEXT_PACKAGE, "UTF-8" );
-    textdomain ( GETTEXT_PACKAGE );
-#endif
+    main_loop = g_main_loop_new( NULL, TRUE );
 
     Argc = argc;
     Argv = argv;
@@ -207,9 +202,9 @@ main ( int argc, char *argv[] )
                     }
                 }
                 break;
-# if 0
+#if 0
             case 'v':     /* -verbose */
-                verbose = TRUE;
+                verbose = True;
                 continue;
 #endif
             }
@@ -362,7 +357,9 @@ usage:
     /*
      * Main loop
      */
-    gtk_main();
+    g_main_loop_run( main_loop );
+    g_main_loop_unref( main_loop );
+
     return 0;
 }
 
@@ -591,7 +588,7 @@ EndSession ( int status )
         free ( networkIds );
 
     // exit ( status );
-    gtk_main_quit();
+    g_main_loop_quit(main_loop);
 }
 
 

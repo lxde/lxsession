@@ -4,7 +4,35 @@
  * Copyright (C) 2005 Raffaele Sandrini
  * Copyright (C) 2005 Red Hat, Inc.
  * Copyright (C) 2002, 2003 George Lebl
- * Copyright (C) 2001 Queen of England, 
+ * Copyright (C) 2001 Queen of England,
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+ * 02111-1307, USA.
+ *
+ * Authors:
+ *      Raffaele Sandrini <rasa@gmx.ch>
+ *      George Lebl <jirka@5z.com>
+ *      Mark McLoughlin <mark@skynet.ie>
+ */
+/*
+ * gdm-protocol.c: GDM logout action protocol implementation
+ *
+ * Copyright (C) 2005 Raffaele Sandrini
+ * Copyright (C) 2005 Red Hat, Inc.
+ * Copyright (C) 2002, 2003 George Lebl
+ * Copyright (C) 2001 Queen of England,
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -43,7 +71,7 @@
 
 #define GDM_PROTOCOL_UPDATE_INTERVAL 1 /* seconds */
 
-#define GDM_PROTOCOL_SOCKET_PATH "/tmp/.gdm_socket"
+#define GDM_PROTOCOL_SOCKET_PATH "/var/run/gdm_socket"
 
 #define GDM_PROTOCOL_MSG_CLOSE        "CLOSE"
 #define GDM_PROTOCOL_MSG_VERSION      "VERSION"
@@ -58,7 +86,7 @@
 
 typedef struct {
         int fd;
-	char *auth_cookie;
+    char *auth_cookie;
 
         GdmLogoutAction available_actions;
         GdmLogoutAction current_actions;
@@ -91,7 +119,7 @@ gdm_send_protocol_msg (GdmProtocolData *data,
                            g_strerror (errno));
                 return NULL;
         }
-        g_free (p);             
+        g_free (p);
 
         p = NULL;
         retval = NULL;
@@ -108,7 +136,7 @@ gdm_send_protocol_msg (GdmProtocolData *data,
         }
 
         if (p) *p = '\0';
-        
+
         return retval ? g_string_free (retval, FALSE) : NULL;
 }
 
@@ -118,7 +146,7 @@ get_display_number (void)
         const char *display_name;
         char       *retval;
         char       *p;
-                
+
         display_name = gdk_display_get_name (gdk_display_get_default ());
 
         p = strchr (display_name, ':');
@@ -155,7 +183,7 @@ gdm_authenticate_connection (GdmProtocolData *data)
                                        data->auth_cookie);
                 response = gdm_send_protocol_msg (data, msg);
                 g_free (msg);
- 
+
                 if (response && !strcmp (response, "OK")) {
                         g_free (response);
                         return TRUE;
@@ -188,18 +216,18 @@ gdm_authenticate_connection (GdmProtocolData *data)
                         XauDisposeAuth (xau);
                         continue;
                 }
-                
+
                 for (i = 0; i < GDM_MIT_MAGIC_COOKIE_LEN; i++)
                         g_snprintf (buffer + 2*i, 3, "%02x", (guint)(guchar)xau->data[i]);
-                
+
                 XauDisposeAuth (xau);
-                
+
                 msg = g_strdup_printf (GDM_PROTOCOL_MSG_AUTHENTICATE " %s", buffer);
                 response = gdm_send_protocol_msg (data, msg);
                 g_free (msg);
- 
+
                 if (response && !strcmp (response, "OK")) {
-			data->auth_cookie = g_strdup (buffer);
+            data->auth_cookie = g_strdup (buffer);
                         g_free (response);
                         retval = TRUE;
                         break;
@@ -209,7 +237,7 @@ gdm_authenticate_connection (GdmProtocolData *data)
         }
 
         g_free (display_number);
-        
+
         fclose (f);
 
         return retval;
@@ -237,17 +265,21 @@ gdm_init_protocol_connection (GdmProtocolData *data)
         if (data->fd < 0) {
                 g_warning ("Failed to create GDM socket: %s",
                            g_strerror (errno));
-		gdm_shutdown_protocol_connection (data);
+        gdm_shutdown_protocol_connection (data);
                 return FALSE;
         }
 
-        strcpy (addr.sun_path, GDM_PROTOCOL_SOCKET_PATH);
-        addr.sun_family = AF_UNIX;
+    if (g_file_test (GDM_PROTOCOL_SOCKET_PATH, G_FILE_TEST_EXISTS))
+      strcpy (addr.sun_path, GDM_PROTOCOL_SOCKET_PATH);
+    else
+      strcpy (addr.sun_path, "/tmp/.gdm_socket");
+
+    addr.sun_family = AF_UNIX;
 
         if (connect (data->fd, (struct sockaddr *) &addr, sizeof (addr)) < 0) {
                 g_warning ("Failed to establish a connection with GDM: %s",
                            g_strerror (errno));
-		gdm_shutdown_protocol_connection (data);
+        gdm_shutdown_protocol_connection (data);
                 return FALSE;
         }
 
@@ -256,14 +288,15 @@ gdm_init_protocol_connection (GdmProtocolData *data)
                 g_free (response);
 
                 g_warning ("Failed to get protocol version from GDM");
-		gdm_shutdown_protocol_connection (data);
+        gdm_shutdown_protocol_connection (data);
 
                 return FALSE;
         }
+    g_free (response);
 
         if (!gdm_authenticate_connection (data)) {
                 g_warning ("Failed to authenticate with GDM");
-		gdm_shutdown_protocol_connection (data);
+        gdm_shutdown_protocol_connection (data);
                 return FALSE;
         }
 
@@ -279,7 +312,7 @@ gdm_parse_query_response (GdmProtocolData *data,
 
         data->available_actions = GDM_LOGOUT_ACTION_NONE;
         data->current_actions   = GDM_LOGOUT_ACTION_NONE;
-          
+
         if (strncmp (response, "OK ", 3) != 0)
                 return;
 
@@ -321,16 +354,16 @@ gdm_update_logout_actions (GdmProtocolData *data)
 {
         time_t  current_time;
         char   *response;
-        
+
         current_time = time (NULL);
         if (current_time <= (data->last_update + GDM_PROTOCOL_UPDATE_INTERVAL))
                 return;
-        
+
         data->last_update = current_time;
-                
+
         if (!gdm_init_protocol_connection (data))
                 return;
-        
+
         if ((response = gdm_send_protocol_msg (data, GDM_PROTOCOL_MSG_QUERY_ACTION))) {
                 gdm_parse_query_response (data, response);
                 g_free (response);
@@ -351,14 +384,14 @@ GdmLogoutAction
 gdm_get_logout_action (void)
 {
         gdm_update_logout_actions (&gdm_protocol_data);
-        
+
         return gdm_protocol_data.current_actions;
 }
 
 void
 gdm_set_logout_action (GdmLogoutAction action)
 {
-	char *action_str = NULL;
+    char *action_str = NULL;
         char *msg;
         char *response;
 
@@ -383,11 +416,11 @@ gdm_set_logout_action (GdmLogoutAction action)
         msg = g_strdup_printf (GDM_PROTOCOL_MSG_SET_ACTION " %s", action_str);
 
         response = gdm_send_protocol_msg (&gdm_protocol_data, msg);
-        
+
         g_free (msg);
         g_free (response);
 
-	gdm_protocol_data.last_update = 0;
+    gdm_protocol_data.last_update = 0;
 
         gdm_shutdown_protocol_connection (&gdm_protocol_data);
 }

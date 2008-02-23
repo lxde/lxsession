@@ -69,7 +69,7 @@ in this Software without prior written authorization from The Open Group.
 
 #include <X11/SM/SMlib.h>
 
-#include <gtk/gtk.h>
+#include <glib.h>
 #include <glib/gi18n.h>
 
 /*
@@ -92,6 +92,7 @@ typedef struct _ClientRec
 {
     SmsConn   smsConn;
     IceConn  ice_conn;
+    GPid pid;
     char   *clientId;
     char  *clientHostname;
     GSList  *props;

@@ -30,7 +30,7 @@ in this Software without prior written authorization from The Open Group.
 #include "info.h"
 #include "prop.h"
 
-#include <gtk/gtk.h>
+#include <glib.h>
 
 typedef struct
 {

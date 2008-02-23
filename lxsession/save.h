@@ -28,7 +28,7 @@ in this Software without prior written authorization from The Open Group.
 #ifndef _SAVE_H_
 #define _SAVE_H_
 
-#include <gtk/gtk.h>
+#include <glib.h>
 
 extern void DoSave ( int saveType, int interactStyle, Bool fast );
 extern void LetClientInteract ( GSList *cl );

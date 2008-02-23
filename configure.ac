@@ -24,7 +24,7 @@ dnl
 dnl 2006.10.23 modified by Hong Jen Yee (PCMan) <pcman.tw(at)gmail.com>
 
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.1.1], [],lxsession)
+AC_INIT(lxsession,[0.2], [],lxsession)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
@@ -70,9 +70,34 @@ PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.6.0])
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.6.0])
+AC_SUBST(GLIB_CFLAGS)
+AC_SUBST(GLIB_LIBS)
+
 PKG_CHECK_MODULES(SM, ["sm"])
 AC_SUBST(SM_CFLAGS)
 AC_SUBST(SM_LIBS)
+
+AC_ARG_ENABLE(
+    [hal],
+    AS_HELP_STRING([--enable-hal],
+                   [Build with Linux HAL support for shutdown/reboot/suspend (default: yes)]),
+    use_hal=$enableval, use_hal="yes")
+
+if test x"$use_hal" = x"yes"; then
+dnl Check HAL support
+    hal_modules="dbus-glib-1 >= 0.31 hal >= 0.5.9"
+    PKG_CHECK_MODULES(HAL, [$hal_modules], [have_hal=yes], [have_hal=no])
+
+    if test x"$have_hal" = x"yes"; then
+        AC_DEFINE([HAVE_HAL], [1], [Define to 1 if you have HAL.])
+    else
+        AC_MSG_ERROR([To use HAL support, you must have developing packages of dbus-glib-1 (>=0.31), hal(>=0.5.0), and hal-storage, or you can use --disable-hal to disable HAL support.])
+    fi
+fi
+AM_CONDITIONAL(USE_HAL, test "$use_hal" = "yes")
+AC_SUBST(HAL_CFLAGS)
+AC_SUBST(HAL_LIBS)
 
 dnl XORG_MANPAGE_SECTIONS
 dnl XORG_RELEASE_VERSION
@@ -88,7 +113,20 @@ AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
   Makefile
-  LXDE.desktop
-  startlxde
+  lxsession/Makefile
+  lxsession-logout/Makefile
   po/Makefile.in
 ])
+
+echo
+echo LXSession.................................... : Version $VERSION
+echo
+echo Prefix....................................... : $prefix
+echo Linux HAL support............................ : $use_hal
+echo
+echo The binary will be installed in $prefix/bin
+echo
+echo http://lxde.sourceforge.net/
+echo
+echo Have fun!
+echo

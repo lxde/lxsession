@@ -34,8 +34,9 @@ static void
 GetLockPath( char* buf, const char* session_name, gboolean is_tmp )
 {
 #ifndef __UNIXOS2__
+/* FIXME:  will getenv("DISPLAY") have problems? */
     sprintf ( buf, "/tmp/.LXSM%slock-%s%s-%s", is_tmp ? "t":"",
-              session_name, gdk_get_display(), g_get_user_name() );
+              session_name, g_getenv( "DISPLAY" ), g_get_user_name() );
 #else
     // FIXME: Is this needed?
 #endif

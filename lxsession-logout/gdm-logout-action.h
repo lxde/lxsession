@@ -4,7 +4,7 @@
  * Copyright (C) 2005 Raffaele Sandrini
  * Copyright (C) 2005 Red Hat, Inc.
  * Copyright (C) 2002, 2003 George Lebl
- * Copyright (C) 2001 Queen of England, 
+ * Copyright (C) 2001 Queen of England,
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
