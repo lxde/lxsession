@@ -95,9 +95,9 @@ DoSave ( int saveType, int interactStyle, Bool fast )
         client = ( ClientRec * ) cl->data;
 
         /* Don't save our own logout-helper - lxsession-logout */
-        if( client->saveDiscardCommand && strstr( "lxsession-logout", client->saveDiscardCommand ) )
+        if( client->saveDiscardCommand && 0 == strcmp( "lxsession-logout", client->saveDiscardCommand ) )
             continue;
-        if( client->discardCommand && strstr( "lxsession-logout", client->discardCommand ) )
+        if( client->discardCommand && 0 == strcmp( "lxsession-logout", client->discardCommand ) )
             continue;
 
         SmsSaveYourself ( client->smsConn,

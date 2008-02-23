@@ -169,7 +169,7 @@ static void logout( gboolean term )
     gboolean need_save;
     wantShutdown = 1;
     checkpoint_from_signal = 1;
-    g_debug("logout!!!!");
+
     file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
     if( need_save = g_file_test( file, G_FILE_TEST_EXISTS) )
         unlink( file );
@@ -177,7 +177,6 @@ static void logout( gboolean term )
 
     if( need_save )    /* need to save */
     {
-        g_debug( "do save" );
         DoSave ( SmSaveLocal, SmInteractStyleNone, (term==TRUE) /* fast */ );
         if( term )
             EndSession(0);
