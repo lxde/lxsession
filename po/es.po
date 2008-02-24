@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-12 16:28+0800\n"
+"POT-Creation-Date: 2008-02-24 22:52+0800\n"
 "PO-Revision-Date: 2007-04-30 14:14-0300\n"
 "Last-Translator: Alejandro Zárate <alejandroazarate@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,27 +18,60 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: ARGENTINA\n"
 
-#: ../signals.c:231
+#: ../lxsession-logout/main.c:37
+msgid "Custom message to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:37
+msgid "message"
+msgstr ""
+
+#: ../lxsession-logout/main.c:38
+msgid "Banner to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:38
+msgid "image file"
+msgstr ""
+
+#: ../lxsession-logout/main.c:39
+msgid "Position of the banner"
+msgstr ""
+
+#: ../lxsession-logout/main.c:120 ../lxsession-logout/main.c:131
+#, c-format
+msgid "Error: %s\n"
+msgstr ""
+
+#: ../lxsession-logout/main.c:120
+msgid "LXSession is not running."
+msgstr ""
+
+#: ../lxsession-logout/main.c:142
+#, fuzzy
+msgid "Logout"
+msgstr "_Cerrar Sesión"
+
+#: ../lxsession-logout/main.c:146
 msgid "<b><big>Logout Session?</big></b>"
 msgstr "<b><big>¿Cerrar sesión?</big></b>"
 
-#: ../signals.c:232
+#: ../lxsession-logout/main.c:150
 msgid "Save current session"
 msgstr "Guardar la sesión actual"
 
-#: ../signals.c:238
+#: ../lxsession-logout/main.c:154
 msgid "Sh_utdown"
 msgstr "_Apagar"
 
-#: ../signals.c:240
+#: ../lxsession-logout/main.c:159
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
-#: ../signals.c:242
+#: ../lxsession-logout/main.c:164
 msgid "_Suspend"
 msgstr "_Suspender"
 
-#: ../signals.c:243
+#: ../lxsession-logout/main.c:168
 msgid "_Logout"
 msgstr "_Cerrar Sesión"
-

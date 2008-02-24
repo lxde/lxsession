@@ -1,7 +1,8 @@
 bin_PROGRAMS = lxsession-logout
 
 lxsession_logout_CFLAGS =  $(GTK_CFLAGS) $(SM_CFLAGS) $(HAL_CFLAGS) \
-                   -DPACKAGE_LOCALE_DIR=\"$(datadir)/$(DATADIRNAME)/locale\"
+			-DPACKAGE_LOCALE_DIR=\"$(datadir)/locale\" \
+			-DPACKAGE_DATA_DIR=\"$(datadir)/$(DATADIRNAME)\"
 
 lxsession_logout_LDADD = $(GTK_LIBS) $(SM_LIBS) $(HAL_LIBS)
 

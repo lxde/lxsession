@@ -1,2 +1,2 @@
-signals.c
-xsm.c
+lxsession-logout/main.c
+

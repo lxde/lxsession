@@ -7,6 +7,10 @@ Copyright 2006 Hong Jen Yee (PCMan) <pcman.tw (at) gmail.com>
 gdm-logout-action.c & gdm-logout-action.h are taken from gnome-session.
 These 2 files are released under GNU General Public License.
 
+Image files under image directory are taken from GPL'd icon theme 
+"nuoveXT 2" created by Alexandre Moore (saki).
+http://www.gnome-look.org/content/show.php/nuoveXT+2?content=56625
+
 LXSession, is released under GNU General Public License.
 
 		    GNU GENERAL PUBLIC LICENSE
