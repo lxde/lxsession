@@ -29,10 +29,7 @@ in this Software without prior written authorization from The Open Group.
 #include "restart.h"
 #include "saveutil.h"
 
-#define SYSTEM_INIT_FILE    "/etc/literc"
-
 extern char **environ;
-
 
 /*
  * Until XSMP provides a better way to know which clients are "managers",
@@ -530,43 +527,25 @@ Clone ( ClientRec *client, Bool useSavedState )
 void
 StartDefaultApps ( char* session_name )
 {
-    FILE *f;
-    char *buf, *p, *home, filename[128];
+    FILE *f = NULL;
+    char *buf, *p;
     int buflen, len;
+    const gchar* const * dirs = g_get_system_config_dirs();
+    const gchar* const * dir;
 
-    /*
-     * First try ~/.LXS-{SESSION_NAME}-Default, then system.xsm
-     */
-
-    home = ( char * ) getenv ( "HOME" );
-    if ( !home )
-        home = ".";
-    sprintf ( filename, "%s/.LXSM-%s-Default", home, session_name );
-
-    f = fopen ( filename, "r" );
-
-    if ( !f )
+    /* system wide default apps is put in /etc/xdg/lxsession/SESSION_NAME/default */
+    for( dir = dirs; *dir; ++dir )
     {
-        sprintf ( filename, "/etc/LXSM-%s-Default", session_name );
+        char* filename;
+        filename = g_build_filename( *dir, "lxsession", session_name, "default", NULL );
+g_debug( "default: %s", filename );
         f = fopen ( filename, "r" );
-        if ( !f )
-        {
-            f = fopen ( SYSTEM_INIT_FILE, "r" );
-            if( ! f )
-            {
-                DefaultApps = g_slist_append( DefaultApps,
-                                              g_strdup("twm") );
-                execute_system_command( "twm &" );
-                DefaultApps = g_slist_append( DefaultApps,
-                                              g_strdup("smproxy") );
-                execute_system_command( "smproxy &" );
-                DefaultApps = g_slist_append( DefaultApps,
-                                              g_strdup("xterm") );
-                execute_system_command( "xterm &" );
-                return;
-            }
-        }
+        g_free( filename );
+        if( f )
+            break;
     }
+    if ( !f )
+        return;
 
     buf = NULL;
     buflen = 0;
@@ -600,9 +579,7 @@ StartDefaultApps ( char* session_name )
 
         execute_system_command ( buf );
     }
-
-    if ( buf )
-        free ( buf );
+    g_free ( buf );
 }
 
 void
