@@ -301,52 +301,6 @@ usage:
     if ( verbose )
         printf ( "setenv %s %s\n", environment_name, networkIds );
 
-    /*
-     * Get list of session names.  If a session name was found on the
-     * command line, and it is in the list of session names we got, then
-     * use that session name.  If there were no session names found, then
-     * use the default session name.  Otherwise, present a list of session
-     * names for the user to choose from.
-     */
-#if 0
-    success = GetSessionNames ( &sessionNameCount,
-                                &sessionNamesShort, &sessionNamesLong, &sessionsLocked );
-
-    found_command_line_name = 0;
-
-    if ( success && session_name )
-    {
-        for ( i = 0; i < sessionNameCount; i++ )
-            if ( strcmp ( session_name, sessionNamesShort[i] ) == 0 )
-            {
-                found_command_line_name = 1;
-
-                if ( sessionsLocked[i] )
-                {
-                    fprintf ( stderr, "Session '%s' is locked\n", session_name );
-                    exit ( 1 );
-                }
-
-                break;
-            }
-    }
-
-    if ( !success || found_command_line_name )
-    {
-        FreeSessionNames ( sessionNameCount,
-                           sessionNamesShort, sessionNamesLong, sessionsLocked );
-
-        if ( !found_command_line_name )
-            session_name = XtNewString ( DEFAULT_SESSION_NAME );
-
-        if ( !StartSession ( session_name, !found_command_line_name ) )
-            UnableToLockSession ( session_name );
-    }
-    else
-    {
-        ChooseSession ();
-    }
-#endif
     if ( !session_name )
         session_name = g_strdup ( "LXDE" );
 
@@ -509,15 +463,21 @@ StartSession ( char *name )
      * identify it.
      */
 
-    set_session_save_file_name ( name );
+    set_session_save_file_name ();
     StartDefaultApps (name);
 
     /* Support autostart spec of freedesktop.org */
     handle_autostart( name );
 
-    database_read = ReadSave ( name, &sm_id );
+    database_read = ReadSave (&sm_id );
 
-    /* FIXME: this should be totally re-write */
+    if (! sm_id)
+    {
+        sm_id = SmsGenerateClientID( NULL );
+        if (!sm_id)
+            return (1);
+    }
+
     if ( database_read )
     {
         /*
@@ -529,26 +489,6 @@ StartSession ( char *name )
         Restart ( RESTART_MANAGERS );
         Restart ( RESTART_REST_OF_CLIENTS );
         StartNonSessionAwareApps ();
-#if 0
-        if ( !Restart ( RESTART_MANAGERS ) )
-        {
-            XtRemoveEventHandler ( topLevel, PropertyChangeMask, False,
-                                   PropertyChangeXtHandler, NULL );
-
-            /*
-             * Restart the rest of the session aware clients.
-             */
-
-            Restart ( RESTART_REST_OF_CLIENTS );
-
-            /*
-             * Start apps that aren't session aware that were specified
-             * by the user.
-             */
-
-            StartNonSessionAwareApps ();
-        }
-#endif
     }
     return ( 1 );
 }

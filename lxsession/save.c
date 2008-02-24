@@ -183,9 +183,9 @@ FinishUpSave ( void )
 {
     ClientRec *client;
     GSList *cl;
-    g_debug ( "FinishUpSave" );
     if ( verbose )
     {
+        g_debug ( "FinishUpSave" );
         printf ( "\n" );
         printf ( "All clients issued SAVE YOURSELF DONE\n" );
         printf ( "\n" );

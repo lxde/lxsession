@@ -29,6 +29,7 @@ in this Software without prior written authorization from The Open Group.
 
 #include <X11/ICE/ICEutil.h>
 #include "auth.h"
+#include "saveutil.h"
 
 #ifdef HAS_MKSTEMP
 #include <unistd.h>
@@ -38,8 +39,6 @@ in this Software without prior written authorization from The Open Group.
 
 static char *addAuthFile = NULL;
 static char *remAuthFile = NULL;
-
-
 
 /*
  * Host Based Authentication Callback.  This callback is invoked if
@@ -121,9 +120,6 @@ unique_filename ( char *path, char *prefix, int *pFd )
 #endif
 }
 
-
-
-
 /*
  * Provide authentication data to clients that wish to connect
  */
@@ -136,7 +132,7 @@ SetAuthentication ( int count, IceListenObj *listenObjs,
 {
     FILE *addfp = NULL;
     FILE *removefp = NULL;
-    char *path;
+    const char *path;
     int  original_umask;
     char command[256];
     int  i;
@@ -146,13 +142,8 @@ SetAuthentication ( int count, IceListenObj *listenObjs,
 
     original_umask = umask ( 0077 ); /* disallow non-owner access */
 
-    path = ( char * ) getenv ( "SM_SAVE_DIR" );
-    if ( !path )
-    {
-        path = ( char * ) getenv ( "HOME" );
-        if ( !path )
-            path = ".";
-    }
+    path = get_session_dir();
+
 #ifndef HAS_MKSTEMP
     if ( ( addAuthFile = unique_filename ( path, ".lxsm" ) ) == NULL )
         goto bad;
@@ -218,7 +209,8 @@ SetAuthentication ( int count, IceListenObj *listenObjs,
 
     sprintf ( command, "iceauth source %s", addAuthFile );
     execute_system_command ( command );
-    g_debug("unlink addAuthFile: %s", addAuthFile);
+    if( verbose )
+        g_debug("unlink addAuthFile: %s", addAuthFile);
     unlink ( addAuthFile );
 
     return ( 1 );
@@ -233,7 +225,8 @@ bad:
 
     if ( addAuthFile )
     {
-    g_debug("unlink addAuthFile 2: %s", addAuthFile);
+        if( verbose )
+            g_debug("unlink addAuthFile 2: %s", addAuthFile);
         unlink ( addAuthFile );
         free ( addAuthFile );
     }
@@ -270,7 +263,8 @@ FreeAuthenticationData ( int count, IceAuthDataEntry *authDataEntries )
 
     sprintf ( command, "iceauth source %s", remAuthFile );
     execute_system_command ( command );
-g_debug("remove %s", remAuthFile);
+    if( verbose )
+        g_debug("remove %s", remAuthFile);
     unlink ( remAuthFile );
 
     free ( addAuthFile );

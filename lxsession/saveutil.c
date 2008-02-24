@@ -29,30 +29,82 @@ in this Software without prior written authorization from The Open Group.
 #include "saveutil.h"
 #include <glib.h>
 
-char    session_save_file[PATH_MAX];
+char* session_save_file = NULL;
 
-void
-set_session_save_file_name ( char *session_name )
+/* older versions of glib don't provde these API */
+#if ! GLIB_CHECK_VERSION(2, 8, 0)
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
+#include <errno.h>
+
+int g_mkdir_with_parents(const gchar *pathname, int mode)
 {
-    char *p;
+    struct stat statbuf;
+    char *dir, *sep;
+    dir = g_strdup( pathname );
+    sep = dir[0] == '/' ? dir + 1 : dir;
+    do {
+        sep = strchr( sep, '/' );
+        if( G_LIKELY( sep ) )
+            *sep = '\0';
 
-    p = ( char * ) getenv ( "SM_SAVE_DIR" );
-    if ( !p )
+        if( stat( dir, &statbuf) == 0 )
+        {
+            if( ! S_ISDIR(statbuf.st_mode) )    /* parent not dir */
+                goto err;
+        }
+        else    /* stat failed */
+        {
+            if( errno == ENOENT )   /* not exists */
+            {
+                if( mkdir( dir, mode ) == -1 )
+                    goto err;
+            }
+            else
+                goto err;   /* unknown error */
+        }
+
+        if( G_LIKELY( sep ) )
+        {
+            *sep = '/';
+            ++sep;
+        }
+        else
+            break;
+    }while( sep );
+    g_free( dir );
+    return 0;
+err:
+    g_free( dir );
+    return -1;
+}
+#endif
+
+const char* get_session_dir()
+{
+    static char* dir;
+    if ( G_UNLIKELY( ! dir ) )
     {
-        p = ( char * ) getenv ( "HOME" );
-        if ( !p )
-            p = ".";
+        dir = (char*)g_getenv ( "SM_SAVE_DIR" );
+        if( G_LIKELY( ! dir ) )
+            dir = g_build_filename( g_get_user_config_dir(), "lxsession", session_name, NULL );
     }
-
-    strcpy ( session_save_file, p );
-    strcat ( session_save_file, "/.LXSM-" );
-    strcat ( session_save_file, session_name );
+    if( !  g_file_test( dir, G_FILE_TEST_EXISTS ) )
+        g_mkdir_with_parents( dir, 0700 ); /* ensure existance of the dir */
+    return dir;
 }
 
-
+void set_session_save_file_name ()
+{
+    /* g_free( session_save_file ); */
+    session_save_file = g_build_filename( get_session_dir(), "session", NULL );
+}
 
 int
-ReadSave ( char *session_name, char **sm_id )
+ReadSave ( char **sm_id )
 {
     char  *buf;
     int   buflen;
@@ -63,6 +115,7 @@ ReadSave ( char *session_name, char **sm_id )
     FILE  *f;
     int   state, i;
     int   version_number;
+
     f = fopen ( session_save_file, "r" );
     if ( !f )
     {
@@ -92,9 +145,13 @@ ReadSave ( char *session_name, char **sm_id )
     }
 
     /* Read SM's id */
-    getnextline ( &buf, &buflen, f );
-    if ( ( p = strchr ( buf, '\n' ) ) ) *p = '\0';
-    *sm_id = g_strdup ( buf );
+    if( getnextline ( &buf, &buflen, f ) )
+    {
+        if ( ( p = strchr ( buf, '\n' ) ) ) *p = '\0';
+        *sm_id = *buf ? g_strdup( buf ) : NULL;
+    }
+    else
+        return;
 
     /* Read number of clients running in the last session */
     if ( version_number >= 2 )
@@ -406,7 +463,8 @@ WriteSave ( char *sm_id )
     char *commands;
     char *p, *c;
     int count;
-    // g_debug ( "write: session_save_file = %s", session_save_file );
+
+    /* g_debug ( "write: session_save_file = %s", session_save_file ); */
     f = fopen ( session_save_file, "w" );
 
     if ( !f )
@@ -427,10 +485,15 @@ WriteSave ( char *sm_id )
         {
             client = ( ClientRec * ) cl->data;
 
-            if ( client->restartHint != SmRestartNever )
+            if ( client->restartHint != SmRestartNever && ! is_default_app(client) )
                 count++;
         }
-        count += g_slist_length ( RestartAnywayList );
+
+        for ( cl = RestartAnywayList; cl; cl = g_slist_next ( cl ) )
+        {
+            if ( ! is_default_app(client) )
+                count++;
+        }
 
         fprintf ( f, "%d\n", count );
         if ( count == 0 )
@@ -448,10 +511,8 @@ WriteSave ( char *sm_id )
         for ( cl = RestartAnywayList; cl; cl = g_slist_next ( cl ) )
         {
             client = ( ClientRec * ) cl->data;
-
             SaveClient ( f, client );
         }
-
 
         /* Save the non-session aware clients */
         /*
@@ -502,125 +563,6 @@ WriteSave ( char *sm_id )
         // g_debug ( "end saving file" );
     }
 }
-
-
-#if 0
-Status
-DeleteSession ( char *session_name )
-{
-    char *buf;
-    int  buflen;
-    char *p, *dir;
-    FILE *f;
-    int  state;
-    int  foundDiscard;
-    char filename[256];
-    int  version_number;
-
-    dir = ( char * ) getenv ( "SM_SAVE_DIR" );
-    if ( !dir )
-    {
-        dir = ( char * ) getenv ( "HOME" );
-        if ( !dir )
-            dir = ".";
-    }
-
-    sprintf ( filename, "%s/.LSM-%s", dir, session_name );
-
-    f = fopen ( filename, "r" );
-    if ( !f )
-    {
-        return ( 0 );
-    }
-
-    buf = NULL;
-    buflen = 0;
-
-    /* Read version # */
-    getnextline ( &buf, &buflen, f );
-    if ( ( p = strchr ( buf, '\n' ) ) ) *p = '\0';
-    version_number = atoi ( buf );
-    if ( version_number > SAVEFILE_VERSION )
-    {
-        if ( verbose )
-            printf ( "Can't delete session save file - incompatible version.\n" );
-        if ( buf )
-            free ( buf );
-        return ( 0 );
-    }
-
-    /* Skip SM's id */
-    getnextline ( &buf, &buflen, f );
-
-    /* Skip number of clients running in the last session */
-    if ( version_number >= 2 )
-        getnextline ( &buf, &buflen, f );
-
-    state = 0;
-    foundDiscard = 0;
-    while ( getnextline ( &buf, &buflen, f ) )
-    {
-        if ( ( p = strchr ( buf, '\n' ) ) ) *p = '\0';
-        for ( p = buf; *p && isspace ( *p ); p++ ) /* LOOP */;
-        if ( *p == '#' ) continue;
-
-        if ( !*p )
-        {
-            state = 0;
-            foundDiscard = 0;
-            continue;
-        }
-
-        if ( !isspace ( buf[0] ) )
-        {
-            switch ( state )
-            {
-            case 0:
-                state = 1;
-                break;
-
-            case 1:
-                state = 2;
-                break;
-
-            case 2:
-            case 4:
-                if ( strcmp ( p, SmDiscardCommand ) == 0 )
-                    foundDiscard = 1;
-                state = 3;
-                break;
-
-            case 3:
-                state = 4;
-                break;
-
-            default:
-                continue;
-            }
-        }
-        else
-        {
-            if ( state != 4 )
-            {
-                continue;
-            }
-            if ( foundDiscard )
-            {
-                execute_system_command ( p ); /* Discard Command */
-                foundDiscard = 0;
-            }
-        }
-    }
-
-    fclose ( f );
-
-    if ( buf )
-        free ( buf );
-
-    return ( ( unlink ( filename ) == -1 ) ? 0 : 1 );
-}
-
-#endif
 
 Bool
 getnextline ( char **pbuf, int *plen, FILE *f )

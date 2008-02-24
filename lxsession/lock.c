@@ -53,10 +53,10 @@ LockSession ( char *session_name, Bool write_id )
 
     GetLockPath( lock_file, session_name, FALSE );
     GetLockPath( temp_lock_file, session_name, TRUE );
-g_debug("Lock: %s", temp_lock_file);
+    /* g_debug("Lock: %s", temp_lock_file); */
     if ( ( fd = creat ( temp_lock_file, 0444 ) ) < 0 )
     {
-        g_debug ( "creat(%s) failed", temp_lock_file );
+        /* g_debug ( "creat(%s) failed", temp_lock_file ); */
         return ( 0 );
     }
     len = strlen ( networkIds );

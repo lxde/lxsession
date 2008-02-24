@@ -30,10 +30,16 @@ in this Software without prior written authorization from The Open Group.
 
 #include <stdio.h>
 
-extern void set_session_save_file_name ( char *session_name );
-extern int ReadSave ( char *session_name, char **sm_id );
+extern const char* get_session_dir();
+extern void set_session_save_file_name ();
+extern int ReadSave (char **sm_id );
 extern void WriteSave ( char *sm_id );
 /* extern Status DeleteSession ( char *session_name ); */
 extern Bool getnextline ( char **pbuf, int *plen, FILE *f );
+
+#if ! GLIB_CHECK_VERSION(2, 8, 0)
+/* older versions of glib don't provde these API */
+int g_mkdir_with_parents(const gchar *pathname, int mode);
+#endif
 
 #endif
