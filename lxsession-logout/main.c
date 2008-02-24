@@ -237,6 +237,7 @@ int main( int argc, char** argv )
     gtk_toggle_button_set_active( check, TRUE );
     gtk_box_pack_start( vbox, check, FALSE, FALSE, 4);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
+    gtk_window_set_decorated( (GtkWindow*)dlg, FALSE );
     gtk_widget_show_all( dlg );
 
     gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
