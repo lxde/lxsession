@@ -41,6 +41,7 @@ in this Software without prior written authorization from The Open Group.
 #include "restart.h"
 #include "saveutil.h"
 #include "lock.h"
+#include "autostart.h"
 
 #include <unistd.h>
 #include <signal.h>
@@ -511,7 +512,11 @@ StartSession ( char *name )
     set_session_save_file_name ( name );
     StartDefaultApps (name);
 
+    /* Support autostart spec of freedesktop.org */
+    handle_autostart( name );
+
     database_read = ReadSave ( name, &sm_id );
+
     /* FIXME: this should be totally re-write */
     if ( database_read )
     {

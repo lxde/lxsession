@@ -590,6 +590,7 @@ StartDefaultApps ( char* session_name )
 
         /* using append is inefficient, but we need to keep the order. */
         DefaultApps = g_slist_append( DefaultApps, g_strdup(buf) );
+g_debug("Add default app: %s", buf);
 
         buf[len] = '&';
         buf[len+1] = '\0';

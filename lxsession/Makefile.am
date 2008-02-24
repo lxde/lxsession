@@ -20,6 +20,8 @@ lxsession_SOURCES =	\
         remote.c \
         restart.c \
         restart.h \
+	autostart.c \
+	autostart.h \
         save.c \
         save.h \
         saveutil.c \

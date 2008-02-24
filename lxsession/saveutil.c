@@ -27,6 +27,7 @@ in this Software without prior written authorization from The Open Group.
 
 #include "xsm.h"
 #include "saveutil.h"
+#include <glib.h>
 
 char    session_save_file[PATH_MAX];
 
@@ -237,38 +238,110 @@ ReadSave ( char *session_name, char **sm_id )
     return 1;
 }
 
+/* FIXME: Are these simple checks enough? */
+gboolean same_command( const char* cmd1, const char* cmd2 )
+{
+    if( ! cmd1 || ! cmd2 )
+        return FALSE;
+
+    /* if one of the commands is absolute path, and the other is not */
+    if( g_path_is_absolute( cmd1 ) )
+    {
+        if( g_path_is_absolute( cmd2 ) )    /* both are absolute paths */
+            return 0 == strcmp( cmd1, cmd2 );
+        else  /* cmd2 is not an absoulte path */
+        {
+            char* full = g_find_program_in_path( cmd2 );
+            if( full )
+            {
+                gboolean ret = 0 == strcmp( cmd1, full );
+                g_free( full );
+                return ret;
+            }
+        }
+    }
+    else /* cmd1 is not an absolute path */
+    {
+        if( g_path_is_absolute( cmd2 ) )    /* but cmd2 is absolute path */
+        {
+            char* full = g_find_program_in_path( cmd1 );
+            if( full )
+            {
+                gboolean ret = 0 == strcmp( cmd2, full );
+                g_free( full );
+                return ret;
+            }
+        }
+        else /* cmd2 is not an absoulte path, either */
+            return 0 == strcmp( cmd1, cmd2 );
+    }
+    return FALSE;
+}
+
 gboolean is_default_app( ClientRec *client )
 {
-    GSList *pl;
+    GSList *pl, *def;
+    /*
+      NOTE:
+      Check if the program we try to save is a default app.
+      Default apps should not be saved since they are started by
+      StartDefaultApps(), not through X11 session management.
+    */
     for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         Prop *pprop = ( Prop * ) pl->data;
         GSList *vl;
         PropValue *pval;
-        gboolean check_program = !strcmp( pprop->name, "Program" );
-        if( !check_program )
-            continue;
-        if ( strcmp ( pprop->type, SmCARD8 )
-             && pprop->values && pprop->values->data )
+
+        if( 0 == strcmp( pprop->name, "Program" ) ) /* check program name first */
         {
-            pval = (PropValue*)pprop->values->data;
-            char* program = (char*)pval->value;
-            GSList* def;
-            /*
-              NOTE:
-              Check if the program we try to save is a default app.
-              Default apps should not be saved since they are started by
-              StartDefaultApps(), not through X11 session management.
-            */
-            for( def = DefaultApps; def; def = g_slist_next( def ) ) {
-                char* def_app = (char*)def->data;
-                /* FIXME: Is this simple check enough? */
-                if( ! strcmp( program, def_app ) )
+            if ( strcmp ( pprop->type, SmCARD8 )
+                 && pprop->values && pprop->values->data )
+            {
+                pval = (PropValue*)pprop->values->data;
+                char* program = (char*)pval->value;
+                GSList* def;
+
+                if( verbose )
+                    g_debug("check if program %s is default app", program);
+
+                /* We shouldn't save our own process, lxsession. */
+                if( g_str_has_prefix(program, "lxsession") )
                     return TRUE;
+
+                for( def = DefaultApps; def; def = g_slist_next( def ) ) {
+                    char* def_app = (char*)def->data;
+                    if( same_command( program, def_app ) )
+                        return TRUE;
+                }
             }
-            /* We shouldn't save our own process, lxsession. */
-            if( !strcmp(program, "lxsession") )
-                return TRUE;
+        }
+        else if( 0 == strcmp( pprop->name, SmRestartCommand) ) /* check restart command */
+        {
+            /* FIXME: Why this type-checking doesn't work here? */
+            if ( /*strcmp ( pprop->type, SmLISTofARRAY8 )
+                 &&*/ pprop->values && pprop->values->data )
+            {
+                GSList* array = (GSList*)pprop->values;
+                pval = ( ( PropValue * ) array->data );
+                const char* restart_command = pval && pval->value ? (char*)pval->value : NULL;
+                if( restart_command )
+                {
+                    GSList* def;
+
+                    if( verbose )
+                        g_debug("check if restart command %s is default app", restart_command);
+                    /* We shouldn't save our own process, lxsession. */
+                    if( g_str_has_prefix(restart_command, "lxsession") )
+                        return TRUE;
+
+                    for( def = DefaultApps; def; def = g_slist_next( def ) ) {
+                        char* def_app = (char*)def->data;
+                        if( same_command( restart_command, def_app ) )
+                            return TRUE;
+                    }
+                }
+            }
         }
     }
     return FALSE;
@@ -279,8 +352,13 @@ SaveClient ( FILE *f, ClientRec *client )
 {
     GSList *pl;
 
+    /* don't save our default apps */
     if( is_default_app( client ) )
+    {
+        if( verbose )
+            g_debug( "This is a default app, don't save" );
         return;
+    }
 
     fprintf ( f, "%s\n", client->clientId );
     fprintf ( f, "%s\n", client->clientHostname );
