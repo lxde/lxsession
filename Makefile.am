@@ -10,4 +10,5 @@ image_DATA= \
 	images/gnome-session-switch.png
 
 EXTRA_DIST = \
-	autogen.sh
+	autogen.sh \
+	$(image_DATA)
