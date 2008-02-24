@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-24 22:52+0800\n"
-"PO-Revision-Date: 2008-02-24 22:52+0800\n"
+"POT-Creation-Date: 2008-02-24 23:30+0800\n"
+"PO-Revision-Date: 2008-02-24 23:31+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,41 +35,43 @@ msgstr "圖片檔"
 msgid "Position of the banner"
 msgstr "顯示圖片的位置"
 
-#: ../lxsession-logout/main.c:120
-#: ../lxsession-logout/main.c:131
+#: ../lxsession-logout/main.c:136
+#: ../lxsession-logout/main.c:147
 #, c-format
 msgid "Error: %s\n"
 msgstr "錯誤：%s\n"
 
-#: ../lxsession-logout/main.c:120
+#: ../lxsession-logout/main.c:136
 msgid "LXSession is not running."
 msgstr "LXSession 並未執行"
 
-#: ../lxsession-logout/main.c:142
+#: ../lxsession-logout/main.c:158
 msgid "Logout"
 msgstr "登出"
 
-#: ../lxsession-logout/main.c:146
-msgid "<b><big>Logout Session?</big></b>"
-msgstr "<b><big>登出作業階段？</big></b>"
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:167
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>登出 %s 作業階段？</big></b>"
 
-#: ../lxsession-logout/main.c:150
+#: ../lxsession-logout/main.c:204
 msgid "Save current session"
 msgstr "儲存目前的作業階段"
 
-#: ../lxsession-logout/main.c:154
+#: ../lxsession-logout/main.c:208
 msgid "Sh_utdown"
 msgstr "關機(_U)"
 
-#: ../lxsession-logout/main.c:159
+#: ../lxsession-logout/main.c:213
 msgid "_Reboot"
 msgstr "重新啟動(_R)"
 
-#: ../lxsession-logout/main.c:164
+#: ../lxsession-logout/main.c:218
 msgid "_Suspend"
 msgstr "休眠(_S)"
 
-#: ../lxsession-logout/main.c:168
+#: ../lxsession-logout/main.c:222
 msgid "_Logout"
 msgstr "登出(_L)"
 

@@ -97,9 +97,24 @@ static GtkWidget* create_dlg_btn(const char* label, const char* icon, int respon
     return btn;
 }
 
+GtkPositionType get_banner_position()
+{
+    if( side )
+    {
+        if( 0 == strcmp( side, "right" ) )
+            return GTK_POS_RIGHT;
+        if( 0 == strcmp( side, "top" ) )
+            return GTK_POS_TOP;
+        if( 0 == strcmp( side, "bottom" ) )
+            return GTK_POS_BOTTOM;
+    }
+    return GTK_POS_LEFT;
+}
+
 int main( int argc, char** argv )
 {
-    GtkWidget *back = NULL, *img = NULL, *dlg, *check, *btn, *label, *box = NULL;
+    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox;
+    GtkPositionType banner_pos;
     GdkPixbuf *tmp, *shot;
     GdkScreen *screen;
     int res;
@@ -143,34 +158,84 @@ int main( int argc, char** argv )
     dlg = gtk_dialog_new_with_buttons( _("Logout"), (GtkWindow*)back, GTK_DIALOG_MODAL,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
 
-    label = gtk_label_new("");
-    gtk_label_set_markup( label, prompt ? prompt : _("<b><big>Logout Session?</big></b>") );
+    vbox = ((GtkDialog*)dlg)->vbox;
 
-    gtk_box_pack_start( ((GtkDialog*)dlg)->vbox, label, FALSE, FALSE, 4 );
+    if( banner )
+    {
+        GtkWidget* img = gtk_image_new_from_file( banner );
+        banner_pos = get_banner_position();
+        switch( banner_pos )
+        {
+        case GTK_POS_LEFT:
+        case GTK_POS_RIGHT:
+            box = gtk_hbox_new( FALSE,2 );
+            gtk_box_pack_start( vbox, box, TRUE, TRUE, 2 );
+
+            if( banner_pos == GTK_POS_LEFT )
+            {
+                gtk_box_pack_start( box, img, FALSE, TRUE, 2 );
+                gtk_box_pack_start( box, gtk_vseparator_new(), FALSE, TRUE, 2 );
+            }
+            else
+            {
+                gtk_box_pack_end( box, img, FALSE, TRUE, 2 );
+                gtk_box_pack_end( box, gtk_vseparator_new(), FALSE, TRUE, 2 );
+            }
+            vbox = gtk_vbox_new( FALSE, 2 );
+            gtk_box_pack_start( box, vbox, TRUE, TRUE, 2 );
+            gtk_misc_set_alignment( (GtkMisc*)img, 0.5, 0.0 );
+            break;
+        case GTK_POS_TOP:
+        case GTK_POS_BOTTOM:
+            if( banner_pos == GTK_POS_TOP )
+            {
+                gtk_box_pack_start( vbox, img, FALSE, TRUE, 2 );
+                gtk_box_pack_start( vbox, gtk_hseparator_new(), FALSE, TRUE, 2 );
+            }
+            else
+            {
+                gtk_box_pack_end( vbox, img, FALSE, TRUE, 2 );
+                gtk_box_pack_end( vbox, gtk_hseparator_new(), FALSE, TRUE, 2 );
+            }
+            break;
+        }
+    }
+
+    label = gtk_label_new("");
+    if( ! prompt ) {
+        const char* session_name = g_getenv("DESKTOP_SESSION");
+        if( ! session_name )
+            session_name = "LXDE";
+        /* %s is the name of the desktop session */
+        prompt = g_strdup_printf( _("<b><big>Logout %s session?</big></b>"), session_name );
+    }
+
+    gtk_label_set_markup( label, prompt );
+    gtk_box_pack_start( vbox, label, FALSE, FALSE, 4 );
 
     check = gtk_check_button_new_with_label(_("Save current session"));
 
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
     {
         btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", GDM_LOGOUT_ACTION_SHUTDOWN );
-        gtk_box_pack_start( ((GtkDialog*)dlg)->vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_REBOOT) )
     {
         btn = create_dlg_btn(_("_Reboot"), "gnome-session-reboot", GDM_LOGOUT_ACTION_REBOOT );
-        gtk_box_pack_start( ((GtkDialog*)dlg)->vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
     if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SUSPEND) )
     {
         btn = create_dlg_btn(_("_Suspend"), "gnome-session-suspend", GDM_LOGOUT_ACTION_SUSPEND );
-        gtk_box_pack_start( ((GtkDialog*)dlg)->vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
 
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
-    gtk_box_pack_start( ((GtkDialog*)dlg)->vbox, btn, FALSE, FALSE, 4 );
+    gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
 
     gtk_toggle_button_set_active( check, TRUE );
-    gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, check, FALSE, FALSE, 4);
+    gtk_box_pack_start( vbox, check, FALSE, FALSE, 4);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
     gtk_widget_show_all( dlg );
 

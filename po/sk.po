@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-24 22:52+0800\n"
+"POT-Creation-Date: 2008-02-24 23:30+0800\n"
 "PO-Revision-Date: 2007-09-17 01:05+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -35,40 +35,42 @@ msgstr ""
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/main.c:120 ../lxsession-logout/main.c:131
+#: ../lxsession-logout/main.c:136 ../lxsession-logout/main.c:147
 #, c-format
 msgid "Error: %s\n"
 msgstr ""
 
-#: ../lxsession-logout/main.c:120
+#: ../lxsession-logout/main.c:136
 msgid "LXSession is not running."
 msgstr ""
 
-#: ../lxsession-logout/main.c:142
+#: ../lxsession-logout/main.c:158
 #, fuzzy
 msgid "Logout"
 msgstr "_Odhlásiť"
 
-#: ../lxsession-logout/main.c:146
-msgid "<b><big>Logout Session?</big></b>"
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:167
+#, fuzzy, c-format
+msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Odhlásiť reláciu?</big></b>"
 
-#: ../lxsession-logout/main.c:150
+#: ../lxsession-logout/main.c:204
 msgid "Save current session"
 msgstr "Uložiť aktuálnu reláciu"
 
-#: ../lxsession-logout/main.c:154
+#: ../lxsession-logout/main.c:208
 msgid "Sh_utdown"
 msgstr "_Vypnúť"
 
-#: ../lxsession-logout/main.c:159
+#: ../lxsession-logout/main.c:213
 msgid "_Reboot"
 msgstr "_Reštartovať"
 
-#: ../lxsession-logout/main.c:164
+#: ../lxsession-logout/main.c:218
 msgid "_Suspend"
 msgstr "_Pohotovostný režim"
 
-#: ../lxsession-logout/main.c:168
+#: ../lxsession-logout/main.c:222
 msgid "_Logout"
 msgstr "_Odhlásiť"

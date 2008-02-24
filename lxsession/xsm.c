@@ -304,6 +304,8 @@ usage:
     if ( !session_name )
         session_name = g_strdup ( "LXDE" );
 
+    g_setenv( "DESKTOP_SESSION", session_name, TRUE );
+
     if ( !StartSession ( session_name ) )
         UnableToLockSession ( session_name );
 
