@@ -296,24 +296,39 @@ ReadSave ( char **sm_id )
 }
 
 /* FIXME: Are these simple checks enough? */
-gboolean same_command( const char* cmd1, const char* cmd2 )
+static gboolean same_command( const char* cmd1, const char* cmd2 )
 {
+    char *_cmd1 = NULL, *_cmd2 = NULL;
+    char* space;
+    gboolean ret = FALSE;
+
     if( ! cmd1 || ! cmd2 )
         return FALSE;
+
+    if( space = strchr( cmd1, ' ' ) )
+    {
+        _cmd1 = g_strndup( cmd1, (space - cmd1) );
+        cmd1 = _cmd1;
+    }
+
+    if( space = strchr( cmd2, ' ' ) )
+    {
+        _cmd2 = g_strndup( cmd2, (space - cmd2) );
+        cmd2 = _cmd2;
+    }
 
     /* if one of the commands is absolute path, and the other is not */
     if( g_path_is_absolute( cmd1 ) )
     {
         if( g_path_is_absolute( cmd2 ) )    /* both are absolute paths */
-            return 0 == strcmp( cmd1, cmd2 );
+            ret = (0 == strcmp( cmd1, cmd2 ));
         else  /* cmd2 is not an absoulte path */
         {
             char* full = g_find_program_in_path( cmd2 );
             if( full )
             {
-                gboolean ret = 0 == strcmp( cmd1, full );
+                ret = (0 == strcmp( cmd1, full ));
                 g_free( full );
-                return ret;
             }
         }
     }
@@ -324,15 +339,16 @@ gboolean same_command( const char* cmd1, const char* cmd2 )
             char* full = g_find_program_in_path( cmd1 );
             if( full )
             {
-                gboolean ret = 0 == strcmp( cmd2, full );
+                ret = (0 == strcmp( cmd2, full));
                 g_free( full );
-                return ret;
             }
         }
         else /* cmd2 is not an absoulte path, either */
-            return 0 == strcmp( cmd1, cmd2 );
+            ret = (0 == strcmp( cmd1, cmd2 ));
     }
-    return FALSE;
+    g_free( _cmd1 );
+    g_free( _cmd2 );
+    return ret;
 }
 
 gboolean is_default_app( ClientRec *client )
