@@ -552,7 +552,9 @@ g_debug( "default: %s", filename );
 
     while ( getnextline ( &buf, &buflen, f ) )
     {
+	/*
         char logtext[256];
+	 */
 
         if ( buf[0] == '!' )
             continue;  /* a comment */
@@ -585,7 +587,9 @@ g_debug( "default: %s", filename );
 void
 StartNonSessionAwareApps ( void )
 {
+#if 0
     char logtext[256];
+#endif
     int i;
 
     for ( i = 0; i < non_session_aware_count; i++ )

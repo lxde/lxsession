@@ -81,10 +81,10 @@ write_iceauth ( FILE *addfp, FILE *removefp, IceAuthDataEntry *entry )
 
 #ifndef HAS_MKSTEMP
 static char *
-unique_filename ( char *path, char *prefix )
+unique_filename ( const char *path, char *prefix )
 #else
 static char *
-unique_filename ( char *path, char *prefix, int *pFd )
+unique_filename ( const char *path, char *prefix, int *pFd )
 #endif
 {
 #ifndef HAS_MKSTEMP

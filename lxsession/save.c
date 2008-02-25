@@ -34,6 +34,7 @@ in this Software without prior written authorization from The Open Group.
 
 extern int checkpoint_from_signal;
 
+#if 0
 static int saveTypeData[] = {
                                 SmSaveLocal,
                                 SmSaveGlobal,
@@ -53,6 +54,7 @@ static Bool help_visible = False;
 
 static char* name_in_use = NULL;
 static Bool name_locked = False;
+#endif
 
 void
 DoSave ( int saveType, int interactStyle, Bool fast )

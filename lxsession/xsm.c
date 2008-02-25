@@ -163,14 +163,14 @@ main ( int argc, char *argv[] )
     char *p;
     char  str[256];
     static char environment_name[] = "SESSION_MANAGER";
-    int  success, i;
+    int  i;
 
     main_loop = g_main_loop_new( NULL, TRUE );
 
     Argc = argc;
     Argv = argv;
 
-    p = g_getenv("_LXSESSION_PID");
+    p = (char *) g_getenv("_LXSESSION_PID");
 
     for ( i = 1; i < argc; i++ )
     {
@@ -439,7 +439,6 @@ Status
 StartSession ( char *name )
 {
     int database_read = 0;
-    char title[256];
 
     /*
      * If we're not using the default session, lock it.
@@ -958,7 +957,7 @@ CloseDownClient ( ClientRec *client )
 
     if ( saveInProgress )
     {
-        if ( elem = g_slist_find ( WaitForSaveDoneList, client ) )
+        if ( ( elem = g_slist_find ( WaitForSaveDoneList, client ) ) )
         {
             WaitForSaveDoneList = g_slist_delete_link ( WaitForSaveDoneList, elem );
         }

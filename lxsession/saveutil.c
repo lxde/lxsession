@@ -151,7 +151,7 @@ ReadSave ( char **sm_id )
         *sm_id = *buf ? g_strdup( buf ) : NULL;
     }
     else
-        return;
+        return 0;
 
     /* Read number of clients running in the last session */
     if ( version_number >= 2 )
@@ -263,7 +263,6 @@ ReadSave ( char **sm_id )
 
     if ( state == 5 )
     {
-        char *strbuf;
         int bufsize = 0;
 
         getnextline ( &buf, &buflen, f );
@@ -305,13 +304,13 @@ static gboolean same_command( const char* cmd1, const char* cmd2 )
     if( ! cmd1 || ! cmd2 )
         return FALSE;
 
-    if( space = strchr( cmd1, ' ' ) )
+    if( ( space = strchr( cmd1, ' ' ) ) )
     {
         _cmd1 = g_strndup( cmd1, (space - cmd1) );
         cmd1 = _cmd1;
     }
 
-    if( space = strchr( cmd2, ' ' ) )
+    if( ( space = strchr( cmd2, ' ' ) ) )
     {
         _cmd2 = g_strndup( cmd2, (space - cmd2) );
         cmd2 = _cmd2;
@@ -353,7 +352,7 @@ static gboolean same_command( const char* cmd1, const char* cmd2 )
 
 gboolean is_default_app( ClientRec *client )
 {
-    GSList *pl, *def;
+    GSList *pl;
     /*
       NOTE:
       Check if the program we try to save is a default app.
@@ -363,7 +362,6 @@ gboolean is_default_app( ClientRec *client )
     for ( pl = client->props; pl; pl = g_slist_next ( pl ) )
     {
         Prop *pprop = ( Prop * ) pl->data;
-        GSList *vl;
         PropValue *pval;
 
         if( 0 == strcmp( pprop->name, "Program" ) ) /* check program name first */
@@ -441,7 +439,9 @@ SaveClient ( FILE *f, ClientRec *client )
         Prop *pprop = ( Prop * ) pl->data;
         GSList *pj, *vl;
         PropValue *pval;
+	/*
         gboolean check_program = !strcmp( pprop->name, "Program" );
+	 */
         fprintf ( f, "%s\n", pprop->name );
         fprintf ( f, "%s\n", pprop->type );
         if ( strcmp ( pprop->type, SmCARD8 ) == 0 )
@@ -473,11 +473,13 @@ SaveClient ( FILE *f, ClientRec *client )
 void
 WriteSave ( char *sm_id )
 {
-    ClientRec *client;
+    ClientRec *client = NULL;
     FILE *f;
     GSList *cl;
+#if 0
     char *commands;
     char *p, *c;
+#endif
     int count;
 
     /* g_debug ( "write: session_save_file = %s", session_save_file ); */

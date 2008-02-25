@@ -34,6 +34,7 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/SM/SMlib.h>
 
 #include "save.h"
+#include "xsm.h"
 
 #include <errno.h>
 #ifdef USG
@@ -171,7 +172,7 @@ static void logout( gboolean term )
     checkpoint_from_signal = 1;
 
     file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
-    if( need_save = g_file_test( file, G_FILE_TEST_EXISTS) )
+    if( ( need_save = g_file_test( file, G_FILE_TEST_EXISTS) ) )
         unlink( file );
     g_free( file );
 

@@ -44,6 +44,7 @@ Buffer;
 #define BUF_START_SIZE 1024
 #define BUF_GROW_SIZE 256
 
+#if 0
 static void
 AppendStr ( Buffer *buffer, char *str )
 {
@@ -67,6 +68,7 @@ AppendStr ( Buffer *buffer, char *str )
     buffer->bufPtr += len;
     buffer->bytesLeft -= len;
 }
+#endif
 
 char *
 GetProgramName ( char *fullname )
