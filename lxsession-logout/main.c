@@ -25,6 +25,10 @@
 #include <glib/gi18n.h>
 #include <signal.h>
 #include <gdk/gdk.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #include "gdm-logout-action.h"
 
@@ -115,8 +119,6 @@ int main( int argc, char** argv )
 {
     GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox;
     GtkPositionType banner_pos;
-    GdkPixbuf *tmp, *shot;
-    GdkScreen *screen;
     int res;
     const char* p;
     char* file;
