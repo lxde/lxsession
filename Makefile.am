@@ -1,4 +1,4 @@
-SUBDIRS=lxsession lxsession-logout po
+SUBDIRS=lxsession lxsession-logout po man
 
 imagedir=$(datadir)/lxsession/images
 image_DATA= \

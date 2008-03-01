@@ -116,6 +116,7 @@ AC_OUTPUT([
   lxsession/Makefile
   lxsession-logout/Makefile
   po/Makefile.in
+  man/Makefile
 ])
 
 echo
