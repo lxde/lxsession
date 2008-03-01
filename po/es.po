@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-24 23:30+0800\n"
+"POT-Creation-Date: 2008-03-01 21:08+0800\n"
 "PO-Revision-Date: 2007-04-30 14:14-0300\n"
 "Last-Translator: Alejandro Zárate <alejandroazarate@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,62 +18,70 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: ARGENTINA\n"
 
-#: ../lxsession-logout/main.c:37
+#: ../lxsession-logout/main.c:62
 msgid "Custom message to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/main.c:37
+#: ../lxsession-logout/main.c:62
 msgid "message"
 msgstr ""
 
-#: ../lxsession-logout/main.c:38
+#: ../lxsession-logout/main.c:63
 msgid "Banner to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/main.c:38
+#: ../lxsession-logout/main.c:63
 msgid "image file"
 msgstr ""
 
-#: ../lxsession-logout/main.c:39
+#: ../lxsession-logout/main.c:64
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/main.c:136 ../lxsession-logout/main.c:147
+#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
 #, c-format
 msgid "Error: %s\n"
 msgstr ""
 
-#: ../lxsession-logout/main.c:136
+#: ../lxsession-logout/main.c:333
 msgid "LXSession is not running."
 msgstr ""
 
-#: ../lxsession-logout/main.c:158
+#: ../lxsession-logout/main.c:355
 #, fuzzy
 msgid "Logout"
 msgstr "_Cerrar Sesión"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:167
+#: ../lxsession-logout/main.c:407
 #, fuzzy, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>¿Cerrar sesión?</big></b>"
 
-#: ../lxsession-logout/main.c:204
+#: ../lxsession-logout/main.c:413
 msgid "Save current session"
 msgstr "Guardar la sesión actual"
 
-#: ../lxsession-logout/main.c:208
+#: ../lxsession-logout/main.c:419
 msgid "Sh_utdown"
 msgstr "_Apagar"
 
-#: ../lxsession-logout/main.c:213
+#: ../lxsession-logout/main.c:424
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
-#: ../lxsession-logout/main.c:218
+#: ../lxsession-logout/main.c:429
 msgid "_Suspend"
 msgstr "_Suspender"
 
-#: ../lxsession-logout/main.c:222
+#: ../lxsession-logout/main.c:434
+msgid "_Hibernate"
+msgstr ""
+
+#: ../lxsession-logout/main.c:442
+msgid "S_witch User"
+msgstr ""
+
+#: ../lxsession-logout/main.c:446
 msgid "_Logout"
 msgstr "_Cerrar Sesión"

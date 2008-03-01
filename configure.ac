@@ -1,6 +1,6 @@
 
 dnl  Copyright 2005 Red Hat, Inc.
-dnl 
+dnl
 dnl  Permission to use, copy, modify, distribute, and sell this software and its
 dnl  documentation for any purpose is hereby granted without fee, provided that
 dnl  the above copyright notice appear in all copies and that both that
@@ -10,7 +10,7 @@ dnl  advertising or publicity pertaining to distribution of the software without
 dnl  specific, written prior permission.  Red Hat makes no
 dnl  representations about the suitability of this software for any purpose.  It
 dnl  is provided "as is" without express or implied warranty.
-dnl 
+dnl
 dnl  RED HAT DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,
 dnl  INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO
 dnl  EVENT SHALL RED HAT BE LIABLE FOR ANY SPECIAL, INDIRECT OR
@@ -24,7 +24,7 @@ dnl
 dnl 2006.10.23 modified by Hong Jen Yee (PCMan) <pcman.tw(at)gmail.com>
 
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.2], [],lxsession)
+AC_INIT(lxsession,[0.3], [],lxsession)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
@@ -61,7 +61,7 @@ fi
 #endif
 #endif
 
-AC_CHECK_FUNC([mkstemp], 
+AC_CHECK_FUNC([mkstemp],
    AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the `mkstemp' function.]))
 AC_CHECK_FUNC([putenv], [],
    AC_DEFINE(NOPUTENV,1,[Define to 1 if you DO NOT have the `putenv' function.]))
@@ -86,13 +86,13 @@ AC_ARG_ENABLE(
 
 if test x"$use_hal" = x"yes"; then
 dnl Check HAL support
-    hal_modules="dbus-glib-1 >= 0.31 hal >= 0.5.9"
+    hal_modules="dbus-1"
     PKG_CHECK_MODULES(HAL, [$hal_modules], [have_hal=yes], [have_hal=no])
 
     if test x"$have_hal" = x"yes"; then
         AC_DEFINE([HAVE_HAL], [1], [Define to 1 if you have HAL.])
     else
-        AC_MSG_ERROR([To use HAL support, you must have developing packages of dbus-glib-1 (>=0.31), hal(>=0.5.0), and hal-storage, or you can use --disable-hal to disable HAL support.])
+        AC_MSG_ERROR([To use HAL support, you must have developing packages of dbus-glib-1 (>=0.31), or you can use --disable-hal to disable HAL support.])
     fi
 fi
 AM_CONDITIONAL(USE_HAL, test "$use_hal" = "yes")

@@ -2,6 +2,11 @@
  *      main.c -lxsession-logout for LXSession
  *
  *      Copyright 2008 PCMan <pcman.tw@gmail.com>
+ *      Copyright (c) 2003-2006 Benedikt Meurer <benny@xfce.org>
+ *
+ *      HAL-related parts are taken from xfsm-shutdown-helper.c of
+ *      xfce4-session originally written by Benedikt Meurer, with some
+ *      modification to be used in this project.
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -32,6 +37,22 @@
 
 #include "gdm-logout-action.h"
 
+#ifdef HAVE_HAL
+#include <dbus/dbus.h>
+#endif
+
+typedef enum {
+        LOGOUT_ACTION_NONE     = GDM_LOGOUT_ACTION_NONE,
+        LOGOUT_ACTION_SHUTDOWN = GDM_LOGOUT_ACTION_SHUTDOWN,
+        LOGOUT_ACTION_REBOOT   = GDM_LOGOUT_ACTION_REBOOT,
+        LOGOUT_ACTION_SUSPEND  = GDM_LOGOUT_ACTION_SUSPEND,
+        LOGOUT_ACTION_HIBERNATE = GDM_LOGOUT_ACTION_SUSPEND << 1,    /* HAL only */
+        LOGOUT_ACTION_SWITCH_USER = GDM_LOGOUT_ACTION_SUSPEND << 2   /* not supported */
+}LogoutAction;
+
+static gboolean use_hal = FALSE;
+static LogoutAction available_actions = GDM_LOGOUT_ACTION_NONE;
+
 static char* prompt = NULL;
 static char* side = NULL;
 static char* banner = NULL;
@@ -44,6 +65,19 @@ static GOptionEntry opt_entries[] =
 /*    {G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &files, NULL, N_("[FILE1, FILE2,...]")}, */
     { NULL }
 };
+
+static gboolean on_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* shot )
+{
+    if( GTK_WIDGET_REALIZED(w) && GDK_IS_DRAWABLE(w->window) )
+    {
+        gdk_draw_pixbuf( w->window, w->style->black_gc, shot,
+                                    evt->area.x, evt->area.y,
+                                    evt->area.x, evt->area.y,
+                                    evt->area.width, evt->area.height,
+                                    GDK_RGB_DITHER_NORMAL, 0, 0 );
+    }
+    return TRUE;
+}
 
 static GtkWidget* create_background()
 {
@@ -71,9 +105,9 @@ static GtkWidget* create_background()
     back = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     gtk_widget_set_app_paintable( back, TRUE );
     gtk_widget_set_double_buffered( back, FALSE );
-    img = gtk_image_new_from_pixbuf( shot );
-    g_object_unref( shot );
-    gtk_container_add( back, img );
+    g_signal_connect( back, "expose-event", G_CALLBACK(on_expose), shot);
+    g_object_weak_ref( back, (GWeakNotify)g_object_unref,  shot );
+
     gtk_window_fullscreen( back );
     gtk_window_set_decorated( back, FALSE );
     gtk_window_set_keep_above( (GtkWindow*)back, TRUE );
@@ -91,7 +125,7 @@ static void btn_clicked( GtkWidget* btn, gpointer id )
 static GtkWidget* create_dlg_btn(const char* label, const char* icon, int response )
 {
     GtkWidget* btn = gtk_button_new_with_mnemonic( label );
-    gtk_button_set_alignment( (GtkButton*)btn, 0.1, 0.5 );
+    gtk_button_set_alignment( (GtkButton*)btn, 0.0, 0.5 );
     g_signal_connect( btn, "clicked", G_CALLBACK(btn_clicked), GINT_TO_POINTER(response) );
     if( icon )
     {
@@ -113,6 +147,167 @@ GtkPositionType get_banner_position()
             return GTK_POS_BOTTOM;
     }
     return GTK_POS_LEFT;
+}
+
+/*
+ *  These functions with the prefix "xfsm_" are taken from
+ *  xfsm-shutdown-helper.c of xfce4-session with some modification.
+ *  Copyright (c) 2003-2006 Benedikt Meurer <benny@xfce.org>
+ */
+static gboolean xfsm_shutdown_helper_hal_check ()
+{
+#ifdef HAVE_HAL
+    DBusConnection *connection;
+    DBusMessage        *message;
+    DBusMessage        *result;
+    DBusError             error;
+
+    /* initialize the error */
+    dbus_error_init (&error);
+
+    /* connect to the system message bus */
+    connection = dbus_bus_get (DBUS_BUS_SYSTEM, &error);
+    if (G_UNLIKELY (connection == NULL))
+    {
+        g_warning (G_STRLOC ": Failed to connect to the system message bus: %s", error.message);
+        dbus_error_free (&error);
+        return FALSE;
+    }
+
+    /* this is a simple trick to check whether we are allowed to
+     * use the org.freedesktop.Hal.Device.SystemPowerManagement
+     * interface without shutting down/rebooting now.
+     */
+    message = dbus_message_new_method_call ("org.freedesktop.Hal",
+                                                                                    "/org/freedesktop/Hal/devices/computer",
+                                                                                    "org.freedesktop.Hal.Device.SystemPowerManagement",
+                                                                                    "ThisMethodMustNotExistInHal");
+    result = dbus_connection_send_with_reply_and_block (connection, message, 2000, &error);
+    dbus_message_unref (message);
+
+    /* translate error results appropriately */
+    if (result != NULL && dbus_set_error_from_message (&error, result))
+    {
+        /* release and reset the result */
+        dbus_message_unref (result);
+        result = NULL;
+    }
+    else if (G_UNLIKELY (result != NULL))
+    {
+        /* we received a valid message return?! HAL must be on crack! */
+        dbus_message_unref (result);
+        return FALSE;
+    }
+
+    /* if we receive org.freedesktop.DBus.Error.UnknownMethod, then
+     * we are allowed to shutdown/reboot the computer via HAL.
+     */
+    if (strcmp (error.name, "org.freedesktop.DBus.Error.UnknownMethod") == 0)
+    {
+        dbus_error_free (&error);
+        return TRUE;
+    }
+
+    /* otherwise, we failed for some reason */
+    g_warning (G_STRLOC ": Failed to contact HAL: %s", error.message);
+    dbus_error_free (&error);
+#endif
+
+    return FALSE;
+}
+
+/*
+ *  These functions with the prefix "xfsm_" are taken from
+ *  xfsm-shutdown-helper.c of xfce4-session with some modification.
+ *  Copyright (c) 2003-2006 Benedikt Meurer <benny@xfce.org>
+ */
+static gboolean
+xfsm_shutdown_helper_hal_send ( LogoutAction action )
+{
+#ifdef HAVE_HAL
+    DBusConnection *connection;
+    DBusMessage        *message;
+    DBusMessage        *result;
+    DBusError             error;
+    const char* method;
+    dbus_int32_t suspend_arg = 0;
+
+    /* The spec:
+     http://people.freedesktop.org/~david/hal-spec/hal-spec.html#interface-device-systempower */
+    switch( action )
+    {
+    case LOGOUT_ACTION_SHUTDOWN:
+        method = "Shutdown";
+        break;
+    case LOGOUT_ACTION_REBOOT:
+        method = "Reboot";
+        break;
+    case LOGOUT_ACTION_SUSPEND:
+        method = "Suspend";
+        break;
+    case LOGOUT_ACTION_HIBERNATE:
+        method = "Hibernate";
+        break;
+    default:
+        return FALSE;    /* It's impossible to reach here, or it's a bug. */
+    }
+
+    /* initialize the error */
+    dbus_error_init (&error);
+
+    /* connect to the system message bus */
+    connection = dbus_bus_get (DBUS_BUS_SYSTEM, &error);
+    if (G_UNLIKELY (connection == NULL))
+    {
+        g_warning (G_STRLOC ": Failed to connect to the system message bus: %s", error.message);
+        dbus_error_free (&error);
+        return FALSE;
+    }
+
+    /* send the appropriate message to HAL, telling it to shutdown or reboot the system */
+    message = dbus_message_new_method_call ("org.freedesktop.Hal",
+                                                                                    "/org/freedesktop/Hal/devices/computer",
+                                                                                    "org.freedesktop.Hal.Device.SystemPowerManagement",
+                                                                                    method );
+    if( action == LOGOUT_ACTION_SUSPEND )
+        dbus_message_append_args( message, DBUS_TYPE_INT32, &suspend_arg, DBUS_TYPE_INVALID );
+
+    result = dbus_connection_send_with_reply_and_block (connection, message, 2000, &error);
+    dbus_message_unref (message);
+
+    /* check if we received a result */
+    if (G_UNLIKELY (result == NULL))
+    {
+        g_warning (G_STRLOC ": Failed to contact HAL: %s", error.message);
+        dbus_error_free (&error);
+        return FALSE;
+    }
+
+    /* pretend that we succeed */
+    dbus_message_unref (result);
+    return TRUE;
+#else
+    return FALSE;
+#endif
+}
+
+static void check_available_actions()
+{
+    /* check if we can use HAL to shutdown the computer */
+    use_hal = xfsm_shutdown_helper_hal_check ();
+    if( use_hal )   /* check if hal is available */
+    {
+        available_actions = LOGOUT_ACTION_SHUTDOWN | LOGOUT_ACTION_REBOOT | LOGOUT_ACTION_SUSPEND | LOGOUT_ACTION_HIBERNATE;
+    }
+    else /* check if gdm is available */
+    {
+        if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
+            available_actions |= GDM_LOGOUT_ACTION_SHUTDOWN;
+        if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_REBOOT) )
+            available_actions |= GDM_LOGOUT_ACTION_REBOOT;
+        if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SUSPEND) )
+            available_actions |= GDM_LOGOUT_ACTION_SUSPEND;
+    }
 }
 
 int main( int argc, char** argv )
@@ -159,7 +354,7 @@ int main( int argc, char** argv )
 
     dlg = gtk_dialog_new_with_buttons( _("Logout"), (GtkWindow*)back, GTK_DIALOG_MODAL,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
-
+    gtk_container_set_border_width( (GtkContainer*)dlg, 6 );
     vbox = ((GtkDialog*)dlg)->vbox;
 
     if( banner )
@@ -217,19 +412,34 @@ int main( int argc, char** argv )
 
     check = gtk_check_button_new_with_label(_("Save current session"));
 
-    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SHUTDOWN) )
+    check_available_actions();
+
+    if( available_actions & LOGOUT_ACTION_SHUTDOWN )
     {
-        btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", GDM_LOGOUT_ACTION_SHUTDOWN );
+        btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", LOGOUT_ACTION_SHUTDOWN );
         gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
-    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_REBOOT) )
+    if( available_actions & LOGOUT_ACTION_REBOOT )
     {
-        btn = create_dlg_btn(_("_Reboot"), "gnome-session-reboot", GDM_LOGOUT_ACTION_REBOOT );
+        btn = create_dlg_btn(_("_Reboot"), "gnome-session-reboot", LOGOUT_ACTION_REBOOT );
         gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
-    if( gdm_supports_logout_action(GDM_LOGOUT_ACTION_SUSPEND) )
+    if( available_actions & LOGOUT_ACTION_SUSPEND )
     {
-        btn = create_dlg_btn(_("_Suspend"), "gnome-session-suspend", GDM_LOGOUT_ACTION_SUSPEND );
+        btn = create_dlg_btn(_("_Suspend"), "gnome-session-suspend", LOGOUT_ACTION_SUSPEND );
+        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+    }
+    if( available_actions & LOGOUT_ACTION_HIBERNATE )
+    {
+        btn = create_dlg_btn(_("_Hibernate"), "gnome-session-hibernate", LOGOUT_ACTION_HIBERNATE );
+        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+    }
+
+    /* If GDM is running */
+    if( g_file_test("/var/run/gdm_socket", G_FILE_TEST_EXISTS)
+        || g_file_test("/tmp/.gdm_socket", G_FILE_TEST_EXISTS) )
+    {
+        btn = create_dlg_btn(_("S_witch User"), "gnome-session-switch", LOGOUT_ACTION_SWITCH_USER );
         gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
 
@@ -249,9 +459,11 @@ int main( int argc, char** argv )
 
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
-        case GDM_LOGOUT_ACTION_SHUTDOWN:
-        case GDM_LOGOUT_ACTION_REBOOT:
-        case GDM_LOGOUT_ACTION_SUSPEND:
+        case LOGOUT_ACTION_SHUTDOWN:
+        case LOGOUT_ACTION_REBOOT:
+        case LOGOUT_ACTION_SUSPEND:
+        case LOGOUT_ACTION_HIBERNATE:
+        case LOGOUT_ACTION_SWITCH_USER:
         case GTK_RESPONSE_OK:
             break;
         default:
@@ -268,13 +480,9 @@ int main( int argc, char** argv )
     file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
 
     if( gtk_toggle_button_get_active( check ) )
-    {
         creat( file, 0600 );
-    }
     else
-    {
         unlink( file );
-    }
     g_free( file );
 
     gtk_widget_destroy( dlg );
@@ -282,9 +490,19 @@ int main( int argc, char** argv )
 
     if( res != GTK_RESPONSE_OK )
     {
-        gdm_set_logout_action( res );
-        if( res != GDM_LOGOUT_ACTION_SUSPEND )
-            kill( pid, SIGTERM );   /* ask the session manager to do fast log out */
+        if( res == LOGOUT_ACTION_SWITCH_USER )
+        {
+            g_spawn_command_line_sync ("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
+            return 0;
+        }
+
+        if( use_hal )
+            xfsm_shutdown_helper_hal_send( res );
+        else
+            gdm_set_logout_action( res );
+
+        if( res != LOGOUT_ACTION_SUSPEND && res != LOGOUT_ACTION_HIBERNATE )
+            kill( pid, SIGTERM );   /* ask the session manager to do fast logout */
     }
     else
     {
