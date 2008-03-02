@@ -89,7 +89,7 @@ If you want to customize this logout box further, try this:
 lxsession-logout --prompt "Your custom message" --banner "Your logo" \
 --side "left | top | right | bottom (The position of the logo)"
 
-We create a script '/usr/bin/lxde-loogut' to do this:
+We create a script '/usr/bin/lxde-logut' to do this:
 #!/bin/sh
 /usr/bin/lxsession-logout --banner "/usr/share/lxde/images/logout-banner.png" --side top
 
