@@ -1,35 +1,48 @@
-This package was debianized by PCMan <pcman.tw@gmail.com> on
-Sun, 12 Nov 2006 19:49:14 +0800.
+This package was debianized by Andrew Lee <andrew@linux.org.tw> on
+Sat, 01 Mar 2008 21:55:45 +0800.
 
-It was downloaded from http://osdn.dl.sourceforge.net/sourceforge/lxde/lxsession-0.1.1.tar.gz
+It was downloaded from http://sourceforge.net/projects/lxde/
 
-Upstream Author: Hong Jen Yee (PCMan) pcman.tw@gmail.com
+Upstream Authors:
 
-Copyright: Copyright (C) 2006 Hong Jen Yee
-           Copyright 1993, 1998  The Open Group
+    Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
+    Fred Chien <cfsghost@gmail.com>
 
+Copyright Holders: 
+
+    Copyright (C) 2008 Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
+
+Most of the session manager is based on XSM by The Open Group.
+
+    Copyright 1994, 1998  The Open Group
+
+The GDM support of lxsession-logout is taken from gnome-session.
+    
+    Copyright (C) 2005 Raffaele Sandrini
+    Copyright (C) 2005 Red Hat, Inc.
+    Copyright (C) 2002, 2003 George Lebl
+    Copyright (C) 2001 Queen of England
+
+HAL support of lxsession-logout is taken from xfce4-session.
+    Copyright (c) 2003-2006 Benedikt Meurer <benny@xfce.org>
+   
 License:
 
-   This package is free software; you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2 of the License, or
-   (at your option) any later version.
+    This software is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License. as 
+    published by the Free Software Foundation; either version 2 of 
+    the License, or (at your option) any later version.
 
-   This package is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
 
-   You should have received a copy of the GNU General Public License
-   along with this package; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
-
-On Debian systems, the complete text of the GNU General
-Public License can be found in `/usr/share/common-licenses/GPL'.
-
-The Debian packaging is (C) 2006, PCMan <pcman.tw@gmail.com> and
-is licensed under the GPL, see above.
+    You should have received a copy of the GNU General Public License
+    along with this library; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 
+    02110-1301, USA.
 
 
-# Please also look if there are files or directories which have a
-# different copyright/license attached and list them here.
+The Debian packaging is (C) 2008, Andrew Lee <andrew@linux.org.tw> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
