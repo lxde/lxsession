@@ -88,7 +88,7 @@ manpage.1: manpage.sgml
     <variablelist>
       <varlistentry>
         <term>
-          <option>--prompt <replaceable>"Your custom message"</replaceable></option>
+          <option>--prompt <replaceable>Your custom message</replaceable></option>
         </term>
         <listitem>
           <para>Customize the logout message.</para>
@@ -96,7 +96,7 @@ manpage.1: manpage.sgml
       </varlistentry>
       <varlistentry>
         <term>
-          <option>--banner <replaceable>"Your logo"</replaceable></option>
+          <option>--banner <replaceable>Your logo</replaceable></option>
         </term>
         <listitem>
           <para>Customize the logout logo.</para>
