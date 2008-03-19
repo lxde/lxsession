@@ -24,7 +24,7 @@ dnl
 dnl 2006.10.23 modified by Hong Jen Yee (PCMan) <pcman.tw(at)gmail.com>
 
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.3], [],lxsession)
+AC_INIT(lxsession,[0.3.1], [],lxsession)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
