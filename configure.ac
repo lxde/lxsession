@@ -24,7 +24,7 @@ dnl
 dnl 2006.10.23 modified by Hong Jen Yee (PCMan) <pcman.tw(at)gmail.com>
 
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.3.1], [],lxsession)
+AC_INIT(lxsession,[0.3.2], [],lxsession)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
@@ -34,32 +34,6 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AC_PROG_INSTALL
 AM_PROG_CC_C_O
-
-RSH=
-if [[ -z $RSH ]] ; then
-   AC_PATH_PROG(RSH,rsh)
-fi
-if [[ -z $RSH ]] ; then
-   AC_PATH_PROG(RSH,rcmd)
-fi
-if [[ -z $RSH ]] ; then
-   AC_PATH_PROG(RSH,remsh)
-fi
-if [[ -z $RSH ]] ; then
-   AC_MSG_ERROR(No rsh like program found)
-fi
-
-#if !defined(RshCmd)
-#if SystemV
-#ifdef HPArchitecture
-#define RshCmd remsh
-#else
-#define RshCmd rcmd
-#endif
-#else
-#define RshCmd rsh
-#endif
-#endif
 
 AC_CHECK_FUNC([mkstemp],
    AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the `mkstemp' function.]))

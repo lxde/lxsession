@@ -151,6 +151,7 @@ char        *session_env = NULL, *non_local_session_env = NULL;
 char        *audio_env = NULL;
 
 Bool        remote_allowed;
+extern char* rsh_cmd;
 
 /* End of global variables */
 
@@ -300,6 +301,17 @@ usage:
 
     if ( verbose )
         printf ( "setenv %s %s\n", environment_name, networkIds );
+
+    /* find rsh program */
+    rsh_cmd = g_find_program_in_path( "rsh" );
+    if( G_UNLIKELY( ! rsh_cmd ) )
+    {
+        rsh_cmd = g_find_program_in_path( "rcmd" );
+        if( G_UNLIKELY( ! rsh_cmd ) )
+        {
+            rsh_cmd = g_find_program_in_path( "remsh" );
+        }
+    }
 
     if ( !session_name )
         session_name = g_strdup ( "LXDE" );
