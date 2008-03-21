@@ -9,8 +9,9 @@ Homepage: http://www.gnomefiles.org/app.php/LXSession
 Package: lxsession
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: openbox | x-window-manager, hal, openssh-client | rsh-client | ssh-client
+Suggests: lxde-common, lxpanel, pcmanfm, gpicview
 Provides: x-session-manager
-Recommends: openbox | x-window-manager, hal
 Description: a lightweight X11 session manager
  LXSession is a lightweight X11 session manager with fewer dependencies,
  designed for use with the LXDE(Lightweight X11 Desktop Environment).
