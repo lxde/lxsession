@@ -1,61 +1,62 @@
 # Hungarian translation of lxsession
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxsession package.
-# SZERVÁC Attila <sas@321>, 2006.
-# 
+# SZERVÁC Attila <sas@321>, 2006-2008.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-01 21:08+0800\n"
-"PO-Revision-Date: 2006-11-01 10:15+0100\n"
+"PO-Revision-Date: 2008-03-23 01:42+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=n>1;\n"
 "X-Poedit-Language: Hungarian\n"
 "X-Poedit-Country: HUNGARY\n"
 
 #: ../lxsession-logout/main.c:62
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Egyéni üzenet a párbeszédablakon"
 
 #: ../lxsession-logout/main.c:62
 msgid "message"
-msgstr ""
+msgstr "üzenet"
 
 #: ../lxsession-logout/main.c:63
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Banner a párbeszédablakon"
 
 #: ../lxsession-logout/main.c:63
 msgid "image file"
-msgstr ""
+msgstr "képfájl"
 
 #: ../lxsession-logout/main.c:64
 msgid "Position of the banner"
-msgstr ""
+msgstr "A banner helye"
 
-#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:344
 #, c-format
 msgid "Error: %s\n"
-msgstr ""
+msgstr "Hiba: %s\n"
 
 #: ../lxsession-logout/main.c:333
 msgid "LXSession is not running."
-msgstr ""
+msgstr "Az LXSession nem fut"
 
 #: ../lxsession-logout/main.c:355
 msgid "Logout"
-msgstr ""
+msgstr "Kijelentkezés"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:407
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Kilépsz a folyamatból?</big></b>"
+msgstr "<b><big>Kilépsz e folyamatból: %s</big></b>"
 
 #: ../lxsession-logout/main.c:413
 msgid "Save current session"
@@ -63,24 +64,25 @@ msgstr "Folyamat mentése"
 
 #: ../lxsession-logout/main.c:419
 msgid "Sh_utdown"
-msgstr ""
+msgstr "_Leállítás"
 
 #: ../lxsession-logout/main.c:424
 msgid "_Reboot"
-msgstr ""
+msgstr "Újra_indítás"
 
 #: ../lxsession-logout/main.c:429
 msgid "_Suspend"
-msgstr ""
+msgstr "_Felfüggesztés"
 
 #: ../lxsession-logout/main.c:434
 msgid "_Hibernate"
-msgstr ""
+msgstr "_Hibernálás"
 
 #: ../lxsession-logout/main.c:442
 msgid "S_witch User"
-msgstr ""
+msgstr "Felhasználó_váltás"
 
 #: ../lxsession-logout/main.c:446
 msgid "_Logout"
-msgstr ""
+msgstr "_Kijelentkezés"
+
