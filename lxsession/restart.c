@@ -538,7 +538,7 @@ StartDefaultApps ( char* session_name )
     {
         char* filename;
         filename = g_build_filename( *dir, "lxsession", session_name, "default", NULL );
-g_debug( "default: %s", filename );
+
         f = fopen ( filename, "r" );
         g_free( filename );
         if( f )
@@ -552,9 +552,9 @@ g_debug( "default: %s", filename );
 
     while ( getnextline ( &buf, &buflen, f ) )
     {
-	/*
+    /*
         char logtext[256];
-	 */
+     */
 
         if ( buf[0] == '!' )
             continue;  /* a comment */
