@@ -251,7 +251,7 @@ usage:
                                     256, str ) )
     {
         fprintf ( stderr, "%s\n", str );
-        exit ( 1 );
+        //exit ( 1 );
     }
 
     atexit ( Cleanup );
