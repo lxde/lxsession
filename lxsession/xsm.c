@@ -251,7 +251,7 @@ usage:
                                     256, str ) )
     {
         fprintf ( stderr, "%s\n", str );
-        //exit ( 1 );
+        exit ( 1 );
     }
 
     atexit ( Cleanup );
@@ -1316,7 +1316,7 @@ ice_process_messages ( GIOChannel *channel, GIOCondition condition,
             IceSetShutdownNegotiation ( ice_conn, False );
             IceCloseConnection ( ice_conn );
             /* remove the I/O watch */
-            return ( FALSE );
+            //return ( FALSE );
         }
     }
 
