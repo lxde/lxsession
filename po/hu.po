@@ -56,7 +56,7 @@ msgstr "Kijelentkezés"
 #: ../lxsession-logout/main.c:407
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Kilépsz e folyamatból: %s</big></b>"
+msgstr "<b><big>Kilépsz e folyamatból: %s?</big></b>"
 
 #: ../lxsession-logout/main.c:413
 msgid "Save current session"
@@ -68,7 +68,7 @@ msgstr "_Leállítás"
 
 #: ../lxsession-logout/main.c:424
 msgid "_Reboot"
-msgstr "Újra_indítás"
+msgstr "Újrai_ndítás"
 
 #: ../lxsession-logout/main.c:429
 msgid "_Suspend"
