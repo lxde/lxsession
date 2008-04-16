@@ -1,0 +1,14 @@
+Lead developer: Hong Jen Yee (aka PCMan) <pcman.tw@gmail.com>
+
+Most of the session manager is based on XSM by The Open Group.
+Copyright 1994, 1998  The Open Group
+
+The GDM support of lxsession-logout is taken from gnome-session.
+Copyright (C) 2005 Raffaele Sandrini
+Copyright (C) 2005 Red Hat, Inc.
+Copyright (C) 2002, 2003 George Lebl
+Copyright (C) 2001 Queen of England
+
+HAL support of lxsession-logout is taken from xfce4-session.
+Copyright (c) 2003-2006 Benedikt Meurer <benny@xfce.org>
+
