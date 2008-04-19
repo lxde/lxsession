@@ -410,8 +410,6 @@ int main( int argc, char** argv )
     gtk_label_set_markup( label, prompt );
     gtk_box_pack_start( vbox, label, FALSE, FALSE, 4 );
 
-    check = gtk_check_button_new_with_label(_("Save current session"));
-
     check_available_actions();
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
@@ -446,8 +444,6 @@ int main( int argc, char** argv )
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
     gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
 
-    gtk_toggle_button_set_active( check, TRUE );
-    gtk_box_pack_start( vbox, check, FALSE, FALSE, 4);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
     gtk_window_set_decorated( (GtkWindow*)dlg, FALSE );
     gtk_widget_show_all( dlg );
@@ -476,14 +472,6 @@ int main( int argc, char** argv )
 
     gdk_pointer_ungrab( GDK_CURRENT_TIME );
     gdk_keyboard_ungrab( GDK_CURRENT_TIME );
-
-    file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
-
-    if( gtk_toggle_button_get_active( check ) )
-        creat( file, 0600 );
-    else
-        unlink( file );
-    g_free( file );
 
     gtk_widget_destroy( dlg );
     gtk_widget_destroy( back );

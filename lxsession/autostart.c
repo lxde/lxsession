@@ -21,11 +21,10 @@
 
 #include <glib.h>
 #include <stdio.h>
-
-#include "xsm.h"
 #include <string.h>
 
 static const char DesktopEntry[] = "Desktop Entry";
+extern const char* session_name;
 
 #if 0
 /*
@@ -172,10 +171,6 @@ _finish:
 
 static void launch_autostart_file( const char* desktop_id, const char* desktop_file, GKeyFile* kf )
 {
-    if( verbose ){
-        g_debug( "launch autostart file: %s", desktop_file );
-    }
-
     if( g_key_file_load_from_file( kf, desktop_file, 0, NULL ) )
     {
         char* exec;
@@ -256,18 +251,6 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
             /* launch the program */
             if( g_spawn_command_line_async( exec, NULL ) )
             {
-                /* using append is inefficient, but we need to keep the order. */
-                DefaultApps = g_slist_append( DefaultApps, exec );
-                if( verbose ) {
-                    g_debug( "%s is succesfully launched by autostart", exec );
-                    g_debug("Add default app by autostart: %s", exec);
-                }
-            }
-            else
-            {
-                if( verbose ) {
-                    g_debug( "Launch %s failed", exec );
-                }
             }
         }
     }
@@ -277,9 +260,6 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* session_na
 {
     char* dir_path = g_build_filename( base_dir, "autostart", NULL );
     GDir* dir = g_dir_open( dir_path, 0, NULL );
-
-    if( verbose )
-        g_debug( "Try to launch autostart files in %s", dir_path );
 
     if( dir )
     {
