@@ -84,7 +84,7 @@ static void on_child_exit( GPid pid, int status, const char* cmd )
 {
     int sig = WTERMSIG( status );
     /* if the term signal is not SIGTERM or SIGKILL, this might be a crash! */
-    if( sig != SIGTERM && sig != SIGKILL )
+    if( sig && sig != SIGTERM && sig != SIGKILL )
         run_guarded_app( cmd );
 }
 
@@ -107,6 +107,7 @@ static void run_guarded_app( const char* cmd )
                                                 g_strdup( cmd ), (GDestroyNotify)g_free );
         }
     }
+    g_strfreev( argv );
 }
 
 static void load_default_apps( const char* filename )
@@ -242,7 +243,7 @@ usage:
     if( G_UNLIKELY( pid_str ) ) /* _LXSESSION_PID has been set */
     {
         g_print("Error: LXSession is already running\n");
-        return 1;
+//        return 1;
     }
 
     g_snprintf( str, 16, "%d", getpid() );
