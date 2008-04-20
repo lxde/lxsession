@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR Fabrice THIROUX <fabrice.thiroux@free.fr>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-02 13:53+0200\n"
+"PO-Revision-Date: 2008-04-02 14:00+0200\n"
+"Last-Translator: Fabrice THIROUX <fabrice.thiroux@free.fr>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr "Message personnalisé à afficher"
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr "Bannière à afficher"
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr "fichier d'image"
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr "Position de la bannière"
+
+#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
+#, c-format
+msgid "Error: %s\n"
+msgstr "Erreur : %s\n"
+
+#: ../lxsession-logout/main.c:333
+msgid "LXSession is not running."
+msgstr "LXSession n'est pas actif"
+
+#: ../lxsession-logout/main.c:355
+msgid "Logout"
+msgstr "Déconnexion"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:407
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Quitter la session %s ?</big></b>"
+
+#: ../lxsession-logout/main.c:413
+msgid "Save current session"
+msgstr "Sauver la session courante"
+
+#: ../lxsession-logout/main.c:419
+msgid "Sh_utdown"
+msgstr "_Arrêter"
+
+#: ../lxsession-logout/main.c:424
+msgid "_Reboot"
+msgstr "_Redémarrer"
+
+#: ../lxsession-logout/main.c:429
+msgid "_Suspend"
+msgstr "_Suspendre"
+
+#: ../lxsession-logout/main.c:434
+msgid "_Hibernate"
+msgstr "_Hiberner"
+
+#: ../lxsession-logout/main.c:442
+msgid "S_witch User"
+msgstr "_Changer d'utilisateur"
+
+#: ../lxsession-logout/main.c:446
+msgid "_Logout"
+msgstr "_Délogger"
