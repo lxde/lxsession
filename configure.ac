@@ -24,7 +24,7 @@ dnl
 dnl 2006.10.23 modified by Hong Jen Yee (PCMan) <pcman.tw(at)gmail.com>
 
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.3.2], [],lxsession)
+AC_INIT(lxsession,[0.3.3], [],lxsession)
 AM_INIT_AUTOMAKE([dist-bzip2])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
@@ -82,7 +82,7 @@ AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="zh_TW hu es sk pl"
+ALL_LINGUAS="zh_TW hu es sk pl fr"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
