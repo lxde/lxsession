@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-01 21:08+0800\n"
-"PO-Revision-Date: 2008-03-23 01:42+0100\n"
+"PO-Revision-Date: 2008-04-21 07:49+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../lxsession-logout/main.c:62
 msgid "Custom message to show on the dialog"
-msgstr "Egyéni üzenet a párbeszédablakon"
+msgstr "Egyéni üzenet a párbeszéd-ablakon"
 
 #: ../lxsession-logout/main.c:62
 msgid "message"
@@ -28,11 +28,11 @@ msgstr "üzenet"
 
 #: ../lxsession-logout/main.c:63
 msgid "Banner to show on the dialog"
-msgstr "Banner a párbeszédablakon"
+msgstr "Banner a párbeszéd-ablakon"
 
 #: ../lxsession-logout/main.c:63
 msgid "image file"
-msgstr "képfájl"
+msgstr "Kép fájl"
 
 #: ../lxsession-logout/main.c:64
 msgid "Position of the banner"
