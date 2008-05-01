@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-30 15:46+0300\n"
+"PO-Revision-Date: 2008-04-30 15:51+0200\n"
+"Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr "Oma viesti, joka näytetään valintaikkunassa"
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr "viesti"
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr "kuvatiedosto"
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr ""
+
+#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:344
+#, c-format
+msgid "Error: %s\n"
+msgstr "Virhe: %s\n"
+
+#: ../lxsession-logout/main.c:333
+msgid "LXSession is not running."
+msgstr "LXSession ei ole käynnissä."
+
+#: ../lxsession-logout/main.c:355
+msgid "Logout"
+msgstr "Kirjaudu ulos"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:407
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr ""
+
+#: ../lxsession-logout/main.c:417
+msgid "Sh_utdown"
+msgstr "_Sammuta"
+
+#: ../lxsession-logout/main.c:422
+msgid "_Reboot"
+msgstr "Käynnistä _uudelleen"
+
+#: ../lxsession-logout/main.c:427
+msgid "_Suspend"
+msgstr "_Keskeytystila"
+
+#: ../lxsession-logout/main.c:432
+msgid "_Hibernate"
+msgstr "_Lepotila"
+
+#: ../lxsession-logout/main.c:440
+msgid "S_witch User"
+msgstr "_Vaihda käyttäjää"
+
+#: ../lxsession-logout/main.c:444
+msgid "_Logout"
+msgstr "K_irjaudu ulos"
+
