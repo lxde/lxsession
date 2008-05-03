@@ -1,6 +1,6 @@
 LXSession is the default X11 session manager of LXDE.
 (LXDE: Lightweight X11 Desktop Environment)
-http://lxde.sourceforge.net/
+http://lxde.org/
 
 LXSession Lite is the stripped down version without
 the problematic X11 Session Management support.
