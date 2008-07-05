@@ -1,15 +1,15 @@
 # German translation for lxsession.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-05-03 19:53+0200\n"
-"PO-Revision-Date: 2008-05-03 21:04+0200\n"
+"PO-Revision-Date: 2008-07-05 21:26+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Ru_hezustand"
 
 #: ../lxsession-logout/main.c:434
 msgid "_Hibernate"
-msgstr "_Schlafmodus"
+msgstr "_Bereitschaft"
 
 #: ../lxsession-logout/main.c:442
 msgid "S_witch User"
