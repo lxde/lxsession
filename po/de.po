@@ -3,15 +3,14 @@
 # This file is distributed under the same license as the lxsession package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-05-03 19:53+0200\n"
-"PO-Revision-Date: 2008-05-03 21:04+0200\n"
+"PO-Revision-Date: 2008-07-05 21:20+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
-"Language-Team: Deutsch <LL@li.org>\n"
+"Language-Team: German <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,7 +35,8 @@ msgstr "Bilddatei"
 msgid "Position of the banner"
 msgstr "Position der Grafik"
 
-#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:344
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
@@ -73,7 +73,7 @@ msgstr "Ru_hezustand"
 
 #: ../lxsession-logout/main.c:434
 msgid "_Hibernate"
-msgstr "_Schlafmodus"
+msgstr "_Bereitschaft"
 
 #: ../lxsession-logout/main.c:442
 msgid "S_witch User"
@@ -82,3 +82,4 @@ msgstr "Benutzer _wechseln"
 #: ../lxsession-logout/main.c:446
 msgid "_Logout"
 msgstr "Abme_lden"
+
