@@ -85,22 +85,41 @@ static GtkWidget* create_background()
     GdkPixbuf *tmp, *shot;
     GdkScreen *screen;
 
+    guchar *pixels, *p;
+    int x, y, width, height, rowstride;
+    gboolean has_alpha;
+
     screen = gdk_screen_get_default();
 
-    tmp = gdk_pixbuf_get_from_drawable( NULL,
+    shot = gdk_pixbuf_get_from_drawable( NULL,
                                         gdk_get_default_root_window(),
                                         NULL,
                                         0, 0, 0, 0,
                                         gdk_screen_get_width(screen),
                                         gdk_screen_get_height(screen) );
 
-    shot = gdk_pixbuf_composite_color_simple( tmp,
-                                              gdk_screen_get_width(screen),
-                                              gdk_screen_get_height(screen),
-                                              GDK_INTERP_NEAREST,
-                          128, gdk_screen_get_width(screen),
-                          0x000000, 0x000000);
-    g_object_unref( tmp );
+    /* make the background darker */
+    pixels = gdk_pixbuf_get_pixels(shot);
+    width = gdk_pixbuf_get_width(shot);
+    height = gdk_pixbuf_get_height(shot);
+    has_alpha = gdk_pixbuf_get_has_alpha(shot);
+    rowstride = gdk_pixbuf_get_rowstride(shot);
+
+    for (y = 0; y < height; y++)
+    {
+        p = pixels;
+        for (x = 0; x < width; x++)
+        {
+            p[0] = p[0] / 2;
+            p[1] = p[1] / 2;
+            p[2] = p[2] / 2;
+            if( has_alpha )
+                p += 4;
+            else
+                p += 3;
+        }
+        pixels += rowstride;
+    }
 
     back = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     gtk_widget_set_app_paintable( back, TRUE );
@@ -410,8 +429,6 @@ int main( int argc, char** argv )
     gtk_label_set_markup( label, prompt );
     gtk_box_pack_start( vbox, label, FALSE, FALSE, 4 );
 
-    check = gtk_check_button_new_with_label(_("Save current session"));
-
     check_available_actions();
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
@@ -446,8 +463,6 @@ int main( int argc, char** argv )
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
     gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
 
-    gtk_toggle_button_set_active( check, TRUE );
-    gtk_box_pack_start( vbox, check, FALSE, FALSE, 4);
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
     gtk_window_set_decorated( (GtkWindow*)dlg, FALSE );
     gtk_widget_show_all( dlg );
@@ -456,6 +471,7 @@ int main( int argc, char** argv )
 
     gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
     gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
+    gdk_x11_grab_server();
 
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
@@ -473,17 +489,9 @@ int main( int argc, char** argv )
             gdk_keyboard_ungrab( GDK_CURRENT_TIME );
             return 0;
     }
-
+    gdk_x11_ungrab_server();
     gdk_pointer_ungrab( GDK_CURRENT_TIME );
     gdk_keyboard_ungrab( GDK_CURRENT_TIME );
-
-    file = g_strdup_printf( "/tmp/lx-save_session-%s-%s" , g_get_user_name(), g_getenv("DISPLAY") );
-
-    if( gtk_toggle_button_get_active( check ) )
-        creat( file, 0600 );
-    else
-        unlink( file );
-    g_free( file );
 
     gtk_widget_destroy( dlg );
     gtk_widget_destroy( back );
