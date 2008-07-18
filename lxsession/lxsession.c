@@ -340,7 +340,7 @@ usage:
 
     register_signals();
 
-    if ( session_name )
+    if ( !session_name )
         session_name = "LXDE";
 
     g_setenv( "DESKTOP_SESSION", session_name, TRUE );
