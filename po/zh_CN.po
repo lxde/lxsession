@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# ideal <05281253@bjtu.edu.cn>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-01 21:08+0800\n"
+"PO-Revision-Date: 2008-08-05 15:18+0800\n"
+"Last-Translator:ideal <05281253@bjtu.edu.cn>\n"
+"Language-Team: zh_CN <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr "自定义在对话框上显示的信息"
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr "信息"
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr "显示在对话框上的图片"
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr "图片文件"
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr "图片位置"
+
+#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:344
+#, c-format
+msgid "Error: %s\n"
+msgstr "错误：%s\n"
+
+#: ../lxsession-logout/main.c:333
+msgid "LXSession is not running."
+msgstr "LXSession 不在运行。"
+
+#: ../lxsession-logout/main.c:355
+msgid "Logout"
+msgstr "注销"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:407
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>注销 %s 会话？</big></b>"
+
+#: ../lxsession-logout/main.c:413
+msgid "Save current session"
+msgstr "保存当前会话"
+
+#: ../lxsession-logout/main.c:419
+msgid "Sh_utdown"
+msgstr "关机(_U)"
+
+#: ../lxsession-logout/main.c:424
+msgid "_Reboot"
+msgstr "重新起动(_R)"
+
+#: ../lxsession-logout/main.c:429
+msgid "_Suspend"
+msgstr "挂起(_S)"
+
+#: ../lxsession-logout/main.c:434
+msgid "_Hibernate"
+msgstr "休眠(_H)"
+
+#: ../lxsession-logout/main.c:442
+msgid "S_witch User"
+msgstr "切换用户(_W)"
+
+#: ../lxsession-logout/main.c:446
+msgid "_Logout"
+msgstr "注销(_L)"
