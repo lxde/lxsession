@@ -11,7 +11,7 @@ AC_PROG_INSTALL
 AM_PROG_CC_C_O
 
 AC_CHECK_FUNC([mkstemp],
-   AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the `mkstemp' function.]))
+   AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the 'mkstemp' function.]))
 
 PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.6.0])
 AC_SUBST(GTK_CFLAGS)
@@ -48,7 +48,7 @@ AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="zh_TW hu es sk pl fr fi de"
+ALL_LINGUAS="zh_TW hu es sk pl fr fi de zh_CN"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
