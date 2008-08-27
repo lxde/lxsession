@@ -1,28 +1,30 @@
 Source: lxsession-lite
 Section: x11
-Priority: optional
+Priority: extra
 Maintainer: Andrew Lee <andrew@linux.org.tw>
-Build-Depends: debhelper (>= 5), autotools-dev, pkg-config, libgtk2.0-dev (>=2.6), libdbus-glib-1-dev (>=0.31), docbook-to-man
-Standards-Version: 3.7.3
-Homepage: http://www.gnomefiles.org/app.php/LXSession
+Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libdbus-glib-1-dev (>=0.31)
+Standards-Version: 3.8.0.0
+DM-Upload-Allowed: yes
+Homepage: http://lxde.sf.net
 
 Package: lxsession-lite
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: openbox | x-window-manager, hal, openssh-client
-Suggests: lxde-common, lxpanel, pcmanfm, gpicview
+Recommends: openbox | x-window-manager, hal
 Provides: x-session-manager
-Description: a lightweight X11 session manager
- LXSession Lite is a stripped down version of LXSession without
- X11 session management protocol support.
- .
- LXSession is a lightweight X11 session manager with fewer dependencies,
- designed for use with the LXDE(Lightweight X11 Desktop Environment).
+Conflicts: lxsession
+Description: a lightweight X11 session manager (lite version)
+ LXSession-lite is a lightweight X11 session manager with fewer 
+ dependencies, designed for use with the LXDE(Lightweight X11 
+ Desktop Environment).
  It derived from XSM and have following differences:
   * Removed the session dialog from xsm.
   * Use better configuration.
-  * Provide a nice logout-dialog with the ability to 
+  * Provide a nice logout-dialog with the ability to
     shutdown/reboot/suspend/hibernate via HAL or gdm,
  and more....
  .
  It's desktop-independent and can be used with any window manager.
+ .
+ As "session manager" it remembers the applications in use when you
+ logout, and restart the applications when you log back in.
