@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Finnish translation for LXSession Lite
+# Copyright (C) 2008
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Elias Julkunen <elias.julkunen@gmail.com>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-30 15:46+0300\n"
-"PO-Revision-Date: 2008-04-30 15:51+0200\n"
+"PO-Revision-Date: 2008-11-09 12:44+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: ../lxsession-logout/main.c:62
 msgid "Custom message to show on the dialog"
-msgstr "Oma viesti, joka näytetään valintaikkunassa"
+msgstr "Valintaikkunassa näyttettävä oma viesti"
 
 #: ../lxsession-logout/main.c:62
 msgid "message"
@@ -53,7 +53,7 @@ msgstr "Kirjaudu ulos"
 #: ../lxsession-logout/main.c:407
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr ""
+msgstr "<b><big>Kirjaudutaanko ulos istunnosta %s?</big></b>"
 
 #: ../lxsession-logout/main.c:417
 msgid "Sh_utdown"
