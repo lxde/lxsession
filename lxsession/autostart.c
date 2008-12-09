@@ -268,12 +268,8 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* session_na
 
         while( (name = g_dir_read_name( dir )) && g_str_has_suffix( name, ".desktop" ) )
         {
-            /* If desktop file with the same name is already included */
-            if( g_hash_table_lookup( hash, name ) )
-                continue;
-
             path = g_build_filename( dir_path, name, NULL );
-            g_hash_table_insert( hash, g_strdup(name), path );
+            g_hash_table_replace( hash, g_strdup(name), path );
         }
         g_dir_close( dir );
     }
@@ -286,12 +282,12 @@ void handle_autostart( const char* session_name )
     const char* const *dir;
     GHashTable* hash = g_hash_table_new_full( g_str_hash, g_str_equal, g_free, g_free );
 
-    /* get user-specific autostart files */
-    get_autostart_files_in_dir( hash, session_name, g_get_user_config_dir() );
-
     /* get system-wide autostart files */
     for( dir = dirs; *dir; ++dir )
         get_autostart_files_in_dir( hash, session_name, *dir );
+
+    /* get user-specific autostart files */
+    get_autostart_files_in_dir( hash, session_name, g_get_user_config_dir() );
 
     if( g_hash_table_size( hash ) > 0 )
     {
