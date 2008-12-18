@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Luis Gustavo S. Barreto <gustavo@ossystems.com.br>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession-lite\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-12-16 15:05-0200\n"
+"PO-Revision-Date: 2008-12-16 14:58-0200\n"
+"Last-Translator: Luis Gustavo S. Barreto <gustavo@ossystems.com.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr ""
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr ""
+
+#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
+#, c-format
+msgid "Error: %s\n"
+msgstr "Erro: %s\n"
+
+#: ../lxsession-logout/main.c:352
+msgid "LXSession is not running."
+msgstr "LXSession não está rodando."
+
+#: ../lxsession-logout/main.c:374
+msgid "Logout"
+msgstr "Logout"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:426
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Finalizar sessão %s?</big></b>"
+
+#: ../lxsession-logout/main.c:436
+msgid "Sh_utdown"
+msgstr "_Desligar"
+
+#: ../lxsession-logout/main.c:441
+msgid "_Reboot"
+msgstr "_Reiniciar"
+
+#: ../lxsession-logout/main.c:446
+msgid "_Suspend"
+msgstr "_Suspender"
+
+#: ../lxsession-logout/main.c:451
+msgid "_Hibernate"
+msgstr "_Hibernar"
+
+#: ../lxsession-logout/main.c:459
+msgid "S_witch User"
+msgstr "_Trocar usuário"
+
+#: ../lxsession-logout/main.c:463
+msgid "_Logout"
+msgstr "_Logout"
