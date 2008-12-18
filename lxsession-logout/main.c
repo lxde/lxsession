@@ -341,6 +341,7 @@ int main( int argc, char** argv )
     GError* err = NULL;
 
 #ifdef ENABLE_NLS
+    setlocale(LC_ALL, "");
     bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
     bind_textdomain_codeset ( GETTEXT_PACKAGE, "UTF-8" );
     textdomain ( GETTEXT_PACKAGE );
