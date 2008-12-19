@@ -34,6 +34,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include <locale.h>
 
 #include "gdm-logout-action.h"
 
