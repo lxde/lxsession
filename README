@@ -4,19 +4,19 @@ http://lxde.org/
 
 What's LXSession and who needs this?
 A session manager is used to automatically start a set of applications and
-set up a working desktop environment. Moreover, when the user logout, it 
-remembers the applications in use, and restart them the next time you login.
+set up a working desktop environment. Moreover, when the user logs out, it 
+remembers the applications in use, and restart them the next time the user logs in.
 
 Gnome is bundled with its own gnome-session, KDE brings its own session 
 manager, too. XFCE and ROX desktop also have their own session managers,
 xfce4-session and rox-session.
 
 The main difference between LXSession and the preceding programs is that 
-LXSession is lightweiht, and it's not tighted to "any" desktop environment.
+LXSession is lightweight, and it's not tighted to "any" desktop environment.
 It's desktop-independent and can be used with any window manager.
 With proper configuration, you can make your own desktop environment with
 LXSession. This is very useful to the users and developers of non-mainstream
-window managers and desktop environemts.
+window managers and desktop environments.
 
 Here we use our own desktop environment LXDE as a working example 
 to tell you, step by step, how to create your own new desktop environment.
@@ -46,13 +46,13 @@ Comment=LXDE - Lightweight X11 desktop environment
 Exec=/usr/bin/startlxde
 Type=Application
 
-Apparantly, you can replace the name and description with your own.
+Apparently, you can replace the name and description with your own.
 Exec should points to the startup script created in previous step.
 
 Now you get an item 'LXDE' in the list of available sessions in gdm.
 NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart )
 
-So, what programs will be execuated when LXSession starts?
+So, what programs will be executed when LXSession starts?
 List the programs you want to execute in this file:
 /etc/xdg/lxsession/<Name of Your Desktop>/default
 
@@ -81,7 +81,7 @@ Wait!  How to logout from LXSession?
 Simply executing this command:
 lxsession-logout
 
-This will give you a good-looking logoug dialog.
+This will give you a good-looking logout dialog.
 If gdm is installed, lxsession can do shutdown/reboot/suspend via gdm.
 (These options are not available if gdm is not running.)
 
