@@ -452,9 +452,10 @@ int main( int argc, char** argv )
         gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
     }
 
-    /* If GDM is running */
+    /* If GDM or KDM is running */
     if( g_file_test("/var/run/gdm_socket", G_FILE_TEST_EXISTS)
-        || g_file_test("/tmp/.gdm_socket", G_FILE_TEST_EXISTS) )
+        || g_file_test("/tmp/.gdm_socket", G_FILE_TEST_EXISTS)
+        || g_file_test("/var/run/kdm.pid", G_FILE_TEST_EXISTS) )
     {
         btn = create_dlg_btn(_("S_witch User"), "gnome-session-switch", LOGOUT_ACTION_SWITCH_USER );
         gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
@@ -500,7 +501,10 @@ int main( int argc, char** argv )
     {
         if( res == LOGOUT_ACTION_SWITCH_USER )
         {
-            g_spawn_command_line_sync ("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
+	   	    if( g_file_test("/var/run/gdm_socket", G_FILE_TEST_EXISTS) || g_file_test("/tmp/.gdm_socket", G_FILE_TEST_EXISTS) )
+            	g_spawn_command_line_sync ("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
+            else if ( g_file_test("/var/run/kdm.pid", G_FILE_TEST_EXISTS) )
+            	g_spawn_command_line_sync ("kdmctl reserve", NULL, NULL, NULL, NULL);
             return 0;
         }
 
