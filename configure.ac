@@ -48,7 +48,7 @@ AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="zh_TW hu es sk pl fr fi de zh_CN pt_BR sv et it"
+ALL_LINGUAS="zh_TW hu es sk pl fr fi de zh_CN pt_BR sv et it ar"
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
