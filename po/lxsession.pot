@@ -1,79 +1,80 @@
-# Swedish translation for lxsession.
-# Copyright (C) 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the lxsession package.
-# Daniel Nylander <po@danielnylander.se>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-02 04:46+0100\n"
-"PO-Revision-Date: 2009-01-05 12:35+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../lxsession-logout/main.c:62
 msgid "Custom message to show on the dialog"
-msgstr "Anpassat meddelande att visa i dialogrutan"
+msgstr ""
 
 #: ../lxsession-logout/main.c:62
 msgid "message"
-msgstr "meddelande"
+msgstr ""
 
 #: ../lxsession-logout/main.c:63
 msgid "Banner to show on the dialog"
-msgstr "Banderoll att visa i dialogrutan"
+msgstr ""
 
 #: ../lxsession-logout/main.c:63
 msgid "image file"
-msgstr "bildfil"
+msgstr ""
 
 #: ../lxsession-logout/main.c:64
 msgid "Position of the banner"
-msgstr "Position för banderollen"
+msgstr ""
 
 #: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
 #, c-format
 msgid "Error: %s\n"
-msgstr "Fel: %s\n"
+msgstr ""
 
 #: ../lxsession-logout/main.c:352
 msgid "LXSession is not running."
-msgstr "LXSession är inte igång."
+msgstr ""
 
 #: ../lxsession-logout/main.c:374
 msgid "Logout"
-msgstr "Logga ut"
+msgstr ""
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:426
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Logga ut från %s-sessionen?</big></b>"
+msgstr ""
 
 #: ../lxsession-logout/main.c:436
 msgid "Sh_utdown"
-msgstr "Stäng _av"
+msgstr ""
 
 #: ../lxsession-logout/main.c:441
 msgid "_Reboot"
-msgstr "Starta _om"
+msgstr ""
 
 #: ../lxsession-logout/main.c:446
 msgid "_Suspend"
-msgstr "Vä_nteläge"
+msgstr ""
 
 #: ../lxsession-logout/main.c:451
 msgid "_Hibernate"
-msgstr "_Viloläge"
+msgstr ""
 
 #: ../lxsession-logout/main.c:460
 msgid "S_witch User"
-msgstr "V_äxla användare"
+msgstr ""
 
 #: ../lxsession-logout/main.c:464
 msgid "_Logout"
-msgstr "_Logga ut"
+msgstr ""
