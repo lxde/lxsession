@@ -1,0 +1,80 @@
+# Czech translations for lxsession package.
+# Copyright (C) 2009 THE lxsession'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxsession package.
+# Michal Várady <miko.vaji@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession 0.3.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-02 02:52+0100\n"
+"PO-Revision-Date: 2009-01-09 01:14+0100\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
+"Language-Team: Czech\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr "Vlastní zpráva zobrazená v dialogu"
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr "zpráva"
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr "Pruh zobrazený v dialogu"
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr "Soubor obrázku"
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr "Pozice pruhu"
+
+#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
+#, c-format
+msgid "Error: %s\n"
+msgstr "Chyba: %s\n"
+
+#: ../lxsession-logout/main.c:352
+msgid "LXSession is not running."
+msgstr "Služba LXSession není spuštěna."
+
+#: ../lxsession-logout/main.c:374
+msgid "Logout"
+msgstr "Odhlásit se"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:426
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Odhlásit se z relace %s?</big></b>"
+
+#: ../lxsession-logout/main.c:436
+msgid "Sh_utdown"
+msgstr "_Vypnout"
+
+#: ../lxsession-logout/main.c:441
+msgid "_Reboot"
+msgstr "_Restartovat"
+
+#: ../lxsession-logout/main.c:446
+msgid "_Suspend"
+msgstr "Režim _spánku"
+
+#: ../lxsession-logout/main.c:451
+msgid "_Hibernate"
+msgstr "_Hibernace"
+
+#: ../lxsession-logout/main.c:460
+msgid "S_witch User"
+msgstr "_Přepnout uživatele"
+
+#: ../lxsession-logout/main.c:464
+msgid "_Logout"
+msgstr "_Odhlásit se"
