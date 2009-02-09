@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-01 21:08+0800\n"
+"POT-Creation-Date: 2009-02-09 02:28+0100\n"
 "PO-Revision-Date: 2008-04-21 07:48+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
@@ -38,51 +38,48 @@ msgstr "Kép fájl"
 msgid "Position of the banner"
 msgstr "A banner helye"
 
-#: ../lxsession-logout/main.c:333
-#: ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
 #, c-format
 msgid "Error: %s\n"
 msgstr "Hiba: %s\n"
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:352
 msgid "LXSession is not running."
 msgstr "Az LXSession nem fut"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:374
 msgid "Logout"
 msgstr "Kijelentkezés"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:426
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Kilépsz e folyamatból: %s?</big></b>"
 
-#: ../lxsession-logout/main.c:413
-msgid "Save current session"
-msgstr "Folyamat mentése"
-
-#: ../lxsession-logout/main.c:419
+#: ../lxsession-logout/main.c:436
 msgid "Sh_utdown"
 msgstr "_Leállítás"
 
-#: ../lxsession-logout/main.c:424
+#: ../lxsession-logout/main.c:441
 msgid "_Reboot"
 msgstr "Újrai_ndítás"
 
-#: ../lxsession-logout/main.c:429
+#: ../lxsession-logout/main.c:446
 msgid "_Suspend"
 msgstr "_Felfüggesztés"
 
-#: ../lxsession-logout/main.c:434
+#: ../lxsession-logout/main.c:451
 msgid "_Hibernate"
 msgstr "_Hibernálás"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/main.c:460
 msgid "S_witch User"
 msgstr "Felhasználó_váltás"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:464
 msgid "_Logout"
 msgstr "_Kijelentkezés"
 
+#~ msgid "Save current session"
+#~ msgstr "Folyamat mentése"
