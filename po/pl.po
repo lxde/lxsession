@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-01 21:08+0800\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2006-11-27 21:44+0100\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,70 +19,69 @@ msgstr ""
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr ""
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr ""
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr ""
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr ""
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:376
 #, fuzzy
 msgid "Logout"
 msgstr "Wyloguj"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:428
 #, fuzzy, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Zakończyć sesję?</big></b>"
 
-#: ../lxsession-logout/main.c:413
-msgid "Save current session"
-msgstr "Zapisz bieżącą sesję"
-
-#: ../lxsession-logout/main.c:419
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "Wyłącz"
 
-#: ../lxsession-logout/main.c:424
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "Zrestartuj"
 
-#: ../lxsession-logout/main.c:429
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "Uśpij"
 
-#: ../lxsession-logout/main.c:434
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr ""
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr ""
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "Wyloguj"
+
+#~ msgid "Save current session"
+#~ msgstr "Zapisz bieżącą sesję"

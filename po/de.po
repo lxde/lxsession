@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-03 19:53+0200\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2008-07-05 21:26+0200\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -16,69 +16,68 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "Benutzerdefinierte Meldung"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "Meldung"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr "Anzuzeigende Grafik"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr "Bilddatei"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr "Position der Grafik"
 
-#: ../lxsession-logout/main.c:333 ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXsession läuft momentan nicht."
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "Abmelden"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Von der %s-Sitzung abmelden? </big></b>"
 
-#: ../lxsession-logout/main.c:413
-msgid "Save current session"
-msgstr "Aktuelle Sitzung speichern"
-
-#: ../lxsession-logout/main.c:419
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "Her_unterfahren"
 
-#: ../lxsession-logout/main.c:424
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "Neu sta_rten"
 
-#: ../lxsession-logout/main.c:429
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "Ru_hezustand"
 
-#: ../lxsession-logout/main.c:434
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "_Bereitschaft"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "Benutzer _wechseln"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "Abme_lden"
+
+#~ msgid "Save current session"
+#~ msgstr "Aktuelle Sitzung speichern"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-03 19:53+0200\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2009-01-21 14:13+0100\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
@@ -16,71 +16,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Danish\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "Brugerdefineret melding"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "Melding"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr "Grafik til visning i dialogboks"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr "Billedfil"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr "Grafikkens placering"
 
-#: ../lxsession-logout/main.c:333
-#: ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fejl: %s\n"
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXsession kører ikke."
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "Log ud"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Log ud af %s session?</big></b>"
 
-#: ../lxsession-logout/main.c:413
-msgid "Save current session"
-msgstr "Gem aktuel session"
-
-#: ../lxsession-logout/main.c:419
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "Sl_uk"
 
-#: ../lxsession-logout/main.c:424
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "Gensta_rt"
 
-#: ../lxsession-logout/main.c:429
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "Dvale"
 
-#: ../lxsession-logout/main.c:434
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "Hvile"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "Skift bruger"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "_Log ud"
 
+#~ msgid "Save current session"
+#~ msgstr "Gem aktuel session"

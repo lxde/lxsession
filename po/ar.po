@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-25 14:12+0200\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2009-01-25 14:18+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -35,8 +35,7 @@ msgstr "ملف صورة"
 msgid "Position of the banner"
 msgstr "موقع الشعار"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
@@ -78,6 +77,3 @@ msgstr "_بدّل المستخدم"
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "ا_خرج"
-
-
- 	  	 

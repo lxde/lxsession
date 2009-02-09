@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-30 15:46+0300\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2008-11-09 12:44+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,67 +15,65 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "Valintaikkunassa näyttettävä oma viesti"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "viesti"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr "kuvatiedosto"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/main.c:333
-#: ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Virhe: %s\n"
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXSession ei ole käynnissä."
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Kirjaudutaanko ulos istunnosta %s?</big></b>"
 
-#: ../lxsession-logout/main.c:417
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "_Sammuta"
 
-#: ../lxsession-logout/main.c:422
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "Käynnistä _uudelleen"
 
-#: ../lxsession-logout/main.c:427
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "_Keskeytystila"
 
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "_Lepotila"
 
-#: ../lxsession-logout/main.c:440
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "_Vaihda käyttäjää"
 
-#: ../lxsession-logout/main.c:444
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "K_irjaudu ulos"
-

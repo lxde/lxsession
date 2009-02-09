@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-01 21:08+0800\n"
+"POT-Creation-Date: 2009-02-09 02:39+0100\n"
 "PO-Revision-Date: 2008-03-01 21:09+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,71 +15,68 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "顯示在對話框上的自訂訊息"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "訊息"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr "顯示在對話框上的圖片"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr "圖片檔"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr "顯示圖片的位置"
 
-#: ../lxsession-logout/main.c:333
-#: ../lxsession-logout/main.c:344
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "錯誤：%s\n"
 
-#: ../lxsession-logout/main.c:333
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXSession 並未執行"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "登出"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:407
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>登出 %s 作業階段？</big></b>"
 
-#: ../lxsession-logout/main.c:413
-msgid "Save current session"
-msgstr "儲存目前的作業階段"
-
-#: ../lxsession-logout/main.c:419
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "關機(_U)"
 
-#: ../lxsession-logout/main.c:424
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "重新啟動(_R)"
 
-#: ../lxsession-logout/main.c:429
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "暫停(_S)"
 
-#: ../lxsession-logout/main.c:434
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "休眠(_H)"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "切換使用者(_W)"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "登出(_L)"
 
+#~ msgid "Save current session"
+#~ msgstr "儲存目前的作業階段"
