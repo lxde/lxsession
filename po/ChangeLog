@@ -1,0 +1,5 @@
+2009-02-13 Og Maciel <ogmaciel@gnome.org>
+
+	* pt_BR.po: Added Brazilian Portuguese translation.
+	* lxsession.pot: Updated.
+	* LINGUAS: Added all available languages.
