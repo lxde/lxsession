@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-13 09:33-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxsession-logout/main.c:62
+msgid "Custom message to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:62
+msgid "message"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "Banner to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "image file"
+msgstr ""
+
+#: ../lxsession-logout/main.c:64
+msgid "Position of the banner"
+msgstr ""
+
+#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
+#, c-format
+msgid "Error: %s\n"
+msgstr ""
+
+#: ../lxsession-logout/main.c:352
+msgid "LXSession is not running."
+msgstr ""
+
+#: ../lxsession-logout/main.c:374
+msgid "Logout"
+msgstr ""
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:426
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr ""
+
+#: ../lxsession-logout/main.c:436
+msgid "Sh_utdown"
+msgstr ""
+
+#: ../lxsession-logout/main.c:441
+msgid "_Reboot"
+msgstr ""
+
+#: ../lxsession-logout/main.c:446
+msgid "_Suspend"
+msgstr ""
+
+#: ../lxsession-logout/main.c:451
+msgid "_Hibernate"
+msgstr ""
+
+#: ../lxsession-logout/main.c:460
+msgid "S_witch User"
+msgstr ""
+
+#: ../lxsession-logout/main.c:464
+msgid "_Logout"
+msgstr ""
