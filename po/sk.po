@@ -1,14 +1,14 @@
 # Slovak translation of lxsession
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxsession package.
-# Ivan Masár <helix84@centrum.sk>, 2007.
+# Ivan Masár <helix84@centrum.sk>, 2007, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession\n"
+"Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 02:39+0100\n"
-"PO-Revision-Date: 2007-09-17 01:05+0100\n"
+"PO-Revision-Date: 2009-02-13 14:55+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -17,43 +17,43 @@ msgstr ""
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Vlastná správa, ktorá sa má zobrazovať v dialógu"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr ""
+msgstr "správa"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Obrázok, ktorý sa má zobrazovať v dialógu"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr ""
+msgstr "súbor obrázka"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr ""
+msgstr "Pozícia obrázka"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr ""
+msgstr "Chyba: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr ""
+msgstr "LXSession nebeží."
 
 #: ../lxsession-logout/main.c:376
-#, fuzzy
 msgid "Logout"
-msgstr "_Odhlásiť"
+msgstr "Odhlásiť"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Odhlásiť reláciu?</big></b>"
+msgstr "<b><big>Odhlásiť reláciu %s?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
@@ -69,11 +69,11 @@ msgstr "_Pohotovostný režim"
 
 #: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
-msgstr ""
+msgstr "_Uspať"
 
 #: ../lxsession-logout/main.c:462
 msgid "S_witch User"
-msgstr ""
+msgstr "Pr_epnúť používateľa"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
@@ -81,3 +81,4 @@ msgstr "_Odhlásiť"
 
 #~ msgid "Save current session"
 #~ msgstr "Uložiť aktuálnu reláciu"
+
