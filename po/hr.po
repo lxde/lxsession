@@ -1,80 +1,80 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 02:39+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Boljsa <asjlob AT vip.hr>\n"
+"Language-Team:  <asjlob AT vip.hr>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Croatian\n"
+"X-Poedit-Country: CROATIA\n"
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Prika¾i korisnièku poruku u dijalogu"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr ""
+msgstr "poruka"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Prika¾i transparent u dijalogu"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr ""
+msgstr "slikovna datoteka"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr ""
+msgstr "Pozicija transparenta"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr ""
+msgstr "Pogre¹ka %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr ""
+msgstr "LXSession nije pokrenut."
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
-msgstr ""
+msgstr "Odjava"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr ""
+msgstr "<b><big>Odjavi %s sesiju?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
-msgstr ""
+msgstr "<b><big>Odjavi %s sesiju?</big></b>"
 
 #: ../lxsession-logout/main.c:443
 msgid "_Reboot"
-msgstr ""
+msgstr "_Restart"
 
 #: ../lxsession-logout/main.c:448
 msgid "_Suspend"
-msgstr ""
+msgstr "_Suspendiranje"
 
 #: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
-msgstr ""
+msgstr "_Hibernacija"
 
 #: ../lxsession-logout/main.c:462
 msgid "S_witch User"
-msgstr ""
+msgstr "P_romijeni Korisnika"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr ""
+msgstr "_Odjavi se"
+
+
+ 	  	 
