@@ -1,39 +1,40 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Brazilian Portuguese Translations for lxsession-lite package.
+# Copyright (C) 2008-2009 The lxsession-lite authors.
+# This file is distributed under the same license as the lxsession-lite package.
 # Luis Gustavo S. Barreto <gustavo@ossystems.com.br>, 2008.
+# Henrique P. Machado <zehrique@gmail.com>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 02:39+0100\n"
-"PO-Revision-Date: 2008-12-16 14:58-0200\n"
-"Last-Translator: Luis Gustavo S. Barreto <gustavo@ossystems.com.br>\n"
+"PO-Revision-Date: 2009-03-11 19:19-0300\n"
+"Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Mensagem padrão para mostrar no diálogo"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr ""
+msgstr "Mensagem"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Banner para mostrar no diálogo"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr ""
+msgstr "Arquivo de imagem"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr ""
+msgstr "Posição do banner"
 
 #: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
@@ -42,17 +43,17 @@ msgstr "Erro: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr "LXSession não está rodando."
+msgstr "LXSession não está em execução."
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
-msgstr "Logout"
+msgstr "Encerrar sessão"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Finalizar sessão %s?</big></b>"
+msgstr "<b><big>Encerrar sessão %s?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
@@ -76,4 +77,4 @@ msgstr "_Trocar usuário"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr "_Logout"
+msgstr "_Encerrar sessão"
