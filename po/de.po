@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the lxsession package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 02:39+0100\n"
-"PO-Revision-Date: 2008-07-05 21:26+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
+"PO-Revision-Date: 2009-03-22 15:14+0100\n"
+"Last-Translator: Benedikt Klus <b.klus89@web.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,14 +35,15 @@ msgstr "Bilddatei"
 msgid "Position of the banner"
 msgstr "Position der Grafik"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr "LXsession läuft momentan nicht."
+msgstr "LXSession läuft momentan nicht."
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
@@ -53,11 +53,11 @@ msgstr "Abmelden"
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Von der %s-Sitzung abmelden? </big></b>"
+msgstr "<b><big>Von der %s-Sitzung abmelden?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
-msgstr "Her_unterfahren"
+msgstr "Au_sschalten"
 
 #: ../lxsession-logout/main.c:443
 msgid "_Reboot"
@@ -81,3 +81,6 @@ msgstr "Abme_lden"
 
 #~ msgid "Save current session"
 #~ msgstr "Aktuelle Sitzung speichern"
+
+
+ 	  	 
