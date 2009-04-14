@@ -6,7 +6,11 @@ EXTRA_DIST = lxsession.sgml lxsession-logout.sgml
 dist-hook: lxsession.1 lxsession-logout.1
 
 lxsession.1: lxsession.sgml
-	docbook-to-man $< > $@
+	(test -f "`which docbook-to-man`" && docbook-to-man $< > $@) || \
+	(test -f "`which db2man`" && db2man $< > $@) || \
+	(test -f "`which docbook2man`" && docbook2man $< > $@)
+
 lxsession-logout.1: lxsession-logout.sgml
-	docbook-to-man $< > $@
-        
+	(test -f "`which docbook-to-man`" && docbook-to-man $< > $@) || \
+	(test -f "`which db2man`" && db2man $< > $@) || \
+	(test -f "`which docbook2man`" && docbook2man $< > $@)
