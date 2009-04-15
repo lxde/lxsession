@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 02:39+0100\n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
 "PO-Revision-Date: 2009-02-13 14:55+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -35,8 +35,7 @@ msgstr "súbor obrázka"
 msgid "Position of the banner"
 msgstr "Pozícia obrázka"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Chyba: %s\n"
@@ -81,4 +80,3 @@ msgstr "_Odhlásiť"
 
 #~ msgid "Save current session"
 #~ msgstr "Uložiť aktuálnu reláciu"
-

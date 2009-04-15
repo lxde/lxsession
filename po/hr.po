@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 02:39+0100\n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Boljsa <asjlob AT vip.hr>\n"
 "Language-Team:  <asjlob AT vip.hr>\n"
@@ -32,8 +32,7 @@ msgstr "slikovna datoteka"
 msgid "Position of the banner"
 msgstr "Pozicija transparenta"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Pogre¹ka %s\n"
@@ -75,6 +74,3 @@ msgstr "P_romijeni Korisnika"
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "_Odjavi se"
-
-
- 	  	 

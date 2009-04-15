@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 02:39+0100\n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
 "PO-Revision-Date: 2009-03-22 15:14+0100\n"
 "Last-Translator: Benedikt Klus <b.klus89@web.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -35,8 +35,7 @@ msgstr "Bilddatei"
 msgid "Position of the banner"
 msgstr "Position der Grafik"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
@@ -81,6 +80,3 @@ msgstr "Abme_lden"
 
 #~ msgid "Save current session"
 #~ msgstr "Aktuelle Sitzung speichern"
-
-
- 	  	 
