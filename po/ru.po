@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession\n"
+"Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 02:28+0100\n"
-"PO-Revision-Date: 2009-01-31 15:48+0300\n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"PO-Revision-Date: 2009-01-31 16:05+0300\n"
 "Last-Translator: Vitaly Pashkov <admin@fluda.net>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -20,65 +20,65 @@ msgstr ""
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "Собственное сообщение для отображения в диалоге"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "сообщение"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr "Баннер для отображения в диалоге"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "image file"
 msgstr "файл изображения"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr "Расположение баннера"
 
-#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Ошибка: %s\n"
 
-#: ../lxsession-logout/main.c:352
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXSession не запущен."
 
-#: ../lxsession-logout/main.c:374
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "Выйти"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:426
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Завершить сеанс %s?</big></b>"
 
-#: ../lxsession-logout/main.c:436
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "Вы_ключить"
 
-#: ../lxsession-logout/main.c:441
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "_Перезагрузить"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "_Ждущий режим"
 
-#: ../lxsession-logout/main.c:451
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "_Спящий режим"
 
-#: ../lxsession-logout/main.c:460
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "С_менить пользователя"
 
-#: ../lxsession-logout/main.c:464
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "_Выйти"

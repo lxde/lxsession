@@ -133,11 +133,6 @@ manpage.1: manpage.sgml
 	  On Debian systems, the complete text of the GNU General Public
 	  License can be found in /usr/share/common-licenses/GPL.
     </para>
-    <para>
-          The source code of this manual page should be in 
-          <filename>.sgml</filename> format. It is better not to modify
-          the <filename>.1</filename> file directly.
-    </para>
 
   </refsect1>
 </refentry>

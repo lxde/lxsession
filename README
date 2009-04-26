@@ -2,29 +2,36 @@ LXSession is the default X11 session manager of LXDE.
 (LXDE: Lightweight X11 Desktop Environment)
 http://lxde.org/
 
+LXSession Lite is the stripped down version without
+the problematic X11 Session Management support.
+
 What's LXSession and who needs this?
 A session manager is used to automatically start a set of applications and
-set up a working desktop environment. Moreover, when the user logs out, it 
-remembers the applications in use, and restart them the next time the user logs in.
+set up a working desktop environment.
 
-Gnome is bundled with its own gnome-session, KDE brings its own session 
+Gnome is bundled with its own gnome-session, KDE brings its own session
 manager, too. XFCE and ROX desktop also have their own session managers,
 xfce4-session and rox-session.
 
-The main difference between LXSession and the preceding programs is that 
-LXSession is lightweight, and it's not tighted to "any" desktop environment.
+LXSession can start a set of programs specified by the distribution
+makers or users. Furthermore, LXSession is more advanced than
+some of the other ones because it can ``guard'' the specified
+programs, and get them restarted if crashes happened.
+
+Besides, the major difference between LXSession and the preceding programs
+is that LXSession is lightweight, and it's not tighted to "any" desktop environment.
 It's desktop-independent and can be used with any window manager.
 With proper configuration, you can make your own desktop environment with
 LXSession. This is very useful to the users and developers of non-mainstream
 window managers and desktop environments.
 
-Here we use our own desktop environment LXDE as a working example 
+Here we use our own desktop environment LXDE as a working example
 to tell you, step by step, how to create your own new desktop environment.
 
 Create a startup script for your desktop, and put it to /usr/bin.
 For example, we create a script '/usr/bin/startlxde'.
 
-Then, add the commands you want to execute *before* LXSession, 
+Then, add the commands you want to execute *before* LXSession,
 such as setting up locales or others, and put "exec lxsession" in the last line.
 
 For example, our startlxde script looks like this:
@@ -53,27 +60,44 @@ Now you get an item 'LXDE' in the list of available sessions in gdm.
 NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart )
 
 So, what programs will be executed when LXSession starts?
-List the programs you want to execute in this file:
-/etc/xdg/lxsession/<Name of Your Desktop>/default
+The window manager, of course, should be the most important one.
+It should be specified in this file:
+/etc/xdg/lxsession/<Name of Your Desktop>/config
+The file is a plain ini file, like this:
+[Session]
+window_manager=openbox
+Just replace 'openbox' with the window manager you like.
+
+Then, list the other programs you want to execute in this file:
+/etc/xdg/lxsession/<Name of Your Desktop>/autostart
 
 For example, our /etc/xdg/lxsession/LXDE/default looks like this:
-smproxy
-openbox
-lxpanel
+@lxde-settings
+@lxpanel -p LXDE
+@pcmanfm -d
 
-smproxy is a program provided in xorg. It provides session management
-support for programs which don't know X11 R6 session management protocol.
-So it's highly recommended you include this line in your desktop.
-
-openbox is the window manager we use, replace it with your window manager.
-
-lxpanel is our desktop panel, you can replace it with anything you like, 
+lxpanel is our desktop panel, you can replace it with anything you like,
 such as avant window manager or others.
-
 List other applications you want to launch, one command per line.
-
 Note that there is no '&' at the end of every line since this is not a
 shell script.  Don't append & at the end of any line.
+Since this is not a shell script, shell expansion like ~ or $HOME won't
+work. If you need this, write a script and do the shell things there,
+than list the script here in the autostart file.
+
+If a line starts with @, the program will be guarded by lxsession.
+That means: If the program crashes, it should be automatically restarted.
+If the program is terminated normally, or is terminated because it
+receives SIGTERM or SIGKILL, then the reload won't happen.
+
+The default system-wide config files under /etc/xdg/lxsession, can be
+overriden by user-specific ones. If the user specific config files are
+found in ~/.config/lxsession, the ones in /etc/xdg/lxsession will be overriden.
+So this leave some flexibility for the users.
+
+Another way to start programs on session startup is to add their *.desktop
+files in ~/.config/autostart. Please refer to the Autostart spec.
+http://www.freedesktop.org/wiki/Specifications/autostart-spec
 
 OK, it's time to login to your desktop environment. Please try it out.
 Wait!  How to logout from LXSession?

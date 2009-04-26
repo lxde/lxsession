@@ -6,6 +6,7 @@
 # Compulsory line, this is a version 3 file
 version=3
 
-http://sf.net/lxde/lxsession-([\d.]*)\.tar\.gz
+# Uncomment to find new files on sourceforge, for debscripts >= 2.9
+ http://sf.net/lxde/lxsession-lite-(.*)\.tar\.gz
 
 

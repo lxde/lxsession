@@ -21,11 +21,10 @@
 
 #include <glib.h>
 #include <stdio.h>
-
-#include "xsm.h"
 #include <string.h>
 
 static const char DesktopEntry[] = "Desktop Entry";
+extern const char* session_name;
 
 #if 0
 /*
@@ -172,10 +171,6 @@ _finish:
 
 static void launch_autostart_file( const char* desktop_id, const char* desktop_file, GKeyFile* kf )
 {
-    if( verbose ){
-        g_debug( "launch autostart file: %s", desktop_file );
-    }
-
     if( g_key_file_load_from_file( kf, desktop_file, 0, NULL ) )
     {
         char* exec;
@@ -256,18 +251,6 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
             /* launch the program */
             if( g_spawn_command_line_async( exec, NULL ) )
             {
-                /* using append is inefficient, but we need to keep the order. */
-                DefaultApps = g_slist_append( DefaultApps, exec );
-                if( verbose ) {
-                    g_debug( "%s is succesfully launched by autostart", exec );
-                    g_debug("Add default app by autostart: %s", exec);
-                }
-            }
-            else
-            {
-                if( verbose ) {
-                    g_debug( "Launch %s failed", exec );
-                }
             }
         }
     }
@@ -278,9 +261,6 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* session_na
     char* dir_path = g_build_filename( base_dir, "autostart", NULL );
     GDir* dir = g_dir_open( dir_path, 0, NULL );
 
-    if( verbose )
-        g_debug( "Try to launch autostart files in %s", dir_path );
-
     if( dir )
     {
         char *path;
@@ -288,12 +268,8 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* session_na
 
         while( (name = g_dir_read_name( dir )) && g_str_has_suffix( name, ".desktop" ) )
         {
-            /* If desktop file with the same name is already included */
-            if( g_hash_table_lookup( hash, name ) )
-                continue;
-
             path = g_build_filename( dir_path, name, NULL );
-            g_hash_table_insert( hash, g_strdup(name), path );
+            g_hash_table_replace( hash, g_strdup(name), path );
         }
         g_dir_close( dir );
     }
@@ -306,12 +282,12 @@ void handle_autostart( const char* session_name )
     const char* const *dir;
     GHashTable* hash = g_hash_table_new_full( g_str_hash, g_str_equal, g_free, g_free );
 
-    /* get user-specific autostart files */
-    get_autostart_files_in_dir( hash, session_name, g_get_user_config_dir() );
-
     /* get system-wide autostart files */
     for( dir = dirs; *dir; ++dir )
         get_autostart_files_in_dir( hash, session_name, *dir );
+
+    /* get user-specific autostart files */
+    get_autostart_files_in_dir( hash, session_name, g_get_user_config_dir() );
 
     if( g_hash_table_size( hash ) > 0 )
     {

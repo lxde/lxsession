@@ -1,86 +1,83 @@
-# Spanish translation of lxsession
-# Copyright (C) 2008 THE lxsession'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the lxsession package.
+# Spanish translation of lxsession-lite
+# Copyright (C) 2008 THE lxsession-lite'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxsession-lite package.
 #
-# Alejandro Zárate <alejandroazarate@gmail.com>, 2006.
 # Julio Napurí Carlos <julionc@gmail.com>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession\n"
+"Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 02:28+0100\n"
-"PO-Revision-Date: 2008-12-09 21:22-0500\n"
-"Last-Translator: Julio Napurí Carlos <julionc@gmail.com>\n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"PO-Revision-Date: 2009-03-22 23:37+0100\n"
+"Last-Translator: Guillermo Iguaran <johnnyprez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Spanish\n"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
 msgstr "Mensaje personalizado para mostrar en el cuadro de diálogo"
 
-#: ../lxsession-logout/main.c:62
+#: ../lxsession-logout/main.c:63
 msgid "message"
 msgstr "mensaje"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
 msgstr "Mensaje para mostrar en el diálogo"
 
-#: ../lxsession-logout/main.c:63
-msgid "image file"
-msgstr "archivo de la imagen"
-
 #: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "archivo de imagen"
+
+#: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
 msgstr "Posición del mensaje"
 
-#: ../lxsession-logout/main.c:352 ../lxsession-logout/main.c:363
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
-#: ../lxsession-logout/main.c:352
+#: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
 msgstr "LXSession no está en ejecución"
 
-#: ../lxsession-logout/main.c:374
+#: ../lxsession-logout/main.c:376
 msgid "Logout"
 msgstr "Salir"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:426
+#: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Cerrar sesión %s</big></b>"
 
-#: ../lxsession-logout/main.c:436
+#: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
 msgstr "_Apagar"
 
-#: ../lxsession-logout/main.c:441
+#: ../lxsession-logout/main.c:443
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
-#: ../lxsession-logout/main.c:446
+#: ../lxsession-logout/main.c:448
 msgid "_Suspend"
 msgstr "_Suspender"
 
-#: ../lxsession-logout/main.c:451
+#: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
 msgstr "_Hibernar"
 
-#: ../lxsession-logout/main.c:460
+#: ../lxsession-logout/main.c:462
 msgid "S_witch User"
 msgstr "_Cambiar usuario"
 
-#: ../lxsession-logout/main.c:464
+#: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr "_Cerrar sesión"
-
-#~ msgid "Save current session"
-#~ msgstr "Guardar la sesión actual"
+msgstr "Ce_rrar sesión"
