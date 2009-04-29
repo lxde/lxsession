@@ -80,7 +80,7 @@ static gboolean on_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* shot )
     return TRUE;
 }
 
-static GtkWidget* create_background()
+static GtkWidget* create_background( gboolean composited )
 {
     GtkWidget *back = NULL, *img;
     GdkPixbuf *tmp, *shot;
@@ -93,11 +93,11 @@ static GtkWidget* create_background()
     screen = gdk_screen_get_default();
 
     shot = gdk_pixbuf_get_from_drawable( NULL,
-                                        gdk_get_default_root_window(),
-                                        NULL,
-                                        0, 0, 0, 0,
-                                        gdk_screen_get_width(screen),
-                                        gdk_screen_get_height(screen) );
+                                         gdk_get_default_root_window(),
+                                         NULL,
+                                         0, 0, 0, 0,
+                                         gdk_screen_get_width(screen),
+                                         gdk_screen_get_height(screen) );
 
     /* make the background darker */
     pixels = gdk_pixbuf_get_pixels(shot);
@@ -105,7 +105,7 @@ static GtkWidget* create_background()
     height = gdk_pixbuf_get_height(shot);
     has_alpha = gdk_pixbuf_get_has_alpha(shot);
     rowstride = gdk_pixbuf_get_rowstride(shot);
-
+    
     for (y = 0; y < height; y++)
     {
         p = pixels;
@@ -121,11 +121,11 @@ static GtkWidget* create_background()
         }
         pixels += rowstride;
     }
-
+     
     back = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     gtk_widget_set_app_paintable( back, TRUE );
     gtk_widget_set_double_buffered( back, FALSE );
-    g_signal_connect( back, "expose-event", G_CALLBACK(on_expose), shot);
+    g_signal_connect( back, "expose-event", G_CALLBACK(on_expose), shot );
     g_object_weak_ref( back, (GWeakNotify)g_object_unref,  shot );
 
     gtk_window_fullscreen( back );
@@ -199,9 +199,9 @@ static gboolean xfsm_shutdown_helper_hal_check ()
      * interface without shutting down/rebooting now.
      */
     message = dbus_message_new_method_call ("org.freedesktop.Hal",
-                                                                                    "/org/freedesktop/Hal/devices/computer",
-                                                                                    "org.freedesktop.Hal.Device.SystemPowerManagement",
-                                                                                    "ThisMethodMustNotExistInHal");
+                                            "/org/freedesktop/Hal/devices/computer",
+                                            "org.freedesktop.Hal.Device.SystemPowerManagement",
+                                            "ThisMethodMustNotExistInHal");
     result = dbus_connection_send_with_reply_and_block (connection, message, 2000, &error);
     dbus_message_unref (message);
 
@@ -332,7 +332,7 @@ static void check_available_actions()
 
 int main( int argc, char** argv )
 {
-    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox;
+    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox, *invisible;
     GtkPositionType banner_pos;
     int res;
     const char* p;
@@ -340,6 +340,7 @@ int main( int argc, char** argv )
     GPid pid;
     GOptionContext *context;
     GError* err = NULL;
+    gboolean composited;
 
 #ifdef ENABLE_NLS
     setlocale(LC_ALL, "");
@@ -368,7 +369,13 @@ int main( int argc, char** argv )
     }
     g_option_context_free( context );
 
-    back = create_background();
+    /* check if the window is composited */
+    invisible = gtk_invisible_new_for_screen( gdk_screen_get_default() );
+    gtk_widget_show( invisible );
+    composited = gtk_widget_is_composited( invisible );
+    gtk_widget_destroy( invisible );
+
+    back = create_background( composited );
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                             PACKAGE_DATA_DIR "/images" );
@@ -474,7 +481,7 @@ int main( int argc, char** argv )
 
     gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
     gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
-    gdk_x11_grab_server();
+    if( !composited ) gdk_x11_grab_server();
 
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
@@ -492,7 +499,7 @@ int main( int argc, char** argv )
             gdk_keyboard_ungrab( GDK_CURRENT_TIME );
             return 0;
     }
-    gdk_x11_ungrab_server();
+    if( !composited ) gdk_x11_ungrab_server();
     gdk_pointer_ungrab( GDK_CURRENT_TIME );
     gdk_keyboard_ungrab( GDK_CURRENT_TIME );
 
