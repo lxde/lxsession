@@ -378,7 +378,7 @@ int main( int argc, char** argv )
     back = create_background( composited );
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
-                                            PACKAGE_DATA_DIR "/images" );
+                                            PACKAGE_DATA_DIR "/lxsession/images" );
 
     dlg = gtk_dialog_new_with_buttons( _("Logout"), (GtkWindow*)back, GTK_DIALOG_MODAL,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
