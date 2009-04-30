@@ -80,7 +80,7 @@ static gboolean on_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* shot )
     return TRUE;
 }
 
-static GtkWidget* create_background( gboolean composited )
+static GtkWidget* create_background()
 {
     GtkWidget *back = NULL, *img;
     GdkPixbuf *tmp, *shot;
@@ -332,7 +332,7 @@ static void check_available_actions()
 
 int main( int argc, char** argv )
 {
-    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox, *invisible;
+    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox;
     GtkPositionType banner_pos;
     int res;
     const char* p;
@@ -369,13 +369,10 @@ int main( int argc, char** argv )
     }
     g_option_context_free( context );
 
-    /* check if the window is composited */
-    invisible = gtk_invisible_new_for_screen( gdk_screen_get_default() );
-    gtk_widget_show( invisible );
-    composited = gtk_widget_is_composited( invisible );
-    gtk_widget_destroy( invisible );
+    back = create_background();
 
-    back = create_background( composited );
+    /* check if the window is composited */
+    composited = gtk_widget_is_composited( back );
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                             PACKAGE_DATA_DIR "/lxsession/images" );
