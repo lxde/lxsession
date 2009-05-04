@@ -3,14 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:49+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2009-05-04 18:32+0100\n"
+"Last-Translator: Sander De Voogdt <celettu@gmal.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,63 +17,65 @@ msgstr ""
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Aangepaste boodschap voor dialoogvenster"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr ""
+msgstr "boodschap"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Banner om te tonen op de dialoog"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr ""
+msgstr "afbeeldingsbestand"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr ""
+msgstr "Positie van de banner"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr ""
+msgstr "Fout: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr ""
+msgstr "LXsession is niet uitgevoerd"
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
-msgstr ""
+msgstr "Uitloggen"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr ""
+msgstr "<b><big>Sessie %s uitloggen?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
-msgstr ""
+msgstr "Afsluiten"
 
 #: ../lxsession-logout/main.c:443
 msgid "_Reboot"
-msgstr ""
+msgstr "Herstarten"
 
 #: ../lxsession-logout/main.c:448
 msgid "_Suspend"
-msgstr ""
+msgstr "Pauzestand"
 
 #: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
-msgstr ""
+msgstr "Slaapstand"
 
 #: ../lxsession-logout/main.c:462
 msgid "S_witch User"
-msgstr ""
+msgstr "Gebruiker wisselen"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr ""
+msgstr "Uitloggen"
+
