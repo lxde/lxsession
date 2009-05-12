@@ -1,0 +1,85 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"PO-Revision-Date: 2009-05-10 03:36+0500\n"
+"Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
+"Language-Team: Urdu <makki.ma@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Urdu\n"
+"X-Poedit-Country: PAKISTAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../lxsession-logout/main.c:63
+msgid "Custom message to show on the dialog"
+msgstr "ڈائیلاگ پر دکھانے کے لیے صوابدیدی پیغام"
+
+#: ../lxsession-logout/main.c:63
+msgid "message"
+msgstr "پیغام"
+
+#: ../lxsession-logout/main.c:64
+msgid "Banner to show on the dialog"
+msgstr "ڈائیلاگ پر دکھانے کے لیے بینر"
+
+#: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "تصویر فائل"
+
+#: ../lxsession-logout/main.c:65
+msgid "Position of the banner"
+msgstr "بینر کا مقام"
+
+#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:365
+#, c-format
+msgid "Error: %s\n"
+msgstr "غلطی: %s\n"
+
+#: ../lxsession-logout/main.c:354
+msgid "LXSession is not running."
+msgstr "ایل ایکس سیشن نہیں چل رہا."
+
+#: ../lxsession-logout/main.c:376
+msgid "Logout"
+msgstr "لاگ آؤٹ"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:428
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>لاگ آؤٹ %s نشست؟</big></b>"
+
+#: ../lxsession-logout/main.c:438
+msgid "Sh_utdown"
+msgstr "_بند کریں"
+
+#: ../lxsession-logout/main.c:443
+msgid "_Reboot"
+msgstr "_دوبارہ چلائیں"
+
+#: ../lxsession-logout/main.c:448
+msgid "_Suspend"
+msgstr "_معطل کریں"
+
+#: ../lxsession-logout/main.c:453
+msgid "_Hibernate"
+msgstr "_ہائبرنیٹ"
+
+#: ../lxsession-logout/main.c:462
+msgid "S_witch User"
+msgstr "صارف _تبدیل کریں"
+
+#: ../lxsession-logout/main.c:466
+msgid "_Logout"
+msgstr "_لاگ آؤٹ"
+
