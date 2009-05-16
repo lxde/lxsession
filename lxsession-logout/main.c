@@ -126,12 +126,12 @@ static GtkWidget* create_background()
     gtk_widget_set_app_paintable( back, TRUE );
     gtk_widget_set_double_buffered( back, FALSE );
     g_signal_connect( back, "expose-event", G_CALLBACK(on_expose), shot );
-    g_object_weak_ref( back, (GWeakNotify)g_object_unref,  shot );
+    g_object_weak_ref( (GObject *) back, (GWeakNotify)g_object_unref,  shot );
 
-    gtk_window_fullscreen( back );
-    gtk_window_set_decorated( back, FALSE );
-    gtk_window_set_keep_above( (GtkWindow*)back, TRUE );
-    gtk_widget_show_all( back );
+    gtk_window_fullscreen( GTK_WINDOW(back) );
+    gtk_window_set_decorated( GTK_WINDOW(back), FALSE );
+    gtk_window_set_keep_above( GTK_WINDOW(back), TRUE );
+    gtk_widget_show_all( GTK_WIDGET(back) );
 
     return back;
 }
@@ -145,12 +145,12 @@ static void btn_clicked( GtkWidget* btn, gpointer id )
 static GtkWidget* create_dlg_btn(const char* label, const char* icon, int response )
 {
     GtkWidget* btn = gtk_button_new_with_mnemonic( label );
-    gtk_button_set_alignment( (GtkButton*)btn, 0.0, 0.5 );
+    gtk_button_set_alignment( GTK_BUTTON(btn), 0.0, 0.5 );
     g_signal_connect( btn, "clicked", G_CALLBACK(btn_clicked), GINT_TO_POINTER(response) );
     if( icon )
     {
         GtkWidget* img = gtk_image_new_from_icon_name( icon, GTK_ICON_SIZE_BUTTON );
-        gtk_button_set_image( btn, img );
+        gtk_button_set_image( GTK_BUTTON(btn), img );
     }
     return btn;
 }
@@ -391,33 +391,33 @@ int main( int argc, char** argv )
         case GTK_POS_LEFT:
         case GTK_POS_RIGHT:
             box = gtk_hbox_new( FALSE,2 );
-            gtk_box_pack_start( vbox, box, TRUE, TRUE, 2 );
+            gtk_box_pack_start( GTK_BOX(vbox), box, TRUE, TRUE, 2 );
 
             if( banner_pos == GTK_POS_LEFT )
             {
-                gtk_box_pack_start( box, img, FALSE, TRUE, 2 );
-                gtk_box_pack_start( box, gtk_vseparator_new(), FALSE, TRUE, 2 );
+                gtk_box_pack_start( GTK_BOX(box), img, FALSE, TRUE, 2 );
+                gtk_box_pack_start( GTK_BOX(box), gtk_vseparator_new(), FALSE, TRUE, 2 );
             }
             else
             {
-                gtk_box_pack_end( box, img, FALSE, TRUE, 2 );
-                gtk_box_pack_end( box, gtk_vseparator_new(), FALSE, TRUE, 2 );
+                gtk_box_pack_end( GTK_BOX(box), img, FALSE, TRUE, 2 );
+                gtk_box_pack_end( GTK_BOX(box), gtk_vseparator_new(), FALSE, TRUE, 2 );
             }
             vbox = gtk_vbox_new( FALSE, 2 );
-            gtk_box_pack_start( box, vbox, TRUE, TRUE, 2 );
-            gtk_misc_set_alignment( (GtkMisc*)img, 0.5, 0.0 );
+            gtk_box_pack_start( GTK_BOX(box), vbox, TRUE, TRUE, 2 );
+            gtk_misc_set_alignment( GTK_MISC(img), 0.5, 0.0 );
             break;
         case GTK_POS_TOP:
         case GTK_POS_BOTTOM:
             if( banner_pos == GTK_POS_TOP )
             {
-                gtk_box_pack_start( vbox, img, FALSE, TRUE, 2 );
-                gtk_box_pack_start( vbox, gtk_hseparator_new(), FALSE, TRUE, 2 );
+                gtk_box_pack_start( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
+                gtk_box_pack_start( GTK_BOX(vbox), gtk_hseparator_new(), FALSE, TRUE, 2 );
             }
             else
             {
-                gtk_box_pack_end( vbox, img, FALSE, TRUE, 2 );
-                gtk_box_pack_end( vbox, gtk_hseparator_new(), FALSE, TRUE, 2 );
+                gtk_box_pack_end( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
+                gtk_box_pack_end( GTK_BOX(vbox), gtk_hseparator_new(), FALSE, TRUE, 2 );
             }
             break;
         }
@@ -432,30 +432,30 @@ int main( int argc, char** argv )
         prompt = g_strdup_printf( _("<b><big>Logout %s session?</big></b>"), session_name );
     }
 
-    gtk_label_set_markup( label, prompt );
-    gtk_box_pack_start( vbox, label, FALSE, FALSE, 4 );
+    gtk_label_set_markup( GTK_LABEL(label), prompt );
+    gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 4 );
 
     check_available_actions();
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
     {
         btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", LOGOUT_ACTION_SHUTDOWN );
-        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_REBOOT )
     {
         btn = create_dlg_btn(_("_Reboot"), "gnome-session-reboot", LOGOUT_ACTION_REBOOT );
-        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_SUSPEND )
     {
         btn = create_dlg_btn(_("_Suspend"), "gnome-session-suspend", LOGOUT_ACTION_SUSPEND );
-        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_HIBERNATE )
     {
         btn = create_dlg_btn(_("_Hibernate"), "gnome-session-hibernate", LOGOUT_ACTION_HIBERNATE );
-        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
 
     /* If GDM or KDM is running */
@@ -464,21 +464,21 @@ int main( int argc, char** argv )
         || g_file_test("/var/run/kdm.pid", G_FILE_TEST_EXISTS) )
     {
         btn = create_dlg_btn(_("S_witch User"), "gnome-session-switch", LOGOUT_ACTION_SWITCH_USER );
-        gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
 
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
-    gtk_box_pack_start( vbox, btn, FALSE, FALSE, 4 );
+    gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
 
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
-    gtk_window_set_decorated( (GtkWindow*)dlg, FALSE );
+    gtk_window_set_decorated( GTK_WINDOW(dlg), FALSE );
     gtk_widget_show_all( dlg );
 
     gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
 
     gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
     gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
-    if( !composited ) gdk_x11_grab_server();
+//  if( !composited ) gdk_x11_grab_server();
 
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
@@ -496,7 +496,7 @@ int main( int argc, char** argv )
             gdk_keyboard_ungrab( GDK_CURRENT_TIME );
             return 0;
     }
-    if( !composited ) gdk_x11_ungrab_server();
+//  if( !composited ) gdk_x11_ungrab_server();
     gdk_pointer_ungrab( GDK_CURRENT_TIME );
     gdk_keyboard_ungrab( GDK_CURRENT_TIME );
 
