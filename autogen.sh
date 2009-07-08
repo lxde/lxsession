@@ -15,7 +15,4 @@ AUTOMAKE=${AUTOMAKE:-automake$AM_VERSION} intltoolize -c --automake --force
 ${AUTOMAKE:-automake$AM_VERSION} --add-missing --copy --include-deps
 ${AUTOCONF:-autoconf$AC_VERSION}
 
-# mkinstalldirs was not correctly installed in some cases.
-cp -f /usr/share/automake-1.10/mkinstalldirs .
-
 rm -rf autom4te.cache
