@@ -132,10 +132,8 @@ GPid run_app( const char* cmd )
     {
         g_spawn_async( NULL, argv, NULL,
                 G_SPAWN_DO_NOT_REAP_CHILD|
-                G_SPAWN_SEARCH_PATH|
-                G_SPAWN_STDOUT_TO_DEV_NULL|
-                G_SPAWN_STDERR_TO_DEV_NULL,
-                NULL, NULL, &pid, NULL );
+  	        G_SPAWN_SEARCH_PATH,
+		NULL, NULL, &pid, NULL );
     }
     g_strfreev( argv );
     return pid;
