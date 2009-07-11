@@ -31,26 +31,20 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <stdlib.h>
 
+#include "lxsession.h"
+#include "xevent.h"
+#include "settings-daemon.h"
 #include "autostart.h"
 
-typedef struct _ChildWatch
-{
-    GPid pid;
-    gboolean exited;
-    int status;
-    char* cmd;
-}ChildWatch;
 
-#define child_watch_free( cw ) \
-    { \
-        g_free( cw->cmd ); \
-        g_free( cw ); \
-    }
+static gboolean no_settings = FALSE; /* disable settings daemon */
+static gboolean reload_settings = FALSE; /* reload settings daemon */
 
 static GMainLoop* main_loop = NULL;
 static const char *display_name = NULL;
-static char* window_manager = NULL;
+char* window_manager = NULL; /* will be accessed by settings-daemon.c */
 
 /* name of environment variables */
 static char sm_env[] = "SESSION_MANAGER";
@@ -63,19 +57,19 @@ static char autostart_filename[]="autostart";
 
 const char *session_name = NULL;
 
-static GSList* child_watches = NULL;
-static int wakeup_pipe[ 2 ];
+
+static GPid run_app( const char* cmd );
+static void run_guarded_app( const char* cmd );
+static void start_session();
 
 static void sig_term_handler ( int sig )
 {
-    /* g_main_loop_quit(main_loop); */
-    close( wakeup_pipe[0] );
+    g_main_loop_quit(main_loop);
 }
 
-static void sig_child_handler( int sig )
+void lxsession_quit()
 {
-    /* notify the main loop that a child process exits */
-    write( wakeup_pipe[1], "X", 1 );
+    g_main_loop_quit(main_loop);
 }
 
 static void register_signals()
@@ -83,35 +77,53 @@ static void register_signals()
     /* Ignore SIGPIPE */
     signal( SIGPIPE, SIG_IGN );
 
-    /* If child process dies, call our handler */
-    signal( SIGCHLD, sig_child_handler );
-
 #if 0
-  action.sa_handler = g_child_watch_signal_handler;
-  sigemptyset (&action.sa_mask);
-  action.sa_flags = SA_RESTART | SA_NOCLDSTOP;
-  sigaction (SIGCHLD, &action, NULL);
+    action.sa_handler = g_child_watch_signal_handler;
+    sigemptyset (&action.sa_mask);
+    action.sa_flags = SA_RESTART | SA_NOCLDSTOP;
+    sigaction (SIGCHLD, &action, NULL);
 #endif
 
     /* If we get a SIGTERM, do logout */
     signal( SIGTERM, sig_term_handler );
 }
 
-static void load_config( GKeyFile* kf, const char* filename )
+GKeyFile* load_session_config( const char* config_filename )
 {
-    if( g_key_file_load_from_file( kf, filename, 0, NULL ) )
-    {
-        char* str;
-        if( str = g_key_file_get_string( kf, "Session", "window_manager", NULL ) )
-        {
-            g_free( window_manager );
-            window_manager = str;
-        }
-    }
+    const gchar* const *dirs = g_get_system_config_dirs();
+    const gchar* const *dir;
+    GKeyFile* kf = g_key_file_new();
+    char* filename;
+	gboolean ret;
+
+    /* load user-specific session config */
+    filename = g_build_filename( g_get_user_config_dir(), prog_name, session_name, config_filename, NULL );
+    ret = g_key_file_load_from_file(kf, filename, 0, NULL);
+    g_free( filename );
+
+	if( ! ret ) /* user specific file is not found */
+	{
+		/* load system-wide session config files */
+		for( dir = dirs; *dir; ++dir )
+		{
+			filename = g_build_filename( *dir, prog_name, session_name, config_filename, NULL );
+			ret = g_key_file_load_from_file(kf, filename, 0, NULL);
+			g_free( filename );
+			if(ret)
+				break;
+		}
+	}
+
+	if( G_UNLIKELY(!ret) )
+	{
+		g_key_file_free(kf);
+		return NULL;
+	}
+	return kf;
 }
 
 /* Returns pid if succesful, returns -1 if errors happen. */
-static GPid run_app( const char* cmd )
+GPid run_app( const char* cmd )
 {
     char** argv;
     int argc;
@@ -129,46 +141,24 @@ static GPid run_app( const char* cmd )
     return pid;
 }
 
-static void on_child_exit( ChildWatch* cw )
+static void on_child_exit( GPid pid, gint status, gchar* cmd )
 {
-    int sig = WTERMSIG( cw->status );
+    int sig = WTERMSIG( status );
     /* if the term signal is not SIGTERM or SIGKILL, this might be a crash! */
     if( sig && sig != SIGTERM && sig != SIGKILL )
     {
-        GPid pid = run_app( cw->cmd );
-        if( pid < 0 )   /* error, remove the watch */
-        {
-            child_watches = g_slist_remove( child_watches, cw );
-            child_watch_free( cw );
-        }
-        else
-        {
-            cw->pid = pid;
-            cw->exited = FALSE;
-            cw->status = 0;            
-        }
+        run_guarded_app( cmd );
     }
 }
 
-static void add_child_watch( GPid pid, const char* cmd )
-{
-    ChildWatch* cw = g_new0( ChildWatch, 1 );
-    cw->pid = pid;
-    cw->cmd = g_strdup( cmd );
-    child_watches = g_slist_prepend( child_watches, cw );
-}
-
-static void run_guarded_app( const char* cmd )
+void run_guarded_app( const char* cmd )
 {
     GPid pid = run_app( cmd );
     if( pid > 0 )
     {
-        add_child_watch( pid, cmd );
-        /*
         g_child_watch_add_full( G_PRIORITY_DEFAULT_IDLE, pid,
-                                            (GChildWatchFunc)on_child_exit,
-                                            g_strdup( cmd ), (GDestroyNotify)g_free );
-        */
+                                (GChildWatchFunc)on_child_exit,
+                                g_strdup( cmd ), (GDestroyNotify)g_free );
     }
 }
 
@@ -202,27 +192,13 @@ static void load_default_apps( const char* filename )
  * system wide default config is /etc/xdg/lxsession/SESSION_NAME/config
  * system wide default apps are listed in /etc/xdg/lxsession/SESSION_NAME/autostart
  */
-static void start_session()
+void start_session()
 {
     FILE *file = NULL;
     const gchar* const *dirs = g_get_system_config_dirs();
     const gchar* const *dir;
     GKeyFile* kf = g_key_file_new();
     char* filename;
-
-    /* load system-wide session config files */
-    for( dir = dirs; *dir; ++dir )
-    {
-        filename = g_build_filename( *dir, prog_name, session_name, config_filename, NULL );
-        load_config( kf, filename );
-        g_free( filename );
-    }
-    /* load user-specific session config */
-    filename = g_build_filename( g_get_user_config_dir(), prog_name, session_name, config_filename, NULL );
-    load_config( kf, filename );
-    g_free( filename );
-
-    g_key_file_free( kf );
 
     /* run window manager first */
     if( G_LIKELY( window_manager ) )
@@ -244,39 +220,9 @@ static void start_session()
     handle_autostart( session_name );
 }
 
-static void dispatch_child_watches()
+static void parse_options(int argc, char** argv)
 {
-    GSList* l;
-    ChildWatch* cw;
-    int status;
-
-    for( l = child_watches; l; l = l->next )
-    {
-        cw = (ChildWatch*)l->data;
-        if (waitpid (cw->pid, &status, WNOHANG) > 0)
-        {
-            cw->status = status;
-            cw->exited = TRUE;
-            on_child_exit( cw );
-        }
-    }
-}
-
-int main(int argc, char** argv)
-{
-    const char *pid_str;
-    char str[ 16 ];
     int  i;
-
-    pid_str = g_getenv(pid_env);
-
-    display_name = g_getenv( display_env );
-    if( ! display_name )
-    {
-        display_name = ":0";
-        g_setenv( display_env, display_name, TRUE );
-    }
-
     for ( i = 1; i < argc; ++i )
     {
         if ( argv[i][0] == '-' )
@@ -288,75 +234,104 @@ int main(int argc, char** argv)
                 display_name = argv[i];
                 g_setenv( display_env, display_name, TRUE );
                 continue;
-
             case 's':     /* -session */
                 if ( ++i >= argc ) goto usage;
                 session_name = argv[i];
                 continue;
-
-            case 'e':
-                if( 0 == strcmp( argv[i]+1, "exit" ) )
-                {
-                    if( pid_str ) /* _LXSESSION_PID has been set */
-                    {
-                        GPid pid = atoi( pid_str );
-                        kill( pid, SIGTERM );
-                        return 0;
-                    }
-                    else
-                    {
-                        g_print( "Error: LXSession is not running.\n" );
-                        return 1;
-                    }
-                }
+            case 'n': /* disable xsettings daemon */
+				no_settings = TRUE;
+                continue;
+            case 'r':
+                if( 0 == strcmp( argv[i]+1, "reload" ) )
+                    reload_settings = TRUE;
             }
         }
-
 usage:
         fprintf ( stderr,
-                  "Usage: lxsession [-display display] [-session session_name] [-exit]\n" );
-        return 1;
+                  "Usage:  lxsession [OPTIONS...]\n"
+				  "\t-d name\tspecify name of display (optional)\n"
+				  "\t-s name\tspecify name of the desktop session\n"
+				  "\t-r\t reload configurations (for Xsettings daemon)\n"
+				  "\t-n\t disable Xsettings daemon support\n" );
+        exit(1);
     }
+}
 
-    if( G_UNLIKELY( pid_str ) ) /* _LXSESSION_PID has been set */
+int main(int argc, char** argv)
+{
+    const char *pid_str;
+    char str[ 16 ];
+	GKeyFile* kf;
+
+    pid_str = g_getenv(pid_env);
+
+    display_name = g_getenv( display_env );
+    if( ! display_name )
     {
-        g_error("LXSession is already running\n");
-        return 1;
+        display_name = ":0";
+        g_setenv( display_env, display_name, TRUE );
     }
 
-    if( pipe( wakeup_pipe ) < 0 )
+    parse_options(argc, argv);
+
+    /* initialize X-related stuff and connect to X Display */
+    if( G_UNLIKELY(! xevent_init() ) )
         return 1;
 
-    /*
-     *  NOTE:
-     *  g_main_loop has some weird problems when child watch is the only event source.
-     *  It seems that in this situation glib does busy loop. (Not yet fully confirmed.)
-     *  To prevent this, I handle this myself with pipe and don't use main loop provided by glib.
-     */
-    /* main_loop = g_main_loop_new( NULL, TRUE ); */
+    /* send command to existing daemon to reload settings */
+    if( G_UNLIKELY( reload_settings ) )
+    {
+        send_internal_command( LXS_RELOAD );
+        return 0;
+    }
+	else if( G_UNLIKELY( !single_instance_check()) )
+	{
+		/* only one instance is allowed for each X. */
+		g_error( "Only one lxsession can be executed at a time." );
+		return 1;
+	}
 
+    /* set pid */
     g_snprintf( str, 16, "%d", getpid() );
     g_setenv(pid_env, str, TRUE );
 
+    main_loop = g_main_loop_new( NULL, TRUE );
+
+	/* setup signal handlers */
     register_signals();
 
-    if ( !session_name )
+    if ( G_UNLIKELY(!session_name) )
         session_name = "LXDE";
 
     g_setenv( "DESKTOP_SESSION", session_name, TRUE );
 
+    /* FIXME: setup locales: LC_ALL, LANG, LANGUAGE?
+	 * Is this needed? */
+
+    /* FIXME: load environment variables? */
+
+	/* Load desktop session config file */
+	kf = load_session_config(CONFIG_FILE_NAME);
+	if( !kf )
+	{
+		xevent_finalize();
+		return 1;
+	}
+
+	window_manager = g_key_file_get_string( kf, "Session", "window_manager", NULL );
+
+    if( G_LIKELY(!no_settings) )
+        start_settings_daemon(kf);
+
+	g_key_file_free(kf);
+
+    /* start desktop session and load autostart applications */
     start_session();
 
-    /*
     g_main_loop_run( main_loop );
     g_main_loop_unref( main_loop );
-     */
 
-    while( read( wakeup_pipe[0], str, 16 ) > 0 )
-        dispatch_child_watches();
-
-    /* close( wakeup_pipe[0] ); */
-    close( wakeup_pipe[1] );
+	xevent_finalize();
 
     return 0;
 }

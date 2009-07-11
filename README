@@ -1,13 +1,13 @@
-LXSession is the default X11 session manager of LXDE.
+LXSession is the default session manager of LXDE.
 (LXDE: Lightweight X11 Desktop Environment)
 http://lxde.org/
-
-LXSession Lite is the stripped down version without
-the problematic X11 Session Management support.
 
 What's LXSession and who needs this?
 A session manager is used to automatically start a set of applications and
 set up a working desktop environment.
+Besides, LXSession has a built-in lightweight Xsettings daemon, which can 
+configure gtk+ themes, keyboard, and mouse for you on session startup.
+In gnome the Xsettings part is provided by gnome-settings-daemon.
 
 Gnome is bundled with its own gnome-session, KDE brings its own session
 manager, too. XFCE and ROX desktop also have their own session managers,
@@ -62,11 +62,9 @@ NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart
 So, what programs will be executed when LXSession starts?
 The window manager, of course, should be the most important one.
 It should be specified in this file:
-/etc/xdg/lxsession/<Name of Your Desktop>/config
-The file is a plain ini file, like this:
-[Session]
-window_manager=openbox
-Just replace 'openbox' with the window manager you like.
+/etc/xdg/lxsession/<Name of Your Desktop>/desktop.conf
+The file is a plain ini file, like the desktop.conf.example
+bundled in this package.
 
 Then, list the other programs you want to execute in this file:
 /etc/xdg/lxsession/<Name of Your Desktop>/autostart

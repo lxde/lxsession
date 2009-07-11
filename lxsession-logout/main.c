@@ -439,7 +439,7 @@ int main( int argc, char** argv )
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
     {
-        btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", LOGOUT_ACTION_SHUTDOWN );
+        btn = create_dlg_btn(_("Sh_utdown"), "system-shutdown", LOGOUT_ACTION_SHUTDOWN );
         gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_REBOOT )
@@ -467,7 +467,7 @@ int main( int argc, char** argv )
         gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
     }
 
-    btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
+    btn = create_dlg_btn(_("_Logout"), "system-log-out", GTK_RESPONSE_OK );
     gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
 
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );

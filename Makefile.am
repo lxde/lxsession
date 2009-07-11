@@ -1,14 +1,17 @@
+NULL=
+
 SUBDIRS=lxsession lxsession-logout po man
 
 imagedir=$(datadir)/lxsession/images
 image_DATA= \
-	images/gnome-session-halt.png \
+	images/system-shutdown.png \
+	images/system-log-out.png \
 	images/gnome-session-hibernate.png \
-	images/gnome-session-logout.png \
 	images/gnome-session-reboot.png \
 	images/gnome-session-suspend.png \
 	images/gnome-session-switch.png
 
 EXTRA_DIST = \
-	autogen.sh \
+	desktop.conf.example \
 	$(image_DATA)
+	$(NULL)
