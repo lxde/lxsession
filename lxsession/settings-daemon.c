@@ -177,7 +177,9 @@ static void load_settings( GKeyFile* kf )
 	configure_input(kf);
 
 	/* Load GTK+ settings */
-	keys = g_key_file_get_keys( kf, group, NULL, NULL );
+	if ( keys = g_key_file_get_keys( kf, group, NULL, NULL ) == NULL ) 
+	    return;
+	
 	for( key = keys; *key; ++key )
 	{
 		const char* name = *key + 1;
