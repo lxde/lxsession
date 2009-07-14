@@ -52,7 +52,6 @@ static char display_env[] = "DISPLAY";
 static char pid_env[] = "_LXSESSION_PID";
 
 static char prog_name[]="lxsession";
-static char config_filename[]="config";
 static char autostart_filename[]="autostart";
 
 const char *session_name = NULL;
@@ -240,10 +239,14 @@ static void parse_options(int argc, char** argv)
 				no_settings = TRUE;
                 continue;
             case 'r':
-                if( 0 == strcmp( argv[i]+1, "reload" ) )
-                    reload_settings = TRUE;
+				reload_settings = TRUE;
+				continue;
+			default:
+				goto usage;
             }
         }
+	}
+	return;
 usage:
         fprintf ( stderr,
                   "Usage:  lxsession [OPTIONS...]\n"
@@ -252,7 +255,6 @@ usage:
 				  "\t-r\t reload configurations (for Xsettings daemon)\n"
 				  "\t-n\t disable Xsettings daemon support\n" );
         exit(1);
-    }
 }
 
 int main(int argc, char** argv)
