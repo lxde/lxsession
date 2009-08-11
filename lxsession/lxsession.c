@@ -268,7 +268,7 @@ int main(int argc, char** argv)
     display_name = g_getenv( display_env );
     if( ! display_name )
     {
-        display_name = ":0";
+        display_name = ":0.0";
         g_setenv( display_env, display_name, TRUE );
     }
 
