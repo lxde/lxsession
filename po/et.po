@@ -1,7 +1,7 @@
 # lxsession-lite eesti keele tõlge
 # Estonian translation of lxsession lite
 # Copyright (C) 2008 LXDE
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the lxsession-lite package.
 # Mattias Põldaru <mahfiaz gmail com>, 2008.
 #
 msgid ""
