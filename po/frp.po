@@ -1,0 +1,81 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"PO-Revision-Date: 2009-09-24 01:02+0200\n"
+"Last-Translator: alexandre raymond <alekcxjo@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0\n"
+
+#: ../lxsession-logout/main.c:63
+msgid "Custom message to show on the dialog"
+msgstr ""
+
+#: ../lxsession-logout/main.c:63
+msgid "message"
+msgstr "messâjo"
+
+#: ../lxsession-logout/main.c:64
+#, fuzzy
+msgid "Banner to show on the dialog"
+msgstr "Bandèra a mohtrar a devesar"
+
+#: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "fichèr d'imaji"
+
+#: ../lxsession-logout/main.c:65
+msgid "Position of the banner"
+msgstr "posicion de la bandèra"
+
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#, c-format
+msgid "Error: %s\n"
+msgstr "Errór: %s\n"
+
+#: ../lxsession-logout/main.c:354
+msgid "LXSession is not running."
+msgstr "LXSession n'eht pâs lancî"
+
+#: ../lxsession-logout/main.c:376
+msgid "Logout"
+msgstr "Modar"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:428
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Modar la session %s?</big></b>"
+
+#: ../lxsession-logout/main.c:438
+msgid "Sh_utdown"
+msgstr "S_arrar"
+
+#: ../lxsession-logout/main.c:443
+msgid "_Reboot"
+msgstr "Rem_prendre"
+
+#: ../lxsession-logout/main.c:448
+msgid "_Suspend"
+msgstr "G_anganar"
+
+#: ../lxsession-logout/main.c:453
+msgid "_Hibernate"
+msgstr "Hi_vernar"
+
+#: ../lxsession-logout/main.c:462
+msgid "S_witch User"
+msgstr "C_hanjèr d'usór"
+
+#: ../lxsession-logout/main.c:466
+msgid "_Logout"
+msgstr "_Modar"
