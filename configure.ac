@@ -1,6 +1,6 @@
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.0], [],lxsession)
-AM_INIT_AUTOMAKE([dist-bzip2])
+AC_INIT(lxsession,[0.4.1], [],lxsession)
+AM_INIT_AUTOMAKE()
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
 

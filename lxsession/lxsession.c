@@ -55,7 +55,7 @@ static char prog_name[]="lxsession";
 static char autostart_filename[]="autostart";
 
 const char *session_name = NULL;
-
+const char* de_name = NULL;
 
 static GPid run_app( const char* cmd );
 static void run_guarded_app( const char* cmd );
@@ -238,6 +238,10 @@ static void parse_options(int argc, char** argv)
             case 'n': /* disable xsettings daemon */
 				no_settings = TRUE;
                 continue;
+            case 'e': /* DE name */
+                if ( ++i >= argc ) goto usage;
+                de_name = argv[i];
+                continue;
             case 'r':
 				reload_settings = TRUE;
 				continue;
@@ -250,8 +254,9 @@ static void parse_options(int argc, char** argv)
 usage:
         fprintf ( stderr,
                   "Usage:  lxsession [OPTIONS...]\n"
-				  "\t-d name\tspecify name of display (optional)\n"
-				  "\t-s name\tspecify name of the desktop session\n"
+				  "\t-d NAME\tspecify name of display (optional)\n"
+				  "\t-s NAME\tspecify name of the desktop session profile\n"
+                  "\t-e NAME\tspecify name of DE, such as LXDE, GNOME, or XFCE.\n"
 				  "\t-r\t reload configurations (for Xsettings daemon)\n"
 				  "\t-n\t disable Xsettings daemon support\n" );
         exit(1);
@@ -302,11 +307,11 @@ int main(int argc, char** argv)
 
     if ( G_UNLIKELY(!session_name) )
         session_name = "LXDE";
-
     g_setenv( "DESKTOP_SESSION", session_name, TRUE );
 
-    /* FIXME: setup locales: LC_ALL, LANG, LANGUAGE?
-	 * Is this needed? */
+    if ( G_UNLIKELY(!de_name) )
+        session_name = session_name;
+    g_setenv( "XDG_CURRENT_DESKTOP", de_name, TRUE );
 
     /* FIXME: load environment variables? */
 

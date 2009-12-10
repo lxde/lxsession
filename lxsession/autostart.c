@@ -24,7 +24,7 @@
 #include <string.h>
 
 static const char DesktopEntry[] = "Desktop Entry";
-extern const char* session_name;
+extern const char* de_name; /* defined in lxsession.c */
 
 #if 0
 /*
@@ -189,7 +189,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
             for( i = 0; i < n; ++i )
             {
                 /* Only start this program if we are in the "OnlyShowIn" list */
-                if( 0 == strcmp( session_name, only_show_in[ i ] ) )
+                if( 0 == strcmp( de_name, only_show_in[ i ] ) )
                     break;
             }
             if( i >= n )    /* our session name is not found in the list */
@@ -210,7 +210,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
 				for( i = 0; i < n; ++i )
 				{
 					/* Only start this program if we are in the "OnlyShowIn" list */
-					if( 0 == strcmp( session_name, not_show_in[ i ] ) )
+					if( 0 == strcmp( de_name, not_show_in[ i ] ) )
 						break;
 				}
 				if( i < n )    /* our session name is found in the "NotShowIn" list */
@@ -260,7 +260,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
     }
 }
 
-static void get_autostart_files_in_dir( GHashTable* hash, const char* session_name, const char* base_dir )
+static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, const char* base_dir )
 {
     char* dir_path = g_build_filename( base_dir, "autostart", NULL );
     GDir* dir = g_dir_open( dir_path, 0, NULL );
@@ -280,7 +280,7 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* session_na
     g_free( dir_path );
 }
 
-void handle_autostart( const char* session_name )
+void handle_autostart( const char* de_name )
 {
     const char* const *dirs = g_get_system_config_dirs();
     const char* const *dir;
@@ -288,10 +288,10 @@ void handle_autostart( const char* session_name )
 
     /* get system-wide autostart files */
     for( dir = dirs; *dir; ++dir )
-        get_autostart_files_in_dir( hash, session_name, *dir );
+        get_autostart_files_in_dir( hash, de_name, *dir );
 
     /* get user-specific autostart files */
-    get_autostart_files_in_dir( hash, session_name, g_get_user_config_dir() );
+    get_autostart_files_in_dir( hash, de_name, g_get_user_config_dir() );
 
     if( g_hash_table_size( hash ) > 0 )
     {
