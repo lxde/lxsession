@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:49+0200\n"
-"PO-Revision-Date: 2009-08-06 16:52+0200\n"
+"PO-Revision-Date: 2009-12-10 12:17+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,6 @@ msgid "image file"
 msgstr "slikovna datoteka"
 
 #: ../lxsession-logout/main.c:65
-#, fuzzy
 msgid "Position of the banner"
 msgstr "Položaj pasice"
 
