@@ -78,3 +78,5 @@ msgstr "_Vaheta kasutajat"
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
 msgstr "L_ogi välja"
+
+ 	  	 
