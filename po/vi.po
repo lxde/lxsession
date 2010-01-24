@@ -18,63 +18,63 @@ msgstr ""
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Thông báo riêng để hiển thị trên hộp thoại"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr ""
+msgstr "thông báo"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Biểu ngữ để hiển thị trên hộp thoại"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr ""
+msgstr "tập tin ảnh"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr ""
+msgstr "Vị trí của biểu ngữ"
 
 #: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr ""
+msgstr "Lỗi: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr ""
+msgstr "LXSession chưa chạy"
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
-msgstr ""
+msgstr "Đăng thoát"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr ""
+msgstr "<b><big>Đăng thoát phiên làm việc của %s?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
-msgstr ""
+msgstr "Tắt _máy"
 
 #: ../lxsession-logout/main.c:443
 msgid "_Reboot"
-msgstr ""
+msgstr "_Khởi động lại"
 
 #: ../lxsession-logout/main.c:448
 msgid "_Suspend"
-msgstr ""
+msgstr "Ngư_ng máy"
 
 #: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
-msgstr ""
+msgstr "N_gủ đông"
 
 #: ../lxsession-logout/main.c:462
 msgid "S_witch User"
-msgstr ""
+msgstr "_Chuyển đổi người dùng"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr ""
+msgstr "Đăng _thoát"
