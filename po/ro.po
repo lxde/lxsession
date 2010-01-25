@@ -1,82 +1,77 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:49+0200\n"
-"PO-Revision-Date: 2010-01-25 13:20+0200\n"
-"Last-Translator: Ali <aysabzevar@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fa\n"
+"PO-Revision-Date: 2010-01-24 11:10-0800\n"
+"Last-Translator: alexxed <alexxed@gmail.com>\n"
+"Language-Team: Romanian <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Narro 0.9.4 on http://tradu.softwareliber.ro\n"
 
 #: ../lxsession-logout/main.c:63
 msgid "Custom message to show on the dialog"
-msgstr "پیام سفارشی برای نمایش در مکالمه"
+msgstr "Mesaj personalizat pentru afișarea în caseta de dialog"
 
 #: ../lxsession-logout/main.c:63
 msgid "message"
-msgstr "پیام"
+msgstr "mesaj"
 
 #: ../lxsession-logout/main.c:64
 msgid "Banner to show on the dialog"
-msgstr "پرچم برای نمایش در گفتگو"
+msgstr "Mesaj sau imagine de afișat în dialog"
 
 #: ../lxsession-logout/main.c:64
 msgid "image file"
-msgstr "پرونده تصویر"
+msgstr "fișier imagine"
 
 #: ../lxsession-logout/main.c:65
 msgid "Position of the banner"
-msgstr "موقعیت پرچم"
+msgstr "Poziția imaginii"
 
 #: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr "خطا: %s\n"
+msgstr "Eroare: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."
-msgstr "LXSession  اجرا نیست."
+msgstr "LXSession nu rulează."
 
 #: ../lxsession-logout/main.c:376
 msgid "Logout"
-msgstr "خروج"
+msgstr "Ieșire"
 
 #. %s is the name of the desktop session
 #: ../lxsession-logout/main.c:428
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>خروج %s نشست?</big></b>"
+msgstr "<b><big>Ieșiți din sesiunea %s?</big></b>"
 
 #: ../lxsession-logout/main.c:438
 msgid "Sh_utdown"
-msgstr "خاـموش"
+msgstr "Oprește calc_ulatorul"
 
 #: ../lxsession-logout/main.c:443
 msgid "_Reboot"
-msgstr "ـ آغاز به کار دوباره"
+msgstr "_Repornește"
 
 #: ../lxsession-logout/main.c:448
 msgid "_Suspend"
-msgstr "ـ تعلیق"
+msgstr "_Suspendă"
 
 #: ../lxsession-logout/main.c:453
 msgid "_Hibernate"
-msgstr "ـ خواب زمستانی"
+msgstr "_Hibernează"
 
 #: ../lxsession-logout/main.c:462
 msgid "S_witch User"
-msgstr "تـغییر کاربر"
+msgstr "_Schimbă utilizatorul"
 
 #: ../lxsession-logout/main.c:466
 msgid "_Logout"
-msgstr "ـ خروج"
+msgstr "_Ieșire"
