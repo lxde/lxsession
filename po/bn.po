@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+
+# Sankarshan <sankarshan.mukhopadhyay@gmail.com>, 2009.
+# Sadia Afroz <sadia@ankur.org.bd>, 2010. 
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bn\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"PO-Revision-Date: 2010-01-31 16:49+0600\n"
+"Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
+"Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Pootle 1.1.0\n"
+
+#: ../lxsession-logout/main.c:63
+msgid "Custom message to show on the dialog"
+msgstr "ডায়ালগে প্রদর্শনের জন্য স্বনির্ধারিত বার্তা"
+
+#: ../lxsession-logout/main.c:63
+msgid "message"
+msgstr "বার্তা"
+
+#: ../lxsession-logout/main.c:64
+msgid "Banner to show on the dialog"
+msgstr "ডায়ালগে প্রদর্শন করার ব্যানার"
+
+#: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "ছবির ফাইল"
+
+#: ../lxsession-logout/main.c:65
+msgid "Position of the banner"
+msgstr "ব্যানারের অবস্থান"
+
+#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#, c-format
+msgid "Error: %s\n"
+msgstr "ত্রুটি: %s\n"
+
+#: ../lxsession-logout/main.c:354
+msgid "LXSession is not running."
+msgstr "LXSession চলছে না।"
+
+#: ../lxsession-logout/main.c:376
+msgid "Logout"
+msgstr "লগ-আউট"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:428
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>%s সেশন লগ-আউট করা হবে?</big></b>"
+
+#: ../lxsession-logout/main.c:438
+msgid "Sh_utdown"
+msgstr "বন্ধ (_u)"
+
+#: ../lxsession-logout/main.c:443
+msgid "_Reboot"
+msgstr "পুনরায় আরম্ভ (_R)"
+
+#: ../lxsession-logout/main.c:448
+msgid "_Suspend"
+msgstr "স্থগিত (_S)"
+
+#: ../lxsession-logout/main.c:453
+msgid "_Hibernate"
+msgstr "বিচেতন (_H)"
+
+#: ../lxsession-logout/main.c:462
+msgid "S_witch User"
+msgstr "ব্যবহারকারী পরিবর্তন করুন (_w)"
+
+#: ../lxsession-logout/main.c:466
+msgid "_Logout"
+msgstr "লগ-আউট (_L)"
