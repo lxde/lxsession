@@ -162,14 +162,14 @@ GtkPositionType get_banner_position()
 {
     if( side )
     {
+        if( 0 == strcmp( side, "left" ) )
+            return GTK_POS_LEFT;
         if( 0 == strcmp( side, "right" ) )
             return GTK_POS_RIGHT;
-        if( 0 == strcmp( side, "top" ) )
-            return GTK_POS_TOP;
         if( 0 == strcmp( side, "bottom" ) )
             return GTK_POS_BOTTOM;
     }
-    return GTK_POS_LEFT;
+    return GTK_POS_TOP;
 }
 
 /*
@@ -389,7 +389,7 @@ int main( int argc, char** argv )
         {
         case GTK_POS_LEFT:
         case GTK_POS_RIGHT:
-            box = gtk_vbox_new( FALSE,2 );
+            box = gtk_hbox_new( FALSE,2 );
             gtk_box_pack_start( GTK_BOX(vbox), box, TRUE, TRUE, 2 );
 
             if( banner_pos == GTK_POS_LEFT )
@@ -407,17 +407,10 @@ int main( int argc, char** argv )
             gtk_misc_set_alignment( GTK_MISC(img), 0.5, 0.0 );
             break;
         case GTK_POS_TOP:
+            gtk_box_pack_start( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
+	    break;
         case GTK_POS_BOTTOM:
-            if( banner_pos == GTK_POS_TOP )
-            {
-                gtk_box_pack_start( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
-                gtk_box_pack_start( GTK_BOX(vbox), gtk_hseparator_new(), FALSE, TRUE, 2 );
-            }
-            else
-            {
-                gtk_box_pack_end( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
-                gtk_box_pack_end( GTK_BOX(vbox), gtk_hseparator_new(), FALSE, TRUE, 2 );
-            }
+            gtk_box_pack_end( GTK_BOX(vbox), img, FALSE, TRUE, 2 );
             break;
         }
     }
