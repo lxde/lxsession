@@ -58,6 +58,7 @@ static char* prompt = NULL;
 static char* side = NULL;
 static char* banner = NULL;
 static gboolean emphasize = FALSE;
+static gboolean hbutton = FALSE;
 
 static GOptionEntry opt_entries[] =
 {
@@ -65,6 +66,7 @@ static GOptionEntry opt_entries[] =
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &side, N_("Position of the banner"), "top|left|right|botom" },
     { "emphasize", 'e', 0, G_OPTION_ARG_NONE, &emphasize, N_("Emphasize the logout window"), NULL},
+    { "hbutton", 'h', 0, G_OPTION_ARG_NONE, &hbutton, N_("Horizontal buttons"), NULL},
 /*    {G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &files, NULL, N_("[FILE1, FILE2,...]")}, */
     { NULL }
 };
@@ -151,7 +153,7 @@ static GtkWidget* create_dlg_btn(const char* label, const char* icon, int respon
     g_signal_connect( btn, "clicked", G_CALLBACK(btn_clicked), GINT_TO_POINTER(response) );
     if( icon )
     {
-        GtkWidget* img = gtk_image_new_from_icon_name( icon, GTK_ICON_SIZE_BUTTON );
+        GtkWidget* img = gtk_image_new_from_icon_name( icon, GTK_ICON_SIZE_LARGE_TOOLBAR );
         gtk_button_set_image( GTK_BUTTON(btn), img );
     }
     return btn;
@@ -334,7 +336,7 @@ static void check_available_actions()
 
 int main( int argc, char** argv )
 {
-    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox;
+    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox, *hbox;
     GtkPositionType banner_pos;
     int res;
     const char* p;
@@ -370,16 +372,17 @@ int main( int argc, char** argv )
         return 1;
     }
     g_option_context_free( context );
-if(emphasize){
-    back = create_background();
+    if(emphasize){
+        back = create_background();
 
-    /* check if the window is composited */
-    composited = gtk_widget_is_composited( back );
-}
+        /* check if the window is composited */
+        composited = gtk_widget_is_composited( back );
+    }
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                             PACKAGE_DATA_DIR "/lxsession/images" );
 
+    /* if not emphasized, the variable "back" will be NULL which satisfies the function's arguments below */
     dlg = gtk_dialog_new_with_buttons( _("Logout"), (GtkWindow*)back, GTK_DIALOG_MODAL,
                                                GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
     gtk_container_set_border_width( (GtkContainer*)dlg, 6 );
@@ -393,7 +396,7 @@ if(emphasize){
         {
         case GTK_POS_LEFT:
         case GTK_POS_RIGHT:
-            box = gtk_hbox_new( FALSE,2 );
+            box = gtk_vbox_new( FALSE,2 );
             gtk_box_pack_start( GTK_BOX(vbox), box, TRUE, TRUE, 2 );
 
             if( banner_pos == GTK_POS_LEFT )
@@ -438,27 +441,34 @@ if(emphasize){
     gtk_label_set_markup( GTK_LABEL(label), prompt );
     gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 4 );
 
+    if( hbutton ){
+	hbox = gtk_hbox_new( TRUE, 2 );
+	gtk_box_pack_start( GTK_BOX(vbox), hbox, FALSE, TRUE, 2 );
+	/* somehow dirty that we replaced vbox with hbox */
+	vbox = hbox;
+    }
+
     check_available_actions();
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
     {
         btn = create_dlg_btn(_("Sh_utdown"), "gnome-session-halt", LOGOUT_ACTION_SHUTDOWN );
-        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_REBOOT )
     {
         btn = create_dlg_btn(_("_Reboot"), "gnome-session-reboot", LOGOUT_ACTION_REBOOT );
-        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_SUSPEND )
     {
         btn = create_dlg_btn(_("_Suspend"), "gnome-session-suspend", LOGOUT_ACTION_SUSPEND );
-        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
     }
     if( available_actions & LOGOUT_ACTION_HIBERNATE )
     {
         btn = create_dlg_btn(_("_Hibernate"), "gnome-session-hibernate", LOGOUT_ACTION_HIBERNATE );
-        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
     }
 
     /* If GDM or KDM is running */
@@ -467,13 +477,16 @@ if(emphasize){
         || g_file_test("/var/run/kdm.pid", G_FILE_TEST_EXISTS) )
     {
         btn = create_dlg_btn(_("S_witch User"), "gnome-session-switch", LOGOUT_ACTION_SWITCH_USER );
-        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+        gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
     }
 
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
-    gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
+    gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
 
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
+    gtk_window_set_resizable( (GtkWindow*)dlg, FALSE );
+    gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
+    gtk_window_set_icon_name( (GtkWindow*)dlg, "gnome-logout" );
 
     if( emphasize )
 	    gtk_window_set_decorated( GTK_WINDOW(dlg), FALSE );
@@ -481,8 +494,6 @@ if(emphasize){
 	    gtk_window_set_decorated( GTK_WINDOW(dlg), TRUE );
 
     gtk_widget_show_all( dlg );
-
-    gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
 
     if( emphasize ){
         gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
