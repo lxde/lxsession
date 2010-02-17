@@ -57,15 +57,13 @@ static LogoutAction available_actions = GDM_LOGOUT_ACTION_NONE;
 static char* prompt = NULL;
 static char* side = NULL;
 static char* banner = NULL;
-static gboolean emphasize = FALSE;
-/* static gboolean hbutton = FALSE; */
+int res;
 
 static GOptionEntry opt_entries[] =
 {
     { "prompt", 'p', 0, G_OPTION_ARG_STRING, &prompt, N_("Custom message to show on the dialog"), N_("message") },
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &side, N_("Position of the banner"), "top|left|right|botom" },
-    { "emphasize", 'e', 0, G_OPTION_ARG_NONE, &emphasize, N_("Emphasize the logout window"), NULL},
 /*    { "hbutton", 'h', 0, G_OPTION_ARG_NONE, &hbutton, N_("Horizontal buttons"), NULL}, */
 /*    {G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &files, NULL, N_("[FILE1, FILE2,...]")}, */
     { NULL }
@@ -81,7 +79,7 @@ static gboolean on_expose( GtkWidget* w, GdkEventExpose* evt, GdkPixbuf* shot )
                                     evt->area.width, evt->area.height,
                                     GDK_RGB_DITHER_NORMAL, 0, 0 );
     }
-    return TRUE;
+    return FALSE;
 }
 
 static GtkWidget* create_background()
@@ -135,7 +133,6 @@ static GtkWidget* create_background()
     gtk_window_fullscreen( GTK_WINDOW(back) );
     gtk_window_set_decorated( GTK_WINDOW(back), FALSE );
     gtk_window_set_keep_above( GTK_WINDOW(back), TRUE );
-    gtk_widget_show_all( GTK_WIDGET(back) );
 
     return back;
 }
@@ -143,7 +140,8 @@ static GtkWidget* create_background()
 static void btn_clicked( GtkWidget* btn, gpointer id )
 {
     GtkWidget* dlg = gtk_widget_get_toplevel( btn );
-    gtk_dialog_response( GTK_DIALOG(dlg), GPOINTER_TO_INT(id) );
+    res = GPOINTER_TO_INT(id);
+    gtk_main_quit();
 }
 
 static GtkWidget* create_dlg_btn(const char* label, const char* icon, int response )
@@ -337,9 +335,8 @@ static void check_available_actions()
 
 int main( int argc, char** argv )
 {
-    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox, *bbox;
+    GtkWidget *back = NULL, *dlg, *check, *btn, *label, *box = NULL, *vbox, *bbox, *alignment;
     GtkPositionType banner_pos;
-    int res;
     const char* p;
     char* file;
     GPid pid;
@@ -353,7 +350,6 @@ int main( int argc, char** argv )
     bind_textdomain_codeset ( GETTEXT_PACKAGE, "UTF-8" );
     textdomain ( GETTEXT_PACKAGE );
 #endif
-
     p = g_getenv("_LXSESSION_PID");
     if( ! p || (pid = atoi( p)) == 0 )
     {
@@ -373,21 +369,17 @@ int main( int argc, char** argv )
         return 1;
     }
     g_option_context_free( context );
-    if(emphasize){
-        back = create_background();
-
-        /* check if the window is composited */
-        composited = gtk_widget_is_composited( back );
-    }
+    back = create_background();
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                             PACKAGE_DATA_DIR "/lxsession/images" );
 
-    /* if not emphasized, the variable "back" will be NULL which satisfies the function's arguments below */
-    dlg = gtk_dialog_new_with_buttons( _("Logout"), (GtkWindow*)back, GTK_DIALOG_MODAL,
-                                               GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, NULL );
-    gtk_container_set_border_width( (GtkContainer*)dlg, 6 );
-    vbox = ((GtkDialog*)dlg)->vbox;
+    dlg = gtk_event_box_new();
+    alignment = gtk_alignment_new( 0.5, 0.5, 0, 0 );
+    gtk_container_add( GTK_CONTAINER(back), alignment );
+    gtk_container_add( GTK_CONTAINER(alignment), dlg );
+    vbox = gtk_vbox_new( FALSE, 2 );
+    gtk_container_add( GTK_CONTAINER(dlg), vbox );
 
     if( banner )
     {
@@ -442,14 +434,8 @@ int main( int argc, char** argv )
     gtk_label_set_markup( GTK_LABEL(label), prompt );
     gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 4 );
 
-/*    if( hbutton ){ */
     bbox = gtk_hbox_new( TRUE, 4 );
     gtk_box_pack_start( GTK_BOX(vbox), bbox, FALSE, FALSE, 4 );
-/*    } else {
-        bbox = vbox;
-    } */
-
-    check_available_actions();
 
     if( available_actions & LOGOUT_ACTION_SHUTDOWN )
     {
@@ -484,48 +470,16 @@ int main( int argc, char** argv )
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
     gtk_box_pack_start( GTK_BOX(bbox), btn, FALSE, TRUE, 4 );
 
-    gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
-    gtk_window_set_resizable( (GtkWindow*)dlg, FALSE );
-    gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
-    gtk_window_set_icon_name( (GtkWindow*)dlg, "gnome-logout" );
+    btn = gtk_button_new_from_stock( GTK_STOCK_CANCEL );
+    gtk_button_set_alignment( GTK_BUTTON(btn), 0.5, 0.5 );
+    g_signal_connect( btn, "clicked", G_CALLBACK(btn_clicked), GINT_TO_POINTER(GTK_RESPONSE_CANCEL) );
+    gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
 
-    if( emphasize )
-	    gtk_window_set_decorated( GTK_WINDOW(dlg), FALSE );
+    gtk_widget_show_all( GTK_WIDGET(back) );
 
-    gtk_widget_show_all( dlg );
+    gtk_main();
 
-    if( emphasize ){
-        gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
-        gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
-//      if( !composited ) gdk_x11_grab_server();
-    }
-
-    switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
-    {
-        case LOGOUT_ACTION_SHUTDOWN:
-        case LOGOUT_ACTION_REBOOT:
-        case LOGOUT_ACTION_SUSPEND:
-        case LOGOUT_ACTION_HIBERNATE:
-        case LOGOUT_ACTION_SWITCH_USER:
-        case GTK_RESPONSE_OK:
-            break;
-        default:
-            gtk_widget_destroy( dlg );
-            if ( emphasize )
-		    gtk_widget_destroy( back );
-            gdk_pointer_ungrab( GDK_CURRENT_TIME );
-            gdk_keyboard_ungrab( GDK_CURRENT_TIME );
-            return 0;
-    }
-    if( emphasize ){
-//      if( !composited ) gdk_x11_ungrab_server();
-        gdk_pointer_ungrab( GDK_CURRENT_TIME );
-        gdk_keyboard_ungrab( GDK_CURRENT_TIME );
-    }
-
-    gtk_widget_destroy( dlg );
-    if( emphasize )
-	gtk_widget_destroy( back );
+    gtk_widget_destroy( back );
 
     if( res != GTK_RESPONSE_OK )
     {
