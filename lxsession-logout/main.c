@@ -434,6 +434,8 @@ int main( int argc, char** argv )
     gtk_label_set_markup( GTK_LABEL(label), prompt );
     gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 4 );
 
+    check_available_actions();
+
     bbox = gtk_hbox_new( TRUE, 4 );
     gtk_box_pack_start( GTK_BOX(vbox), bbox, FALSE, FALSE, 4 );
 
@@ -470,10 +472,15 @@ int main( int argc, char** argv )
     btn = create_dlg_btn(_("_Logout"), "gnome-session-logout", GTK_RESPONSE_OK );
     gtk_box_pack_start( GTK_BOX(bbox), btn, FALSE, TRUE, 4 );
 
+    gtk_box_pack_start( GTK_BOX(vbox), gtk_hseparator_new(), FALSE, TRUE, 2 );
+		
     btn = gtk_button_new_from_stock( GTK_STOCK_CANCEL );
+    alignment = gtk_alignment_new( 1, 0.5, 0, 0 );
+    gtk_alignment_set_padding( GTK_ALIGNMENT(alignment), 0, 0, 4, 4 );
+    gtk_box_pack_start( GTK_BOX(vbox), alignment, FALSE, TRUE, 4 );
     gtk_button_set_alignment( GTK_BUTTON(btn), 0.5, 0.5 );
     g_signal_connect( btn, "clicked", G_CALLBACK(btn_clicked), GINT_TO_POINTER(GTK_RESPONSE_CANCEL) );
-    gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, TRUE, 4 );
+    gtk_container_add( GTK_CONTAINER(alignment), btn );
 
     gtk_widget_show_all( GTK_WIDGET(back) );
 
@@ -481,6 +488,9 @@ int main( int argc, char** argv )
 
     gtk_widget_destroy( back );
 
+    if( res == GTK_RESPONSE_CANCEL ){
+        return 0;
+    }
     if( res != GTK_RESPONSE_OK )
     {
         if( res == LOGOUT_ACTION_SWITCH_USER )
