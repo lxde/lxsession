@@ -57,12 +57,14 @@ static LogoutAction available_actions = GDM_LOGOUT_ACTION_NONE;
 static char* prompt = NULL;
 static char* side = NULL;
 static char* banner = NULL;
+static gboolean emphasize = FALSE;
 
 static GOptionEntry opt_entries[] =
 {
     { "prompt", 'p', 0, G_OPTION_ARG_STRING, &prompt, N_("Custom message to show on the dialog"), N_("message") },
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &side, N_("Position of the banner"), "top|left|right|botom" },
+    { "emphasize", 'e', 0, G_OPTION_ARG_NONE, &emphasize, N_("Emphasize the logout window"), NULL},
 /*    {G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_FILENAME_ARRAY, &files, NULL, N_("[FILE1, FILE2,...]")}, */
     { NULL }
 };
@@ -368,11 +370,12 @@ int main( int argc, char** argv )
         return 1;
     }
     g_option_context_free( context );
-
+if(emphasize){
     back = create_background();
 
     /* check if the window is composited */
     composited = gtk_widget_is_composited( back );
+}
 
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                             PACKAGE_DATA_DIR "/lxsession/images" );
@@ -471,14 +474,21 @@ int main( int argc, char** argv )
     gtk_box_pack_start( GTK_BOX(vbox), btn, FALSE, FALSE, 4 );
 
     gtk_window_set_position( GTK_WINDOW(dlg), GTK_WIN_POS_CENTER_ALWAYS );
-    gtk_window_set_decorated( GTK_WINDOW(dlg), FALSE );
+
+    if( emphasize )
+	    gtk_window_set_decorated( GTK_WINDOW(dlg), FALSE );
+    else
+	    gtk_window_set_decorated( GTK_WINDOW(dlg), TRUE );
+
     gtk_widget_show_all( dlg );
 
     gtk_window_set_keep_above( (GtkWindow*)dlg, TRUE );
 
-    gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
-    gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
-//  if( !composited ) gdk_x11_grab_server();
+    if( emphasize ){
+        gdk_pointer_grab( dlg->window, TRUE, 0, NULL, NULL, GDK_CURRENT_TIME );
+        gdk_keyboard_grab( dlg->window, TRUE, GDK_CURRENT_TIME );
+//      if( !composited ) gdk_x11_grab_server();
+    }
 
     switch( (res = gtk_dialog_run( (GtkDialog*)dlg )) )
     {
@@ -491,17 +501,21 @@ int main( int argc, char** argv )
             break;
         default:
             gtk_widget_destroy( dlg );
-            gtk_widget_destroy( back );
+            if ( emphasize )
+		    gtk_widget_destroy( back );
             gdk_pointer_ungrab( GDK_CURRENT_TIME );
             gdk_keyboard_ungrab( GDK_CURRENT_TIME );
             return 0;
     }
-//  if( !composited ) gdk_x11_ungrab_server();
-    gdk_pointer_ungrab( GDK_CURRENT_TIME );
-    gdk_keyboard_ungrab( GDK_CURRENT_TIME );
+    if( emphasize ){
+//      if( !composited ) gdk_x11_ungrab_server();
+        gdk_pointer_ungrab( GDK_CURRENT_TIME );
+        gdk_keyboard_ungrab( GDK_CURRENT_TIME );
+    }
 
     gtk_widget_destroy( dlg );
-    gtk_widget_destroy( back );
+    if( emphasize )
+	gtk_widget_destroy( back );
 
     if( res != GTK_RESPONSE_OK )
     {
