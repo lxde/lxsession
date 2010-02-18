@@ -310,7 +310,7 @@ int main(int argc, char** argv)
     g_setenv( "DESKTOP_SESSION", session_name, TRUE );
 
     if ( G_UNLIKELY(!de_name) )
-        session_name = session_name;
+        de_name = session_name;
     g_setenv( "XDG_CURRENT_DESKTOP", de_name, TRUE );
 
     /* FIXME: load environment variables? */
