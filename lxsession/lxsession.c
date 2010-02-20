@@ -176,10 +176,16 @@ static void load_default_apps( const char* filename )
                 buf[ len ] = '\0';
                 --len;
             }
-            if( buf[0] == '@' ) /* if the app should be restarted on crash */
+            switch(buf[0])
+            {
+            case '@': /* if the app should be restarted on crash */
                 run_guarded_app( buf + 1 );
-            else
+                break;
+            case '#': /* skip comments */
+                break;
+            default: /* just run the program */
                 g_spawn_command_line_async( buf, NULL );
+            }
         }
         fclose( file );
     }
