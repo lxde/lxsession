@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-02-20 04:07+0000\n"
 "PO-Revision-Date: 2009-01-21 14:13+0100\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
@@ -36,46 +36,46 @@ msgstr "Billedfil"
 msgid "Position of the banner"
 msgstr "Grafikkens placering"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fejl: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:355
 msgid "LXSession is not running."
 msgstr "LXsession kører ikke."
 
-#: ../lxsession-logout/main.c:376
+#: ../lxsession-logout/main.c:380
 msgid "Logout"
 msgstr "Log ud"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/main.c:432
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Log ud af %s session?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/main.c:442
 msgid "Sh_utdown"
-msgstr "Sl_uk"
+msgstr "_Sluk"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/main.c:447
 msgid "_Reboot"
-msgstr "Gensta_rt"
+msgstr "_Genstart"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/main.c:452
 msgid "_Suspend"
-msgstr "Dvale"
+msgstr "_Dvale"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/main.c:457
 msgid "_Hibernate"
-msgstr "Hvile"
-
-#: ../lxsession-logout/main.c:462
-msgid "S_witch User"
-msgstr "Skift bruger"
+msgstr "_Hvile"
 
 #: ../lxsession-logout/main.c:466
+msgid "S_witch User"
+msgstr "Skift _bruger"
+
+#: ../lxsession-logout/main.c:470
 msgid "_Logout"
 msgstr "_Log ud"
 
