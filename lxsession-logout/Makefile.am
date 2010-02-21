@@ -1,12 +1,12 @@
 bin_PROGRAMS = lxsession-logout
 
-lxsession_logout_CFLAGS =  $(GTK_CFLAGS) $(SM_CFLAGS) $(HAL_CFLAGS) \
+lxsession_logout_CFLAGS =  $(GTK_CFLAGS) $(SM_CFLAGS) $(DBUS_CFLAGS) \
 			-DPACKAGE_LOCALE_DIR=\"$(datadir)/locale\" \
 			-DPACKAGE_DATA_DIR=\"$(datadir)\"
 
-lxsession_logout_LDADD = $(GTK_LIBS) $(SM_LIBS) $(HAL_LIBS)
+lxsession_logout_LDADD = $(GTK_LIBS) $(SM_LIBS) $(DBUS_LIBS)
 
 lxsession_logout_SOURCES= \
-	gdm-logout-action.c \
-        gdm-logout-action.h \
-	main.c
+	dbus-interface.c \
+	dbus-interface.h \
+	lxsession-logout.c
