@@ -170,16 +170,6 @@ gboolean dbus_ConsoleKit_Restart(void)
 /*** DeviceKit Power mechanism ***/
 
 #ifdef HAVE_DBUS
-/* Formulate a message to the DeviceKit Power properties interface. */
-static DBusMessage * dbus_DeviceKit_formulate_query(const char * const query)
-{
-    return dbus_message_new_method_call(
-        "org.freedesktop.DeviceKit.Power",
-	"/org/freedesktop/DeviceKit/Power",
-	"org.freedesktop.DBus.Properties",
-        query);
-}
-
 /* Formulate a message to the DeviceKit Power interface. */
 static DBusMessage * dbus_DeviceKit_formulate_command(const char * const command)
 {
@@ -195,7 +185,36 @@ static DBusMessage * dbus_DeviceKit_formulate_command(const char * const command
 static gboolean dbus_DeviceKit_query(const char * const query)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_DeviceKit_formulate_query(query)));
+    /* Formulate a message to the Properties interface. */
+    DBusMessage * message = dbus_message_new_method_call(
+        "org.freedesktop.DeviceKit.Power",
+	"/org/freedesktop/DeviceKit/Power",
+	"org.freedesktop.DBus.Properties",
+        "Get");
+    const char * const interface_name = "org.freedesktop.DeviceKit.Power";
+    dbus_message_append_args(message,
+        DBUS_TYPE_STRING, &interface_name,
+        DBUS_TYPE_STRING, &query,
+        DBUS_TYPE_INVALID);
+
+    /* Send the message. */
+    DBusMessage * reply = dbus_send_message(message);
+    if (reply == NULL)
+	return FALSE;
+
+    /* The return type is VARIANT expected to contain BOOLEAN. */
+    gboolean result = FALSE;
+    DBusMessageIter iter;
+    DBusMessageIter inner;
+    dbus_message_iter_init(reply, &iter);
+    if (dbus_message_iter_get_arg_type(&iter) == DBUS_TYPE_VARIANT)
+    {
+        dbus_message_iter_recurse(&iter, &inner);
+        if (dbus_message_iter_get_arg_type(&inner) == DBUS_TYPE_BOOLEAN)
+            dbus_message_iter_get_basic(&inner, &result);
+    }
+    dbus_message_unref(reply);
+    return result;
 #else
     return FALSE;
 #endif
