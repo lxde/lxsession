@@ -22,7 +22,7 @@
 #include <dbus/dbus.h>
 #endif
 
-/*** Mechanism independent***/
+/*** Mechanism independent ***/
 
 #ifdef HAVE_DBUS
 /* D-Bus context. */
@@ -280,11 +280,13 @@ static DBusMessage * dbus_HAL_formulate_property_query(const char * const method
     return message;
 }
 
+/* Formulate a message to the HAL SystemPowerManagement interface to query a boolean property. */
 static DBusMessage * dbus_HAL_formulate_boolean_property_query(const char * const property)
 {
     return dbus_HAL_formulate_property_query("GetPropertyBoolean", property);
 }
 
+/* Formulate a message to the HAL SystemPowerManagement interface to query a string property. */
 static DBusMessage * dbus_HAL_formulate_string_property_query(const char * const property)
 {
     return dbus_HAL_formulate_property_query("GetPropertyString", property);

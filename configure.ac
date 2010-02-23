@@ -42,7 +42,7 @@ dnl Check DBUS support
     if test x"$have_dbus" = x"yes"; then
         AC_DEFINE([HAVE_DBUS], [1], [Define to 1 if you have DBUS.])
     else
-        AC_MSG_ERROR([To use DBUS support, you must have developing packages of dbus-glib-1 (>=0.31), or you can use --disable-dbus to disable DBUS support.])
+        AC_MSG_ERROR([To build with DBUS support, you must have the development package for dbus-1, or you can use --disable-dbus to disable DBUS support.])
     fi
 fi
 AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
