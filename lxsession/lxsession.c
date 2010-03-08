@@ -33,6 +33,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include <wordexp.h> /* for shell expansion */
+
 #include "lxsession.h"
 #include "xevent.h"
 #include "settings-daemon.h"
@@ -57,7 +59,7 @@ static char autostart_filename[]="autostart";
 const char *session_name = NULL;
 const char* de_name = NULL;
 
-static GPid run_app( const char* cmd );
+static GPid run_app( const char* cmd, gboolean shell_expansion );
 static void run_guarded_app( const char* cmd );
 static void start_session();
 
@@ -122,19 +124,34 @@ GKeyFile* load_session_config( const char* config_filename )
 }
 
 /* Returns pid if succesful, returns -1 if errors happen. */
-GPid run_app( const char* cmd )
+GPid run_app( const char* cmd, gboolean shell_expansion )
 {
-    char** argv;
-    int argc;
     GPid pid = -1;
-    if( g_shell_parse_argv( cmd, &argc, &argv, NULL ) )
+    if(shell_expansion)
     {
-        g_spawn_async( NULL, argv, NULL,
-                G_SPAWN_DO_NOT_REAP_CHILD|
-  	        G_SPAWN_SEARCH_PATH,
-		NULL, NULL, &pid, NULL );
+        wordexp_t we;
+        if( wordexp(cmd, &we, 0) == 0)
+        {
+            g_spawn_async( NULL, we.we_wordv, NULL,
+                    G_SPAWN_DO_NOT_REAP_CHILD|
+                G_SPAWN_SEARCH_PATH,
+            NULL, NULL, &pid, NULL );
+            wordfree(&we);
+        }
     }
-    g_strfreev( argv );
+    else
+    {
+        int argc;
+        char** argv;
+        if( g_shell_parse_argv( cmd, &argc, &argv, NULL ) )
+        {
+            g_spawn_async( NULL, argv, NULL,
+                    G_SPAWN_DO_NOT_REAP_CHILD|
+                G_SPAWN_SEARCH_PATH,
+            NULL, NULL, &pid, NULL );
+        }
+        g_strfreev( argv );
+    }
     return pid;
 }
 
@@ -150,7 +167,7 @@ static void on_child_exit( GPid pid, gint status, gchar* cmd )
 
 void run_guarded_app( const char* cmd )
 {
-    GPid pid = run_app( cmd );
+    GPid pid = run_app( cmd, TRUE );
     if( pid > 0 )
     {
         g_child_watch_add_full( G_PRIORITY_DEFAULT_IDLE, pid,
