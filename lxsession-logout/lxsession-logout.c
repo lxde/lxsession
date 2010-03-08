@@ -474,7 +474,7 @@ int main(int argc, char * argv[])
     /* Create the Cancel button. */
     GtkWidget * cancel_button = gtk_button_new_from_stock(GTK_STOCK_CANCEL);
     /* align it to left 0.0 as X and 0.0 as Y */ 
-    /* gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0 ,0.0); */
+    gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0 ,0.0);
     g_signal_connect(G_OBJECT(cancel_button), "clicked", G_CALLBACK(cancel_clicked), NULL);
     gtk_box_pack_start(GTK_BOX(controls), cancel_button, FALSE, FALSE, 4);
 
