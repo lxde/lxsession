@@ -19,6 +19,12 @@
  *      MA 02110-1301, USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include "xdg-autostart.h"
+
 #include <glib.h>
 #include <stdio.h>
 #include <string.h>
@@ -249,7 +255,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
              *  pass selected file as arguments. The probability we need this is
              *  very low, so just omit it.
              */
-			
+
 			/* FIXME: Exec key should be handled correctly */
 
             /* launch the program */
@@ -280,7 +286,7 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
     g_free( dir_path );
 }
 
-void handle_autostart( const char* de_name )
+void xdg_autostart( const char* de_name )
 {
     const char* const *dirs = g_get_system_config_dirs();
     const char* const *dir;

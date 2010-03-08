@@ -38,7 +38,7 @@
 #include "lxsession.h"
 #include "xevent.h"
 #include "settings-daemon.h"
-#include "autostart.h"
+#include "xdg-autostart.h"
 
 
 static gboolean no_settings = FALSE; /* disable settings daemon */
@@ -59,8 +59,7 @@ static char autostart_filename[]="autostart";
 const char *session_name = NULL;
 const char* de_name = NULL;
 
-static GPid run_app( const char* cmd, gboolean shell_expansion );
-static void run_guarded_app( const char* cmd );
+static GPid run_app( const char* cmd, gboolean guarded );
 static void start_session();
 
 static void sig_term_handler ( int sig )
@@ -95,7 +94,7 @@ GKeyFile* load_session_config( const char* config_filename )
     const gchar* const *dir;
     GKeyFile* kf = g_key_file_new();
     char* filename;
-	gboolean ret;
+    gboolean ret;
 
     /* load user-specific session config */
     filename = g_build_filename( g_get_user_config_dir(), prog_name, session_name, config_filename, NULL );
@@ -123,57 +122,34 @@ GKeyFile* load_session_config( const char* config_filename )
 	return kf;
 }
 
-/* Returns pid if succesful, returns -1 if errors happen. */
-GPid run_app( const char* cmd, gboolean shell_expansion )
-{
-    GPid pid = -1;
-    if(shell_expansion)
-    {
-        wordexp_t we;
-        if( wordexp(cmd, &we, 0) == 0)
-        {
-            g_spawn_async( NULL, we.we_wordv, NULL,
-                    G_SPAWN_DO_NOT_REAP_CHILD|
-                G_SPAWN_SEARCH_PATH,
-            NULL, NULL, &pid, NULL );
-            wordfree(&we);
-        }
-    }
-    else
-    {
-        int argc;
-        char** argv;
-        if( g_shell_parse_argv( cmd, &argc, &argv, NULL ) )
-        {
-            g_spawn_async( NULL, argv, NULL,
-                    G_SPAWN_DO_NOT_REAP_CHILD|
-                G_SPAWN_SEARCH_PATH,
-            NULL, NULL, &pid, NULL );
-        }
-        g_strfreev( argv );
-    }
-    return pid;
-}
-
 static void on_child_exit( GPid pid, gint status, gchar* cmd )
 {
     int sig = WTERMSIG( status );
     /* if the term signal is not SIGTERM or SIGKILL, this might be a crash! */
     if( sig && sig != SIGTERM && sig != SIGKILL )
-    {
-        run_guarded_app( cmd );
-    }
+        run_app( cmd, TRUE );
 }
 
-void run_guarded_app( const char* cmd )
+/* Returns pid if succesful, returns -1 if errors happen. */
+GPid run_app( const char* cmd, gboolean guarded )
 {
-    GPid pid = run_app( cmd, TRUE );
-    if( pid > 0 )
+    GPid pid = -1;
+    wordexp_t we;
+    GSpawnFlags flags = guarded ? G_SPAWN_DO_NOT_REAP_CHILD|G_SPAWN_SEARCH_PATH : G_SPAWN_SEARCH_PATH;
+
+    if( wordexp(cmd, &we, 0) == 0)
+    {
+        g_spawn_async( NULL, we.we_wordv, NULL, flags, NULL, NULL, &pid, NULL );
+        wordfree(&we);
+    }
+
+    if(guarded && pid > 0)
     {
         g_child_watch_add_full( G_PRIORITY_DEFAULT_IDLE, pid,
                                 (GChildWatchFunc)on_child_exit,
                                 g_strdup( cmd ), (GDestroyNotify)g_free );
     }
+    return pid;
 }
 
 static void load_default_apps( const char* filename )
@@ -190,18 +166,16 @@ static void load_default_apps( const char* filename )
             len = strlen ( buf );
             if( buf[ len - 1 ] == '\n' ) /* remove the '\n' at the end of line */
             {
-                buf[ len ] = '\0';
                 --len;
+                buf[ len ] = '\0';
             }
             switch(buf[0])
             {
             case '@': /* if the app should be restarted on crash */
-                run_guarded_app( buf + 1 );
-                break;
-            case '#': /* skip comments */
+                run_app( buf + 1, TRUE );
                 break;
             default: /* just run the program */
-                g_spawn_command_line_async( buf, NULL );
+                run_app( buf, FALSE );
             }
         }
         fclose( file );
@@ -209,7 +183,7 @@ static void load_default_apps( const char* filename )
 }
 
 /*
- * system wide default config is /etc/xdg/lxsession/SESSION_NAME/config
+ * system wide default config is /etc/xdg/lxsession/SESSION_NAME/desktop.conf
  * system wide default apps are listed in /etc/xdg/lxsession/SESSION_NAME/autostart
  */
 void start_session()
@@ -222,7 +196,7 @@ void start_session()
 
     /* run window manager first */
     if( G_LIKELY( window_manager ) )
-        run_guarded_app( window_manager );
+        run_app( window_manager, TRUE );
 
     /* load system-wide default apps */
     for( dir = dirs; *dir; ++dir )
@@ -237,7 +211,7 @@ void start_session()
     g_free( filename );
 
     /* Support autostart spec of freedesktop.org */
-    handle_autostart( session_name );
+    xdg_autostart( session_name );
 }
 
 static void parse_options(int argc, char** argv)

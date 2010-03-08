@@ -239,7 +239,7 @@ int main(int argc, char * argv[])
     {
         g_print( _("Error: %s\n"), _("LXSession is not running."));
         return 1;
-    }   
+    }
 
     /* Initialize capabilities of the ConsoleKit mechanism. */
     if (dbus_ConsoleKit_CanStop())
@@ -268,22 +268,22 @@ int main(int argc, char * argv[])
 #endif
 
     /* Initialize capabilities of the HAL mechanism. */
-    if (dbus_HAL_CanShutdown())
+    if (!handler_context.shutdown_available && dbus_HAL_CanShutdown())
     {
         handler_context.shutdown_available = TRUE;
         handler_context.shutdown_HAL = TRUE;
     }
-    if (dbus_HAL_CanReboot())
+    if (!handler_context.reboot_available && dbus_HAL_CanReboot())
     {
         handler_context.reboot_available = TRUE;
         handler_context.reboot_HAL = TRUE;
     }
-    if (dbus_HAL_CanSuspend())
+    if (!handler_context.suspend_available && dbus_HAL_CanSuspend())
     {
         handler_context.suspend_available = TRUE;
         handler_context.suspend_HAL = TRUE;
     }
-    if (dbus_HAL_CanHibernate())
+    if (!handler_context.hibernate_available && dbus_HAL_CanHibernate())
     {
         handler_context.hibernate_available = TRUE;
         handler_context.hibernate_HAL = TRUE;

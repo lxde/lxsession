@@ -12,8 +12,8 @@ lxsession_LDADD = $(GLIB_LIBS) -lX11
 lxsession_SOURCES = \
 	lxsession.c \
 	lxsession.h \
-	autostart.c \
-	autostart.h \
+	xdg-autostart.c \
+	xdg-autostart.h \
 	xevent.c \
 	xevent.h \
 	settings-daemon.c \

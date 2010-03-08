@@ -19,9 +19,9 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef _AUTOSTART_H_
-#define _AUTOSTART_H_
+#ifndef _XDG_AUTOSTART_H_
+#define _XDG_AUTOSTART_H_
 
-void handle_autostart( const char* session_name );
+void xdg_autostart( const char* session_name );
 
 #endif
