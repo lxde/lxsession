@@ -18,6 +18,7 @@
 
 #include <config.h>
 #include <glib.h>
+#include <string.h>
 #ifdef HAVE_DBUS
 #include <dbus/dbus.h>
 #endif
