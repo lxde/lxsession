@@ -74,22 +74,6 @@ static DBusMessage * dbus_send_message(DBusMessage * message)
     return reply;
 }
 
-/* Send a message with no reply expected. */
-static gboolean dbus_send_message_without_reply(DBusMessage * message)
-{
-    /* Get a connection handle. */
-    DBusConnection * connection = dbus_connect();
-    if (connection == NULL)
-        return FALSE;
-
-    /* Send the message in the blind. */
-    dbus_bool_t status = dbus_connection_send(connection, message, NULL);
-    dbus_message_unref(message);
-    if ( ! status)
-	g_warning(G_STRLOC ": DBUS: dbus_connection_send failed\n");
-    return status;
-}
-	
 /* Read a result for a method that returns void. */
 static gboolean dbus_read_result_void(DBusMessage * reply)
 {
@@ -241,7 +225,7 @@ static gboolean dbus_DeviceKit_query(const char * const query)
 static gboolean dbus_DeviceKit_command(const char * const command)
 {
 #ifdef HAVE_DBUS
-    return dbus_send_message_without_reply(dbus_DeviceKit_formulate_command(command));
+    return dbus_read_result_void(dbus_send_message(dbus_DeviceKit_formulate_command(command)));
 #else
     return FALSE;
 #endif
