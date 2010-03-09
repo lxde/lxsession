@@ -186,7 +186,7 @@ static GdkPixbuf * get_background_pixbuf(void)
     return pixbuf;
 }
 
-/* Handler for "expose_event" on drawing areas. */
+/* Handler for "expose_event" on background. */
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf)
 {
     if (pixbuf != NULL)
@@ -203,7 +203,7 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
             GDK_RGB_DITHER_NORMAL,				/* Dither type */
             0, 0);						/* Dither offsets */
     }
-    return TRUE;
+    return FALSE;
 }
 
 /* Main program. */
@@ -311,36 +311,23 @@ int main(int argc, char * argv[])
     GtkWidget * window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
     gtk_window_fullscreen(GTK_WINDOW(window));
+    GdkScreen* screen = gtk_widget_get_screen(window);
+    gtk_window_set_default_size(GTK_WINDOW(window), gdk_screen_get_width(screen), gdk_screen_get_height(screen));
+    gtk_widget_set_app_paintable(window, TRUE);
+    g_signal_connect(G_OBJECT(window), "expose_event", G_CALLBACK(expose_event), pixbuf);
 
-    /* Create a vertical box as the child of the toplevel window. */
-    GtkWidget * outermost = gtk_vbox_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(window), outermost);
+    /* Toplevel container */
+    GtkWidget* alignment = gtk_alignment_new(0.5, 0.5, 0.0, 0.0);
+    gtk_container_add(GTK_CONTAINER(window), alignment);
 
-    /* Create a drawing area as the child of the toplevel window.
-     * This drawing area is as wide as the screen and as tall as the area above the user controls. */
-    GtkWidget * top_drawing_area = gtk_drawing_area_new();
-    gtk_box_pack_start(GTK_BOX(outermost), top_drawing_area, TRUE, TRUE, 0);
-    g_signal_connect(G_OBJECT(top_drawing_area), "expose_event", G_CALLBACK(expose_event), pixbuf);
+    GtkWidget* center_area = gtk_event_box_new();
+    gtk_container_add(GTK_CONTAINER(alignment), center_area);
 
-    /* Create a horizontal box as the child of the outermost box. */
-    GtkWidget * horizontal = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(outermost), horizontal, FALSE, FALSE, 0);
+    GtkWidget* center_vbox = gtk_vbox_new(FALSE, 6);
+    gtk_container_set_border_width(GTK_CONTAINER(center_vbox), 12);
+    gtk_container_add(GTK_CONTAINER(center_area), center_vbox);
 
-    /* Create a drawing area as the child of the toplevel window.
-     * This drawing area is as wide as the screen and as tall as the area below the user controls. */
-    GtkWidget * bottom_drawing_area = gtk_drawing_area_new();
-    gtk_box_pack_start(GTK_BOX(outermost), bottom_drawing_area, TRUE, TRUE, 0);
-    g_signal_connect(G_OBJECT(bottom_drawing_area), "expose_event", G_CALLBACK(expose_event), pixbuf);
-
-    /* Create a drawing area as the child of the horizontal box.
-     * This drawing area is as wide as the area left of the user controls and as tall as the user controls. */
-    GtkWidget * left_drawing_area = gtk_drawing_area_new();
-    gtk_box_pack_start(GTK_BOX(horizontal), left_drawing_area, TRUE, TRUE, 0);
-    g_signal_connect(G_OBJECT(left_drawing_area), "expose_event", G_CALLBACK(expose_event), pixbuf);
-
-    /* Create a vertical box as the child of the horizontal box.  This will contain the user controls. */
-    GtkWidget * controls = gtk_vbox_new(FALSE, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(controls), 6);
+    GtkWidget* controls = gtk_vbox_new(FALSE, 6);
 
     /* If specified, apply a user-specified banner image. */
     if (banner_path != NULL)
@@ -355,7 +342,7 @@ int main(int argc, char * argv[])
                 {
                 /* Create a horizontal box to contain the image and the controls. */
                 GtkWidget * box = gtk_hbox_new(FALSE, 2);
-                gtk_box_pack_start(GTK_BOX(horizontal), box, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(center_vbox), box, FALSE, FALSE, 0);
 
                 /* Pack the image and a separator. */
                 gtk_misc_set_alignment(GTK_MISC(banner_image), 0.5, 0.0);
@@ -377,18 +364,18 @@ int main(int argc, char * argv[])
             case GTK_POS_TOP:
                 gtk_box_pack_start(GTK_BOX(controls), banner_image, FALSE, FALSE, 2);
                 gtk_box_pack_start(GTK_BOX(controls), gtk_hseparator_new(), FALSE, FALSE, 2);
-                gtk_box_pack_start(GTK_BOX(horizontal), controls, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(center_vbox), controls, FALSE, FALSE, 0);
                 break;
 
             case GTK_POS_BOTTOM:
                 gtk_box_pack_end(GTK_BOX(controls), banner_image, FALSE, FALSE, 2);
                 gtk_box_pack_end(GTK_BOX(controls), gtk_hseparator_new(), FALSE, FALSE, 2);
-                gtk_box_pack_start(GTK_BOX(horizontal), controls, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(center_vbox), controls, FALSE, FALSE, 0);
                 break;
         }
     }
     else
-        gtk_box_pack_start(GTK_BOX(horizontal), controls, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(center_vbox), controls, FALSE, FALSE, 0);
 
     /* Create the label. */
     GtkWidget * label = gtk_label_new("");
@@ -463,12 +450,6 @@ int main(int argc, char * argv[])
     GtkWidget * cancel_button = gtk_button_new_from_stock(GTK_STOCK_CANCEL);
     g_signal_connect(G_OBJECT(cancel_button), "clicked", G_CALLBACK(cancel_clicked), NULL);
     gtk_box_pack_start(GTK_BOX(controls), cancel_button, FALSE, FALSE, 4);
-
-    /* Create a drawing area as the child of the horizontal box.
-     * This drawing area is as wide as the area right of the user controls and as tall as the user controls. */
-    GtkWidget * right_drawing_area = gtk_drawing_area_new();
-    gtk_box_pack_start(GTK_BOX(horizontal), right_drawing_area, TRUE, TRUE, 0);
-    g_signal_connect(G_OBJECT(right_drawing_area), "expose_event", G_CALLBACK(expose_event), pixbuf);
 
     /* Show everything. */
     gtk_widget_show_all(window);
