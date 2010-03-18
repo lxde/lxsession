@@ -389,13 +389,6 @@ int main(int argc, char * argv[])
     gtk_label_set_markup(GTK_LABEL(label), prompt);
     gtk_box_pack_start(GTK_BOX(controls), label, FALSE, FALSE, 4);
 
-    /* Create the Logout button. */
-    GtkWidget * logout_button = gtk_button_new_with_mnemonic(_("_Logout"));
-    GtkWidget * image = gtk_image_new_from_icon_name("system-log-out", GTK_ICON_SIZE_BUTTON);
-    gtk_button_set_image(GTK_BUTTON(logout_button), image);
-    g_signal_connect(G_OBJECT(logout_button), "clicked", G_CALLBACK(logout_clicked), &handler_context);
-    gtk_box_pack_start(GTK_BOX(controls), logout_button, FALSE, FALSE, 4);
-
     /* Create the Shutdown button. */
     if (handler_context.shutdown_available)
     {
@@ -445,6 +438,13 @@ int main(int argc, char * argv[])
         g_signal_connect(G_OBJECT(switch_user_button), "clicked", G_CALLBACK(switch_user_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), switch_user_button, FALSE, FALSE, 4);
     }
+
+    /* Create the Logout button. */
+    GtkWidget * logout_button = gtk_button_new_with_mnemonic(_("_Logout"));
+    GtkWidget * image = gtk_image_new_from_icon_name("system-log-out", GTK_ICON_SIZE_BUTTON);
+    gtk_button_set_image(GTK_BUTTON(logout_button), image);
+    g_signal_connect(G_OBJECT(logout_button), "clicked", G_CALLBACK(logout_clicked), &handler_context);
+    gtk_box_pack_start(GTK_BOX(controls), logout_button, FALSE, FALSE, 4);
 
     /* Create the Cancel button. */
     GtkWidget * cancel_button = gtk_button_new_from_stock(GTK_STOCK_CANCEL);
