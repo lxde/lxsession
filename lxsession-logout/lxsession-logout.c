@@ -23,7 +23,13 @@
 #include <gdk/gdk.h>
 #include <glib/gi18n.h>
 #include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <limits.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #include "dbus-interface.h"
 
@@ -57,10 +63,12 @@ typedef struct {
     int reboot_HAL : 1;			/* Reboot is available via HAL */
     int suspend_HAL : 1;		/* Suspend is available via HAL */
     int hibernate_HAL : 1;		/* Hibernate is available via HAL */
-    int switch_user_KDE : 1;		/* Switch User is available via KDE */
+    int switch_user_GDM : 1;		/* Switch User is available via GDM */
+    int switch_user_KDM : 1;		/* Switch User is available via KDM */
 
 } HandlerContext;
 
+static gboolean verify_running(char * display_manager, char * executable);
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context);
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context);
 static void reboot_clicked(GtkButton * button, HandlerContext * handler_context);
@@ -70,6 +78,61 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
 static void cancel_clicked(GtkButton * button, gpointer user_data);
 static GtkPositionType get_banner_position(void);
 static GdkPixbuf * get_background_pixbuf(void);
+
+/* Verify that a program is running and that an executable is available. */
+static gboolean verify_running(char * display_manager, char * executable)
+{
+    /* See if the executable we need to run is in the path. */
+    gchar * full_path = g_find_program_in_path(executable);
+    if (full_path != NULL)
+    {
+        g_free(full_path);
+
+        /* Form the filespec of the pid file for the display manager. */
+        char buffer[PATH_MAX];
+        sprintf(buffer, "/var/run/%s.pid", display_manager);
+
+        /* Open the pid file. */
+        int fd = open(buffer, O_RDONLY);
+        if (fd >= 0)
+        {
+            /* Pid file exists.  Read it. */
+            ssize_t length = read(fd, buffer, sizeof(buffer));
+            close(fd);
+            if (length > 0)
+            {
+                /* Null terminate the buffer and convert the pid. */
+                buffer[length] = '\0';
+                pid_t pid = atoi(buffer);
+                if (pid > 0)
+                {
+                    /* Form the filespec of the command line file under /proc.
+                     * This is Linux specific.  Should be conditionalized to the appropriate /proc layout for
+                     * other systems.  Your humble developer has no way to test on other systems. */
+                    sprintf(buffer, "/proc/%d/cmdline", pid);
+
+                    /* Open the file. */
+                    int fd = open(buffer, O_RDONLY);
+                    if (fd >= 0)
+                    {
+                        /* Read the command line. */
+                        ssize_t length = read(fd, buffer, sizeof(buffer));
+                        close(fd);
+                        if (length > 0)
+                        {
+                            /* Null terminate the buffer and look for the display manager name in the command.
+                             * If found, return success. */
+                            buffer[length] = '\0';
+                            if (strstr(buffer, display_manager) != NULL)
+                                return TRUE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return FALSE;
+}
 
 /* Handler for "clicked" signal on Logout button. */
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
@@ -121,7 +184,9 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
 /* Handler for "clicked" signal on Switch User button. */
 static void switch_user_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (handler_context->switch_user_KDE)
+    if (handler_context->switch_user_GDM)
+        g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
+    else if (handler_context->switch_user_KDM)
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
     gtk_main_quit();
 }
@@ -289,16 +354,18 @@ int main(int argc, char * argv[])
         handler_context.hibernate_HAL = TRUE;
     }
 
-    /* If we are under KDM, its "Switch User" is available. */
-    if (g_file_test("/var/run/kdm.pid", G_FILE_TEST_EXISTS))
+    /* If we are under GDM, its "Switch User" is available. */
+    if (verify_running("gdm", "gdmflexiserver"))
     {
-        gchar * test = g_find_program_in_path("kdmctl");
-        if (test != NULL)
-        {
-            g_free(test);
-            handler_context.switch_user_available = TRUE;
-            handler_context.switch_user_KDE = TRUE;
-        }
+        handler_context.switch_user_available = TRUE;
+        handler_context.switch_user_GDM = TRUE;
+    }
+
+    /* If we are under KDM, its "Switch User" is available. */
+    if (verify_running("kdm", "kdmctl"))
+    {
+        handler_context.switch_user_available = TRUE;
+        handler_context.switch_user_KDM = TRUE;
     }
 
     /* Make the button images accessible. */
