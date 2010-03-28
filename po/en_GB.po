@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-28 04:11+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>\n"
+"Language-Team: English UK en_GB <yorvik.ubunto@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
+
+#: ../lxsession-logout/main.c:63
+msgid "Custom message to show on the dialog"
+msgstr "Custom message to show on the dialogue"
+
+#: ../lxsession-logout/main.c:63
+msgid "message"
+msgstr "message"
+
+#: ../lxsession-logout/main.c:64
+msgid "Banner to show on the dialog"
+msgstr "Banner to show on the dialogue"
+
+#: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "image file"
+
+#: ../lxsession-logout/main.c:65
+msgid "Position of the banner"
+msgstr "Position of the banner"
+
+#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:366
+#, c-format
+msgid "Error: %s\n"
+msgstr "Error: %s\n"
+
+#: ../lxsession-logout/main.c:355
+msgid "LXSession is not running."
+msgstr "LXSession is not running."
+
+#: ../lxsession-logout/main.c:380
+msgid "Logout"
+msgstr "Logout"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:432
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Logout %s session?</big></b>"
+
+#: ../lxsession-logout/main.c:442
+msgid "Sh_utdown"
+msgstr "Sh_utdown"
+
+#: ../lxsession-logout/main.c:447
+msgid "_Reboot"
+msgstr "_Reboot"
+
+#: ../lxsession-logout/main.c:452
+msgid "_Suspend"
+msgstr "_Suspend"
+
+#: ../lxsession-logout/main.c:457
+msgid "_Hibernate"
+msgstr "_Hibernate"
+
+#: ../lxsession-logout/main.c:466
+msgid "S_witch User"
+msgstr "S_witch User"
+
+#: ../lxsession-logout/main.c:470
+msgid "_Logout"
+msgstr "_Logout"
+
