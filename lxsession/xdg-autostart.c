@@ -276,10 +276,13 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
         char *path;
         const char *name;
 
-        while( (name = g_dir_read_name( dir )) && g_str_has_suffix( name, ".desktop" ) )
+        while( name = g_dir_read_name( dir ) )
         {
-            path = g_build_filename( dir_path, name, NULL );
-            g_hash_table_replace( hash, g_strdup(name), path );
+            if(g_str_has_suffix(name, ".desktop"))
+            {
+                path = g_build_filename( dir_path, name, NULL );
+                g_hash_table_replace( hash, g_strdup(name), path );
+            }
         }
         g_dir_close( dir );
     }
