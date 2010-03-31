@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
+#include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -30,6 +31,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+
+#include <X11/Xatom.h>
+#include <X11/Xlib.h>
 
 #include "dbus-interface.h"
 
@@ -65,7 +69,7 @@ typedef struct {
     int hibernate_HAL : 1;		/* Hibernate is available via HAL */
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via KDM */
-
+    int ltsp : 1; /* under LTSP environment */
 } HandlerContext;
 
 static gboolean verify_running(char * display_manager, char * executable);
@@ -141,10 +145,24 @@ static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
     gtk_main_quit();
 }
 
+static void change_root_property(GtkWidget* w, const char* prop_name, const char* value)
+{
+    GdkDisplay* dpy = gtk_widget_get_display(w);
+    GdkWindow* root = gtk_widget_get_root_window(w);
+    XChangeProperty(GDK_DISPLAY_XDISPLAY(dpy), GDK_WINDOW_XID(root),
+                      XInternAtom(GDK_DISPLAY_XDISPLAY(dpy), prop_name, False), XA_STRING, 8,
+                      PropModeReplace, value, strlen(value) + 1);
+}
+
 /* Handler for "clicked" signal on Shutdown button. */
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (handler_context->shutdown_ConsoleKit)
+    if (G_UNLIKELY(handler_context->ltsp))
+    {
+        change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "HALT");
+        kill(handler_context->lxsession_pid, SIGTERM);
+    }
+    else if (handler_context->shutdown_ConsoleKit)
         dbus_ConsoleKit_Stop();
     else if (handler_context->shutdown_HAL)
         dbus_HAL_Shutdown();
@@ -154,7 +172,12 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
 /* Handler for "clicked" signal on Reboot button. */
 static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (handler_context->reboot_ConsoleKit)
+    if (G_UNLIKELY(handler_context->ltsp))
+    {
+        change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "REBOOT");
+        kill(handler_context->lxsession_pid, SIGTERM);
+    }
+    else if (handler_context->reboot_ConsoleKit)
         dbus_ConsoleKit_Restart();
     else if (handler_context->reboot_HAL)
         dbus_HAL_Reboot();
@@ -368,6 +391,10 @@ int main(int argc, char * argv[])
         handler_context.switch_user_KDM = TRUE;
     }
 
+    /* LTSP support */
+    if (g_getenv("LTSP_CLIENT"))
+        handler_context.ltsp = TRUE;
+
     /* Make the button images accessible. */
     gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxsession/images");
 
@@ -462,7 +489,7 @@ int main(int argc, char * argv[])
         GtkWidget * shutdown_button = gtk_button_new_with_mnemonic(_("Sh_utdown"));
         GtkWidget * image = gtk_image_new_from_icon_name("system-shutdown", GTK_ICON_SIZE_BUTTON);
         gtk_button_set_image(GTK_BUTTON(shutdown_button), image);
-        gtk_button_set_alignment(GTK_BUTTON(shutdown_button), 0.0, 0.0);
+        gtk_button_set_alignment(GTK_BUTTON(shutdown_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(shutdown_button), "clicked", G_CALLBACK(shutdown_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), shutdown_button, FALSE, FALSE, 4);
     }
@@ -473,40 +500,40 @@ int main(int argc, char * argv[])
         GtkWidget * reboot_button = gtk_button_new_with_mnemonic(_("_Reboot"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-reboot", GTK_ICON_SIZE_BUTTON);
         gtk_button_set_image(GTK_BUTTON(reboot_button), image);
-        gtk_button_set_alignment(GTK_BUTTON(reboot_button), 0.0, 0.0);
+        gtk_button_set_alignment(GTK_BUTTON(reboot_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(reboot_button), "clicked", G_CALLBACK(reboot_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), reboot_button, FALSE, FALSE, 4);
     }
 
     /* Create the Suspend button. */
-    if (handler_context.suspend_available)
+    if (handler_context.suspend_available && !handler_context.ltsp)
     {
         GtkWidget * suspend_button = gtk_button_new_with_mnemonic(_("_Suspend"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-suspend", GTK_ICON_SIZE_BUTTON);
         gtk_button_set_image(GTK_BUTTON(suspend_button), image);
-        gtk_button_set_alignment(GTK_BUTTON(suspend_button), 0.0, 0.0);
+        gtk_button_set_alignment(GTK_BUTTON(suspend_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(suspend_button), "clicked", G_CALLBACK(suspend_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), suspend_button, FALSE, FALSE, 4);
     }
 
     /* Create the Hibernate button. */
-    if (handler_context.hibernate_available)
+    if (handler_context.hibernate_available && !handler_context.ltsp)
     {
         GtkWidget * hibernate_button = gtk_button_new_with_mnemonic(_("_Hibernate"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-hibernate", GTK_ICON_SIZE_BUTTON);
         gtk_button_set_image(GTK_BUTTON(hibernate_button), image);
-        gtk_button_set_alignment(GTK_BUTTON(hibernate_button), 0.0, 0.0);
+        gtk_button_set_alignment(GTK_BUTTON(hibernate_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(hibernate_button), "clicked", G_CALLBACK(hibernate_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), hibernate_button, FALSE, FALSE, 4);
     }
 
     /* Create the Switch User button. */
-    if (handler_context.switch_user_available)
+    if (handler_context.switch_user_available && !handler_context.ltsp)
     {
         GtkWidget * switch_user_button = gtk_button_new_with_mnemonic(_("S_witch User"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-switch", GTK_ICON_SIZE_BUTTON);
         gtk_button_set_image(GTK_BUTTON(switch_user_button), image);
-        gtk_button_set_alignment(GTK_BUTTON(switch_user_button), 0.0, 0.0);
+        gtk_button_set_alignment(GTK_BUTTON(switch_user_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(switch_user_button), "clicked", G_CALLBACK(switch_user_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), switch_user_button, FALSE, FALSE, 4);
     }
@@ -515,13 +542,13 @@ int main(int argc, char * argv[])
     GtkWidget * logout_button = gtk_button_new_with_mnemonic(_("_Logout"));
     GtkWidget * image = gtk_image_new_from_icon_name("system-log-out", GTK_ICON_SIZE_BUTTON);
     gtk_button_set_image(GTK_BUTTON(logout_button), image);
-    gtk_button_set_alignment(GTK_BUTTON(logout_button), 0.0, 0.0);
+    gtk_button_set_alignment(GTK_BUTTON(logout_button), 0.0, 0.5);
     g_signal_connect(G_OBJECT(logout_button), "clicked", G_CALLBACK(logout_clicked), &handler_context);
     gtk_box_pack_start(GTK_BOX(controls), logout_button, FALSE, FALSE, 4);
 
     /* Create the Cancel button. */
     GtkWidget * cancel_button = gtk_button_new_from_stock(GTK_STOCK_CANCEL);
-    gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0, 0.0);
+    gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0, 0.5);
     g_signal_connect(G_OBJECT(cancel_button), "clicked", G_CALLBACK(cancel_clicked), NULL);
     gtk_box_pack_start(GTK_BOX(controls), cancel_button, FALSE, FALSE, 4);
 

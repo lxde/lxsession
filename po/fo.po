@@ -41,7 +41,7 @@ msgstr ""
 #: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
 #, c-format
 msgid "Error: %s\n"
-msgstr "Villar: %s"
+msgstr "Villar: %s\n"
 
 #: ../lxsession-logout/main.c:354
 msgid "LXSession is not running."

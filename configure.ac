@@ -1,5 +1,5 @@
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.3], [],lxsession)
+AC_INIT(lxsession,[0.4.4], [],lxsession)
 AM_INIT_AUTOMAKE()
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
@@ -49,13 +49,20 @@ AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
-GETTEXT_PACKAGE=lxsession
-AM_GNU_GETTEXT_VERSION(0.14.1)
-AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
+# Generate po/LINGUAS on the fly rather than relying on translators
+# to maintain it manually. This also overcome the problem that Transifex
+# cannot add a language to po/LINGUAS if a new po file is submitted.
+rm -f $srcdir/po/LINGUAS
+for po_file in `ls $srcdir/po/*.po | sort`;
+do
+    lang=`echo "$po_file" | sed "s|.*/po/\(.*\)\.po|\1|g"`
+    echo $lang >> $srcdir/po/LINGUAS
+done
 
-ALL_LINGUAS="af ar cs da de es et eu fa fi fr gl hr hu id it ja ko lt ml ms nb nl nn pl ps pt pt_BR ru sk sl sv tr uk ur ur_PK vi zh_CN zh_TW"
+GETTEXT_PACKAGE=lxsession
+AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 if test x"$enable_man" = x"yes"; then
 	AC_PATH_PROG([XSLTPROC], [xsltproc])
