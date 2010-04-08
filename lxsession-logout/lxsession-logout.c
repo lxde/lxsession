@@ -52,6 +52,7 @@ static GOptionEntry opt_entries[] =
 
 typedef struct {
     GPid lxsession_pid;			/* Process ID of lxsession */
+    GtkWidget * error_label;		/* Text of an error, if we get one */
 
     int shutdown_available : 1;		/* Shutdown is available */
     int reboot_available : 1;		/* Reboot is available */
@@ -61,19 +62,20 @@ typedef struct {
 
     int shutdown_ConsoleKit : 1;	/* Shutdown is available via ConsoleKit */
     int reboot_ConsoleKit : 1;		/* Reboot is available via ConsoleKit */
-    int suspend_DeviceKit : 1;		/* Suspend is available via DeviceKit */
-    int hibernate_DeviceKit : 1;	/* Hibernate is available via DeviceKit */
+    int suspend_UPower : 1;		/* Suspend is available via UPower */
+    int hibernate_UPower : 1;		/* Hibernate is available via UPower */
     int shutdown_HAL : 1;		/* Shutdown is available via HAL */
     int reboot_HAL : 1;			/* Reboot is available via HAL */
     int suspend_HAL : 1;		/* Suspend is available via HAL */
     int hibernate_HAL : 1;		/* Hibernate is available via HAL */
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via KDM */
-    int ltsp : 1; /* under LTSP environment */
+    int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
 } HandlerContext;
 
 static gboolean verify_running(char * display_manager, char * executable);
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context);
+static void change_root_property(GtkWidget* w, const char* prop_name, const char* value);
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context);
 static void reboot_clicked(GtkButton * button, HandlerContext * handler_context);
 static void suspend_clicked(GtkButton * button, HandlerContext * handler_context);
@@ -145,6 +147,7 @@ static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
     gtk_main_quit();
 }
 
+/* Replace a property on the root window. */
 static void change_root_property(GtkWidget* w, const char* prop_name, const char* value)
 {
     GdkDisplay* dpy = gtk_widget_get_display(w);
@@ -157,56 +160,82 @@ static void change_root_property(GtkWidget* w, const char* prop_name, const char
 /* Handler for "clicked" signal on Shutdown button. */
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (G_UNLIKELY(handler_context->ltsp))
+    char * error_result = NULL;
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
+    if (handler_context->ltsp)
     {
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "HALT");
         kill(handler_context->lxsession_pid, SIGTERM);
     }
     else if (handler_context->shutdown_ConsoleKit)
-        dbus_ConsoleKit_Stop();
+        error_result = dbus_ConsoleKit_Stop();
     else if (handler_context->shutdown_HAL)
-        dbus_HAL_Shutdown();
-    gtk_main_quit();
+        error_result = dbus_HAL_Shutdown();
+
+    if (error_result != NULL)
+        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
+        else gtk_main_quit();
 }
 
 /* Handler for "clicked" signal on Reboot button. */
 static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (G_UNLIKELY(handler_context->ltsp))
+    char * error_result = NULL;
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
+    if (handler_context->ltsp)
     {
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "REBOOT");
         kill(handler_context->lxsession_pid, SIGTERM);
     }
     else if (handler_context->reboot_ConsoleKit)
-        dbus_ConsoleKit_Restart();
+        error_result = dbus_ConsoleKit_Restart();
     else if (handler_context->reboot_HAL)
-        dbus_HAL_Reboot();
-    gtk_main_quit();
+        error_result = dbus_HAL_Reboot();
+
+    if (error_result != NULL)
+        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
+        else gtk_main_quit();
 }
 
 /* Handler for "clicked" signal on Suspend button. */
 static void suspend_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (handler_context->suspend_DeviceKit)
-        dbus_DeviceKit_Suspend();
+    char * error_result = NULL;
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
+    if (handler_context->suspend_UPower)
+        error_result = dbus_UPower_Suspend();
     else if (handler_context->suspend_HAL)
-        dbus_HAL_Suspend();
-    gtk_main_quit();
+        error_result = dbus_HAL_Suspend();
+
+    if (error_result != NULL)
+        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
+        else gtk_main_quit();
 }
 
 /* Handler for "clicked" signal on Hibernate button. */
 static void hibernate_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    if (handler_context->hibernate_DeviceKit)
-        dbus_DeviceKit_Hibernate();
+    char * error_result = NULL;
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
+    if (handler_context->hibernate_UPower)
+        error_result = dbus_UPower_Hibernate();
     else if (handler_context->hibernate_HAL)
-        dbus_HAL_Hibernate();
-    gtk_main_quit();
+        error_result = dbus_HAL_Hibernate();
+
+    if (error_result != NULL)
+        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
+        else gtk_main_quit();
 }
 
 /* Handler for "clicked" signal on Switch User button. */
 static void switch_user_clicked(GtkButton * button, HandlerContext * handler_context)
 {
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
     if (handler_context->switch_user_GDM)
         g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_KDM)
@@ -341,19 +370,17 @@ int main(int argc, char * argv[])
         handler_context.reboot_ConsoleKit = TRUE;
     }
 
-#ifdef LATENT_DEVICEKIT_SUPPORT
-    /* Initialize capabilities of the DeviceKit mechanism. */
-    if (dbus_DeviceKit_CanSuspend())
+    /* Initialize capabilities of the UPower mechanism. */
+    if (dbus_UPower_CanSuspend())
     {
         handler_context.suspend_available = TRUE;
-        handler_context.suspend_DeviceKit = TRUE;
+        handler_context.suspend_UPower = TRUE;
     }
-    if (dbus_DeviceKit_CanHibernate())
+    if (dbus_UPower_CanHibernate())
     {
         handler_context.hibernate_available = TRUE;
-        handler_context.hibernate_DeviceKit = TRUE;
+        handler_context.hibernate_UPower = TRUE;
     }
-#endif
 
     /* Initialize capabilities of the HAL mechanism. */
     if (!handler_context.shutdown_available && dbus_HAL_CanShutdown())
@@ -551,6 +578,11 @@ int main(int argc, char * argv[])
     gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0, 0.5);
     g_signal_connect(G_OBJECT(cancel_button), "clicked", G_CALLBACK(cancel_clicked), NULL);
     gtk_box_pack_start(GTK_BOX(controls), cancel_button, FALSE, FALSE, 4);
+
+    /* Create the error text. */
+    handler_context.error_label = gtk_label_new("");
+    gtk_label_set_justify(GTK_LABEL(handler_context.error_label), GTK_JUSTIFY_CENTER);
+    gtk_box_pack_start(GTK_BOX(controls), handler_context.error_label, FALSE, FALSE, 4);
 
     /* Show everything. */
     gtk_widget_show_all(window);

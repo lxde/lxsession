@@ -54,7 +54,7 @@ static DBusConnection * dbus_connect(void)
 }
 
 /* Send a message. */
-static DBusMessage * dbus_send_message(DBusMessage * message)
+static DBusMessage * dbus_send_message(DBusMessage * message, char * * error_text)
 {
     /* Get a connection handle. */
     DBusConnection * connection = dbus_connect();
@@ -68,36 +68,25 @@ static DBusMessage * dbus_send_message(DBusMessage * message)
     dbus_message_unref(message);
     if (reply == NULL)
     {
-        g_warning(G_STRLOC ": DBUS: %s", error.message);
+        if ((error.name == NULL) || (strcmp(error.name, DBUS_ERROR_NO_REPLY) != 0))
+        {
+            if (error_text != NULL)
+                *error_text = g_strdup(error.message);
+            g_warning(G_STRLOC ": DBUS: %s", error.message);
+        }
         dbus_error_free(&error);
     }
     return reply;
 }
 
-/* Send a message with no reply expected. */
-static gboolean dbus_send_message_without_reply(DBusMessage * message)
-{
-    /* Get a connection handle. */
-    DBusConnection * connection = dbus_connect();
-    if (connection == NULL)
-        return FALSE;
-
-    /* Send the message in the blind. */
-    dbus_bool_t status = dbus_connection_send(connection, message, NULL);
-    dbus_message_unref(message);
-    if ( ! status)
-	g_warning(G_STRLOC ": DBUS: dbus_connection_send failed\n");
-    return status;
-}
-	
 /* Read a result for a method that returns void. */
-static gboolean dbus_read_result_void(DBusMessage * reply)
+static char * dbus_read_result_void(DBusMessage * reply)
 {
     if (reply != NULL)
         dbus_message_unref(reply);
 
     /* No result.  Assume success. */
-    return TRUE;
+    return NULL;
 }
 
 /* Read a result for a method that returns boolean. */
@@ -144,19 +133,21 @@ static DBusMessage * dbus_ConsoleKit_formulate_message(const char * const query)
 static gboolean dbus_ConsoleKit_query(const char * const query)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_ConsoleKit_formulate_message(query)));
+    return dbus_read_result_boolean(dbus_send_message(dbus_ConsoleKit_formulate_message(query), NULL));
 #else
     return FALSE;
 #endif
 }
 
 /* Send a specified message to the ConsoleKit interface and process a void result. */
-static gboolean dbus_ConsoleKit_command(const char * const command)
+static char * dbus_ConsoleKit_command(const char * const command)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_void(dbus_send_message(dbus_ConsoleKit_formulate_message(command)));
+    char * error = NULL;
+    dbus_read_result_void(dbus_send_message(dbus_ConsoleKit_formulate_message(command), &error));
+    return error;
 #else
-    return FALSE;
+    return NULL;
 #endif
 }
 
@@ -173,49 +164,49 @@ gboolean dbus_ConsoleKit_CanRestart(void)
 }
 
 /* Invoke the Stop method on ConsoleKit. */
-gboolean dbus_ConsoleKit_Stop(void)
+char * dbus_ConsoleKit_Stop(void)
 {
     return dbus_ConsoleKit_command("Stop");
 }
 
 /* Invoke the Restart method on ConsoleKit. */
-gboolean dbus_ConsoleKit_Restart(void)
+char * dbus_ConsoleKit_Restart(void)
 {
     return dbus_ConsoleKit_command("Restart");
 }
 
-/*** DeviceKit Power mechanism ***/
+/*** UPower mechanism ***/
 
 #ifdef HAVE_DBUS
-/* Formulate a message to the DeviceKit Power interface. */
-static DBusMessage * dbus_DeviceKit_formulate_command(const char * const command)
+/* Formulate a message to the UPower interface. */
+static DBusMessage * dbus_UPower_formulate_command(const char * const command)
 {
     return dbus_message_new_method_call(
-        "org.freedesktop.DeviceKit.Power",
-	"/org/freedesktop/DeviceKit/Power",
-	"org.freedesktop.DeviceKit.Power",
+        "org.freedesktop.UPower",
+	"/org/freedesktop/UPower",
+	"org.freedesktop.UPower",
         command);
 }
 #endif
 
-/* Send a specified message to the DeviceKit interface and process a boolean result. */
-static gboolean dbus_DeviceKit_query(const char * const query)
+/* Send a specified message to the UPower interface and process a boolean result. */
+static gboolean dbus_UPower_query(const char * const query)
 {
 #ifdef HAVE_DBUS
     /* Formulate a message to the Properties interface. */
     DBusMessage * message = dbus_message_new_method_call(
-        "org.freedesktop.DeviceKit.Power",
-	"/org/freedesktop/DeviceKit/Power",
+        "org.freedesktop.UPower",
+	"/org/freedesktop/UPower",
 	"org.freedesktop.DBus.Properties",
         "Get");
-    const char * const interface_name = "org.freedesktop.DeviceKit.Power";
+    const char * const interface_name = "org.freedesktop.UPower";
     dbus_message_append_args(message,
         DBUS_TYPE_STRING, &interface_name,
         DBUS_TYPE_STRING, &query,
         DBUS_TYPE_INVALID);
 
     /* Send the message. */
-    DBusMessage * reply = dbus_send_message(message);
+    DBusMessage * reply = dbus_send_message(message, NULL);
     if (reply == NULL)
 	return FALSE;
 
@@ -237,39 +228,40 @@ static gboolean dbus_DeviceKit_query(const char * const query)
 #endif
 }
 
-/* Send a specified message to the DeviceKit interface and process a void result. */
-static gboolean dbus_DeviceKit_command(const char * const command)
+/* Send a specified message to the UPower interface and process a void result. */
+static char * dbus_UPower_command(const char * const command)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_void(dbus_send_message(dbus_DeviceKit_formulate_command(command)));
-//    return dbus_send_message_without_reply(dbus_DeviceKit_formulate_command(command));	It seems they don't send a reply; to be checked out
+    char * error = NULL;
+    dbus_read_result_void(dbus_send_message(dbus_UPower_formulate_command(command), &error));
+    return error;
 #else
-    return FALSE;
+    return NULL;
 #endif
 }
 
-/* Read the can-suspend property of DeviceKit/Power. */
-gboolean dbus_DeviceKit_CanSuspend(void)
+/* Read the can-suspend property of UPower. */
+gboolean dbus_UPower_CanSuspend(void)
 {
-    return dbus_DeviceKit_query("CanSuspend");
+    return dbus_UPower_query("CanSuspend");
 }
 
-/* Read the can-hibernate property of DeviceKit/Power. */
-gboolean dbus_DeviceKit_CanHibernate(void)
+/* Read the can-hibernate property of UPower. */
+gboolean dbus_UPower_CanHibernate(void)
 {
-    return dbus_DeviceKit_query("CanHibernate");
+    return dbus_UPower_query("CanHibernate");
 }
 
-/* Invoke the Suspend method on DeviceKit/Power. */
-gboolean dbus_DeviceKit_Suspend(void)
+/* Invoke the Suspend method on UPower. */
+char * dbus_UPower_Suspend(void)
 {
-    return dbus_DeviceKit_command("Suspend");
+    return dbus_UPower_command("Suspend");
 }
 
-/* Invoke the Hibernate method on DeviceKit/Power. */
-gboolean dbus_DeviceKit_Hibernate(void)
+/* Invoke the Hibernate method on UPower. */
+char * dbus_UPower_Hibernate(void)
 {
-    return dbus_DeviceKit_command("Hibernate");
+    return dbus_UPower_command("Hibernate");
 }
 
 /*** HAL mechanism ***/
@@ -318,7 +310,7 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
     DBusMessage * message = dbus_HAL_formulate_string_property_query(property);
     if (message == NULL)
         return FALSE;
-    DBusMessage * reply = dbus_send_message(message);
+    DBusMessage * reply = dbus_send_message(message, NULL);
     if (reply == NULL)
 	return FALSE;
     dbus_message_unref(reply);
@@ -332,20 +324,20 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
 static gboolean dbus_HAL_boolean_query(const char * const property)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_HAL_formulate_boolean_property_query(property)));
+    return dbus_read_result_boolean(dbus_send_message(dbus_HAL_formulate_boolean_property_query(property), NULL));
 #else
     return FALSE;
 #endif
 }
 
 /* Send a specified message to the HAL interface and process a void result. */
-static gboolean dbus_HAL_command(const char * const command)
+static char * dbus_HAL_command(const char * const command)
 {
 #ifdef HAVE_DBUS
     /* Formulate the message. */
     DBusMessage * message = dbus_HAL_formulate_message(command);
     if (message == NULL)
-	return FALSE;
+        return NULL;
 
     /* Suspend has an argument. */
     if (strcmp(command, "Suspend") == 0)
@@ -355,9 +347,11 @@ static gboolean dbus_HAL_command(const char * const command)
     }
 
     /* Send the message and wait for a reply. */
-    return dbus_read_result_void(dbus_send_message(message));
+    char * error = NULL;
+    dbus_read_result_void(dbus_send_message(message, &error));
+    return error;
 #else
-    return FALSE;
+    return NULL;
 #endif
 }
 
@@ -386,25 +380,25 @@ gboolean dbus_HAL_CanHibernate(void)
 }
 
 /* Invoke the Shutdown method on HAL. */
-gboolean dbus_HAL_Shutdown(void)
+char * dbus_HAL_Shutdown(void)
 {
     return dbus_HAL_command("Shutdown");
 }
 
 /* Invoke the Reboot method on HAL. */
-gboolean dbus_HAL_Reboot(void)
+char * dbus_HAL_Reboot(void)
 {
     return dbus_HAL_command("Reboot");
 }
 
 /* Invoke the Suspend method on HAL. */
-gboolean dbus_HAL_Suspend(void)
+char * dbus_HAL_Suspend(void)
 {
     return dbus_HAL_command("Suspend");
 }
 
 /* Invoke the Hibernate method on HAL. */
-gboolean dbus_HAL_Hibernate(void)
+char * dbus_HAL_Hibernate(void)
 {
     return dbus_HAL_command("Hibernate");
 }

@@ -24,14 +24,14 @@
 /* Interface to ConsoleKit for shutdown and reboot. */
 extern gboolean dbus_ConsoleKit_CanStop(void);
 extern gboolean dbus_ConsoleKit_CanRestart(void);
-extern gboolean dbus_ConsoleKit_Stop(void);
-extern gboolean dbus_ConsoleKit_Restart(void);
+extern char * dbus_ConsoleKit_Stop(void);
+extern char * dbus_ConsoleKit_Restart(void);
 
-/* Interface to DeviceKit/Power for suspend and hibernate. */
-extern gboolean dbus_DeviceKit_CanSuspend(void);
-extern gboolean dbus_DeviceKit_CanHibernate(void);
-extern gboolean dbus_DeviceKit_Suspend(void);
-extern gboolean dbus_DeviceKit_Hibernate(void);
+/* Interface to UPower for suspend and hibernate. */
+extern gboolean dbus_UPower_CanSuspend(void);
+extern gboolean dbus_UPower_CanHibernate(void);
+extern char * dbus_UPower_Suspend(void);
+extern char * dbus_UPower_Hibernate(void);
 
 /* Interface to HAL for shutdown, reboot, suspend, and hibernate.
  * HAL is being replaced by the above two mechanisms; this support is legacy. */
@@ -39,9 +39,9 @@ extern gboolean dbus_HAL_CanShutdown(void);
 extern gboolean dbus_HAL_CanReboot(void);
 extern gboolean dbus_HAL_CanSuspend(void);
 extern gboolean dbus_HAL_CanHibernate(void);
-gboolean dbus_HAL_Shutdown(void);
-gboolean dbus_HAL_Reboot(void);
-gboolean dbus_HAL_Suspend(void);
-gboolean dbus_HAL_Hibernate(void);
+extern char * dbus_HAL_Shutdown(void);
+extern char * dbus_HAL_Reboot(void);
+extern char * dbus_HAL_Suspend(void);
+extern char * dbus_HAL_Hibernate(void);
 
 #endif
