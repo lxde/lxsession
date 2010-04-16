@@ -53,19 +53,19 @@ msgstr "_Atsijungti"
 #: ../lxsession-logout/main.c:432
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Baigti %s sesiją?</big></b>"
+msgstr "<b><big>Atsijungti iš %s seanso?</big></b>"
 
 #: ../lxsession-logout/main.c:442
 msgid "Sh_utdown"
-msgstr "_Išjungti"
+msgstr "Išj_ungti"
 
 #: ../lxsession-logout/main.c:447
 msgid "_Reboot"
-msgstr "Pa_leisti iš naujo"
+msgstr "Įkelti iš _naujo"
 
 #: ../lxsession-logout/main.c:452
 msgid "_Suspend"
-msgstr "_Sustabdyti"
+msgstr "Užmi_gdyti"
 
 #: ../lxsession-logout/main.c:457
 msgid "_Hibernate"
@@ -73,7 +73,7 @@ msgstr "_Hibernuoti"
 
 #: ../lxsession-logout/main.c:466
 msgid "S_witch User"
-msgstr "Per_jungti vartotoją"
+msgstr "_Keisti vartotoją"
 
 #: ../lxsession-logout/main.c:470
 msgid "_Logout"
