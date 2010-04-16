@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-04-08 04:11+0000\n"
 "PO-Revision-Date: 2009-04-06 13:33+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,45 +36,45 @@ msgstr "paveikslėlis"
 msgid "Position of the banner"
 msgstr "Antraštės pozicija"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
 #, c-format
 msgid "Error: %s\n"
 msgstr "Klaida: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:355
 msgid "LXSession is not running."
 msgstr "LXSession nepaleista."
 
-#: ../lxsession-logout/main.c:376
+#: ../lxsession-logout/main.c:380
 msgid "Logout"
 msgstr "_Atsijungti"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/main.c:432
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Atsijungti nuo %s sesijos?</big></b>"
+msgstr "<b><big>Baigti %s sesiją?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/main.c:442
 msgid "Sh_utdown"
 msgstr "_Išjungti"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/main.c:447
 msgid "_Reboot"
 msgstr "Pa_leisti iš naujo"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/main.c:452
 msgid "_Suspend"
 msgstr "_Sustabdyti"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/main.c:457
 msgid "_Hibernate"
 msgstr "_Hibernuoti"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/main.c:466
 msgid "S_witch User"
 msgstr "Per_jungti vartotoją"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/main.c:470
 msgid "_Logout"
 msgstr "_Atsijungti"
