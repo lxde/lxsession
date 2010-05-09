@@ -1,0 +1,85 @@
+# Asturian translation of lxsession-lite
+# Copyright (C) 2008 THE lxsession-lite'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxsession-lite package.
+#
+# Iñigo Varela <ivarela@softastur.org>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession-lite\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-04-08 04:11+0000\n"
+"PO-Revision-Date: 2010-05-09 17:17+0100\n"
+"Last-Translator: astur <malditoastur@gmail.com>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.1.0\n"
+"X-Poedit-Language: Asturian\n"
+
+#: ../lxsession-logout/main.c:63
+msgid "Custom message to show on the dialog"
+msgstr "Mensaxe personalizáu p'amosar nel cuadru de diálogu"
+
+#: ../lxsession-logout/main.c:63
+msgid "message"
+msgstr "mensaxe"
+
+#: ../lxsession-logout/main.c:64
+msgid "Banner to show on the dialog"
+msgstr "Mensaxe p'amosar nel diálogu"
+
+#: ../lxsession-logout/main.c:64
+msgid "image file"
+msgstr "ficheru d'imaxe"
+
+#: ../lxsession-logout/main.c:65
+msgid "Position of the banner"
+msgstr "Posición del mensaxe"
+
+#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/main.c:366
+#, c-format
+msgid "Error: %s\n"
+msgstr "Fallu: %s\n"
+
+#: ../lxsession-logout/main.c:355
+msgid "LXSession is not running."
+msgstr "LXSession nun se ta executando."
+
+#: ../lxsession-logout/main.c:380
+msgid "Logout"
+msgstr "Colar"
+
+#. %s is the name of the desktop session
+#: ../lxsession-logout/main.c:432
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Zarrar sesión %s</big></b>"
+
+#: ../lxsession-logout/main.c:442
+msgid "Sh_utdown"
+msgstr "_Apagar"
+
+#: ../lxsession-logout/main.c:447
+msgid "_Reboot"
+msgstr "_Reaniciar"
+
+#: ../lxsession-logout/main.c:452
+msgid "_Suspend"
+msgstr "_Suspender"
+
+#: ../lxsession-logout/main.c:457
+msgid "_Hibernate"
+msgstr "_Ivernar"
+
+#: ../lxsession-logout/main.c:466
+msgid "S_witch User"
+msgstr "_Camudar d'usuariu"
+
+#: ../lxsession-logout/main.c:470
+msgid "_Logout"
+msgstr "Za_rrar sesión"
+
