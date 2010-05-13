@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-04-08 04:11+0000\n"
 "PO-Revision-Date: 2009-05-04 18:32+0100\n"
 "Last-Translator: Sander De Voogdt <celettu@gmal.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,47 +35,45 @@ msgstr "afbeeldingsbestand"
 msgid "Position of the banner"
 msgstr "Positie van de banner"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
 #, c-format
 msgid "Error: %s\n"
-msgstr "Fout: %s\n"
+msgstr "Error: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/main.c:355
 msgid "LXSession is not running."
-msgstr "LXsession is niet uitgevoerd"
+msgstr "LXsession staat niet aan."
 
-#: ../lxsession-logout/main.c:376
+#: ../lxsession-logout/main.c:380
 msgid "Logout"
 msgstr "Uitloggen"
 
 #. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/main.c:432
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Sessie %s uitloggen?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/main.c:442
 msgid "Sh_utdown"
 msgstr "Afsluiten"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/main.c:447
 msgid "_Reboot"
-msgstr "Herstarten"
+msgstr "_Herstarten"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/main.c:452
 msgid "_Suspend"
-msgstr "Pauzestand"
+msgstr "_Pauzestand"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/main.c:457
 msgid "_Hibernate"
-msgstr "Slaapstand"
+msgstr "_Slaapstand"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/main.c:466
 msgid "S_witch User"
 msgstr "Gebruiker wisselen"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/main.c:470
 msgid "_Logout"
-msgstr "Uitloggen"
-
+msgstr "_Uitloggen"
