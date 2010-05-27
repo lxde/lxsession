@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-03-04 22:51+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -15,65 +15,65 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Pesan suai untuk ditampilkan pada dialog"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "pesan"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Panji untuk ditampilkan pada dialog"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "berkas citra"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Posisi panji"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Galat: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession tidak berjalan."
 
-#: ../lxsession-logout/main.c:376
-msgid "Logout"
-msgstr "Keluar"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Keluar %s sesi?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "_Matikan"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Reboot"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Suspensi"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hibernasi"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "P_indah Pengguna"
 
-#: ../lxsession-logout/main.c:466
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Keluar"
+
+#~ msgid "Logout"
+#~ msgstr "Keluar"

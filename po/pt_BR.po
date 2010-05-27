@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-03-11 19:19-0300\n"
 "Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -16,65 +16,65 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Mensagem padrão para mostrar no diálogo"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "Mensagem"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Banner para mostrar no diálogo"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "Arquivo de imagem"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Posição do banner"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Erro: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession não está em execução."
 
-#: ../lxsession-logout/main.c:376
-msgid "Logout"
-msgstr "Encerrar sessão"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Encerrar sessão %s?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "_Desligar"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Suspender"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hibernar"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "_Trocar usuário"
 
-#: ../lxsession-logout/main.c:466
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Encerrar sessão"
+
+#~ msgid "Logout"
+#~ msgstr "Encerrar sessão"

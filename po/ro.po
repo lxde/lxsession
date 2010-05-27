@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2010-01-24 11:10-0800\n"
 "Last-Translator: alexxed <alexxed@gmail.com>\n"
 "Language-Team: Romanian <LL@li.org>\n"
@@ -13,65 +13,65 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Narro 0.9.4 on http://tradu.softwareliber.ro\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Mesaj personalizat pentru afișarea în caseta de dialog"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "mesaj"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Mesaj sau imagine de afișat în dialog"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "fișier imagine"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Poziția imaginii"
 
-#: ../lxsession-logout/main.c:354 ../lxsession-logout/main.c:365
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Eroare: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession nu rulează."
 
-#: ../lxsession-logout/main.c:376
-msgid "Logout"
-msgstr "Ieșire"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Ieșiți din sesiunea %s?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "Oprește calc_ulatorul"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Repornește"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Suspendă"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hibernează"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "_Schimbă utilizatorul"
 
-#: ../lxsession-logout/main.c:466
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Ieșire"
+
+#~ msgid "Logout"
+#~ msgstr "Ieșire"

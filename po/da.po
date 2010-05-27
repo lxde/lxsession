@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-20 04:07+0000\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-01-21 14:13+0100\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
@@ -16,68 +16,68 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Danish\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Brugerdefineret melding"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "Melding"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Grafik til visning i dialogboks"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "Billedfil"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Grafikkens placering"
 
-#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fejl: %s\n"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXsession kører ikke."
 
-#: ../lxsession-logout/main.c:380
-msgid "Logout"
-msgstr "Log ud"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Log ud af %s session?</big></b>"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "_Sluk"
 
-#: ../lxsession-logout/main.c:447
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Genstart"
 
-#: ../lxsession-logout/main.c:452
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Dvale"
 
-#: ../lxsession-logout/main.c:457
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hvile"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "Skift _bruger"
 
-#: ../lxsession-logout/main.c:470
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Log ud"
+
+#~ msgid "Logout"
+#~ msgstr "Log ud"
 
 #~ msgid "Save current session"
 #~ msgstr "Gem aktuel session"

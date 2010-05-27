@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:49+0200\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-07-21 23:55+0200\n"
 "Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>\n"
 "Language-Team: Greek\n"
@@ -17,67 +17,65 @@ msgstr ""
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Παραμετροποιημένο μήνυμα προς εμφάνιση στο διάλογο"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "μήνυμα"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Σήμα προς εμφάνιση στο διάλογο"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "αρχείο εικόνας"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Θέση του σήματος"
 
-#: ../lxsession-logout/main.c:354
-#: ../lxsession-logout/main.c:365
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Σφάλμα: %s\n"
 
-#: ../lxsession-logout/main.c:354
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "Το LXSession δεν εκτελείται."
 
-#: ../lxsession-logout/main.c:376
-msgid "Logout"
-msgstr "Αποσύνδεση"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:428
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Αποσύνδεση συνεδρίας %s?</big></b>"
 
-#: ../lxsession-logout/main.c:438
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "Α_πενεργοποίηση"
 
-#: ../lxsession-logout/main.c:443
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Επανεκκίνηση"
 
-#: ../lxsession-logout/main.c:448
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Αναστολή"
 
-#: ../lxsession-logout/main.c:453
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Αδρανοποίηση"
 
-#: ../lxsession-logout/main.c:462
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "Ε_ναλλαγή χρήστη"
 
-#: ../lxsession-logout/main.c:466
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Αποσύνδεση"
 
+#~ msgid "Logout"
+#~ msgstr "Αποσύνδεση"

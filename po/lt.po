@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-08 04:11+0000\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-04-06 13:33+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,65 +16,65 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Dialoge rodoma žinutė"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "žinutė"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Dialogo antraštė"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "paveikslėlis"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Antraštės pozicija"
 
-#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Klaida: %s\n"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession nepaleista."
 
-#: ../lxsession-logout/main.c:380
-msgid "Logout"
-msgstr "_Atsijungti"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Atsijungti iš %s seanso?</big></b>"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "Išj_ungti"
 
-#: ../lxsession-logout/main.c:447
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "Įkelti iš _naujo"
 
-#: ../lxsession-logout/main.c:452
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "Užmi_gdyti"
 
-#: ../lxsession-logout/main.c:457
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hibernuoti"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "_Keisti vartotoją"
 
-#: ../lxsession-logout/main.c:470
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Atsijungti"
+
+#~ msgid "Logout"
+#~ msgstr "_Atsijungti"

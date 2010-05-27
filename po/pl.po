@@ -1,14 +1,14 @@
 # translation of pl.po to Polish
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
-# 
-# 
+#
+#
 # Artur Kruszewski <mazdac@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-08 04:11+0000\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2010-01-13 23:28+0200\n"
 "Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -16,73 +16,74 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 "X-Generator: Pootle 2.0.0\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Wiadomość wyświetlana w oknie dialogowym"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "wiadomość"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Banner do wyświetlenia w oknie dialogowym"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "plik obrazu"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Pozycja bannera"
 
-#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Błąd: %s\n"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession nie jest uruchomiony."
 
-#: ../lxsession-logout/main.c:380
-msgid "Logout"
-msgstr "Wyloguj"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Wylogować sesję %s?</big></b>"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "_Wyłącz"
 
-#: ../lxsession-logout/main.c:447
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "U_ruchom ponownie"
 
-#: ../lxsession-logout/main.c:452
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Uśpij"
 
-#: ../lxsession-logout/main.c:457
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "Za_hibernuj"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "_Przełącz użytkownika"
 
-#: ../lxsession-logout/main.c:470
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "Wy_loguj"
+
+#~ msgid "Logout"
+#~ msgstr "Wyloguj"
 
 #~ msgid "Save current session"
 #~ msgstr "Zapisz bieżącą sesję"

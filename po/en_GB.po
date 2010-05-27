@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-28 04:11+0000\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@gmail.com>\n"
@@ -13,67 +13,65 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-Country: UNITED KINGDOM\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Custom message to show on the dialogue"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "message"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Banner to show on the dialogue"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "image file"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Position of the banner"
 
-#: ../lxsession-logout/main.c:355
-#: ../lxsession-logout/main.c:366
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession is not running."
 
-#: ../lxsession-logout/main.c:380
-msgid "Logout"
-msgstr "Logout"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Logout %s session?</big></b>"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "Sh_utdown"
 
-#: ../lxsession-logout/main.c:447
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "_Reboot"
 
-#: ../lxsession-logout/main.c:452
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Suspend"
 
-#: ../lxsession-logout/main.c:457
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Hibernate"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "S_witch User"
 
-#: ../lxsession-logout/main.c:470
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Logout"
 
+#~ msgid "Logout"
+#~ msgstr "Logout"

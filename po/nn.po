@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-27 19:41+0200\n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
 "PO-Revision-Date: 2009-07-27 20:02+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -17,65 +17,65 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 0.3\n"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
 msgstr "Sjølvvald melding som skal visast i dialogvindauget"
 
-#: ../lxsession-logout/main.c:63
+#: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
 msgstr "melding"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
 msgstr "Banner som skal visast i dialogvindauget"
 
-#: ../lxsession-logout/main.c:64
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "biletfil"
 
-#: ../lxsession-logout/main.c:65
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
 msgstr "Plassering til banneret"
 
-#: ../lxsession-logout/main.c:355 ../lxsession-logout/main.c:366
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
 msgstr "Feil: %s\n"
 
-#: ../lxsession-logout/main.c:355
+#: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
 msgstr "LXSession køyrer ikkje."
 
-#: ../lxsession-logout/main.c:380
-msgid "Logout"
-msgstr "Logg ut"
-
-#. %s is the name of the desktop session
-#: ../lxsession-logout/main.c:432
+#: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Vil du logga ut av %s-økta?</big></b>"
 
-#: ../lxsession-logout/main.c:442
+#: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
 msgstr "_Slå av"
 
-#: ../lxsession-logout/main.c:447
+#: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
 msgstr "S_tart på nytt"
 
-#: ../lxsession-logout/main.c:452
+#: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
 msgstr "_Kvilemodus"
 
-#: ../lxsession-logout/main.c:457
+#: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
 msgstr "_Dvalemodus"
 
-#: ../lxsession-logout/main.c:466
+#: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
 msgstr "_Byt brukar"
 
-#: ../lxsession-logout/main.c:470
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
 msgstr "_Logg ut"
+
+#~ msgid "Logout"
+#~ msgstr "Logg ut"
