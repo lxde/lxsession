@@ -289,7 +289,7 @@ int main(int argc, char** argv)
 	else if( G_UNLIKELY( !single_instance_check()) )
 	{
 		/* only one instance is allowed for each X. */
-		g_error( "Only one lxsession can be executed at a time." );
+		fprintf(stderr, "Only one lxsession can be executed at a time");
 		return 1;
 	}
 
