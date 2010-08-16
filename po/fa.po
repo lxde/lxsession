@@ -5,18 +5,20 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2010-01-25 13:20+0200\n"
-"Last-Translator: Ali <aysabzevar@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2010-08-16 05:43+0000\n"
+"PO-Revision-Date: 2010-08-16 22:42+0330\n"
+"Last-Translator: Mostafa <info@mostafadaneshvar.com>\n"
+"Language-Team: Persian <trans-fa@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: Iran\n"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
@@ -51,23 +53,23 @@ msgstr "LXSession  اجرا نیست."
 #: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>خروج %s نشست?</big></b>"
+msgstr "<b><big>خروج %s نشست؟</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
-msgstr "خاـموش"
+msgstr "خاموش"
 
 #: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
-msgstr "ـ آغاز به کار دوباره"
+msgstr "آغاز به کار دوباره"
 
 #: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
-msgstr "ـ تعلیق"
+msgstr "تعلیق"
 
 #: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
-msgstr "ـ خواب زمستانی"
+msgstr "خواب زمستانی"
 
 #: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
@@ -76,7 +78,7 @@ msgstr "تـغییر کاربر"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
-msgstr "ـ خروج"
+msgstr "خروج"
 
 #~ msgid "Logout"
 #~ msgstr "خروج"
