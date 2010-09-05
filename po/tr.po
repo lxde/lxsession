@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 14:51+0200\n"
+"POT-Creation-Date: 2010-09-05 05:46+0000\n"
 "PO-Revision-Date: 2010-01-26 20:34+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
-msgstr "İletişim kutusunda gösterilecek kişisel ileti"
+msgstr "İletişim kutusunda gösterilecek özel ileti"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
@@ -28,21 +28,21 @@ msgstr "ileti"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
-msgstr "İletişim kutusunda gösterilecek duyurmalık"
+msgstr "İletişim kutusunda gösterilecek resim"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
-msgstr "imge dosyası"
+msgstr "resim dosyası"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Position of the banner"
-msgstr "Duyurmalığın konumu"
+msgstr "Resmin konumu"
 
 #: ../lxsession-logout/lxsession-logout.c:343
 #: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
-msgstr "Yanlışlık: %s\n"
+msgstr "Hata: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
