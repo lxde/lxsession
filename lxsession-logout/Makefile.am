@@ -9,4 +9,8 @@ lxsession_logout_LDADD = $(GTK_LIBS) $(SM_LIBS) $(DBUS_LIBS)
 lxsession_logout_SOURCES= \
 	dbus-interface.c \
 	dbus-interface.h \
+	lock-screen.c \
+	lock-screen.h \
 	lxsession-logout.c
+
+pkgdata_SCRIPTS = lock-screen.sh

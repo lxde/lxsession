@@ -36,6 +36,7 @@
 #include <X11/Xlib.h>
 
 #include "dbus-interface.h"
+#include "lock-screen.h"
 
 /* Command parameters. */
 static char * prompt = NULL;
@@ -51,26 +52,26 @@ static GOptionEntry opt_entries[] =
 };
 
 typedef struct {
-    GPid lxsession_pid;			/* Process ID of lxsession */
-    GtkWidget * error_label;		/* Text of an error, if we get one */
+    GPid lxsession_pid;         /* Process ID of lxsession */
+    GtkWidget * error_label;        /* Text of an error, if we get one */
 
-    int shutdown_available : 1;		/* Shutdown is available */
-    int reboot_available : 1;		/* Reboot is available */
-    int suspend_available : 1;		/* Suspend is available */
-    int hibernate_available : 1;	/* Hibernate is available */
-    int switch_user_available : 1;	/* Switch User is available */
+    int shutdown_available : 1;     /* Shutdown is available */
+    int reboot_available : 1;       /* Reboot is available */
+    int suspend_available : 1;      /* Suspend is available */
+    int hibernate_available : 1;    /* Hibernate is available */
+    int switch_user_available : 1;  /* Switch User is available */
 
-    int shutdown_ConsoleKit : 1;	/* Shutdown is available via ConsoleKit */
-    int reboot_ConsoleKit : 1;		/* Reboot is available via ConsoleKit */
-    int suspend_UPower : 1;		/* Suspend is available via UPower */
-    int hibernate_UPower : 1;		/* Hibernate is available via UPower */
-    int shutdown_HAL : 1;		/* Shutdown is available via HAL */
-    int reboot_HAL : 1;			/* Reboot is available via HAL */
-    int suspend_HAL : 1;		/* Suspend is available via HAL */
-    int hibernate_HAL : 1;		/* Hibernate is available via HAL */
-    int switch_user_GDM : 1;		/* Switch User is available via GDM */
-    int switch_user_KDM : 1;		/* Switch User is available via KDM */
-    int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
+    int shutdown_ConsoleKit : 1;    /* Shutdown is available via ConsoleKit */
+    int reboot_ConsoleKit : 1;      /* Reboot is available via ConsoleKit */
+    int suspend_UPower : 1;     /* Suspend is available via UPower */
+    int hibernate_UPower : 1;       /* Hibernate is available via UPower */
+    int shutdown_HAL : 1;       /* Shutdown is available via HAL */
+    int reboot_HAL : 1;         /* Reboot is available via HAL */
+    int suspend_HAL : 1;        /* Suspend is available via HAL */
+    int hibernate_HAL : 1;      /* Hibernate is available via HAL */
+    int switch_user_GDM : 1;        /* Switch User is available via GDM */
+    int switch_user_KDM : 1;        /* Switch User is available via KDM */
+    int ltsp : 1;           /* Shutdown and reboot is accomplished via LTSP */
 } HandlerContext;
 
 static gboolean verify_running(char * display_manager, char * executable);
@@ -204,6 +205,7 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
 {
     char * error_result = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+    lock_screen();
 
     if (handler_context->suspend_UPower)
         error_result = dbus_UPower_Suspend();
@@ -220,6 +222,7 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
 {
     char * error_result = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+    lock_screen();
 
     if (handler_context->hibernate_UPower)
         error_result = dbus_UPower_Hibernate();
@@ -235,6 +238,7 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
 static void switch_user_clicked(GtkButton * button, HandlerContext * handler_context)
 {
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+    lock_screen();
 
     if (handler_context->switch_user_GDM)
         g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
@@ -270,12 +274,12 @@ static GdkPixbuf * get_background_pixbuf(void)
     /* Get the root window pixmap. */
     GdkScreen * screen = gdk_screen_get_default();
     GdkPixbuf * pixbuf = gdk_pixbuf_get_from_drawable(
-        NULL,					/* Allocate a new pixbuf */
-        gdk_get_default_root_window(),		/* The drawable */
-        NULL,					/* Its colormap */
-        0, 0, 0, 0,				/* Coordinates */
-        gdk_screen_get_width(screen),		/* Width */
-        gdk_screen_get_height(screen));		/* Height */
+        NULL,                   /* Allocate a new pixbuf */
+        gdk_get_default_root_window(),      /* The drawable */
+        NULL,                   /* Its colormap */
+        0, 0, 0, 0,             /* Coordinates */
+        gdk_screen_get_width(screen),       /* Width */
+        gdk_screen_get_height(screen));     /* Height */
 
     /* Make the background darker. */
     if (pixbuf != NULL)
@@ -311,14 +315,14 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
         /* Copy the appropriate rectangle of the root window pixmap to the drawing area.
          * All drawing areas are immediate children of the toplevel window, so the allocation yields the source coordinates directly. */
         gdk_draw_pixbuf(
-            widget->window,					/* Drawable to render to */
-            NULL,						/* GC for clipping */
-            pixbuf,						/* Source pixbuf */
-            widget->allocation.x, widget->allocation.y,		/* Source coordinates */
-            0, 0,						/* Destination coordinates */
+            widget->window,                 /* Drawable to render to */
+            NULL,                       /* GC for clipping */
+            pixbuf,                     /* Source pixbuf */
+            widget->allocation.x, widget->allocation.y,     /* Source coordinates */
+            0, 0,                       /* Destination coordinates */
             widget->allocation.width, widget->allocation.height,
-            GDK_RGB_DITHER_NORMAL,				/* Dither type */
-            0, 0);						/* Dither offsets */
+            GDK_RGB_DITHER_NORMAL,              /* Dither type */
+            0, 0);                      /* Dither offsets */
     }
     return FALSE;
 }
