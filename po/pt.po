@@ -1,14 +1,15 @@
 # Portuguese translations for lxsession-lite package.
 # Copyright (C) 2009 THE lxsession-lite'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession-lite package.
-#  <alvarommorais@gmail.com>, 2009.
-#
+# <alvarommorais@gmail.com>, 2009.
+# Sérgio Marques <smarquespt@gmail.com> 2010
+# Adaptado ao acordo ortográfico de 1990
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2009-05-11 16:26-0000\n"
+"PO-Revision-Date: 2010-09-22 11:36-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
-msgstr "Mensagem personalizada para mostrar no diálogo"
+msgstr "Mensagem a mostrar no diálogo"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
@@ -71,12 +72,10 @@ msgstr "_Hibernar"
 
 #: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
-msgstr "_Mudar de Utilizador"
+msgstr "_Mudar de utilizador"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
-msgstr "_Terminar Sessão"
+msgstr "_Terminar sessão"
 
-#~ msgid "Logout"
-#~ msgstr "Terminar Sessão"
