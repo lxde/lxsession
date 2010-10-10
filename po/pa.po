@@ -1,0 +1,78 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# A S Alam <aalam@users.sf.net>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-09 06:07+0000\n"
+"PO-Revision-Date: 2010-10-10 08:03+0530\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../lxsession-logout/lxsession-logout.c:47
+msgid "Custom message to show on the dialog"
+msgstr "ਡਾਈਲਾਗ ਉੱਤੇ ਵੇਖਾਉਣ ਲਈ ਪਸੰਦੀਦਾ ਸੁਨੇਹਾ"
+
+#: ../lxsession-logout/lxsession-logout.c:47
+msgid "message"
+msgstr "ਸੁਨੇਹਾ"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "Banner to show on the dialog"
+msgstr "ਡਾਈਲਾਗ ਉੱਤੇ ਵੇਖਾਉਣ ਲਈ ਬੈਨਰ"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "image file"
+msgstr "ਚਿੱਤਰ ਫਾਇਲ"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "Position of the banner"
+msgstr "ਬੈਨਰ ਦੀ ਸਥਿਤੀ"
+
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
+#, c-format
+msgid "Error: %s\n"
+msgstr "ਗਲਤੀ: %s\n"
+
+#: ../lxsession-logout/lxsession-logout.c:357
+msgid "LXSession is not running."
+msgstr "LXSession ਚੱਲ ਨਹੀਂ ਰਿਹਾ ਹੈ।"
+
+#: ../lxsession-logout/lxsession-logout.c:508
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>%s ਸ਼ੈਸ਼ਨ 'ਚੋਂ ਲਾਗ ਆਉਟ ਕਰਨਾ ਹੈ?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:516
+msgid "Sh_utdown"
+msgstr "ਬੰਦ ਕਰੋ(_u)"
+
+#: ../lxsession-logout/lxsession-logout.c:527
+msgid "_Reboot"
+msgstr "ਮੁਡ਼ ਚਾਲੂ(_R)"
+
+#: ../lxsession-logout/lxsession-logout.c:538
+msgid "_Suspend"
+msgstr "ਸਸਪੈਂਡ(_S)"
+
+#: ../lxsession-logout/lxsession-logout.c:549
+msgid "_Hibernate"
+msgstr "ਹਾਈਬਰਨੇਟ(_H)"
+
+#: ../lxsession-logout/lxsession-logout.c:560
+msgid "S_witch User"
+msgstr "ਯੂਜ਼ਰ ਸਵਿੱਚ ਕਰੋ(_w)"
+
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
+msgid "_Logout"
+msgstr "ਲਾਗਆਉਟ(_L)"
+
