@@ -1,0 +1,80 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-27 14:51+0200\n"
+"PO-Revision-Date: 2010-08-25 10:32+0200\n"
+"Last-Translator: Анік <xabzan9tka@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.5\n"
+
+#: ../lxsession-logout/lxsession-logout.c:47
+msgid "Custom message to show on the dialog"
+msgstr "Уласнае паведамленне для дыялога"
+
+#: ../lxsession-logout/lxsession-logout.c:47
+msgid "message"
+msgstr "паведамленне"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "Banner to show on the dialog"
+msgstr "Банэр для дыялога"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "image file"
+msgstr "файл малюнку"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "Position of the banner"
+msgstr "Размяшчэнне банеру"
+
+#: ../lxsession-logout/lxsession-logout.c:343
+#: ../lxsession-logout/lxsession-logout.c:357
+#, c-format
+msgid "Error: %s\n"
+msgstr "Памылка: %s\n"
+
+#: ../lxsession-logout/lxsession-logout.c:357
+msgid "LXSession is not running."
+msgstr "LXSession не запушчан."
+
+#: ../lxsession-logout/lxsession-logout.c:508
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Завяршыць сеанс %s?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:516
+msgid "Sh_utdown"
+msgstr "Вы_ключыць"
+
+#: ../lxsession-logout/lxsession-logout.c:527
+msgid "_Reboot"
+msgstr "_Перазагрузіць"
+
+#: ../lxsession-logout/lxsession-logout.c:538
+msgid "_Suspend"
+msgstr "_Рэжым чакання"
+
+#: ../lxsession-logout/lxsession-logout.c:549
+msgid "_Hibernate"
+msgstr "_Рэмым сну"
+
+#: ../lxsession-logout/lxsession-logout.c:560
+msgid "S_witch User"
+msgstr "З_мяніць карыстальніка"
+
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:569
+msgid "_Logout"
+msgstr "_Выйсці"
