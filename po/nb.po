@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2009-11-21 00:24+0100\n"
-"Last-Translator: Olav Andreas Lindekleiv <olalinde@gmail.com>\n"
+"PO-Revision-Date: 2010-11-03 19:35+0200\n"
+"Last-Translator: Sam <wilsonsamm@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
@@ -61,11 +63,13 @@ msgstr "_Restart"
 
 #: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
-msgstr ""
+msgstr "Hvile"
 
+# Jeg er klar over at "hvile" og "dvale" har danskene oversatt omvendt, men her oversetter jeg etter fellesordlista til skolelinux:
+# http://i18n.skolelinux.no/nb/Fellesordl.eng-no.html
 #: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
-msgstr ""
+msgstr "Dvale"
 
 #: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
