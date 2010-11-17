@@ -25,6 +25,7 @@
 #include <glib/gi18n.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 #include <limits.h>
 #include <signal.h>
@@ -73,6 +74,7 @@ typedef struct {
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
 } HandlerContext;
 
+static gboolean lock_screen(void);
 static gboolean verify_running(char * display_manager, char * executable);
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context);
 static void change_root_property(GtkWidget* w, const char* prop_name, const char* value);
@@ -84,6 +86,46 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
 static void cancel_clicked(GtkButton * button, gpointer user_data);
 static GtkPositionType get_banner_position(void);
 static GdkPixbuf * get_background_pixbuf(void);
+
+/* Try to lock the screen, return TRUE on success, FALSE if no suitable
+ * screensaver was found or the screensaver command exited abnormally.
+ */
+static gboolean lock_screen(void)
+{
+    gint i;
+    gint argcp;
+    gchar **argvp;
+    gint exit_status;
+    gchar *locking_commands[] = {
+            "xscreensaver-command -lock",
+            "gnome-screensaver-command --lock",
+            "xlock -mode blank",
+            NULL
+    };
+
+    for (i = 0; locking_commands[i] != NULL; ++i)
+    {
+        g_shell_parse_argv(locking_commands[i], &argcp, &argvp, NULL);
+        g_spawn_sync(NULL,
+                argvp,
+                NULL,
+                G_SPAWN_SEARCH_PATH|G_SPAWN_STDOUT_TO_DEV_NULL|G_SPAWN_STDERR_TO_DEV_NULL,
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                &exit_status,
+                NULL);
+        g_strfreev (argvp);
+
+        if (WIFEXITED(exit_status) && WEXITSTATUS(exit_status) == 0)
+        {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
 
 /* Verify that a program is running and that an executable is available. */
 static gboolean verify_running(char * display_manager, char * executable)
@@ -205,6 +247,7 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
     char * error_result = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
+    lock_screen();
     if (handler_context->suspend_UPower)
         error_result = dbus_UPower_Suspend();
     else if (handler_context->suspend_HAL)
@@ -221,6 +264,7 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
     char * error_result = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
+    lock_screen();
     if (handler_context->hibernate_UPower)
         error_result = dbus_UPower_Hibernate();
     else if (handler_context->hibernate_HAL)
@@ -236,6 +280,7 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
 {
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
+    lock_screen();
     if (handler_context->switch_user_GDM)
         g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_KDM)
