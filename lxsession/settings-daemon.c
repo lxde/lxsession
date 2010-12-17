@@ -58,11 +58,11 @@ static void merge_xrdb(const char* content, int len)
 {
     char* argv[] = { "xrdb", "-merge", "-", NULL };
     GPid pid;
-    int stdi, status;
+    int stdi, status, w;
     if( g_spawn_async_with_pipes(NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
                         NULL, NULL, &pid, &stdi, NULL, NULL, NULL ) )
     {
-        write( stdi, content, len < 0 ? strlen(content) : len );
+        w = write( stdi, content, len < 0 ? strlen(content) : len );
         close(stdi);
         waitpid( pid, &status, 0 );
     }
