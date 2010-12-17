@@ -351,17 +351,35 @@ static GdkPixbuf * get_background_pixbuf(void)
 /* Handler for "expose_event" on background. */
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf)
 {
+
+#if GTK_CHECK_VERSION(2,22,0)
+     GtkAllocation allocation;
+     gtk_widget_get_allocation(widget, &allocation);
+#endif
+
     if (pixbuf != NULL)
     {
         /* Copy the appropriate rectangle of the root window pixmap to the drawing area.
          * All drawing areas are immediate children of the toplevel window, so the allocation yields the source coordinates directly. */
         gdk_draw_pixbuf(
-            widget->window,					/* Drawable to render to */
+#if GTK_CHECK_VERSION(2,14,0)
+            gtk_widget_get_window(widget),					/* Drawable to render to */
+#else
+            widget->window,			    /* Drawable to render to */
+#endif
             NULL,						/* GC for clipping */
             pixbuf,						/* Source pixbuf */
+#if GTK_CHECK_VERSION(2,22,0)
+            allocation.x, allocation.y,
+#else
             widget->allocation.x, widget->allocation.y,		/* Source coordinates */
+#endif
             0, 0,						/* Destination coordinates */
+#if GTK_CHECK_VERSION(2,22,0)
+            allocation.width, allocation.height,
+#else
             widget->allocation.width, widget->allocation.height,
+#endif
             GDK_RGB_DITHER_NORMAL,				/* Dither type */
             0, 0);						/* Dither offsets */
     }
