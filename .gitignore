@@ -35,3 +35,4 @@ po/POTFILES
 po/*.gmo
 po/stamp-it
 stamp-h1
+Makefile
