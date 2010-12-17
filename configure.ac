@@ -106,6 +106,7 @@ echo LXSession.................................... : Version $VERSION
 echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
+echo Man pages generation support................. : $enable_man
 echo
 echo The binary will be installed in $prefix/bin
 echo
