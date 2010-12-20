@@ -75,7 +75,7 @@ typedef struct {
 } HandlerContext;
 
 static gboolean lock_screen(void);
-static gboolean verify_running(char * display_manager, char * executable);
+static gboolean verify_running(const char * display_manager, const char * executable);
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context);
 static void change_root_property(GtkWidget* w, const char* prop_name, const char* value);
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context);
@@ -86,6 +86,7 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
 static void cancel_clicked(GtkButton * button, gpointer user_data);
 static GtkPositionType get_banner_position(void);
 static GdkPixbuf * get_background_pixbuf(void);
+gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf);
 
 /* Try to lock the screen, return TRUE on success, FALSE if no suitable
  * screensaver was found or the screensaver command exited abnormally.
@@ -96,7 +97,7 @@ static gboolean lock_screen(void)
     gint argcp;
     gchar **argvp;
     gint exit_status;
-    gchar *locking_commands[] = {
+    const gchar *locking_commands[] = {
             "xscreensaver-command -lock",
             "gnome-screensaver-command --lock",
             "xlock -mode blank",
@@ -128,7 +129,7 @@ static gboolean lock_screen(void)
 }
 
 /* Verify that a program is running and that an executable is available. */
-static gboolean verify_running(char * display_manager, char * executable)
+static gboolean verify_running(const char * display_manager, const char * executable)
 {
     /* See if the executable we need to run is in the path. */
     gchar * full_path = g_find_program_in_path(executable);
@@ -196,7 +197,7 @@ static void change_root_property(GtkWidget* w, const char* prop_name, const char
     GdkWindow* root = gtk_widget_get_root_window(w);
     XChangeProperty(GDK_DISPLAY_XDISPLAY(dpy), GDK_WINDOW_XID(root),
                       XInternAtom(GDK_DISPLAY_XDISPLAY(dpy), prop_name, False), XA_STRING, 8,
-                      PropModeReplace, value, strlen(value) + 1);
+                      PropModeReplace, (unsigned char*) value, strlen(value) + 1);
 }
 
 /* Handler for "clicked" signal on Shutdown button. */
@@ -351,37 +352,23 @@ static GdkPixbuf * get_background_pixbuf(void)
 /* Handler for "expose_event" on background. */
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf)
 {
-
-#if GTK_CHECK_VERSION(2,22,0)
-     GtkAllocation allocation;
-     gtk_widget_get_allocation(widget, &allocation);
-#endif
-
     if (pixbuf != NULL)
     {
         /* Copy the appropriate rectangle of the root window pixmap to the drawing area.
          * All drawing areas are immediate children of the toplevel window, so the allocation yields the source coordinates directly. */
-        gdk_draw_pixbuf(
 #if GTK_CHECK_VERSION(2,14,0)
-            gtk_widget_get_window(widget),					/* Drawable to render to */
+       cairo_t * cr = gdk_cairo_create (gtk_widget_get_window(widget));
 #else
-            widget->window,			    /* Drawable to render to */
+       cairo_t * cr = gdk_cairo_create (widget->window);
 #endif
-            NULL,						/* GC for clipping */
-            pixbuf,						/* Source pixbuf */
-#if GTK_CHECK_VERSION(2,22,0)
-            allocation.x, allocation.y,
-#else
-            widget->allocation.x, widget->allocation.y,		/* Source coordinates */
-#endif
-            0, 0,						/* Destination coordinates */
-#if GTK_CHECK_VERSION(2,22,0)
-            allocation.width, allocation.height,
-#else
-            widget->allocation.width, widget->allocation.height,
-#endif
-            GDK_RGB_DITHER_NORMAL,				/* Dither type */
-            0, 0);						/* Dither offsets */
+       gdk_cairo_set_source_pixbuf (
+           cr,
+           pixbuf,
+           0,
+           0);
+
+       cairo_paint (cr);
+       cairo_destroy(cr);
     }
     return FALSE;
 }

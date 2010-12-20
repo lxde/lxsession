@@ -50,7 +50,9 @@ static const char *display_name = NULL;
 char* window_manager = NULL; /* will be accessed by settings-daemon.c */
 
 /* name of environment variables */
+/* Disable not used
 static char sm_env[] = "SESSION_MANAGER";
+*/
 static char display_env[] = "DISPLAY";
 static char pid_env[] = "_LXSESSION_PID";
 
@@ -189,10 +191,8 @@ static void load_default_apps( const char* filename )
  */
 void start_session()
 {
-    FILE *file = NULL;
     const gchar* const *dirs = g_get_system_config_dirs();
     const gchar* const *dir;
-    GKeyFile* kf = g_key_file_new();
     char* filename;
 
     /* run window manager first */
