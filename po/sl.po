@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2011-02-04 16:58+0200\n"
+"PO-Revision-Date: 2011-02-04 17:08+0200\n"
 "Last-Translator: Klemen <klemen913@gmail.com>\n"
 "Language-Team: Slovenian <paxmanpwnz@gmail.com>\n"
 "Language: sl\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
-msgstr "Sporočilo po meri, ki se bo prikazalo v pogovornem oknu"
+msgstr "Sporočilo po meri, ki bo prikazano v pogovornem oknu"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
