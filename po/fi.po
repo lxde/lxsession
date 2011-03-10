@@ -24,16 +24,18 @@ msgid "message"
 msgstr "viesti"
 
 #: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Valintaikkunassa näytettävä banneri"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
 msgstr "kuvatiedosto"
 
 #: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr ""
+msgstr "Bannerin sijainti"
 
 #: ../lxsession-logout/lxsession-logout.c:343
 #: ../lxsession-logout/lxsession-logout.c:357
