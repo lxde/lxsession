@@ -34,6 +34,25 @@ static struct {
 
 enum { DBUS_TIMEOUT = 2000 };			/* Reply timeout */
 
+/* FORWARDS */
+gboolean dbus_ConsoleKit_CanStop(void);
+gboolean dbus_ConsoleKit_CanRestart(void);
+char * dbus_ConsoleKit_Stop(void);
+char * dbus_ConsoleKit_Restart(void);
+gboolean dbus_UPower_CanSuspend(void);
+gboolean dbus_UPower_CanHibernate(void);
+char * dbus_UPower_Suspend(void);
+char * dbus_UPower_Hibernate(void);
+gboolean dbus_HAL_CanShutdown(void);
+gboolean dbus_HAL_CanReboot(void);
+gboolean dbus_HAL_CanSuspend(void);
+gboolean dbus_HAL_CanHibernate(void);
+char * dbus_HAL_Shutdown(void);
+char * dbus_HAL_Reboot(void);
+char * dbus_HAL_Suspend(void);
+char * dbus_HAL_Hibernate(void);
+/* End FORWARDS */
+
 /* Connect to the system bus.  Once a connection is made, it is saved for reuse. */
 static DBusConnection * dbus_connect(void)
 {

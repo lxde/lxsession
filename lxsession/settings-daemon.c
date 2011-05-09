@@ -42,6 +42,12 @@
 
 static XSettingsManager **managers = NULL;
 
+/* FORWARDS */
+gboolean start_settings_daemon(GKeyFile* kf);
+void settings_manager_selection_clear( XEvent* evt );
+void settings_deamon_reload();
+/* End FORWARDS */
+
 static void terminate_cb (void *data)
 {
 	gboolean *terminated = data;
@@ -56,13 +62,20 @@ static void terminate_cb (void *data)
 
 static void merge_xrdb(const char* content, int len)
 {
-    char* argv[] = { "xrdb", "-merge", "-", NULL };
+    gchar* argv[] = { "xrdb", "-merge", "-", NULL };
     GPid pid;
-    int stdi, status;
+    int stdi, status, w;
     if( g_spawn_async_with_pipes(NULL, argv, NULL, G_SPAWN_SEARCH_PATH,
                         NULL, NULL, &pid, &stdi, NULL, NULL, NULL ) )
     {
-        write( stdi, content, len < 0 ? strlen(content) : len );
+        if (len < 0)
+        {
+            w = write( stdi, content, strlen(content));
+        }
+        else
+        {
+            w = write( stdi, content, len);
+        }
         close(stdi);
         waitpid( pid, &status, 0 );
     }
@@ -122,7 +135,7 @@ static void configure_input(GKeyFile* kf)
     set_left_handed_mouse(left_handed);
 
     /* Keyboard settings */
-    if(XkbGetAutoRepeatRate(dpy, XkbUseCoreKbd, &delay, &interval))
+    if(XkbGetAutoRepeatRate(dpy, XkbUseCoreKbd, (unsigned int*) &delay, (unsigned int*) &interval))
     {
         int val;
         val = g_key_file_get_integer(kf, "Keyboard", "Delay", NULL);
@@ -144,8 +157,6 @@ static void configure_input(GKeyFile* kf)
 
 static void load_settings( GKeyFile* kf )
 {
-	gboolean ret;
-	char* file;
     GString* buf;
     char* str;
     int val;

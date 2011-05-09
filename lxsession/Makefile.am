@@ -3,6 +3,7 @@ NULL=
 bin_PROGRAMS = lxsession
 
 lxsession_CFLAGS = $(GLIB_CFLAGS) \
+				$(ADDITIONAL_FLAGS) \
 				-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 				-Werror-implicit-function-declaration
 				$(NULL)

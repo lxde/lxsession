@@ -1,14 +1,24 @@
 AC_PREREQ([2.57])
 AC_INIT(lxsession,[0.4.5], [],lxsession)
-AM_INIT_AUTOMAKE()
+AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
+
+# Support silent build rules. Disable by either passing --disable-silent-rules
+# to configure or passing V=1 to make
+AM_SILENT_RULES([yes])
 AC_PROG_INTLTOOL(, [no-xml])
 AM_MAINTAINER_MODE
 
 AM_CONFIG_HEADER(config.h)
+AC_CONFIG_MACRO_DIR([m4])
 
 AC_PROG_CC
 AC_PROG_INSTALL
 AM_PROG_CC_C_O
+AC_PROG_CC_STDC
+
+#Initialize libtool
+LT_PREREQ([2.2])
+LT_INIT
 
 AC_CHECK_FUNC([mkstemp],
    AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the 'mkstemp' function.]))
@@ -19,6 +29,12 @@ AC_ARG_ENABLE(man,
        [enable_man="${enableval}"],
        [enable_man=no]
 )
+
+# Pass --enable-maintainer-mode to enable more CFLAGS
+if test "$USE_MAINTAINER_MODE" = "yes"; then
+  ADDITIONAL_FLAGS="-Wall -Werror=all -Werror=format -Werror=implicit-function-declaration -Werror=implicit-int -Werror=missing-braces -Werror=parentheses -Werror=return-type -Werror=strict-aliasing -Werror=switch -Wuninitialized -Werror=unused-label -Werror=unused-value -Wextra -Wno-missing-field-initializers -Wno-unused-parameter -Werror=missing-declarations -Wredundant-decls -Wmissing-noreturn -Wpointer-arith -Wcast-align -Wwrite-strings -Werror=inline -Werror=format-nonliteral -Wformat-nonliteral -Werror=format-security -Wformat-security -Winit-self -Werror=missing-include-dirs -Werror=undef -Werror=aggregate-return -Wmissing-format-attribute -Werror=nested-externs -fno-strict-aliasing -fmessage-length=0 -Wp,-D_FORTIFY_SOURCE=2 -DG_DISABLE_DEPRECATED -DG_DISABLE_SINGLE_INCLUDES -DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_DEPRECATED -DGTK_DISABLE_SINGLE_INCLUDES"
+fi
+AC_SUBST(ADDITIONAL_FLAGS)
 
 PKG_CHECK_MODULES(GTK, [gtk+-2.0 >= 2.6.0])
 AC_SUBST(GTK_CFLAGS)
@@ -92,6 +108,7 @@ echo LXSession.................................... : Version $VERSION
 echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
+echo Man pages generation support................. : $enable_man
 echo
 echo The binary will be installed in $prefix/bin
 echo

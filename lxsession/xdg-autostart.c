@@ -191,7 +191,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
         if( only_show_in )
         {
             /* The format of this list is like:  OnlyShowIn=GNOME;XFCE */
-            int i = 0;
+            gsize i = 0;
             for( i = 0; i < n; ++i )
             {
                 /* Only start this program if we are in the "OnlyShowIn" list */
@@ -212,7 +212,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
 			if( not_show_in )
 			{
 				/* The format of this list is like:  NotShowIn=KDE;IceWM */
-				int i = 0;
+				gsize i = 0;
 				for( i = 0; i < n; ++i )
 				{
 					/* Only start this program if we are in the "OnlyShowIn" list */
@@ -276,7 +276,7 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
         char *path;
         const char *name;
 
-        while( name = g_dir_read_name( dir ) )
+        while( name == g_dir_read_name( dir ) )
         {
             if(g_str_has_suffix(name, ".desktop"))
             {

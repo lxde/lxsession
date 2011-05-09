@@ -43,13 +43,16 @@
 
 static gboolean no_settings = FALSE; /* disable settings daemon */
 static gboolean reload_settings = FALSE; /* reload settings daemon */
+static gboolean no_autostart = FALSE; /* no autostart */
 
 static GMainLoop* main_loop = NULL;
 static const char *display_name = NULL;
 char* window_manager = NULL; /* will be accessed by settings-daemon.c */
 
 /* name of environment variables */
+/* Disable not used
 static char sm_env[] = "SESSION_MANAGER";
+*/
 static char display_env[] = "DISPLAY";
 static char pid_env[] = "_LXSESSION_PID";
 
@@ -188,16 +191,17 @@ static void load_default_apps( const char* filename )
  */
 void start_session()
 {
-    FILE *file = NULL;
     const gchar* const *dirs = g_get_system_config_dirs();
     const gchar* const *dir;
-    GKeyFile* kf = g_key_file_new();
     char* filename;
 
     /* run window manager first */
     if( G_LIKELY( window_manager ) )
         run_app( window_manager, TRUE );
 
+    if( G_UNLIKELY( !no_autostart ) )
+
+    {
     /* load system-wide default apps */
     for( dir = dirs; *dir; ++dir )
     {
@@ -210,8 +214,10 @@ void start_session()
     load_default_apps( filename );
     g_free( filename );
 
-    /* Support autostart spec of freedesktop.org */
+    /* Support autostart spec of freedesktop.org if not disable*/
     xdg_autostart( session_name );
+
+    }
 }
 
 static void parse_options(int argc, char** argv)
@@ -242,6 +248,9 @@ static void parse_options(int argc, char** argv)
             case 'r':
 				reload_settings = TRUE;
 				continue;
+            case 'a': /* autostart disable */
+                no_autostart = TRUE;
+                continue;
 			default:
 				goto usage;
             }
@@ -255,7 +264,8 @@ usage:
 				  "\t-s NAME\tspecify name of the desktop session profile\n"
                   "\t-e NAME\tspecify name of DE, such as LXDE, GNOME, or XFCE.\n"
 				  "\t-r\t reload configurations (for Xsettings daemon)\n"
-				  "\t-n\t disable Xsettings daemon support\n" );
+				  "\t-n\t disable Xsettings daemon support\n"
+				  "\t-a\t autostart applications disable (window-manager mode only) \n" );
         exit(1);
 }
 
