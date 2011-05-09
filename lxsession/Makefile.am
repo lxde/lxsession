@@ -2,13 +2,13 @@ NULL=
 
 bin_PROGRAMS = lxsession
 
-lxsession_CFLAGS = $(GLIB_CFLAGS) \
+lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) \
 				$(ADDITIONAL_FLAGS) \
 				-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 				-Werror-implicit-function-declaration
 				$(NULL)
 
-lxsession_LDADD = $(GLIB_LIBS) -lX11
+lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS)
 
 lxsession_SOURCES = \
 	lxsession.c \
