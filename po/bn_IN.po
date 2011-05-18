@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2011-04-19 13:56+0200\n"
+"PO-Revision-Date: 2011-05-18 08:13+0200\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bn_IN\n"
@@ -42,7 +42,7 @@ msgstr "ব্যানারের স্থান"
 #: ../lxsession-logout/lxsession-logout.c:357
 #, c-format
 msgid "Error: %s\n"
-msgstr "ত্রুটি:%s\n"
+msgstr "ত্রুটি: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:357
 msgid "LXSession is not running."
@@ -51,7 +51,7 @@ msgstr "LXSession চলছে না।"
 #: ../lxsession-logout/lxsession-logout.c:508
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>%s  টি লগ-আউট করা হবে কী?</big></b>"
+msgstr "<b><big>%s টি লগ-আউট করা হবে কী?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:516
 msgid "Sh_utdown"
@@ -59,15 +59,15 @@ msgstr "বন্ধ করুন"
 
 #: ../lxsession-logout/lxsession-logout.c:527
 msgid "_Reboot"
-msgstr "রিবুট"
+msgstr "রিবুট _R"
 
 #: ../lxsession-logout/lxsession-logout.c:538
 msgid "_Suspend"
-msgstr "সাস্পেন্ড"
+msgstr "সাস্পেন্ড _S"
 
 #: ../lxsession-logout/lxsession-logout.c:549
 msgid "_Hibernate"
-msgstr "হাইবার্নেট"
+msgstr "হাইবার্নেট _H"
 
 #: ../lxsession-logout/lxsession-logout.c:560
 msgid "S_witch User"
@@ -76,7 +76,7 @@ msgstr "ব্যবহারকারী পরিবর্তন করুন"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Logout"
-msgstr "লগ-আউট"
+msgstr ""
 
 #~ msgid "Logout"
 #~ msgstr "লগ-আউট"
