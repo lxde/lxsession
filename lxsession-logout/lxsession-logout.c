@@ -315,6 +315,14 @@ static GdkPixbuf * get_background_pixbuf(void)
 {
     /* Get the root window pixmap. */
     GdkScreen * screen = gdk_screen_get_default();
+#ifdef ENABLE_GTK3
+    GdkPixbuf * pixbuf = gdk_pixbuf_get_from_window(
+        gdk_get_default_root_window(),
+        0,
+        0,
+        gdk_screen_get_width(screen),		/* Width */
+        gdk_screen_get_height(screen));		/* Height */
+#else
     GdkPixbuf * pixbuf = gdk_pixbuf_get_from_drawable(
         NULL,					/* Allocate a new pixbuf */
         gdk_get_default_root_window(),		/* The drawable */
@@ -322,6 +330,7 @@ static GdkPixbuf * get_background_pixbuf(void)
         0, 0, 0, 0,				/* Coordinates */
         gdk_screen_get_width(screen),		/* Width */
         gdk_screen_get_height(screen));		/* Height */
+#endif
 
     /* Make the background darker. */
     if (pixbuf != NULL)
