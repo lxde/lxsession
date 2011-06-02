@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2011-05-28 17:50+0200\n"
-"Last-Translator: Pjotr <pliniusminor@gmail.com>\n"
+"PO-Revision-Date: 2011-06-02 23:52+0200\n"
+"Last-Translator: Pjotr <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,15 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "Custom message to show on the dialog"
-msgstr "Aangepaste boodschap voor dialoogvenster"
+msgstr "Aangepast bericht om te tonen in het dialoogvenster"
 
 #: ../lxsession-logout/lxsession-logout.c:47
 msgid "message"
-msgstr "boodschap"
+msgstr "bericht"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
-msgstr "Banier om te tonen op de dialoog"
+msgstr "Banier om te tonen in het dialoogvenster"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
