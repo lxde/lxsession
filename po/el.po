@@ -8,12 +8,15 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-05-27 14:51+0200\n"
-"PO-Revision-Date: 2009-07-21 23:55+0200\n"
-"Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>\n"
+"PO-Revision-Date: 2011-06-08 13:16+0200\n"
+"Last-Translator: George <forfolias@gmail.com>\n"
 "Language-Team: Greek\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
@@ -27,7 +30,7 @@ msgstr "μήνυμα"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Banner to show on the dialog"
-msgstr "Σήμα προς εμφάνιση στο διάλογο"
+msgstr "Σήμα προς εμφάνιση στο παράθυρο διαλόγου"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "image file"
