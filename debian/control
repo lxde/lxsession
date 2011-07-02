@@ -1,30 +1,40 @@
-Source: lxsession-lite
+Source: lxsession
 Section: x11
-Priority: extra
-Maintainer: Andrew Lee <andrew@linux.org.tw>
-Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libdbus-glib-1-dev (>=0.31)
-Standards-Version: 3.8.0.0
-DM-Upload-Allowed: yes
+Priority: optional
+Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>
+Uploaders: Andrew Lee (李健秋) <ajqlee@debian.org>
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, libgtk2.0-dev (>=2.6), libdbus-glib-1-dev (>=0.31), intltool, docbook-to-man, xsltproc, docbook-xml, docbook-xsl
+Standards-Version: 3.8.4
 Homepage: http://lxde.sf.net
+Vcs-Git: git://git.debian.org/git/collab-maint/lxsession.git
+Vcs-Browser: http://git.debian.org/?p=collab-maint/lxsession.git;a=summary
 
-Package: lxsession-lite
+
+Package: lxsession
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: openbox | x-window-manager, hal
-Provides: x-session-manager
-Conflicts: lxsession
-Description: a lightweight X11 session manager (lite version)
- LXSession-lite is a lightweight X11 session manager with fewer 
- dependencies, designed for use with the LXDE(Lightweight X11 
- Desktop Environment).
+Recommends: openbox | x-window-manager, openssh-client | rsh-client | ssh-client
+Suggests: lxde-common, lxpanel, pcmanfm, gpicview
+Provides: x-session-manager, lxsession-lite
+Replaces: lxsession-lite, lxde-settings-daemon
+Conflicts: lxsession-lite, lxde-settings-daemon, lxde-common (<= 0.4.2-3)
+Description: a lightweight X11 session manager
+ LXSession is a lightweight X11 session manager with fewer dependencies,
+ designed for use with the LXDE(Lightweight X11 Desktop Environment).
  It derived from XSM and have following differences:
   * Removed the session dialog from xsm.
+  * Stripped down without session restore function.
+  * Automaticlly restart specific program if crashes happened.
   * Use better configuration.
-  * Provide a nice logout-dialog with the ability to
-    shutdown/reboot/suspend/hibernate via HAL or gdm,
+  * Provide a nice logout-dialog with the ability to 
+    shutdown/reboot/suspend/hibernate via HAL or gdm
+  * Support halt/reboot LTSP thin clients,
  and more....
  .
  It's desktop-independent and can be used with any window manager.
  .
- As "session manager" it remembers the applications in use when you
- logout, and restart the applications when you log back in.
+ As "session manager" lxsession used to automatically start a set of
+ applications and set up a working desktop environment
+ .
+ LXSession has also a built-in lightweight Xsettings daemon, which can 
+ configure GTK+ themes, keyboard, and mouse for you on session startup.
