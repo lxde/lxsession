@@ -5,6 +5,7 @@
 	dh  $@
 
 override_dh_auto_configure:
+	./autogen.sh
 	dh_auto_configure -- --enable-man 
 
 override_dh_auto_clean:
