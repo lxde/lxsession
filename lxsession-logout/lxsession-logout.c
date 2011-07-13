@@ -88,43 +88,15 @@ static GtkPositionType get_banner_position(void);
 static GdkPixbuf * get_background_pixbuf(void);
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf);
 
-/* Try to lock the screen, return TRUE on success, FALSE if no suitable
- * screensaver was found or the screensaver command exited abnormally.
+/* Try to run lxlock command in order to lock the screen, return TRUE on
+ * success, FALSE if command execution failed
  */
 static gboolean lock_screen(void)
 {
-    gint i;
-    gint argcp;
-    gchar **argvp;
-    gint exit_status;
-    const gchar *locking_commands[] = {
-            "xscreensaver-command -lock",
-            "gnome-screensaver-command --lock",
-            "xlock -mode blank",
-            NULL
-    };
-
-    for (i = 0; locking_commands[i] != NULL; ++i)
+    if (!g_spawn_command_line_async("lxlock", NULL))
     {
-        g_shell_parse_argv(locking_commands[i], &argcp, &argvp, NULL);
-        g_spawn_sync(NULL,
-                argvp,
-                NULL,
-                G_SPAWN_SEARCH_PATH|G_SPAWN_STDOUT_TO_DEV_NULL|G_SPAWN_STDERR_TO_DEV_NULL,
-                NULL,
-                NULL,
-                NULL,
-                NULL,
-                &exit_status,
-                NULL);
-        g_strfreev (argvp);
-
-        if (WIFEXITED(exit_status) && WEXITSTATUS(exit_status) == 0)
-        {
-            return TRUE;
-        }
+        return TRUE;
     }
-
     return FALSE;
 }
 
