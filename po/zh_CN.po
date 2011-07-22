@@ -7,71 +7,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 14:51+0200\n"
+"POT-Creation-Date: 2011-07-22 18:37+0200\n"
 "PO-Revision-Date: 2008-08-05 09:58+0800\n"
 "Last-Translator: ideal <05281253@bjtu.edu.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "自定义在对话框上显示的信息"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "信息"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "显示在对话框上的图片"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "图片文件"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
 msgstr "图片的位置"
 
-#: ../lxsession-logout/lxsession-logout.c:343
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:374
+#: ../lxsession-logout/lxsession-logout.c:388
 #, c-format
 msgid "Error: %s\n"
 msgstr "错误：%s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
 msgstr "LXSession 不在运行。"
 
-#: ../lxsession-logout/lxsession-logout.c:508
+#: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>注销 %s 会话？</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:516
+#: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
 msgstr "关机(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:527
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
 msgstr "重新启动(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:538
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
 msgstr "挂起(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:549
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Hibernate"
 msgstr "休眠(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:560
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
 msgstr "切换用户(_W)"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
 msgstr "注销(_L)"
 

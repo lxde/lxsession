@@ -7,73 +7,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 14:51+0200\n"
+"POT-Creation-Date: 2011-07-22 18:37+0200\n"
 "PO-Revision-Date: 2008-11-09 12:44+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "Valintaikkunassa näyttettävä oma viesti"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "viesti"
 
-#: ../lxsession-logout/lxsession-logout.c:48
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "Valintaikkunassa näytettävä banneri"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "kuvatiedosto"
 
-#: ../lxsession-logout/lxsession-logout.c:49
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
 msgstr "Bannerin sijainti"
 
-#: ../lxsession-logout/lxsession-logout.c:343
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:374
+#: ../lxsession-logout/lxsession-logout.c:388
 #, c-format
 msgid "Error: %s\n"
 msgstr "Virhe: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
 msgstr "LXSession ei ole käynnissä."
 
-#: ../lxsession-logout/lxsession-logout.c:508
+#: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Kirjaudutaanko ulos istunnosta %s?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:516
+#: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
 msgstr "_Sammuta"
 
-#: ../lxsession-logout/lxsession-logout.c:527
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
 msgstr "Käynnistä _uudelleen"
 
-#: ../lxsession-logout/lxsession-logout.c:538
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
 msgstr "_Keskeytystila"
 
-#: ../lxsession-logout/lxsession-logout.c:549
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Hibernate"
 msgstr "_Lepotila"
 
-#: ../lxsession-logout/lxsession-logout.c:560
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
 msgstr "_Vaihda käyttäjää"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
 msgstr "K_irjaudu ulos"
 

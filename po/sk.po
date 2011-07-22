@@ -7,71 +7,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-27 14:51+0200\n"
+"POT-Creation-Date: 2011-07-22 18:37+0200\n"
 "PO-Revision-Date: 2009-02-13 14:55+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "Vlastná správa, ktorá sa má zobrazovať v dialógu"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "správa"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "Obrázok, ktorý sa má zobrazovať v dialógu"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "súbor obrázka"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
 msgstr "Pozícia obrázka"
 
-#: ../lxsession-logout/lxsession-logout.c:343
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:374
+#: ../lxsession-logout/lxsession-logout.c:388
 #, c-format
 msgid "Error: %s\n"
 msgstr "Chyba: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
 msgstr "LXSession nebeží."
 
-#: ../lxsession-logout/lxsession-logout.c:508
+#: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Odhlásiť reláciu %s?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:516
+#: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
 msgstr "_Vypnúť"
 
-#: ../lxsession-logout/lxsession-logout.c:527
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
 msgstr "_Reštartovať"
 
-#: ../lxsession-logout/lxsession-logout.c:538
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
 msgstr "_Pohotovostný režim"
 
-#: ../lxsession-logout/lxsession-logout.c:549
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Hibernate"
 msgstr "_Uspať"
 
-#: ../lxsession-logout/lxsession-logout.c:560
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
 msgstr "Pr_epnúť používateľa"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
 msgstr "_Odhlásiť"
 

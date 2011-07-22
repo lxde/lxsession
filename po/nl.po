@@ -3,78 +3,78 @@
 # This file is distributed under the same license as the 
 # lxsession package.
 # Pjotr, 2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-27 04:04+0000\n"
+"POT-Creation-Date: 2011-07-22 18:37+0200\n"
 "PO-Revision-Date: 2011-06-13 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch\n"
+"Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "Aangepaste boodschap voor in dialoogvenster"
 
-#: ../lxsession-logout/lxsession-logout.c:47
+#: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "boodschap"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "Banier om te tonen op de dialoog"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "afbeeldingbestand"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
 msgstr "Positie van de banier"
 
-#: ../lxsession-logout/lxsession-logout.c:343
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:374
+#: ../lxsession-logout/lxsession-logout.c:388
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fout: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:357
+#: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
 msgstr "LXSession draait niet."
 
-#: ../lxsession-logout/lxsession-logout.c:508
+#: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Sessie %s afmelden?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:516
+#: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
 msgstr "_Afsluiten"
 
-#: ../lxsession-logout/lxsession-logout.c:527
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
 msgstr "_Herstarten"
 
-#: ../lxsession-logout/lxsession-logout.c:538
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
 msgstr "_Pauzestand"
 
-#: ../lxsession-logout/lxsession-logout.c:549
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Hibernate"
 msgstr "_Slaapstand"
 
-#: ../lxsession-logout/lxsession-logout.c:560
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
 msgstr "Gebruiker _Wisselen"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
 msgstr "_Afmelden"
 
