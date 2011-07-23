@@ -1,5 +1,5 @@
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.5], [],lxsession)
+AC_INIT(lxsession,[0.4.6], [],lxsession)
 AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
