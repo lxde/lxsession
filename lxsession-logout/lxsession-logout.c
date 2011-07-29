@@ -442,6 +442,13 @@ int main(int argc, char * argv[])
         handler_context.switch_user_GDM = TRUE;
     }
 
+    /* If we are under GDM3, its "Switch User" is available. */
+    if (verify_running("gdm3", "gdmflexiserver"))
+    {
+        handler_context.switch_user_available = TRUE;
+        handler_context.switch_user_GDM = TRUE;
+    }
+
     /* If we are under KDM, its "Switch User" is available. */
     if (verify_running("kdm", "kdmctl"))
     {
