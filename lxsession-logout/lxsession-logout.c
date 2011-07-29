@@ -458,7 +458,11 @@ int main(int argc, char * argv[])
 
     /* LTSP support */
     if (g_getenv("LTSP_CLIENT"))
+    {
         handler_context.ltsp = TRUE;
+        handler_context.shutdown_available = TRUE;
+        handler_context.reboot_available = TRUE;
+    }
 
     /* Make the button images accessible. */
     gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxsession/images");
