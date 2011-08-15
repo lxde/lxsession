@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2011-08-09 22:33+0200\n"
+"PO-Revision-Date: 2011-08-15 21:41+0200\n"
 "Last-Translator: Мікалай <crom-a@tut.by>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: be\n"
@@ -60,7 +60,7 @@ msgstr "Вы_ключыць"
 
 #: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
-msgstr "_Перазагрузіць"
+msgstr "_Перазапусціць"
 
 #: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
