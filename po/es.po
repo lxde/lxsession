@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"POT-Creation-Date: 2011-08-21 10:25+0800\n"
 "PO-Revision-Date: 2009-05-31 16:13+0200\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -19,6 +19,36 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Spanish\n"
+
+#. only one instance is allowed for each X.
+#: ../lxsession/lxsession.c:341
+#, c-format
+msgid "Only one lxsession can be executed at a time\n"
+msgstr ""
+
+#: ../lxsession/lxsession.c:402
+#, fuzzy
+msgid "Error"
+msgstr "Error: %s\n"
+
+#: ../lxsession/lxsession.c:405
+msgid "Information"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:90
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:108
+msgid "Password: "
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:253
+#, fuzzy, c-format
+msgid "Group: %s"
+msgstr "Error: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -50,35 +80,47 @@ msgstr "Error: %s\n"
 msgid "LXSession is not running."
 msgstr "LXSession no se está ejecutando."
 
-#: ../lxsession-logout/lxsession-logout.c:539
+#: ../lxsession-logout/lxsession-logout.c:550
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Cerrar sesión %s</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:547
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "Sh_utdown"
 msgstr "_Apagar"
 
-#: ../lxsession-logout/lxsession-logout.c:558
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Suspend"
 msgstr "_Suspender"
 
-#: ../lxsession-logout/lxsession-logout.c:580
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "_Hibernate"
 msgstr "_Hibernar"
 
-#: ../lxsession-logout/lxsession-logout.c:591
+#: ../lxsession-logout/lxsession-logout.c:602
 msgid "S_witch User"
 msgstr "_Cambiar usuario"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:600
+#: ../lxsession-logout/lxsession-logout.c:611
 msgid "_Logout"
 msgstr "Ce_rrar sesión"
+
+#: ../lxsession-edit/lxsession-edit.c:365
+msgid "Enabled"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:370
+msgid "Application"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:378
+msgid "Comment"
+msgstr ""
 
 #~ msgid "Logout"
 #~ msgstr "Salir"

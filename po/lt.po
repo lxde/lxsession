@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"POT-Creation-Date: 2011-08-21 10:25+0800\n"
 "PO-Revision-Date: 2009-04-06 13:33+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,36 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Pootle 1.1.0\n"
+
+#. only one instance is allowed for each X.
+#: ../lxsession/lxsession.c:341
+#, c-format
+msgid "Only one lxsession can be executed at a time\n"
+msgstr ""
+
+#: ../lxsession/lxsession.c:402
+#, fuzzy
+msgid "Error"
+msgstr "Klaida: %s\n"
+
+#: ../lxsession/lxsession.c:405
+msgid "Information"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:90
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:108
+msgid "Password: "
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:253
+#, fuzzy, c-format
+msgid "Group: %s"
+msgstr "Klaida: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -47,35 +77,47 @@ msgstr "Klaida: %s\n"
 msgid "LXSession is not running."
 msgstr "LXSession nepaleista."
 
-#: ../lxsession-logout/lxsession-logout.c:539
+#: ../lxsession-logout/lxsession-logout.c:550
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Atsijungti iš %s seanso?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:547
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "Sh_utdown"
 msgstr "Išj_ungti"
 
-#: ../lxsession-logout/lxsession-logout.c:558
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Reboot"
 msgstr "Įkelti iš _naujo"
 
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Suspend"
 msgstr "Užmi_gdyti"
 
-#: ../lxsession-logout/lxsession-logout.c:580
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "_Hibernate"
 msgstr "_Hibernuoti"
 
-#: ../lxsession-logout/lxsession-logout.c:591
+#: ../lxsession-logout/lxsession-logout.c:602
 msgid "S_witch User"
 msgstr "_Keisti vartotoją"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:600
+#: ../lxsession-logout/lxsession-logout.c:611
 msgid "_Logout"
 msgstr "_Atsijungti"
+
+#: ../lxsession-edit/lxsession-edit.c:365
+msgid "Enabled"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:370
+msgid "Application"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:378
+msgid "Comment"
+msgstr ""
 
 #~ msgid "Logout"
 #~ msgstr "_Atsijungti"

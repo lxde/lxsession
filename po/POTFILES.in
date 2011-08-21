@@ -1,1 +1,12 @@
+# lxsession
+lxsession/lxsession.c
+lxsession/polkit-agent/lxpolkit.c
+lxsession/polkit-agent/lxpolkit-listener.c
+data/ui/lxpolkit.ui
+
+# lxsession logout
 lxsession-logout/lxsession-logout.c
+
+# lxsession-edit
+lxsession-edit/lxsession-edit.c
+data/ui/lxsession-edit.ui

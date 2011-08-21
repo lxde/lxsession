@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"POT-Creation-Date: 2011-08-21 10:25+0800\n"
 "PO-Revision-Date: 2011-05-06 10:30+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian\n"
@@ -14,6 +14,36 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
+
+#. only one instance is allowed for each X.
+#: ../lxsession/lxsession.c:341
+#, c-format
+msgid "Only one lxsession can be executed at a time\n"
+msgstr ""
+
+#: ../lxsession/lxsession.c:402
+#, fuzzy
+msgid "Error"
+msgstr "Помилка: %s\n"
+
+#: ../lxsession/lxsession.c:405
+msgid "Information"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:90
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:108
+msgid "Password: "
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:253
+#, fuzzy, c-format
+msgid "Group: %s"
+msgstr "Помилка: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -45,35 +75,47 @@ msgstr "Помилка: %s\n"
 msgid "LXSession is not running."
 msgstr "LXsession не запущено."
 
-#: ../lxsession-logout/lxsession-logout.c:539
+#: ../lxsession-logout/lxsession-logout.c:550
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Вийти з %s сесії?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:547
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "Sh_utdown"
 msgstr "Вик_лючити"
 
-#: ../lxsession-logout/lxsession-logout.c:558
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Reboot"
 msgstr "_Перезапустити"
 
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Suspend"
 msgstr "П_ризупинити"
 
-#: ../lxsession-logout/lxsession-logout.c:580
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "_Hibernate"
 msgstr "_В стан сплячки"
 
-#: ../lxsession-logout/lxsession-logout.c:591
+#: ../lxsession-logout/lxsession-logout.c:602
 msgid "S_witch User"
 msgstr "_Змінити користувача"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:600
+#: ../lxsession-logout/lxsession-logout.c:611
 msgid "_Logout"
 msgstr "_Вийти з сесії"
+
+#: ../lxsession-edit/lxsession-edit.c:365
+msgid "Enabled"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:370
+msgid "Application"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:378
+msgid "Comment"
+msgstr ""
 
 #~ msgid "Logout"
 #~ msgstr "Вилогувати"

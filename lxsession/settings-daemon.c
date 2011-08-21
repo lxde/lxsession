@@ -24,6 +24,8 @@
 #endif
 
 #include <glib.h>
+#include <gdk/gdk.h>
+#include <gdk/gdkx.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -34,11 +36,12 @@
 #include <locale.h>
 
 #include "lxsession.h"
-#include "xevent.h"
 #include "xsettings-manager.h"
 #include "xutils.h"
 
 #include <X11/XKBlib.h>
+
+extern Display* xdisplay; /* defined in lxsession.c */
 
 static XSettingsManager **managers = NULL;
 
@@ -50,14 +53,14 @@ void settings_deamon_reload();
 
 static void terminate_cb (void *data)
 {
-	gboolean *terminated = data;
+    gboolean *terminated = data;
 
-	if (*terminated)
-		return;
+    if (*terminated)
+        return;
 
-	*terminated = TRUE;
-	exit( 0 );
-//	gtk_main_quit ();
+    *terminated = TRUE;
+    exit( 0 );
+//  gtk_main_quit ();
 }
 
 static void merge_xrdb(const char* content, int len)
@@ -86,16 +89,17 @@ static void merge_xrdb(const char* content, int len)
 #define DEFAULT_PTR_MAP_SIZE 128
 static void set_left_handed_mouse( gboolean mouse_left_handed )
 {
+    Display* xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     unsigned char *buttons;
     gint n_buttons, i;
     gint idx_1 = 0, idx_3 = 1;
 
     buttons = g_alloca (DEFAULT_PTR_MAP_SIZE);
-    n_buttons = XGetPointerMapping (dpy, buttons, DEFAULT_PTR_MAP_SIZE);
+    n_buttons = XGetPointerMapping(xdisplay, buttons, DEFAULT_PTR_MAP_SIZE);
     if (n_buttons > DEFAULT_PTR_MAP_SIZE)
     {
         buttons = g_alloca (n_buttons);
-        n_buttons = XGetPointerMapping (dpy, buttons, n_buttons);
+        n_buttons = XGetPointerMapping (xdisplay, buttons, n_buttons);
     }
 
     for (i = 0; i < n_buttons; i++)
@@ -111,7 +115,7 @@ static void set_left_handed_mouse( gboolean mouse_left_handed )
     {
         buttons[idx_1] = ((n_buttons < 3) ? 2 : 3);
         buttons[idx_3] = 1;
-        XSetPointerMapping (dpy, buttons, n_buttons);
+        XSetPointerMapping (xdisplay, buttons, n_buttons);
     }
 }
 
@@ -127,7 +131,7 @@ static void configure_input(GKeyFile* kf)
     accel_threshold = g_key_file_get_integer(kf, "Mouse", "AccThreshold", NULL);
     if( accel_factor || accel_threshold )
     {
-        XChangePointerControl(dpy, accel_factor != 0, accel_threshold != 0,
+        XChangePointerControl(xdisplay, accel_factor != 0, accel_threshold != 0,
                                  accel_factor, 10, accel_threshold);
     }
 
@@ -135,7 +139,7 @@ static void configure_input(GKeyFile* kf)
     set_left_handed_mouse(left_handed);
 
     /* Keyboard settings */
-    if(XkbGetAutoRepeatRate(dpy, XkbUseCoreKbd, (unsigned int*) &delay, (unsigned int*) &interval))
+    if(XkbGetAutoRepeatRate(xdisplay, XkbUseCoreKbd, (unsigned int*) &delay, (unsigned int*) &interval))
     {
         int val;
         val = g_key_file_get_integer(kf, "Keyboard", "Delay", NULL);
@@ -146,13 +150,13 @@ static void configure_input(GKeyFile* kf)
             interval = val;
         if( val > 0 )
         {
-            XkbSetAutoRepeatRate(dpy, XkbUseCoreKbd, delay, interval);
+            XkbSetAutoRepeatRate(xdisplay, XkbUseCoreKbd, delay, interval);
         }
     }
 
     beep = g_key_file_get_integer(kf, "Keyboard", "Beep", NULL);
     values.bell_percent = beep ? -1 : 0;
-    XChangeKeyboardControl(dpy, KBBellPercent, &values);
+    XChangeKeyboardControl(xdisplay, KBBellPercent, &values);
 }
 
 static void load_settings( GKeyFile* kf )
@@ -161,155 +165,155 @@ static void load_settings( GKeyFile* kf )
     char* str;
     int val;
 
-	int i;
-	const char group[] = "GTK";
-	char** keys, **key;
+    int i;
+    const char group[] = "GTK";
+    char** keys, **key;
 
-	/* Mouse cursor (does this work?) */
-	str = g_key_file_get_string( kf, group, "sGtk/CursorThemeName", NULL);
-	val = g_key_file_get_integer(kf, group, "iGtk/CursorThemeSize", NULL);
-	if(str || val > 0)
-	{
-		buf = g_string_sized_new(100);
-		if(str)
-		{
-			if(*str)
-				g_string_append_printf(buf, "Xcursor.theme:%s\n", str);
-			g_free(str);
-		}
-		g_string_append(buf, "Xcursor.theme_core:true\n");
-		if(val > 0)
-			g_string_append_printf(buf, "Xcursor.size:%d\n", val);
-		merge_xrdb( buf->str, buf->len );
-		g_string_free(buf, TRUE);
-	}
+    /* Mouse cursor (does this work?) */
+    str = g_key_file_get_string( kf, group, "sGtk/CursorThemeName", NULL);
+    val = g_key_file_get_integer(kf, group, "iGtk/CursorThemeSize", NULL);
+    if(str || val > 0)
+    {
+        buf = g_string_sized_new(100);
+        if(str)
+        {
+            if(*str)
+                g_string_append_printf(buf, "Xcursor.theme:%s\n", str);
+            g_free(str);
+        }
+        g_string_append(buf, "Xcursor.theme_core:true\n");
+        if(val > 0)
+            g_string_append_printf(buf, "Xcursor.size:%d\n", val);
+        merge_xrdb( buf->str, buf->len );
+        g_string_free(buf, TRUE);
+    }
 
-	/* Load mouse and keyboard settings */
-	configure_input(kf);
+    /* Load mouse and keyboard settings */
+    configure_input(kf);
 
-	/* Load GTK+ settings */
-	if ( (keys = g_key_file_get_keys( kf, group, NULL, NULL )) == NULL ) 
-	    return;
+    /* Load GTK+ settings */
+    if ( (keys = g_key_file_get_keys( kf, group, NULL, NULL )) == NULL )
+        return;
 
-	for( key = keys; *key; ++key )
-	{
-		const char* name = *key + 1;
+    for( key = keys; *key; ++key )
+    {
+        const char* name = *key + 1;
 
-		switch( **key )
-		{
-			case 's':	/* string */
-			{
-				str = g_key_file_get_string( kf, group, *key, NULL );
-				if( str )
-				{
-					for( i = 0; managers[i]; ++i )
-						xsettings_manager_set_string( managers [i], name, str );
-					g_free( str );
-				}
-				else
-				{
-					for( i = 0; managers[i]; ++i )
-						xsettings_manager_delete_setting( managers[i], name );
-				}
-				break;
-			}
-			case 'i':	/* integer */
-			{
-				val = g_key_file_get_integer( kf, group, *key, NULL );
-				for( i = 0; managers[i]; ++i )
-					xsettings_manager_set_int( managers [i], name, val );
-				break;
-			}
-			case 'c':	/* color */
-			{
-				gsize len = 0;
-				int* vals = g_key_file_get_integer_list( kf, group, *key, &len, NULL );
-				if( vals && len >= 3 )
-				{
-					XSettingsColor color;
-					color.red = (gushort)vals[0];
-					color.green = (gushort)vals[1];
-					color.blue = (gushort)vals[2];
-					color.alpha = (gushort)( len >3 ? vals[3] : 65535 );
-					for( i = 0; managers[i]; ++i )
-						xsettings_manager_set_color( managers [i], name, &color );
-				}
-				else
-				{
-					for( i = 0; managers[i]; ++i )
-						xsettings_manager_delete_setting( managers[i], name );
-				}
-				g_free( vals );
-				break;
-			}
-		}
-	}
+        switch( **key )
+        {
+            case 's':   /* string */
+            {
+                str = g_key_file_get_string( kf, group, *key, NULL );
+                if( str )
+                {
+                    for( i = 0; managers[i]; ++i )
+                        xsettings_manager_set_string( managers [i], name, str );
+                    g_free( str );
+                }
+                else
+                {
+                    for( i = 0; managers[i]; ++i )
+                        xsettings_manager_delete_setting( managers[i], name );
+                }
+                break;
+            }
+            case 'i':   /* integer */
+            {
+                val = g_key_file_get_integer( kf, group, *key, NULL );
+                for( i = 0; managers[i]; ++i )
+                    xsettings_manager_set_int( managers [i], name, val );
+                break;
+            }
+            case 'c':   /* color */
+            {
+                gsize len = 0;
+                int* vals = g_key_file_get_integer_list( kf, group, *key, &len, NULL );
+                if( vals && len >= 3 )
+                {
+                    XSettingsColor color;
+                    color.red = (gushort)vals[0];
+                    color.green = (gushort)vals[1];
+                    color.blue = (gushort)vals[2];
+                    color.alpha = (gushort)( len >3 ? vals[3] : 65535 );
+                    for( i = 0; managers[i]; ++i )
+                        xsettings_manager_set_color( managers [i], name, &color );
+                }
+                else
+                {
+                    for( i = 0; managers[i]; ++i )
+                        xsettings_manager_delete_setting( managers[i], name );
+                }
+                g_free( vals );
+                break;
+            }
+        }
+    }
 
-	for( i = 0; managers[i]; ++i )
-		xsettings_manager_notify( managers [i] );
+    for( i = 0; managers[i]; ++i )
+        xsettings_manager_notify( managers [i] );
 }
 
 static gboolean create_xsettings_managers()
 {
-	int n_screens = ScreenCount(dpy);
-	int i;
-	gboolean terminated = FALSE;
+    int n_screens = ScreenCount(xdisplay);
+    int i;
+    gboolean terminated = FALSE;
 
-	if (xsettings_manager_check_running( dpy, n_screens) )
-	{
-		g_error ("You can only run one xsettings manager at a time; exiting\n");
-		return FALSE;
-	}
+    if (xsettings_manager_check_running( xdisplay, n_screens) )
+    {
+        g_error ("You can only run one xsettings manager at a time; exiting\n");
+        return FALSE;
+    }
 
-	managers = g_new (XSettingsManager *, n_screens + 1);
-	for( i = 0; i < n_screens; ++i )
-	{
-		Screen *screen;
-		screen = ScreenOfDisplay( dpy, i );
-		managers [i] = xsettings_manager_new ( dpy, i, terminate_cb, &terminated);
-		if(!managers [i])
-		{
-			g_error("Could not create xsettings manager for screen %d!\n", i);
-			return FALSE;
-		}
-		XSelectInput( dpy, RootWindow(dpy, i), SubstructureNotifyMask | PropertyChangeMask );
-	}
-	managers [i] = NULL;
+    managers = g_new (XSettingsManager *, n_screens + 1);
+    for( i = 0; i < n_screens; ++i )
+    {
+        Screen *screen;
+        screen = ScreenOfDisplay( xdisplay, i );
+        managers [i] = xsettings_manager_new ( xdisplay, i, terminate_cb, &terminated);
+        if(!managers [i])
+        {
+            g_error("Could not create xsettings manager for screen %d!\n", i);
+            return FALSE;
+        }
+        XSelectInput( xdisplay, RootWindow(xdisplay, i), SubstructureNotifyMask | PropertyChangeMask );
+    }
+    managers [i] = NULL;
 
-	return TRUE;
+    return TRUE;
 }
 
 gboolean start_settings_daemon(GKeyFile* kf)
 {
-	if( ! create_xsettings_managers() )
-		return FALSE;
+    if( ! create_xsettings_managers() )
+        return FALSE;
 
-	load_settings(kf);
+    load_settings(kf);
 
-	/* sync with X11 to prevent some racing conditions:
-	 * For example: if gtk+ applications are started before
-	 * XSETTINGS properties are properly set on root window,
-	 * they cannot correctly use settings from Xsettings daemon. */
-	XSync(dpy, FALSE);
+    /* sync with X11 to prevent some racing conditions:
+     * For example: if gtk+ applications are started before
+     * XSETTINGS properties are properly set on root window,
+     * they cannot correctly use settings from Xsettings daemon. */
+    XSync(xdisplay, FALSE);
 
-	return TRUE;
+    return TRUE;
 }
 
 void settings_manager_selection_clear( XEvent* evt )
 {
-	XSettingsManager**mgr;
-	for( mgr = managers; *mgr; ++mgr )
-	{
-		if( xsettings_manager_get_window( *mgr ) == evt->xany.window )
-			xsettings_manager_process_event( *mgr, evt );
-	}
+    XSettingsManager**mgr;
+    for( mgr = managers; *mgr; ++mgr )
+    {
+        if( xsettings_manager_get_window( *mgr ) == evt->xany.window )
+            xsettings_manager_process_event( *mgr, evt );
+    }
 }
 
 void settings_deamon_reload()
 {
-	GKeyFile* kf = load_session_config(CONFIG_FILE_NAME);
-	if(kf)
-	{
-		load_settings(kf);
-	}
+    GKeyFile* kf = load_session_config(CONFIG_FILE_NAME);
+    if(kf)
+    {
+        load_settings(kf);
+    }
 }

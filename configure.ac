@@ -1,5 +1,5 @@
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.6.1], [],lxsession)
+AC_INIT(lxsession,[0.5.0], [],lxsession)
 AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
@@ -54,7 +54,7 @@ if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -DENABLE_GTK3"
   gtk_modules="gtk+-3.0 >= 3.0.0"
 else
-  gtk_modules="gtk+-2.0 >= 2.6.0"
+  gtk_modules="gtk+-2.0 >= 2.12.0"
 fi
 PKG_CHECK_MODULES(GTK, [$gtk_modules])
 AC_SUBST(GTK_CFLAGS)
@@ -67,6 +67,12 @@ AC_SUBST(X11_LIBS)
 PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.6.0])
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
+
+polkit_modules="polkit-agent-1"
+PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
+AC_SUBST(POLKIT_CFLAGS)
+AC_SUBST(POLKIT_LIBS)
+
 
 AC_ARG_ENABLE(
     [dbus],
@@ -89,6 +95,21 @@ AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
+# debug flags
+AC_ARG_ENABLE(debug,
+    [AC_HELP_STRING([--enable-debug],
+        [build libfm with debug support @<:@default=no@:>@])],
+    [enable_debug="${enableval}"],
+    [enable_debug=no]
+)
+if test "$enable_debug" = "yes"; then
+    # turn on debug and disable optimization
+    CPPFLAGS="$CPPFLAGS -DG_ENABLE_DEBUG -O0 -g"
+else
+    # turn off glib debug checks
+    CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
+fi
+
 # Generate po/LINGUAS on the fly rather than relying on translators
 # to maintain it manually. This also overcome the problem that Transifex
 # cannot add a language to po/LINGUAS if a new po file is submitted.
@@ -105,16 +126,16 @@ AM_GLIB_GNU_GETTEXT
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 if test x"$enable_man" = x"yes"; then
-	AC_PATH_PROG([XSLTPROC], [xsltproc])
-	if test -z "$XSLTPROC"; then
-		enable_man=no
-	fi
+    AC_PATH_PROG([XSLTPROC], [xsltproc])
+    if test -z "$XSLTPROC"; then
+        enable_man=no
+    fi
 
-	dnl check for DocBook DTD and stylesheets in the local catalog.
-	JH_CHECK_XML_CATALOG([-//OASIS//DTD DocBook XML V4.1.2//EN],
-		[DocBook XML DTD V4.1.2], [], enable_man=no)
-	JH_CHECK_XML_CATALOG([http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl],
-		[DocBook XSL Stylesheets >= 1.70.1], [], enable_man=no)
+    dnl check for DocBook DTD and stylesheets in the local catalog.
+    JH_CHECK_XML_CATALOG([-//OASIS//DTD DocBook XML V4.1.2//EN],
+        [DocBook XML DTD V4.1.2], [], enable_man=no)
+    JH_CHECK_XML_CATALOG([http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl],
+        [DocBook XSL Stylesheets >= 1.70.1], [], enable_man=no)
 fi
 
 AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
@@ -122,7 +143,10 @@ AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 AC_OUTPUT([
   Makefile
   lxsession/Makefile
+  lxsession-edit/Makefile
   lxsession-logout/Makefile
+  data/Makefile
+  data/ui/Makefile
   po/Makefile.in
   man/Makefile
 ])
@@ -133,6 +157,8 @@ echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
 echo Man pages generation support................. : $enable_man
+echo Enable GTK3 support.......................... : $enable_gtk3
+echo Enable debug................................. : $enable_debug
 echo
 echo The binary will be installed in $prefix/bin
 echo

@@ -23,6 +23,9 @@
 #include <config.h>
 #endif
 
+#include <gtk/gtk.h>
+#include <gdk/gdkx.h>
+#include <glib/gi18n.h>
 #include <stdio.h>
 #include <glib.h>
 
@@ -35,19 +38,40 @@
 
 #include <wordexp.h> /* for shell expansion */
 
+/* for X11 stuff */
+#include <X11/X.h>
+#include <X11/Xproto.h>
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+
 #include "lxsession.h"
-#include "xevent.h"
-#include "settings-daemon.h"
 #include "xdg-autostart.h"
+#include "settings-daemon.h"
+#include "polkit-agent/lxpolkit.h"
 
-
-static gboolean no_settings = FALSE; /* disable settings daemon */
+static gboolean no_xsettings = FALSE; /* disable settings daemon */
 static gboolean reload_settings = FALSE; /* reload settings daemon */
 static gboolean no_autostart = FALSE; /* no autostart */
+static gboolean no_polkit = FALSE; /* no policykit agent. */
 
-static GMainLoop* main_loop = NULL;
-static const char *display_name = NULL;
+const char *session_name = NULL;
+const char* de_name = NULL;
+
 char* window_manager = NULL; /* will be accessed by settings-daemon.c */
+
+static GOptionEntry option_entries[] =
+{
+    {"session", 's', 0, G_OPTION_ARG_STRING, &session_name, "specify name of the desktop session profile", "<name>"},
+    {"desktop-environment", 'e', 0, G_OPTION_ARG_STRING, &de_name, "specify name of DE, such as LXDE, GNOME, or XFCE.", "<name>"},
+    {"reload", 'r', 0, G_OPTION_ARG_NONE, &reload_settings, "reload configurations (for Xsettings daemon)", NULL},
+    {"disable-xsettings", 'n', 0, G_OPTION_ARG_NONE, &no_xsettings, "disable Xsettings daemon support", NULL},
+    {"disable-autostart", 'd', 0, G_OPTION_ARG_NONE, &no_autostart, "disable autostart applications", NULL},
+    {"disable-polkit", 'p', 0, G_OPTION_ARG_NONE, &no_polkit, "disable PolicyKit authentication agent", NULL},
+    { NULL }
+};
+
+static Atom CMD_ATOM; /* for private client message */
+Display* xdisplay = NULL; /* X11 Display */
 
 /* name of environment variables */
 /* Disable not used
@@ -59,20 +83,20 @@ static char pid_env[] = "_LXSESSION_PID";
 static char prog_name[]="lxsession";
 static char autostart_filename[]="autostart";
 
-const char *session_name = NULL;
-const char* de_name = NULL;
-
 static GPid run_app( const char* cmd, gboolean guarded );
 static void start_session();
 
 static void sig_term_handler ( int sig )
 {
-    g_main_loop_quit(main_loop);
+    /* FIXME: this is not correct as we should not do complicated thing here.
+     * Writing to a fd to signal TERM and monitor the fd with io channel
+     * is the standard way. */
+    gtk_main_quit();
 }
 
 void lxsession_quit()
 {
-    g_main_loop_quit(main_loop);
+    gtk_main_quit();
 }
 
 static void register_signals()
@@ -104,25 +128,25 @@ GKeyFile* load_session_config( const char* config_filename )
     ret = g_key_file_load_from_file(kf, filename, 0, NULL);
     g_free( filename );
 
-	if( ! ret ) /* user specific file is not found */
-	{
-		/* load system-wide session config files */
-		for( dir = dirs; *dir; ++dir )
-		{
-			filename = g_build_filename( *dir, prog_name, session_name, config_filename, NULL );
-			ret = g_key_file_load_from_file(kf, filename, 0, NULL);
-			g_free( filename );
-			if(ret)
-				break;
-		}
-	}
+    if( ! ret ) /* user specific file is not found */
+    {
+        /* load system-wide session config files */
+        for( dir = dirs; *dir; ++dir )
+        {
+            filename = g_build_filename( *dir, prog_name, session_name, config_filename, NULL );
+            ret = g_key_file_load_from_file(kf, filename, 0, NULL);
+            g_free( filename );
+            if(ret)
+                break;
+        }
+    }
 
-	if( G_UNLIKELY(!ret) )
-	{
-		g_key_file_free(kf);
-		return NULL;
-	}
-	return kf;
+    if( G_UNLIKELY(!ret) )
+    {
+        g_key_file_free(kf);
+        return NULL;
+    }
+    return kf;
 }
 
 static void on_child_exit( GPid pid, gint status, gchar* cmd )
@@ -220,130 +244,169 @@ void start_session()
     }
 }
 
-static void parse_options(int argc, char** argv)
+
+static gboolean single_instance_check()
 {
-    int  i;
-    for ( i = 1; i < argc; ++i )
+    /* NOTE: this is a hack to do single instance */
+    XGrabServer(xdisplay);
+    if(XGetSelectionOwner(xdisplay, CMD_ATOM))
     {
-        if ( argv[i][0] == '-' )
+        XUngrabServer(xdisplay);
+        XCloseDisplay(xdisplay);
+        return FALSE;
+    }
+    XSetSelectionOwner(xdisplay, CMD_ATOM, DefaultRootWindow(xdisplay), CurrentTime);
+    XUngrabServer(xdisplay);
+    return TRUE;
+}
+
+static GdkFilterReturn x11_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer data)
+{
+    GdkAtom message_type;
+    /* we only want client message */
+    if(((XEvent *)xevent)->type == ClientMessage)
+    {
+        XClientMessageEvent *evt = (XClientMessageEvent *)xevent;
+        if (evt->message_type == CMD_ATOM)
         {
-            switch ( argv[i][1] )
+            int cmd = evt->data.b[0];
+            switch( cmd )
             {
-            case 'd':     /* -display */
-                if ( ++i >= argc ) goto usage;
-                display_name = argv[i];
-                g_setenv( display_env, display_name, TRUE );
-                continue;
-            case 's':     /* -session */
-                if ( ++i >= argc ) goto usage;
-                session_name = argv[i];
-                continue;
-            case 'n': /* disable xsettings daemon */
-				no_settings = TRUE;
-                continue;
-            case 'e': /* DE name */
-                if ( ++i >= argc ) goto usage;
-                de_name = argv[i];
-                continue;
-            case 'r':
-				reload_settings = TRUE;
-				continue;
-            case 'a': /* autostart disable */
-                no_autostart = TRUE;
-                continue;
-			default:
-				goto usage;
+            case LXS_RELOAD:    /* reload all settings */
+                settings_deamon_reload();
+                break;
+            case LXS_EXIT:
+                lxsession_quit();
+                break;
             }
         }
-	}
-	return;
-usage:
-        fprintf ( stderr,
-                  "Usage:  lxsession [OPTIONS...]\n"
-				  "\t-d NAME\tspecify name of display (optional)\n"
-				  "\t-s NAME\tspecify name of the desktop session profile\n"
-                  "\t-e NAME\tspecify name of DE, such as LXDE, GNOME, or XFCE.\n"
-				  "\t-r\t reload configurations (for Xsettings daemon)\n"
-				  "\t-n\t disable Xsettings daemon support\n"
-				  "\t-a\t autostart applications disable (window-manager mode only) \n" );
-        exit(1);
+    }
+    return GDK_FILTER_CONTINUE;
+}
+
+void send_internal_command(int cmd)
+{
+    Window root = DefaultRootWindow(xdisplay);
+    XEvent ev;
+
+    memset(&ev, 0, sizeof(ev));
+    ev.xclient.type = ClientMessage;
+    ev.xclient.window = root;
+    ev.xclient.message_type = CMD_ATOM;
+    ev.xclient.format = 8;
+
+    ev.xclient.data.l[0] = cmd;
+
+    XSendEvent(xdisplay, root, False,
+               SubstructureRedirectMask|SubstructureNotifyMask, &ev);
+    XSync(xdisplay, False);
 }
 
 int main(int argc, char** argv)
 {
-    const char *pid_str;
-    char str[ 16 ];
-	GKeyFile* kf;
+    char str[16];
+    GKeyFile* kf;
+    GError* err = NULL;
 
-    pid_str = g_getenv(pid_env);
+    /* gettext support */
+#ifdef ENABLE_NLS
+    bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
+    bind_textdomain_codeset ( GETTEXT_PACKAGE, "UTF-8" );
+    textdomain ( GETTEXT_PACKAGE );
+#endif
 
-    display_name = g_getenv( display_env );
-    if( ! display_name )
+    /* initialize GTK+ and parse the command line arguments */
+    if(G_UNLIKELY(!gtk_init_with_args(&argc, &argv, "",
+                  option_entries, GETTEXT_PACKAGE, &err)))
     {
-        display_name = ":0.0";
-        g_setenv( display_env, display_name, TRUE );
+        g_print( "Error: %s\n", err->message );
+        return 1;
     }
 
-    parse_options(argc, argv);
-
-    /* initialize X-related stuff and connect to X Display */
-    if( G_UNLIKELY(! xevent_init() ) )
-        return 1;
+    xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    /* Initialize XAtom for use in single instance check.
+     * FIXME: later this may be replaced with gdbus.
+     * according to the spec, private Atoms should prefix their names with _. */
+    CMD_ATOM = XInternAtom(xdisplay, "_LXSESSION", False);
 
     /* send command to existing daemon to reload settings */
-    if( G_UNLIKELY( reload_settings ) )
+    if(G_UNLIKELY(reload_settings))
     {
-        send_internal_command( LXS_RELOAD );
+        send_internal_command(LXS_RELOAD);
         return 0;
     }
-	else if( G_UNLIKELY( !single_instance_check()) )
-	{
-		/* only one instance is allowed for each X. */
-		fprintf(stderr, "Only one lxsession can be executed at a time");
-		return 1;
-	}
+    else if(G_UNLIKELY(!single_instance_check()))
+    {
+        /* only one instance is allowed for each X. */
+        g_print(_("Only one lxsession can be executed at a time\n"));
+        return 1;
+    }
+
+    /* setup signal handlers */
+    register_signals();
+
+    /* add a filter to listen to client message */
+    gdk_window_add_filter(NULL, x11_event_filter, NULL);
 
     /* set pid */
     g_snprintf( str, 16, "%d", getpid() );
     g_setenv(pid_env, str, TRUE );
 
-    main_loop = g_main_loop_new( NULL, TRUE );
-
-	/* setup signal handlers */
-    register_signals();
-
-    if ( G_UNLIKELY(!session_name) )
+    if(G_UNLIKELY(!session_name))
         session_name = "LXDE";
     g_setenv( "DESKTOP_SESSION", session_name, TRUE );
 
-    if ( G_UNLIKELY(!de_name) )
+    if (G_UNLIKELY(!de_name))
         de_name = session_name;
     g_setenv( "XDG_CURRENT_DESKTOP", de_name, TRUE );
 
     /* FIXME: load environment variables? */
 
-	/* Load desktop session config file */
-	kf = load_session_config(CONFIG_FILE_NAME);
-	if( !kf )
-	{
-		xevent_finalize();
-		return 1;
-	}
+    /* Load desktop session config file */
+    kf = load_session_config(CONFIG_FILE_NAME);
+    if( !kf )
+        return 1;
 
-	window_manager = g_key_file_get_string( kf, "Session", "window_manager", NULL );
+    window_manager = g_key_file_get_string( kf, "Session", "window_manager", NULL );
 
-    if( G_LIKELY(!no_settings) )
+    if( G_LIKELY(!no_xsettings) )
         start_settings_daemon(kf);
 
-	g_key_file_free(kf);
+    g_key_file_free(kf);
+
+    /* launch built-in policykit agent */
+    if(!no_polkit)
+        policykit_agent_init();
 
     /* start desktop session and load autostart applications */
     start_session();
 
-    g_main_loop_run( main_loop );
-    g_main_loop_unref( main_loop );
+    /* run the main loop */
+    gtk_main();
 
-	xevent_finalize();
+    gdk_window_remove_filter(NULL, x11_event_filter, NULL);
+
+    if(!no_polkit)
+        policykit_agent_finalize();
 
     return 0;
+}
+
+void lxsession_show_msg(GtkWindow* parent, GtkMessageType type, const char* msg)
+{
+    GtkWidget* dlg = gtk_message_dialog_new(parent, GTK_DIALOG_MODAL, type, GTK_BUTTONS_OK, msg);
+    const char* title = NULL;
+    switch(type)
+    {
+    case GTK_MESSAGE_ERROR:
+        title = _("Error");
+        break;
+    case GTK_MESSAGE_INFO:
+        title = _("Information");
+        break;
+    }
+    if(title)
+        gtk_window_set_title(GTK_WINDOW(dlg), title);
+    gtk_dialog_run(GTK_DIALOG(dlg));
+    gtk_widget_destroy(dlg);
 }

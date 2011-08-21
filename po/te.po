@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"POT-Creation-Date: 2011-08-21 10:25+0800\n"
 "PO-Revision-Date: 2011-04-16 05:59+0200\n"
 "Last-Translator: Praveen <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.5\n"
+
+#. only one instance is allowed for each X.
+#: ../lxsession/lxsession.c:341
+#, c-format
+msgid "Only one lxsession can be executed at a time\n"
+msgstr ""
+
+#: ../lxsession/lxsession.c:402
+#, fuzzy
+msgid "Error"
+msgstr "దోషం: %s\n"
+
+#: ../lxsession/lxsession.c:405
+msgid "Information"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:90
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:108
+msgid "Password: "
+msgstr ""
+
+#: ../lxsession/polkit-agent/lxpolkit-listener.c:253
+#, fuzzy, c-format
+msgid "Group: %s"
+msgstr "దోషం: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -48,32 +78,44 @@ msgstr "దోషం: %s\n"
 msgid "LXSession is not running."
 msgstr "LXSession నడుచుటలేదు."
 
-#: ../lxsession-logout/lxsession-logout.c:539
+#: ../lxsession-logout/lxsession-logout.c:550
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>%s చర్యాకాలం లాగౌట్ చేయాలా?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:547
+#: ../lxsession-logout/lxsession-logout.c:558
 msgid "Sh_utdown"
 msgstr "మూసివేయి (_u)"
 
-#: ../lxsession-logout/lxsession-logout.c:558
+#: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Reboot"
 msgstr "పునఃప్రారంభించు (_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Suspend"
 msgstr "తాత్కాలికంగా నిలిపివేయి (_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:580
+#: ../lxsession-logout/lxsession-logout.c:591
 msgid "_Hibernate"
 msgstr "సుప్తావస్థ (_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:591
+#: ../lxsession-logout/lxsession-logout.c:602
 msgid "S_witch User"
 msgstr "వాడుకరిని మార్చు (_w)"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:600
+#: ../lxsession-logout/lxsession-logout.c:611
 msgid "_Logout"
 msgstr "లాగౌట్ (_L)"
+
+#: ../lxsession-edit/lxsession-edit.c:365
+msgid "Enabled"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:370
+msgid "Application"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:378
+msgid "Comment"
+msgstr ""

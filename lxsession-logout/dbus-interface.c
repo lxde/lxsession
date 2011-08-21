@@ -15,7 +15,6 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-
 #include <config.h>
 #include <glib.h>
 #include <string.h>
@@ -28,11 +27,11 @@
 #ifdef HAVE_DBUS
 /* D-Bus context. */
 static struct {
-    int connection_tried : 1;			/* True if connection has been tried */
-    DBusConnection * connection;		/* Handle for connection */
+    int connection_tried : 1;           /* True if connection has been tried */
+    DBusConnection * connection;        /* Handle for connection */
 } dbus_context;
 
-enum { DBUS_TIMEOUT = 2000 };			/* Reply timeout */
+enum { DBUS_TIMEOUT = 2000 };           /* Reply timeout */
 
 /* FORWARDS */
 gboolean dbus_ConsoleKit_CanStop(void);
@@ -202,8 +201,8 @@ static DBusMessage * dbus_UPower_formulate_command(const char * const command)
 {
     return dbus_message_new_method_call(
         "org.freedesktop.UPower",
-	"/org/freedesktop/UPower",
-	"org.freedesktop.UPower",
+    "/org/freedesktop/UPower",
+    "org.freedesktop.UPower",
         command);
 }
 #endif
@@ -215,8 +214,8 @@ static gboolean dbus_UPower_query(const char * const query)
     /* Formulate a message to the Properties interface. */
     DBusMessage * message = dbus_message_new_method_call(
         "org.freedesktop.UPower",
-	"/org/freedesktop/UPower",
-	"org.freedesktop.DBus.Properties",
+    "/org/freedesktop/UPower",
+    "org.freedesktop.DBus.Properties",
         "Get");
     const char * const interface_name = "org.freedesktop.UPower";
     dbus_message_append_args(message,
@@ -227,7 +226,7 @@ static gboolean dbus_UPower_query(const char * const query)
     /* Send the message. */
     DBusMessage * reply = dbus_send_message(message, NULL);
     if (reply == NULL)
-	return FALSE;
+    return FALSE;
 
     /* The return type is VARIANT expected to contain BOOLEAN. */
     gboolean result = FALSE;
@@ -291,8 +290,8 @@ static DBusMessage * dbus_HAL_formulate_message(const char * const query)
 {
     return dbus_message_new_method_call(
         "org.freedesktop.Hal",
-	"/org/freedesktop/Hal/devices/computer",
-	"org.freedesktop.Hal.Device.SystemPowerManagement",
+    "/org/freedesktop/Hal/devices/computer",
+    "org.freedesktop.Hal.Device.SystemPowerManagement",
         query);
 }
 
@@ -301,8 +300,8 @@ static DBusMessage * dbus_HAL_formulate_property_query(const char * const method
 {
     DBusMessage * message = dbus_message_new_method_call(
         "org.freedesktop.Hal",
-	"/org/freedesktop/Hal/devices/computer",
-	"org.freedesktop.Hal.Device",
+    "/org/freedesktop/Hal/devices/computer",
+    "org.freedesktop.Hal.Device",
         method);
     if (message != NULL)
         dbus_message_append_args(message, DBUS_TYPE_STRING, &property, DBUS_TYPE_INVALID);
@@ -331,7 +330,7 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
         return FALSE;
     DBusMessage * reply = dbus_send_message(message, NULL);
     if (reply == NULL)
-	return FALSE;
+    return FALSE;
     dbus_message_unref(reply);
     return TRUE;
 #else
