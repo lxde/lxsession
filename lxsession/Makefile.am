@@ -11,6 +11,8 @@ lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) \
 lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS)
 
 lxsession_SOURCES = \
+	default-apps.c \
+	default-apps.h \
 	lxsession.c \
 	lxsession.h \
 	xdg-autostart.c \

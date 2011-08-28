@@ -33,17 +33,18 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include <wordexp.h> /* for shell expansion */
-
 #include "lxsession.h"
 #include "xevent.h"
 #include "settings-daemon.h"
 #include "xdg-autostart.h"
+#include "default-apps.h"
 
 
 static gboolean no_settings = FALSE; /* disable settings daemon */
 static gboolean reload_settings = FALSE; /* reload settings daemon */
 static gboolean no_autostart = FALSE; /* no autostart */
+
+gboolean config_changed = FALSE; /* Set to TRUE if need to save conf file */
 
 static GMainLoop* main_loop = NULL;
 static const char *display_name = NULL;
@@ -62,8 +63,7 @@ static char autostart_filename[]="autostart";
 const char *session_name = NULL;
 const char* de_name = NULL;
 
-static GPid run_app( const char* cmd, gboolean guarded );
-static void start_session();
+static void start_session(GKeyFile* kf);
 
 static void sig_term_handler ( int sig )
 {
@@ -125,79 +125,18 @@ GKeyFile* load_session_config( const char* config_filename )
 	return kf;
 }
 
-static void on_child_exit( GPid pid, gint status, gchar* cmd )
-{
-    int sig = WTERMSIG( status );
-    /* if the term signal is not SIGTERM or SIGKILL, this might be a crash! */
-    if( sig && sig != SIGTERM && sig != SIGKILL )
-        run_app( cmd, TRUE );
-}
-
-/* Returns pid if succesful, returns -1 if errors happen. */
-GPid run_app( const char* cmd, gboolean guarded )
-{
-    GPid pid = -1;
-    wordexp_t we;
-    GSpawnFlags flags = guarded ? G_SPAWN_DO_NOT_REAP_CHILD|G_SPAWN_SEARCH_PATH : G_SPAWN_SEARCH_PATH;
-
-    if( wordexp(cmd, &we, 0) == 0)
-    {
-        g_spawn_async( NULL, we.we_wordv, NULL, flags, NULL, NULL, &pid, NULL );
-        wordfree(&we);
-    }
-
-    if(guarded && pid > 0)
-    {
-        g_child_watch_add_full( G_PRIORITY_DEFAULT_IDLE, pid,
-                                (GChildWatchFunc)on_child_exit,
-                                g_strdup( cmd ), (GDestroyNotify)g_free );
-    }
-    return pid;
-}
-
-static void load_default_apps( const char* filename )
-{
-    char buf[1024];
-    int len;
-    FILE* file = fopen( filename, "r" );
-    if( file )
-    {
-        while ( fgets( buf, sizeof(buf) - 2, file ) )
-        {
-            if ( buf[0] == '\0' || buf[0] == '\n' || buf[0] == '#' )
-                continue;  /* a comment */
-            len = strlen ( buf );
-            if( buf[ len - 1 ] == '\n' ) /* remove the '\n' at the end of line */
-            {
-                --len;
-                buf[ len ] = '\0';
-            }
-            switch(buf[0])
-            {
-            case '@': /* if the app should be restarted on crash */
-                run_app( buf + 1, TRUE );
-                break;
-            default: /* just run the program */
-                run_app( buf, FALSE );
-            }
-        }
-        fclose( file );
-    }
-}
-
 /*
  * system wide default config is /etc/xdg/lxsession/SESSION_NAME/desktop.conf
  * system wide default apps are listed in /etc/xdg/lxsession/SESSION_NAME/autostart
  */
-void start_session()
+void start_session(GKeyFile* config)
 {
     const gchar* const *dirs = g_get_system_config_dirs();
     const gchar* const *dir;
     char* filename;
 
     /* run window manager first */
-    if( G_LIKELY( window_manager ) )
-        run_app( window_manager, TRUE );
+    app_command_window_manager(config);
 
     if( G_UNLIKELY( !no_autostart ) )
 
@@ -330,15 +269,36 @@ int main(int argc, char** argv)
 		return 1;
 	}
 
-	window_manager = g_key_file_get_string( kf, "Session", "window_manager", NULL );
-
     if( G_LIKELY(!no_settings) )
         start_settings_daemon(kf);
 
 	g_key_file_free(kf);
 
     /* start desktop session and load autostart applications */
-    start_session();
+    start_session(kf);
+
+    if (config_changed == TRUE)
+    {
+        char* rel_path = g_strconcat("lxsession/", session_name, "/desktop.conf", NULL);
+        char* dir = g_build_filename(g_get_user_config_dir(), "lxsession/", session_name);
+        char* user_config_file = g_build_filename(g_get_user_config_dir(), rel_path, NULL);
+        char* buf;
+        int len;
+
+        buf = g_key_file_to_data( kf, &len, NULL );
+
+        if (!g_file_test (dir), G_FILE_TEST_IS_DIR)
+        {
+            g_mkdir_with_parents(dir), 0700);
+        }
+
+        g_file_set_contents(user_config_file, buf, len, NULL);
+        g_free(buf);
+        g_free(dir);
+        g_free(user_config_file);
+    }
+
+    g_key_file_free(kf);
 
     g_main_loop_run( main_loop );
     g_main_loop_unref( main_loop );
