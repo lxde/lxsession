@@ -11,8 +11,8 @@ lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) $(GTK_CFLAGS)\
 lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS) $(GTK_LIBS) 
 
 lxsession_SOURCES = \
-	clipboard.c \
-	clipboard.h \
+	default-apps.c \
+	default-apps.h \
 	lxsession.c \
 	lxsession.h \
 	xdg-autostart.c \
