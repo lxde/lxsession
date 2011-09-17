@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2011-04-16 05:59+0200\n"
-"Last-Translator: Praveen <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2011-09-17 11:49+0200\n"
+"Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "LXSession నడుచుటలేదు."
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>%s చర్యాకాలం లాగౌట్ చేయాలా?</big></b>"
+msgstr "<b><big>%s చర్యాకాలం నిష్క్రమించాలా?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
@@ -76,4 +76,4 @@ msgstr "వాడుకరిని మార్చు (_w)"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
-msgstr "లాగౌట్ (_L)"
+msgstr "నిష్క్రమించు (_L)"
