@@ -28,9 +28,9 @@ void load_default_apps( const char* filename );
 
 /*Functions for specific default apps */
 void app_command_window_manager(GKeyFile* kf);
+void app_command_panel(GKeyFile* kf);
 
 /* TODO
-gchar app_command_panel(GKeyFile* kf);
 gchar app_command_screensaver(GKeyFile* kf);
 gchar app_command_power_manager(GKeyFile* kf);
 gchar app_command_notifications(GKeyFile* kf);
