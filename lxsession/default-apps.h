@@ -45,4 +45,26 @@ gchar app_command_notifications(GKeyFile* kf);
 #gchar app_command_quit_manager(GKeyFile* kf);
 #gchar app_command_workspace_manager(GKeyFile* kf);
 #gchar app_command_launcher_manager(GKeyFile* kf);
+
+Prototype :
+
+================================================================
+Window-manager      : openbox-lubuntu
+                      compiz
+                      safe-mode
+
+Power-manager       : gnome-power-manager
+                      xfce-power-manager
+                      None
+                      Auto (detect if it's a laptop or a desktop)
+
+Sound management    : Alsa
+                      Pulseaudio
+
+Network-manager GUI : Network-manager applet
+                      Connman
+                      None
+                      Auto (detect if it's a laptop or a desktop)
+....
+
 */
