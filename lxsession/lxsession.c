@@ -287,9 +287,9 @@ int main(int argc, char** argv)
 
         buf = g_key_file_to_data( kf, &len, NULL );
 
-        if (!g_file_test (dir), G_FILE_TEST_IS_DIR)
+        if (!g_file_test (dir, G_FILE_TEST_IS_DIR))
         {
-            g_mkdir_with_parents(dir), 0700);
+            g_mkdir_with_parents((dir), 0700);
         }
 
         g_file_set_contents(user_config_file, buf, len, NULL);
