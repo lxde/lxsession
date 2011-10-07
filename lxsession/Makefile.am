@@ -15,6 +15,8 @@ lxsession_SOURCES = \
 	default-apps.h \
 	lxsession.c \
 	lxsession.h \
+	options.c \
+	options.h \
 	xdg-autostart.c \
 	xdg-autostart.h \
 	xevent.c \
