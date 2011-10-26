@@ -156,6 +156,13 @@ void start_session(GKeyFile* config)
         app_command_power_manager(config);
     }
 
+    /* run the file-manager if it's set */
+    if (g_key_file_get_string( kf, "Session", "file-manager/program", NULL))
+    {
+        app_command_file_manager(config);
+    }
+
+
     if( G_UNLIKELY( !no_autostart ) )
 
     {

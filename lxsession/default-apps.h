@@ -34,13 +34,13 @@ gboolean app_command_window_manager(GKeyFile* kf);
 gboolean app_command_panel(GKeyFile* kf);
 gboolean app_command_screensaver(GKeyFile* kf);
 gboolean app_command_power_manager(GKeyFile* kf);
+gboolean app_command_file_manager(GKeyFile* kf);
 
 /* TODO
-gchar app_command_power_manager(GKeyFile* kf);
+gboolean app_command_security(GKeyFile* kf);
 gchar app_command_notifications(GKeyFile* kf);
 #gchar app_command_ubuntu_one(GKeyFile* kf);
 #gchar app_command_network_gui(GKeyFile* kf);
-#gchar app_command_file_manager(GKeyFile* kf);
 #gchar app_command_polkit(GKeyFile* kf);
 
 #Functions for default configuration
