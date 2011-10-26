@@ -202,8 +202,13 @@ void start_session(GKeyFile* config)
     /* run window manager first */
     app_command_window_manager(config);
 
-    if( G_UNLIKELY( no_autostart ) )
-        return;
+    /* run the panel if it's set */
+    if (g_key_file_get_string( kf, "Session", "panel/program", NULL))
+    {
+        app_command_panel(config);
+    }
+
+    if( G_UNLIKELY( !no_autostart ) )
 
     /* load system-wide default apps */
     for( dir = dirs; *dir; ++dir )
