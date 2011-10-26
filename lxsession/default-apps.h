@@ -33,6 +33,7 @@ Return TRUE if configuration file need to be sync / saved
 gboolean app_command_window_manager(GKeyFile* kf);
 gboolean app_command_panel(GKeyFile* kf);
 gboolean app_command_screensaver(GKeyFile* kf);
+gboolean app_command_power_manager(GKeyFile* kf);
 
 /* TODO
 gchar app_command_power_manager(GKeyFile* kf);
