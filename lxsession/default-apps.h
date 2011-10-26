@@ -32,9 +32,9 @@ Return TRUE if configuration file need to be sync / saved
 */
 gboolean app_command_window_manager(GKeyFile* kf);
 gboolean app_command_panel(GKeyFile* kf);
+gboolean app_command_screensaver(GKeyFile* kf);
 
 /* TODO
-gchar app_command_screensaver(GKeyFile* kf);
 gchar app_command_power_manager(GKeyFile* kf);
 gchar app_command_notifications(GKeyFile* kf);
 #gchar app_command_ubuntu_one(GKeyFile* kf);
