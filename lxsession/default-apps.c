@@ -195,14 +195,14 @@ gboolean app_command_panel(GKeyFile* kf)
 
 gboolean app_command_screensaver(GKeyFile* kf)
 {
-    gchar* ss_prog, screensaver_options, command;
+    gchar* ss_prog, command;
     GPid statut;
 
     ss_prog = g_key_file_get_string( kf, "Session", "screensaver/program", NULL);
 
     if (ss_prog != NULL)
     {
-        if (g_strcmp0 (panel,"xscreensaver"))
+        if (g_strcmp0 (ss_prog,"xscreensaver"))
         {
             command = g_strconcat("xscreensaver"," ","-no-splash", NULL);
             statut = run_app(command, TRUE);
@@ -210,8 +210,11 @@ gboolean app_command_screensaver(GKeyFile* kf)
         }
         else
         {
-            statut = run_app(panel, TRUE);
+            statut = run_app(ss_prog, TRUE);
         }
+
+    g_free(ss_prog);
+
     }
 
     return FALSE;
