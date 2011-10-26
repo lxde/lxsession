@@ -239,3 +239,35 @@ gboolean app_command_power_manager(GKeyFile* kf)
 
     return FALSE;
 }
+
+gboolean app_command_file_manager(GKeyFile* kf)
+{
+    gchar* fm_prog, fm_session, command;
+    GPid statut;
+
+    fm_prog = g_key_file_get_string( kf, "Session", "file-manager/program", NULL);
+    fm_session = g_key_file_get_string( kf, "Session", "file-manager/session", NULL);
+
+    if (fm_prog != NULL)
+    {
+        if (fm_session != NULL)
+        {
+            if (g_strcmp0 (fm_prog,"pcmanfm"))
+            {
+                command = g_strconcat("pcmanfm"," ","--profile"," ", fm_session, NULL);
+                statut = run_app(command, TRUE);
+                g_free(command);
+            }
+            else
+            {
+                statut = run_app(fm_prog, TRUE);
+            }
+        }
+        else
+        {
+            statut = run_app(fm_prog, TRUE);
+        }
+    }
+    return FALSE;
+
+}
