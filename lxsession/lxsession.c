@@ -136,7 +136,7 @@ void start_session(GKeyFile* config)
     char* filename;
 
     /* run window manager first */
-    app_command_window_manager(config);
+    config_changed = app_command_window_manager(config);
 
     /* run the panel if it's set */
     if (g_key_file_get_string( kf, "Session", "panel/program", NULL))

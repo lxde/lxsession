@@ -26,9 +26,12 @@
 /* Standart functions from lxsession.c */
 void load_default_apps( const char* filename );
 
-/*Functions for specific default apps */
-void app_command_window_manager(GKeyFile* kf);
-void app_command_panel(GKeyFile* kf);
+/*
+Functions for specific default apps
+Return TRUE if configuration file need to be sync / saved
+*/
+gboolean app_command_window_manager(GKeyFile* kf);
+gboolean app_command_panel(GKeyFile* kf);
 
 /* TODO
 gchar app_command_screensaver(GKeyFile* kf);
