@@ -208,6 +208,12 @@ void start_session(GKeyFile* config)
         app_command_panel(config);
     }
 
+    /* run the panel if it's set */
+    if (g_key_file_get_string( kf, "Session", "screensaver/program", NULL))
+    {
+        app_command_screensaver(config);
+    }
+
     if( G_UNLIKELY( !no_autostart ) )
 
     /* load system-wide default apps */
