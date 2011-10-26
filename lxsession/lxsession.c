@@ -203,25 +203,25 @@ void start_session(GKeyFile* config)
     config_changed = app_command_window_manager(config);
 
     /* run the panel if it's set */
-    if (g_key_file_get_string( kf, "Session", "panel/program", NULL))
+    if (g_key_file_get_string( config, "Session", "panel/program", NULL))
     {
         app_command_panel(config);
     }
 
     /* run the screensaver if it's set */
-    if (g_key_file_get_string( kf, "Session", "screensaver/program", NULL))
+    if (g_key_file_get_string( config, "Session", "screensaver/program", NULL))
     {
         app_command_screensaver(config);
     }
 
     /* run the power-manager if it's set */
-    if (g_key_file_get_string( kf, "Session", "power-manager/program", NULL))
+    if (g_key_file_get_string( config, "Session", "power-manager/program", NULL))
     {
         app_command_power_manager(config);
     }
 
     /* run the file-manager if it's set */
-    if (g_key_file_get_string( kf, "Session", "file-manager/program", NULL))
+    if (g_key_file_get_string( config, "Session", "file-manager/program", NULL))
     {
         app_command_file_manager(config);
     }
