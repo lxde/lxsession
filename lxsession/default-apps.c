@@ -217,3 +217,22 @@ gboolean app_command_screensaver(GKeyFile* kf)
     return FALSE;
 
 }
+
+gboolean app_command_power_manager(GKeyFile* kf)
+{
+    gchar* power_prog;
+    GPid statut;
+
+    power_prog = g_key_file_get_string( kf, "Session", "power-manager/program", NULL);
+
+    if (power_prog != NULL)
+    {
+        statut = run_app(power_prog, TRUE);
+        g_free(power_prog);
+
+    /* Implement fallback */
+
+    }
+
+    return FALSE;
+}
