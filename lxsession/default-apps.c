@@ -129,10 +129,11 @@ void app_command_safe_window_manager()
 
 }
 
-void app_command_window_manager(GKeyFile* kf)
+gboolean app_command_window_manager(GKeyFile* kf)
 {
     gchar* window_manager;
     GPid statut;
+    gboolean ret = FALSE;
 
     window_manager = g_key_file_get_string( kf, "Session", "window_manager", NULL);
 
@@ -151,14 +152,16 @@ void app_command_window_manager(GKeyFile* kf)
         {
             /* Problem when launching openbox-lxde, switch to safe mode */
             g_key_file_set_string( kf, "Session", "window_manager", "safe");
-            /* config_changed = TRUE;*/
+            ret = TRUE;
             /* TODO Log message */
             app_command_safe_window_manager();
         }
     }
+    return ret;
+
 }
 
-void app_command_panel(GKeyFile* kf)
+gboolean app_command_panel(GKeyFile* kf)
 {
     gchar* panel, panel_session, command;
     GPid statut;
@@ -186,5 +189,6 @@ void app_command_panel(GKeyFile* kf)
             statut = run_app(panel, TRUE);
         }
     }
+    return FALSE;
 
 }
