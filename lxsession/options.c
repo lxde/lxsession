@@ -91,3 +91,26 @@ void options_command_keymap(GKeyFile* kf)
     }
 
 }
+
+void options_command_xrandr(GKeyFile* kf)
+{
+    gchar * xrandr_mode = NULL;
+    xrandr_mode = g_key_file_get_string( kf, "XRandr", "mode", NULL);
+
+    int status;
+    char* output = NULL;
+
+    if (xrandr_mode)
+    {
+         if (g_strcmp0 (xrandr_mode,"command"))
+         {
+             command = g_key_file_get_string( kf, "XRandr", "command", NULL);
+
+             if (command)
+             {
+                 g_spawn_command_line_sync(command, &output, NULL, &status, NULL );
+             }
+         }
+         /* TODO Implement fine grained configuration */
+    }
+}
