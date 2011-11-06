@@ -390,10 +390,10 @@ int main(int argc, char** argv)
     if (config_changed == TRUE)
     {
         char* rel_path = g_strconcat("lxsession/", session_name, "/desktop.conf", NULL);
-        char* dir = g_build_filename(g_get_user_config_dir(), "lxsession/", session_name);
+        char* dir = g_build_filename(g_get_user_config_dir(), "lxsession/", session_name, NULL);
         char* user_config_file = g_build_filename(g_get_user_config_dir(), rel_path, NULL);
         char* buf;
-        int len;
+        gsize len;
 
         buf = g_key_file_to_data( kf, &len, NULL );
 

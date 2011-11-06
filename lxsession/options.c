@@ -94,7 +94,7 @@ void options_command_keymap(GKeyFile* kf)
 
 void options_command_xrandr(GKeyFile* kf)
 {
-    gchar * xrandr_mode = NULL;
+    gchar * xrandr_mode = NULL, * command = NULL;
     xrandr_mode = g_key_file_get_string( kf, "XRandr", "mode", NULL);
 
     int status;

@@ -131,7 +131,7 @@ void app_command_safe_window_manager()
 
 gboolean app_command_window_manager(GKeyFile* kf)
 {
-    gchar* window_manager;
+    gchar* window_manager = NULL;
     GPid statut;
     gboolean ret = FALSE;
 
@@ -163,7 +163,7 @@ gboolean app_command_window_manager(GKeyFile* kf)
 
 gboolean app_command_panel(GKeyFile* kf)
 {
-    gchar* panel, panel_session, command;
+    gchar* panel = NULL, * panel_session = NULL, * command = NULL;
     GPid statut;
 
     panel = g_key_file_get_string( kf, "Session", "panel/program", NULL);
@@ -195,7 +195,7 @@ gboolean app_command_panel(GKeyFile* kf)
 
 gboolean app_command_screensaver(GKeyFile* kf)
 {
-    gchar* ss_prog, command;
+    gchar* ss_prog = NULL, * command = NULL;
     GPid statut;
 
     ss_prog = g_key_file_get_string( kf, "Session", "screensaver/program", NULL);
@@ -223,7 +223,7 @@ gboolean app_command_screensaver(GKeyFile* kf)
 
 gboolean app_command_power_manager(GKeyFile* kf)
 {
-    gchar* power_prog;
+    gchar* power_prog = NULL;
     GPid statut;
 
     power_prog = g_key_file_get_string( kf, "Session", "power-manager/program", NULL);
@@ -242,7 +242,7 @@ gboolean app_command_power_manager(GKeyFile* kf)
 
 gboolean app_command_file_manager(GKeyFile* kf)
 {
-    gchar* fm_prog, fm_session, command;
+    gchar* fm_prog = NULL, * fm_session = NULL, * command = NULL;
     GPid statut;
 
     fm_prog = g_key_file_get_string( kf, "Session", "file-manager/program", NULL);
