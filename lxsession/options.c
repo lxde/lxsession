@@ -37,7 +37,7 @@ void options_command_keymap(GKeyFile* kf)
     keymap_mode = g_key_file_get_string( kf, "Keymap", "mode", NULL);
 
     /* Case 1 user => Use ~/.config/lxsession/SESSION/desktop.conf */
-    if (g_strcmp0 (mode,"user"))
+    if (g_strcmp0 (keymap_mode,"user"))
     {
         keymap_model = g_key_file_get_string( kf, "Keymap", "model", NULL);
         keymap_layout = g_key_file_get_string( kf, "Keymap", "layout", NULL);
@@ -49,7 +49,7 @@ void options_command_keymap(GKeyFile* kf)
     }
 
     /* Case 2 system => Use /etc/default/keyboard */
-    if (g_strcmp0 (mode,"system"))
+    if (g_strcmp0 (keymap_mode,"system"))
     {
         /*TODO read following parameters :
           XKBMODEL="pc105"
