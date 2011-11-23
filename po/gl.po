@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2009-10-27 15:12+0100\n"
-"Last-Translator: Indalecio Freiría Santos <ifreiria@gmail.com>\n"
+"PO-Revision-Date: 2011-11-22 23:47+0200\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
-"Language: \n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -45,7 +46,7 @@ msgstr "Erro: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
-msgstr "LXSession non se está executando."
+msgstr "LXSession non se está a executar."
 
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
@@ -54,7 +55,7 @@ msgstr "<b><big>Pechar a sesión %s</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
-msgstr "Ap_agar"
+msgstr "_Apagar"
 
 #: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
@@ -70,7 +71,7 @@ msgstr "_Hibernar"
 
 #: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
-msgstr "C_ambiar usuario"
+msgstr "_Cambiar usuario"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:600
