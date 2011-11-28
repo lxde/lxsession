@@ -1,7 +1,8 @@
-Source: lxsession2
+Source: lxsession
 Section: x11
 Priority: optional
-Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>
 Uploaders: Andrew Lee (李健秋) <ajqlee@debian.org>
 Build-Depends: debhelper (>= 7.0.50~), 
 # needed by autogen.sh
@@ -20,14 +21,14 @@ Vcs-Git: git://git.debian.org/git/collab-maint/lxsession.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/lxsession.git;a=summary
 
 
-Package: lxsession2
+Package: lxsession
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: openbox | x-window-manager, openssh-client | rsh-client | ssh-client
 Suggests: lxde-common, lxpanel, pcmanfm, gpicview
-Provides: x-session-manager, lxsession-lite, lxsession
-Replaces: lxsession-lite, lxde-settings-daemon, lxsession
-Conflicts: lxsession-lite, lxde-settings-daemon, lxde-common (<= 0.4.2-3), lxsession
+Provides: x-session-manager, lxsession-lite
+Replaces: lxsession-lite, lxde-settings-daemon
+Conflicts: lxsession-lite, lxde-settings-daemon, lxde-common (<= 0.4.2-3)
 Description: a lightweight X11 session manager
  LXSession is a lightweight X11 session manager with fewer dependencies,
  designed for use with the LXDE(Lightweight X11 Desktop Environment).

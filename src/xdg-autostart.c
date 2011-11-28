@@ -30,7 +30,7 @@
 #include <string.h>
 
 static const char DesktopEntry[] = "Desktop Entry";
-extern const char* de_name; /* defined in lxsession.c */
+const char* de_name = NULL;
 
 #if 0
 /*
@@ -175,7 +175,7 @@ _finish:
 }
 #endif
 
-static void launch_autostart_file( const char* desktop_id, const char* desktop_file, GKeyFile* kf )
+static void launch_autostart_file( const char* desktop_id, const char* desktop_file, GKeyFile* kf)
 {
     if( g_key_file_load_from_file( kf, desktop_file, 0, NULL ) )
     {
@@ -289,11 +289,12 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
     g_free( dir_path );
 }
 
-void xdg_autostart( const char* de_name )
+void xdg_autostart( const char* de_name_arg )
 {
     const char* const *dirs = g_get_system_config_dirs();
     const char* const *dir;
     GHashTable* hash = g_hash_table_new_full( g_str_hash, g_str_equal, g_free, g_free );
+    de_name = de_name_arg;
 
     /* get system-wide autostart files */
     for( dir = dirs; *dir; ++dir )
@@ -305,7 +306,7 @@ void xdg_autostart( const char* de_name )
     if( g_hash_table_size( hash ) > 0 )
     {
         GKeyFile* kf = g_key_file_new();
-        g_hash_table_foreach( hash, (GHFunc)launch_autostart_file, kf );
+        g_hash_table_foreach( hash, (GHFunc)launch_autostart_file, kf);
         g_key_file_free( kf );
     }
 

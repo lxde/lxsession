@@ -72,6 +72,9 @@ typedef struct {
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via KDM */
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
+
+    int logout_LXDE : 1;    /* Logout using LXDE Dbus */
+
 } HandlerContext;
 
 static gboolean lock_screen(void);
@@ -158,7 +161,14 @@ static gboolean verify_running(const char * display_manager, const char * execut
 /* Handler for "clicked" signal on Logout button. */
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    kill(handler_context->lxsession_pid, SIGTERM);
+    if (handler_context->logout_LXDE)
+    {
+        dbus_LXDE_Logout();
+    }
+    else
+    {
+        kill(handler_context->lxsession_pid, SIGTERM);
+    }
     gtk_main_quit();
 }
 
@@ -411,6 +421,10 @@ int main(int argc, char * argv[])
     {
         handler_context.hibernate_available = TRUE;
         handler_context.hibernate_UPower = TRUE;
+    }
+    if (dbus_LXDE_Logout())
+    {
+        handler_context.logout_LXDE = TRUE;
     }
 
     /* Initialize capabilities of the HAL mechanism. */

@@ -136,7 +136,9 @@ void start_session(GKeyFile* config)
     char* filename;
 
     /* run window manager first */
+    g_message("Will launch window manager \n");
     config_changed = app_command_window_manager(config);
+    g_message("Window manager launched \n");
 
     /* run the panel if it's set */
     if (g_key_file_get_string( config, "Session", "panel/program", NULL))
@@ -288,6 +290,8 @@ int main(int argc, char** argv)
 
 	/* Load desktop session config file */
 	kf = load_session_config(CONFIG_FILE_NAME);
+    g_message("Load config file \n");
+
 	if( !kf )
 	{
 		xevent_finalize();
@@ -300,6 +304,7 @@ int main(int argc, char** argv)
 	g_key_file_free(kf);
 
     /* start desktop session and load autostart applications */
+    g_message("Will start the session \n");
     start_session(kf);
 
     if (config_changed == TRUE)

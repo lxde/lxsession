@@ -1,5 +1,5 @@
 AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.6.1], [],lxsession)
+AC_INIT(lxsession,[0.4.9.1], [],lxsession)
 AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
@@ -25,7 +25,7 @@ AC_CHECK_FUNC([mkstemp],
 
 AC_ARG_ENABLE(man,
        [AC_HELP_STRING([--enable-man],
-               [regenerate roff man pages from Docbook @<:@default=no@:>@])],
+               [regenerate roff man pages from Docbook @<:@default=yes@:>@])],
        [enable_man="${enableval}"],
        [enable_man=no]
 )
@@ -68,6 +68,19 @@ PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.6.0])
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
+PKG_CHECK_MODULES(GIO, [gio-unix-2.0])
+AC_SUBST(GIO_CFLAGS)
+AC_SUBST(GIO_LIBS)
+
+PKG_CHECK_MODULES(GEE, [gee-1.0])
+AC_SUBST(GEE_CFLAGS)
+AC_SUBST(GEE_LIBS)
+
+PKG_CHECK_MODULES(DBUSGLIB, [dbus-glib-1])
+AC_SUBST(DBUSGLIB_CFLAGS)
+AC_SUBST(DBUSGLIB_LIBS)
+
+
 AC_ARG_ENABLE(
     [dbus],
     AS_HELP_STRING([--enable-dbus],
@@ -88,6 +101,12 @@ fi
 AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
+
+AM_PROG_VALAC([0.14.0])
+if test "x$VALAC" = "x"; then
+	AC_MSG_ERROR([You need Vala compiler])
+fi
+
 
 # Generate po/LINGUAS on the fly rather than relying on translators
 # to maintain it manually. This also overcome the problem that Transifex
@@ -121,10 +140,11 @@ AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
 AC_OUTPUT([
   Makefile
-  lxsession/Makefile
+  src/Makefile
   lxsession-logout/Makefile
   po/Makefile.in
   man/Makefile
+  tests/Makefile
 ])
 
 echo
@@ -140,3 +160,4 @@ echo http://lxde.org/
 echo
 echo Have fun!
 echo
+

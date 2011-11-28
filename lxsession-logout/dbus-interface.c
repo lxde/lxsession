@@ -421,3 +421,45 @@ char * dbus_HAL_Hibernate(void)
 {
     return dbus_HAL_command("Hibernate");
 }
+
+/*** ConsoleKit mechanism ***/
+
+#ifdef HAVE_DBUS
+/* Formulate a message to the LXDE interface. */
+static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
+{
+    return dbus_message_new_method_call(
+        "org.lxde.SessionManager",
+        "/org/lxde/SessionManager",
+        "org.lxde.SessionManager",
+        query);
+}
+#endif
+
+/* Send a specified message to the LXDE interface and process a boolean result. */
+static gboolean dbus_LXDE_query(const char * const query)
+{
+#ifdef HAVE_DBUS
+    return dbus_read_result_boolean(dbus_send_message(dbus_LXDE_formulate_message(query), NULL));
+#else
+    return FALSE;
+#endif
+}
+
+/* Send a specified message to the LXDE interface and process a void result. */
+static char * dbus_LXDE_command(const char * const command)
+{
+#ifdef HAVE_DBUS
+    char * error = NULL;
+    dbus_read_result_void(dbus_send_message(dbus_LXDE_formulate_message(command), &error));
+    return error;
+#else
+    return NULL;
+#endif
+}
+
+/* Read the logout action from LXDE Dbus. */
+gboolean dbus_LXDE_Logout(void)
+{
+    return dbus_LXDE_command("Logout");
+}

@@ -1,0 +1,59 @@
+bin_PROGRAMS = lxsession
+
+lxsession_SOURCES = \
+    main.vala \
+    app.vala \
+    autostart.vala \
+    dbus-common.vala \
+    dbus-gnome-session.vala \
+    dbus-lxde-session.vala \
+    environement.vala \
+    options.vala \
+    settings.vala \
+    utils.vala \
+    misc.c \
+    settings-daemon.c \
+    xdg-autostart.c \
+    xevent.c \
+    xsettings-common.c \
+    xsettings-manager.c \
+    xutils.c \
+    $(NULL)
+
+lxsession_VALAFLAGS = \
+	--thread \
+	--vapidir=$(srcdir)/../vapi \
+	--pkg dbus-glib-1 \
+	--pkg gio-2.0 \
+	--pkg gee-1.0 \
+	--pkg posix \
+	--pkg lx-misc \
+	--pkg settings-daemon \
+	--pkg xdg-autostart \
+	$(NULL)
+
+lxsession_CFLAGS = \
+	$(GLIB_CFLAGS) \
+	$(GIO_CFLAGS) \
+	$(GEE_CFLAGS) \
+	$(DBUSGLIB_CFLAGS) \
+	$(ADDITIONAL_FLAGS) \
+	-include config.h -w \
+	$(NULL)
+
+lxsession_LDADD = \
+	$(GLIB_LIBS) \
+	$(GIO_LIBS) \
+	$(GEE_LIBS) \
+	$(DBUSGLIB_LIBS) \
+	$(X11_LIBS) \
+	$(NULL)
+
+EXTRA_DIST = \
+	misc.h \
+    settings-daemon.h \
+    xdg-autostart.h \
+    xevent.h \
+    xsettings-common.h \
+    xsettings-manager.h \
+    xutils.h

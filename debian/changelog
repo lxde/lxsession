@@ -1,3 +1,9 @@
+lxsession (0.5.0-0ubuntu1~ppa2) oneiric; urgency=low
+
+  * Test package.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 07 Nov 2011 21:03:41 +0100
+
 lxsession (0.4.4-2) unstable; urgency=low
 
   HAL-less LXDE!

@@ -28,7 +28,6 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-#include "lxsession.h"
 #include "settings-daemon.h"
 
 Display* dpy = NULL;
@@ -144,10 +143,14 @@ gboolean x11_event_dispatch(GSource *source, GSourceFunc  callback, gpointer use
 				switch( cmd )
 				{
 				case LXS_RELOAD:	/* reload all settings */
+                    /* TODO Replace this by Dbus
 					settings_deamon_reload();
+                    */
 					break;
 				case LXS_EXIT:
+                    /* TODO Replace this by Dbus
 					lxsession_quit();
+                    */
 					break;
 				}
 			}
