@@ -51,13 +51,12 @@ char * dbus_HAL_Shutdown(void);
 char * dbus_HAL_Reboot(void);
 char * dbus_HAL_Suspend(void);
 char * dbus_HAL_Hibernate(void);
+char * dbus_LXDE_Logout(void);
 /* End FORWARDS */
 
 /* Connect to the system bus.  Once a connection is made, it is saved for reuse. */
-static DBusConnection * dbus_connect(void)
+static DBusConnection * dbus_connect_system(void)
 {
-    if ((dbus_context.connection == NULL) && ( ! dbus_context.connection_tried))
-    {
         DBusError error;
         dbus_error_init(&error);
         dbus_context.connection = dbus_bus_get(DBUS_BUS_SYSTEM, &error);
@@ -67,16 +66,57 @@ static DBusConnection * dbus_connect(void)
             dbus_error_free(&error);
         }
         dbus_context.connection_tried = TRUE;
-    }
 
     return dbus_context.connection;
 }
 
+static DBusConnection * dbus_connect_session(void)
+{
+        DBusError error;
+        dbus_error_init(&error);
+        dbus_context.connection = dbus_bus_get(DBUS_BUS_SESSION, &error);
+        if (dbus_context.connection == NULL)
+        {
+            g_warning(G_STRLOC ": Failed to connect to the session message bus: %s", error.message);
+            dbus_error_free(&error);
+        }
+        dbus_context.connection_tried = TRUE;
+
+    return dbus_context.connection;
+}
+
+
 /* Send a message. */
-static DBusMessage * dbus_send_message(DBusMessage * message, char * * error_text)
+static DBusMessage * dbus_send_message_system(DBusMessage * message, char * * error_text)
 {
     /* Get a connection handle. */
-    DBusConnection * connection = dbus_connect();
+    DBusConnection * connection = dbus_connect_system();
+    if (connection == NULL)
+        return FALSE;
+
+    /* Send the message. */
+    DBusError error;
+    dbus_error_init(&error);
+    DBusMessage * reply = dbus_connection_send_with_reply_and_block(connection, message, DBUS_TIMEOUT, &error);
+    dbus_message_unref(message);
+    if (reply == NULL)
+    {
+        if ((error.name == NULL) || (strcmp(error.name, DBUS_ERROR_NO_REPLY) != 0))
+        {
+            if (error_text != NULL)
+                *error_text = g_strdup(error.message);
+            g_warning(G_STRLOC ": DBUS: %s", error.message);
+        }
+        dbus_error_free(&error);
+    }
+    return reply;
+}
+
+/* Send a message. */
+static DBusMessage * dbus_send_message_session(DBusMessage * message, char * * error_text)
+{
+    /* Get a connection handle. */
+    DBusConnection * connection = dbus_connect_session();
     if (connection == NULL)
         return FALSE;
 
@@ -152,7 +192,7 @@ static DBusMessage * dbus_ConsoleKit_formulate_message(const char * const query)
 static gboolean dbus_ConsoleKit_query(const char * const query)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_ConsoleKit_formulate_message(query), NULL));
+    return dbus_read_result_boolean(dbus_send_message_system(dbus_ConsoleKit_formulate_message(query), NULL));
 #else
     return FALSE;
 #endif
@@ -163,7 +203,7 @@ static char * dbus_ConsoleKit_command(const char * const command)
 {
 #ifdef HAVE_DBUS
     char * error = NULL;
-    dbus_read_result_void(dbus_send_message(dbus_ConsoleKit_formulate_message(command), &error));
+    dbus_read_result_void(dbus_send_message_system(dbus_ConsoleKit_formulate_message(command), &error));
     return error;
 #else
     return NULL;
@@ -225,7 +265,7 @@ static gboolean dbus_UPower_query(const char * const query)
         DBUS_TYPE_INVALID);
 
     /* Send the message. */
-    DBusMessage * reply = dbus_send_message(message, NULL);
+    DBusMessage * reply = dbus_send_message_system(message, NULL);
     if (reply == NULL)
 	return FALSE;
 
@@ -252,7 +292,7 @@ static char * dbus_UPower_command(const char * const command)
 {
 #ifdef HAVE_DBUS
     char * error = NULL;
-    dbus_read_result_void(dbus_send_message(dbus_UPower_formulate_command(command), &error));
+    dbus_read_result_void(dbus_send_message_system(dbus_UPower_formulate_command(command), &error));
     return error;
 #else
     return NULL;
@@ -329,7 +369,7 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
     DBusMessage * message = dbus_HAL_formulate_string_property_query(property);
     if (message == NULL)
         return FALSE;
-    DBusMessage * reply = dbus_send_message(message, NULL);
+    DBusMessage * reply = dbus_send_message_system(message, NULL);
     if (reply == NULL)
 	return FALSE;
     dbus_message_unref(reply);
@@ -343,7 +383,7 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
 static gboolean dbus_HAL_boolean_query(const char * const property)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_HAL_formulate_boolean_property_query(property), NULL));
+    return dbus_read_result_boolean(dbus_send_message_system(dbus_HAL_formulate_boolean_property_query(property), NULL));
 #else
     return FALSE;
 #endif
@@ -367,7 +407,7 @@ static char * dbus_HAL_command(const char * const command)
 
     /* Send the message and wait for a reply. */
     char * error = NULL;
-    dbus_read_result_void(dbus_send_message(message, &error));
+    dbus_read_result_void(dbus_send_message_system(message, &error));
     return error;
 #else
     return NULL;
@@ -422,10 +462,10 @@ char * dbus_HAL_Hibernate(void)
     return dbus_HAL_command("Hibernate");
 }
 
-/*** ConsoleKit mechanism ***/
+/*** LXDE mechanism ***/
 
 #ifdef HAVE_DBUS
-/* Formulate a message to the LXDE interface. */
+/* Formulate a message to the ConsoleKit Manager interface. */
 static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
 {
     return dbus_message_new_method_call(
@@ -440,7 +480,7 @@ static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
 static gboolean dbus_LXDE_query(const char * const query)
 {
 #ifdef HAVE_DBUS
-    return dbus_read_result_boolean(dbus_send_message(dbus_LXDE_formulate_message(query), NULL));
+    return dbus_read_result_boolean(dbus_send_message_session(dbus_LXDE_formulate_message(query), NULL));
 #else
     return FALSE;
 #endif
@@ -451,15 +491,15 @@ static char * dbus_LXDE_command(const char * const command)
 {
 #ifdef HAVE_DBUS
     char * error = NULL;
-    dbus_read_result_void(dbus_send_message(dbus_LXDE_formulate_message(command), &error));
+    dbus_read_result_void(dbus_send_message_session(dbus_LXDE_formulate_message(command), &error));
     return error;
 #else
     return NULL;
 #endif
 }
 
-/* Read the logout action from LXDE Dbus. */
-gboolean dbus_LXDE_Logout(void)
+/* Invoke the Logout method on LXDE. */
+char * dbus_LXDE_Logout(void)
 {
     return dbus_LXDE_command("Logout");
 }

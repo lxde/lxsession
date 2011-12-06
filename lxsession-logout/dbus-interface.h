@@ -43,6 +43,7 @@ extern char * dbus_HAL_Shutdown(void);
 extern char * dbus_HAL_Reboot(void);
 extern char * dbus_HAL_Suspend(void);
 extern char * dbus_HAL_Hibernate(void);
-extern gboolean dbus_LXDE_Logout(void);
+
+extern char * dbus_LXDE_Logout(void);
 
 #endif

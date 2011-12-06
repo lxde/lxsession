@@ -399,6 +399,8 @@ int main(int argc, char * argv[])
         return 1;
     }
 
+    handler_context.logout_LXDE = TRUE;
+
     /* Initialize capabilities of the ConsoleKit mechanism. */
     if (dbus_ConsoleKit_CanStop())
     {
@@ -421,10 +423,6 @@ int main(int argc, char * argv[])
     {
         handler_context.hibernate_available = TRUE;
         handler_context.hibernate_UPower = TRUE;
-    }
-    if (dbus_LXDE_Logout())
-    {
-        handler_context.logout_LXDE = TRUE;
     }
 
     /* Initialize capabilities of the HAL mechanism. */
