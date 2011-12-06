@@ -1,0 +1,13 @@
+ * Use Compact when possible, like no signals (see http://live.gnome.org/Vala/ReferenceHandling)
+ * Try to replace multiple GObject in App by a data memeber :
+    public enum AppType {
+        WM,
+        PANEL,
+        DESKTOP
+        }
+    public class App {
+        private AppType type;
+    }
+ * Implement stages from GNOME
+ * Merge lxsession-edit
+ * Merge lxpolkit
