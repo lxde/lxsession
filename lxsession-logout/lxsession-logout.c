@@ -389,6 +389,8 @@ int main(int argc, char * argv[])
         return 1;
     }
 
+    handler_context.logout_LXDE = TRUE;
+
     /* Initialize capabilities of the ConsoleKit mechanism. */
     if (dbus_ConsoleKit_CanStop())
     {
