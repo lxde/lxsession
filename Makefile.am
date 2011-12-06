@@ -5,8 +5,7 @@ NULL=
 SUBDIRS= lxsession-logout \
          man \
          po \
-         src \
-         tests
+         src
 
 
 imagedir=$(datadir)/lxsession/images

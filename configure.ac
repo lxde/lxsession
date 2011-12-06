@@ -144,7 +144,6 @@ AC_OUTPUT([
   lxsession-logout/Makefile
   po/Makefile.in
   man/Makefile
-  tests/Makefile
 ])
 
 echo

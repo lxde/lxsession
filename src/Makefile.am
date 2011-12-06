@@ -11,7 +11,6 @@ lxsession_SOURCES = \
     options.vala \
     settings.vala \
     utils.vala \
-    misc.c \
     settings-daemon.c \
     xdg-autostart.c \
     xevent.c \
@@ -27,7 +26,6 @@ lxsession_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg gee-1.0 \
 	--pkg posix \
-	--pkg lx-misc \
 	--pkg settings-daemon \
 	--pkg xdg-autostart \
 	$(NULL)
@@ -50,7 +48,6 @@ lxsession_LDADD = \
 	$(NULL)
 
 EXTRA_DIST = \
-	misc.h \
     settings-daemon.h \
     xdg-autostart.h \
     xevent.h \
