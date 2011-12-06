@@ -41,6 +41,7 @@ src/dbus-common.c
 src/dbus-gnome-session.c
 src/dbus-lxde-session.c
 src/environement.c
+src/options.c
 man/Makefile
 man/*.1
 po/LINGUAS
