@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2011-12-02 15:01+0200\n"
+"PO-Revision-Date: 2011-12-24 14:03+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Mensaxe personalizada para mostrar no cadro de diálogo"
+msgstr "Mensaxe personalizada para amosar no cadro de diálogo"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -28,7 +28,7 @@ msgstr "mensaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Mensaxe para mostrar no diálogo"
+msgstr "Mensaxe para amosar no diálogo"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
