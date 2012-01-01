@@ -41,7 +41,7 @@ public class LxsessionAutostartConfig: GLib.Object {
         var file = File.new_for_path (get_config_path ("autostart"));
         var app_list = new ArrayList<AppType?> ();
 
-        stdout.printf ("%s\n", file.get_path());
+        message ("Autostart path : %s", file.get_path());
 
         if (file.query_exists ()) {
 

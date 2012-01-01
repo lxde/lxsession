@@ -63,12 +63,13 @@ public string get_config_path (string conf_file) {
 
         foreach (string config in (system_config_dirs)) {
             config_system_location = Path.build_filename (config, "lxsession", session_global);
+            message ("Config system location : %s", config_system_location);
             if (FileUtils.test (config_system_location, FileTest.EXISTS)) {
                 path_system_config_file = Path.build_filename (config_system_location, conf_file);
                 break;
             }
         }
-
+      message ("Final system path location : %s", path_system_config_file);
       return path_system_config_file;
 
      }
