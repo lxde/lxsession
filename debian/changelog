@@ -1,3 +1,11 @@
+lxsession (0.4.9.1-0ubuntu1~ppa1) precise; urgency=low
+
+  * New lxsession (testing packages)
+  * debian/control:
+   - build-depends on libgee-dev and valac-0.14.
+
+ -- Julien Lavergne <gilir@ubuntu.com>  Mon, 07 Nov 2011 21:03:41 +0100
+
 lxsession (0.4.4-2) unstable; urgency=low
 
   HAL-less LXDE!
