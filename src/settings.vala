@@ -26,18 +26,18 @@ public class LxsessionConfig: GLib.Object {
     public string desktop_env_name { get; set; default = "LXDE";}
 
     /* Applications */
-    public string window_manager { get; set; default = "openbox-lxde";}
-    public string panel_program { get; set; default = "lxpanel";}
-    public string panel_session { get; set; default = "LXDE";}
-    public string screensaver_program { get; set; default = "xscreensaver";}
-    public string power_manager_program { get; set; default = "no";}
-    public string file_manager_program  { get; set; default = "pcmanfm";}
-    public string file_manager_session { get; set; default = "LXDE";}
+    public string window_manager { get; set; default = null;}
+    public string panel_program { get; set; default = null;}
+    public string panel_session { get; set; default = null;}
+    public string screensaver_program { get; set; default = null;}
+    public string power_manager_program { get; set; default = null;}
+    public string file_manager_program  { get; set; default = null;}
+    public string file_manager_session { get; set; default = null;}
     public string file_manager_extras { get; set; default = null;}
     public string polkit { get; set; default = null;}
 
     /* Dbus */
-    public string dbus_lxde { get; set; default = null;}
+    public string dbus_lxde { get; set; default = "true";}
     public string dbus_gnome { get; set; default = null;}
 
     /* Keymap */
