@@ -80,6 +80,9 @@ public class AppObject: GLib.Object {
                 case 0:
                     message("Exit normal, don't reload");
                     break;
+                case 15:
+                    message("Exit by the user, don't reload");
+                    break;
                 case 256:
                     message("Exit normal, don't reload");
                     break;
@@ -197,6 +200,9 @@ public class WindowManagerApp: SimpleAppObject
             {
                 case 0:
                     message("Exit normal, don't reload");
+                    break;
+                case 15:
+                    message("Exit by the user, don't reload");
                     break;
                 case 256:
                     message("Exit normal, don't reload");
