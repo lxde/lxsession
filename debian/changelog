@@ -1,6 +1,8 @@
-lxsession (0.5.0-0ubuntu1~ppa2) oneiric; urgency=low
+lxsession (0.4.9.1-0ubuntu1~ppa1) precise; urgency=low
 
-  * Test package.
+  * New lxsession (testing packages)
+  * debian/control:
+   - build-depends on libgee-dev and valac-0.14.
 
  -- Julien Lavergne <gilir@ubuntu.com>  Mon, 07 Nov 2011 21:03:41 +0100
 
