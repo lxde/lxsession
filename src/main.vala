@@ -17,6 +17,7 @@
  *      MA 02110-1301, USA.
  */
 using Posix;
+using Intl;
 
 namespace Lxsession {
 
@@ -90,7 +91,7 @@ namespace Lxsession {
         string log_directory = Path.build_filename(Environment.get_user_cache_dir(), "lxsession");
         var file = File.new_for_path (log_directory);
 
-        string log_path = Path.build_filename(log_directory, session,".log");
+        string log_path = Path.build_filename(log_directory, session,"run.log");
 
         message ("log directory: %s",log_directory);
         message ("log path: %s",log_path);
@@ -121,43 +122,42 @@ namespace Lxsession {
         windowmanager.launch();
 
 
-        /* Launch other specific applications */
-        if (config.panel_program != null)
-        {
-            var panelprogram = new PanelApp(config.panel_program, config.panel_session);
-            panelprogram.launch();
-        }
-
-        if (config.screensaver_program != null)
-        {
-            var screensaverprogram = new ScreensaverApp(config.screensaver_program);
-            screensaverprogram.launch();
-        }
-
-        if (config.power_manager_program != null)
-        {
-            var powermanagerprogram = new PowermanagerApp(config.power_manager_program);
-            powermanagerprogram.launch();
-        }
-
-        if (config.file_manager_program != null)
-        {
-            var filemanagerprogram = new FilemanagerApp(config.file_manager_program, 
-                                                        config.file_manager_session,
-                                                        "");
-            filemanagerprogram.launch();
-        }
-
-        if (config.polkit != null)
-        {
-            var securitypolkit = new PolkitApp(config.polkit);
-            securitypolkit.launch();
-        }
-
 
         /* Autostart if not disable by command line */
         if (autostart == false)
         {
+            /* Launch other specific applications */
+            if (config.panel_program != null)
+            {
+                var panelprogram = new PanelApp(config.panel_program, config.panel_session);
+                panelprogram.launch();
+            }
+
+            if (config.screensaver_program != null)
+            {
+                var screensaverprogram = new ScreensaverApp(config.screensaver_program);
+                screensaverprogram.launch();
+            }
+
+            if (config.power_manager_program != null)
+            {
+                var powermanagerprogram = new PowermanagerApp(config.power_manager_program);
+                powermanagerprogram.launch();
+            }
+
+            if (config.file_manager_program != null)
+            {
+                var filemanagerprogram = new FilemanagerApp(config.file_manager_program, 
+                                                            config.file_manager_session,
+                                                            "");
+                filemanagerprogram.launch();
+            }
+
+            if (config.polkit != null)
+            {
+                var securitypolkit = new PolkitApp(config.polkit);
+                securitypolkit.launch();
+            }
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
             auto.start_applications();
