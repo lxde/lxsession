@@ -20,7 +20,6 @@ lxsession_SOURCES = \
     $(NULL)
 
 lxsession_VALAFLAGS = \
-	--thread \
 	--vapidir=$(srcdir)/../vapi \
 	--pkg dbus-glib-1 \
 	--pkg gio-2.0 \
@@ -54,3 +53,15 @@ EXTRA_DIST = \
     xsettings-common.h \
     xsettings-manager.h \
     xutils.h
+
+CLEAN = \
+    main.c \
+    settings.c \
+    utils.c \
+    app.c \
+    autostart.c \
+    dbus-common.c \
+    dbus-gnome-session.c \
+    dbus-lxde-session.c \
+    environement.c \
+    options.c
