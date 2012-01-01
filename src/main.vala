@@ -88,17 +88,17 @@ namespace Lxsession {
         /* 
            Log on .log file
         */
-        string log_directory = Path.build_filename(Environment.get_user_cache_dir(), "lxsession");
-        var file = File.new_for_path (log_directory);
+        string log_directory = Path.build_filename(Environment.get_user_cache_dir(), "lxsession", session);
+        var dir_log = File.new_for_path (log_directory);
 
-        string log_path = Path.build_filename(log_directory, session,"run.log");
+        string log_path = Path.build_filename(log_directory, "run.log");
 
         message ("log directory: %s",log_directory);
         message ("log path: %s",log_path);
 
-        if (!file.query_exists ())
+        if (!dir_log.query_exists ())
         {
-            file.make_directory_with_parents();
+            dir_log.make_directory_with_parents();
         }
 
         int fint;
@@ -147,7 +147,7 @@ namespace Lxsession {
 
             if (config.file_manager_program != null)
             {
-                var filemanagerprogram = new FilemanagerApp(config.file_manager_program, 
+                var filemanagerprogram = new FilemanagerApp(config.file_manager_program,
                                                             config.file_manager_session,
                                                             "");
                 filemanagerprogram.launch();
