@@ -79,33 +79,192 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             kf = load_keyfile (get_config_path (desktop_env_name_arg));
         }
 
-	    try {
-                window_manager = kf.get_value ("Session", "window_manager");
-                panel_program = kf.get_value ("Session", "panel/program");
-                panel_session = kf.get_value ("Session", "panel/session");
-                screensaver_program = kf.get_value ("Session", "screensaver/program");
-                power_manager_program = kf.get_value ("Session", "power-manager/program");
-                file_manager_program = kf.get_value ("Session", "file-manager/program");
-                file_manager_session = kf.get_value ("Session", "file-manager/session");
-                polkit = kf.get_value("Session", "polkit");
-
-                dbus_lxde = kf.get_value ("Dbus", "lxde");
-                dbus_gnome = kf.get_value ("Dbus", "gnome");
-
-                keymap_mode = kf.get_value ("Keymap", "mode");
-                keymap_model = kf.get_value ("Keymap", "model");
-                keymap_layout = kf.get_value ("Keymap", "layout");
-                keymap_variant = kf.get_value ("Keymap", "variant");
-                keymap_options = kf.get_value ("Keymap", "options");
-
-                xrandr_mode = kf.get_value ("XRandr", "mode");
-                xrandr_command = kf.get_value ("XRandr", "command");
-
-                security_keyring = kf.get_value ("Security", "gnome-all");
-
-	    } catch (KeyFileError err) {
-		        warning (err.message);
+        // Windows manager
+        try
+        {
+            window_manager = kf.get_value ("Session", "window_manager");
 	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Panel
+        try
+        {
+            panel_program = kf.get_value ("Session", "panel/program");
+            if (panel_program != null)
+            {
+                try
+                {
+                    panel_session = kf.get_value ("Session", "panel/session");
+                }
+                catch (KeyFileError err)
+                {
+	                message (err.message);
+                }
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Screensaver
+        try
+        {
+            screensaver_program = kf.get_value ("Session", "screensaver/program");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Power manager
+        try
+        {
+            power_manager_program = kf.get_value ("Session", "power-manager/program");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Filemanager
+        try
+        {
+            file_manager_program = kf.get_value ("Session", "file-manager/program");
+            if (file_manager_program != null)
+            {
+                try
+                {
+                    file_manager_session = kf.get_value ("Session", "file-manager/session");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+
+                try
+                {
+                    file_manager_extras = kf.get_value ("Session", "file-manager/extras");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Polkit Agent
+        try
+        {
+            polkit = kf.get_value("Session", "polkit");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Dbus
+        try
+        {
+            dbus_lxde = kf.get_value ("Dbus", "lxde");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            dbus_gnome = kf.get_value ("Dbus", "gnome");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Keymap options
+        try
+        {
+            keymap_mode = kf.get_value ("Keymap", "mode");
+            if (keymap_mode != null)
+            {
+                try
+                {
+                    keymap_model = kf.get_value ("Keymap", "model");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    keymap_layout = kf.get_value ("Keymap", "layout");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    keymap_variant = kf.get_value ("Keymap", "variant");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    keymap_options = kf.get_value ("Keymap", "options");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // XRandr options
+        try
+        {
+            xrandr_mode = kf.get_value ("XRandr", "mode");
+            if (xrandr_mode != null)
+            {
+                try
+                {
+                    xrandr_command = kf.get_value ("XRandr", "command");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Security (keyring)
+	    try
+        {
+            security_keyring = kf.get_value ("Security", "keyring");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
 
         this.notify["window_manager"].connect((s, p) => {
             stdout.printf("Property '%s' has changed!\n", p.name);
