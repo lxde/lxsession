@@ -45,6 +45,8 @@ public struct AppType {
 
 public string get_config_path (string conf_file) {
 
+    string final_config_file;
+
     string user_config_dir = Path.build_filename(
                              Environment.get_user_config_dir (),
                              "lxsession",
@@ -53,7 +55,8 @@ public string get_config_path (string conf_file) {
 
     if (FileUtils.test (user_config_dir, FileTest.EXISTS))
     {
-        return user_config_dir;
+        message ("User config used : %s", user_config_dir);
+        final_config_file = user_config_dir;
     }
     else
     {
@@ -69,10 +72,12 @@ public string get_config_path (string conf_file) {
                 break;
             }
         }
-      message ("Final system path location : %s", path_system_config_file);
-      return path_system_config_file;
+      message ("System system path location : %s", path_system_config_file);
+      final_config_file =  path_system_config_file;
 
      }
+     message ("Final file used : %s", final_config_file);
+     return final_config_file;
 
 }
 
