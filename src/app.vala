@@ -311,7 +311,7 @@ public class FilemanagerApp: SimpleAppObject {
                 this.name = filemanager_command;
                 if (filemanager_session != null)
                 {
-                    string create_command = "pcmanfm --profile " + filemanager_session + filemanager_extras;
+                    string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
                     this.command = create_command.split_set(" ",0);
                 }
                 else
