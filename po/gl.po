@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2011-12-24 14:03+0200\n"
+"PO-Revision-Date: 2012-01-20 00:33+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -36,7 +36,7 @@ msgstr "ficheiro de imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Posición da mensaxe"
+msgstr "Posición da imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:374
 #: ../lxsession-logout/lxsession-logout.c:388
@@ -51,7 +51,7 @@ msgstr "LXSession non se está a executar."
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Saír da sesión %s</big></b>"
+msgstr "<b><big>Saír da sesión de %s</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
