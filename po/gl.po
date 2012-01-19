@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2011-12-24 14:03+0200\n"
+"PO-Revision-Date: 2012-01-20 00:33+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -52,9 +52,13 @@ msgstr "LXSession non se está a executar."
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 <<<<<<< HEAD
+<<<<<<< HEAD
 msgstr "<b><big>Saír da sesión de %s</big></b>"
 =======
 msgstr "<b><big>Saír da sesión %s</big></b>"
+>>>>>>> Commit from LXDE Translation Project with Pootle by user mbouzada.: 14 of 14 messages translated (0 fuzzy).
+=======
+msgstr "<b><big>Saír da sesión de %s</big></b>"
 >>>>>>> Commit from LXDE Translation Project with Pootle by user mbouzada.: 14 of 14 messages translated (0 fuzzy).
 
 #: ../lxsession-logout/lxsession-logout.c:547
