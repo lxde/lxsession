@@ -59,10 +59,34 @@ public class LxdeSessionServer : Object {
         global_sig.update_window_manager(dbus_arg);
     }
 
+    public void KeymapMode (string dbus_arg)
+    {
+        message ("Signal update keymap mode: %s", dbus_arg);
+        global_sig.update_keymap_mode(dbus_arg);
+    }
+
+    public void KeymapModel (string dbus_arg)
+    {
+        message ("Signal update keymap model: %s", dbus_arg);
+        global_sig.update_keymap_model(dbus_arg);
+    }
+
     public void KeymapLayout (string dbus_arg)
     {
-        message ("Signal update keymap: %s", dbus_arg);
+        message ("Signal update keymap layout: %s", dbus_arg);
         global_sig.update_keymap_layout(dbus_arg);
+    }
+
+    public void KeymapVariant (string dbus_arg)
+    {
+        message ("Signal update keymap variant: %s", dbus_arg);
+        global_sig.update_keymap_variant(dbus_arg);
+    }
+
+    public void KeymapOptions (string dbus_arg)
+    {
+        message ("Signal update keymap options: %s", dbus_arg);
+        global_sig.update_keymap_options(dbus_arg);
     }
 }
 

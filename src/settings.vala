@@ -271,8 +271,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Connect to siganls changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
+        global_sig.update_keymap_mode.connect(on_update_keymap_mode);
+        global_sig.update_keymap_model.connect(on_update_keymap_model);
         global_sig.update_keymap_layout.connect(on_update_keymap_layout);
-
+        global_sig.update_keymap_variant.connect(on_update_keymap_variant);
+        global_sig.update_keymap_options.connect(on_update_keymap_options);
     }
 
 
@@ -295,11 +298,43 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    public void on_update_keymap_mode (string dbus_arg)
+    {
+        message("Changing keymap mode: %s", dbus_arg);
+        this.keymap_mode = dbus_arg;
+        kf.set_value ("Keymap", "mode", this.keymap_mode);
+        save_keyfile();
+    }
+
+    public void on_update_keymap_model (string dbus_arg)
+    {
+        message("Changing keymap model: %s", dbus_arg);
+        this.keymap_model = dbus_arg;
+        kf.set_value ("Keymap", "model", this.keymap_model);
+        save_keyfile();
+    }
+
     public void on_update_keymap_layout (string dbus_arg)
     {
         message("Changing keymap layout: %s", dbus_arg);
         this.keymap_layout = dbus_arg;
         kf.set_value ("Keymap", "layout", this.keymap_layout);
+        save_keyfile();
+    }
+
+    public void on_update_keymap_variant (string dbus_arg)
+    {
+        message("Changing keymap variant: %s", dbus_arg);
+        this.keymap_variant = dbus_arg;
+        kf.set_value ("Keymap", "variant", this.keymap_variant);
+        save_keyfile();
+    }
+
+    public void on_update_keymap_options (string dbus_arg)
+    {
+        message("Changing keymap options: %s", dbus_arg);
+        this.keymap_options = dbus_arg;
+        kf.set_value ("Keymap", "options", this.keymap_options);
         save_keyfile();
     }
 
