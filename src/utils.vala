@@ -28,20 +28,20 @@ public struct AppType {
     public string application_type;
 }
 
-    public KeyFile load_keyfile (string config_path) {
+public KeyFile load_keyfile (string config_path) {
 
-        KeyFile kf = new KeyFile();
+    KeyFile kf = new KeyFile();
 
-        try {
-            kf.load_from_file(config_path, KeyFileFlags.NONE);
-        } catch (KeyFileError err) {
-            warning (err.message);
-        } catch (FileError err) {
-            warning (err.message);
-        }
-
-        return kf;
+    try {
+        kf.load_from_file(config_path, KeyFileFlags.NONE);
+    } catch (KeyFileError err) {
+        warning (err.message);
+    } catch (FileError err) {
+        warning (err.message);
     }
+
+    return kf;
+}
 
 public string get_config_path (string conf_file) {
 
@@ -79,6 +79,11 @@ public string get_config_path (string conf_file) {
      message ("Final file used : %s", final_config_file);
      return final_config_file;
 
+}
+
+public class LxSignals : Object
+{
+    public signal void update_keymap_layout (string layout);
 }
 
 }

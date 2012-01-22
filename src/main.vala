@@ -21,6 +21,8 @@ using Intl;
 
 namespace Lxsession {
 
+    LxSignals global_sig;
+
     public class Main: Object{
 
         static string session = "LXDE";
@@ -107,9 +109,12 @@ namespace Lxsession {
         dup2 (fint, STDERR_FILENO);
         close(fint);
 
+        /* Init signals */
+        var sig = new LxSignals();
+        global_sig = sig;
 
         /* Configuration */
-        var config = new LxsessionConfigKeyFile(session, desktop_environnement);
+        var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
 
 
         /* Create the Xsettings manager */
@@ -167,8 +172,10 @@ namespace Lxsession {
         }
 
         /* Options */
+        message ("Check keymap_mode %s", config.keymap_mode);
         if (config.keymap_mode != null)
         {
+            message("Create Option Keymap");
             var keymap = new KeymapOption(config);
             keymap.activate();
         }

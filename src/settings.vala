@@ -61,10 +61,16 @@ public class LxsessionConfig: GLib.Object {
 
 public class LxsessionConfigKeyFile: LxsessionConfig {
 
+    /* Settings locations */
+    public KeyFile kf;
+    public string desktop_config_path { get; set; default = null;}
 
-    public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg) {
+    public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg, LxSignals sig) {
 
-        KeyFile kf = new KeyFile();
+        kf = new KeyFile();
+
+        desktop_config_path = get_config_path("desktop.conf");
+
         if (session_arg != "dummy")
         {
             this.session_name = session_arg;
@@ -266,20 +272,17 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             warning (err.message);
         }
 
-        this.notify["window_manager"].connect((s, p) => {
-            stdout.printf("Property '%s' has changed!\n", p.name);
-            kf.set_value ("Session", "window_manager", window_manager);
-            save_keyfile (kf, get_config_path("desktop.conf") );
-        });
+        /* Connect to siganls changes */
+        global_sig.update_keymap_layout.connect(on_update_keymap_layout);
 
     }
 
 
-    public void save_keyfile (KeyFile kf, string config_path) {
-
+    public void save_keyfile () {
+        message ("Saving desktop file");
         var str = kf.to_data (null);
         try {
-            FileUtils.set_contents (config_path, str, str.length);
+            FileUtils.set_contents (desktop_config_path, str, str.length);
         } catch (FileError err) {
             warning (err.message);
         }
@@ -292,6 +295,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     }
 
+    public void on_update_keymap_layout (string option)
+    {
+        message("Changing keymap layout: %s", option);
+        this.keymap_layout = option;
+        kf.set_value ("Keymap", "layout", this.keymap_layout);
+        save_keyfile();
+    }
 
 }
 
