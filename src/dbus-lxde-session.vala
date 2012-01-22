@@ -47,6 +47,11 @@ public class LxdeSessionServer : Object {
         session.lxsession_restart();
     }
 
+    public void KeymapLayout (string layout)
+    {
+        message ("Signal update keymap: %s", layout);
+        global_sig.update_keymap_layout(layout);
+    }
 }
 
 }

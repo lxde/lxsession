@@ -15,10 +15,6 @@
  *      along with this program; if not, write to the Free Software
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
-
-    TODO
-    Security option (with polkit, gnome-keyring ...)
-
  */
 
 namespace Lxsession
@@ -36,6 +32,7 @@ namespace Lxsession
         {
             try
             {
+                message ("Options - Launch command %s",command);
                 Process.spawn_command_line_async(command);
             }
             catch (SpawnError err)
@@ -55,7 +52,7 @@ namespace Lxsession
                 command = create_user_mode_command(config);
             }
         }
-        private string create_user_mode_command(LxsessionConfig config)
+        public string create_user_mode_command(LxsessionConfig config)
         {
             var builder = new StringBuilder ();
             builder.append("setxkbmap ");
@@ -74,17 +71,20 @@ namespace Lxsession
             if (config.keymap_variant != null)
             {
                 builder.append("-variant ");
+                message ("Show keymap variant : %s", config.keymap_variant);
                 builder.append(config.keymap_variant);
                 builder.append(" ");
             }
             if (config.keymap_options != null)
             {
                 builder.append("-options ");
+                message ("Show keymap options : %s", config.keymap_options);
                 builder.append(config.keymap_options);
                 builder.append(" ");
             }
 
             command =  (builder.str);
+            message ("Keymap options - return user command %s", command);
             return command;
         }
     }
