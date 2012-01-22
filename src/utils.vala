@@ -89,6 +89,8 @@ public class LxSignals : Object
     public signal void update_keymap_layout (string dbus_arg);
     public signal void update_keymap_variant (string dbus_arg);
     public signal void update_keymap_options (string dbus_arg);
+    public signal void update_xrandr_mode (string dbus_arg);
+    public signal void update_xrandr_command (string dbus_arg);
 }
 
 }
