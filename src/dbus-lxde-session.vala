@@ -47,6 +47,12 @@ public class LxdeSessionServer : Object {
         session.lxsession_restart();
     }
 
+    public void ReloadSettingsDaemon()
+    {
+        message ("Restart Xsettings Deamon");
+        settings_daemon_reload();
+    }
+
     public void WindowManager (string dbus_arg)
     {
         message ("Signal update window manager: %s", dbus_arg);
