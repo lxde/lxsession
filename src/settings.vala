@@ -287,18 +287,18 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     }
 
-    public void on_update_window_manager (string wm_manager)
+    public void on_update_window_manager (string dbus_arg)
     {
-        message("Changing window manager: %s", wm_manager);
-        this.window_manager = wm_manager;
+        message("Changing window manager: %s", dbus_arg);
+        this.window_manager = dbus_arg;
         kf.set_value ("Session", "window_manager", this.window_manager);
         save_keyfile();
     }
 
-    public void on_update_keymap_layout (string option)
+    public void on_update_keymap_layout (string dbus_arg)
     {
-        message("Changing keymap layout: %s", option);
-        this.keymap_layout = option;
+        message("Changing keymap layout: %s", dbus_arg);
+        this.keymap_layout = dbus_arg;
         kf.set_value ("Keymap", "layout", this.keymap_layout);
         save_keyfile();
     }
