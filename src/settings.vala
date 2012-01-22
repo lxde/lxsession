@@ -54,9 +54,6 @@ public class LxsessionConfig: GLib.Object {
     /* Security */
     public string security_keyring { get; set; default = null;}
 
-    /* Signals */
-    public signal void update_window_manager (string wm_manager);
-
 }
 
 public class LxsessionConfigKeyFile: LxsessionConfig {
@@ -273,6 +270,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         }
 
         /* Connect to siganls changes */
+        global_sig.update_window_manager.connect(on_update_window_manager);
         global_sig.update_keymap_layout.connect(on_update_keymap_layout);
 
     }
@@ -289,10 +287,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     }
 
-    public void on_update_window_manager (string wm_manager) {
-
+    public void on_update_window_manager (string wm_manager)
+    {
+        message("Changing window manager: %s", wm_manager);
         this.window_manager = wm_manager;
-
+        kf.set_value ("Session", "window_manager", this.window_manager);
+        save_keyfile();
     }
 
     public void on_update_keymap_layout (string option)

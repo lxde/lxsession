@@ -123,9 +123,6 @@ public class SimpleAppObject: AppObject
 
 public class WindowManagerApp: SimpleAppObject
 {
-
-    public signal void update_window_manager (string wm_manager);
-
     public WindowManagerApp (string wm_command)
     {
 
@@ -188,7 +185,7 @@ public class WindowManagerApp: SimpleAppObject
         {
             this.name = "wm_safe";
             this.command = {find_window_manager()};
-            update_window_manager("wm_safe");
+            global_sig.update_window_manager("wm_safe");
         }
 
         Process.close_pid (pid);

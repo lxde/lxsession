@@ -47,6 +47,12 @@ public class LxdeSessionServer : Object {
         session.lxsession_restart();
     }
 
+    public void WindowManager (string dbus_arg)
+    {
+        message ("Signal update window manager: %s", dbus_arg);
+        global_sig.update_window_manager(dbus_arg);
+    }
+
     public void KeymapLayout (string layout)
     {
         message ("Signal update keymap: %s", layout);
