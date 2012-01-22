@@ -276,6 +276,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keymap_layout.connect(on_update_keymap_layout);
         global_sig.update_keymap_variant.connect(on_update_keymap_variant);
         global_sig.update_keymap_options.connect(on_update_keymap_options);
+        global_sig.update_xrandr_mode.connect(on_update_xrandr_mode);
+        global_sig.update_xrandr_command.connect(on_update_xrandr_command);
     }
 
 
@@ -335,6 +337,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing keymap options: %s", dbus_arg);
         this.keymap_options = dbus_arg;
         kf.set_value ("Keymap", "options", this.keymap_options);
+        save_keyfile();
+    }
+
+    public void on_update_xrandr_mode (string dbus_arg)
+    {
+        message("Changing xrandr mode: %s", dbus_arg);
+        this.xrandr_mode = dbus_arg;
+        kf.set_value ("XRandr", "mode", this.xrandr_mode);
+        save_keyfile();
+    }
+
+    public void on_update_xrandr_command (string dbus_arg)
+    {
+        message("Changing xrandr command: %s", dbus_arg);
+        this.xrandr_command = dbus_arg;
+        kf.set_value ("XRandr", "command", this.xrandr_command);
         save_keyfile();
     }
 

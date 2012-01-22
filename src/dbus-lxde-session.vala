@@ -88,6 +88,18 @@ public class LxdeSessionServer : Object {
         message ("Signal update keymap options: %s", dbus_arg);
         global_sig.update_keymap_options(dbus_arg);
     }
+
+    public void XrandrMode (string dbus_arg)
+    {
+        message ("Signal update xrandr mode: %s", dbus_arg);
+        global_sig.update_xrandr_mode(dbus_arg);
+    }
+
+    public void XrandrCommand (string dbus_arg)
+    {
+        message ("Signal update xrandr command: %s", dbus_arg);
+        global_sig.update_xrandr_command(dbus_arg);
+    }
 }
 
 }
