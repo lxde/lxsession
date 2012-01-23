@@ -1,5 +1,39 @@
 [Session]
+# Default program launched at startup
 window_manager=openbox-lxde
+panel/program=lxpanel
+panel/session=LXDE
+screensaver/program=xscreensaver
+power-manager/program=
+file-manager/program=pcmanfm
+file-manager/session=LXDE
+file-manager/extras=
+polkit=gnome
+
+[Dbus]
+# Default Dbus interfaces, should be always true
+lxde=true
+# Implement gnome-session Dbus API
+gnome=false
+
+[Keymap]
+# Read configuration from : user (this file) or system
+mode=
+# Keyboard configuration for user mode, all 4 should be present
+model=
+layout=
+variant=
+options=
+
+[XRandr]
+# Mode command only available
+mode=
+# Command to launch for configuring Xrandr ex: xrandr --mode ...
+command=
+
+[Security]
+# Default Keyring program
+keyring=gnome-all
 
 [GTK]
 #iNet/DoubleClickTime=400
