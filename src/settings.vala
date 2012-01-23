@@ -54,6 +54,34 @@ public class LxsessionConfig: GLib.Object {
     /* Security */
     public string security_keyring { get; set; default = null;}
 
+    /* GTK */
+    public string gtk_theme_name { get; set; default = null;}
+    public string gtk_icon_theme_name { get; set; default = null;}
+    public string gtk_font_name { get; set; default = null;}
+    public int gtk_toolbar_style { get; set; default = 3;}
+    public int gtk_button_images { get; set; default = 0;}
+    public int gtk_menu_images { get; set; default = 1;}
+    public int gtk_cursor_theme_size { get; set; default = 18;}
+    public int gtk_antialias { get; set; default = 1;}
+    public int gtk_hinting { get; set; default = 1;}
+    public string gtk_hint_style { get; set; default = "hintslight";}
+    public string gtk_rgba { get; set; default = "rgb";}
+    public string gtk_color_scheme { get; set; default = null;}
+    public string gtk_cursor_theme_name { get; set; default = "DMZ-White";}
+    public int gtk_toolbar_icon_size { get; set; default = 3;}
+    public int gtk_enable_event_sounds { get; set; default = 1;}
+    public int gtk_enable_input_feedback_sounds { get; set; default = 1;}
+
+    /* Mouse */
+    public int mouse_acc_factor { get; set; default = 20;}
+    public int mouse_acc_threshold { get; set; default = 10;}
+    public int mouse_left_handed { get; set; default = 0;}
+
+    /* Keyboard */
+    public int keyboard_delay { get; set; default = 500;}
+    public int keyboard_interval { get; set; default = 30;}
+    public int keyboard_beep { get; set; default = 1;}
+
 }
 
 public class LxsessionConfigKeyFile: LxsessionConfig {
@@ -269,7 +297,189 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             warning (err.message);
         }
 
-        /* Connect to siganls changes */
+        // GTK
+	    try
+        {
+            gtk_theme_name = kf.get_value ("GTK", "sNet/ThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_icon_theme_name = kf.get_value ("GTK", "sNet/IconThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_font_name = kf.get_value ("GTK", "sGtk/FontName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_toolbar_style = kf.get_integer ("GTK", "iGtk/ToolbarStyle");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_button_images = kf.get_integer ("GTK", "iGtk/ButtonImages");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_menu_images = kf.get_integer ("GTK", "iGtk/MenuImages");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_cursor_theme_size = kf.get_integer ("GTK", "iGtk/CursorThemeSize");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_antialias = kf.get_integer ("GTK", "iXft/Antialias");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_hinting = kf.get_integer ("GTK", "iXft/Hinting");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_hint_style = kf.get_value ("GTK", "sXft/HintStyle");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_rgba = kf.get_value ("GTK", "sXft/RGBA");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_color_scheme = kf.get_value ("GTK", "sGtk/ColorScheme");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_cursor_theme_name = kf.get_value ("GTK", "sGtk/CursorThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_toolbar_icon_size = kf.get_integer ("GTK", "iGtk/ToolbarIconSize");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_enable_event_sounds = kf.get_integer ("GTK", "iNet/EnableEventSounds");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            gtk_enable_input_feedback_sounds = kf.get_integer ("GTK", "iNet/EnableInputFeedbackSounds");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Mouse
+	    try
+        {
+            mouse_acc_factor = kf.get_integer ("Mouse", "AccFactor");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            mouse_acc_threshold = kf.get_integer ("Mouse", "AccThreshold");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            mouse_left_handed = kf.get_integer ("Mouse", "LeftHanded");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Keyboard
+	    try
+        {
+            keyboard_delay = kf.get_integer ("Keyboard", "Delay");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            keyboard_interval = kf.get_integer ("Keyboard", "Interval");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            keyboard_beep = kf.get_integer ("Keyboard", "Beep");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
         global_sig.update_keymap_mode.connect(on_update_keymap_mode);
         global_sig.update_keymap_model.connect(on_update_keymap_model);
@@ -278,6 +488,32 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keymap_options.connect(on_update_keymap_options);
         global_sig.update_xrandr_mode.connect(on_update_xrandr_mode);
         global_sig.update_xrandr_command.connect(on_update_xrandr_command);
+
+        global_sig.update_gtk_theme_name.connect(on_update_gtk_theme_name);
+        global_sig.update_gtk_icon_theme_name.connect(on_update_gtk_icon_theme_name);
+        global_sig.update_gtk_font_name.connect(on_update_gtk_font_name);
+        global_sig.update_gtk_toolbar_style.connect(on_update_gtk_toolbar_style);
+        global_sig.update_gtk_button_images.connect(on_update_gtk_button_images);
+        global_sig.update_gtk_menu_images.connect(on_update_gtk_menu_images);
+        global_sig.update_gtk_cursor_theme_size.connect(on_update_gtk_cursor_theme_size);
+        global_sig.update_gtk_antialias.connect(on_update_gtk_antialias);
+        global_sig.update_gtk_hinting.connect(on_update_gtk_hinting);
+        global_sig.update_gtk_hint_style.connect(on_update_gtk_hint_style);
+        global_sig.update_gtk_rgba.connect(on_update_gtk_rgba);
+        global_sig.update_gtk_color_scheme.connect(on_update_gtk_color_scheme);
+        global_sig.update_gtk_cursor_theme_name.connect(on_update_gtk_cursor_theme_name);
+        global_sig.update_gtk_toolbar_icon_size.connect(on_update_gtk_toolbar_icon_size);
+        global_sig.update_gtk_enable_event_sounds.connect(on_update_gtk_enable_event_sounds);
+        global_sig.update_gtk_enable_input_feedback_sounds.connect(on_update_gtk_enable_input_feedback_sounds);
+
+        global_sig.update_mouse_acc_factor.connect(on_update_mouse_acc_factor);
+        global_sig.update_mouse_acc_threshold.connect(on_update_mouse_acc_threshold);
+        global_sig.update_mouse_left_handed.connect(on_update_mouse_left_handed);
+
+        global_sig.update_keyboard_delay.connect(on_update_keyboard_delay);
+        global_sig.update_keyboard_interval.connect(on_update_keyboard_interval);
+        global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
+
     }
 
 
@@ -353,6 +589,183 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing xrandr command: %s", dbus_arg);
         this.xrandr_command = dbus_arg;
         kf.set_value ("XRandr", "command", this.xrandr_command);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_theme_name (string dbus_arg)
+    {
+        message("Changing gtk_theme_name: %s", dbus_arg);
+        this.gtk_theme_name = dbus_arg;
+        kf.set_value ("GTK", "sNet/ThemeName", this.gtk_theme_name);
+        save_keyfile();
+    }
+
+
+    public void on_update_gtk_icon_theme_name (string dbus_arg)
+    {
+        message("Changing gtk_icon_theme_name: %s", dbus_arg);
+        this.gtk_icon_theme_name = dbus_arg;
+        kf.set_value ("GTK", "sNet/IconThemeName", this.gtk_icon_theme_name);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_font_name (string dbus_arg)
+    {
+        message("Changing gtk_font_name: %s", dbus_arg);
+        this.gtk_font_name = dbus_arg;
+        kf.set_value ("GTK", "sGtk/FontName", this.gtk_font_name);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_toolbar_style (int dbus_arg)
+    {
+        message("Changing gtk_font_name: %i", dbus_arg);
+        this.gtk_toolbar_style = dbus_arg;
+        kf.set_integer ("GTK", "iGtk/ToolbarStyle", this.gtk_toolbar_style);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_button_images (int dbus_arg)
+    {
+        message("Changing gtk_button_images: %i", dbus_arg);
+        this.gtk_button_images = dbus_arg;
+        kf.set_integer ("GTK", "iGtk/ButtonImages", this.gtk_button_images);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_menu_images (int dbus_arg)
+    {
+        message("Changing gtk_menu_images: %i", dbus_arg);
+        this.gtk_menu_images = dbus_arg;
+        kf.set_integer ("GTK", "iGtk/MenuImages", this.gtk_menu_images);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_cursor_theme_size (int dbus_arg)
+    {
+        message("Changing gtk_cursor_theme_size: %i", dbus_arg);
+        this.gtk_cursor_theme_size = dbus_arg;
+        kf.set_integer ("GTK", "iGtk/CursorThemeSize", this.gtk_cursor_theme_size);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_antialias (int dbus_arg)
+    {
+        message("Changing gtk_antialias: %i", dbus_arg);
+        this.gtk_antialias = dbus_arg;
+        kf.set_integer ("GTK", "iXft/Antialias", this.gtk_antialias);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_hinting (int dbus_arg)
+    {
+        message("Changing gtk_hinting: %i", dbus_arg);
+        this.gtk_hinting = dbus_arg;
+        kf.set_integer ("GTK", "iXft/Hinting", this.gtk_hinting);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_hint_style (string dbus_arg)
+    {
+        message("Changing gtk_hint_style: %s", dbus_arg);
+        this.gtk_hint_style = dbus_arg;
+        kf.set_value ("GTK", "sXft/HintStyle", this.gtk_hint_style);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_rgba (string dbus_arg)
+    {
+        message("Changing gtk_rgba: %s", dbus_arg);
+        this.gtk_rgba = dbus_arg;
+        kf.set_value ("GTK", "sXft/RGBA", this.gtk_rgba);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_color_scheme (string dbus_arg)
+    {
+        message("Changing gtk_color_scheme: %s", dbus_arg);
+        this.gtk_color_scheme = dbus_arg;
+        kf.set_value ("GTK", "sGtk/ColorScheme", this.gtk_color_scheme);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_cursor_theme_name (string dbus_arg)
+    {
+        message("Changing gtk_cursor_theme_name: %s", dbus_arg);
+        this.gtk_cursor_theme_name = dbus_arg;
+        kf.set_value ("GTK", "sGtk/CursorThemeName", this.gtk_cursor_theme_name);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_toolbar_icon_size (int dbus_arg)
+    {
+        message("Changing gtk_cursor_theme_name: %i", dbus_arg);
+        this.gtk_toolbar_icon_size = dbus_arg;
+        kf.set_integer ("GTK", "iGtk/ToolbarIconSize", this.gtk_toolbar_icon_size);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_enable_event_sounds (int dbus_arg)
+    {
+        message("Changing gtk_enable_event_sounds: %i", dbus_arg);
+        this.gtk_enable_event_sounds = dbus_arg;
+        kf.set_integer ("GTK", "iNet/EnableEventSounds", this.gtk_enable_event_sounds);
+        save_keyfile();
+    }
+
+    public void on_update_gtk_enable_input_feedback_sounds (int dbus_arg)
+    {
+        message("Changing gtk_enable_input_feedback_sounds: %i", dbus_arg);
+        this.gtk_enable_input_feedback_sounds = dbus_arg;
+        kf.set_integer ("GTK", "iNet/EnableInputFeedbackSounds", this.gtk_enable_input_feedback_sounds);
+        save_keyfile();
+    }
+
+    public void on_update_mouse_acc_factor (int dbus_arg)
+    {
+        message("Changing mouse_acc_factor: %i", dbus_arg);
+        this.mouse_acc_factor = dbus_arg;
+        kf.set_integer ("Mouse", "AccFactor", this.mouse_acc_factor);
+        save_keyfile();
+    }
+
+    public void on_update_mouse_acc_threshold (int dbus_arg)
+    {
+        message("Changing mouse_acc_threshold: %i", dbus_arg);
+        this.mouse_acc_threshold = dbus_arg;
+        kf.set_integer ("Mouse", "AccThreshold", this.mouse_acc_threshold);
+        save_keyfile();
+    }
+
+    public void on_update_mouse_left_handed (int dbus_arg)
+    {
+        message("Changing mouse_left_handed: %i", dbus_arg);
+        this.mouse_left_handed = dbus_arg;
+        kf.set_integer ("Mouse", "LeftHanded", this.mouse_left_handed);
+        save_keyfile();
+    }
+
+    public void on_update_keyboard_delay (int dbus_arg)
+    {
+        message("Changing keyboard_delay: %i", dbus_arg);
+        this.keyboard_delay = dbus_arg;
+        kf.set_integer ("Keyboard", "Delay", this.keyboard_delay);
+        save_keyfile();
+    }
+
+    public void on_update_keyboard_interval (int dbus_arg)
+    {
+        message("Changing keyboard_interval: %i", dbus_arg);
+        this.keyboard_interval = dbus_arg;
+        kf.set_integer ("Keyboard", "Interval", this.keyboard_interval);
+        save_keyfile();
+    }
+
+    public void on_update_keyboard_beep (int dbus_arg)
+    {
+        message("Changing keyboard_beep: %i", dbus_arg);
+        this.keyboard_beep = dbus_arg;
+        kf.set_integer ("Keyboard", "Beep", this.keyboard_beep);
         save_keyfile();
     }
 

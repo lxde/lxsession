@@ -91,6 +91,33 @@ public class LxSignals : Object
     public signal void update_keymap_options (string dbus_arg);
     public signal void update_xrandr_mode (string dbus_arg);
     public signal void update_xrandr_command (string dbus_arg);
+
+    public signal void update_gtk_theme_name (string dbus_arg);
+    public signal void update_gtk_icon_theme_name (string dbus_arg);
+    public signal void update_gtk_font_name (string dbus_arg);
+    public signal void update_gtk_toolbar_style (int dbus_arg);
+    public signal void update_gtk_button_images (int dbus_arg);
+    public signal void update_gtk_menu_images (int dbus_arg);
+    public signal void update_gtk_cursor_theme_size (int dbus_arg);
+    public signal void update_gtk_antialias (int dbus_arg);
+    public signal void update_gtk_hinting (int dbus_arg);
+    public signal void update_gtk_hint_style (string dbus_arg);
+    public signal void update_gtk_rgba (string dbus_arg);
+    public signal void update_gtk_color_scheme (string dbus_arg);
+    public signal void update_gtk_cursor_theme_name (string dbus_arg);
+    public signal void update_gtk_toolbar_icon_size (int dbus_arg);
+    public signal void update_gtk_enable_event_sounds (int dbus_arg);
+    public signal void update_gtk_enable_input_feedback_sounds (int dbus_arg);
+
+    public signal void update_mouse_acc_factor (int dbus_arg);
+    public signal void update_mouse_acc_threshold (int dbus_arg);
+    public signal void update_mouse_left_handed (int dbus_arg);
+
+    public signal void update_keyboard_delay (int dbus_arg);
+    public signal void update_keyboard_interval (int dbus_arg);
+    public signal void update_keyboard_beep (int dbus_arg);
+
+
 }
 
 }
