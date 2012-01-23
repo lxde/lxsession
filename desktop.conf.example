@@ -1,4 +1,5 @@
 [Session]
+# Default program launched at startup
 window_manager=openbox-lxde
 panel/program=lxpanel
 panel/session=LXDE
@@ -10,13 +11,15 @@ file-manager/extras=
 polkit=gnome
 
 [Dbus]
+# Default Dbus interfaces, should be always true
 lxde=true
+# Implement gnome-session Dbus API
 gnome=false
 
 [Keymap]
 # Read configuration from : user (this file) or system
 mode=
-# Keyboard configuration for user mode
+# Keyboard configuration for user mode, all 4 should be present
 model=
 layout=
 variant=
@@ -29,6 +32,7 @@ mode=
 command=
 
 [Security]
+# Default Keyring program
 keyring=gnome-all
 
 [GTK]
