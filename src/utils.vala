@@ -117,6 +117,7 @@ public class LxSignals : Object
     public signal void update_keyboard_interval (int dbus_arg);
     public signal void update_keyboard_beep (int dbus_arg);
 
+    public signal void reload_settings_daemon();
 
 }
 
