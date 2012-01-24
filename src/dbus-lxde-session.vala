@@ -50,7 +50,7 @@ public class LxdeSessionServer : Object {
     public void ReloadSettingsDaemon()
     {
         message ("Restart Xsettings Deamon");
-        settings_daemon_reload();
+        global_sig.reload_settings_daemon();
     }
 
     public void WindowManager (string dbus_arg)

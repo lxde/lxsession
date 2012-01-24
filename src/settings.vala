@@ -514,6 +514,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keyboard_interval.connect(on_update_keyboard_interval);
         global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
 
+        global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
+
     }
 
 
@@ -767,6 +769,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         this.keyboard_beep = dbus_arg;
         kf.set_integer ("Keyboard", "Beep", this.keyboard_beep);
         save_keyfile();
+    }
+
+    public void on_reload_settings_daemon ()
+    {
+        message("Reloading XSettings daemon");
+        settings_daemon_reload(kf);
     }
 
 }
