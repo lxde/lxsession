@@ -110,374 +110,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             kf = load_keyfile (get_config_path (desktop_env_name_arg));
         }
 
-        // Windows manager
-        try
-        {
-            window_manager = kf.get_value ("Session", "window_manager");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Panel
-        try
-        {
-            panel_program = kf.get_value ("Session", "panel/program");
-            if (panel_program != null)
-            {
-                try
-                {
-                    panel_session = kf.get_value ("Session", "panel/session");
-                }
-                catch (KeyFileError err)
-                {
-	                message (err.message);
-                }
-            }
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Screensaver
-        try
-        {
-            screensaver_program = kf.get_value ("Session", "screensaver/program");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Power manager
-        try
-        {
-            power_manager_program = kf.get_value ("Session", "power-manager/program");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Filemanager
-        try
-        {
-            file_manager_program = kf.get_value ("Session", "file-manager/program");
-            if (file_manager_program != null)
-            {
-                try
-                {
-                    file_manager_session = kf.get_value ("Session", "file-manager/session");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-
-                try
-                {
-                    file_manager_extras = kf.get_value ("Session", "file-manager/extras");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Polkit Agent
-        try
-        {
-            polkit = kf.get_value("Session", "polkit");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Dbus
-        try
-        {
-            dbus_lxde = kf.get_value ("Dbus", "lxde");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            dbus_gnome = kf.get_value ("Dbus", "gnome");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Keymap options
-        try
-        {
-            keymap_mode = kf.get_value ("Keymap", "mode");
-            if (keymap_mode != null)
-            {
-                try
-                {
-                    keymap_model = kf.get_value ("Keymap", "model");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    keymap_layout = kf.get_value ("Keymap", "layout");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    keymap_variant = kf.get_value ("Keymap", "variant");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    keymap_options = kf.get_value ("Keymap", "options");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // XRandr options
-        try
-        {
-            xrandr_mode = kf.get_value ("XRandr", "mode");
-            if (xrandr_mode != null)
-            {
-                try
-                {
-                    xrandr_command = kf.get_value ("XRandr", "command");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Security (keyring)
-	    try
-        {
-            security_keyring = kf.get_value ("Security", "keyring");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // GTK
-	    try
-        {
-            gtk_theme_name = kf.get_value ("GTK", "sNet/ThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_icon_theme_name = kf.get_value ("GTK", "sNet/IconThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_font_name = kf.get_value ("GTK", "sGtk/FontName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_toolbar_style = kf.get_integer ("GTK", "iGtk/ToolbarStyle");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_button_images = kf.get_integer ("GTK", "iGtk/ButtonImages");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_menu_images = kf.get_integer ("GTK", "iGtk/MenuImages");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_cursor_theme_size = kf.get_integer ("GTK", "iGtk/CursorThemeSize");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_antialias = kf.get_integer ("GTK", "iXft/Antialias");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_hinting = kf.get_integer ("GTK", "iXft/Hinting");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_hint_style = kf.get_value ("GTK", "sXft/HintStyle");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_rgba = kf.get_value ("GTK", "sXft/RGBA");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_color_scheme = kf.get_value ("GTK", "sGtk/ColorScheme");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_cursor_theme_name = kf.get_value ("GTK", "sGtk/CursorThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_toolbar_icon_size = kf.get_integer ("GTK", "iGtk/ToolbarIconSize");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_enable_event_sounds = kf.get_integer ("GTK", "iNet/EnableEventSounds");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            gtk_enable_input_feedback_sounds = kf.get_integer ("GTK", "iNet/EnableInputFeedbackSounds");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Mouse
-	    try
-        {
-            mouse_acc_factor = kf.get_integer ("Mouse", "AccFactor");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            mouse_acc_threshold = kf.get_integer ("Mouse", "AccThreshold");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            mouse_left_handed = kf.get_integer ("Mouse", "LeftHanded");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Keyboard
-	    try
-        {
-            keyboard_delay = kf.get_integer ("Keyboard", "Delay");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            keyboard_interval = kf.get_integer ("Keyboard", "Interval");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            keyboard_beep = kf.get_integer ("Keyboard", "Beep");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
+        read_keyfile();
 
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
@@ -515,7 +148,378 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
+    }
 
+    public void read_keyfile()
+    {
+        // Windows manager
+        try
+        {
+            this.window_manager = kf.get_value ("Session", "window_manager");
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Panel
+        try
+        {
+            this.panel_program = kf.get_value ("Session", "panel/program");
+            if (this.panel_program != null)
+            {
+                try
+                {
+                    this.panel_session = kf.get_value ("Session", "panel/session");
+                }
+                catch (KeyFileError err)
+                {
+	                message (err.message);
+                }
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Screensaver
+        try
+        {
+            this.screensaver_program = kf.get_value ("Session", "screensaver/program");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Power manager
+        try
+        {
+            this.power_manager_program = kf.get_value ("Session", "power-manager/program");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Filemanager
+        try
+        {
+            this.file_manager_program = kf.get_value ("Session", "file-manager/program");
+            if (this.file_manager_program != null)
+            {
+                try
+                {
+                    this.file_manager_session = kf.get_value ("Session", "file-manager/session");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+
+                try
+                {
+                    this.file_manager_extras = kf.get_value ("Session", "file-manager/extras");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Polkit Agent
+        try
+        {
+            this.polkit = kf.get_value("Session", "polkit");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Dbus
+        try
+        {
+            this.dbus_lxde = kf.get_value ("Dbus", "lxde");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.dbus_gnome = kf.get_value ("Dbus", "gnome");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Keymap options
+        try
+        {
+            this.keymap_mode = kf.get_value ("Keymap", "mode");
+            if (this.keymap_mode != null)
+            {
+                try
+                {
+                    this.keymap_model = kf.get_value ("Keymap", "model");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    this.keymap_layout = kf.get_value ("Keymap", "layout");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    this.keymap_variant = kf.get_value ("Keymap", "variant");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+                try
+                {
+                    this.keymap_options = kf.get_value ("Keymap", "options");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // XRandr options
+        try
+        {
+            this.xrandr_mode = kf.get_value ("XRandr", "mode");
+            if (this.xrandr_mode != null)
+            {
+                try
+                {
+                    this.xrandr_command = kf.get_value ("XRandr", "command");
+                }
+                catch (KeyFileError err)
+                {
+		            message (err.message);
+                }
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Security (keyring)
+	    try
+        {
+            this.security_keyring = kf.get_value ("Security", "keyring");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // GTK
+	    try
+        {
+            this.gtk_theme_name = kf.get_value ("GTK", "sNet/ThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_icon_theme_name = kf.get_value ("GTK", "sNet/IconThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_font_name = kf.get_value ("GTK", "sGtk/FontName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_toolbar_style = kf.get_integer ("GTK", "iGtk/ToolbarStyle");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_button_images = kf.get_integer ("GTK", "iGtk/ButtonImages");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_menu_images = kf.get_integer ("GTK", "iGtk/MenuImages");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_cursor_theme_size = kf.get_integer ("GTK", "iGtk/CursorThemeSize");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_antialias = kf.get_integer ("GTK", "iXft/Antialias");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_hinting = kf.get_integer ("GTK", "iXft/Hinting");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_hint_style = kf.get_value ("GTK", "sXft/HintStyle");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_rgba = kf.get_value ("GTK", "sXft/RGBA");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_color_scheme = kf.get_value ("GTK", "sGtk/ColorScheme");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_cursor_theme_name = kf.get_value ("GTK", "sGtk/CursorThemeName");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_toolbar_icon_size = kf.get_integer ("GTK", "iGtk/ToolbarIconSize");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_enable_event_sounds = kf.get_integer ("GTK", "iNet/EnableEventSounds");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.gtk_enable_input_feedback_sounds = kf.get_integer ("GTK", "iNet/EnableInputFeedbackSounds");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Mouse
+	    try
+        {
+            this.mouse_acc_factor = kf.get_integer ("Mouse", "AccFactor");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.mouse_acc_threshold = kf.get_integer ("Mouse", "AccThreshold");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.mouse_left_handed = kf.get_integer ("Mouse", "LeftHanded");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Keyboard
+	    try
+        {
+            this.keyboard_delay = kf.get_integer ("Keyboard", "Delay");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.keyboard_interval = kf.get_integer ("Keyboard", "Interval");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.keyboard_beep = kf.get_integer ("Keyboard", "Beep");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
     }
 
 
