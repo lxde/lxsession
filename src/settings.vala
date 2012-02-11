@@ -89,6 +89,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     /* Settings locations */
     public KeyFile kf;
     public string desktop_config_path { get; set; default = null;}
+    public GLib.File desktop_file ;
+    public GLib.FileMonitor monitor_desktop_file;
 
     public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg, LxSignals sig) {
 
@@ -148,6 +150,29 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
+
+        /* Monitor desktop file */
+        setup_monitor_desktop_file();
+    }
+
+    public void setup_monitor_desktop_file()
+    {
+        try {
+            desktop_file = File.new_for_path(desktop_config_path);
+            monitor_desktop_file = desktop_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            monitor_desktop_file.changed.connect(on_desktop_file_change);
+            message ("Monitoring: %s",desktop_config_path);
+        } catch (GLib.Error err) {
+            message (err.message);
+        }
+    }
+
+    public void on_desktop_file_change ()
+    {
+        message("Desktop file change, reloading XSettings daemon");
+        read_keyfile();
+        settings_daemon_start(kf);
+        settings_daemon_reload(kf);
     }
 
     public void read_keyfile()
@@ -530,6 +555,19 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             FileUtils.set_contents (desktop_config_path, str, str.length);
         } catch (FileError err) {
             warning (err.message);
+            try {
+                /* Try to save on user config directory */
+                string user_config_dir = Path.build_filename(
+                         Environment.get_user_config_dir (),
+                         "lxsession",
+                         session_global,
+                         "desktop.conf");
+                FileUtils.set_contents (user_config_dir, str, str.length);
+                desktop_config_path = user_config_dir;
+                setup_monitor_desktop_file();
+            } catch (FileError err) {
+                warning (err.message);
+            }
         }
 
     }
