@@ -44,7 +44,7 @@ static XSettingsManager **managers = NULL;
 /* FORWARDS */
 gboolean settings_daemon_start(GKeyFile* kf);
 void settings_manager_selection_clear( XEvent* evt );
-void settings_daemon_reload();
+void settings_daemon_reload(GKeyFile* kf);
 /* End FORWARDS */
 
 static void terminate_cb (void *data)
