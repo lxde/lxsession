@@ -157,34 +157,36 @@ GPid run_app( const char* cmd, gboolean guarded )
     return pid;
 }
 
-static void load_default_apps( const char* filename )
+static gboolean load_default_apps( const char* filename )
 {
     char buf[1024];
     int len;
+    
     FILE* file = fopen( filename, "r" );
-    if( file )
+    if( !file )
+        return FALSE;
+    
+    while ( fgets( buf, sizeof(buf) - 2, file ) )
     {
-        while ( fgets( buf, sizeof(buf) - 2, file ) )
+        if ( buf[0] == '\0' || buf[0] == '\n' || buf[0] == '#' )
+            continue;  /* a comment */
+        len = strlen ( buf );
+        if( buf[ len - 1 ] == '\n' ) /* remove the '\n' at the end of line */
         {
-            if ( buf[0] == '\0' || buf[0] == '\n' || buf[0] == '#' )
-                continue;  /* a comment */
-            len = strlen ( buf );
-            if( buf[ len - 1 ] == '\n' ) /* remove the '\n' at the end of line */
-            {
-                --len;
-                buf[ len ] = '\0';
-            }
-            switch(buf[0])
-            {
-            case '@': /* if the app should be restarted on crash */
-                run_app( buf + 1, TRUE );
-                break;
-            default: /* just run the program */
-                run_app( buf, FALSE );
-            }
+            --len;
+            buf[ len ] = '\0';
         }
-        fclose( file );
+        switch(buf[0])
+        {
+        case '@': /* if the app should be restarted on crash */
+            run_app( buf + 1, TRUE );
+            break;
+        default: /* just run the program */
+            run_app( buf, FALSE );
+        }
     }
+    fclose( file );
+    return TRUE;
 }
 
 /*
@@ -197,20 +199,28 @@ void start_session()
     const gchar* const *dir;
     char* filename;
 
-    /* run window manager first */
+    /* run window manager first from system wide default config */
     if( G_LIKELY( window_manager ) )
         run_app( window_manager, TRUE );
 
-    if( G_UNLIKELY( !no_autostart ) )
+    if( G_UNLIKELY( no_autostart ) )
+        return;
 
-    {
     /* load system-wide default apps */
     for( dir = dirs; *dir; ++dir )
     {
         filename = g_build_filename( *dir, prog_name, session_name, autostart_filename, NULL );
-        load_default_apps( filename );
+        
+        /*  g_get_system_config_dirs() may return several directories,
+            so ensures that we don't run processes twice. */
+        if( load_default_apps( filename ) )
+        {
+            g_free( filename );
+            break;
+        }
         g_free( filename );
     }
+    
     /* load user-specific default apps */
     filename = g_build_filename( g_get_user_config_dir(), prog_name, session_name, autostart_filename, NULL );
     load_default_apps( filename );
@@ -219,7 +229,6 @@ void start_session()
     /* Support autostart spec of freedesktop.org if not disable*/
     xdg_autostart( session_name );
 
-    }
 }
 
 static void parse_options(int argc, char** argv)
