@@ -2,15 +2,17 @@ NULL=
 
 bin_PROGRAMS = lxsession
 
-lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) \
+lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) $(GTK_CFLAGS)\
 				$(ADDITIONAL_FLAGS) \
 				-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 				-Werror-implicit-function-declaration
 				$(NULL)
 
-lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS)
+lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS) $(GTK_LIBS) 
 
 lxsession_SOURCES = \
+	clipboard.c \
+	clipboard.h \
 	lxsession.c \
 	lxsession.h \
 	xdg-autostart.c \

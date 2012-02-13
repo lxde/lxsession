@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include <glib.h>
+#include <gtk/gtk.h>
 
 #include <unistd.h>
 #include <signal.h>
@@ -39,6 +40,7 @@
 #include "xevent.h"
 #include "settings-daemon.h"
 #include "xdg-autostart.h"
+#include "clipboard.h"
 
 
 static gboolean no_settings = FALSE; /* disable settings daemon */
@@ -274,6 +276,9 @@ int main(int argc, char** argv)
     const char *pid_str;
     char str[ 16 ];
 	GKeyFile* kf;
+    GObject *clipboard_daemon = NULL;
+
+    gtk_init (&argc, &argv);
 
     pid_str = g_getenv(pid_env);
 
@@ -335,6 +340,18 @@ int main(int argc, char** argv)
     if( G_LIKELY(!no_settings) )
         start_settings_daemon(kf);
 
+    if (g_getenv ("XFSETTINGSD_NO_CLIPBOARD") == NULL)
+    {
+        clipboard_daemon = g_object_new (GSD_TYPE_CLIPBOARD_MANAGER, NULL);
+        if (!gsd_clipboard_manager_start (GSD_CLIPBOARD_MANAGER (clipboard_daemon), FALSE))
+        {
+            g_object_unref (G_OBJECT (clipboard_daemon));
+            clipboard_daemon = NULL;
+
+            g_printerr ("Another clipboard manager is already running.");
+        }
+    }
+
 	g_key_file_free(kf);
 
     /* start desktop session and load autostart applications */
@@ -342,6 +359,12 @@ int main(int argc, char** argv)
 
     g_main_loop_run( main_loop );
     g_main_loop_unref( main_loop );
+
+    if (G_LIKELY (clipboard_daemon != NULL))
+    {
+        gsd_clipboard_manager_stop (GSD_CLIPBOARD_MANAGER (clipboard_daemon));
+        g_object_unref (G_OBJECT (clipboard_daemon));
+    }
 
 	xevent_finalize();
 
