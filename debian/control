@@ -48,3 +48,12 @@ Description: a lightweight X11 session manager
  .
  LXSession has also a built-in lightweight Xsettings daemon, which can 
  configure GTK+ themes, keyboard, and mouse for you on session startup.
+
+Package: lxsession-dbg
+Architecture: any
+Section: debug
+Depends: lxsession (= ${binary:Version}),,
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: a lightweight X11 session manager - debug package
+ This package provide debug symbols for lxsession.
