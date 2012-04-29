@@ -14,3 +14,6 @@ override_dh_auto_clean:
 
 override_dh_auto_test:
 	true
+
+override_dh_strip:
+	dh_strip --dbg-package=lxsession-dbg

@@ -8,17 +8,19 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2008-03-01 21:09+0800\n"
-"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
+"PO-Revision-Date: 2012-04-16 06:24+0200\n"
+"Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "顯示在對話框上的自訂訊息"
+msgstr "顯示在對話框的自訂訊息"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -26,7 +28,7 @@ msgstr "訊息"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "顯示在對話框上的圖片"
+msgstr "顯示在對話框的圖片"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
