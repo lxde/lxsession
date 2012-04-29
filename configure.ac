@@ -121,10 +121,11 @@ AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
 AC_OUTPUT([
   Makefile
-  lxsession/Makefile
+  lxclipboard/Makefile
   lxsession-logout/Makefile
-  po/Makefile.in
   man/Makefile
+  po/Makefile.in
+  src/Makefile
 ])
 
 echo

@@ -140,5 +140,17 @@ namespace Lxsession
             }
         }
     }
-
+    public class ClipboardOption: Option
+    {
+        public ClipboardOption (LxsessionConfig config)
+        {
+            base (config);
+            switch (config.clipboard_command)
+            {
+                case "lxclipboard":
+                    command = "lxclipboard";
+                    break;
+            }
+        }
+    }
 }

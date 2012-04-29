@@ -2,7 +2,8 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 NULL=
 
-SUBDIRS= lxsession-logout \
+SUBDIRS= lxclipboard \
+         lxsession-logout \
          man \
          po \
          src

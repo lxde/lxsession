@@ -36,6 +36,9 @@ public class LxsessionConfig: GLib.Object {
     public string file_manager_extras { get; set; default = null;}
     public string polkit { get; set; default = null;}
 
+    /* Clipboard */
+    public string clipboard_command { get; set; default = null;}
+
     /* Dbus */
     public string dbus_lxde { get; set; default = "true";}
     public string dbus_gnome { get; set; default = null;}
@@ -251,6 +254,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.polkit = kf.get_value("Session", "polkit");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Clipboard
+        try
+        {
+            this.clipboard_command = kf.get_value("Session", "clipboard");
         }
         catch (KeyFileError err)
         {
