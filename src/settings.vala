@@ -97,20 +97,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         kf = new KeyFile();
 
         desktop_config_path = get_config_path("desktop.conf");
-
-        if (session_arg != "dummy")
-        {
-            this.session_name = session_arg;
-            this.desktop_env_name = desktop_env_name_arg;
-            kf = load_keyfile (get_config_path ("desktop.conf"));
-        }
-        else
-        {
-            message ("dummy mode");
-            this.session_name = session_arg;
-            this.desktop_env_name = desktop_env_name_arg;
-            kf = load_keyfile (get_config_path (desktop_env_name_arg));
-        }
+        this.session_name = session_arg;
+        this.desktop_env_name = desktop_env_name_arg;
 
         read_keyfile();
 
@@ -169,14 +157,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     public void on_desktop_file_change ()
     {
-        message("Desktop file change, reloading XSettings daemon");
         read_keyfile();
-        settings_daemon_start(kf);
+        message("Desktop file change, reloading XSettings daemon");
         settings_daemon_reload(kf);
     }
 
     public void read_keyfile()
     {
+        kf = load_keyfile (get_config_path ("desktop.conf"));
+
         // Windows manager
         try
         {
