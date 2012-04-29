@@ -1,4 +1,5 @@
 noinst_DATA = \
+	clipboard.vapi \
 	settings-daemon.vapi \
 	xdg-autostart.vapi
 

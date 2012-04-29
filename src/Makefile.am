@@ -11,6 +11,7 @@ lxsession_SOURCES = \
     options.vala \
     settings.vala \
     utils.vala \
+    clipboard.c \
     settings-daemon.c \
     xdg-autostart.c \
     xevent.c \
@@ -21,15 +22,18 @@ lxsession_SOURCES = \
 
 lxsession_VALAFLAGS = \
 	--vapidir=$(srcdir)/../vapi \
+	--pkg gtk+-2.0 \
 	--pkg dbus-glib-1 \
 	--pkg gio-2.0 \
 	--pkg gee-1.0 \
 	--pkg posix \
 	--pkg settings-daemon \
 	--pkg xdg-autostart \
+	--pkg clipboard \
 	$(NULL)
 
 lxsession_CFLAGS = \
+	$(GTK_CFLAGS) \
 	$(GLIB_CFLAGS) \
 	$(GIO_CFLAGS) \
 	$(GEE_CFLAGS) \
@@ -39,6 +43,7 @@ lxsession_CFLAGS = \
 	$(NULL)
 
 lxsession_LDADD = \
+	$(GTK_LIBS) \
 	$(GLIB_LIBS) \
 	$(GIO_LIBS) \
 	$(GEE_LIBS) \
@@ -47,6 +52,7 @@ lxsession_LDADD = \
 	$(NULL)
 
 EXTRA_DIST = \
+    clipboard.h \
     settings-daemon.h \
     xdg-autostart.h \
     xevent.h \
