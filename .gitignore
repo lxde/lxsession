@@ -19,6 +19,12 @@ config.log
 config.status
 config.sub
 libtool
+lxclipboard/.deps/
+lxclipboard/Makefile
+lxclipboard/lxclipboard
+lxclipboard/lxclipboard_vala.stamp
+lxclipboard/main.c
+lxclipboard/*.o
 lxsession-logout/.deps/
 lxsession-logout/Makefile
 lxsession-logout/lxsession-logout
@@ -55,3 +61,7 @@ debian/files
 debian/lxsession.debhelper.log
 debian/lxsession.substvars
 debian/lxsession/
+debian/lxsession-dbg.debhelper.log
+debian/lxsession-dbg.substvars
+debian/lxsession-dbg/
+debian/tmp/
