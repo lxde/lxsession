@@ -96,7 +96,7 @@ static Atom XA_SAVE_TARGETS = None;
 static Atom XA_TARGETS = None;
 static Atom XA_TIMESTAMP = None;
 
-
+static GObject *clipboard_daemon = NULL;
 
 G_DEFINE_TYPE (GsdClipboardManager, gsd_clipboard_manager, G_TYPE_OBJECT)
 
@@ -1041,4 +1041,30 @@ gsd_clipboard_manager_stop (GsdClipboardManager *manager)
                 g_slist_free (manager->priv->contents);
                 manager->priv->contents = NULL;
         }
+}
+
+void clipboard_start ()
+{
+        //gtk_init (&argc, &argv);
+        if (g_getenv ("XFSETTINGSD_NO_CLIPBOARD") == NULL)
+        {
+                clipboard_daemon = g_object_new (GSD_TYPE_CLIPBOARD_MANAGER, NULL);
+                if (!gsd_clipboard_manager_start (GSD_CLIPBOARD_MANAGER (clipboard_daemon), FALSE))
+                {
+                        g_object_unref (G_OBJECT (clipboard_daemon));
+                        clipboard_daemon = NULL;
+
+                        g_printerr ("Another clipboard manager is already running.");
+                }
+        }
+}
+
+void clipboard_stop ()
+{
+        if (G_LIKELY (clipboard_daemon != NULL))
+        {
+                gsd_clipboard_manager_stop (GSD_CLIPBOARD_MANAGER (clipboard_daemon));
+                g_object_unref (G_OBJECT (clipboard_daemon));
+        }
+
 }

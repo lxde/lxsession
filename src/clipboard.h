@@ -54,6 +54,10 @@ gboolean gsd_clipboard_manager_start (GsdClipboardManager *manager,
 
 void     gsd_clipboard_manager_stop  (GsdClipboardManager *manager);
 
+void     clipboard_start ();
+
+void     clipboard_stop ();
+
 G_END_DECLS
 
 #endif /* __GSD_CLIPBOARD_MANAGER_H */

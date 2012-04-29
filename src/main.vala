@@ -18,12 +18,13 @@
  */
 using Posix;
 using Intl;
+using Gtk;
 
 namespace Lxsession {
 
     LxSignals global_sig;
 
-    public class Main: Object{
+    public class Main: GLib.Object{
 
         static string session = "LXDE";
         static string desktop_environnement = "LXDE";
@@ -126,7 +127,10 @@ namespace Lxsession {
         var windowmanager = new WindowManagerApp(config.window_manager);
         windowmanager.launch();
 
-
+        /* Launching the clipboard manager */
+        /* TODO make it an option with alternative clipboard manager */
+        Gtk.init (ref args);
+        clipboard_start ();
 
         /* Autostart if not disable by command line */
         if (autostart == false)
@@ -213,6 +217,9 @@ namespace Lxsession {
 
         /* start main loop */
         new MainLoop().run();
+
+        /* Stop clipboard */
+        clipboard_stop ();
 
         return 0;
     }
