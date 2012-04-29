@@ -18,7 +18,6 @@
  */
 using Posix;
 using Intl;
-using Gtk;
 
 namespace Lxsession {
 
@@ -127,11 +126,6 @@ namespace Lxsession {
         var windowmanager = new WindowManagerApp(config.window_manager);
         windowmanager.launch();
 
-        /* Launching the clipboard manager */
-        /* TODO make it an option with alternative clipboard manager */
-        Gtk.init (ref args);
-        clipboard_start ();
-
         /* Autostart if not disable by command line */
         if (autostart == false)
         {
@@ -176,6 +170,13 @@ namespace Lxsession {
         }
 
         /* Options */
+        if (config.clipboard_command != null)
+        {
+            message("Create Option Clipboard");
+            var clipboard = new ClipboardOption(config);
+            clipboard.activate();
+        }
+
         message ("Check keymap_mode %s", config.keymap_mode);
         if (config.keymap_mode != null)
         {
@@ -217,9 +218,6 @@ namespace Lxsession {
 
         /* start main loop */
         new MainLoop().run();
-
-        /* Stop clipboard */
-        clipboard_stop ();
 
         return 0;
     }
