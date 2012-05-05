@@ -277,7 +277,15 @@ public class PowermanagerApp: SimpleAppObject {
         switch (powermanager_command) 
         {
             case "auto":
-                /* TODO use laptop-detect */
+                /* If we are on a laptop, we need a power manager, try to start xfce one */
+                /* If we are not on a laptop, assume we don't need power management */
+                if (detect_laptop)
+                {
+                    string create_command = "xfce-power-management";
+                    this.name = "xfce-power-management";
+                    this.command = create_command.split_set(" ",0);
+                }
+
                 break;
             case "no":
                 this.name = "power_manager_off";
@@ -350,6 +358,46 @@ public class PolkitApp: SimpleAppObject {
         }
         this.guard = true;
 
+    }
+}
+
+public class NetworkGuiApp: SimpleAppObject
+{
+    public NetworkGuiApp (string network_command)
+    {
+        base(network_command);
+        switch (network_command)
+        {
+            case "no":
+                /* Don't start anything */
+                break;
+            case "auto":
+                /* If we are on a laptop, assume we need a GUI, and try to find one, starting with nm-applet */
+                /* If you are not on a laptop, assume we don't need any GUI */
+                if (detect_laptop)
+                {
+                     if (Environment.find_program_in_path("nm-applet"))
+                     {
+                         this.name = "nm-applet";
+                         string create_command = "nm-applet";
+                         this.command = create_command.split_set(" ",0);
+                         break;
+                     }
+                     else if (Environment.find_program_in_path("wicd"))
+                     {
+                         this.name = "wicd";
+                         string create_command = "wicd";
+                         this.command = create_command.split_set(" ",0);
+                         break;
+                     }
+                 }
+            default:
+                string[] create_command = network_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+        this.guard = true;
     }
 }
 

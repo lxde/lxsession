@@ -35,6 +35,7 @@ public class LxsessionConfig: GLib.Object {
     public string file_manager_session { get; set; default = null;}
     public string file_manager_extras { get; set; default = null;}
     public string polkit { get; set; default = null;}
+    public string network_gui { get; set; default = null;}
 
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
@@ -254,6 +255,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.polkit = kf.get_value("Session", "polkit");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Network GUI
+        try
+        {
+            this.network_gui = kf.get_value("Session", "network_gui");
         }
         catch (KeyFileError err)
         {

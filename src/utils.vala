@@ -121,4 +121,9 @@ public class LxSignals : Object
 
 }
 
+public boolean laptop_detect():
+{
+    /* TODO check upower to find bateries, and use laptop-detect */
+}
+
 }

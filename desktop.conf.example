@@ -9,6 +9,7 @@ file-manager/program=pcmanfm
 file-manager/session=LXDE
 file-manager/extras=
 polkit=gnome
+network_gui=
 clipboard=lxclipboard
 
 [Dbus]
