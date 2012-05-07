@@ -9,9 +9,9 @@ SUBDIRS= data \
          lxsession-edit \
          lxsession-logout \
          lxsettings-daemon \
+         lxsession \
          man \
          po \
-         src \
          xdg-autostart
 
 

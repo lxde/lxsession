@@ -1,30 +1,53 @@
-NULL=
-
 bin_PROGRAMS = lxsession
 
-lxsession_CFLAGS = $(GLIB_CFLAGS) $(X11_CFLAGS) $(GTK_CFLAGS)\
-				$(ADDITIONAL_FLAGS) \
-				-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-				-Werror-implicit-function-declaration
-				$(NULL)
-
-lxsession_LDADD = $(GLIB_LIBS) $(X11_LIBS) $(GTK_LIBS) 
-
 lxsession_SOURCES = \
-	clipboard.c \
-	clipboard.h \
-	lxsession.c \
-	lxsession.h \
-	xdg-autostart.c \
-	xdg-autostart.h \
-	xevent.c \
-	xevent.h \
-	settings-daemon.c \
-	settings-daemon.h \
-	xsettings-common.h \
-	xsettings-common.c \
-	xsettings-manager.h \
-	xsettings-manager.c \
-	xutils.h \
-	xutils.c \
+    main.vala \
+    app.vala \
+    autostart.vala \
+    dbus-common.vala \
+    dbus-gnome-session.vala \
+    dbus-lxde-session.vala \
+    environement.vala \
+    options.vala \
+    settings.vala \
+    utils.vala \
+    $(NULL)
+
+lxsession_VALAFLAGS = \
+	--vapidir=$(srcdir)/../vapi \
+	--pkg dbus-glib-1 \
+	--pkg gio-2.0 \
+	--pkg gee-1.0 \
+	--pkg posix \
+	--pkg settings-daemon \
+	--pkg xdg-autostart \
 	$(NULL)
+
+lxsession_CFLAGS = \
+	$(GLIB_CFLAGS) \
+	$(GIO_CFLAGS) \
+	$(GEE_CFLAGS) \
+	$(DBUSGLIB_CFLAGS) \
+	$(ADDITIONAL_FLAGS) \
+	-include config.h -w \
+	$(NULL)
+
+lxsession_LDADD = \
+	$(GLIB_LIBS) \
+	$(GIO_LIBS) \
+	$(GEE_LIBS) \
+	$(DBUSGLIB_LIBS) \
+	$(X11_LIBS) \
+	$(NULL)
+
+CLEAN = \
+    main.c \
+    app.c \
+    autostart.c \
+    dbus-common.c \
+    dbus-gnome-session.c \
+    dbus-lxde-session.c \
+    environement.c \
+    options.c \
+    settings.c \
+    utils.c
