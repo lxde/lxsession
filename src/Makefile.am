@@ -11,12 +11,6 @@ lxsession_SOURCES = \
     options.vala \
     settings.vala \
     utils.vala \
-    settings-daemon.c \
-    xdg-autostart.c \
-    xevent.c \
-    xsettings-common.c \
-    xsettings-manager.c \
-    xutils.c \
     $(NULL)
 
 lxsession_VALAFLAGS = \
@@ -46,22 +40,14 @@ lxsession_LDADD = \
 	$(X11_LIBS) \
 	$(NULL)
 
-EXTRA_DIST = \
-    settings-daemon.h \
-    xdg-autostart.h \
-    xevent.h \
-    xsettings-common.h \
-    xsettings-manager.h \
-    xutils.h
-
 CLEAN = \
     main.c \
-    settings.c \
-    utils.c \
     app.c \
     autostart.c \
     dbus-common.c \
     dbus-gnome-session.c \
     dbus-lxde-session.c \
     environement.c \
-    options.c
+    options.c \
+    settings.c \
+    utils.c
