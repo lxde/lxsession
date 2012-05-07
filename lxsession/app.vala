@@ -17,6 +17,14 @@
  *      MA 02110-1301, USA.
 
 TODO
+   sound_manager
+   quit_manager
+   workspace_manager
+   launcher_manager
+
+   terminal by default
+   packagekit handler (GUI and stuff) ?
+
    Use wnck for managing launching applications ?
 */
 

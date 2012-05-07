@@ -33,7 +33,6 @@
 #include <string.h>
 #include <locale.h>
 
-#include "lxsession.h"
 #include "xevent.h"
 #include "xsettings-manager.h"
 #include "xutils.h"
@@ -43,7 +42,7 @@
 static XSettingsManager **managers = NULL;
 
 /* FORWARDS */
-gboolean start_settings_daemon(GKeyFile* kf);
+gboolean settings_daemon_start(GKeyFile* kf);
 void settings_manager_selection_clear( XEvent* evt );
 void settings_daemon_reload(GKeyFile* kf);
 /* End FORWARDS */
@@ -279,8 +278,12 @@ static gboolean create_xsettings_managers()
 	return TRUE;
 }
 
-gboolean start_settings_daemon(GKeyFile* kf)
+gboolean settings_daemon_start(GKeyFile* kf)
 {
+       /* initialize X-related stuff and connect to X Display */
+       if( G_UNLIKELY(! xevent_init() ) )
+          return FALSE;
+
 	if( ! create_xsettings_managers() )
 		return FALSE;
 
@@ -305,9 +308,8 @@ void settings_manager_selection_clear( XEvent* evt )
 	}
 }
 
-void settings_deamon_reload()
+void settings_daemon_reload(GKeyFile* kf)
 {
-	GKeyFile* kf = load_session_config(CONFIG_FILE_NAME);
 	if(kf)
 	{
 		load_settings(kf);

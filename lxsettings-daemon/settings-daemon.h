@@ -1,7 +1,7 @@
 /*
- *      options.h
+ *      settings-daemon.h - LXDE settings daemon
  *
- *      Copyright 2011 Julien Lavergne <gilir@ubuntu.com>
+ *      Copyright 2009 PCMan <pcman.tw@gmail.com>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by
@@ -19,10 +19,17 @@
  *      MA 02110-1301, USA.
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
+#ifndef __SETTINGS_DAEMON_H__
+#define __SETTINGS_DAEMON_H__
+
+#include <glib.h>
+#include <X11/Xlib.h>
+
+gboolean settings_daemon_start(GKeyFile* kf);
+
+void settings_daemon_reload(GKeyFile* kf);
+
+/* called by x11_event_dispatch() */
+void settings_manager_selection_clear( XEvent* evt );
+
 #endif
-
-void options_command_keymap(GKeyFile* kf);
-
-void options_command_xrandr(GKeyFile* kf);
