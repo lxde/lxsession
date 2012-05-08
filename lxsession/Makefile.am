@@ -19,7 +19,7 @@ lxsession_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg gee-1.0 \
 	--pkg posix \
-	--pkg settings-daemon \
+	--pkg lxsettings-daemon \
 	--pkg xdg-autostart \
 	$(NULL)
 
