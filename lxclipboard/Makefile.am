@@ -8,7 +8,7 @@ lxclipboard_SOURCES = \
 lxclipboard_VALAFLAGS = \
 	--vapidir=$(srcdir)/../vapi \
 	--pkg gtk+-2.0 \
-	--pkg clipboard \
+	--pkg lxclipboard \
 	$(NULL)
 
 lxclipboard_CFLAGS = \
