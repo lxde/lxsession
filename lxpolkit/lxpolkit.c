@@ -29,7 +29,6 @@
 #include <unistd.h>
 
 #include "lxpolkit-listener.h"
-#include "../lxsession.h"
 
 static PolkitAgentListener *listener;
 static PolkitSubject* session;
