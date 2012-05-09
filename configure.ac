@@ -112,11 +112,19 @@ AC_ARG_ENABLE(
 
 if test x"$use_buildin_clipboard" = x"yes"; then
     AC_SUBST(BUILDIN_CLIPBOARD, ["-D BUILDIN_CLIPBOARD"])
-    PKG_CHECK_MODULES(CLIP, [$gtk_modules])
-    AC_SUBST(CLIP_CFLAGS)
-    AC_SUBST(CLIP_LIBS)
 fi
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
+
+AC_ARG_ENABLE(
+    [buildin-polkit],
+    AS_HELP_STRING([--enable-buildin-polkit],
+                   [Build with build-in polkit-agent support (default: no)]),
+    use_buildin_polkit=$enableval, use_buildin_polkit="no")
+
+if test x"$use_buildin_polkit" = x"yes"; then
+    AC_SUBST(BUILDIN_POLKIT,["-D BUILDIN_POLKIT"])
+fi
+AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 
 AM_PROG_VALAC([0.14.0])
 if test "x$VALAC" = "x"; then
@@ -190,6 +198,7 @@ echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
 echo Cliboard build-in suport..................... : $use_buildin_clipboard
+echo Polkit-agent build-in suport................. : $use_buildin_polkit
 echo Enable GTK3 support.......................... : $enable_gtk3
 echo Enable debug................................. : $enable_debug
 echo Man pages generation support................. : $enable_man

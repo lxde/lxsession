@@ -158,8 +158,12 @@ namespace Lxsession {
 
             if (config.polkit != null)
             {
+#if BUILDIN_POLKIT
+                policykit_agent_init();
+#else
                 var securitypolkit = new PolkitApp(config.polkit);
                 securitypolkit.launch();
+#endif
             }
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
@@ -225,6 +229,10 @@ namespace Lxsession {
 
 #if BUILDIN_CLIPBOARD
             clipboard_stop ();
+#endif
+
+#if BUILDIN_POLKIT
+            policykit_agent_finalize();
 #endif
 
 

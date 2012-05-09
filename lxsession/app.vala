@@ -360,8 +360,10 @@ public class PolkitApp: SimpleAppObject {
                 string create_command = "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1";
                 this.command = create_command.split_set(" ",0);
                 break;
-            case "build-in":
-                /* TODO Port the build-in polkit agent */
+            case "lxpolkit":
+                this.name = "lxpolkit";
+                string create_command = "lxpolkit";
+                this.command = create_command.split_set(" ",0);
                 break;
         }
         this.guard = true;
