@@ -4,6 +4,39 @@ if USE_BUILDIN_CLIPBOARD
 buildinclip_SOURCES = \
     ../lxclipboard/clipboard.c \
     $(NULL)
+
+buildinclip_VALAFLAGS = \
+    --pkg lxclipboard \
+    $(NULL)
+
+buildinclip_CFLAGS = \
+    $(GTK_CFLAGS) \
+    $(NULL)
+
+buildinclip_LDADD = \
+    $(GTK_LIBS) \
+    $(NULL)
+endif
+
+if USE_BUILDIN_POLKIT
+buildinpolkit_SOURCES = \
+    ../lxpolkit/lxpolkit.c \
+    ../lxpolkit/lxpolkit-listener.c \
+    $(NULL)
+
+buildinpolkit_VALAFLAGS = \
+    --pkg lxpolkit \
+    $(NULL)
+
+buildinpolkit_CFLAGS = \
+    $(GTK_CFLAGS) \
+    $(POLKIT_CFLAGS) \
+    $(NULL)
+
+buildinpolkit_LDADD = \
+    $(GTK_LIBS) \
+    $(POLKIT_LIBS) \
+    $(NULL)
 endif
 
 lxsession_SOURCES = \
@@ -24,6 +57,7 @@ lxsession_SOURCES = \
     ../lxsettings-daemon/xutils.c \
     ../xdg-autostart/xdg-autostart.c \
     $(buildinclip_SOURCES) \
+    $(buildinpolkit_SOURCES) \
     $(NULL)
 
 lxsession_VALAFLAGS = \
@@ -34,9 +68,14 @@ lxsession_VALAFLAGS = \
 	--pkg posix \
 	--pkg lxsettings-daemon \
 	--pkg xdg-autostart \
+	$(buildinclip_VALAFLAGS) \
+	$(buildinpolkit_VALAFLAGS) \
 	$(NULL)
 
 lxsession_CFLAGS = \
+        -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+        -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
+        -DPACKAGE_UI_DIR="\"$(datadir)/lxsession/ui"\" \
 	-I$(srcdir)/lxsettings-daemon \
 	-I$(srcdir)/xdg-autostart \
 	$(GLIB_CFLAGS) \
@@ -44,7 +83,8 @@ lxsession_CFLAGS = \
 	$(GEE_CFLAGS) \
 	$(DBUSGLIB_CFLAGS) \
 	$(ADDITIONAL_FLAGS) \
-	$(CLIP_CFLAGS) \
+	$(buildinclip_CFLAGS) \
+	$(buildinpolkit_CFLAGS) \
 	-include config.h -w \
 	$(NULL)
 
@@ -54,7 +94,8 @@ lxsession_LDADD = \
 	$(GEE_LIBS) \
 	$(DBUSGLIB_LIBS) \
 	$(X11_LIBS) \
-	$(CLIP_LIBS) \
+	$(buildinclip_LDADD) \
+	$(buildinpolkit_LDADD) \
 	$(NULL)
 
 CLEANFILES = \
