@@ -11,6 +11,12 @@ lxsession_SOURCES = \
     options.vala \
     settings.vala \
     utils.vala \
+    ../lxsettings-daemon/settings-daemon.c \
+    ../lxsettings-daemon/xevent.c \
+    ../lxsettings-daemon/xsettings-common.c \
+    ../lxsettings-daemon/xsettings-manager.c \
+    ../lxsettings-daemon/xutils.c \
+    ../xdg-autostart/xdg-autostart.c \
     $(NULL)
 
 lxsession_VALAFLAGS = \
@@ -24,6 +30,8 @@ lxsession_VALAFLAGS = \
 	$(NULL)
 
 lxsession_CFLAGS = \
+	-I$(srcdir)/lxsettings-daemon \
+	-I$(srcdir)/xdg-autostart \
 	$(GLIB_CFLAGS) \
 	$(GIO_CFLAGS) \
 	$(GEE_CFLAGS) \
@@ -40,7 +48,7 @@ lxsession_LDADD = \
 	$(X11_LIBS) \
 	$(NULL)
 
-CLEAN = \
+CLEANFILES = \
     main.c \
     app.c \
     autostart.c \
