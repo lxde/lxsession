@@ -42,13 +42,10 @@ if test x"$enable_more_warnings" = x"yes"; then
 fi
 AC_SUBST(ADDITIONAL_FLAGS)
 
-AC_ARG_ENABLE(gtk3,
-AC_HELP_STRING([--enable-gtk3],[enable to use gtk-3.0 instead of gtk-2.0]),
-[case "${enableval}" in
-  yes)  enable_gtk3=yes ;;
-  no)   enable_gtk3=no ;;
-  *) AC_MSG_ERROR([bad value "${enableval}" for --enable-gtk3, use "yes" (default) or "no".]) ;;
-esac],[])
+AC_ARG_ENABLE([gtk3],
+    AS_HELP_STRING([--enable-gtk3],
+                   [enable to use gtk-3.0 instead of gtk-2.0]),
+    enable_gtk3=$enableval, enable_gtk3="no")
 
 if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -DENABLE_GTK3"
@@ -79,6 +76,11 @@ AC_SUBST(GEE_LIBS)
 PKG_CHECK_MODULES(DBUSGLIB, [dbus-glib-1])
 AC_SUBST(DBUSGLIB_CFLAGS)
 AC_SUBST(DBUSGLIB_LIBS)
+
+polkit_modules="polkit-agent-1"
+PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
+AC_SUBST(POLKIT_CFLAGS)
+AC_SUBST(POLKIT_LIBS)
 
 
 AC_ARG_ENABLE(
@@ -121,6 +123,20 @@ if test "x$VALAC" = "x"; then
 	AC_MSG_ERROR([You need Vala compiler])
 fi
 
+# debug flags
+AC_ARG_ENABLE(debug,
+    [AC_HELP_STRING([--enable-debug],
+        [build libfm with debug support @<:@default=no@:>@])],
+    [enable_debug="${enableval}"],
+    [enable_debug=no]
+)
+if test "$enable_debug" = "yes"; then
+    # turn on debug and disable optimization
+    CPPFLAGS="$CPPFLAGS -DG_ENABLE_DEBUG -O0 -g"
+else
+    # turn off glib debug checks
+    CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
+fi
 
 # Generate po/LINGUAS on the fly rather than relying on translators
 # to maintain it manually. This also overcome the problem that Transifex
@@ -174,6 +190,8 @@ echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
 echo Cliboard build-in suport..................... : $use_buildin_clipboard
+echo Enable GTK3 support.......................... : $enable_gtk3
+echo Enable debug................................. : $enable_debug
 echo Man pages generation support................. : $enable_man
 echo
 echo The binary will be installed in $prefix/bin
