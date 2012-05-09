@@ -21,12 +21,10 @@ config.sub
 data/lxsession-edit.desktop
 libtool
 lxclipboard/lxclipboard
-lxclipboard/lxclipboard_vala.stamp
 lxclipboard/main.c
 lxsession-logout/lxsession-logout
 lxsession/lxsession
 lxsession/*.c
-lxsession/lxsession_vala.stamp
 lxsession/lxsession
 lxsession-edit/lxsession-edit
 man/Makefile
@@ -41,6 +39,7 @@ Makefile
 */*/Makefile
 */.deps/
 */*.o
+*/*_vala.stamp
 debian/files
 debian/lxsession.debhelper.log
 debian/lxsession.substvars
