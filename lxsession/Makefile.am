@@ -1,5 +1,11 @@
 bin_PROGRAMS = lxsession
 
+if USE_BUILDIN_CLIPBOARD
+buildinclip_SOURCES = \
+    ../lxclipboard/clipboard.c \
+    $(NULL)
+endif
+
 lxsession_SOURCES = \
     main.vala \
     app.vala \
@@ -17,6 +23,7 @@ lxsession_SOURCES = \
     ../lxsettings-daemon/xsettings-manager.c \
     ../lxsettings-daemon/xutils.c \
     ../xdg-autostart/xdg-autostart.c \
+    $(buildinclip_SOURCES) \
     $(NULL)
 
 lxsession_VALAFLAGS = \
@@ -37,6 +44,7 @@ lxsession_CFLAGS = \
 	$(GEE_CFLAGS) \
 	$(DBUSGLIB_CFLAGS) \
 	$(ADDITIONAL_FLAGS) \
+	$(CLIP_CFLAGS) \
 	-include config.h -w \
 	$(NULL)
 
@@ -46,6 +54,7 @@ lxsession_LDADD = \
 	$(GEE_LIBS) \
 	$(DBUSGLIB_LIBS) \
 	$(X11_LIBS) \
+	$(CLIP_LIBS) \
 	$(NULL)
 
 CLEANFILES = \

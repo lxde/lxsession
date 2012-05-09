@@ -173,8 +173,12 @@ namespace Lxsession {
         if (config.clipboard_command != null)
         {
             message("Create Option Clipboard");
+#if BUILDIN_CLIPBOARD
+            clipboard_start ();
+#else
             var clipboard = new ClipboardOption(config);
             clipboard.activate();
+#endif
         }
 
         message ("Check keymap_mode %s", config.keymap_mode);
@@ -218,6 +222,11 @@ namespace Lxsession {
 
         /* start main loop */
         new MainLoop().run();
+
+#if BUILDIN_CLIPBOARD
+            clipboard_stop ();
+#endif
+
 
         return 0;
     }
