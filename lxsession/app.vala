@@ -287,7 +287,7 @@ public class PowermanagerApp: SimpleAppObject {
             case "auto":
                 /* If we are on a laptop, we need a power manager, try to start xfce one */
                 /* If we are not on a laptop, assume we don't need power management */
-                if (detect_laptop)
+                if (detect_laptop())
                 {
                     string create_command = "xfce-power-management";
                     this.name = "xfce-power-management";
@@ -382,16 +382,17 @@ public class NetworkGuiApp: SimpleAppObject
             case "auto":
                 /* If we are on a laptop, assume we need a GUI, and try to find one, starting with nm-applet */
                 /* If you are not on a laptop, assume we don't need any GUI */
-                if (detect_laptop)
+                if (detect_laptop())
+                /* TODO Update the settings, to not test every time lxsession is started */
                 {
-                     if (Environment.find_program_in_path("nm-applet"))
+                     if (Environment.find_program_in_path("nm-applet") == null)
                      {
                          this.name = "nm-applet";
                          string create_command = "nm-applet";
                          this.command = create_command.split_set(" ",0);
                          break;
                      }
-                     else if (Environment.find_program_in_path("wicd"))
+                     else if (Environment.find_program_in_path("wicd") == null)
                      {
                          this.name = "wicd";
                          string create_command = "wicd";
@@ -399,6 +400,7 @@ public class NetworkGuiApp: SimpleAppObject
                          break;
                      }
                  }
+                 break;
             default:
                 string[] create_command = network_command.split_set(" ",0);
                 this.name = create_command[0];

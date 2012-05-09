@@ -153,10 +153,15 @@ namespace Lxsession
             }
         }
     }
-public class UpdatesOption (LxsessionConfig config)
+    public class UpdatesOption: Option
     {
+        public UpdatesOption (LxsessionConfig config)
+        {
+            base (config);
         /* TODO Implement replacement for udpate-notifier */
         /* use an external program if using gtk or another new dep */
+        }
+
     }
 
 }
