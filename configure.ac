@@ -102,6 +102,20 @@ AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
+AC_ARG_ENABLE(
+    [buildin-clipboard],
+    AS_HELP_STRING([--enable-buildin-clipboard],
+                   [Build with build-in clipboard support (default: no)]),
+    use_buildin_clipboard=$enableval, use_buildin_clipboard="no")
+
+if test x"$use_buildin_clipboard" = x"yes"; then
+    AC_SUBST(BUILDIN_CLIPBOARD, ["-D BUILDIN_CLIPBOARD"])
+    PKG_CHECK_MODULES(CLIP, [$gtk_modules])
+    AC_SUBST(CLIP_CFLAGS)
+    AC_SUBST(CLIP_LIBS)
+fi
+AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
+
 AM_PROG_VALAC([0.14.0])
 if test "x$VALAC" = "x"; then
 	AC_MSG_ERROR([You need Vala compiler])
@@ -159,6 +173,7 @@ echo LXSession.................................... : Version $VERSION
 echo
 echo Prefix....................................... : $prefix
 echo Linux DBUS support........................... : $use_dbus
+echo Cliboard build-in suport..................... : $use_buildin_clipboard
 echo Man pages generation support................. : $enable_man
 echo
 echo The binary will be installed in $prefix/bin
