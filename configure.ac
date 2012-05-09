@@ -24,14 +24,14 @@ AC_CHECK_FUNC([mkstemp],
    AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the 'mkstemp' function.]))
 
 AC_ARG_ENABLE(man,
-       [AC_HELP_STRING([--enable-man],
-               [regenerate roff man pages from Docbook @<:@default=no@:>@])],
+       [AS_HELP_STRING([--enable-man],
+               [regenerate roff man pages from Docbook @<:@default=yes@:>@])],
        [enable_man="${enableval}"],
-       [enable_man=no]
+       [enable_man=yes]
 )
 
 AC_ARG_ENABLE(more_warnings,
-       [AC_HELP_STRING([--enable-more-warnings],
+       [AS_HELP_STRING([--enable-more-warnings],
                [Add more warnings @<:@default=no@:>@])],
        [enable_more_warnings="${enableval}"],
        [enable_more_warnings=no]
