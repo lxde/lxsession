@@ -4,7 +4,7 @@ NULL=
 
 SUBDIRS= data \
          lxclipboard \
-         lxclock \
+         lxlock \
          lxpolkit \
          lxsession-edit \
          lxsession-logout \

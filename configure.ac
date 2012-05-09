@@ -140,11 +140,18 @@ AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
 AC_OUTPUT([
   Makefile
+  data/Makefile
+  data/ui/Makefile
   lxclipboard/Makefile
+  lxlock/Makefile
+  lxpolkit/Makefile
+  lxsession/Makefile
+  lxsession-edit/Makefile
   lxsession-logout/Makefile
+  lxsettings-daemon/Makefile
   man/Makefile
   po/Makefile.in
-  src/Makefile
+  xdg-autostart/Makefile
 ])
 
 echo
