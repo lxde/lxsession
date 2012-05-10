@@ -15,19 +15,16 @@
  *      along with this program; if not, write to the Free Software
  *      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  *      MA 02110-1301, USA.
-
-TODO
-   sound_manager
-   quit_manager
-   workspace_manager
-   launcher_manager
-
-   terminal by default
-   packagekit handler (GUI and stuff) ?
-
-   Use wnck for managing launching applications ?
 */
 
+/* TODO Add sound_manager
+   TODO quit_manager
+   TODO workspace_manager
+   TODO launcher_manager
+   TODO terminal by default
+   TODO packagekit handler (GUI and stuff) ?
+   TODO Use wnck for managing launching applications ?
+*/
 using Gee;
 
 namespace Lxsession {

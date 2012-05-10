@@ -86,7 +86,7 @@ public class LxsessionAutostartConfig: GLib.Object {
 
     public void check_dupplicate() {
 
-    /* TODO
+    /* TODO Check if the application is already autostarted before trying to autostart it
     if ("three" in my_set) {    // same as my_set.contains ("three")
     stdout.printf ("heureka\n");
     }
