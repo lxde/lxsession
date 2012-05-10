@@ -41,6 +41,7 @@ public class LxsessionConfig: GLib.Object {
     public string audio_manager { get; set; default = null;}
     public string quit_manager { get; set; default = null;}
     public string workspace_manager { get; set; default = null;}
+    public string launcher_manager { get; set; default = null;}
 
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
@@ -151,6 +152,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
         global_sig.request_quit_manager_launch.connect(on_request_quit_manager_launch);
         global_sig.request_workspace_manager_launch.connect(on_request_workspace_manager_launch);
+        global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -304,6 +306,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.workspace_manager = kf.get_value("Session", "workspace_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Launcher Manager
+        try
+        {
+            this.launcher_manager = kf.get_value("Session", "launcher_manager");
         }
         catch (KeyFileError err)
         {
@@ -890,6 +902,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Start Workspace Manager");
         var workspace = new WorkspaceManagerApp(this.workspace_manager);
         workspace.launch();
+    }
+
+    public void on_request_launcher_manager_launch ()
+    {
+        message("Start Launcher Manager");
+        var launcher = new LauncherManagerApp(this.launcher_manager);
+        launcher.launch();
     }
 }
 
