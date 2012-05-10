@@ -65,6 +65,12 @@ public class LxdeSessionServer : Object {
         global_sig.request_quit_manager_launch();
     }
 
+    public void WorkspaceManagerLaunch()
+    {
+        message ("Launch workspace manager");
+        global_sig.request_workspace_manager_launch();
+    }
+
     public void WindowManager (string dbus_arg)
     {
         message ("Signal update window manager: %s", dbus_arg);
