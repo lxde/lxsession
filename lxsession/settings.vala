@@ -37,6 +37,7 @@ public class LxsessionConfig: GLib.Object {
     public string polkit { get; set; default = null;}
     public string network_gui { get; set; default = null;}
     public string audio_manager { get; set; default = null;}
+    public string quit_manager { get; set; default = null;}
 
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
@@ -145,6 +146,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
         global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
+        global_sig.request_quit_manager_launch.connect(on_request_quit_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -278,6 +280,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.audio_manager = kf.get_value("Session", "audio_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Quit Manager
+        try
+        {
+            this.quit_manager = kf.get_value("Session", "quit_manager");
         }
         catch (KeyFileError err)
         {
@@ -852,6 +864,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         audio.launch();
     }
 
+    public void on_request_quit_manager_launch ()
+    {
+        message("Start Audio Manager");
+        var quit = new QuitManagerApp(this.quit_manager);
+        quit.launch();
+    }
 }
 
 }

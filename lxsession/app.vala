@@ -432,4 +432,21 @@ public class AudioManagerApp: SimpleAppObject {
     }
 }
 
+public class QuitManagerApp: SimpleAppObject {
+
+    public QuitManagerApp (string quitmanager_command){
+
+        base(quitmanager_command);
+
+        switch (quitmanager_command)
+        {
+            default:
+                string[] create_command = quitmanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 }
