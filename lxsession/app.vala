@@ -18,7 +18,6 @@
 */
 
 /* 
-   TODO quit_manager
    TODO workspace_manager
    TODO launcher_manager
    TODO terminal by default
