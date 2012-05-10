@@ -53,6 +53,12 @@ public class LxdeSessionServer : Object {
         global_sig.reload_settings_daemon();
     }
 
+    public void AudioManagerLaunch()
+    {
+        message ("Launch audio manager");
+        global_sig.request_audio_manager_launch();
+    }
+
     public void WindowManager (string dbus_arg)
     {
         message ("Signal update window manager: %s", dbus_arg);
