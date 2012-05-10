@@ -36,6 +36,7 @@ public class LxsessionConfig: GLib.Object {
     public string file_manager_extras { get; set; default = null;}
     public string polkit { get; set; default = null;}
     public string network_gui { get; set; default = null;}
+    public string audio_manager { get; set; default = null;}
 
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
@@ -265,6 +266,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.network_gui = kf.get_value("Session", "network_gui");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Audio Manager
+        try
+        {
+            this.audio_manager = kf.get_value("Session", "audio_manager");
         }
         catch (KeyFileError err)
         {

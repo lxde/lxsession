@@ -10,6 +10,7 @@ file-manager/session=LXDE
 file-manager/extras=
 polkit=gnome
 network_gui=
+audio_manager=
 clipboard=lxclipboard
 
 [Dbus]
