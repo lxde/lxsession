@@ -18,7 +18,6 @@
 */
 
 /* 
-   TODO terminal by default
    TODO packagekit handler (GUI and stuff) ?
    TODO Use wnck for managing launching applications ?
 */
@@ -478,6 +477,28 @@ public class LauncherManagerApp: SimpleAppObject {
         {
             default:
                 string[] create_command = launchermanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
+public class TerminalManagerApp: SimpleAppObject {
+
+    public TerminalManagerApp (string terminalmanager_command){
+
+        base(terminalmanager_command);
+
+        switch (terminalmanager_command)
+        {
+            case "lxterminal":
+                this.name = "lxterminal";
+                string create_command = "lxterminal -e";
+                this.command = create_command.split_set(" ",0);
+                break;
+            default:
+                string[] create_command = terminalmanager_command.split_set(" ",0);
                 this.name = create_command[0];
                 this.command = create_command;
                 break;
