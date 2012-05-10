@@ -13,6 +13,7 @@ network_gui=
 audio_manager=
 quit_manager=
 workspace_manager=
+launcher_manager=
 clipboard=lxclipboard
 
 [Dbus]

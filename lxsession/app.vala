@@ -18,7 +18,6 @@
 */
 
 /* 
-   TODO launcher_manager
    TODO terminal by default
    TODO packagekit handler (GUI and stuff) ?
    TODO Use wnck for managing launching applications ?
@@ -462,6 +461,23 @@ public class WorkspaceManagerApp: SimpleAppObject {
                 break;
             default:
                 string[] create_command = workspacemanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
+public class LauncherManagerApp: SimpleAppObject {
+
+    public LauncherManagerApp (string launchermanager_command){
+
+        base(launchermanager_command);
+
+        switch (launchermanager_command)
+        {
+            default:
+                string[] create_command = launchermanager_command.split_set(" ",0);
                 this.name = create_command[0];
                 this.command = create_command;
                 break;
