@@ -17,7 +17,7 @@
  *      MA 02110-1301, USA.
 */
 
-/* TODO Add sound_manager
+/* 
    TODO quit_manager
    TODO workspace_manager
    TODO launcher_manager
@@ -407,6 +407,30 @@ public class NetworkGuiApp: SimpleAppObject
                 break;
         }
         this.guard = true;
+    }
+}
+
+public class AudioManagerApp: SimpleAppObject {
+
+    public AudioManagerApp (string audiomanager_command){
+
+        base(audiomanager_command);
+
+        switch (audiomanager_command)
+        {
+            case "alsamixer":
+                this.name = "alsamixer";
+                string create_command = "xterm -e alsamixer";
+                this.command = create_command.split_set(" ",0);
+                break;
+            default:
+                string[] create_command = audiomanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+        this.guard = true;
+
     }
 }
 
