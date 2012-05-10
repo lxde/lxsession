@@ -42,6 +42,7 @@ public class LxsessionConfig: GLib.Object {
     public string quit_manager { get; set; default = null;}
     public string workspace_manager { get; set; default = null;}
     public string launcher_manager { get; set; default = null;}
+    public string terminal_manager { get; set; default = null;}
 
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
@@ -153,6 +154,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_quit_manager_launch.connect(on_request_quit_manager_launch);
         global_sig.request_workspace_manager_launch.connect(on_request_workspace_manager_launch);
         global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);
+        global_sig.request_terminal_manager_launch.connect(on_request_terminal_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -316,6 +318,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.launcher_manager = kf.get_value("Session", "launcher_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Terminal Manager
+        try
+        {
+            this.terminal_manager = kf.get_value("Session", "terminal_manager");
         }
         catch (KeyFileError err)
         {
@@ -909,6 +921,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Start Launcher Manager");
         var launcher = new LauncherManagerApp(this.launcher_manager);
         launcher.launch();
+    }
+
+    public void on_request_terminal_manager_launch ()
+    {
+        message("Start Terminal Manager");
+        var terminal = new TerminalManagerApp(this.terminal_manager);
+        terminal.launch();
     }
 }
 

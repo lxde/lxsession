@@ -14,6 +14,7 @@ audio_manager=
 quit_manager=
 workspace_manager=
 launcher_manager=
+terminal_manager=
 clipboard=lxclipboard
 
 [Dbus]
