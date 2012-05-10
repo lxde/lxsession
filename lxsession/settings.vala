@@ -144,6 +144,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
+        global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
+
         /* Monitor desktop file */
         setup_monitor_desktop_file();
     }
@@ -841,6 +843,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Reloading XSettings daemon");
         settings_daemon_reload(kf);
+    }
+
+    public void on_request_audio_manager_launch ()
+    {
+        message("Start Audio Manager");
+        var audio = new AudioManagerApp(this.audio_manager);
+        audio.launch();
     }
 
 }
