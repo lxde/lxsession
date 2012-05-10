@@ -429,8 +429,6 @@ public class AudioManagerApp: SimpleAppObject {
                 this.command = create_command;
                 break;
         }
-        this.guard = true;
-
     }
 }
 
