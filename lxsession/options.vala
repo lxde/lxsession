@@ -153,6 +153,23 @@ namespace Lxsession
             }
         }
     }
+    public class AudioManagerOption: Option
+    {
+        public AudioManagerOption (LxsessionConfig config)
+        {
+            base (config);
+            switch (config.audio_manager)
+            {
+                case "alsamixer":
+                    command = "xterm -e alsamixer";
+                    break;
+                default:
+                    command = config.audio_manager;
+                    break;
+            }
+        }
+    }
+
     public class UpdatesOption: Option
     {
         public UpdatesOption (LxsessionConfig config)
