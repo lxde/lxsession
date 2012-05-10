@@ -17,6 +17,8 @@
  *      MA 02110-1301, USA.
  */
 
+/* TODO Split correctly the settings for enable differents backends (.ini, gsettings ...) */ 
+
 namespace Lxsession {
 
 public class LxsessionConfig: GLib.Object {
