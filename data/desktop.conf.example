@@ -12,6 +12,7 @@ polkit=gnome
 network_gui=
 audio_manager=
 quit_manager=
+workspace_manager=
 clipboard=lxclipboard
 
 [Dbus]

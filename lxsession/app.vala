@@ -18,7 +18,6 @@
 */
 
 /* 
-   TODO workspace_manager
    TODO launcher_manager
    TODO terminal by default
    TODO packagekit handler (GUI and stuff) ?
@@ -441,6 +440,28 @@ public class QuitManagerApp: SimpleAppObject {
         {
             default:
                 string[] create_command = quitmanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
+public class WorkspaceManagerApp: SimpleAppObject {
+
+    public WorkspaceManagerApp (string workspacemanager_command){
+
+        base(workspacemanager_command);
+
+        switch (workspacemanager_command)
+        {
+            case "obconf":
+                this.name = "obconf";
+                string create_command = "obconf --tab 6";
+                this.command = create_command.split_set(" ",0);
+                break;
+            default:
+                string[] create_command = workspacemanager_command.split_set(" ",0);
                 this.name = create_command[0];
                 this.command = create_command;
                 break;
