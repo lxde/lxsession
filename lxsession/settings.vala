@@ -44,6 +44,9 @@ public class LxsessionConfig: GLib.Object {
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
 
+    /* State */
+    public string laptop_mode { get; set; default = null;}
+
     /* Clipboard */
     public string clipboard_command { get; set; default = null;}
 
@@ -147,6 +150,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keyboard_delay.connect(on_update_keyboard_delay);
         global_sig.update_keyboard_interval.connect(on_update_keyboard_interval);
         global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
+
+        global_sig.update_laptop_mode.connect(on_update_laptop_mode);
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
@@ -338,6 +343,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.clipboard_command = kf.get_value("Session", "clipboard");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Laptop-mode
+        try
+        {
+            this.laptop_mode = kf.get_value("State", "laptop_mode");
         }
         catch (KeyFileError err)
         {
@@ -886,6 +901,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing keyboard_beep: %i", dbus_arg);
         this.keyboard_beep = dbus_arg;
         kf.set_integer ("Keyboard", "Beep", this.keyboard_beep);
+        save_keyfile();
+    }
+
+    public void on_update_laptop_mode (string mode)
+    {
+        message("Changing laptop mode");
+        this.laptop_mode = mode;
+        kf.set_value ("State", "laptop_mode", this.laptop_mode);
         save_keyfile();
     }
 
