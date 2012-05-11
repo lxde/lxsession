@@ -271,7 +271,7 @@ public class ScreensaverApp: SimpleAppObject {
 
 public class PowermanagerApp: SimpleAppObject {
 
-    public PowermanagerApp (string powermanager_command){
+    public PowermanagerApp (string powermanager_command, string laptop_mode){
 
         base(powermanager_command);
 
@@ -280,7 +280,7 @@ public class PowermanagerApp: SimpleAppObject {
             case "auto":
                 /* If we are on a laptop, we need a power manager, try to start xfce one */
                 /* If we are not on a laptop, assume we don't need power management */
-                if (detect_laptop())
+                if (laptop_mode == "yes")
                 {
                     string create_command = "xfce-power-management";
                     this.name = "xfce-power-management";
@@ -366,7 +366,7 @@ public class PolkitApp: SimpleAppObject {
 
 public class NetworkGuiApp: SimpleAppObject
 {
-    public NetworkGuiApp (string network_command)
+    public NetworkGuiApp (string network_command, string laptop_mode)
     {
         base(network_command);
         switch (network_command)
@@ -377,7 +377,7 @@ public class NetworkGuiApp: SimpleAppObject
             case "auto":
                 /* If we are on a laptop, assume we need a GUI, and try to find one, starting with nm-applet */
                 /* If you are not on a laptop, assume we don't need any GUI */
-                if (detect_laptop())
+                if (laptop_mode == "yes")
                 /* TODO Update the settings, to not test every time lxsession is started */
                 {
                      if (Environment.find_program_in_path("nm-applet") == null)

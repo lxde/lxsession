@@ -117,6 +117,8 @@ public class LxSignals : Object
     public signal void update_keyboard_interval (int dbus_arg);
     public signal void update_keyboard_beep (int dbus_arg);
 
+    public signal void update_laptop_mode(string mode);
+
     public signal void reload_settings_daemon();
 
     public signal void request_audio_manager_launch();

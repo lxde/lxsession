@@ -144,8 +144,46 @@ namespace Lxsession {
 
             if (config.power_manager_program != null)
             {
-                var powermanagerprogram = new PowermanagerApp(config.power_manager_program);
-                powermanagerprogram.launch();
+                if (config.laptop_mode == "unknown")
+                {
+                    /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
+                    bool state = detect_laptop();
+                    string state_text = "no";
+                    if (state)
+                    {
+                        state_text = "yes";
+                    }
+                    global_sig.update_laptop_mode(state_text);
+                    var powermanagerprogram = new PowermanagerApp(config.power_manager_program, state_text);
+                    powermanagerprogram.launch();
+                }
+                else
+                {
+                    var powermanagerprogram = new PowermanagerApp(config.power_manager_program, config.laptop_mode);
+                    powermanagerprogram.launch();
+                }
+            }
+
+            if (config.network_gui != null)
+            {
+                if (config.laptop_mode == "unknown")
+                {
+                    /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
+                    bool state = detect_laptop();
+                    string state_text = "no";
+                    if (state)
+                    {
+                        state_text = "yes";
+                    }
+                    global_sig.update_laptop_mode(state_text);
+                    var networkguiprogram = new NetworkGuiApp(config.power_manager_program, state_text);
+                    networkguiprogram.launch();
+                }
+                else
+                {
+                    var networkguiprogram = new NetworkGuiApp(config.power_manager_program, config.laptop_mode);
+                    networkguiprogram.launch();
+                }
             }
 
             if (config.file_manager_program != null)

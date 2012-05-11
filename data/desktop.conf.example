@@ -17,6 +17,10 @@ launcher_manager=
 terminal_manager=
 clipboard=lxclipboard
 
+[State]
+# unknown if untested, yes if on laptop, no if not
+laptop_mode=unknown
+
 [Dbus]
 # Default Dbus interfaces, should be always true
 lxde=true
