@@ -17,7 +17,6 @@
  *      MA 02110-1301, USA.
  */
 
-/* TODO Add option for files configuration handling (leafpad, openbox ...), use another .conf file */
 /* TODO Replace other utlity in the start script */
 
 namespace Lxsession
