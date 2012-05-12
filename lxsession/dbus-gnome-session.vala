@@ -84,69 +84,44 @@ public class GnomeSessionServer : Object {
         message(not_implemented);
     }
 
-    public async void Inhibit() {
-    /* TODO To implement
-          <doc:para>Applications should invoke this method when they begin an operation that
-            should not be interrupted, such as creating a CD or DVD.  The types of actions
-            that may be blocked are specified by the flags parameter.  When the application
-            completes the operation it should call <doc:ref type="method" to="org.gnome.SessionManager.Uninhibit">Uninhibit()</doc:ref>
-            or disconnect from the session bus.
-          </doc:para>
-<annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-<arg type="s" name="app_id" direction="in">
-<doc:summary>The application identifier</doc:summary>
-<arg type="u" name="toplevel_xid" direction="in">
-<doc:summary>The toplevel X window identifier</doc:summary>
-<arg type="s" name="reason" direction="in">
-<doc:summary>The reason for the inhibit</doc:summary>
-<arg type="u" name="flags" direction="in">
-<doc:summary>Flags that spefify what should be inhibited</doc:summary>
-          <doc:para>
-            The flags parameter must include at least one of the following:
-            <doc:list>
-              <doc:item>
-                <doc:term>1</doc:term>
-                <doc:definition>Inhibit logging out</doc:definition>
-              </doc:item>
-              <doc:item>
-                <doc:term>2</doc:term>
-                <doc:definition>Inhibit user switching</doc:definition>
-              </doc:item>
-              <doc:item>
-                <doc:term>4</doc:term>
-                <doc:definition>Inhibit suspending the session or computer</doc:definition>
-              </doc:item>
-              <doc:item>
-                <doc:term>8</doc:term>
-                <doc:definition>Inhibit the session being marked as idle</doc:definition>
-              </doc:item>
-            </doc:list>
-            Values for flags may be bitwise or'ed together.
-<arg type="u" name="inhibit_cookie" direction="out">
-<doc:summary>The cookie</doc:summary>
-          <doc:para>
-            The returned cookie is used to uniquely identify this request.  It should be used
-            as an argument to <doc:ref type="method" to="org.gnome.SessionManager.Uninhibit">Uninhibit()</doc:ref> in
-            order to remove the request.
-          </doc:para>
-*/
-        message(not_implemented);
+    public async void Inhibit(string app_id, uint toplevel_xid, string reason, uint flags, out uint inhibit_cookie)
+    {
+    /* TODO implement completly */
+    /* Description :
+		Applications should invoke this method when they begin an operation that
+		should not be interrupted, such as creating a CD or DVD.  The types of actions
+		that may be blocked are specified by the flags parameter.  When the application
+		completes the operation it should call Uninhibit()
+		or disconnect from the session bus.
+
+    app_id : The application identifier
+    toplevel_xid : the toplevel X window identifier</doc:summary>
+    reason : The reason for the inhibit</doc:summary>
+    flags : Flags that spefify what should be inhibited (Values for flags may be bitwise or'ed together.)
+	    1 Inhibit logging out
+	    2 Inhibit user switching
+	    4 Inhibit suspending the session or computer
+	    8 Inhibit the session being marked as idle
+
+    inhibit_cookie :    The returned cookie is used to uniquely identify this request.  It should be used
+                        as an argument to Uninhibit() in order to remove the request.
+    */
+        if (flags == 8)
+        {
+            var control = new ControlObject();
+            control.inhib_screensaver();
+            uint cookie = Random.next_int();
+            inhibit_cookie = cookie;
+        }
     }
 
+    public async void Uninhibit(uint inhibit_cookie)
+    {
+    /* Description : Cancel a previous call to Inhibit() identified by the cookie. */
+        var control = new ControlObject();
+        control.uninhibit_screensaver();
+    }
 /*
-    <method name="Uninhibit">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value=""/>
-      <arg type="u" name="inhibit_cookie" direction="in">
-        <doc:doc>
-          <doc:summary>The cookie</doc:summary>
-        </doc:doc>
-      </arg>
-      <doc:doc>
-        <doc:description>
-          <doc:para>Cancel a previous call to <doc:ref type="method" to="org.gnome.SessionManager.Inhibit">Inhibit()</doc:ref> identified by the cookie.</doc:para>
-        </doc:description>
-      </doc:doc>
-    </method>
 
     <method name="IsInhibited">
       <arg type="u" name="flags" direction="in">
