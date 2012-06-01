@@ -12,6 +12,10 @@ override_dh_auto_clean:
 	rm -f man/lxsession-logout.1 man/lxsession.1
 	dh_auto_clean
 
+override_dh_install:
+	rm -f debian/tmp/usr/share/man/man1/*
+	dh_install --fail-missing
+
 override_dh_auto_test:
 	true
 
