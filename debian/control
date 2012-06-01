@@ -25,7 +25,7 @@ Vcs-Browser: http://git.debian.org/?p=collab-maint/lxsession.git;a=summary
 
 Package: lxsession
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
 Recommends: openbox | x-window-manager, openssh-client | rsh-client | ssh-client
 Suggests: lxde-common, lxpanel, pcmanfm, gpicview
 Provides: x-session-manager, lxsession-lite
@@ -51,6 +51,25 @@ Description: a lightweight X11 session manager
  .
  LXSession has also a built-in lightweight Xsettings daemon, which can 
  configure GTK+ themes, keyboard, and mouse for you on session startup.
+
+Package: lxsession-data
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Replaces: lxsession (<< 0.4.7)
+Description : Common files for lxsession
+ Common files for lxsession
+
+Package: lxsession-edit
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
+Description : lxsession-edit
+ lxsession-edit
+
+Package: lxpolkit
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
+Description : lxpolkit
+ lxpolkit
 
 Package: lxsession-dbg
 Architecture: any
