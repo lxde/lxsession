@@ -116,6 +116,12 @@ namespace Lxsession {
         /* Configuration */
         var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
 
+        /* Conf Files */
+        string conffiles_conf = get_config_path ("conffiles.conf");
+        if (FileUtils.test (conffiles_conf, FileTest.EXISTS))
+        {
+            var conffiles = new ConffilesObject(conffiles_conf);
+        }
 
         /* Create the Xsettings manager */
         if (noxsettings == false) {

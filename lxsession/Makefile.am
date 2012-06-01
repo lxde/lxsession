@@ -43,6 +43,7 @@ lxsession_SOURCES = \
     main.vala \
     app.vala \
     autostart.vala \
+    conffiles.vala \
     control.vala \
     dbus-common.vala \
     dbus-gnome-session.vala \
@@ -103,6 +104,7 @@ CLEANFILES = \
     main.c \
     app.c \
     autostart.c \
+    conffiles.c \
     control.c \
     dbus-common.c \
     dbus-gnome-session.c \
