@@ -25,6 +25,7 @@ image_DATA= \
 
 EXTRA_DIST= \
 	desktop.conf.example \
+	conffiles.conf.example \
 	$(desktop_DATA) \
 	$(image_DATA) \
 	$(NULL)
