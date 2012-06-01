@@ -282,8 +282,8 @@ public class PowermanagerApp: SimpleAppObject {
                 /* If we are not on a laptop, assume we don't need power management */
                 if (laptop_mode == "yes")
                 {
-                    string create_command = "xfce-power-management";
-                    this.name = "xfce-power-management";
+                    string create_command = "xfce4-power-management";
+                    this.name = "xfce4-power-management";
                     this.command = create_command.split_set(" ",0);
                 }
 
