@@ -155,7 +155,7 @@ namespace Lxsession {
                     /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
                     bool state = detect_laptop();
                     string state_text = "no";
-                    if (state)
+                    if (state == true)
                     {
                         state_text = "yes";
                     }
@@ -177,7 +177,7 @@ namespace Lxsession {
                     /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
                     bool state = detect_laptop();
                     string state_text = "no";
-                    if (state)
+                    if (state == true)
                     {
                         state_text = "yes";
                     }
