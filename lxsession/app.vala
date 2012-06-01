@@ -163,7 +163,8 @@ public class WindowManagerApp: SimpleAppObject
 
         foreach (string i in wm_list)
         {
-            if (Environment.find_program_in_path(i) == null)
+            string test_wm = Environment.find_program_in_path(i);
+            if ( test_wm != null)
             {
                 message ("Finding %s",i);
                 return_value = i;
@@ -379,21 +380,26 @@ public class NetworkGuiApp: SimpleAppObject
                 /* If you are not on a laptop, assume we don't need any GUI */
                 if (laptop_mode == "yes")
                 {
-                     if (Environment.find_program_in_path("nm-applet") == null)
+                    string test_nm_applet = Environment.find_program_in_path("nm-applet");
+                     if (test_nm_applet != null)
                      {
                          this.name = "nm-applet";
                          string create_command = "nm-applet";
                          this.command = create_command.split_set(" ",0);
                          break;
                      }
-                     else if (Environment.find_program_in_path("wicd") == null)
+                     else
                      {
-                         this.name = "wicd";
-                         string create_command = "wicd";
-                         this.command = create_command.split_set(" ",0);
-                         break;
-                     }
-                 }
+                        string test_wicd = Environment.find_program_in_path("wicd");
+                        if (test_wicd != null)
+                        {
+                            this.name = "wicd";
+                            string create_command = "wicd";
+                            this.command = create_command.split_set(" ",0);
+                            break;
+                        }
+                    }
+                }
                  break;
             default:
                 string[] create_command = network_command.split_set(" ",0);

@@ -131,28 +131,35 @@ public class LxSignals : Object
 
 public bool detect_laptop()
 {
-    int exit_status;
-    string standard_output, standard_error;
-    try
+    string test_laptop_detect = Environment.find_program_in_path("laptop-detect");
+    if (test_laptop_detect != null)
     {
-        Process.spawn_command_line_sync ("laptop-detect", out standard_output,
-                                                          out standard_error,
-                                                          out exit_status);
-        message ("exit status, %i", exit_status);
-        if (exit_status == 0)
+        int exit_status;
+        string standard_output, standard_error;
+        try
         {
-            message ("Laptop detect return true");
-            return true;
+            Process.spawn_command_line_sync ("laptop-detect", out standard_output,
+                                                              out standard_error,
+                                                              out exit_status);
+            if (exit_status == 0)
+            {
+                message ("Laptop detect return true");
+                return true;
+            }
+            else
+            {
+                message ("Laptop detect return false");
+                return false;
+            }
         }
-        else
+        catch (SpawnError err)
         {
-            message ("Laptop detect return false");
+            warning (err.message);
             return false;
         }
     }
-    catch (SpawnError err)
+    else
     {
-        warning (err.message);
         message ("Laptop detect not find");
         /* TODO check upower, and /proc files like laptop-detect to find bateries */
         return false;
