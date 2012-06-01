@@ -282,8 +282,8 @@ public class PowermanagerApp: SimpleAppObject {
                 /* If we are not on a laptop, assume we don't need power management */
                 if (laptop_mode == "yes")
                 {
-                    string create_command = "xfce4-power-management";
-                    this.name = "xfce4-power-management";
+                    string create_command = "xfce4-power-manager";
+                    this.name = "xfce4-power-manager";
                     this.command = create_command.split_set(" ",0);
                 }
 
@@ -378,7 +378,6 @@ public class NetworkGuiApp: SimpleAppObject
                 /* If we are on a laptop, assume we need a GUI, and try to find one, starting with nm-applet */
                 /* If you are not on a laptop, assume we don't need any GUI */
                 if (laptop_mode == "yes")
-                /* TODO Update the settings, to not test every time lxsession is started */
                 {
                      if (Environment.find_program_in_path("nm-applet") == null)
                      {
