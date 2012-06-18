@@ -1,0 +1,81 @@
+# Kazakh translation for lxsession.
+# Copyright (C) 2012 The LXDE team
+# This file is distributed under the same license as the LXDE package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"PO-Revision-Date: 2012-05-01 18:00+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Kazakh\n"
+"X-Poedit-Country: KAZAKHSTAN\n"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "Custom message to show on the dialog"
+msgstr "Сұхбатта көрсетілетін таңдауыңызша хабарлама"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "message"
+msgstr "хабарлама"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "Banner to show on the dialog"
+msgstr "Сұхбатта көрсетілетін баннер"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "image file"
+msgstr "сурет файлы"
+
+#: ../lxsession-logout/lxsession-logout.c:50
+msgid "Position of the banner"
+msgstr "Баннер орналасуы"
+
+#: ../lxsession-logout/lxsession-logout.c:374
+#: ../lxsession-logout/lxsession-logout.c:388
+#, c-format
+msgid "Error: %s\n"
+msgstr "Қате: %s\n"
+
+#: ../lxsession-logout/lxsession-logout.c:388
+msgid "LXSession is not running."
+msgstr "LXSession орындалып тұрған жоқ."
+
+#: ../lxsession-logout/lxsession-logout.c:539
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>%s сессиясынан шығу керек пе?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:547
+msgid "Sh_utdown"
+msgstr "Сө_ндіру"
+
+#: ../lxsession-logout/lxsession-logout.c:558
+msgid "_Reboot"
+msgstr "Қай_та қосу"
+
+#: ../lxsession-logout/lxsession-logout.c:569
+msgid "_Suspend"
+msgstr "Ұ_йықтату"
+
+#: ../lxsession-logout/lxsession-logout.c:580
+msgid "_Hibernate"
+msgstr "Г_ибернация"
+
+#: ../lxsession-logout/lxsession-logout.c:591
+msgid "S_witch User"
+msgstr "Па_йдаланушыны ауыстыру"
+
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:600
+msgid "_Logout"
+msgstr "Ш_ығу"
+
