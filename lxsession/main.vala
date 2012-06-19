@@ -19,6 +19,14 @@
 using Posix;
 using Intl;
 
+#if BUILDIN_POLKIT
+using Gtk;
+#endif
+
+#if BUILDIN_CLIPBOARD
+using Gtk;
+#endif
+
 namespace Lxsession {
 
     LxSignals global_sig;
@@ -203,6 +211,7 @@ namespace Lxsession {
             if (config.polkit != null)
             {
 #if BUILDIN_POLKIT
+                Gtk.init (ref args);
                 policykit_agent_init();
 #else
                 var securitypolkit = new PolkitApp(config.polkit);
@@ -220,10 +229,12 @@ namespace Lxsession {
         /* Options */
         if (config.clipboard_command != null)
         {
-            message("Create Option Clipboard");
 #if BUILDIN_CLIPBOARD
+            message("Create build-in Clipboard");
+            Gtk.init (ref args);
             clipboard_start ();
 #else
+            message("Create Option Clipboard");
             var clipboard = new ClipboardOption(config);
             clipboard.activate();
 #endif
