@@ -21,11 +21,12 @@ namespace Lxsession
 {
     public class ControlObject: GLib.Object
     {
-        public void inhib_screensaver ()
+        public void inhib_screensaver (uint toplevel_xid)
         {
             try
             {
-                Process.spawn_command_line_async("xdg-screensaver reset");
+                string create_command = "xdg-screensaver suspend " + toplevel_xid.to_string();
+                Process.spawn_command_line_async(create_command);
             }
             catch (SpawnError err)
             {
@@ -37,7 +38,7 @@ namespace Lxsession
         {
             try
             {
-                Process.spawn_command_line_async("xdg-screensaver activate");
+                Process.spawn_command_line_async("xdg-screensaver reset");
             }
             catch (SpawnError err)
             {

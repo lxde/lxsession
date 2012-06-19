@@ -95,8 +95,8 @@ public class GnomeSessionServer : Object {
 		or disconnect from the session bus.
 
     app_id : The application identifier
-    toplevel_xid : the toplevel X window identifier</doc:summary>
-    reason : The reason for the inhibit</doc:summary>
+    toplevel_xid : the toplevel X window identifier
+    reason : The reason for the inhibit
     flags : Flags that spefify what should be inhibited (Values for flags may be bitwise or'ed together.)
 	    1 Inhibit logging out
 	    2 Inhibit user switching
@@ -109,7 +109,7 @@ public class GnomeSessionServer : Object {
         if (flags == 8)
         {
             var control = new ControlObject();
-            control.inhib_screensaver();
+            control.inhib_screensaver(toplevel_xid);
             uint cookie = Random.next_int();
             inhibit_cookie = cookie;
         }
