@@ -1,20 +1,45 @@
 [Session]
 # Default program launched at startup
+# Windows manager
 window_manager=openbox-lxde
+
+# Panel and its session (if necessary)
 panel/program=lxpanel
 panel/session=LXDE
+
+# Screensaver
 screensaver/program=xscreensaver
+
+# Power management
 power-manager/program=
+
+# File manager (session if necessary, extras commands if necessary)
 file-manager/program=pcmanfm
 file-manager/session=LXDE
 file-manager/extras=
+
+# Polkit agent (use lxpolkit to use build-in support if enable at build time)
 polkit=lxpolkit
+
+# Network GUI manager (auto to try to guess the best choice)
 network_gui=
+
+# Audio preferences (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.AudioManagerLaunch)
 audio_manager=
+
+# Logout dialog (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch)
 quit_manager=
+
+# Workspace manager (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WorkspaceManagerLaunch)
 workspace_manager=
+
+# Launcher to launch applications (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.LauncherManagerLaunch)
 launcher_manager=
+
+# Terminal by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.TerminalManagerLaunch)
 terminal_manager=
+
+# Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard=lxclipboard
 
 [State]
