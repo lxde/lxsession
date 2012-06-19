@@ -6,7 +6,7 @@
 
 override_dh_auto_configure:
 	./autogen.sh
-	dh_auto_configure -- --enable-man 
+	dh_auto_configure -- --enable-man --enable-buildin-clipboard --enable-buildin-polkit
 
 override_dh_auto_clean:
 	rm -f man/lxsession-logout.1 man/lxsession.1

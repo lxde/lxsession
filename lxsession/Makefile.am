@@ -7,6 +7,8 @@ buildinclip_SOURCES = \
 
 buildinclip_VALAFLAGS = \
     --pkg lxclipboard \
+	--pkg gtk+-2.0 \
+    -D BUILDIN_CLIPBOARD \
     $(NULL)
 
 buildinclip_CFLAGS = \
@@ -26,6 +28,8 @@ buildinpolkit_SOURCES = \
 
 buildinpolkit_VALAFLAGS = \
     --pkg lxpolkit \
+	--pkg gtk+-2.0 \
+    -D BUILDIN_POLKIT \
     $(NULL)
 
 buildinpolkit_CFLAGS = \

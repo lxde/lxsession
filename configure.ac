@@ -110,9 +110,6 @@ AC_ARG_ENABLE(
                    [Build with build-in clipboard support (default: no)]),
     use_buildin_clipboard=$enableval, use_buildin_clipboard="no")
 
-if test x"$use_buildin_clipboard" = x"yes"; then
-    AC_SUBST(BUILDIN_CLIPBOARD, ["-D BUILDIN_CLIPBOARD"])
-fi
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 
 AC_ARG_ENABLE(
@@ -121,9 +118,6 @@ AC_ARG_ENABLE(
                    [Build with build-in polkit-agent support (default: no)]),
     use_buildin_polkit=$enableval, use_buildin_polkit="no")
 
-if test x"$use_buildin_polkit" = x"yes"; then
-    AC_SUBST(BUILDIN_POLKIT,["-D BUILDIN_POLKIT"])
-fi
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 
 AM_PROG_VALAC([0.14.0])
