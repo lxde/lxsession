@@ -43,6 +43,7 @@ public class LxsessionConfig: GLib.Object {
     public string workspace_manager { get; set; default = null;}
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
+    public string disable_autostart { get; set; default = null;}
 
     /* State */
     public string laptop_mode { get; set; default = null;}
@@ -118,6 +119,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
+        global_sig.update_disable_autostart.connect(on_update_disable_autostart);
         global_sig.update_keymap_mode.connect(on_update_keymap_mode);
         global_sig.update_keymap_model.connect(on_update_keymap_model);
         global_sig.update_keymap_layout.connect(on_update_keymap_layout);
@@ -343,6 +345,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.clipboard_command = kf.get_value("Session", "clipboard");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Disable autostart
+        try
+        {
+            this.disable_autostart = kf.get_value("Session", "disable_autostart");
         }
         catch (KeyFileError err)
         {
@@ -668,6 +680,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing window manager: %s", dbus_arg);
         this.window_manager = dbus_arg;
         kf.set_value ("Session", "window_manager", this.window_manager);
+        save_keyfile();
+    }
+
+    public void on_update_disable_autostart (string dbus_arg)
+    {
+        message("Changing disable autostart option: %s", dbus_arg);
+        this.disable_autostart = dbus_arg;
+        kf.set_value ("Session", "disable_autostart", this.disable_autostart);
         save_keyfile();
     }
 

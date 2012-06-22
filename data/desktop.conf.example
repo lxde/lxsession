@@ -42,6 +42,9 @@ terminal_manager=
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard=lxclipboard
 
+# Disable autostart of applications in system and home autostart directory
+disable_autostart=true
+
 [State]
 # unknown if untested, yes if on laptop, no if not
 laptop_mode=unknown
