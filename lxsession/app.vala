@@ -355,13 +355,24 @@ public class PolkitApp: SimpleAppObject {
                 this.command = create_command.split_set(" ",0);
                 break;
             case "lxpolkit":
+#if BUILDIN_POLKIT
+                policykit_agent_init();
+#else
                 this.name = "lxpolkit";
                 string create_command = "lxpolkit";
                 this.command = create_command.split_set(" ",0);
+#endif
                 break;
         }
         this.guard = true;
 
+    }
+
+    public void deactivate ()
+    {
+#if BUILDIN_POLKIT
+        policykit_agent_finalize();
+#endif
     }
 }
 

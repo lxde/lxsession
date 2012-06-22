@@ -76,6 +76,12 @@ namespace Lxsession {
 
         session_global = session;
 
+#if BUILDIN_POLKIT
+        Gtk.init (ref args);
+#endif
+#if BUILDIN_CLIPBOARD
+        Gtk.init (ref args);
+#endif
 
         var environment = new LxsessionEnv(session, desktop_environnement);
 
@@ -123,6 +129,10 @@ namespace Lxsession {
 
         /* Configuration */
         var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
+
+        /* Options and Apps that need to be killed (build-in) */
+        var clipboard = new ClipboardOption(config);
+        var securitypolkit = new PolkitApp(config.polkit);
 
         /* Conf Files */
         string conffiles_conf = get_config_path ("conffiles.conf");
@@ -210,13 +220,7 @@ namespace Lxsession {
 
             if (config.polkit != null)
             {
-#if BUILDIN_POLKIT
-                Gtk.init (ref args);
-                policykit_agent_init();
-#else
-                var securitypolkit = new PolkitApp(config.polkit);
                 securitypolkit.launch();
-#endif
             }
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
@@ -229,15 +233,7 @@ namespace Lxsession {
         /* Options */
         if (config.clipboard_command != null)
         {
-#if BUILDIN_CLIPBOARD
-            message("Create build-in Clipboard");
-            Gtk.init (ref args);
-            clipboard_start ();
-#else
-            message("Create Option Clipboard");
-            var clipboard = new ClipboardOption(config);
             clipboard.activate();
-#endif
         }
 
         message ("Check keymap_mode %s", config.keymap_mode);
@@ -282,14 +278,15 @@ namespace Lxsession {
         /* start main loop */
         new MainLoop().run();
 
-#if BUILDIN_CLIPBOARD
-            clipboard_stop ();
-#endif
+        if (config.clipboard_command != null)
+        {
+            clipboard.deactivate();
+        }
 
-#if BUILDIN_POLKIT
-            policykit_agent_finalize();
-#endif
-
+        if (config.polkit != null)
+        {
+            securitypolkit.deactivate();
+        }
 
         return 0;
     }

@@ -150,9 +150,21 @@ namespace Lxsession
             switch (config.clipboard_command)
             {
                 case "lxclipboard":
+#if BUILDIN_CLIPBOARD
+                    message("Create build-in Clipboard");
+                    clipboard_start ();
+#else
+                    message("Create Option Clipboard");
                     command = "lxclipboard";
+#endif
                     break;
             }
+        }
+        public void deactivate()
+        {
+#if BUILDIN_CLIPBOARD
+            clipboard_stop ();
+#endif
         }
     }
     public class UpdatesOption: Option
