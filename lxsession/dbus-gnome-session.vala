@@ -109,7 +109,7 @@ public class GnomeSessionServer : Object {
         if (flags == 8)
         {
             var control = new ControlObject();
-            control.inhib_screensaver(toplevel_xid);
+            control.set_status_busy(toplevel_xid);
             uint cookie = Random.next_int();
             inhibit_cookie = cookie;
         }
@@ -119,7 +119,7 @@ public class GnomeSessionServer : Object {
     {
     /* Description : Cancel a previous call to Inhibit() identified by the cookie. */
         var control = new ControlObject();
-        control.uninhibit_screensaver();
+        control.exit_status_busy();
     }
 /*
 

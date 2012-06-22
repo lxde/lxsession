@@ -17,15 +17,30 @@
  *      MA 02110-1301, USA.
  */
 
+/* TODO Implement multiple request by using the inhib_cookie in a array
+        and to remove the cookie when the application request it
+*/
+
 namespace Lxsession
 {
     public class ControlObject: GLib.Object
     {
+        public void set_status_busy (uint toplevel_xid)
+        /* Status : Busy doing something, disable idle behavior of application */
+        {
+            inhib_screensaver (toplevel_xid);
+        }
+
+        public void exit_status_busy ()
+        {
+            uninhibit_screensaver ();
+        }
+
         public void inhib_screensaver (uint toplevel_xid)
         {
             try
             {
-                string create_command = "xdg-screensaver suspend " + toplevel_xid.to_string();
+                string create_command = "xdg-screensaver suspend" + " " + toplevel_xid.to_string();
                 Process.spawn_command_line_async(create_command);
             }
             catch (SpawnError err)
