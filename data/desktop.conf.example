@@ -1,7 +1,9 @@
 [Session]
 # Default program launched at startup
-# Windows manager
+# Windows manager and its "session" (usefull for launching openbox with specific arguments (like configuration file))
 window_manager=openbox-lxde
+window_manager/session=
+window_manager/extras=
 
 # Panel and its session (if necessary)
 panel/program=lxpanel

@@ -29,6 +29,8 @@ public class LxsessionConfig: GLib.Object {
 
     /* Applications */
     public string window_manager { get; set; default = null;}
+    public string window_manager_session { get; set; default = null;}
+    public string window_manager_extras { get; set; default = null;}
     public string panel_program { get; set; default = null;}
     public string panel_session { get; set; default = null;}
     public string screensaver_program { get; set; default = null;}
@@ -119,6 +121,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
+        global_sig.update_window_manager_session.connect(on_update_window_manager_session);
+        global_sig.update_window_manager_extras.connect(on_update_window_manager_extras);
         global_sig.update_disable_autostart.connect(on_update_disable_autostart);
         global_sig.update_keymap_mode.connect(on_update_keymap_mode);
         global_sig.update_keymap_model.connect(on_update_keymap_model);
@@ -194,6 +198,24 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.window_manager = kf.get_value ("Session", "window_manager");
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.window_manager_session = kf.get_value ("Session", "window_manager/session");
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.window_manager_extras = kf.get_value ("Session", "window_manager/extras");
 	    }
         catch (KeyFileError err)
         {
@@ -680,6 +702,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing window manager: %s", dbus_arg);
         this.window_manager = dbus_arg;
         kf.set_value ("Session", "window_manager", this.window_manager);
+        save_keyfile();
+    }
+
+    public void on_update_window_manager_session (string dbus_arg)
+    {
+        message("Changing window manager session: %s", dbus_arg);
+        this.window_manager_session = dbus_arg;
+        kf.set_value ("Session", "window_manager/session", this.window_manager_session);
+        save_keyfile();
+    }
+
+    public void on_update_window_manager_extras (string dbus_arg)
+    {
+        message("Changing window manager extras: %s", dbus_arg);
+        this.window_manager_extras = dbus_arg;
+        kf.set_value ("Session", "window_manager/extras", this.window_manager_extras);
         save_keyfile();
     }
 

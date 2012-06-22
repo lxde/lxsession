@@ -95,6 +95,18 @@ public class LxdeSessionServer : Object {
         global_sig.update_window_manager(dbus_arg);
     }
 
+    public void WindowManagerSession (string dbus_arg)
+    {
+        message ("Signal update window manager session: %s", dbus_arg);
+        global_sig.update_window_manager_session(dbus_arg);
+    }
+
+    public void WindowManagerExtras (string dbus_arg)
+    {
+        message ("Signal update window manager extras: %s", dbus_arg);
+        global_sig.update_window_manager_extras(dbus_arg);
+    }
+
     public void KeymapMode (string dbus_arg)
     {
         message ("Signal update keymap mode: %s", dbus_arg);
