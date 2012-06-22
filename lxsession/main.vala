@@ -154,8 +154,19 @@ namespace Lxsession {
         }
 
         /* Launching windows manager */
-        var windowmanager = new WindowManagerApp(config.window_manager);
-        windowmanager.launch();
+        if (config.window_manager != null)
+        {
+            var windowmanager = new WindowManagerApp(config.window_manager, "simple", null, null);
+            windowmanager.launch();
+        }
+        else
+        {
+            var windowmanager = new WindowManagerApp(   config.window_manager_program, 
+                                                        "advanced",
+                                                        config.window_manager_session,
+                                                        config.window_manager_session);
+            windowmanager.launch();
+        }
 
         /* Disable autostart if it's specified in the conf file. */
         if (config.disable_autostart == "true")

@@ -124,8 +124,10 @@ public class SimpleAppObject: AppObject
 
 public class WindowManagerApp: SimpleAppObject
 {
-    public WindowManagerApp (string wm_command)
+    public WindowManagerApp (string wm_command, string mode, string session, string extras)
     {
+
+        string session_command;
 
         base(wm_command);
 
@@ -136,8 +138,29 @@ public class WindowManagerApp: SimpleAppObject
         }
         else
         {
-            this.name = wm_command;
-            this.command = {wm_command};
+            if (mode == "simple")
+            {
+                this.name = wm_command;
+                this.command = {wm_command};
+            }
+            else
+            {
+                this.name = wm_command;
+                switch (session)
+                {
+                    case "LXDE":
+                        session_command = "--config-file $XDG_CONFIG_HOME/openbox/lxde-rc.xml";
+                        break;
+                    case "Lubuntu":
+                        session_command = "--config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml";
+                        break;
+                    default:
+                        session_command = "";
+                        break;
+                }
+                string create_command = wm_command + " " + session_command + " " + extras;
+                this.command = create_command.split_set(" ",0);
+            }
         }
         this.guard = true;
 
