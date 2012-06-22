@@ -86,15 +86,22 @@ namespace Lxsession {
         var environment = new LxsessionEnv(session, desktop_environnement);
 
         /* 
-           Check is lxsession is alone (TODO do it with something like GApplication ?)
+           Check is lxsession is alone
+        */
+/*
         if (environment.check_alone() == false)
         {
-         critical ("Lxsession is already running, exit.");
-         return -1;
+            critical ("Lxsession is already running, exit.");
+            return -1;
         }
-    
-        */
-
+*/
+/* TODO implement with Dbus
+        if (Bus.exist (BusType.SESSION, "org.lxde.SessionManager" == true)
+        {
+            critical ("Lxsession is already running, exit.");
+            return -1;
+        }
+*/
         /* 
            Export environnement variable
         */
@@ -149,6 +156,12 @@ namespace Lxsession {
         /* Launching windows manager */
         var windowmanager = new WindowManagerApp(config.window_manager);
         windowmanager.launch();
+
+        /* Disable autostart if it's specified in the conf file. */
+        if (config.disable_autostart == "true")
+        {
+            autostart = true;
+        }
 
         /* Autostart if not disable by command line */
         if (autostart == false)

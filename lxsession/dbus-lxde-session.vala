@@ -83,6 +83,12 @@ public class LxdeSessionServer : Object {
         global_sig.request_terminal_manager_launch();
     }
 
+    public void DisableAutostart (string dbus_arg)
+    {
+        message ("Signal update disable autostart option: %s", dbus_arg);
+        global_sig.update_disable_autostart(dbus_arg);
+    }
+
     public void WindowManager (string dbus_arg)
     {
         message ("Signal update window manager: %s", dbus_arg);
