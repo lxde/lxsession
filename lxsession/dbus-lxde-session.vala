@@ -95,6 +95,12 @@ public class LxdeSessionServer : Object {
         global_sig.update_window_manager(dbus_arg);
     }
 
+    public void WindowManagerProgram (string dbus_arg)
+    {
+        message ("Signal update window manager program: %s", dbus_arg);
+        global_sig.update_window_manager_program(dbus_arg);
+    }
+
     public void WindowManagerSession (string dbus_arg)
     {
         message ("Signal update window manager session: %s", dbus_arg);

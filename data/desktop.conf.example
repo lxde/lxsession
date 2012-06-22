@@ -1,7 +1,10 @@
 [Session]
 # Default program launched at startup
-# Windows manager and its "session" (usefull for launching openbox with specific arguments (like configuration file))
+# Windows manager : Simple way to launch window manager (backward compatible). Let it empty if you want to use the advanced mode
 window_manager=openbox-lxde
+
+# Window manager : Advanced mode to launch the window manager (with session, usefull for launching openbox with specific arguments (like configuration file) and extras commands)
+window_manager/program=
 window_manager/session=
 window_manager/extras=
 
