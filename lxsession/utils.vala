@@ -84,6 +84,8 @@ public string get_config_path (string conf_file) {
 public class LxSignals : Object
 {
     public signal void update_window_manager (string dbus_arg);
+    public signal void update_window_manager_session (string dbus_arg);
+    public signal void update_window_manager_extras (string dbus_arg);
     public signal void update_disable_autostart (string dbus_arg);
     public signal void update_keymap_mode (string dbus_arg);
     public signal void update_keymap_model (string dbus_arg);
