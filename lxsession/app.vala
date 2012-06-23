@@ -146,6 +146,7 @@ public class WindowManagerApp: SimpleAppObject
             else
             {
                 this.name = wm_command;
+                string create_command;
                 switch (session)
                 {
                     case "LXDE":
@@ -158,7 +159,22 @@ public class WindowManagerApp: SimpleAppObject
                         session_command = "";
                         break;
                 }
-                string create_command = wm_command + " " + session_command + " " + extras;
+                switch (extras)
+                {
+                    case null:
+                        create_command = wm_command + " " + session_command;
+                        break;
+                    case "":
+                        create_command = wm_command + " " + session_command;
+                        break;
+                    case " ":
+                        create_command = wm_command + " " + session_command;
+                        break;
+                    default:
+                        create_command = wm_command + " " + session_command + " " + extras;
+                        break;
+                }
+
                 this.command = create_command.split_set(" ",0);
             }
         }
