@@ -164,7 +164,7 @@ namespace Lxsession {
             var windowmanager = new WindowManagerApp(   config.window_manager_program, 
                                                         "advanced",
                                                         config.window_manager_session,
-                                                        config.window_manager_session);
+                                                        config.window_manager_extras);
             windowmanager.launch();
         }
 
