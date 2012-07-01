@@ -1,1 +1,7 @@
 lxsession-logout/lxsession-logout.c
+lxsession-edit/lxsession-edit.c
+lxpolkit/lxpolkit.c
+lxpolkit/lxpolkit-listener.c
+[type: gettext/glade]data/ui/lxsession-edit.ui
+[type: gettext/glade]data/ui/lxpolkit.ui
+data/lxsession-edit.desktop.in
