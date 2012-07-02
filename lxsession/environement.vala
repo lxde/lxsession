@@ -17,6 +17,8 @@
  *      MA 02110-1301, USA.
  */
 
+using Posix;
+
 namespace Lxsession {
 
 public class LxsessionEnv: GLib.Object {
@@ -46,8 +48,7 @@ public class LxsessionEnv: GLib.Object {
 
         message("Exporting variable");
         message("desktop_environnement %s", desktop_environment_env);
-        /* Workaround until lxsession-logout is ported to Dbus */
-        pid_str = "9999999";
+        pid_str = "%d".printf (Posix.getpid());
         Environment.set_variable(session_env, session, true);
         Environment.set_variable(desktop_environment_env, desktop_environment, true);
         Environment.set_variable(pid_env, pid_str, true);
