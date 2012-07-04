@@ -1,4 +1,4 @@
-Source: lxsession2
+Source: lxsession
 Section: x11
 Priority: optional
 Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian.org>
@@ -22,7 +22,7 @@ Vcs-Git: git://git.debian.org/git/collab-maint/lxsession.git
 Vcs-Browser: http://git.debian.org/?p=collab-maint/lxsession.git;a=summary
 
 
-Package: lxsession2
+Package: lxsession
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
 Recommends: openbox | x-window-manager, openssh-client | rsh-client | ssh-client

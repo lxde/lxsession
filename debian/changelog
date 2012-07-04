@@ -1,4 +1,4 @@
-lxsession (0.4.9.1-0ubuntu1~ppa1) precise; urgency=low
+lxsession (0.4.9.1-1) unstable; urgency=low
 
   * New lxsession (testing packages)
   * debian/control:
