@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Mensaxe personalizada para amosar no cadro de diálogo"
+msgstr "Mensaxe personalizada para amosar no cadro de diÃ¡logo"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -28,7 +28,7 @@ msgstr "mensaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Mensaxe para amosar no diálogo"
+msgstr "Mensaxe para amosar no diÃ¡logo"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -36,7 +36,7 @@ msgstr "ficheiro de imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Posición da imaxe"
+msgstr "PosiciÃ³n da imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:374
 #: ../lxsession-logout/lxsession-logout.c:388
@@ -46,20 +46,12 @@ msgstr "Erro: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
-msgstr "LXSession non se está a executar."
+msgstr "LXSession non se estÃ¡ a executar."
 
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-<<<<<<< HEAD
-<<<<<<< HEAD
-msgstr "<b><big>Saír da sesión de %s</big></b>"
-=======
-msgstr "<b><big>Saír da sesión %s</big></b>"
->>>>>>> Commit from LXDE Translation Project with Pootle by user mbouzada.: 14 of 14 messages translated (0 fuzzy).
-=======
-msgstr "<b><big>Saír da sesión de %s</big></b>"
->>>>>>> Commit from LXDE Translation Project with Pootle by user mbouzada.: 14 of 14 messages translated (0 fuzzy).
+msgstr "<b><big>SaÃ­r da sesiÃ³n de %s</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
@@ -84,7 +76,8 @@ msgstr "_Cambiar usuario"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
-msgstr "_Saír"
+msgstr "_SaÃ­r"
 
 #~ msgid "Logout"
-#~ msgstr "Saír"
+#~ msgstr "SaÃ­r"
+
