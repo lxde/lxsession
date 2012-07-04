@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Mensaxe personalizada para amosar no cadro de diÃ¡logo"
+msgstr "Mensaxe personalizada para amosar no cadro de diálogo"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -28,7 +28,7 @@ msgstr "mensaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Mensaxe para amosar no diÃ¡logo"
+msgstr "Mensaxe para amosar no diálogo"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -36,7 +36,7 @@ msgstr "ficheiro de imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "PosiciÃ³n da imaxe"
+msgstr "Posición da imaxe"
 
 #: ../lxsession-logout/lxsession-logout.c:374
 #: ../lxsession-logout/lxsession-logout.c:388
@@ -46,12 +46,12 @@ msgstr "Erro: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
-msgstr "LXSession non se estÃ¡ a executar."
+msgstr "LXSession non se está a executar."
 
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>SaÃ­r da sesiÃ³n de %s</big></b>"
+msgstr "<b><big>Saír da sesión de %s</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
@@ -76,8 +76,7 @@ msgstr "_Cambiar usuario"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
-msgstr "_SaÃ­r"
+msgstr "_Saír"
 
 #~ msgid "Logout"
-#~ msgstr "SaÃ­r"
-
+#~ msgstr "Saír"
