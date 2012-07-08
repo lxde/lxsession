@@ -106,6 +106,7 @@ public class GnomeSessionServer : Object {
     inhibit_cookie :    The returned cookie is used to uniquely identify this request.  It should be used
                         as an argument to Uninhibit() in order to remove the request.
     */
+    message("Call Inhibit function");
         if (flags == 8)
         {
             var control = new ControlObject();

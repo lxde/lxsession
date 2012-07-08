@@ -42,6 +42,7 @@ namespace Lxsession
             {
                 string create_command = "xdg-screensaver suspend" + " " + toplevel_xid.to_string();
                 Process.spawn_command_line_async(create_command);
+                message("Inhib Screensaver");
             }
             catch (SpawnError err)
             {
@@ -54,6 +55,7 @@ namespace Lxsession
             try
             {
                 Process.spawn_command_line_async("xdg-screensaver reset");
+                message("Disable Inhib Screensaver");
             }
             catch (SpawnError err)
             {
