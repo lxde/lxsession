@@ -27,12 +27,15 @@ lxsession/lxsession
 lxsession/*.c
 lxsession/lxsession
 lxsession-edit/lxsession-edit
+lxpolkit/lxpolkit
+lxpolkit/main.c
 man/Makefile
 man/*.1
 po/LINGUAS
 po/POTFILES
 po/*.gmo
 po/stamp-it
+po/.intltool-merge-cache
 stamp-h1
 Makefile
 */Makefile
