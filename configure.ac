@@ -1,24 +1,28 @@
-AC_PREREQ([2.57])
-AC_INIT(lxsession,[0.4.9.1], [],lxsession)
-AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
+AC_INIT([lxsession],[0.4.9.1],[],[lxsession])
+
+# Autotols programs
+AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign])
+AC_PREREQ([2.69])
+LT_PREREQ([2.2.6])
+IT_PROG_INTLTOOL([0.40.0],[no-xml])
+
+#Initialize libtool
+LT_PREREQ([2.2.6])
+LT_INIT()
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
 # to configure or passing V=1 to make
 AM_SILENT_RULES([yes])
-AC_PROG_INTLTOOL(, [no-xml])
-AM_MAINTAINER_MODE
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
+# C compiler
 AC_PROG_CC
 AC_PROG_INSTALL
 AM_PROG_CC_C_O
 AC_PROG_CC_STDC
 
-#Initialize libtool
-LT_PREREQ([2.2])
-LT_INIT
 
 AC_CHECK_FUNC([mkstemp],
    AC_DEFINE(HAS_MKSTEMP,1,[Define to 1 if you have the 'mkstemp' function.]))
@@ -127,8 +131,7 @@ fi
 
 # debug flags
 AC_ARG_ENABLE(debug,
-    [AC_HELP_STRING([--enable-debug],
-        [build libfm with debug support @<:@default=no@:>@])],
+    [AS_HELP_STRING([--enable-debug],[build libfm with debug support @<:@default=no@:>@])],
     [enable_debug="${enableval}"],
     [enable_debug=no]
 )
@@ -170,7 +173,7 @@ fi
 
 AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
   Makefile
   data/Makefile
   data/ui/Makefile
@@ -185,6 +188,7 @@ AC_OUTPUT([
   po/Makefile.in
   xdg-autostart/Makefile
 ])
+AC_OUTPUT
 
 echo
 echo LXSession.................................... : Version $VERSION
