@@ -2,16 +2,17 @@
 # Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
 # This file is distributed under the same license as the lxsession-lite package
 # Fabio Barone <phonky at gmx.net>, 2009
-#
+# Andrea Florio <andrea@opensuse.org>, 2010
+# Daniele Forsi <daniele@forsi.it>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
 "PO-Revision-Date: 2010-03-09 00:29+0100\n"
-"Last-Translator: Andrea Florio <andrea@opensuse.org>\n"
-"Language-Team: \n"
-"Language: \n"
+"Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
+"Language-Team: Italian\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,17 +23,19 @@ msgstr ""
 msgid "Custom message to show on the dialog"
 msgstr "Messaggio personalizzato da mostrare nel dialogo"
 
+# tutto maiuscolo perché è un parametro per la riga di comando
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
-msgstr "Messaggio"
+msgstr "MESSAGGIO"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "Immagine da mostrare nel dialogo"
 
+# tutto maiuscolo perché è un parametro per la riga di comando
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
-msgstr "Immagine"
+msgstr "FILE_IMMAGINE"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
@@ -46,37 +49,38 @@ msgstr "Errore: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
-msgstr "LXSession attualmente non è in operazione."
+msgstr "LXSession attualmente non è in esecuzione."
 
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Chiudere la sessione %s? </big></b>"
+msgstr "<b><big>Chiudere la sessione %s?</big></b>"
 
+# Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
-msgstr "_Arrestare"
+msgstr "_Arresta"
 
 #: ../lxsession-logout/lxsession-logout.c:558
 msgid "_Reboot"
-msgstr "_Riavviare"
+msgstr "_Riavvia"
 
 #: ../lxsession-logout/lxsession-logout.c:569
 msgid "_Suspend"
-msgstr "_Sospendere"
+msgstr "_Sospendi"
 
 #: ../lxsession-logout/lxsession-logout.c:580
 msgid "_Hibernate"
-msgstr "_Ibernare"
+msgstr "_Iberna"
 
 #: ../lxsession-logout/lxsession-logout.c:591
 msgid "S_witch User"
-msgstr "Cambiare _utente"
+msgstr "Cambia _utente"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:600
 msgid "_Logout"
-msgstr "_Chiudere sessione"
+msgstr "_Chiudi sessione"
 
 #~ msgid "Logout"
 #~ msgstr "Chiudere sessione"
