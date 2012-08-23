@@ -9,13 +9,15 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 18:37+0200\n"
-"PO-Revision-Date: 2010-01-27 17:13+0100\n"
-"Last-Translator: Laszlo Dvornik <dvornik@gnome.hu>\n"
+"PO-Revision-Date: 2012-08-23 14:28+0200\n"
+"Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -50,7 +52,7 @@ msgstr "Az LXSession nem fut."
 #: ../lxsession-logout/lxsession-logout.c:539
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Kijelentkezel ebből a munkamenetből: %s?</big></b>"
+msgstr "<b><big>Kijelentkezel az %s munkamenetből?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:547
 msgid "Sh_utdown"
