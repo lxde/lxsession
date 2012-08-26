@@ -108,7 +108,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     public KeyFile kf;
     public string desktop_config_path { get; set; default = null;}
     public GLib.File desktop_file ;
-    public GLib.FileMonitor monitor_desktop_file;
+    public GLib.File home_desktop_file ;
+    public GLib.FileMonitor monitor_desktop_file ;
+    public GLib.FileMonitor monitor_home_desktop_file;
+    public GLib.Cancellable monitor_cancel;
 
     public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg, LxSignals sig) {
 
@@ -177,9 +180,32 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         try {
             desktop_file = File.new_for_path(desktop_config_path);
-            monitor_desktop_file = desktop_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            monitor_desktop_file = desktop_file.monitor_file(GLib.FileMonitorFlags.NONE, monitor_cancel);
             monitor_desktop_file.changed.connect(on_desktop_file_change);
             message ("Monitoring: %s",desktop_config_path);
+
+            if ( desktop_file.get_path() == get_config_home_path("desktop.conf"))
+            {
+                 message ("Desktop file is already in config home, do nothing");
+            }
+            else
+            {
+                message ("Desktop file is not in config home, monitoring creation of it");
+                setup_creation_desktop_file();
+            }
+
+        } catch (GLib.Error err) {
+            message (err.message);
+        }
+    }
+
+    public void setup_creation_desktop_file()
+    {
+        try {
+            home_desktop_file = File.new_for_path(get_config_home_path("desktop.conf"));
+            monitor_home_desktop_file = home_desktop_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            monitor_home_desktop_file.changed.connect(on_desktop_file_creation);
+            message ("Monitoring home path: %s", home_desktop_file);
         } catch (GLib.Error err) {
             message (err.message);
         }
@@ -190,6 +216,17 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         read_keyfile();
         message("Desktop file change, reloading XSettings daemon");
         settings_daemon_reload(kf);
+    }
+
+    public void on_desktop_file_creation ()
+    {
+        message("Desktop file created in home directory, switch configuration to it");
+        desktop_config_path = get_config_home_path("desktop.conf");
+        monitor_cancel.cancel();
+
+        read_keyfile();
+        settings_daemon_reload(kf);
+        setup_monitor_desktop_file();
     }
 
     public void read_keyfile()
