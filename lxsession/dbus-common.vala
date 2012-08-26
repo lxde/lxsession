@@ -22,14 +22,18 @@ namespace Lxsession
 
 public class SessionObject: Object {
 
+    public ConsoleKitObject dbus_interface;
+
+    public SessionObject()
+    {
+        dbus_interface = GLib.Bus.get_proxy_sync(   BusType.SYSTEM,
+                                                    "org.freedesktop.ConsoleKit",
+                                                    "/org/freedesktop/ConsoleKit/Manager");
+    }
+
     public async bool lxsession_can_shutdown() {
         bool can_shutdown_available = false;
         try {
-            var connection = DBus.Bus.get (DBus.BusType.SYSTEM);
-            var dbus_interface = (ConsoleKitObject)
-            connection.get_object (ConsoleKitObject.UNIQUE_NAME,
-                                   ConsoleKitObject.OBJECT_PATH,
-                                   ConsoleKitObject.INTERFACE_NAME);
             can_shutdown_available = yield dbus_interface.can_stop ();
         }
         catch (DBus.Error err) {
@@ -42,11 +46,6 @@ public class SessionObject: Object {
 
     public void lxsession_shutdown() {
         try {
-            var connection = DBus.Bus.get (DBus.BusType.SYSTEM);
-            var dbus_interface = (ConsoleKitObject)
-            connection.get_object (ConsoleKitObject.UNIQUE_NAME,
-                                   ConsoleKitObject.OBJECT_PATH,
-                                   ConsoleKitObject.INTERFACE_NAME);
             dbus_interface.stop ();
         }
         catch (DBus.Error err) {
@@ -56,11 +55,6 @@ public class SessionObject: Object {
 
     public void lxsession_restart() {
         try {
-            var connection = DBus.Bus.get (DBus.BusType.SYSTEM);
-            var dbus_interface = (ConsoleKitObject)
-            connection.get_object (ConsoleKitObject.UNIQUE_NAME,
-                                   ConsoleKitObject.OBJECT_PATH,
-                                   ConsoleKitObject.INTERFACE_NAME);
             dbus_interface.restart ();
         }
         catch (DBus.Error err) {
