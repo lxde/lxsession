@@ -205,7 +205,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             home_desktop_file = File.new_for_path(get_config_home_path("desktop.conf"));
             monitor_home_desktop_file = home_desktop_file.monitor_file(GLib.FileMonitorFlags.NONE);
             monitor_home_desktop_file.changed.connect(on_desktop_file_creation);
-            message ("Monitoring home path: %s", home_desktop_file);
+            message ("Monitoring home path: %s", home_desktop_file.get_path());
         } catch (GLib.Error err) {
             message (err.message);
         }
