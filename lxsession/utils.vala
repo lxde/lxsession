@@ -43,15 +43,25 @@ public KeyFile load_keyfile (string config_path) {
     return kf;
 }
 
-public string get_config_path (string conf_file) {
-
-    string final_config_file;
+public string get_config_home_path (string conf_file)
+{
 
     string user_config_dir = Path.build_filename(
                              Environment.get_user_config_dir (),
                              "lxsession",
                              session_global,
                              conf_file);
+
+    return user_config_dir;
+
+}
+
+
+public string get_config_path (string conf_file) {
+
+    string final_config_file;
+
+    string user_config_dir = get_config_home_path(conf_file);
 
     if (FileUtils.test (user_config_dir, FileTest.EXISTS))
     {
