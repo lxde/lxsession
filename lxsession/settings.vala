@@ -52,7 +52,7 @@ public class LxsessionConfig: GLib.Object {
     public string laptop_mode { get; set; default = null;}
 
     /* Clipboard */
-    public string clipboard_command { get; set; default = null;}
+    public string clipboard_command { get; set; default = "lxclipboard";}
 
     /* Dbus */
     public string dbus_lxde { get; set; default = "true";}
