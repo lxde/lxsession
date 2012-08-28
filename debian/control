@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 7.0.50~),
                libdbus-glib-1-dev (>=0.31),
                libpolkit-agent-1-dev,
                libgee-dev,
-               valac-0.14,
+               valac-0.14 | valac,
                docbook-xsl,
                xsltproc,
                docbook-xml,
@@ -62,14 +62,18 @@ Description : Common files for lxsession
 Package: lxsession-edit
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
-Description : lxsession-edit
- lxsession-edit
+Description: configure what application start up automaticlly in LXDE 
+ LXSession-Edit is a simple session editor GUI for lxsession-lite which
+ follows autostart specs from FreeDesktop.Org
 
 Package: lxpolkit
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
-Description : lxpolkit
- lxpolkit
+Description: LXDE PolicyKit authentication agent
+ LXPolkit is a GUI application for the Lightweight X11 Desktop Environment
+ (LXDE).
+ .
+ It's a simple PolicyKit authentication agent.
 
 Package: lxsession-dbg
 Architecture: any
