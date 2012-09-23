@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 18:37+0200\n"
+"POT-Creation-Date: 2012-09-23 15:22+0200\n"
 "PO-Revision-Date: 2010-06-07 16:06+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,35 +48,102 @@ msgstr "Villar: %s\n"
 msgid "LXSession is not running."
 msgstr "LXSession koyrir ikki."
 
-#: ../lxsession-logout/lxsession-logout.c:539
+#: ../lxsession-logout/lxsession-logout.c:564
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Útrita úr %s setu?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:547
+#: ../lxsession-logout/lxsession-logout.c:572
 msgid "Sh_utdown"
 msgstr "S_løkk"
 
-#: ../lxsession-logout/lxsession-logout.c:558
+#: ../lxsession-logout/lxsession-logout.c:583
 msgid "_Reboot"
 msgstr "_Endurbyrja"
 
-#: ../lxsession-logout/lxsession-logout.c:569
+#: ../lxsession-logout/lxsession-logout.c:594
 msgid "_Suspend"
 msgstr "_Steðga"
 
-#: ../lxsession-logout/lxsession-logout.c:580
+#: ../lxsession-logout/lxsession-logout.c:605
 msgid "_Hibernate"
 msgstr "_Dvala"
 
-#: ../lxsession-logout/lxsession-logout.c:591
+#: ../lxsession-logout/lxsession-logout.c:616
 msgid "S_witch User"
 msgstr "S_kift brúkara"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:600
+#: ../lxsession-logout/lxsession-logout.c:625
 msgid "_Logout"
 msgstr "_Útrita"
+
+#: ../lxsession-edit/lxsession-edit.c:365
+msgid "Enabled"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:370
+msgid "Application"
+msgstr ""
+
+#: ../lxsession-edit/lxsession-edit.c:378
+msgid "Comment"
+msgstr ""
+
+#: ../lxpolkit/lxpolkit-listener.c:106
+msgid "Password: "
+msgstr ""
+
+#: ../lxpolkit/lxpolkit-listener.c:251
+#, fuzzy, c-format
+msgid "Group: %s"
+msgstr "Villar: %s\n"
+
+#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:2
+msgid "Applications automatically started after entering desktop:"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:3
+msgid "Automatically Started Applications"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:4
+msgid "Window Manager:"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:5
+msgid ""
+"Command line used to launch window manager\n"
+"(The default window manager command for LXDE should be openbox-lxde)"
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:7
+msgid ""
+"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
+"are doing.\n"
+"\n"
+"<b>NOTE:</b> This setting will take effect on next login."
+msgstr ""
+
+#: ../data/ui/lxsession-edit.ui.h:10
+msgid "Advanced Options"
+msgstr ""
+
+#: ../data/ui/lxpolkit.ui.h:1
+msgid "Authentication"
+msgstr ""
+
+#: ../data/ui/lxpolkit.ui.h:2
+msgid "Identity:"
+msgstr ""
+
+#: ../data/lxsession-edit.desktop.in.h:2
+msgid "Manage applications loaded in desktop session"
+msgstr ""
 
 #~ msgid "Logout"
 #~ msgstr "Útrita"
