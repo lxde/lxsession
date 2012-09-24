@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2011-10-27 14:04+0200\n"
+"PO-Revision-Date: 2012-09-24 21:53+0200\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -52,11 +52,11 @@ msgstr "LXSession ei tööta."
 #: ../lxsession-logout/lxsession-logout.c:564
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>%s sessioonist väljumine?</big></b>"
+msgstr "<b><big>Sessioonist %s väljumine?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:572
 msgid "Sh_utdown"
-msgstr "_Lülita välja"
+msgstr "_Väljalülitamine"
 
 #: ../lxsession-logout/lxsession-logout.c:583
 msgid "_Reboot"
@@ -72,55 +72,57 @@ msgstr "_Hiberneeri"
 
 #: ../lxsession-logout/lxsession-logout.c:616
 msgid "S_witch User"
-msgstr "_Vaheta kasutajat"
+msgstr "_Kasutaja vahetamine"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:625
 msgid "_Logout"
-msgstr "L_ogi välja"
+msgstr "Vä_ljalogimine"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Lubatud"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Programm"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Kommentaar"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Parool: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Viga: %s\n"
+msgstr "Grupp: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Töölauaseanssi seaded"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Töölauaseansi alustamisel käivituvad programmid:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automaatselt käivitatavad rakendused"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Aknahaldur:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Käsklus aknahalduri käivitamiseks\n"
+"(Vaikimisi aknahalduri käsk on \"openbox-lxde\")"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -129,22 +131,26 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Hoiatus:</b> Palun <b>ÄRA</b> muuda seda, kui sa ei tea täpselt mida sa "
+"teed.\n"
+"\n"
+"<b>MÄRKUS:</b> See muudatus mõjub järgmisel sisselogimisel."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Täpsemad valikud"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autentimine"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identiteet:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Töölauaseansi programmide haldamine"
 
 #~ msgid "Logout"
 #~ msgstr "Logi välja"
