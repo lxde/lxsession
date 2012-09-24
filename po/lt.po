@@ -2,24 +2,27 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2009-04-06 13:33+0200\n"
-"Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-09-24 09:05+0300\n"
+"Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
+"Language-Team: Lietuvių <>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Dialoge rodoma žinutė"
+msgstr "Pasirinktinė žinutė kuri bus rodoma dialoge"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -27,7 +30,7 @@ msgstr "žinutė"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Dialogo antraštė"
+msgstr "Pranešimas, rodomas dialoge"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -35,7 +38,7 @@ msgstr "paveikslėlis"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Antraštės pozicija"
+msgstr "Pranešimo pozicija"
 
 #: ../lxsession-logout/lxsession-logout.c:374
 #: ../lxsession-logout/lxsession-logout.c:388
@@ -50,7 +53,7 @@ msgstr "LXSession nepaleista."
 #: ../lxsession-logout/lxsession-logout.c:564
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
-msgstr "<b><big>Atsijungti iš %s seanso?</big></b>"
+msgstr "<b><big>Atsijungti iš %s sesijos?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:572
 msgid "Sh_utdown"
@@ -70,7 +73,7 @@ msgstr "_Hibernuoti"
 
 #: ../lxsession-logout/lxsession-logout.c:616
 msgid "S_witch User"
-msgstr "_Keisti vartotoją"
+msgstr "_Keisti naudotoją"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:625
@@ -79,46 +82,48 @@ msgstr "_Atsijungti"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Įjungta"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Programa"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Komentaras"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Slaptažodis: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Klaida: %s\n"
+msgstr "Grupė: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Darbastalio sesijos nustatymai"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Programa kuri bus automatiškai paleista atėjus į darbastalį:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automatiškai paleidžiamos programos"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Langų tvarkyklė:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Komandinė eilutė kuria bus paleidžiama langų tvarkyklė\n"
+"(Numatyta LXDE langų tvarkyklės komanda turėtų būti „openbox-lxde“)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -127,22 +132,25 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Įspėjimas:</b>  <b>NELIESKITE</b> nebent tiksliai žinote ką darote.\n"
+"\n"
+"<b>PASTABA:</b> Šis nustatymas įsigalios kitą kart prisijungus."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Papildomi parametrai"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Tapatybės patvirtinimas"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Tapatybė:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Tvarkykite programas įkrautas į darbastalio sesiją"
 
 #~ msgid "Logout"
 #~ msgstr "_Atsijungti"
