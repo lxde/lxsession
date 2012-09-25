@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2011-09-08 11:34+0200\n"
-"Last-Translator: Pjotr\n"
+"PO-Revision-Date: 2012-09-25 23:34+0200\n"
+"Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
-"Language: nl (Dutch)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -80,46 +81,51 @@ msgstr "_Afmelden"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Toepassing"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Commentaar"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Wachtwoord: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Fout: %s\n"
+msgstr "Groep: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Instellingen voor bureaubladsessie"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
 msgstr ""
+"Toepassingen die automatisch worden gestart na het verschijnen van het "
+"bureaublad:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automatisch gestarte toepassingen"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Vensterbeheerder:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Opdrachtregel die wordt gebruikt om de vensterbeheerder te starten\n"
+"(de standaard-opdrachtregel voor de LXDE-vensterbeheerder zou openbox-lxde "
+"moeten zijn)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -128,22 +134,27 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Waarschuwing:</b> verander hier <b>NIETS</b> aan, tenzij u precies weet "
+"wat u aan het doen bent.\n"
+"\n"
+"<b>LET OP:</b> deze instelling zal van kracht worden bij de volgende "
+"aanmelding."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Geavanceerde opties"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Authenticatie"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identiteit:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Toepassingen beheren die geladen zijn in de bureaubladsessie"
 
 #~ msgid "Logout"
 #~ msgstr "Afmelden"
