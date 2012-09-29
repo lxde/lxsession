@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2012-09-28 23:50+0200\n"
+"PO-Revision-Date: 2012-09-29 13:11+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -117,6 +117,8 @@ msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Командна стрічка для запуску менеджера вікон\n"
+"(Типовою командою для запуску LXDE повинна бути openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -125,22 +127,25 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Попередження:</b> <b>НЕ</b> чіпайте це, якщо Ви не певні своїх дій.\n"
+"\n"
+"<b>ПРИМІТКА:</b> Це налаштування застосується після наступного входу."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Розширені налаштування"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Ідентифікація"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Ідентичність:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Керування програмами, що завантажені під час сесії"
 
 #~ msgid "Logout"
 #~ msgstr "Вилогувати"
