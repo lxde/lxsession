@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2012-01-20 00:33+0200\n"
+"PO-Revision-Date: 2012-10-15 16:10+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -80,46 +80,49 @@ msgstr "_Saír"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Aplicativo"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Contrasinal: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Erro: %s\n"
+msgstr "Grupo: %s\n"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Axustes da sesión de escritorio"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
 msgstr ""
+"Aplicativos que iniciar a automaticamente despois de entrar no escritorio:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Aplicativos que iniciar a automaticamente"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Xestor de xanelas:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Liña de ordes para iniciar o xestor de xanelas\n"
+"(A orde predeterminada do xestor de xanelas do LXDE é openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -128,22 +131,25 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Aviso:</b> <b>NON</b> modifique isto a non ser que saiba exactamente o "
+"que está a facer.\n"
+"<b>Nota:</b> esta opción terá efecto a partir do próximo acceso."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opcións avanzadas"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticación"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identidade:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Xestionar os aplicativos que cargar na sesión de escritorio"
 
 #~ msgid "Logout"
 #~ msgstr "Saír"
