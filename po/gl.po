@@ -97,7 +97,7 @@ msgstr "Contrasinal: "
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
 msgid "Group: %s"
-msgstr "Grupo: %s\n"
+msgstr "Grupo: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
