@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2012-07-04 10:34+0200\n"
+"PO-Revision-Date: 2012-10-23 22:24+0200\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -80,46 +80,48 @@ msgstr "_ניתוק"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "מופעל"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "יישום"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "הערה"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "ססמה: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "שגיאה: %s\n"
+msgstr "קבוצה: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "הגדרות הפעלת שולחן העבודה"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "היישומים המופעלים אוטומטית לאחר הכניסה לשולחן העבודה:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "יישומים המופעלים אוטומטית"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "מנהל חלונות:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"הפקודה המשמשת לטעינת מנהל החלונות\n"
+"(פקודת בררת המחדל להפעלת מנהל החלונות ב־LXDE הנה openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -128,22 +130,26 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>אזהרה:</b> Do <b>אין</b> לגעת בהגדרות אלה אלמלא פעולותיך מובנות לך "
+"במלואן.\n"
+"\n"
+"<b>הערה:</b> הגדרה זו תחול עם כניסתך הבאה למערכת."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "אפשרויות מתקדמות"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "אימות"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "זהות:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "ניהול יישומים המופעלים עם הפעלת שולחן העבודה"
 
 #~ msgid "Logout"
 #~ msgstr "ניתוק"
