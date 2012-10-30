@@ -20,13 +20,6 @@ PATH=/bin:/usr/bin
 export PATH
 
 for lock_cmd in \
-    "xscreensaver-command -lock" \
-    "gnome-screensaver-command --lock"
-do
-    $lock_cmd >/dev/null 2>&1 && exit
-done
-
-for lock_cmd in \
     "slock" \
     "xlock -mode blank"
 do
@@ -36,5 +29,18 @@ do
         exit
     fi
 done
+
+for lock_cmd in \
+    "xscreensaver-command -lock"
+do
+    $lock_cmd >/dev/null 2>&1 && exit
+done
+
+lock_prog="gnome-screensaver"
+lock_cmd="gnome-screensaver-command --lock"
+if command -v -- $lock_prog >/dev/null 2>&1; then
+    $lock_prog & # It does not matter if it is already running.
+    $lock_cmd >/dev/null 2>&1 && exit
+fi
 
 exit 1
