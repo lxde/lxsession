@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:22+0200\n"
+"POT-Creation-Date: 2012-10-30 13:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,43 +37,47 @@ msgstr ""
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:374
-#: ../lxsession-logout/lxsession-logout.c:388
+#: ../lxsession-logout/lxsession-logout.c:406
+#: ../lxsession-logout/lxsession-logout.c:420
 #, c-format
 msgid "Error: %s\n"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:388
+#: ../lxsession-logout/lxsession-logout.c:420
 msgid "LXSession is not running."
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:564
+#: ../lxsession-logout/lxsession-logout.c:603
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:572
+#: ../lxsession-logout/lxsession-logout.c:611
 msgid "Sh_utdown"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:583
+#: ../lxsession-logout/lxsession-logout.c:622
 msgid "_Reboot"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:594
+#: ../lxsession-logout/lxsession-logout.c:633
 msgid "_Suspend"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:605
+#: ../lxsession-logout/lxsession-logout.c:644
 msgid "_Hibernate"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:616
+#: ../lxsession-logout/lxsession-logout.c:655
 msgid "S_witch User"
 msgstr ""
 
+#: ../lxsession-logout/lxsession-logout.c:666
+msgid "L_ock Screen"
+msgstr ""
+
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:675
 msgid "_Logout"
 msgstr ""
 
