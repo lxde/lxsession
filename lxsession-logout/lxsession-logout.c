@@ -72,9 +72,13 @@ typedef struct {
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via KDM */
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
+
+    int lock_screen : 1;                /* Lock screen available */
+
 } HandlerContext;
 
 static gboolean lock_screen(void);
+static const gchar* determine_lock_screen(void);
 static gboolean verify_running(const char * display_manager, const char * executable);
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context);
 static void change_root_property(GtkWidget* w, const char* prop_name, const char* value);
@@ -93,12 +97,31 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
  */
 static gboolean lock_screen(void)
 {
-    if (!g_spawn_command_line_async("lxlock", NULL))
+    const gchar* program = determine_lock_screen();
+
+    if (!program)
     {
+        g_spawn_command_line_async(program, NULL);
         return TRUE;
     }
     return FALSE;
 }
+
+static const gchar* determine_lock_screen(void)
+{
+    const gchar* program = NULL;
+
+    if (g_find_program_in_path("xdg-screensaver"))
+    {
+        program = "xdg-screensaver";
+    }
+    else if (g_find_program_in_path("lxlock"))
+    {
+        program = "lxlock";
+    }
+    return program;
+}
+
 
 /* Verify that a program is running and that an executable is available. */
 static gboolean verify_running(const char * display_manager, const char * executable)
@@ -258,6 +281,15 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
         g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_KDM)
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
+    gtk_main_quit();
+}
+
+/* Handler for "clicked" signal on Lock button. */
+static void lock_screen_clicked(GtkButton * button, HandlerContext * handler_context)
+{
+    gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
+
+    lock_screen();
     gtk_main_quit();
 }
 
@@ -478,6 +510,13 @@ int main(int argc, char * argv[])
         handler_context.reboot_available = TRUE;
     }
 
+    /* Lock screen */
+    const gchar* very_lock_screen = determine_lock_screen();
+    if (very_lock_screen)
+    {
+        handler_context.lock_screen = TRUE;
+    }
+
     /* Make the button images accessible. */
     gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxsession/images");
 
@@ -619,6 +658,17 @@ int main(int argc, char * argv[])
         gtk_button_set_alignment(GTK_BUTTON(switch_user_button), 0.0, 0.5);
         g_signal_connect(G_OBJECT(switch_user_button), "clicked", G_CALLBACK(switch_user_clicked), &handler_context);
         gtk_box_pack_start(GTK_BOX(controls), switch_user_button, FALSE, FALSE, 4);
+    }
+
+    /* Create the Lock Screen button. */
+    if (handler_context.lock_screen && !handler_context.ltsp)
+    {
+        GtkWidget * lock_screen_button = gtk_button_new_with_mnemonic(_("L_ock Screen"));
+        GtkWidget * image = gtk_image_new_from_icon_name("system-lock-screen", GTK_ICON_SIZE_BUTTON);
+        gtk_button_set_image(GTK_BUTTON(lock_screen_button), image);
+        gtk_button_set_alignment(GTK_BUTTON(lock_screen_button), 0.0, 0.5);
+        g_signal_connect(G_OBJECT(lock_screen_button), "clicked", G_CALLBACK(lock_screen_clicked), &handler_context);
+        gtk_box_pack_start(GTK_BOX(controls), lock_screen_button, FALSE, FALSE, 4);
     }
 
     /* Create the Logout button. */
