@@ -70,7 +70,8 @@ typedef struct {
     int suspend_HAL : 1;		/* Suspend is available via HAL */
     int hibernate_HAL : 1;		/* Hibernate is available via HAL */
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
-    int switch_user_KDM : 1;		/* Switch User is available via KDM */
+    int switch_user_LIGHTDM : 1;	/* Switch User is available via GDM */
+    int switch_user_KDM : 1;		/* Switch User is available via LIGHTDM */
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
 
     int lock_screen : 1;                /* Lock screen available */
@@ -281,6 +282,8 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
         g_spawn_command_line_sync("gdmflexiserver --startnew", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_KDM)
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
+    else if (handler_context->switch_user_LIGHTDM)
+        dbus_Lightdm_SwitchToGreeter();
     gtk_main_quit();
 }
 
@@ -493,6 +496,13 @@ int main(int argc, char * argv[])
     {
         handler_context.switch_user_available = TRUE;
         handler_context.switch_user_GDM = TRUE;
+    }
+
+    /* lightdm can also be find by the env */
+    if (g_getenv("XDG_SEAT_PATH"))
+    {
+        handler_context.switch_user_available = TRUE;
+        handler_context.switch_user_LIGHTDM = TRUE;
     }
 
     /* If we are under KDM, its "Switch User" is available. */

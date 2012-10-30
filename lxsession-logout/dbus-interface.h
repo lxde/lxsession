@@ -46,4 +46,6 @@ extern char * dbus_HAL_Hibernate(void);
 
 extern char * dbus_LXDE_Logout(void);
 
+extern char * dbus_Lightdm_SwitchToGreeter();
+
 #endif

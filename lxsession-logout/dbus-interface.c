@@ -465,7 +465,7 @@ char * dbus_HAL_Hibernate(void)
 /*** LXDE mechanism ***/
 
 #ifdef HAVE_DBUS
-/* Formulate a message to the ConsoleKit Manager interface. */
+/* Formulate a message to the LXDE Session Manager interface. */
 static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
 {
     return dbus_message_new_method_call(
@@ -502,4 +502,46 @@ static char * dbus_LXDE_command(const char * const command)
 char * dbus_LXDE_Logout(void)
 {
     return dbus_LXDE_command("Logout");
+}
+
+/*** Lightdm mechanism ***/
+
+#ifdef HAVE_DBUS
+/* Formulate a message to the Lightdm interface. */
+static DBusMessage * dbus_Lightdm_formulate_message(const char * const query)
+{
+    return dbus_message_new_method_call(
+                "org.freedesktop.DisplayManager",
+                g_getenv ("XDG_SEAT_PATH"),
+                "org.freedesktop.DisplayManager.Seat",
+                query);
+}
+#endif
+
+/* Send a specified message to the Lightdm interface and process a boolean result. */
+static gboolean dbus_Lightdm_query(const char * const query)
+{
+#ifdef HAVE_DBUS
+    return dbus_read_result_boolean(dbus_send_message_session(dbus_Lightdm_formulate_message(query), NULL));
+#else
+    return FALSE;
+#endif
+}
+
+/* Send a specified message to the Lightdm interface and process a void result. */
+static char * dbus_Lightdm_command(const char * const command)
+{
+#ifdef HAVE_DBUS
+    char * error = NULL;
+    dbus_read_result_void(dbus_send_message_session(dbus_Lightdm_formulate_message(command), &error));
+    return error;
+#else
+    return NULL;
+#endif
+}
+
+/* Invoke the Logout method on LXDE. */
+char * dbus_Lightdm_SwitchToGreeter(void)
+{
+    return dbus_Lightdm_command("SwitchToGreeter");
 }
