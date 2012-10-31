@@ -1,17 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
+# Uyghur translation for lxsession.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,46 +78,47 @@ msgstr "چىق(_L)"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "ئىناۋەتلىك"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "پروگرامما"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "ئىزاھات"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "ئىم: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "خاتالىق: %s\n"
+msgstr "گۇرۇپپا: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "ئۈستەلئۈستى ئەڭگىمە تەڭشىكى"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "ئۈستەلئۈستىگە كىرگەندىلا ئاپتوماتىك ئىجرا بولىدىغان پروگراممىلار:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "ئاپتوماتىك قوزغىلىدىغان پروگراممىلار"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "كۆزنەك باشقۇرغۇ:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
-msgstr ""
+msgstr "كۆزنەك باشقۇرغۇنى ئىجرا قىلىدىغان بۇيرۇق قۇرى\n"
+"(LXDE نىڭ كۆڭۈلدىكى كۆزنەك باشقۇرغۇ چوقۇم openbox-lxde بولۇشى كېرەك)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -126,20 +126,22 @@ msgid ""
 "are doing.\n"
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
-msgstr ""
+msgstr "<b>ئاگاھلاندۇرۇش:</b> نېمە قىلىشنى ئېنىق بىلمىگەن ئەھۋال ئاستىدا <b>زادىلا تەگمەڭ</b>.\n"
+"\n"
+"<b>دىققەت:</b> بۇ تەڭشەكلەر كېيىنكى قېتىم كىرگەندە ئاندىن ئۈنۈملۈكتۇر."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "ئالىي تاللانما"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "كىملىك دەلىللەش"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "كىملىك:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "ئۈستەلئۈستى ئەڭگىمەسىگە ئوقۇلغان پروگراممىلارنى باشقۇرىدۇ"
