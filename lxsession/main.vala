@@ -242,6 +242,15 @@ namespace Lxsession {
                 filemanagerprogram.launch();
             }
 
+            if (config.composite_manager_autostart == "true")
+            {
+                if (config.composite_manager_command != null)
+                {
+                    var compositemanagerprogram = new CompositeManagerApp(config.composite_manager_command);
+                    compositemanagerprogram.launch();
+                }
+            }
+
             if (config.polkit != null)
             {
                 securitypolkit.launch();

@@ -561,4 +561,21 @@ public class TerminalManagerApp: SimpleAppObject {
     }
 }
 
+public class CompositeManagerApp: SimpleAppObject {
+
+    public CompositeManagerApp (string compositemanager_command){
+
+        base(compositemanager_command);
+
+        switch (compositemanager_command)
+        {
+            default:
+                string[] create_command = compositemanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 }

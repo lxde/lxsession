@@ -97,6 +97,9 @@ public class LxSignals : Object
     public signal void update_window_manager_program (string dbus_arg);
     public signal void update_window_manager_session (string dbus_arg);
     public signal void update_window_manager_extras (string dbus_arg);
+    public signal void update_composite_manager_command (string dbus_arg);
+    public signal void update_composite_manager_autostart (string dbus_arg);
+
     public signal void update_disable_autostart (string dbus_arg);
     public signal void update_keymap_mode (string dbus_arg);
     public signal void update_keymap_model (string dbus_arg);
@@ -140,6 +143,7 @@ public class LxSignals : Object
     public signal void request_workspace_manager_launch();
     public signal void request_launcher_manager_launch();
     public signal void request_terminal_manager_launch();
+    public signal void request_composite_manager_launch();
 
 }
 

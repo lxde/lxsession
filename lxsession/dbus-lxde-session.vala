@@ -83,6 +83,12 @@ public class LxdeSessionServer : Object {
         global_sig.request_terminal_manager_launch();
     }
 
+    public void CompositeManagerLaunch()
+    {
+        message ("Launch composite manager");
+        global_sig.request_composite_manager_launch();
+    }
+
     public void DisableAutostart (string dbus_arg)
     {
         message ("Signal update disable autostart option: %s", dbus_arg);
@@ -111,6 +117,18 @@ public class LxdeSessionServer : Object {
     {
         message ("Signal update window manager extras: %s", dbus_arg);
         global_sig.update_window_manager_extras(dbus_arg);
+    }
+
+    public void CompositeManagerCommand (string dbus_arg)
+    {
+        message ("Signal update composite manager command: %s", dbus_arg);
+        global_sig.update_composite_manager_command(dbus_arg);
+    }
+
+    public void CompositeManagerAutostart (string dbus_arg)
+    {
+        message ("Signal update composite manager autostart: %s", dbus_arg);
+        global_sig.update_composite_manager_autostart(dbus_arg);
     }
 
     public void KeymapMode (string dbus_arg)

@@ -47,6 +47,10 @@ terminal_manager=
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard=lxclipboard
 
+# Use a standalone composite manager (with possibility to autostart it)
+composite_manager/command=
+composite_manager/autostart=true
+
 # Disable autostart of applications in system and home autostart directory
 disable_autostart=true
 

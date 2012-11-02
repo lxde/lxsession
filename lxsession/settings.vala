@@ -46,6 +46,8 @@ public class LxsessionConfig: GLib.Object {
     public string workspace_manager { get; set; default = null;}
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
+    public string composite_manager_command { get; set; default = null;}
+    public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
 
     /* State */
@@ -128,7 +130,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_window_manager_program.connect(on_update_window_manager_session);
         global_sig.update_window_manager_session.connect(on_update_window_manager_session);
         global_sig.update_window_manager_extras.connect(on_update_window_manager_extras);
+        global_sig.update_composite_manager_command.connect(on_update_composite_manager_command);
+        global_sig.update_composite_manager_autostart.connect(on_update_composite_manager_autostart);
+
         global_sig.update_disable_autostart.connect(on_update_disable_autostart);
+
         global_sig.update_keymap_mode.connect(on_update_keymap_mode);
         global_sig.update_keymap_model.connect(on_update_keymap_model);
         global_sig.update_keymap_layout.connect(on_update_keymap_layout);
@@ -171,6 +177,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_workspace_manager_launch.connect(on_request_workspace_manager_launch);
         global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);
         global_sig.request_terminal_manager_launch.connect(on_request_terminal_manager_launch);
+        global_sig.request_composite_manager_launch.connect(on_request_composite_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -405,6 +412,25 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.terminal_manager = kf.get_value("Session", "terminal_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Composite Manager
+        try
+        {
+            this.composite_manager_command = kf.get_value("Session", "composite_manager/command");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.composite_manager_autostart = kf.get_value("Session", "composite_manager/autostart");
         }
         catch (KeyFileError err)
         {
@@ -777,6 +803,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    public void on_update_composite_manager_command (string dbus_arg)
+    {
+        message("Changing composite manager command: %s", dbus_arg);
+        this.composite_manager_command = dbus_arg;
+        kf.set_value ("Session", "composite_manager/command", this.composite_manager_command);
+        save_keyfile();
+    }
+
+    public void on_update_composite_manager_autostart (string dbus_arg)
+    {
+        message("Changing composite manager autostart: %s", dbus_arg);
+        this.composite_manager_autostart = dbus_arg;
+        kf.set_value ("Session", "composite_manager/autostart", this.composite_manager_autostart);
+        save_keyfile();
+    }
+
     public void on_update_disable_autostart (string dbus_arg)
     {
         message("Changing disable autostart option: %s", dbus_arg);
@@ -1065,6 +1107,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Start Terminal Manager");
         var terminal = new TerminalManagerApp(this.terminal_manager);
         terminal.launch();
+    }
+
+    public void on_request_composite_manager_launch ()
+    {
+        message("Start Composite Manager");
+        var composite = new CompositeManagerApp(this.composite_manager_command);
+        composite.launch();
     }
 }
 
