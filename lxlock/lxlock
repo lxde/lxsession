@@ -32,11 +32,11 @@ elif test x"`which gnome-screensaver-command 2>/dev/null`" != x""; then
     gnome-screensaver-command --lock
 elif test x"`which slock 2>/dev/null`" != x""; then
     slock
-elif
+elif test x"`which xlock 2>/dev/null`" != x""; then
     xlock $*
 # In the end, try to fallback to xdg-screensaver. Don't do at the first try, 
 # because if lxlock is called by xdg-screensaver, we may enter a loop.
-else test x"`which xdg-screensaver 2>/dev/null`" != x""; then
+else
     xdg-screensaver lock 
 fi
 exit 0
