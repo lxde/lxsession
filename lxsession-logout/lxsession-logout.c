@@ -100,7 +100,7 @@ static gboolean lock_screen(void)
 {
     const gchar* program = determine_lock_screen();
 
-    if (!program)
+    if (program)
     {
         g_spawn_command_line_async(program, NULL);
         return TRUE;
@@ -114,7 +114,7 @@ static const gchar* determine_lock_screen(void)
 
     if (g_find_program_in_path("xdg-screensaver"))
     {
-        program = "xdg-screensaver";
+        program = "xdg-screensaver lock";
     }
     else if (g_find_program_in_path("lxlock"))
     {
