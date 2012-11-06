@@ -1,4 +1,4 @@
-AC_INIT([lxsession],[0.4.9.1],[],[lxsession])
+AC_INIT([lxsession],[0.4.9.2],[],[lxsession])
 
 # Autotols programs
 AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign])
