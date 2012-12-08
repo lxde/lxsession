@@ -74,6 +74,10 @@ public class LxsessionConfig: GLib.Object {
     /* Security */
     public string security_keyring { get; set; default = null;}
 
+    /* a11y */
+    public string a11y_activate { get; set; default = "false";}
+    public string a11y_type { get; set; default = "gnome";}
+
     /* GTK */
     public string gtk_theme_name { get; set; default = null;}
     public string gtk_icon_theme_name { get; set; default = null;}
@@ -557,6 +561,24 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 	    try
         {
             this.security_keyring = kf.get_value ("Security", "keyring");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // a11y
+	    try
+        {
+            this.a11y_activate = kf.get_value ("a11y", "activate");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+	    try
+        {
+            this.a11y_type = kf.get_value ("a11y", "type");
         }
         catch (KeyFileError err)
         {

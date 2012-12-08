@@ -289,6 +289,12 @@ namespace Lxsession {
             keyring.activate();
         }
 
+        if (config.a11y_type == "true")
+        {
+            var a11y = new A11yOption(config);
+            a11y.activate();
+        }
+
         /* DBus Serveurs */
         if (config.dbus_lxde == "true")
         {

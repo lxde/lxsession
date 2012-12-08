@@ -54,6 +54,10 @@ composite_manager/autostart=true
 # Disable autostart of applications in system and home autostart directory
 disable_autostart=true
 
+# Default web browser (desktop is the corresponding desktop file)
+webbrowser/command=
+webbrowser/desktop=
+
 [State]
 # unknown if untested, yes if on laptop, no if not
 laptop_mode=unknown
@@ -82,6 +86,13 @@ command=
 [Security]
 # Default Keyring program
 keyring=gnome-all
+
+[a11y]
+# Accessibility options
+# Activate or not the following options
+activate=yes
+# Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
+type=gnome
 
 [GTK]
 #iNet/DoubleClickTime=400
