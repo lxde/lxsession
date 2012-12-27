@@ -72,6 +72,7 @@ namespace Lxsession {
         if (desktop_environnement == null)
         {
             message ("No desktop environnement set, fallback to LXDE");
+            desktop_environnement = "LXDE";
         }
 
         session_global = session;
