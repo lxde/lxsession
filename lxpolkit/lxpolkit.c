@@ -38,7 +38,14 @@ gboolean policykit_agent_init()
     GError* err = NULL;
 
     listener = lxpolkit_listener_new();
-    session = polkit_unix_session_new_for_process_sync(getpid(), NULL, NULL);
+    session = polkit_unix_session_new_for_process_sync(getpid(), NULL, &err);
+    if(session == NULL)
+    {
+        /* show error msg */
+        g_object_unref(listener);
+        show_msg(NULL, GTK_MESSAGE_ERROR, err->message);
+        return 1;
+    }
     if(!polkit_agent_register_listener(listener, session, NULL, &err))
     {
         /* show error msg */
