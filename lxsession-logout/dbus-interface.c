@@ -172,56 +172,127 @@ static gboolean dbus_read_result_boolean(DBusMessage * reply)
     }
     return result;
 }
+
+/* Read a result for a method that returns string. */
+static char * dbus_read_result_string(DBusMessage * reply)
+{
+    char * result = FALSE;
+    if (reply != NULL)
+    {
+        /* Get the boolean result. */
+        DBusError error;
+        dbus_error_init(&error);
+        dbus_bool_t status = dbus_message_get_args(
+            reply,
+            &error,
+            DBUS_TYPE_STRING, &result,
+            DBUS_TYPE_INVALID);
+        dbus_message_unref(reply);
+        if ( ! status)
+        {
+            g_warning(G_STRLOC ": DBUS: %s", error.message);
+            dbus_error_free(&error);
+            return NULL;
+        }
+    }
+    return result;
+}
 #endif
 
 /*** logind mechanism ***/
 
+#ifdef HAVE_DBUS
+/* Formulate a message to the logind Manager interface. */
+static DBusMessage * dbus_logind_formulate_message(const char * const query)
+{
+    return dbus_message_new_method_call(
+        "org.freedesktop.login1",
+        "/org/freedesktop/login1",
+        "org.freedesktop.login1.Manager",
+        query);
+}
+#endif
+
+/* Send a specified message to the logind interface and process a string result. */
+static gboolean dbus_logind_query(const char * const query)
+{
+#ifdef HAVE_DBUS
+    return strcmp(dbus_read_result_string(dbus_send_message_system(dbus_logind_formulate_message(query), NULL)), "yes") == 0;
+#else
+    return FALSE;
+#endif
+}
+
+/* Send a specified message to the logind interface and process a void result. */
+static char * dbus_logind_command(const char * const command)
+{
+#ifdef HAVE_DBUS
+    char * error = NULL;
+
+    DBusMessage * message = dbus_logind_formulate_message(command);
+    DBusMessageIter args;
+    gboolean param = FALSE;
+
+    dbus_message_iter_init_append(message, &args);
+    if (!dbus_message_iter_append_basic(&args, DBUS_TYPE_BOOLEAN, &param)) { 
+        g_error("Unable to append parameter");
+        return NULL;
+    }
+
+    dbus_read_result_void(dbus_send_message_system(message, &error));
+
+    return error;
+#else
+    return NULL;
+#endif
+}
+
 /* Invoke the CanPowerOff method on logind. */
 gboolean dbus_logind_CanPowerOff(void)
 {
-    return FALSE;
+    return dbus_logind_query("CanPowerOff");
 }
 
 /* Invoke the CanReboot method on logind. */
 gboolean dbus_logind_CanReboot(void)
 {
-    return FALSE;
+    return dbus_logind_query("CanReboot");
 }
 
 /* Invoke the CanSuspend method on logind. */
 gboolean dbus_logind_CanSuspend(void)
 {
-    return FALSE;
+    return dbus_logind_query("CanSuspend");
 }
 
 /* Invoke the CanHibernate method on logind. */
 gboolean dbus_logind_CanHibernate(void)
 {
-    return FALSE;
+    return dbus_logind_query("CanHibernate");
 }
 
 /* Invoke the PowerOff method on logind. */
 char * dbus_logind_PowerOff(void)
 {
-    return "";
+    return dbus_logind_command("PowerOff");
 }
 
 /* Invoke the Reboot method on logind. */
 char * dbus_logind_Reboot(void)
 {
-    return "";
+    return dbus_logind_command("Reboot");
 }
 
 /* Invoke the Suspend method on logind. */
 char * dbus_logind_Suspend(void)
 {
-    return "";
+    return dbus_logind_command("Suspend");
 }
 
 /* Invoke the Hibernate method on logind. */
 char * dbus_logind_Hibernate(void)
 {
-    return "";
+    return dbus_logind_command("Hibernate");
 }
 
 /*** ConsoleKit mechanism ***/
