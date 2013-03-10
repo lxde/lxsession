@@ -20,7 +20,7 @@
 #
 
 # Try to lock the screen with thos applications (in this order) :
-# lighdtm, xscreensaver, gnome-screensaver, slock, slock and xdg-screensaver
+# lighdtm, xscreensaver, gnome-screensaver, slock, slock, i3lock and xdg-screensaver
 
 if `dbus-send --system --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.freedesktop.DisplayManager > /dev/null 2>&1` ; then
     session="$XDG_SESSION_PATH"
@@ -34,6 +34,8 @@ elif test x"`which slock 2>/dev/null`" != x""; then
     slock
 elif test x"`which xlock 2>/dev/null`" != x""; then
     xlock $*
+elif test x"`which i3lock 2>/dev/null`" != x""; then
+    i3lock -d
 # In the end, try to fallback to xdg-screensaver. Don't do at the first try, 
 # because if lxlock is called by xdg-screensaver, we may enter a loop.
 else
