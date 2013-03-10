@@ -174,6 +174,56 @@ static gboolean dbus_read_result_boolean(DBusMessage * reply)
 }
 #endif
 
+/*** logind mechanism ***/
+
+/* Invoke the CanPowerOff method on logind. */
+gboolean dbus_logind_CanPowerOff(void)
+{
+    return FALSE;
+}
+
+/* Invoke the CanReboot method on logind. */
+gboolean dbus_logind_CanReboot(void)
+{
+    return FALSE;
+}
+
+/* Invoke the CanSuspend method on logind. */
+gboolean dbus_logind_CanSuspend(void)
+{
+    return FALSE;
+}
+
+/* Invoke the CanHibernate method on logind. */
+gboolean dbus_logind_CanHibernate(void)
+{
+    return FALSE;
+}
+
+/* Invoke the PowerOff method on logind. */
+char * dbus_logind_PowerOff(void)
+{
+    return "";
+}
+
+/* Invoke the Reboot method on logind. */
+char * dbus_logind_Reboot(void)
+{
+    return "";
+}
+
+/* Invoke the Suspend method on logind. */
+char * dbus_logind_Suspend(void)
+{
+    return "";
+}
+
+/* Invoke the Hibernate method on logind. */
+char * dbus_logind_Hibernate(void)
+{
+    return "";
+}
+
 /*** ConsoleKit mechanism ***/
 
 #ifdef HAVE_DBUS

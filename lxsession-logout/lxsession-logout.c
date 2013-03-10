@@ -61,6 +61,10 @@ typedef struct {
     int hibernate_available : 1;	/* Hibernate is available */
     int switch_user_available : 1;	/* Switch User is available */
 
+    int shutdown_logind : 1;		/* Shutdown is available via logind */
+    int reboot_logind : 1;		/* Reboot is available via logind */
+    int suspend_logind : 1;		/* Suspend is available via logind */
+    int hibernate_logind : 1;		/* Hibernate is available via logind */
     int shutdown_ConsoleKit : 1;	/* Shutdown is available via ConsoleKit */
     int reboot_ConsoleKit : 1;		/* Reboot is available via ConsoleKit */
     int suspend_UPower : 1;		/* Suspend is available via UPower */
@@ -208,6 +212,8 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "HALT");
         kill(handler_context->lxsession_pid, SIGTERM);
     }
+    else if (handler_context->shutdown_logind)
+        error_result = dbus_logind_PowerOff();
     else if (handler_context->shutdown_ConsoleKit)
         error_result = dbus_ConsoleKit_Stop();
     else if (handler_context->shutdown_HAL)
@@ -229,6 +235,8 @@ static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "REBOOT");
         kill(handler_context->lxsession_pid, SIGTERM);
     }
+    else if (handler_context->reboot_logind)
+        error_result = dbus_logind_Reboot();
     else if (handler_context->reboot_ConsoleKit)
         error_result = dbus_ConsoleKit_Restart();
     else if (handler_context->reboot_HAL)
@@ -246,7 +254,9 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
-    if (handler_context->suspend_UPower)
+    if (handler_context->suspend_logind)
+        error_result = dbus_logind_Suspend();
+    else if (handler_context->suspend_UPower)
         error_result = dbus_UPower_Suspend();
     else if (handler_context->suspend_HAL)
         error_result = dbus_HAL_Suspend();
@@ -263,7 +273,9 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
-    if (handler_context->hibernate_UPower)
+    if (handler_context->hibernate_logind)
+        error_result = dbus_logind_Hibernate();
+    else if (handler_context->hibernate_UPower)
         error_result = dbus_UPower_Hibernate();
     else if (handler_context->hibernate_HAL)
         error_result = dbus_HAL_Hibernate();
@@ -428,25 +440,47 @@ int main(int argc, char * argv[])
         return 1;
     }
 
+    /* Initialize capabilities of the logind mechanism. */
+    if (dbus_logind_CanPowerOff())
+    {
+        handler_context.shutdown_available = TRUE;
+        handler_context.shutdown_logind = TRUE;
+    }
+    if (dbus_logind_CanReboot())
+    {
+        handler_context.reboot_available = TRUE;
+        handler_context.reboot_logind = TRUE;
+    }
+    if (dbus_logind_CanSuspend())
+    {
+        handler_context.suspend_available = TRUE;
+        handler_context.suspend_logind = TRUE;
+    }
+    if (dbus_logind_CanHibernate())
+    {
+        handler_context.hibernate_available = TRUE;
+        handler_context.hibernate_logind = TRUE;
+    }
+
     /* Initialize capabilities of the ConsoleKit mechanism. */
-    if (dbus_ConsoleKit_CanStop())
+    if (!handler_context.shutdown_available && dbus_ConsoleKit_CanStop())
     {
         handler_context.shutdown_available = TRUE;
         handler_context.shutdown_ConsoleKit = TRUE;
     }
-    if (dbus_ConsoleKit_CanRestart())
+    if (!handler_context.reboot_available && dbus_ConsoleKit_CanRestart())
     {
         handler_context.reboot_available = TRUE;
         handler_context.reboot_ConsoleKit = TRUE;
     }
 
     /* Initialize capabilities of the UPower mechanism. */
-    if (dbus_UPower_CanSuspend())
+    if (!handler_context.suspend_available && dbus_UPower_CanSuspend())
     {
         handler_context.suspend_available = TRUE;
         handler_context.suspend_UPower = TRUE;
     }
-    if (dbus_UPower_CanHibernate())
+    if (!handler_context.hibernate_available && dbus_UPower_CanHibernate())
     {
         handler_context.hibernate_available = TRUE;
         handler_context.hibernate_UPower = TRUE;

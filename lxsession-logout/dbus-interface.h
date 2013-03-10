@@ -21,6 +21,16 @@
 
 #include <glib.h>
 
+/* Interface to logind for shutdown, reboot, suspend and hibernate. */
+extern gboolean dbus_logind_CanPowerOff(void);
+extern gboolean dbus_logind_CanReboot(void);
+extern gboolean dbus_logind_CanSuspend(void);
+extern gboolean dbus_logind_CanHibernate(void);
+extern char * dbus_logind_PowerOff(void);
+extern char * dbus_logind_Reboot(void);
+extern char * dbus_logind_Suspend(void);
+extern char * dbus_logind_Hibernate(void);
+
 /* Interface to ConsoleKit for shutdown and reboot. */
 extern gboolean dbus_ConsoleKit_CanStop(void);
 extern gboolean dbus_ConsoleKit_CanRestart(void);
