@@ -72,6 +72,7 @@ typedef struct {
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_LIGHTDM : 1;	/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via LIGHTDM */
+    int switch_user_LXDM : 1;		/* Switch User is available via LXDM */
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
 
     int lock_screen : 1;                /* Lock screen available */
@@ -284,6 +285,9 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_LIGHTDM)
         dbus_Lightdm_SwitchToGreeter();
+    else if(handler_context->switch_user_LXDM)
+        g_spawn_command_line_sync("lxdm-binary -c USER_SWITCH", NULL, NULL, NULL, NULL);
+
     gtk_main_quit();
 }
 
@@ -510,6 +514,12 @@ int main(int argc, char * argv[])
     {
         handler_context.switch_user_available = TRUE;
         handler_context.switch_user_KDM = TRUE;
+    }
+
+    if (verify_running("lxdm", "lxdm-binary"))
+    {
+        handler_context.switch_user_available = TRUE;
+        handler_context.switch_user_LXDM = TRUE;
     }
 
     /* LTSP support */
