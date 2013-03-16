@@ -365,6 +365,18 @@ public class FilemanagerApp: SimpleAppObject {
                     this.command = {filemanager_command};
                 }
                 break;
+            case "pcmanfm-qt":
+                this.name = filemanager_command;
+                if (filemanager_session != null)
+                {
+                    string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
+                    this.command = create_command.split_set(" ",0);
+                }
+                else
+                {
+                    this.command = {filemanager_command};
+                }
+                break;
             case "nautilus":
                 string create_command = "nautilus" + " -n" + filemanager_extras;
                 this.command = create_command.split_set(" ",0);
