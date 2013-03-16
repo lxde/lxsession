@@ -33,6 +33,25 @@
 static PolkitAgentListener *listener;
 static PolkitSubject* session;
 
+void show_msg(GtkWindow* parent, GtkMessageType type, const char* msg)
+{
+    GtkWidget* dlg = gtk_message_dialog_new(parent, GTK_DIALOG_MODAL, type, GTK_BUTTONS_OK, msg);
+    const char* title = NULL;
+    switch(type)
+    {
+    case GTK_MESSAGE_ERROR:
+        title = _("Error");
+        break;
+    case GTK_MESSAGE_INFO:
+        title = _("Information");
+        break;
+    }
+    if(title)
+        gtk_window_set_title(GTK_WINDOW(dlg), title);
+    gtk_dialog_run(GTK_DIALOG(dlg));
+    gtk_widget_destroy(dlg);
+}
+
 gboolean policykit_agent_init()
 {
     GError* err = NULL;
@@ -52,7 +71,7 @@ gboolean policykit_agent_init()
         g_object_unref(listener);
         g_object_unref(session);
         /* lxsession_show_msg(NULL, GTK_MESSAGE_ERROR, err->message); */
-        g_print("Error: %s\n", err->message);
+        show_msg(NULL, GTK_MESSAGE_ERROR, err->message);
         listener = NULL;
         session = NULL;
         return FALSE;
