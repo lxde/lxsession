@@ -46,6 +46,7 @@ public class LxsessionConfig: GLib.Object {
     public string workspace_manager { get; set; default = null;}
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
+    public string screenshot_manager { get; set; default = null;}
     public string composite_manager_command { get; set; default = null;}
     public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
@@ -182,6 +183,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);
         global_sig.request_terminal_manager_launch.connect(on_request_terminal_manager_launch);
         global_sig.request_composite_manager_launch.connect(on_request_composite_manager_launch);
+        global_sig.request_screenshot_manager_launch.connect(on_request_screenshot_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -416,6 +418,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.terminal_manager = kf.get_value("Session", "terminal_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Screenshot Manager
+        try
+        {
+            this.screenshot_manager = kf.get_value("Session", "screenshot_manager");
         }
         catch (KeyFileError err)
         {
@@ -1129,6 +1141,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Start Terminal Manager");
         var terminal = new TerminalManagerApp(this.terminal_manager);
         terminal.launch();
+    }
+
+    public void on_request_screenshot_manager_launch ()
+    {
+        message("Start Screenshot Manager");
+        var screenshot = new ScreenshotManagerApp(this.screenshot_manager);
+        screenshot.launch();
     }
 
     public void on_request_composite_manager_launch ()

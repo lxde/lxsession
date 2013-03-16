@@ -590,4 +590,21 @@ public class CompositeManagerApp: SimpleAppObject {
     }
 }
 
+public class ScreenshotManagerApp: SimpleAppObject {
+
+    public ScreenshotManagerApp (string screenshotmanager_command){
+
+        base(screenshotmanager_command);
+
+        switch (screenshotmanager_command)
+        {
+            default:
+                string[] create_command = screenshotmanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 }

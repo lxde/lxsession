@@ -143,6 +143,7 @@ public class LxSignals : Object
     public signal void request_workspace_manager_launch();
     public signal void request_launcher_manager_launch();
     public signal void request_terminal_manager_launch();
+    public signal void request_screenshot_manager_launch();
     public signal void request_composite_manager_launch();
 
 }
