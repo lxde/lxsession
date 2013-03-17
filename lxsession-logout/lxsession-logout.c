@@ -117,13 +117,13 @@ static const gchar* determine_lock_screen(void)
 {
     const gchar* program = NULL;
 
-    if (g_find_program_in_path("xdg-screensaver"))
-    {
-        program = "xdg-screensaver lock";
-    }
-    else if (g_find_program_in_path("lxlock"))
+    if (g_find_program_in_path("lxlock"))
     {
         program = "lxlock";
+    }
+    else if (g_find_program_in_path("xdg-screensaver"))
+    {
+        program = "xdg-screensaver lock";
     }
     return program;
 }
