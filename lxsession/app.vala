@@ -155,6 +155,9 @@ public class WindowManagerApp: SimpleAppObject
                     case "Lubuntu":
                         session_command = "--config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml";
                         break;
+                    case "openbox-custom":
+                        session_command = "--config-file ";
+                        break;
                     default:
                         session_command = "";
                         break;
