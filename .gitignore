@@ -51,3 +51,12 @@ debian/lxsession-dbg.debhelper.log
 debian/lxsession-dbg.substvars
 debian/lxsession-dbg/
 debian/tmp/
+debian/lxpolkit.debhelper.log
+debian/lxpolkit.substvars
+debian/lxpolkit/
+debian/lxsession-data.debhelper.log
+debian/lxsession-data.substvars
+debian/lxsession-data/
+debian/lxsession-edit.debhelper.log
+debian/lxsession-edit.substvars
+debian/lxsession-edit/
