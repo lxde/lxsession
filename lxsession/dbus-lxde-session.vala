@@ -95,6 +95,12 @@ public class LxdeSessionServer : Object {
         global_sig.request_screenshot_manager_launch();
     }
 
+    public void ScreenshotWindowManagerLaunch()
+    {
+        message ("Launch screenshot window manager");
+        global_sig.request_screenshot_window_manager_launch();
+    }
+
     public void DisableAutostart (string dbus_arg)
     {
         message ("Signal update disable autostart option: %s", dbus_arg);

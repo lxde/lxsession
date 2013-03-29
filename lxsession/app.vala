@@ -605,6 +605,23 @@ public class ScreenshotManagerApp: SimpleAppObject {
                 break;
         }
     }
+    public void window_launch()
+    {
+        string[] backup_command = this.command;
+
+        switch (this.name)
+        {
+            case "scrot":
+                string create_window_command = "scrot -u -b";
+                this.command = create_window_command.split_set(" ",0);
+                break;
+
+            default:
+                break;
+        }
+        this.launch();
+        this.command = backup_command;
+    }
 }
 
 }

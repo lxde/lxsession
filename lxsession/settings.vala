@@ -1150,6 +1150,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         screenshot.launch();
     }
 
+    public void on_request_screenshot_window_manager_launch ()
+    {
+        message("Start Screenshot Window Manager");
+        var screenshot_window = new ScreenshotManagerApp(this.screenshot_manager);
+        screenshot_window.window_launch();
+    }
+
     public void on_request_composite_manager_launch ()
     {
         message("Start Composite Manager");
