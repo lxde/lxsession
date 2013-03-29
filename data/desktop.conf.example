@@ -55,7 +55,10 @@ composite_manager/command=
 composite_manager/autostart=true
 
 # Disable autostart of applications in system and home autostart directory
-disable_autostart=true
+# all : disable all applications (home, system, specify in this config file)
+# config-only : disable applications from home and system (start only the ones in this config file)
+# no : autostart all applications
+disable_autostart=no
 
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=

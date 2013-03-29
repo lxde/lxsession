@@ -170,7 +170,7 @@ namespace Lxsession {
         }
 
         /* Disable autostart if it's specified in the conf file. */
-        if (config.disable_autostart == "true")
+        if (config.disable_autostart == "all")
         {
             autostart = true;
         }
@@ -260,8 +260,16 @@ namespace Lxsession {
             var auto = new LxsessionAutostartConfig();
             auto.start_applications();
 
-            /* Autostart applications in system-wide directories */
-            xdg_autostart(desktop_environnement);
+            /* Autostart application define xdg directories */
+            if (config.disable_autostart == "config-only")
+            {
+                /* Pass, we don't want autostarted applications */
+            }
+            else
+            {
+                /* Autostart applications in system-wide directories */
+                xdg_autostart(desktop_environnement);
+            }
         }
 
         /* Options */
