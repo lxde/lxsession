@@ -187,7 +187,10 @@ static gboolean verify_running(const char * display_manager, const char * execut
 /* Handler for "clicked" signal on Logout button. */
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    kill(handler_context->lxsession_pid, SIGTERM);
+    if (handler_context->lxsession_pid != 0)
+    {
+        kill(handler_context->lxsession_pid, SIGTERM);
+    }
     gtk_main_quit();
 }
 
@@ -210,7 +213,10 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
     if (handler_context->ltsp)
     {
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "HALT");
-        kill(handler_context->lxsession_pid, SIGTERM);
+        if (handler_context->lxsession_pid != 0)
+        {
+            kill(handler_context->lxsession_pid, SIGTERM);
+        }
     }
     else if (handler_context->shutdown_logind)
         error_result = dbus_logind_PowerOff();
@@ -233,7 +239,10 @@ static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
     if (handler_context->ltsp)
     {
         change_root_property(GTK_WIDGET(button), "LTSP_LOGOUT_ACTION", "REBOOT");
-        kill(handler_context->lxsession_pid, SIGTERM);
+        if (handler_context->lxsession_pid != 0)
+        {
+            kill(handler_context->lxsession_pid, SIGTERM);
+        }
     }
     else if (handler_context->reboot_logind)
         error_result = dbus_logind_Reboot();
@@ -434,14 +443,9 @@ int main(int argc, char * argv[])
     HandlerContext handler_context;
     memset(&handler_context, 0, sizeof(handler_context));
 
-    /* Ensure that we are running under lxsession. */
+    /* Get the lxsession PID. */
     const char * p = g_getenv("_LXSESSION_PID");
     if (p != NULL) handler_context.lxsession_pid = atoi(p);
-    if (handler_context.lxsession_pid == 0)
-    {
-        g_print( _("Error: %s\n"), _("LXSession is not running."));
-        return 1;
-    }
 
     /* Initialize capabilities of the logind mechanism. */
     if (dbus_logind_CanPowerOff())
