@@ -24,12 +24,10 @@
 
 if test x"`which dm-tool 2>/dev/null`" != x""; then
     dm-tool switch-to-greeter
-# Using directly the DBus session make it impossible to reboot / halt with ConsolKit error.
-# This can be used when the bug will be fixed.
-#elif `dbus-send --system --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.freedesktop.DisplayManager > /dev/null 2>&1` ; then
-#    session="$XDG_SESSION_PATH"
-#    dbus-send --system --print-reply --dest=org.freedesktop.DisplayManager "$session" org.freedesktop.DisplayManager.Session.Lock  \
-#              2> /dev/null
+elif `dbus-send --system --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.freedesktop.DisplayManager > /dev/null 2>&1` ; then
+    seat="$XDG_SEAT_PATH"
+    dbus-send --system --print-reply --dest=org.freedesktop.DisplayManager "$seat" org.freedesktop.DisplayManager.Seat.SwitchToGreeter  \
+              2> /dev/null
 elif test x"`which xscreensaver-command 2>/dev/null`" != x""; then
     xscreensaver-command -lock 
 elif test x"`which gnome-screensaver-command 2>/dev/null`" != x""; then

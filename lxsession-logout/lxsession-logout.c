@@ -305,10 +305,7 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
     else if (handler_context->switch_user_KDM)
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_LIGHTDM)
-// Using directly the DBus session make it impossible to reboot / halt with ConsolKit error.
-// This can be used when the bug will be fixed.
-//        dbus_Lightdm_SwitchToGreeter();
-        g_spawn_command_line_sync("dm-tool switch-to-greeter", NULL, NULL, NULL, NULL);
+        dbus_Lightdm_SwitchToGreeter();
     else if(handler_context->switch_user_LXDM)
         g_spawn_command_line_sync("lxdm-binary -c USER_SWITCH", NULL, NULL, NULL, NULL);
 
