@@ -25,7 +25,9 @@ namespace Lxsession
 [DBus(name = "org.gnome.SessionManager")]
 public class GnomeSessionServer : Object {
     string not_implemented = "Error, lxsession doesn't implement this API";
+/*
     string gnome_session_version = "3.2.1";
+*/
 
     /* Public property, exported via D-Bus */
     public int something { get; set; }
@@ -107,6 +109,7 @@ public class GnomeSessionServer : Object {
                         as an argument to Uninhibit() in order to remove the request.
     */
     message("Call Inhibit function");
+    inhibit_cookie = 0;
         if (flags == 8)
         {
             var control = new ControlObject();
@@ -217,12 +220,14 @@ public class GnomeSessionServer : Object {
        1 No confirmation inferface should be shown.
        2 Forcefully logout.  No confirmation will be shown and any inhibitors will be ignored.
        */
+        /*
         var session = new SessionObject();
-        /* session.lxsession_restart(); */
+        session.lxsession_restart(); */
         stdout.printf(not_implemented);
     }
 
-    public void IsSessionRunning(out bool running ) {
+    public void IsSessionRunning(out bool running )
+    {
        /* TODO To implement
       <arg name="running" direction="out" type="b">
         <doc:doc>
@@ -237,7 +242,7 @@ public class GnomeSessionServer : Object {
         </doc:description>
       </doc:doc>
     */
-
+    running = false;
     }
 
 

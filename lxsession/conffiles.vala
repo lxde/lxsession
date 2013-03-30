@@ -42,7 +42,14 @@ namespace Lxsession
             if (!dest_file.query_exists ())
             {
                 /*TODO Create sub directories ?*/
-                source_file.copy(dest_file, FileCopyFlags.NONE, null);
+                try
+                {
+                    source_file.copy(dest_file, FileCopyFlags.NONE, null);
+                }
+                catch (GLib.Error err)
+                {
+                    message (err.message);
+                }
             }
         }
         public string load_dest_path(string config_type)
@@ -61,16 +68,9 @@ namespace Lxsession
         }
         public void copy_conf (string config_type, string source_path)
         {
-            try
+            if (this.kf.has_group (config_type))
             {
-                if (this.kf.has_group (config_type))
-                {
-                    copy_file(source_path, load_dest_path(config_type));
-                }
-            }
-            catch (KeyFileError err)
-            {
-    		    message (err.message);
+                copy_file(source_path, load_dest_path(config_type));
             }
         }
         public void apply ()

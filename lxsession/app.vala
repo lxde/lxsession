@@ -32,7 +32,7 @@ public class AppObject: GLib.Object {
        a usefull Object
     */
 
-    private Pid pid;
+    public Pid pid;
 
     public string name { get; set;}
     public string[] command { get; set;}
@@ -254,6 +254,28 @@ public class WindowManagerApp: SimpleAppObject
                     break;
 		    }
         }
+    }
+
+    public new void launch () {
+        if (this.name != null)
+        {
+            try {
+                Process.spawn_async (
+                             null,
+                             this.command,
+                             null,
+                             SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+                             null,
+                             out pid);
+                ChildWatch.add(pid, this.callback_pid);
+
+                message ("Launching %s %s %s", this.name, this.command[1], this.command[2]);
+            }
+            catch (SpawnError err){
+                warning (err.message);
+            }
+        }
+
     }
 }
 

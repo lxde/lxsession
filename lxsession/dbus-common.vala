@@ -26,9 +26,16 @@ public class SessionObject: Object {
 
     public SessionObject()
     {
+        try
+        {
         dbus_interface = GLib.Bus.get_proxy_sync(   BusType.SYSTEM,
                                                     "org.freedesktop.ConsoleKit",
                                                     "/org/freedesktop/ConsoleKit/Manager");
+        }
+        catch (IOError e)
+        {
+            message ("Could not register service\n");
+        }
     }
 
     public async bool lxsession_can_shutdown() {

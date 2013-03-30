@@ -122,7 +122,14 @@ namespace Lxsession {
 
         if (!dir_log.query_exists ())
         {
-            dir_log.make_directory_with_parents();
+            try
+            {
+                dir_log.make_directory_with_parents();
+            }
+            catch (GLib.Error err)
+            {
+		        message (err.message);
+            }
         }
 
         int fint;
@@ -146,7 +153,9 @@ namespace Lxsession {
         string conffiles_conf = get_config_path ("conffiles.conf");
         if (FileUtils.test (conffiles_conf, FileTest.EXISTS))
         {
+            /* Use the conffiles utility
             var conffiles = new ConffilesObject(conffiles_conf);
+            */
         }
 
         /* Create the Xsettings manager */
@@ -157,7 +166,7 @@ namespace Lxsession {
         /* Launching windows manager */
         if (config.window_manager != null)
         {
-            var windowmanager = new WindowManagerApp(config.window_manager, "simple", null, null);
+            var windowmanager = new WindowManagerApp(config.window_manager, "simple", "", "");
             windowmanager.launch();
         }
         else
