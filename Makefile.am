@@ -6,10 +6,11 @@ SUBDIRS= data \
          lxclipboard \
          lxlock \
          lxpolkit \
+         lxsession \
+         lxsession-default\
          lxsession-edit \
          lxsession-logout \
          lxsettings-daemon \
-         lxsession \
          man \
          po \
          xdg-autostart
