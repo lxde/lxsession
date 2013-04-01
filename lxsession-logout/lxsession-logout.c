@@ -218,10 +218,10 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
             kill(handler_context->lxsession_pid, SIGTERM);
         }
     }
-    else if (handler_context->shutdown_logind)
-        error_result = dbus_logind_PowerOff();
     else if (handler_context->shutdown_ConsoleKit)
         error_result = dbus_ConsoleKit_Stop();
+    else if (handler_context->shutdown_logind)
+        error_result = dbus_logind_PowerOff();
     else if (handler_context->shutdown_HAL)
         error_result = dbus_HAL_Shutdown();
 
@@ -244,10 +244,10 @@ static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
             kill(handler_context->lxsession_pid, SIGTERM);
         }
     }
-    else if (handler_context->reboot_logind)
-        error_result = dbus_logind_Reboot();
     else if (handler_context->reboot_ConsoleKit)
         error_result = dbus_ConsoleKit_Restart();
+    else if (handler_context->reboot_logind)
+        error_result = dbus_logind_Reboot();
     else if (handler_context->reboot_HAL)
         error_result = dbus_HAL_Reboot();
 
@@ -263,10 +263,10 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
-    if (handler_context->suspend_logind)
-        error_result = dbus_logind_Suspend();
-    else if (handler_context->suspend_UPower)
+    if (handler_context->suspend_UPower)
         error_result = dbus_UPower_Suspend();
+    else if (handler_context->suspend_logind)
+        error_result = dbus_logind_Suspend();
     else if (handler_context->suspend_HAL)
         error_result = dbus_HAL_Suspend();
 
@@ -282,10 +282,10 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
-    if (handler_context->hibernate_logind)
-        error_result = dbus_logind_Hibernate();
-    else if (handler_context->hibernate_UPower)
+    if (handler_context->hibernate_UPower)
         error_result = dbus_UPower_Hibernate();
+    else if (handler_context->hibernate_logind)
+        error_result = dbus_logind_Hibernate();
     else if (handler_context->hibernate_HAL)
         error_result = dbus_HAL_Hibernate();
 
