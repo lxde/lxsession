@@ -49,6 +49,9 @@ terminal_manager=
 # only windows : dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotWindowManagerLaunch
 screenshot_manager=
 
+# Upgrades by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradesManagerLaunch)
+upgrades_manager=
+
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard=lxclipboard
 
@@ -101,6 +104,9 @@ keyring=gnome-all
 activate=yes
 # Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
 type=gnome
+
+[Updates]
+activate=true
 
 [GTK]
 #iNet/DoubleClickTime=400

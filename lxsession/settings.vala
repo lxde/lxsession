@@ -47,6 +47,7 @@ public class LxsessionConfig: GLib.Object {
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
     public string screenshot_manager { get; set; default = null;}
+    public string upgrades_manager { get; set; default = null;}
     public string composite_manager_command { get; set; default = null;}
     public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
@@ -78,6 +79,9 @@ public class LxsessionConfig: GLib.Object {
     /* a11y */
     public string a11y_activate { get; set; default = "false";}
     public string a11y_type { get; set; default = "gnome";}
+
+    /* Updates */
+    public string updates_activate { get; set; default = "false";}
 
     /* GTK */
     public string gtk_theme_name { get; set; default = null;}
@@ -175,6 +179,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.update_laptop_mode.connect(on_update_laptop_mode);
 
+        global_sig.update_updates_activate.connect(on_update_updates_activate);
+
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
         global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
@@ -184,6 +190,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_terminal_manager_launch.connect(on_request_terminal_manager_launch);
         global_sig.request_composite_manager_launch.connect(on_request_composite_manager_launch);
         global_sig.request_screenshot_manager_launch.connect(on_request_screenshot_manager_launch);
+        global_sig.request_upgrades_manager_launch.connect(on_request_screenshot_manager_launch);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -434,6 +441,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 		    message (err.message);
         }
 
+        // Upgrades Manager
+        try
+        {
+            this.upgrades_manager = kf.get_value("Session", "upgrades_manager");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
         // Composite Manager
         try
         {
@@ -591,6 +608,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 	    try
         {
             this.a11y_type = kf.get_value ("a11y", "type");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Updates
+	    try
+        {
+            this.updates_activate = kf.get_value ("Updates", "activate");
         }
         catch (KeyFileError err)
         {
@@ -858,6 +885,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing disable autostart option: %s", dbus_arg);
         this.disable_autostart = dbus_arg;
         kf.set_value ("Session", "disable_autostart", this.disable_autostart);
+        save_keyfile();
+    }
+
+    public void on_update_updates_activate (string dbus_arg)
+    {
+        message("Changing updates activate option: %s", dbus_arg);
+        this.updates_activate = dbus_arg;
+        kf.set_value ("Updates", "activate", this.updates_activate);
         save_keyfile();
     }
 
@@ -1162,6 +1197,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Start Composite Manager");
         var composite = new CompositeManagerApp(this.composite_manager_command);
         composite.launch();
+    }
+
+    public void on_request_upgrades_manager_launch ()
+    {
+        message("Start Upgrades Manager");
+        var upgrades = new UpgradesManagerApp(this.upgrades_manager);
+        upgrades.launch();
     }
 }
 

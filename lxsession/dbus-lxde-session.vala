@@ -101,6 +101,18 @@ public class LxdeSessionServer : Object {
         global_sig.request_screenshot_window_manager_launch();
     }
 
+    public void UpgradesManagerLaunch()
+    {
+        message ("Launch upgrades manager");
+        global_sig.request_upgrades_manager_launch();
+    }
+
+    public void UpdatesActivate (string dbus_arg)
+    {
+        message ("Signal updates activate option: %s", dbus_arg);
+        global_sig.update_updates_activate(dbus_arg);
+    }
+
     public void DisableAutostart (string dbus_arg)
     {
         message ("Signal update disable autostart option: %s", dbus_arg);

@@ -199,8 +199,71 @@ namespace Lxsession
         public UpdatesOption (LxsessionConfig config)
         {
             base (config);
-        /* TODO Implement replacement for udpate-notifier */
-        /* use an external program if using gtk or another new dep */
+        }
+
+        public new void activate()
+        {
+            setup_apt_config ();
+        }
+
+        public void on_apt_update_file_change ()
+        {
+            /* Launch something that check if updates are available */
+            /* For now, use apt-check from update-notifier */
+
+            string command = "/usr/bin/nice" + " " + "/usr/bin/ionice" + " " + "-c3" + " " + "/usr/lib/update-notifier/apt-check";
+            string[] create_command = command.split_set(" ",0);
+            string standard_output = "";
+            string standard_error = "";
+            string[] updates_num;
+            int exit_status;
+
+            try {
+                Process.spawn_sync (
+                            null,
+                            create_command,
+                            null,
+                            SpawnFlags.STDOUT_TO_DEV_NULL,
+                            null, 
+                            out standard_output,
+                            out standard_error,
+                            out exit_status);
+
+                message ("Launching %s", command);
+                message ("Update state: %s", standard_error);
+                message ("Update exit status: %i", exit_status);
+
+            }
+            catch (SpawnError err)
+            {
+                warning (err.message);
+            }
+
+            if (standard_error != "")
+            {
+                updates_num = standard_error.split_set(";",2);
+                message ("Number of upgrades: %s", updates_num[0]);
+                message ("Number of security upgrades: %s", updates_num[1]);
+            }
+        }
+
+        public void setup_apt_config ()
+        {
+            try
+            {
+                string apt_update_path = "/var/lib/apt/periodic/update-success-stamp";
+                GLib.File apt_update_file ;
+                GLib.FileMonitor apt_update_monitor ;
+
+                apt_update_file = File.new_for_path(apt_update_path);
+                apt_update_monitor = apt_update_file.monitor_file(GLib.FileMonitorFlags.NONE);
+                apt_update_monitor.changed.connect(on_apt_update_file_change);
+                message ("Monitoring apt changes");
+            }
+            catch (GLib.Error err)
+            {
+                message (err.message);
+            }
         }
 
     }

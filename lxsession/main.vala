@@ -313,6 +313,12 @@ namespace Lxsession {
             a11y.activate();
         }
 
+        if (config.updates_activate == "true")
+        {
+            var updates = new UpdatesOption(config);
+            updates.activate();
+        }
+
         /* DBus Serveurs */
         if (config.dbus_lxde == "true")
         {

@@ -649,4 +649,21 @@ public class ScreenshotManagerApp: SimpleAppObject {
     }
 }
 
+public class UpgradesManagerApp: SimpleAppObject {
+
+    public UpgradesManagerApp (string upgradesmanager_command){
+
+        base(upgradesmanager_command);
+
+        switch (upgradesmanager_command)
+        {
+            default:
+                string[] create_command = upgradesmanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 }

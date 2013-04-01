@@ -136,6 +136,8 @@ public class LxSignals : Object
 
     public signal void update_laptop_mode(string mode);
 
+    public signal void update_updates_activate (string dbus_arg);
+
     public signal void reload_settings_daemon();
 
     public signal void request_audio_manager_launch();
@@ -146,6 +148,7 @@ public class LxSignals : Object
     public signal void request_screenshot_manager_launch();
     public signal void request_screenshot_window_manager_launch();
     public signal void request_composite_manager_launch();
+    public signal void request_upgrades_manager_launch();
 
 }
 
