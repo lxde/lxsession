@@ -191,12 +191,12 @@ public bool detect_laptop()
 
 public bool check_package_manager_running ()
 {
-    GLib.File dpkg, apt_archives, apt_lits, unattended_upgrades;
+    GLib.File dpkg, apt_archives, apt_lists, unattended_upgrades;
     bool return_value = false;
 
     dpkg = File.new_for_path("/var/lib/dpkg/lock");
     apt_archives = File.new_for_path("/var/cache/apt/archives/lock");
-    apt_lits = File.new_for_path("/var/lib/apt/lists/lock");
+    apt_lists = File.new_for_path("/var/lib/apt/lists/lock");
     unattended_upgrades = File.new_for_path("/var/run/unattended-upgrades.lock");
 
     if (dpkg.query_exists ())

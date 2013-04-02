@@ -333,7 +333,7 @@ public class LxdeSessionServer : Object {
     public async void PackageManagerRunning (out bool is_running)
     {
         message ("Check if package manager is running");
-        return check_package_manager_running();
+        is_running = check_package_manager_running();
     }
 }
 
