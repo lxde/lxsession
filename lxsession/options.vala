@@ -265,7 +265,15 @@ namespace Lxsession
                 message (err.message);
             }
         }
+    }
 
+    public class ProxyOption: Option
+    {
+        public ProxyOption (LxsessionConfig config)
+        {
+            base (config);
+        }
+        /* TODO Provide proxy utilies */
     }
 
 }

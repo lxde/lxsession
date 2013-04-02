@@ -329,6 +329,12 @@ public class LxdeSessionServer : Object {
         message ("Signal update keyboard_beep: %i", dbus_arg);
         global_sig.update_keyboard_beep(dbus_arg);
     }
+
+    public async void PackageManagerRunning (out bool is_running)
+    {
+        message ("Check if package manager is running");
+        return check_package_manager_running();
+    }
 }
 
 }
