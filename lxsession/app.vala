@@ -147,37 +147,49 @@ public class WindowManagerApp: SimpleAppObject
             {
                 this.name = wm_command;
                 string create_command;
-                switch (session)
+                switch (wm_command)
                 {
-                    case "LXDE":
-                        session_command = "--config-file $XDG_CONFIG_HOME/openbox/lxde-rc.xml";
-                        break;
-                    case "Lubuntu":
-                        session_command = "--config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml";
+                    case "openbox":
+                        switch (session)
+                        {
+                            case "LXDE":
+                                session_command = "--config-file $XDG_CONFIG_HOME/openbox/lxde-rc.xml";
+                                break;
+                            case "Lubuntu":
+                                session_command = "--config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml";
+                                break;
+                            default:
+                                session_command = "";
+                                break;
+                        }
                         break;
                     case "openbox-custom":
-                        session_command = "--config-file ";
+                        switch (session)
+                        {
+                            default:
+                                session_command = "--config-file ";
+                                break;
+                        }
                         break;
                     default:
                         session_command = "";
                         break;
                 }
-                switch (extras)
-                {
-                    case null:
-                        create_command = wm_command + " " + session_command;
-                        break;
-                    case "":
-                        create_command = wm_command + " " + session_command;
-                        break;
-                    case " ":
-                        create_command = wm_command + " " + session_command;
-                        break;
-                    default:
-                        create_command = wm_command + " " + session_command + " " + extras;
-                        break;
-                }
-
+                    switch (extras)
+                    {
+                        case null:
+                            create_command = wm_command + " " + session_command;
+                            break;
+                        case "":
+                            create_command = wm_command + " " + session_command;
+                            break;
+                        case " ":
+                            create_command = wm_command + " " + session_command;
+                            break;
+                        default:
+                            create_command = wm_command + " " + session_command + " " + extras;
+                            break;
+                    }
                 this.command = create_command.split_set(" ",0);
             }
         }
