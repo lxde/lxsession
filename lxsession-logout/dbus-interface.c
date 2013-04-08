@@ -19,13 +19,10 @@
 #include <config.h>
 #include <glib.h>
 #include <string.h>
-#ifdef HAVE_DBUS
 #include <dbus/dbus.h>
-#endif
 
 /*** Mechanism independent ***/
 
-#ifdef HAVE_DBUS
 /* D-Bus context. */
 static struct {
     int connection_tried : 1;			/* True if connection has been tried */
@@ -197,11 +194,9 @@ static char * dbus_read_result_string(DBusMessage * reply)
     }
     return result;
 }
-#endif
 
 /*** logind mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the logind Manager interface. */
 static DBusMessage * dbus_logind_formulate_message(const char * const query)
 {
@@ -211,22 +206,16 @@ static DBusMessage * dbus_logind_formulate_message(const char * const query)
         "org.freedesktop.login1.Manager",
         query);
 }
-#endif
 
 /* Send a specified message to the logind interface and process a string result. */
 static gboolean dbus_logind_query(const char * const query)
 {
-#ifdef HAVE_DBUS
     return strcmp(dbus_read_result_string(dbus_send_message_system(dbus_logind_formulate_message(query), NULL)), "yes") == 0;
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the logind interface and process a void result. */
 static char * dbus_logind_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     char * error = NULL;
 
     DBusMessage * message = dbus_logind_formulate_message(command);
@@ -242,9 +231,6 @@ static char * dbus_logind_command(const char * const command)
     dbus_read_result_void(dbus_send_message_system(message, &error));
 
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Invoke the CanPowerOff method on logind. */
@@ -297,7 +283,6 @@ char * dbus_logind_Hibernate(void)
 
 /*** ConsoleKit mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the ConsoleKit Manager interface. */
 static DBusMessage * dbus_ConsoleKit_formulate_message(const char * const query)
 {
@@ -307,28 +292,19 @@ static DBusMessage * dbus_ConsoleKit_formulate_message(const char * const query)
         "org.freedesktop.ConsoleKit.Manager",
         query);
 }
-#endif
 
 /* Send a specified message to the ConsoleKit interface and process a boolean result. */
 static gboolean dbus_ConsoleKit_query(const char * const query)
 {
-#ifdef HAVE_DBUS
     return dbus_read_result_boolean(dbus_send_message_system(dbus_ConsoleKit_formulate_message(query), NULL));
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the ConsoleKit interface and process a void result. */
 static char * dbus_ConsoleKit_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     char * error = NULL;
     dbus_read_result_void(dbus_send_message_system(dbus_ConsoleKit_formulate_message(command), &error));
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Invoke the CanStop method on ConsoleKit. */
@@ -357,7 +333,6 @@ char * dbus_ConsoleKit_Restart(void)
 
 /*** UPower mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the UPower interface. */
 static DBusMessage * dbus_UPower_formulate_command(const char * const command)
 {
@@ -367,12 +342,10 @@ static DBusMessage * dbus_UPower_formulate_command(const char * const command)
 	"org.freedesktop.UPower",
         command);
 }
-#endif
 
 /* Send a specified message to the UPower interface and process a boolean result. */
 static gboolean dbus_UPower_query(const char * const query)
 {
-#ifdef HAVE_DBUS
     /* Formulate a message to the Properties interface. */
     DBusMessage * message = dbus_message_new_method_call(
         "org.freedesktop.UPower",
@@ -403,21 +376,14 @@ static gboolean dbus_UPower_query(const char * const query)
     }
     dbus_message_unref(reply);
     return result;
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the UPower interface and process a void result. */
 static char * dbus_UPower_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     char * error = NULL;
     dbus_read_result_void(dbus_send_message_system(dbus_UPower_formulate_command(command), &error));
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Read the can-suspend property of UPower. */
@@ -446,7 +412,6 @@ char * dbus_UPower_Hibernate(void)
 
 /*** HAL mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the HAL SystemPowerManagement interface. */
 static DBusMessage * dbus_HAL_formulate_message(const char * const query)
 {
@@ -481,12 +446,10 @@ static DBusMessage * dbus_HAL_formulate_string_property_query(const char * const
 {
     return dbus_HAL_formulate_property_query("GetPropertyString", property);
 }
-#endif
 
 /* Send a specified property query to the HAL interface and process whether the result exists. */
 static gboolean dbus_HAL_string_exists_query(const char * const property)
 {
-#ifdef HAVE_DBUS
     DBusMessage * message = dbus_HAL_formulate_string_property_query(property);
     if (message == NULL)
         return FALSE;
@@ -495,25 +458,17 @@ static gboolean dbus_HAL_string_exists_query(const char * const property)
 	return FALSE;
     dbus_message_unref(reply);
     return TRUE;
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified property query to the HAL interface and process a boolean result. */
 static gboolean dbus_HAL_boolean_query(const char * const property)
 {
-#ifdef HAVE_DBUS
     return dbus_read_result_boolean(dbus_send_message_system(dbus_HAL_formulate_boolean_property_query(property), NULL));
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the HAL interface and process a void result. */
 static char * dbus_HAL_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     /* Formulate the message. */
     DBusMessage * message = dbus_HAL_formulate_message(command);
     if (message == NULL)
@@ -530,9 +485,6 @@ static char * dbus_HAL_command(const char * const command)
     char * error = NULL;
     dbus_read_result_void(dbus_send_message_system(message, &error));
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Read the can-shutdown property of HAL. */
@@ -585,7 +537,6 @@ char * dbus_HAL_Hibernate(void)
 
 /*** LXDE mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the LXDE Session Manager interface. */
 static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
 {
@@ -595,28 +546,19 @@ static DBusMessage * dbus_LXDE_formulate_message(const char * const query)
         "org.lxde.SessionManager",
         query);
 }
-#endif
 
 /* Send a specified message to the LXDE interface and process a boolean result. */
 static gboolean dbus_LXDE_query(const char * const query)
 {
-#ifdef HAVE_DBUS
     return dbus_read_result_boolean(dbus_send_message_session(dbus_LXDE_formulate_message(query), NULL));
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the LXDE interface and process a void result. */
 static char * dbus_LXDE_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     char * error = NULL;
     dbus_read_result_void(dbus_send_message_session(dbus_LXDE_formulate_message(command), &error));
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Invoke the Logout method on LXDE. */
@@ -627,7 +569,6 @@ char * dbus_LXDE_Logout(void)
 
 /*** Lightdm mechanism ***/
 
-#ifdef HAVE_DBUS
 /* Formulate a message to the Lightdm interface. */
 static DBusMessage * dbus_Lightdm_formulate_message(const char * const query)
 {
@@ -637,28 +578,19 @@ static DBusMessage * dbus_Lightdm_formulate_message(const char * const query)
                 "org.freedesktop.DisplayManager.Seat",
                 query);
 }
-#endif
 
 /* Send a specified message to the Lightdm interface and process a boolean result. */
 static gboolean dbus_Lightdm_query(const char * const query)
 {
-#ifdef HAVE_DBUS
     return dbus_read_result_boolean(dbus_send_message_session(dbus_Lightdm_formulate_message(query), NULL));
-#else
-    return FALSE;
-#endif
 }
 
 /* Send a specified message to the Lightdm interface and process a void result. */
 static char * dbus_Lightdm_command(const char * const command)
 {
-#ifdef HAVE_DBUS
     char * error = NULL;
     dbus_read_result_void(dbus_send_message_session(dbus_Lightdm_formulate_message(command), &error));
     return error;
-#else
-    return NULL;
-#endif
 }
 
 /* Invoke the Logout method on LXDE. */

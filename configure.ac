@@ -86,25 +86,7 @@ PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
 AC_SUBST(POLKIT_CFLAGS)
 AC_SUBST(POLKIT_LIBS)
 
-
-AC_ARG_ENABLE(
-    [dbus],
-    AS_HELP_STRING([--enable-dbus],
-                   [Build with Linux D-Bus support for shutdown/reboot/suspend (default: yes)]),
-    use_dbus=$enableval, use_dbus="yes")
-
-if test x"$use_dbus" = x"yes"; then
-dnl Check DBUS support
-    dbus_modules="dbus-1"
-    PKG_CHECK_MODULES(DBUS, [$dbus_modules], [have_dbus=yes], [have_dbus=no])
-
-    if test x"$have_dbus" = x"yes"; then
-        AC_DEFINE([HAVE_DBUS], [1], [Define to 1 if you have DBUS.])
-    else
-        AC_MSG_ERROR([To build with DBUS support, you must have the development package for dbus-1, or you can use --disable-dbus to disable DBUS support.])
-    fi
-fi
-AM_CONDITIONAL(USE_DBUS, test "$use_dbus" = "yes")
+PKG_CHECK_MODULES(DBUS, [dbus-1])
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
@@ -195,7 +177,6 @@ echo
 echo LXSession.................................... : Version $VERSION
 echo
 echo Prefix....................................... : $prefix
-echo Linux DBUS support........................... : $use_dbus
 echo Cliboard build-in suport..................... : $use_buildin_clipboard
 echo Polkit-agent build-in suport................. : $use_buildin_polkit
 echo Enable GTK3 support.......................... : $enable_gtk3
