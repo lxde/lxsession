@@ -807,6 +807,31 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         }
     }
 
+    public void sync_setting_files ()
+    {
+        string desktop_file = get_config_home_path("desktop.conf");
+        if (FileUtils.test (desktop_file, FileTest.EXISTS))
+        {
+            string autostart_file = get_config_home_path("autostart");
+            if (FileUtils.test (autostart_file, FileTest.EXISTS))
+            {
+                /* File in sync, nothing to do */
+            }
+            else
+            {
+                var file = File.new_for_path (get_config_path("autostart"));
+                var destination = File.new_for_path (get_config_home_path("autostart"));
+                try
+                {
+                    file.copy (destination, FileCopyFlags.NONE);
+                }
+                catch (GLib.Error err)
+                {
+		            message (err.message);
+                }
+            }
+        }
+    }
 
     public void save_keyfile ()
     {
@@ -826,6 +851,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
                 FileUtils.set_contents (user_config_dir, str, str.length);
                 desktop_config_path = user_config_dir;
                 setup_monitor_desktop_file();
+                sync_setting_files ();
             }
             catch (FileError err)
             {

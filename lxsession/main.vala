@@ -145,6 +145,9 @@ namespace Lxsession {
         /* Configuration */
         var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
 
+        /* Sync desktop.conf and autostart setting files */
+        config.sync_setting_files ();
+
         /* Options and Apps that need to be killed (build-in) */
         var clipboard = new ClipboardOption(config);
         var securitypolkit = new PolkitApp(config.polkit);
