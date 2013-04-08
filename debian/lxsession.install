@@ -1,5 +1,4 @@
 usr/bin/lxsession
 usr/bin/lxlock
 usr/bin/lxclipboard
-usr/bin/lxsession-logout
 usr/bin/lxsession-default

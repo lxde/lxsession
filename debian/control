@@ -83,3 +83,10 @@ Depends: lxsession (= ${binary:Version}),,
          ${misc:Depends}
 Description: a lightweight X11 session manager - debug package
  This package provide debug symbols for lxsession.
+
+Package: lxsession-logout
+Architecture: any
+Replaces: lxsession (<< 0.4.9.2)
+Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
+Description: quit utility for LXDE 
+ LXSession-logout is a simple utility for logout and quit a session.
