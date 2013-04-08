@@ -442,6 +442,11 @@ public class PolkitApp: SimpleAppObject {
                 string create_command = "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1";
                 this.command = create_command.split_set(" ",0);
                 break;
+            case "razorqt":
+                this.name = "razor-policykit-agent";
+                string create_command = "/usr/bin/razor-policykit-agent";
+                this.command = create_command.split_set(" ",0);
+                break;
             case "lxpolkit":
 #if BUILDIN_POLKIT
                 policykit_agent_init();
