@@ -169,6 +169,7 @@ AC_CONFIG_FILES([
   lxsettings-daemon/Makefile
   man/Makefile
   po/Makefile.in
+  vapi/Makefile
   xdg-autostart/Makefile
 ])
 AC_OUTPUT

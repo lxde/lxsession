@@ -1,6 +1,7 @@
 noinst_DATA = \
-	clipboard.vapi \
-	settings-daemon.vapi \
+	lxclipboard.vapi \
+	lxpolkit.vapi \
+	lxsettings-daemon.vapi \
 	xdg-autostart.vapi
 
 EXTRA_DIST = \

@@ -13,6 +13,7 @@ SUBDIRS= data \
          lxsettings-daemon \
          man \
          po \
+         vapi \
          xdg-autostart
 
 EXTRA_DIST = \
