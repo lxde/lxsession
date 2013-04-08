@@ -658,7 +658,29 @@ int main(int argc, char * argv[])
         const char * session_name = g_getenv("DESKTOP_SESSION");
         if (session_name == NULL)
             session_name = "LXDE";
-        prompt = g_strdup_printf(_("<b><big>Logout %s session?</big></b>"), session_name);
+
+        const gchar *command_line = "lsb_release -r -s";
+        gchar *output = NULL;
+        GError *error;
+
+        if (!g_spawn_command_line_sync( command_line,
+                                        &output,
+                                        NULL,
+                                        NULL,
+                                        &error))
+        {
+
+            fprintf (stderr, "Error: %s\n", error->message);
+            g_error_free (error);
+
+        }
+
+        if (output == NULL)
+        {
+            output = "";
+        }
+
+        prompt = g_strdup_printf(_("<b><big>Logout %s %s session?</big></b>"), session_name, output);
     }
     gtk_label_set_markup(GTK_LABEL(label), prompt);
     gtk_box_pack_start(GTK_BOX(controls), label, FALSE, FALSE, 4);
