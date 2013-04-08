@@ -808,24 +808,27 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     }
 
 
-    public void save_keyfile () {
+    public void save_keyfile ()
+    {
         message ("Saving desktop file");
         var str = kf.to_data (null);
-        try {
+        try
+        {
             FileUtils.set_contents (desktop_config_path, str, str.length);
-        } catch (FileError err) {
+        }
+        catch (FileError err)
+        {
             warning (err.message);
-            try {
+            try
+            {
                 /* Try to save on user config directory */
-                string user_config_dir = Path.build_filename(
-                         Environment.get_user_config_dir (),
-                         "lxsession",
-                         session_global,
-                         "desktop.conf");
+                string user_config_dir = get_config_home_path("desktop.conf");
                 FileUtils.set_contents (user_config_dir, str, str.length);
                 desktop_config_path = user_config_dir;
                 setup_monitor_desktop_file();
-            } catch (FileError err) {
+            }
+            catch (FileError err)
+            {
                 warning (err.message);
             }
         }
