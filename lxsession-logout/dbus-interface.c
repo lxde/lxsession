@@ -32,7 +32,7 @@ static struct {
     DBusConnection * connection;		/* Handle for connection */
 } dbus_context;
 
-enum { DBUS_TIMEOUT = 2000 };			/* Reply timeout */
+enum { DBUS_TIMEOUT = 60000 };			/* Reply timeout */
 
 /* FORWARDS */
 gboolean dbus_ConsoleKit_CanStop(void);
