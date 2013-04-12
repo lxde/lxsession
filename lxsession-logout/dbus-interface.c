@@ -20,6 +20,7 @@
 #include <glib.h>
 #include <string.h>
 #include <dbus/dbus.h>
+#include <gio/gio.h>
 
 /*** Mechanism independent ***/
 
@@ -28,6 +29,8 @@ static struct {
     int connection_tried : 1;			/* True if connection has been tried */
     DBusConnection * connection;		/* Handle for connection */
 } dbus_context;
+
+static GDBusProxy *logind_proxy = NULL;
 
 enum { DBUS_TIMEOUT = 60000 };			/* Reply timeout */
 
@@ -197,88 +200,126 @@ static char * dbus_read_result_string(DBusMessage * reply)
 
 /*** logind mechanism ***/
 
-/* Formulate a message to the logind Manager interface. */
-static DBusMessage * dbus_logind_formulate_message(const char * const query)
+static gboolean
+logind_query (const gchar *function, gboolean default_result, GError **error)
 {
-    return dbus_message_new_method_call(
-        "org.freedesktop.login1",
-        "/org/freedesktop/login1",
-        "org.freedesktop.login1.Manager",
-        query);
-}
+    GVariant *result;
+    gboolean function_result = FALSE;
+    const gchar *str;
 
-/* Send a specified message to the logind interface and process a string result. */
-static gboolean dbus_logind_query(const char * const query)
-{
-    return strcmp(dbus_read_result_string(dbus_send_message_system(dbus_logind_formulate_message(query), NULL)), "yes") == 0;
-}
-
-/* Send a specified message to the logind interface and process a void result. */
-static char * dbus_logind_command(const char * const command)
-{
-    char * error = NULL;
-
-    DBusMessage * message = dbus_logind_formulate_message(command);
-    DBusMessageIter args;
-    gboolean param = FALSE;
-
-    dbus_message_iter_init_append(message, &args);
-    if (!dbus_message_iter_append_basic(&args, DBUS_TYPE_BOOLEAN, &param)) { 
-        g_error("Unable to append parameter");
-        return NULL;
+    if (!logind_proxy)
+    {
+        logind_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                                      G_DBUS_PROXY_FLAGS_NONE,
+                                                      NULL,
+                                                      "org.freedesktop.login1",
+                                                      "/org/freedesktop/login1",
+                                                      "org.freedesktop.login1.Manager",
+                                                      NULL,
+                                                      error);
+        if (!logind_proxy)
+            return FALSE;
     }
 
-    dbus_read_result_void(dbus_send_message_system(message, &error));
+    result = g_dbus_proxy_call_sync (logind_proxy,
+                                     function,
+                                     NULL,
+                                     G_DBUS_CALL_FLAGS_NONE,
+                                     -1,
+                                     NULL,
+                                     error);
+    if (!result)
+        return default_result;
 
-    return error;
+    if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(s)")))
+    {
+			g_variant_get (result, "(s)", &str);
+			if (g_strcmp0 (str, "yes") || g_strcmp0 (str, "challenge"))
+				function_result = TRUE;
+			else
+				function_result = default_result;
+		}
+
+    g_variant_unref (result);
+    return function_result;
 }
 
-/* Invoke the CanPowerOff method on logind. */
-gboolean dbus_logind_CanPowerOff(void)
+static void
+logind_call_function (const gchar *function, gboolean value, GError **error)
 {
-    return dbus_logind_query("CanPowerOff");
+    GVariant *result;
+
+    if (!logind_proxy)
+    {
+        logind_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                                      G_DBUS_PROXY_FLAGS_NONE,
+                                                      NULL,
+                                                      "org.freedesktop.login1",
+                                                      "/org/freedesktop/login1",
+                                                      "org.freedesktop.login1.Manager",
+                                                      NULL,
+                                                      error);
+        if (!logind_proxy)
+            return;
+    }
+
+    result = g_dbus_proxy_call_sync (logind_proxy,
+                                     function,
+                                     g_variant_new ("(b)", value),
+                                     G_DBUS_CALL_FLAGS_NONE,
+                                     -1,
+                                     NULL,
+                                     error);
+    g_variant_unref (result);
+    return;
 }
 
-/* Invoke the CanReboot method on logind. */
-gboolean dbus_logind_CanReboot(void)
+gboolean
+dbus_logind_CanPowerOff (void)
 {
-    return dbus_logind_query("CanReboot");
+    return logind_query ("CanPowerOff", FALSE, NULL);
 }
 
-/* Invoke the CanSuspend method on logind. */
-gboolean dbus_logind_CanSuspend(void)
+void
+dbus_logind_PowerOff (GError **error)
 {
-    return dbus_logind_query("CanSuspend");
+    logind_call_function ("PowerOff", TRUE, error);
 }
 
-/* Invoke the CanHibernate method on logind. */
-gboolean dbus_logind_CanHibernate(void)
+gboolean
+dbus_logind_CanReboot (void)
 {
-    return dbus_logind_query("CanHibernate");
+    return logind_query ("CanReboot", FALSE, NULL);
 }
 
-/* Invoke the PowerOff method on logind. */
-char * dbus_logind_PowerOff(void)
+void
+dbus_logind_Reboot (GError **error)
 {
-    return dbus_logind_command("PowerOff");
+    logind_call_function ("Reboot", TRUE, error);
 }
 
-/* Invoke the Reboot method on logind. */
-char * dbus_logind_Reboot(void)
+gboolean
+dbus_logind_CanSuspend (void)
 {
-    return dbus_logind_command("Reboot");
+    return logind_query ("CanSuspend", FALSE, NULL);
 }
 
-/* Invoke the Suspend method on logind. */
-char * dbus_logind_Suspend(void)
+void
+dbus_logind_Suspend (GError **error)
 {
-    return dbus_logind_command("Suspend");
+    logind_call_function ("Suspend", TRUE, error);
 }
 
-/* Invoke the Hibernate method on logind. */
-char * dbus_logind_Hibernate(void)
+gboolean
+dbus_logind_CanHibernate (void)
 {
-    return dbus_logind_command("Hibernate");
+    return logind_query ("CanHibernate", FALSE, NULL);
+}
+
+void
+dbus_logind_Hibernate (GError **error)
+{
+    logind_call_function ("Hibernate", TRUE, error);
 }
 
 /*** ConsoleKit mechanism ***/
