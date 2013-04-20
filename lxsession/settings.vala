@@ -183,7 +183,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
+        /* Audio Manager */
+        global_sig.request_audio_manager_set.connect(on_request_audio_manager_set);
         global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
+
         global_sig.request_quit_manager_launch.connect(on_request_quit_manager_launch);
         global_sig.request_workspace_manager_launch.connect(on_request_workspace_manager_launch);
         global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);

@@ -68,8 +68,8 @@ namespace Lxsession
 
         public void AudioManagerSet(string command)
         {
-            message ("Set audio manager");
-            global_sig.request_audio_manager_set();
+            message ("Set audio manager to :%s", command);
+            global_sig.request_audio_manager_set(command);
         }
 
         public void AudioManagerLaunch()
