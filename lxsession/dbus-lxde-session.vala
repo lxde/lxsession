@@ -61,9 +61,12 @@ namespace Lxsession
         /* Audio Manager */
         public void AudioManagerGet(out string command)
         {
-            command = "";
             command = global_settings.audio_manager;
             message ("Get audio manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
         }
 
         public void AudioManagerSet(string command)
@@ -75,57 +78,256 @@ namespace Lxsession
         public void AudioManagerLaunch()
         {
             message ("Launch audio manager");
-            global_sig.request_audio_manager_launch();
+            if (global_settings.audio_manager == null)
+            {
+                warning("Audio manager not set");
+            }
+            else
+            {
+                var audio = new AudioManagerApp(global_settings.audio_manager);
+                audio.launch();
+            }
+        }
+
+        /* Quit Manager */
+        public void QuitManagerGet(out string command)
+        {
+            command = global_settings.quit_manager;
+            message ("Get quit manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void QuitManagerSet(string command)
+        {
+            message ("Set quit manager to :%s", command);
+            global_sig.request_quit_manager_set(command);
         }
 
         public void QuitManagerLaunch()
         {
-            message ("Launch quit manager");
-            global_sig.request_quit_manager_launch();
+            message("Start Quit Manager");
+            if (global_settings.quit_manager == null)
+            {
+                warning("Quit manager not set");
+            }
+            else
+            {
+                var quit = new QuitManagerApp(global_settings.quit_manager);
+                quit.launch();
+            }
         }
 
+        /* Workspace Manager */
+        public void WorkspaceManagerGet(out string command)
+        {
+            command = global_settings.workspace_manager;
+            message ("Get workspace manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void WorkspaceManagerSet(string command)
+        {
+            message ("Set workspace manager to :%s", command);
+            global_sig.request_workspace_manager_set(command);
+        }
         public void WorkspaceManagerLaunch()
         {
-            message ("Launch workspace manager");
-            global_sig.request_workspace_manager_launch();
+            message("Start Workspace Manager");
+            if (global_settings.workspace_manager == null)
+            {
+                warning("Workspace manager not set");
+            }
+            else
+            {
+                var workspace = new WorkspaceManagerApp(global_settings.workspace_manager);
+                workspace.launch();
+            }
         }
 
+        /* Launcher manager */
+        public void LauncherManagerGet(out string command)
+        {
+            command = global_settings.launcher_manager;
+            message ("Get launcher manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void LauncherManagerSet(string command)
+        {
+            message ("Set launcher manager to :%s", command);
+            global_sig.request_launcher_manager_set(command);
+        }
         public void LauncherManagerLaunch()
         {
-            message ("Launch launcher manager");
-            global_sig.request_launcher_manager_launch();
+            message("Start Launcher Manager");
+            if (global_settings.launcher_manager == null)
+            {
+                warning("Launcher manager not set");
+            }
+            else
+            {
+                var launcher = new LauncherManagerApp(global_settings.launcher_manager);
+                launcher.launch();
+            }
+        }
+
+        /* Terminal Manager */
+        public void TerminalManagerGet(out string command)
+        {
+            command = global_settings.terminal_manager;
+            message ("Get terminal manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void TerminalManagerSet(string command)
+        {
+            message ("Set Terminal manager to :%s", command);
+            global_sig.request_terminal_manager_set(command);
         }
 
         public void TerminalManagerLaunch()
         {
-            message ("Launch terminal manager");
-            global_sig.request_terminal_manager_launch();
+            message("Start Terminal Manager");
+            if (global_settings.terminal_manager == null)
+            {
+                warning("Terminal manager not set");
+            }
+            else
+            {
+                var terminal = new TerminalManagerApp(global_settings.terminal_manager);
+                terminal.launch();
+            }
         }
 
-        public void CompositeManagerLaunch()
+        /* Screenshot manager */
+        public void ScreenshotManagerGet(out string command)
         {
-            message ("Launch composite manager");
-            global_sig.request_composite_manager_launch();
+            command = global_settings.screenshot_manager;
+            message ("Get screenshot manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void ScreenshotManagerSet(string command)
+        {
+            message ("Set screenshot manager to :%s", command);
+            global_sig.request_screenshot_manager_set(command);
         }
 
         public void ScreenshotManagerLaunch()
         {
-            message ("Launch screenshot manager");
-            global_sig.request_screenshot_manager_launch();
+            message("Start Screenshot Manager");
+            if (global_settings.screenshot_manager == null)
+            {
+                warning("Screenshot manager not set");
+            }
+            else
+            {
+                var screenshot = new ScreenshotManagerApp(global_settings.screenshot_manager);
+                screenshot.launch();
+            }
         }
 
         public void ScreenshotWindowManagerLaunch()
         {
-            message ("Launch screenshot window manager");
-            global_sig.request_screenshot_window_manager_launch();
+            message("Start Screenshot Window Manager");
+            var screenshot_window = new ScreenshotManagerApp(global_settings.screenshot_manager);
+            screenshot_window.window_launch();
+        }
+
+        /* Upgrades maanger */
+        public void UpgradesManagerGet(out string command)
+        {
+            command = global_settings.upgrades_manager;
+            message ("Get upgrades manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void UpgradesManagerSet(string command)
+        {
+            message ("Set upgrades manager to :%s", command);
+            global_sig.request_upgrades_manager_set(command);
         }
 
         public void UpgradesManagerLaunch()
         {
-            message ("Launch upgrades manager");
-            global_sig.request_upgrades_manager_launch();
+            message("Start Upgrades Manager");
+            if (global_settings.upgrades_manager == null)
+            {
+                warning("Upgrades manager not set");
+            }
+            else
+            {
+                var upgrades = new UpgradesManagerApp(global_settings.upgrades_manager);
+                upgrades.launch();
+            }
         }
 
+        /* Composite manager */
+        public void CompositeManagerCommandGet(out string command)
+        {
+            command = global_settings.composite_manager_command;
+            message ("Get composite manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void CompositeManagerCommandSet(string command)
+        {
+            message ("Set composite manager to :%s", command);
+            global_sig.request_composite_manager_command_set(command);
+        }
+
+        public void CompositeManagerAutostartGet(out string command)
+        {
+            command = global_settings.composite_manager_autostart;
+            message ("Get composite manager: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void CompositeManagerAutostartSet(string command)
+        {
+            message ("Set composite manager to :%s", command);
+            global_sig.request_composite_manager_autostart_set(command);
+        }
+
+        public void CompositeManagerLaunch()
+        {
+            message("Start Composite Manager");
+            if (global_settings.composite_manager_command == null)
+            {
+                warning("Composite manager not set");
+            }
+            else
+            {
+                var composite = new CompositeManagerApp(global_settings.composite_manager_command);
+                composite.launch();          
+            }
+        }
+
+        /* TODO Triage this mess */
         public void UpdatesActivate (string dbus_arg)
         {
             message ("Signal updates activate option: %s", dbus_arg);
@@ -160,18 +362,6 @@ namespace Lxsession
         {
             message ("Signal update window manager extras: %s", dbus_arg);
             global_sig.update_window_manager_extras(dbus_arg);
-        }
-
-        public void CompositeManagerCommand (string dbus_arg)
-        {
-            message ("Signal update composite manager command: %s", dbus_arg);
-            global_sig.update_composite_manager_command(dbus_arg);
-        }
-
-        public void CompositeManagerAutostart (string dbus_arg)
-        {
-            message ("Signal update composite manager autostart: %s", dbus_arg);
-            global_sig.update_composite_manager_autostart(dbus_arg);
         }
 
         public void KeymapMode (string dbus_arg)

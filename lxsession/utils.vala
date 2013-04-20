@@ -97,8 +97,6 @@ public class LxSignals : Object
     public signal void update_window_manager_program (string dbus_arg);
     public signal void update_window_manager_session (string dbus_arg);
     public signal void update_window_manager_extras (string dbus_arg);
-    public signal void update_composite_manager_command (string dbus_arg);
-    public signal void update_composite_manager_autostart (string dbus_arg);
 
     public signal void update_disable_autostart (string dbus_arg);
     public signal void update_keymap_mode (string dbus_arg);
@@ -140,18 +138,18 @@ public class LxSignals : Object
 
     public signal void reload_settings_daemon();
 
-    /* Audio Manager */
+    /* Set for managers */
     public signal void request_audio_manager_set(string manager);
-    public signal void request_audio_manager_launch();
+    public signal void request_quit_manager_set(string manager);
+    public signal void request_workspace_manager_set(string manager);
+    public signal void request_launcher_manager_set(string manager);
+    public signal void request_terminal_manager_set(string manager);
+    public signal void request_screenshot_manager_set(string manager);
+    public signal void request_upgrades_manager_set(string manager);
 
-    public signal void request_quit_manager_launch();
-    public signal void request_workspace_manager_launch();
-    public signal void request_launcher_manager_launch();
-    public signal void request_terminal_manager_launch();
-    public signal void request_screenshot_manager_launch();
-    public signal void request_screenshot_window_manager_launch();
-    public signal void request_composite_manager_launch();
-    public signal void request_upgrades_manager_launch();
+    /* Composite manager */
+    public signal void request_composite_manager_command_set(string manager);
+    public signal void request_composite_manager_autostart_set (string dbus_arg);
 
 }
 

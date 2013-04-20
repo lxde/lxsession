@@ -139,8 +139,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_window_manager_program.connect(on_update_window_manager_session);
         global_sig.update_window_manager_session.connect(on_update_window_manager_session);
         global_sig.update_window_manager_extras.connect(on_update_window_manager_extras);
-        global_sig.update_composite_manager_command.connect(on_update_composite_manager_command);
-        global_sig.update_composite_manager_autostart.connect(on_update_composite_manager_autostart);
 
         global_sig.update_disable_autostart.connect(on_update_disable_autostart);
 
@@ -183,17 +181,18 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
-        /* Audio Manager */
+        /* Set for managers */
         global_sig.request_audio_manager_set.connect(on_request_audio_manager_set);
-        global_sig.request_audio_manager_launch.connect(on_request_audio_manager_launch);
+        global_sig.request_quit_manager_set.connect(on_request_quit_manager_set);
+        global_sig.request_workspace_manager_set.connect(on_request_workspace_manager_set);
+        global_sig.request_launcher_manager_set.connect(on_request_launcher_manager_set);
+        global_sig.request_terminal_manager_set.connect(on_request_terminal_manager_set);
+        global_sig.request_screenshot_manager_set.connect(on_request_screenshot_manager_set);
+        global_sig.request_upgrades_manager_set.connect(on_request_screenshot_manager_set);
 
-        global_sig.request_quit_manager_launch.connect(on_request_quit_manager_launch);
-        global_sig.request_workspace_manager_launch.connect(on_request_workspace_manager_launch);
-        global_sig.request_launcher_manager_launch.connect(on_request_launcher_manager_launch);
-        global_sig.request_terminal_manager_launch.connect(on_request_terminal_manager_launch);
-        global_sig.request_composite_manager_launch.connect(on_request_composite_manager_launch);
-        global_sig.request_screenshot_manager_launch.connect(on_request_screenshot_manager_launch);
-        global_sig.request_upgrades_manager_launch.connect(on_request_screenshot_manager_launch);
+        /* Composite manager */
+        global_sig.request_composite_manager_command_set.connect(on_request_composite_manager_command_set);
+        global_sig.request_composite_manager_autostart_set.connect(on_request_composite_manager_autostart_set); 
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1175,7 +1174,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         settings_daemon_reload(kf);
     }
 
-    /* Audio Manager */
     public void on_request_audio_manager_set (string manager)
     {
         message("Changing Audio Manager");
@@ -1184,67 +1182,69 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_request_audio_manager_launch ()
+    public void on_request_quit_manager_set (string manager)
     {
-        message("Start Audio Manager");
-        var audio = new AudioManagerApp(this.audio_manager);
-        audio.launch();
+        message("Changing Quit Manager");
+        this.quit_manager = manager;
+        kf.set_value ("Session", "quit_manager", this.quit_manager);
+        save_keyfile();
     }
 
-    public void on_request_quit_manager_launch ()
+    public void on_request_workspace_manager_set (string manager)
     {
-        message("Start Audio Manager");
-        var quit = new QuitManagerApp(this.quit_manager);
-        quit.launch();
+        message("Changing Workspace Manager");
+        this.workspace_manager = manager;
+        kf.set_value ("Session", "workspace_manager", this.workspace_manager);
+        save_keyfile();
     }
 
-    public void on_request_workspace_manager_launch ()
+    public void on_request_launcher_manager_set (string manager)
     {
-        message("Start Workspace Manager");
-        var workspace = new WorkspaceManagerApp(this.workspace_manager);
-        workspace.launch();
+        message("Changing Launcher Manager");
+        this.launcher_manager = manager;
+        kf.set_value ("Session", "launcher_manager", this.launcher_manager);
+        save_keyfile();
     }
 
-    public void on_request_launcher_manager_launch ()
+    public void on_request_terminal_manager_set (string manager)
     {
-        message("Start Launcher Manager");
-        var launcher = new LauncherManagerApp(this.launcher_manager);
-        launcher.launch();
+        message("Changing Terminal Manager");
+        this.terminal_manager = manager;
+        kf.set_value ("Session", "terminal_manager", this.terminal_manager);
+        save_keyfile();
     }
 
-    public void on_request_terminal_manager_launch ()
+    public void on_request_screenshot_manager_set (string manager)
     {
-        message("Start Terminal Manager");
-        var terminal = new TerminalManagerApp(this.terminal_manager);
-        terminal.launch();
+        message("Changing Screenshot Manager");
+        this.screenshot_manager = manager;
+        kf.set_value ("Session", "screenshot_manager", this.screenshot_manager);
+        save_keyfile();
     }
 
-    public void on_request_screenshot_manager_launch ()
+    public void on_request_upgrades_manager_set (string manager)
     {
-        message("Start Screenshot Manager");
-        var screenshot = new ScreenshotManagerApp(this.screenshot_manager);
-        screenshot.launch();
+        message("Changing Upgrades Manager");
+        this.upgrades_manager = manager;
+        kf.set_value ("Session", "upgrades_manager", this.upgrades_manager);
+        save_keyfile();
     }
 
-    public void on_request_screenshot_window_manager_launch ()
+    /* Composite manager */
+    public void on_request_composite_manager_command_set (string manager)
     {
-        message("Start Screenshot Window Manager");
-        var screenshot_window = new ScreenshotManagerApp(this.screenshot_manager);
-        screenshot_window.window_launch();
+        message("Changing Composite Manager command");
+        this.composite_manager_command = manager;
+        kf.set_value ("Session", "composite_manager/command", this.composite_manager_command);
+        save_keyfile();
     }
 
-    public void on_request_composite_manager_launch ()
+    public void on_request_composite_manager_autostart_set (string manager)
     {
-        message("Start Composite Manager");
-        var composite = new CompositeManagerApp(this.composite_manager_command);
-        composite.launch();
-    }
-
-    public void on_request_upgrades_manager_launch ()
-    {
-        message("Start Upgrades Manager");
-        var upgrades = new UpgradesManagerApp(this.upgrades_manager);
-        upgrades.launch();
+        message("Changing Composite Manager autostart");
+        this.composite_manager_autostart = manager;
+        kf.set_value ("Session", "composite_manager/autostart", this.composite_manager_autostart);
+        save_keyfile();
     }
 }
 
