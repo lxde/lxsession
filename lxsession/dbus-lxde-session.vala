@@ -28,7 +28,8 @@ namespace Lxsession
             var session = new SessionObject();
             session.lxsession_shutdown();
         }
-        public async void CanShutdown(out bool is_available) {
+        public async void CanShutdown(out bool is_available)
+        {
             var session = new SessionObject();
             is_available = yield session.lxsession_can_shutdown();
         }
@@ -58,6 +59,19 @@ namespace Lxsession
         }
 
         /* Audio Manager */
+        public void AudioManagerGet(out string command)
+        {
+            command = "";
+            command = global_settings.audio_manager;
+            message ("Get audio manager: %s", command);
+        }
+
+        public void AudioManagerSet(string command)
+        {
+            message ("Set audio manager");
+            global_sig.request_audio_manager_set();
+        }
+
         public void AudioManagerLaunch()
         {
             message ("Launch audio manager");

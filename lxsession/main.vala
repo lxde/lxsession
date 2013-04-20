@@ -30,6 +30,7 @@ using Gtk;
 namespace Lxsession {
 
     LxSignals global_sig;
+    LxsessionConfigKeyFile global_settings;
 
     public class Main: GLib.Object{
 
@@ -144,13 +145,14 @@ namespace Lxsession {
 
         /* Configuration */
         var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
+        global_settings = config;
 
         /* Sync desktop.conf and autostart setting files */
-        config.sync_setting_files ();
+        global_settings.sync_setting_files ();
 
         /* Options and Apps that need to be killed (build-in) */
-        var clipboard = new ClipboardOption(config);
-        var securitypolkit = new PolkitApp(config.polkit);
+        var clipboard = new ClipboardOption(global_settings);
+        var securitypolkit = new PolkitApp(global_settings.polkit);
 
         /* Conf Files */
         string conffiles_conf = get_config_path ("conffiles.conf");
@@ -167,22 +169,22 @@ namespace Lxsession {
         }
 
         /* Launching windows manager */
-        if (config.window_manager != null)
+        if (global_settings.window_manager != null)
         {
-            var windowmanager = new WindowManagerApp(config.window_manager, "simple", "", "");
+            var windowmanager = new WindowManagerApp(global_settings.window_manager, "simple", "", "");
             windowmanager.launch();
         }
         else
         {
-            var windowmanager = new WindowManagerApp(   config.window_manager_program, 
+            var windowmanager = new WindowManagerApp(   global_settings.window_manager_program, 
                                                         "advanced",
-                                                        config.window_manager_session,
-                                                        config.window_manager_extras);
+                                                        global_settings.window_manager_session,
+                                                        global_settings.window_manager_extras);
             windowmanager.launch();
         }
 
         /* Disable autostart if it's specified in the conf file. */
-        if (config.disable_autostart == "all")
+        if (global_settings.disable_autostart == "all")
         {
             autostart = true;
         }
@@ -191,21 +193,21 @@ namespace Lxsession {
         if (autostart == false)
         {
             /* Launch other specific applications */
-            if (config.panel_program != null)
+            if (global_settings.panel_program != null)
             {
-                var panelprogram = new PanelApp(config.panel_program, config.panel_session);
+                var panelprogram = new PanelApp(global_settings.panel_program, global_settings.panel_session);
                 panelprogram.launch();
             }
 
-            if (config.screensaver_program != null)
+            if (global_settings.screensaver_program != null)
             {
-                var screensaverprogram = new ScreensaverApp(config.screensaver_program);
+                var screensaverprogram = new ScreensaverApp(global_settings.screensaver_program);
                 screensaverprogram.launch();
             }
 
-            if (config.power_manager_program != null)
+            if (global_settings.power_manager_program != null)
             {
-                if (config.laptop_mode == "unknown")
+                if (global_settings.laptop_mode == "unknown")
                 {
                     /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
                     bool state = detect_laptop();
@@ -215,19 +217,19 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var powermanagerprogram = new PowermanagerApp(config.power_manager_program, state_text);
+                    var powermanagerprogram = new PowermanagerApp(global_settings.power_manager_program, state_text);
                     powermanagerprogram.launch();
                 }
                 else
                 {
-                    var powermanagerprogram = new PowermanagerApp(config.power_manager_program, config.laptop_mode);
+                    var powermanagerprogram = new PowermanagerApp(global_settings.power_manager_program, global_settings.laptop_mode);
                     powermanagerprogram.launch();
                 }
             }
 
-            if (config.network_gui != null)
+            if (global_settings.network_gui != null)
             {
-                if (config.laptop_mode == "unknown")
+                if (global_settings.laptop_mode == "unknown")
                 {
                     /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
                     bool state = detect_laptop();
@@ -237,34 +239,34 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var networkguiprogram = new NetworkGuiApp(config.power_manager_program, state_text);
+                    var networkguiprogram = new NetworkGuiApp(global_settings.power_manager_program, state_text);
                     networkguiprogram.launch();
                 }
                 else
                 {
-                    var networkguiprogram = new NetworkGuiApp(config.power_manager_program, config.laptop_mode);
+                    var networkguiprogram = new NetworkGuiApp(global_settings.power_manager_program, global_settings.laptop_mode);
                     networkguiprogram.launch();
                 }
             }
 
-            if (config.file_manager_program != null)
+            if (global_settings.file_manager_program != null)
             {
-                var filemanagerprogram = new FilemanagerApp(config.file_manager_program,
-                                                            config.file_manager_session,
+                var filemanagerprogram = new FilemanagerApp(global_settings.file_manager_program,
+                                                            global_settings.file_manager_session,
                                                             "");
                 filemanagerprogram.launch();
             }
 
-            if (config.composite_manager_autostart == "true")
+            if (global_settings.composite_manager_autostart == "true")
             {
-                if (config.composite_manager_command != null)
+                if (global_settings.composite_manager_command != null)
                 {
-                    var compositemanagerprogram = new CompositeManagerApp(config.composite_manager_command);
+                    var compositemanagerprogram = new CompositeManagerApp(global_settings.composite_manager_command);
                     compositemanagerprogram.launch();
                 }
             }
 
-            if (config.polkit != null)
+            if (global_settings.polkit != null)
             {
                 securitypolkit.launch();
             }
@@ -273,7 +275,7 @@ namespace Lxsession {
             auto.start_applications();
 
             /* Autostart application define xdg directories */
-            if (config.disable_autostart == "config-only")
+            if (global_settings.disable_autostart == "config-only")
             {
                 /* Pass, we don't want autostarted applications */
             }
@@ -285,45 +287,45 @@ namespace Lxsession {
         }
 
         /* Options */
-        if (config.clipboard_command != null)
+        if (global_settings.clipboard_command != null)
         {
             clipboard.activate();
         }
 
-        message ("Check keymap_mode %s", config.keymap_mode);
-        if (config.keymap_mode != null)
+        message ("Check keymap_mode %s", global_settings.keymap_mode);
+        if (global_settings.keymap_mode != null)
         {
             message("Create Option Keymap");
-            var keymap = new KeymapOption(config);
+            var keymap = new KeymapOption(global_settings);
             keymap.activate();
         }
 
-        if (config.xrandr_mode != null)
+        if (global_settings.xrandr_mode != null)
         {
-            var xrandr = new XrandrOption(config);
+            var xrandr = new XrandrOption(global_settings);
             xrandr.activate();
         }
 
-        if (config.security_keyring != null)
+        if (global_settings.security_keyring != null)
         {
-            var keyring = new KeyringOption(config);
+            var keyring = new KeyringOption(global_settings);
             keyring.activate();
         }
 
-        if (config.a11y_type == "true")
+        if (global_settings.a11y_type == "true")
         {
-            var a11y = new A11yOption(config);
+            var a11y = new A11yOption(global_settings);
             a11y.activate();
         }
 
-        if (config.updates_activate == "true")
+        if (global_settings.updates_activate == "true")
         {
-            var updates = new UpdatesOption(config);
+            var updates = new UpdatesOption(global_settings);
             updates.activate();
         }
 
         /* DBus Serveurs */
-        if (config.dbus_lxde == "true")
+        if (global_settings.dbus_lxde == "true")
         {
             Bus.own_name (BusType.SESSION, "org.lxde.SessionManager", BusNameOwnerFlags.NONE,
                           on_bus_aquired,
@@ -331,7 +333,7 @@ namespace Lxsession {
                           () => warning ("Could not aquire name\n"));
         }
 
-        if (config.dbus_gnome == "true") 
+        if (global_settings.dbus_gnome == "true") 
         {
 
             Bus.own_name (BusType.SESSION, "org.gnome.SessionManager", BusNameOwnerFlags.NONE,
@@ -344,12 +346,12 @@ namespace Lxsession {
         /* start main loop */
         new MainLoop().run();
 
-        if (config.clipboard_command != null)
+        if (global_settings.clipboard_command != null)
         {
             clipboard.deactivate();
         }
 
-        if (config.polkit != null)
+        if (global_settings.polkit != null)
         {
             securitypolkit.deactivate();
         }

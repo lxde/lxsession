@@ -140,7 +140,10 @@ public class LxSignals : Object
 
     public signal void reload_settings_daemon();
 
+    /* Audio Manager */
+    public signal void request_audio_manager_set();
     public signal void request_audio_manager_launch();
+
     public signal void request_quit_manager_launch();
     public signal void request_workspace_manager_launch();
     public signal void request_launcher_manager_launch();

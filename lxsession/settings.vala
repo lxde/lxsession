@@ -1172,6 +1172,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         settings_daemon_reload(kf);
     }
 
+    /* Audio Manager */
+    public void on_request_audio_manager_set (string manager)
+    {
+        message("Changing Audio Manager");
+        this.audio_manager = manager;
+        kf.set_value ("Session", "audio_manager", this.audio_manager);
+        save_keyfile();
+    }
+
     public void on_request_audio_manager_launch ()
     {
         message("Start Audio Manager");
