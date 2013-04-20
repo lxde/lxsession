@@ -65,7 +65,6 @@ public class AppObject: GLib.Object {
 
     }
 
-
     private void callback_pid(Pid pid, int status) {
         /* Help :  http://en.wikipedia.org/wiki/Signal_(computing) 
                    http://valadoc.org/glib-2.0/GLib.ProcessSignal.html
