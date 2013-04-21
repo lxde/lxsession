@@ -34,6 +34,20 @@ namespace Lxsession {
     LxsessionConfigKeyFile global_settings;
 
     PanelApp global_panel;
+    WindowManagerApp global_window_manager;
+    FilemanagerApp global_filemanager_program;
+    PolkitApp global_security_polkit;
+    ScreensaverApp global_screensaver_program;
+    PowermanagerApp global_powermanager_program;
+    NetworkGuiApp global_networkgui_program;
+    CompositeManagerApp global_compositemanager_program;
+    AudioManagerApp global_audio_manager;
+    QuitManagerApp global_quit_manager;
+    WorkspaceManagerApp global_workspace_manager;
+    LauncherManagerApp global_launcher_manager;
+    TerminalManagerApp global_terminal_manager;
+    ScreenshotManagerApp global_screenshot_manager;
+    UpgradesManagerApp global_upgrades_manager;
 
     public class Main: GLib.Object
     {
@@ -155,7 +169,6 @@ namespace Lxsession {
 
         /* Options and Apps that need to be killed (build-in) */
         var clipboard = new ClipboardOption(global_settings);
-        var securitypolkit = new PolkitApp(global_settings.polkit);
 
         /* Conf Files */
         string conffiles_conf = get_config_path ("conffiles.conf");
@@ -174,16 +187,15 @@ namespace Lxsession {
         /* Launching windows manager */
         if (global_settings.window_manager != null)
         {
-            var windowmanager = new WindowManagerApp(global_settings.window_manager, "simple", "", "");
-            windowmanager.launch();
+            var windowmanager = new WindowManagerApp();
+            global_window_manager = windowmanager;
+            global_window_manager.launch();
         }
-        else
+        else if (global_settings.window_manager_program != null)
         {
-            var windowmanager = new WindowManagerApp(   global_settings.window_manager_program, 
-                                                        "advanced",
-                                                        global_settings.window_manager_session,
-                                                        global_settings.window_manager_extras);
-            windowmanager.launch();
+            var windowmanager = new WindowManagerApp();
+            global_window_manager = windowmanager;
+            global_window_manager.launch();
         }
 
         /* Disable autostart if it's specified in the conf file. */
@@ -198,22 +210,25 @@ namespace Lxsession {
             /* Launch other specific applications */
             if (global_settings.panel_program != null)
             {
-                var panelprogram = new PanelApp("");
+                var panelprogram = new PanelApp();
                 global_panel = panelprogram;
                 global_panel.launch();
             }
 
             if (global_settings.screensaver_program != null)
             {
-                var screensaverprogram = new ScreensaverApp(global_settings.screensaver_program);
-                screensaverprogram.launch();
+                var screensaverprogram = new ScreensaverApp();
+                global_screensaver_program = screensaverprogram;
+                global_screensaver_program.launch();
             }
 
             if (global_settings.power_manager_program != null)
             {
                 if (global_settings.laptop_mode == "unknown")
                 {
-                    /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
+                    /*  Test if you are on laptop, but don't wait the update on Settings object to launch
+                        the program */
+
                     bool state = detect_laptop();
                     string state_text = "no";
                     if (state == true)
@@ -221,13 +236,15 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var powermanagerprogram = new PowermanagerApp(global_settings.power_manager_program, state_text);
-                    powermanagerprogram.launch();
+                    var powermanagerprogram = new PowermanagerApp();
+                    global_powermanager_program = powermanagerprogram;
+                    global_powermanager_program.launch();
                 }
                 else
                 {
-                    var powermanagerprogram = new PowermanagerApp(global_settings.power_manager_program, global_settings.laptop_mode);
-                    powermanagerprogram.launch();
+                    var powermanagerprogram = new PowermanagerApp();
+                    global_powermanager_program = powermanagerprogram;
+                    global_powermanager_program.launch();
                 }
             }
 
@@ -243,36 +260,40 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var networkguiprogram = new NetworkGuiApp(global_settings.power_manager_program, state_text);
-                    networkguiprogram.launch();
+                    var networkguiprogram = new NetworkGuiApp();
+                    global_networkgui_program = networkguiprogram;
+                    global_networkgui_program.launch();
                 }
                 else
                 {
-                    var networkguiprogram = new NetworkGuiApp(global_settings.power_manager_program, global_settings.laptop_mode);
-                    networkguiprogram.launch();
+                    var networkguiprogram = new NetworkGuiApp();
+                    global_networkgui_program = networkguiprogram;
+                    global_networkgui_program.launch();
                 }
             }
 
             if (global_settings.file_manager_program != null)
             {
-                var filemanagerprogram = new FilemanagerApp(global_settings.file_manager_program,
-                                                            global_settings.file_manager_session,
-                                                            "");
-                filemanagerprogram.launch();
+                var filemanagerprogram = new FilemanagerApp();
+                    global_filemanager_program = filemanagerprogram;
+                    global_filemanager_program.launch();
             }
 
             if (global_settings.composite_manager_autostart == "true")
             {
                 if (global_settings.composite_manager_command != null)
                 {
-                    var compositemanagerprogram = new CompositeManagerApp(global_settings.composite_manager_command);
-                    compositemanagerprogram.launch();
+                    var compositemanagerprogram = new CompositeManagerApp();
+                    global_compositemanager_program = compositemanagerprogram;
+                    global_compositemanager_program.launch();
                 }
             }
 
             if (global_settings.polkit != null)
             {
-                securitypolkit.launch();
+                var securitypolkit = new PolkitApp();
+                global_security_polkit = securitypolkit;
+                global_security_polkit.launch();
             }
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
@@ -357,12 +378,48 @@ namespace Lxsession {
 
         if (global_settings.polkit != null)
         {
-            securitypolkit.deactivate();
+            global_security_polkit.deactivate();
+            global_security_polkit.stop();
         }
 
         if (global_panel != null)
         {
             global_panel.stop();
+        }
+
+        if (global_window_manager != null)
+        {
+            global_window_manager.stop();
+        }
+
+        if (global_filemanager_program != null)
+        {
+            global_filemanager_program.stop();
+        }
+
+        if (global_security_polkit != null)
+        {
+            global_security_polkit.stop();
+        }
+
+        if (global_screensaver_program != null)
+        {
+            global_screensaver_program.stop();
+        }
+
+        if (global_powermanager_program != null)
+        {
+            global_powermanager_program.stop();
+        }
+
+        if (global_networkgui_program != null)
+        {
+            global_networkgui_program.stop();
+        }
+
+        if (global_compositemanager_program != null)
+        {
+            global_compositemanager_program.stop();
         }
 
         return 0;

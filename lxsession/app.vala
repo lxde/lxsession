@@ -90,6 +90,11 @@ public class AppObject: GLib.Object
         this.launch();
     }
 
+    public void init()
+    {
+        read_settings();
+    }
+
     private void callback_pid(Pid pid, int status)
     {
         /* Help :  http://en.wikipedia.org/wiki/Signal_(computing) 
@@ -137,10 +142,10 @@ public class GenericAppObject: AppObject
 public class SimpleAppObject: AppObject
 {
 
-    public SimpleAppObject(string app_name)
+    public SimpleAppObject()
     {
-        this.name = app_name;
-        this.command = {app_name};
+        this.name = "";
+        this.command = {""};
         this.guard = false;
         this.application_type = "";
     }
@@ -148,12 +153,34 @@ public class SimpleAppObject: AppObject
 
 public class WindowManagerApp: SimpleAppObject
 {
-    public WindowManagerApp (string wm_command, string mode, string session, string extras)
+    string wm_command;
+    string mode;
+    string session;
+    string extras;
+
+    public WindowManagerApp ()
     {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        if (global_settings.window_manager != null)
+        {
+            mode = "simple";
+            wm_command = global_settings.window_manager;
+            session = "";
+            extras = "";
+        }
+        else
+        {
+            mode = "advanced";
+            wm_command = global_settings.window_manager_program;
+            session = global_settings.window_manager_session;
+            extras = global_settings.window_manager_extras;
+        }
 
         string session_command;
-
-        base(wm_command);
 
         if (wm_command == "wm_safe") 
         {
@@ -218,7 +245,6 @@ public class WindowManagerApp: SimpleAppObject
             }
         }
         this.guard = true;
-
     }
 
     private string find_window_manager()
@@ -320,9 +346,8 @@ public class PanelApp: SimpleAppObject
     string panel_command;
     string panel_session;
 
-    public PanelApp (string dummy)
+    public PanelApp ()
     {
-        base (dummy);
         init();
     }
 
@@ -353,18 +378,20 @@ public class PanelApp: SimpleAppObject
         }
         this.guard = true;
     }
-
-    public void init()
-    {
-        read_settings();
-    }
 }
 
-public class ScreensaverApp: SimpleAppObject {
+public class ScreensaverApp: SimpleAppObject
+{
+    string screensaver_command;
 
-    public ScreensaverApp (string screensaver_command){
+    public ScreensaverApp ()
+    {
+        init();
+    }
 
-        base(screensaver_command);
+    public override void read_settings()
+    {
+        screensaver_command = global_settings.screensaver_program;
 
         switch (screensaver_command) 
         {
@@ -380,15 +407,23 @@ public class ScreensaverApp: SimpleAppObject {
                 break;
         }
         this.guard = true;
-
     }
 }
 
-public class PowermanagerApp: SimpleAppObject {
+public class PowermanagerApp: SimpleAppObject
+{
+    string powermanager_command;
+    string laptop_mode;
 
-    public PowermanagerApp (string powermanager_command, string laptop_mode){
+    public PowermanagerApp ()
+    {
+        init();
+    }
 
-        base(powermanager_command);
+    public override void read_settings()
+    {
+        powermanager_command = global_settings.power_manager_program;
+        laptop_mode = global_settings.laptop_mode;
 
         switch (powermanager_command) 
         {
@@ -413,18 +448,25 @@ public class PowermanagerApp: SimpleAppObject {
                 break;
         }
         this.guard = true;
-
     }
 }
 
-public class FilemanagerApp: SimpleAppObject {
+public class FilemanagerApp: SimpleAppObject
+{
+    string filemanager_command;
+    string filemanager_session;
+    string filemanager_extras;
 
-    public FilemanagerApp (string filemanager_command,
-                           string filemanager_session,
-                           string filemanager_extras )
+    public FilemanagerApp ()
     {
+        init();
+    }
 
-        base(filemanager_command);
+    public override void read_settings()
+    {
+        filemanager_command = global_settings.file_manager_program;
+        filemanager_session = global_settings.file_manager_session;
+        filemanager_extras = global_settings.file_manager_extras;
 
         switch (filemanager_command) 
         {
@@ -463,15 +505,21 @@ public class FilemanagerApp: SimpleAppObject {
                 break;
         }
         this.guard = true;
-
     }
 }
 
-public class PolkitApp: SimpleAppObject {
+public class PolkitApp: SimpleAppObject
+{
+    string polkit_command;
 
-    public PolkitApp (string polkit_command){
+    public PolkitApp ()
+    {
+        init();
+    }
 
-        base(polkit_command);
+    public override void read_settings()
+    {
+        polkit_command = global_settings.polkit;
 
         switch (polkit_command) 
         {
@@ -509,9 +557,19 @@ public class PolkitApp: SimpleAppObject {
 
 public class NetworkGuiApp: SimpleAppObject
 {
-    public NetworkGuiApp (string network_command, string laptop_mode)
+    string network_command;
+    string laptop_mode;
+
+    public NetworkGuiApp ()
     {
-        base(network_command);
+        init();
+    }
+
+    public override void read_settings()
+    {
+        network_command = global_settings.network_gui;
+        laptop_mode = global_settings.laptop_mode;
+
         switch (network_command)
         {
             case "no":
@@ -553,11 +611,18 @@ public class NetworkGuiApp: SimpleAppObject
     }
 }
 
-public class AudioManagerApp: SimpleAppObject {
+public class AudioManagerApp: SimpleAppObject
+{
+    string audiomanager_command;
 
-    public AudioManagerApp (string audiomanager_command){
+    public AudioManagerApp ()
+    {
+        init();
+    }
 
-        base(audiomanager_command);
+    public override void read_settings()
+    {
+        audiomanager_command = global_settings.audio_manager;
 
         switch (audiomanager_command)
         {
@@ -575,11 +640,18 @@ public class AudioManagerApp: SimpleAppObject {
     }
 }
 
-public class QuitManagerApp: SimpleAppObject {
+public class QuitManagerApp: SimpleAppObject
+{
+    string quitmanager_command;
 
-    public QuitManagerApp (string quitmanager_command){
+    public QuitManagerApp ()
+    {
+        init();
+    }
 
-        base(quitmanager_command);
+    public override void read_settings()
+    {
+        quitmanager_command = global_settings.quit_manager;
 
         switch (quitmanager_command)
         {
@@ -592,11 +664,18 @@ public class QuitManagerApp: SimpleAppObject {
     }
 }
 
-public class WorkspaceManagerApp: SimpleAppObject {
+public class WorkspaceManagerApp: SimpleAppObject
+{
+    string workspacemanager_command;
 
-    public WorkspaceManagerApp (string workspacemanager_command){
+    public WorkspaceManagerApp ()
+    {
+        init();
+    }
 
-        base(workspacemanager_command);
+    public override void read_settings()
+    {
+        workspacemanager_command = global_settings.workspace_manager;
 
         switch (workspacemanager_command)
         {
@@ -614,11 +693,18 @@ public class WorkspaceManagerApp: SimpleAppObject {
     }
 }
 
-public class LauncherManagerApp: SimpleAppObject {
+public class LauncherManagerApp: SimpleAppObject
+{
+    string launchermanager_command;
 
-    public LauncherManagerApp (string launchermanager_command){
+    public LauncherManagerApp ()
+    {
+        init();
+    }
 
-        base(launchermanager_command);
+    public override void read_settings()
+    {
+        launchermanager_command = global_settings.launcher_manager;
 
         switch (launchermanager_command)
         {
@@ -631,11 +717,18 @@ public class LauncherManagerApp: SimpleAppObject {
     }
 }
 
-public class TerminalManagerApp: SimpleAppObject {
+public class TerminalManagerApp: SimpleAppObject
+{
+    string terminalmanager_command;
 
-    public TerminalManagerApp (string terminalmanager_command){
+    public TerminalManagerApp ()
+    {
+        init();
+    }
 
-        base(terminalmanager_command);
+    public override void read_settings()
+    {
+        terminalmanager_command = global_settings.terminal_manager;
 
         switch (terminalmanager_command)
         {
@@ -653,11 +746,18 @@ public class TerminalManagerApp: SimpleAppObject {
     }
 }
 
-public class CompositeManagerApp: SimpleAppObject {
+public class CompositeManagerApp: SimpleAppObject
+{
+    string compositemanager_command;
 
-    public CompositeManagerApp (string compositemanager_command){
+    public CompositeManagerApp ()
+    {
+        init();
+    }
 
-        base(compositemanager_command);
+    public override void read_settings()
+    {
+        compositemanager_command = global_settings.composite_manager_command;
 
         switch (compositemanager_command)
         {
@@ -670,11 +770,18 @@ public class CompositeManagerApp: SimpleAppObject {
     }
 }
 
-public class ScreenshotManagerApp: SimpleAppObject {
+public class ScreenshotManagerApp: SimpleAppObject
+{
+    string screenshotmanager_command;
 
-    public ScreenshotManagerApp (string screenshotmanager_command){
+    public ScreenshotManagerApp ()
+    {
+        init();
+    }
 
-        base(screenshotmanager_command);
+    public override void read_settings()
+    {
+        screenshotmanager_command = global_settings.screenshot_manager;
 
         switch (screenshotmanager_command)
         {
@@ -704,11 +811,18 @@ public class ScreenshotManagerApp: SimpleAppObject {
     }
 }
 
-public class UpgradesManagerApp: SimpleAppObject {
+public class UpgradesManagerApp: SimpleAppObject
+{
+    string upgradesmanager_command;
 
-    public UpgradesManagerApp (string upgradesmanager_command){
+    public UpgradesManagerApp ()
+    {
+        init();
+    }
 
-        base(upgradesmanager_command);
+    public override void read_settings()
+    {
+        upgradesmanager_command = global_settings.upgrades_manager;
 
         switch (upgradesmanager_command)
         {

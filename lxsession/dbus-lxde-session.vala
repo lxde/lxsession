@@ -82,10 +82,15 @@ namespace Lxsession
             {
                 warning("Audio manager not set");
             }
+            else if (global_audio_manager == null)
+            {
+                var audio = new AudioManagerApp();
+                global_audio_manager = audio;
+                global_audio_manager.launch();
+            }
             else
             {
-                var audio = new AudioManagerApp(global_settings.audio_manager);
-                audio.launch();
+                global_audio_manager.launch();
             }
         }
 
@@ -113,10 +118,15 @@ namespace Lxsession
             {
                 warning("Quit manager not set");
             }
+            else if (global_quit_manager == null)
+            {
+                var quit = new QuitManagerApp();
+                global_quit_manager = quit;
+                global_quit_manager.launch();
+            }
             else
             {
-                var quit = new QuitManagerApp(global_settings.quit_manager);
-                quit.launch();
+                global_quit_manager.launch();              
             }
         }
 
@@ -143,10 +153,15 @@ namespace Lxsession
             {
                 warning("Workspace manager not set");
             }
+            else if (global_workspace_manager == null)
+            {
+                var workspace = new WorkspaceManagerApp();
+                global_workspace_manager = workspace;
+                global_workspace_manager.launch();
+            }
             else
             {
-                var workspace = new WorkspaceManagerApp(global_settings.workspace_manager);
-                workspace.launch();
+                global_workspace_manager.launch();                
             }
         }
 
@@ -173,10 +188,15 @@ namespace Lxsession
             {
                 warning("Launcher manager not set");
             }
+            else if (global_launcher_manager == null)
+            {
+                var launcher = new LauncherManagerApp();
+                global_launcher_manager = launcher;
+                global_launcher_manager.launch();
+            }
             else
             {
-                var launcher = new LauncherManagerApp(global_settings.launcher_manager);
-                launcher.launch();
+                global_launcher_manager.launch();
             }
         }
 
@@ -204,10 +224,15 @@ namespace Lxsession
             {
                 warning("Terminal manager not set");
             }
+            else if (global_terminal_manager == null)
+            {
+                var terminal = new TerminalManagerApp();
+                global_terminal_manager = terminal;
+                global_terminal_manager.launch();
+            }
             else
             {
-                var terminal = new TerminalManagerApp(global_settings.terminal_manager);
-                terminal.launch();
+                global_terminal_manager.launch();
             }
         }
 
@@ -235,18 +260,35 @@ namespace Lxsession
             {
                 warning("Screenshot manager not set");
             }
+            else if (global_screenshot_manager == null)
+            {
+                var screenshot = new ScreenshotManagerApp();
+                global_screenshot_manager = screenshot;
+                global_screenshot_manager.launch();
+            }
             else
             {
-                var screenshot = new ScreenshotManagerApp(global_settings.screenshot_manager);
-                screenshot.launch();
+                global_screenshot_manager.launch();
             }
         }
 
         public void ScreenshotWindowManagerLaunch()
         {
             message("Start Screenshot Window Manager");
-            var screenshot_window = new ScreenshotManagerApp(global_settings.screenshot_manager);
-            screenshot_window.window_launch();
+            if (global_settings.screenshot_manager == null)
+            {
+                warning("Screenshot manager not set");
+            }
+            else if (global_screenshot_manager == null)
+            {
+                var screenshot = new ScreenshotManagerApp();
+                global_screenshot_manager = screenshot;
+                global_screenshot_manager.window_launch();
+            }
+            else
+            {
+                global_screenshot_manager.window_launch();
+            }
         }
 
         /* Upgrades maanger */
@@ -273,10 +315,15 @@ namespace Lxsession
             {
                 warning("Upgrades manager not set");
             }
+            else if (global_upgrades_manager == null)
+            {
+                var upgrades = new UpgradesManagerApp();
+                global_upgrades_manager = upgrades;
+                global_upgrades_manager.launch();
+            }
             else
             {
-                var upgrades = new UpgradesManagerApp(global_settings.upgrades_manager);
-                upgrades.launch();
+                global_upgrades_manager.launch();
             }
         }
 
@@ -313,17 +360,24 @@ namespace Lxsession
             global_sig.request_composite_manager_autostart_set(command);
         }
 
-        public void CompositeManagerLaunch()
+        public void CompositeManagerReload()
         {
-            message("Start Composite Manager");
+            message("Reload composite manager");
             if (global_settings.composite_manager_command == null)
             {
-                warning("Composite manager not set");
+                warning("composite manager not set not set");
+            }
+            else if (global_settings.composite_manager_command == null)
+            {
+                message("Composite manager doesn't exist, creating it");
+                var composite = new CompositeManagerApp();
+                global_compositemanager_program = composite;
+                global_compositemanager_program.launch();
             }
             else
             {
-                var composite = new CompositeManagerApp(global_settings.composite_manager_command);
-                composite.launch();          
+                message("Reload existing composite manager");
+                global_compositemanager_program.reload();
             }
         }
 
@@ -362,7 +416,7 @@ namespace Lxsession
 
         public void PanelReload()
         {
-            message("Start or reload panel");
+            message("Reload panel");
             if (global_settings.panel_program == null)
             {
                 warning("Panel not set");
@@ -370,7 +424,7 @@ namespace Lxsession
             else if (global_panel == null)
             {
                 message("Panel doesn't exist, creating it");
-                var panelprogram = new PanelApp("");
+                var panelprogram = new PanelApp();
                 global_panel = panelprogram;
                 global_panel.launch();
             }
