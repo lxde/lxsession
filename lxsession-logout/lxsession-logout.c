@@ -679,8 +679,12 @@ int main(int argc, char * argv[])
         {
             output = "";
         }
+        else
+        {
+            output[strlen ( output ) - 1] = '\0';
+        }
 
-        prompt = g_strdup_printf(_("<b><big>Logout %s %.5s session ?</big></b>"), session_name, output);
+        prompt = g_strdup_printf(_("<b><big>Logout %s %s session ?</big></b>"), session_name, output);
     }
     gtk_label_set_markup(GTK_LABEL(label), prompt);
     gtk_box_pack_start(GTK_BOX(controls), label, FALSE, FALSE, 4);
