@@ -22,7 +22,7 @@ namespace Lxsession
     [DBus(name = "org.lxde.SessionManager")]
     public class LxdeSessionServer : Object
     {
-    /* Systeme & Session */
+        /* Systeme & Session */
         public void Shutdown()
         {
             var session = new SessionObject();
@@ -324,6 +324,60 @@ namespace Lxsession
             {
                 var composite = new CompositeManagerApp(global_settings.composite_manager_command);
                 composite.launch();          
+            }
+        }
+
+        /* Panel control */
+        public void PanelCommandGet(out string command)
+        {
+            command = global_settings.panel_program;
+            message ("Get panel command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void PanelCommandSet(string command)
+        {
+            message ("Set panel command to :%s", command);
+            global_sig.request_panel_program_set(command);
+        }
+
+        public void PanelSessionGet(out string command)
+        {
+            command = global_settings.panel_session;
+            message ("Get panel session: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void PanelSessionSet(string command)
+        {
+            message ("Set panel command to :%s", command);
+            global_sig.request_panel_session_set(command);
+        }
+
+        public void PanelReload()
+        {
+            message("Start or reload panel");
+            if (global_settings.panel_program == null)
+            {
+                warning("Panel not set");
+            }
+            else if (global_panel == null)
+            {
+                message("Panel doesn't exist, creating it");
+                var panelprogram = new PanelApp("");
+                global_panel = panelprogram;
+                global_panel.launch();
+            }
+            else
+            {
+                message("Reload existing panel");
+                global_panel.reload();
             }
         }
 

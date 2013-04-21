@@ -147,6 +147,10 @@ public class LxSignals : Object
     public signal void request_screenshot_manager_set(string manager);
     public signal void request_upgrades_manager_set(string manager);
 
+    /* Panel control */
+    public signal void request_panel_program_set(string dbus_arg);
+    public signal void request_panel_session_set(string dbus_arg);
+
     /* Composite manager */
     public signal void request_composite_manager_command_set(string manager);
     public signal void request_composite_manager_autostart_set (string dbus_arg);

@@ -190,6 +190,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_screenshot_manager_set.connect(on_request_screenshot_manager_set);
         global_sig.request_upgrades_manager_set.connect(on_request_screenshot_manager_set);
 
+        /* Panel control */
+        global_sig.request_panel_program_set.connect(on_request_panel_program_set);
+        global_sig.request_panel_session_set.connect(on_request_panel_session_set);
+
         /* Composite manager */
         global_sig.request_composite_manager_command_set.connect(on_request_composite_manager_command_set);
         global_sig.request_composite_manager_autostart_set.connect(on_request_composite_manager_autostart_set); 
@@ -1227,6 +1231,23 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing Upgrades Manager");
         this.upgrades_manager = manager;
         kf.set_value ("Session", "upgrades_manager", this.upgrades_manager);
+        save_keyfile();
+    }
+
+    /* Panel control */
+    public void on_request_panel_program_set (string manager)
+    {
+        message("Changing panel program");
+        this.panel_program = manager;
+        kf.set_value ("Session", "panel/program", this.panel_program);
+        save_keyfile();
+    }
+
+    public void on_request_panel_session_set (string manager)
+    {
+        message("Changing panel session");
+        this.panel_session = manager;
+        kf.set_value ("Session", "panel/session", this.panel_session);
         save_keyfile();
     }
 

@@ -22,6 +22,7 @@
    TODO Use wnck for managing launching applications ?
 */
 using Gee;
+using Posix;
 
 namespace Lxsession
 {
@@ -50,32 +51,42 @@ public class AppObject: GLib.Object
     {
         if (this.name != null)
         {
-            try {
+            try
+            {
                 Process.spawn_async (
                              null,
                              this.command,
                              null,
                              SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
                              null,
-                             out pid);
-                ChildWatch.add(pid, callback_pid);
+                             out this.pid);
+                ChildWatch.add(this.pid, callback_pid);
 
                 message ("Launching %s %s %s", this.name, this.command[1], this.command[2]);
             }
-            catch (SpawnError err){
+            catch (SpawnError err)
+            {
                 warning (err.message);
             }
         }
     }
 
+    public virtual void read_settings()
+    {
+        /* Each object need to implement this, so settings will be read when process is reloaded */
+    }
+
     public void stop()
     {
-        Process.close_pid (pid);
+        message("Stopping process");
+        Posix.kill ((int) this.pid, 15);
     }
 
     public void reload()
     {
+        message("Reloading process");
         this.stop();
+        this.read_settings();
         this.launch();
     }
 
@@ -248,7 +259,7 @@ public class WindowManagerApp: SimpleAppObject
         /* Help :  http://en.wikipedia.org/wiki/Signal_(computing) 
                    http://valadoc.org/glib-2.0/GLib.ProcessSignal.html
         */
-        stderr.printf("%s exit with this type of exit: %i\n", this.name, status);
+        message("%s exit with this type of exit: %i\n", this.name, status);
 
         if (status == -1)
         {
@@ -304,11 +315,21 @@ public class WindowManagerApp: SimpleAppObject
     }
 }
 
-public class PanelApp: SimpleAppObject {
+public class PanelApp: SimpleAppObject
+{
+    string panel_command;
+    string panel_session;
 
-    public PanelApp (string panel_command, string panel_session){
+    public PanelApp (string dummy)
+    {
+        base (dummy);
+        init();
+    }
 
-        base(panel_command);
+    public override void read_settings()
+    {
+        panel_command = global_settings.panel_program;
+        panel_session = global_settings.panel_session;
 
         switch (panel_command) 
         {
@@ -331,7 +352,11 @@ public class PanelApp: SimpleAppObject {
                 break;
         }
         this.guard = true;
+    }
 
+    public void init()
+    {
+        read_settings();
     }
 }
 

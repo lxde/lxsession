@@ -29,11 +29,14 @@ using Gtk;
 
 namespace Lxsession {
 
+    /* Global objects */
     LxSignals global_sig;
     LxsessionConfigKeyFile global_settings;
 
-    public class Main: GLib.Object{
+    PanelApp global_panel;
 
+    public class Main: GLib.Object
+    {
         static string session = "LXDE";
         static string desktop_environnement = "LXDE";
         static bool reload = false;
@@ -195,8 +198,9 @@ namespace Lxsession {
             /* Launch other specific applications */
             if (global_settings.panel_program != null)
             {
-                var panelprogram = new PanelApp(global_settings.panel_program, global_settings.panel_session);
-                panelprogram.launch();
+                var panelprogram = new PanelApp("");
+                global_panel = panelprogram;
+                global_panel.launch();
             }
 
             if (global_settings.screensaver_program != null)
@@ -354,6 +358,11 @@ namespace Lxsession {
         if (global_settings.polkit != null)
         {
             securitypolkit.deactivate();
+        }
+
+        if (global_panel != null)
+        {
+            global_panel.stop();
         }
 
         return 0;
