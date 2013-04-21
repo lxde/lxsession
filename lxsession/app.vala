@@ -23,9 +23,11 @@
 */
 using Gee;
 
-namespace Lxsession {
+namespace Lxsession
+{
 
-public class AppObject: GLib.Object {
+public class AppObject: GLib.Object
+{
 
     /* Core App Object, all other App objects should inherent from it
        You should not do an instance of it, use GenericAppObject if you want
@@ -39,11 +41,13 @@ public class AppObject: GLib.Object {
     public bool guard { get; set; default = false;}
     public string application_type { get; set;}
 
-    public AppObject() {
+    public AppObject()
+    {
 
     }
 
-    public void launch () {
+    public void launch ()
+    {
         if (this.name != null)
         {
             try {
@@ -62,10 +66,21 @@ public class AppObject: GLib.Object {
                 warning (err.message);
             }
         }
-
     }
 
-    private void callback_pid(Pid pid, int status) {
+    public void stop()
+    {
+        Process.close_pid (pid);
+    }
+
+    public void reload()
+    {
+        this.stop();
+        this.launch();
+    }
+
+    private void callback_pid(Pid pid, int status)
+    {
         /* Help :  http://en.wikipedia.org/wiki/Signal_(computing) 
                    http://valadoc.org/glib-2.0/GLib.ProcessSignal.html
         */
@@ -90,7 +105,6 @@ public class AppObject: GLib.Object {
                     message("Exit not normal, reload");
                     this.launch();
                     break;
-
 		    }
         }
     }
