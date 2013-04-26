@@ -95,28 +95,60 @@ namespace Lxsession
         }
 
         /* Quit Manager */
-        public void QuitManagerGet(out string command)
+        public void QuitManagerCommandGet(out string command)
         {
-            command = global_settings.quit_manager;
-            message ("Get quit manager: %s", command);
+            command = global_settings.quit_manager_command;
+            message ("Get quit manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void QuitManagerSet(string command)
+        public void QuitManagerCommandSet(string command)
         {
-            message ("Set quit manager to :%s", command);
-            global_sig.request_quit_manager_set(command);
+            message ("Set quit manager command to :%s", command);
+            global_sig.request_quit_manager_command_set(command);
+        }
+
+        public void QuitManagerImageGet(out string command)
+        {
+            command = global_settings.quit_manager_image;
+            message ("Get quit manager image: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void QuitManagerImageSet(string command)
+        {
+            message ("Set quit manager image to :%s", command);
+            global_sig.request_quit_manager_image_set(command);
+        }
+
+        public void QuitManagerLayoutGet(out string command)
+        {
+            command = global_settings.quit_manager_layout;
+            message ("Get quit manager layout: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void QuitManagerlayoutSet(string command)
+        {
+            message ("Set quit manager layout to :%s", command);
+            global_sig.request_quit_manager_layout_set(command);
         }
 
         public void QuitManagerLaunch()
         {
             message("Start Quit Manager");
-            if (global_settings.quit_manager == null)
+            if (global_settings.quit_manager_command == null)
             {
-                warning("Quit manager not set");
+                warning("Quit manager command not set");
             }
             else if (global_quit_manager == null)
             {

@@ -42,7 +42,9 @@ public class LxsessionConfig: GLib.Object {
     public string polkit { get; set; default = null;}
     public string network_gui { get; set; default = null;}
     public string audio_manager { get; set; default = null;}
-    public string quit_manager { get; set; default = null;}
+    public string quit_manager_command { get; set; default = null;}
+    public string quit_manager_image { get; set; default = null;}
+    public string quit_manager_layout { get; set; default = null;}
     public string workspace_manager { get; set; default = null;}
     public string launcher_manager { get; set; default = null;}
     public string terminal_manager { get; set; default = null;}
@@ -82,6 +84,10 @@ public class LxsessionConfig: GLib.Object {
 
     /* Updates */
     public string updates_activate { get; set; default = "false";}
+
+    /* Environnement */
+    public string env_config_dirs { get; set; default = null;}
+    public string env_data_dirs { get; set; default = null;}
 
     /* GTK */
     public string gtk_theme_name { get; set; default = null;}
@@ -183,7 +189,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Set for managers */
         global_sig.request_audio_manager_set.connect(on_request_audio_manager_set);
-        global_sig.request_quit_manager_set.connect(on_request_quit_manager_set);
         global_sig.request_workspace_manager_set.connect(on_request_workspace_manager_set);
         global_sig.request_launcher_manager_set.connect(on_request_launcher_manager_set);
         global_sig.request_terminal_manager_set.connect(on_request_terminal_manager_set);
@@ -196,7 +201,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Composite manager */
         global_sig.request_composite_manager_command_set.connect(on_request_composite_manager_command_set);
-        global_sig.request_composite_manager_autostart_set.connect(on_request_composite_manager_autostart_set); 
+        global_sig.request_composite_manager_autostart_set.connect(on_request_composite_manager_autostart_set);
+
+        /* Quit manager */
+        global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
+        global_sig.request_quit_manager_image_set.connect(on_request_quit_manager_image_set);
+        global_sig.request_quit_manager_layout_set.connect(on_request_quit_manager_layout_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -400,7 +410,25 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Quit Manager
         try
         {
-            this.quit_manager = kf.get_value("Session", "quit_manager");
+            this.quit_manager_command = kf.get_value("Session", "quit_manager/command");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.quit_manager_image = kf.get_value("Session", "quit_manager/image");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.quit_manager_layout = kf.get_value("Session", "quit_manager/layout");
         }
         catch (KeyFileError err)
         {
@@ -1186,11 +1214,27 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_request_quit_manager_set (string manager)
+    public void on_request_quit_manager_command_set (string manager)
     {
-        message("Changing Quit Manager");
-        this.quit_manager = manager;
-        kf.set_value ("Session", "quit_manager", this.quit_manager);
+        message("Changing Quit Manager command");
+        this.quit_manager_command = manager;
+        kf.set_value ("Session", "quit_manager/command", this.quit_manager_command);
+        save_keyfile();
+    }
+
+    public void on_request_quit_manager_image_set (string manager)
+    {
+        message("Changing Quit Manager image");
+        this.quit_manager_image = manager;
+        kf.set_value ("Session", "quit_manager/image", this.quit_manager_image);
+        save_keyfile();
+    }
+
+    public void on_request_quit_manager_layout_set (string manager)
+    {
+        message("Changing Quit Manager layout");
+        this.quit_manager_layout = manager;
+        kf.set_value ("Session", "quit_manager/layout", this.quit_manager_layout);
         save_keyfile();
     }
 

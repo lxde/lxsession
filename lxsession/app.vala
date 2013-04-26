@@ -644,6 +644,9 @@ public class AudioManagerApp: SimpleAppObject
 public class QuitManagerApp: SimpleAppObject
 {
     string quitmanager_command;
+    string quitmanager_image;
+    string quitmanager_layout;
+
 
     public QuitManagerApp ()
     {
@@ -652,10 +655,16 @@ public class QuitManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        quitmanager_command = global_settings.quit_manager;
+        quitmanager_command = global_settings.quit_manager_command;
+        quitmanager_image = global_settings.quit_manager_image;
+        quitmanager_layout = global_settings.quit_manager_layout;
 
         switch (quitmanager_command)
         {
+            case "lxsession-logout":
+                this.name = "lxsession-logout";
+                string create_command = "lxsession-logout --banner " + quitmanager_image + " --side=" + quitmanager_layout;
+                break;
             default:
                 string[] create_command = quitmanager_command.split_set(" ",0);
                 this.name = create_command[0];

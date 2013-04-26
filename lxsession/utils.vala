@@ -140,7 +140,6 @@ public class LxSignals : Object
 
     /* Set for managers */
     public signal void request_audio_manager_set(string manager);
-    public signal void request_quit_manager_set(string manager);
     public signal void request_workspace_manager_set(string manager);
     public signal void request_launcher_manager_set(string manager);
     public signal void request_terminal_manager_set(string manager);
@@ -154,6 +153,11 @@ public class LxSignals : Object
     /* Composite manager */
     public signal void request_composite_manager_command_set(string manager);
     public signal void request_composite_manager_autostart_set (string dbus_arg);
+
+    /* Quit manager */
+    public signal void request_quit_manager_command_set(string manager);
+    public signal void request_quit_manager_image_set(string manager);
+    public signal void request_quit_manager_layout_set(string manager);
 
 }
 
