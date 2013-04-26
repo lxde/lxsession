@@ -198,16 +198,17 @@ public class WindowManagerApp: SimpleAppObject
             {
                 this.name = wm_command;
                 string create_command;
+                string xdg_config_env = Environment.get_variable("XDG_CONFIG_HOME");
                 switch (wm_command)
                 {
                     case "openbox":
                         switch (session)
                         {
                             case "LXDE":
-                                session_command = "--config-file $XDG_CONFIG_HOME/openbox/lxde-rc.xml";
+                                session_command = "--config-file " + xdg_config_env + "/openbox/lxde-rc.xml";
                                 break;
                             case "Lubuntu":
-                                session_command = "--config-file $XDG_CONFIG_HOME/openbox/lubuntu-rc.xml";
+                                session_command = "--config-file " + xdg_config_env + "/openbox/lubuntu-rc.xml";
                                 break;
                             default:
                                 session_command = "";
