@@ -24,10 +24,12 @@ namespace Lxsession
 
         public KeyFile kf;
 
+        /* TODO Make the openbox one smarter, with link to the variable set in lxsession ofr openbox */
         public string Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lubuntu.xml");
         public string Qt_dest = Path.build_filename(Environment.get_user_config_dir(),"Trolltech.conf");
         public string Leafpad_dest = Path.build_filename(Environment.get_user_config_dir(),"leafpad","leafpadrc");
-       // public string XScreensaver_dest = Path.build_filename(Environment.get_user_home(),".xscreensaver");
+        public string Lxterminal_dest = Path.build_filename(Environment.get_user_config_dir(),"lxterminal","lxterminal.conf");
+       public string XScreensaver_dest = Path.build_filename(Environment.get_home_dir(),".xscreensaver");
 
         public ConffilesObject(string conffiles_conf)
         {
@@ -78,7 +80,8 @@ namespace Lxsession
             copy_conf ("Openbox", Openbox_dest);
             copy_conf ("Qt", Qt_dest);
             copy_conf ("Leafpad", Leafpad_dest);
-            //copy_conf ("XScreensaver", XScreensaver_dest);
+            copy_conf ("Lxterminal", Lxterminal_dest);
+            copy_conf ("XScreensaver", XScreensaver_dest);
         }
     }
 }
