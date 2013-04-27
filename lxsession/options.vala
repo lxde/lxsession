@@ -124,6 +124,9 @@ namespace Lxsession
                     command3 = "gnome-keyring-daemon --start --components=secrets";
                     command4 = "gnome-keyring-daemon --start --components=ssh";
                     break;
+                case "ssh-agent":
+                    command1 = "/usr/bin/ssh-agent -s";
+                    break;
             }
 
         }
@@ -131,10 +134,25 @@ namespace Lxsession
         {
             try
             {
-                Process.spawn_command_line_async(command1);
-                Process.spawn_command_line_async(command2);
-                Process.spawn_command_line_async(command3);
-                Process.spawn_command_line_async(command4);
+                if (command1 != null)
+                {
+                    Process.spawn_command_line_async(command1);
+                }
+
+                if (command2 != null)
+                {
+                    Process.spawn_command_line_async(command2);
+                }
+
+                if (command3 != null)
+                {
+                    Process.spawn_command_line_async(command3);
+                }
+
+                if (command4 != null)
+                {
+                    Process.spawn_command_line_async(command4);
+                }
             }
             catch (SpawnError err)
             {
