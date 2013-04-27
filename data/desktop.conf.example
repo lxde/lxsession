@@ -97,8 +97,8 @@ mode=
 command=
 
 [Security]
-# Default Keyring program
-keyring=gnome-all
+# Default Keyring program (default for ssh-agent, gnome-all for gnome-keyring-daemon full support
+keyring=ssh-agent
 
 [a11y]
 # Accessibility options
@@ -112,6 +112,7 @@ activate=true
 
 [Environment]
 type=
+menu_prefix=lxde-
 
 
 [GTK]

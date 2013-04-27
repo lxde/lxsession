@@ -87,6 +87,7 @@ public class LxsessionConfig: GLib.Object {
 
     /* Environnement */
     public string env_type { get; set; default = null;}
+    public string env_menu_prefix { get; set; default = "lxde-";}
 
     /* GTK */
     public string gtk_theme_name { get; set; default = null;}
@@ -156,6 +157,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_xrandr_command.connect(on_update_xrandr_command);
 
         global_sig.update_env_type.connect(on_update_env_type);
+        global_sig.update_env_menu_prefix.connect(on_update_env_menu_prefix);
 
         global_sig.update_gtk_theme_name.connect(on_update_gtk_theme_name);
         global_sig.update_gtk_icon_theme_name.connect(on_update_gtk_icon_theme_name);
@@ -669,6 +671,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             warning (err.message);
         }
 
+        // Environment
+	    try
+        {
+            this.env_menu_prefix = kf.get_value ("Environment", "menu_prefix");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
         // GTK
 	    try
         {
@@ -1031,6 +1043,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing envrionment type: %s", dbus_arg);
         this.env_type = dbus_arg;
         kf.set_value ("Environment", "type", this.env_type);
+        save_keyfile();
+    }
+
+    public void on_update_env_menu_prefix (string dbus_arg)
+    {
+        message("Changing envrionment menu prefix: %s", dbus_arg);
+        this.env_menu_prefix = dbus_arg;
+        kf.set_value ("Environment", "menu_prefix", this.env_menu_prefix);
         save_keyfile();
     }
 

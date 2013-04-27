@@ -66,7 +66,10 @@ namespace Lxsession
             home_path = Environment.get_variable("HOME");
             config_home = Environment.get_variable("XDG_CONFIG_HOME");
 
+            Environment.set_variable("XDG_MENU_PREFIX", global_settings.env_menu_prefix, true);
+
             set_xdg_dirs ();
+            set_misc ();
 
             if (config_home == null)
             {
@@ -147,6 +150,44 @@ namespace Lxsession
             {
                 Environment.set_variable("XDG_DATA_DIRS", return_data, true);
             }
+        }
+
+        public void set_misc ()
+        {
+            /* Clean up number of desktop set by GDM */
+            try
+            {
+                Process.spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP 2");
+            }
+            catch (GLib.SpawnError err)
+            {
+                message (err.message);
+            }
+
+            /* Start Dbus */
+            string dbus_path;
+            string dbus_env;
+
+            dbus_path = Environment.find_program_in_path("dbus-launch");
+            dbus_env = Environment.get_variable("DBUS_SESSION_BUS_ADDRESS");
+
+            if (dbus_path == null)
+            {
+                if (dbus_env ==null)
+                {
+                    try
+                    {
+                        Process.spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
+                    }
+                    catch (GLib.SpawnError err)
+                    {
+                        message (err.message);
+                    }
+                }
+            }
+
+            /* Enable GTK+2 integration for OpenOffice.org, if available. */
+            Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
         }
     }
 
