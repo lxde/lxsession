@@ -113,7 +113,7 @@ namespace Lxsession
 
             switch (global_settings.env_type)
             {
-                case "Lubuntu":
+                case "lubuntu":
                     custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;
                     custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
                     break;
