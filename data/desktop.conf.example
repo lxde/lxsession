@@ -110,6 +110,10 @@ type=gnome
 [Updates]
 activate=true
 
+[Environment]
+type=
+
+
 [GTK]
 #iNet/DoubleClickTime=400
 #iNet/DoubleClickDistance

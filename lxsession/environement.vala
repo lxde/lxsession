@@ -19,66 +19,135 @@
 
 using Posix;
 
-namespace Lxsession {
+namespace Lxsession
+{
 
-public class LxsessionEnv: GLib.Object {
-
-    private string display_env = "DISPLAY";
-    private string pid_env = "_LXSESSION_PID";
-    private string session_env = "DESKTOP_SESSION";
-    private string desktop_environment_env = "XDG_CURRENT_DESKTOP";
-
-    private string display_name;
-    private string pid_str;
-    private string session;
-    private string desktop_environment;
-
-    public LxsessionEnv(string session_arg, string desktop_environment_arg)
+    public class LxsessionEnv: GLib.Object
     {
 
-        /* Constructor */
-        session = session_arg;
-        desktop_environment = desktop_environment_arg;
-        display_name = Environment.get_variable(display_env);
+        private string display_env = "DISPLAY";
+        private string pid_env = "_LXSESSION_PID";
+        private string session_env = "DESKTOP_SESSION";
+        private string desktop_environment_env = "XDG_CURRENT_DESKTOP";
 
-    }
+        private string display_name;
+        private string pid_str;
+        private string session;
+        private string desktop_environment;
 
-    public void export_env()
-    {
+        private string config_home;
+        private string config_dirs;
+        private string data_dirs;
+        private string home_path;
 
-        message("Exporting variable");
-        message("desktop_environnement %s", desktop_environment_env);
-        pid_str = "%d".printf (Posix.getpid());
-        Environment.set_variable(session_env, session, true);
-        Environment.set_variable(desktop_environment_env, desktop_environment, true);
-        Environment.set_variable(pid_env, pid_str, true);
-        Environment.set_variable(display_env, display_name, true);
-
-        Environment.set_application_name ("lxsession");
-
-    }
-
-    public bool check_alone() {
-
-        string lxsession_pid;
-
-        message ("Getting lxsession pid");
-        lxsession_pid = Environment.get_variable(pid_env);
-
-        message ("Checking pid : %s", lxsession_pid);
-
-        if (lxsession_pid == null)
+        public LxsessionEnv(string session_arg, string desktop_environment_arg)
         {
-            message ("Lxsession not detected");
-            return true;
-        }
-        else
-        {
-            message ("Lxsession detected");
-            return false;
+
+            /* Constructor */
+            session = session_arg;
+            desktop_environment = desktop_environment_arg;
+            display_name = Environment.get_variable(display_env);
+
         }
 
+        public void export_env()
+        {
+
+            message("Exporting variable");
+            message("desktop_environnement %s", desktop_environment_env);
+            pid_str = "%d".printf (Posix.getpid());
+            Environment.set_variable(session_env, session, true);
+            Environment.set_variable(desktop_environment_env, desktop_environment, true);
+            Environment.set_variable(pid_env, pid_str, true);
+            Environment.set_variable(display_env, display_name, true);
+
+            Environment.set_application_name ("lxsession");
+
+            home_path = Environment.get_variable("HOME");
+            config_home = Environment.get_variable("XDG_CONFIG_HOME");
+
+            set_xdg_dirs ();
+
+            if (config_home == null)
+            {
+                config_home = home_path + "/.config";
+                Environment.set_variable("XDG_CONFIG_HOME", config_home, true);
+            }
+
+        }
+
+        public bool check_alone()
+        {
+            string lxsession_pid;
+
+            message ("Getting lxsession pid");
+            lxsession_pid = Environment.get_variable(pid_env);
+
+            message ("Checking pid : %s", lxsession_pid);
+
+            if (lxsession_pid == null)
+            {
+                message ("Lxsession not detected");
+                return true;
+            }
+            else
+            {
+                message ("Lxsession detected");
+                return false;
+            }
+        }
+
+        public void set_xdg_dirs ()
+        {
+            /* TODO Allow several value, like Lubuntu;Xubuntu; */
+            string custom_config;
+            string custom_data;
+            string return_config;
+            string return_data;
+
+            config_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
+            data_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
+
+            switch (global_settings.env_type)
+            {
+                case "Lubuntu":
+                    custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;
+                    custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
+                    break;
+                default:
+                    custom_config = "/etc/xdg";
+                    custom_data ="/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
+                    break;
+            }
+
+            if (config_dirs == null)
+            {
+                return_config = custom_config;
+            }
+            else
+            {
+                return_config = custom_config + ":" + config_dirs;
+            }
+
+            if (return_config != null)
+            {
+                Environment.set_variable("XDG_CONFIG_DIRS", return_config, true);
+            }
+
+            if (data_dirs == null)
+            {
+                return_data = custom_data;
+            }
+            else
+            {
+                return_data = custom_data + ":" + config_dirs;
+            }
+
+            if (return_data != null)
+            {
+                Environment.set_variable("XDG_DATA_DIRS", return_data, true);
+            }
+        }
     }
-}
 
 }

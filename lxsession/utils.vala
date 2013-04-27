@@ -107,6 +107,8 @@ public class LxSignals : Object
     public signal void update_xrandr_mode (string dbus_arg);
     public signal void update_xrandr_command (string dbus_arg);
 
+    public signal void update_env_type (string dbus_arg);
+
     public signal void update_gtk_theme_name (string dbus_arg);
     public signal void update_gtk_icon_theme_name (string dbus_arg);
     public signal void update_gtk_font_name (string dbus_arg);

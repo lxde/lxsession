@@ -86,8 +86,7 @@ public class LxsessionConfig: GLib.Object {
     public string updates_activate { get; set; default = "false";}
 
     /* Environnement */
-    public string env_config_dirs { get; set; default = null;}
-    public string env_data_dirs { get; set; default = null;}
+    public string env_type { get; set; default = null;}
 
     /* GTK */
     public string gtk_theme_name { get; set; default = null;}
@@ -155,6 +154,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keymap_options.connect(on_update_keymap_options);
         global_sig.update_xrandr_mode.connect(on_update_xrandr_mode);
         global_sig.update_xrandr_command.connect(on_update_xrandr_command);
+
+        global_sig.update_env_type.connect(on_update_env_type);
 
         global_sig.update_gtk_theme_name.connect(on_update_gtk_theme_name);
         global_sig.update_gtk_icon_theme_name.connect(on_update_gtk_icon_theme_name);
@@ -658,6 +659,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             warning (err.message);
         }
 
+        // Environment
+	    try
+        {
+            this.env_type = kf.get_value ("Environment", "type");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
         // GTK
 	    try
         {
@@ -1012,6 +1023,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing xrandr command: %s", dbus_arg);
         this.xrandr_command = dbus_arg;
         kf.set_value ("XRandr", "command", this.xrandr_command);
+        save_keyfile();
+    }
+
+    public void on_update_env_type (string dbus_arg)
+    {
+        message("Changing envrionment type: %s", dbus_arg);
+        this.env_type = dbus_arg;
+        kf.set_value ("Environment", "type", this.env_type);
         save_keyfile();
     }
 
