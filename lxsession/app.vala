@@ -664,6 +664,7 @@ public class QuitManagerApp: SimpleAppObject
             case "lxsession-logout":
                 this.name = "lxsession-logout";
                 string create_command = "lxsession-logout --banner " + quitmanager_image + " --side=" + quitmanager_layout;
+                this.command = create_command.split_set(" ",0);
                 break;
             default:
                 string[] create_command = quitmanager_command.split_set(" ",0);
