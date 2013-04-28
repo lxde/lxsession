@@ -102,31 +102,6 @@ namespace Lxsession {
         Gtk.init (ref args);
 #endif
 
-        var environment = new LxsessionEnv(session, desktop_environnement);
-
-        /* 
-           Check is lxsession is alone
-        */
-/*
-        if (environment.check_alone() == false)
-        {
-            critical ("Lxsession is already running, exit.");
-            return -1;
-        }
-*/
-/* TODO implement with Dbus
-        if (Bus.exist (BusType.SESSION, "org.lxde.SessionManager" == true)
-        {
-            critical ("Lxsession is already running, exit.");
-            return -1;
-        }
-*/
-        /* 
-           Export environnement variable
-        */
-         environment.export_env();
-
-
         /* 
            Log on .log file
         */
@@ -166,6 +141,30 @@ namespace Lxsession {
 
         /* Sync desktop.conf and autostart setting files */
         global_settings.sync_setting_files ();
+
+        var environment = new LxsessionEnv(session, desktop_environnement);
+
+        /* 
+           Check is lxsession is alone
+        */
+/*
+        if (environment.check_alone() == false)
+        {
+            critical ("Lxsession is already running, exit.");
+            return -1;
+        }
+*/
+/* TODO implement with Dbus
+        if (Bus.exist (BusType.SESSION, "org.lxde.SessionManager" == true)
+        {
+            critical ("Lxsession is already running, exit.");
+            return -1;
+        }
+*/
+        /* 
+           Export environnement variable
+        */
+         environment.export_env();
 
         /* Options and Apps that need to be killed (build-in) */
         var clipboard = new ClipboardOption(global_settings);
