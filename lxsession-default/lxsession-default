@@ -50,13 +50,12 @@ then
 	echo "Launching upgrades manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradesManagerLaunch > /dev/null 2>&1
 
-elif [ "$1" = "screenshot" ]
+elif [ "$1" = "screenshot" && "$2" = "window"]
 then
-if [ "$2" = "window" ]
 	echo "Launching screenshot manager (current window)"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotWindowManagerLaunch
-
-else
+elif [ "$1" = "screenshot"]
+then
 	echo "Launching screenshot manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotManagerLaunch > /dev/null 2>&1
 
