@@ -51,23 +51,32 @@ public class AppObject: GLib.Object
     {
         if (this.name != null)
         {
-            try
+            if (this.name != "")
             {
-                Process.spawn_async (
-                             null,
-                             this.command,
-                             null,
-                             SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
-                             null,
-                             out this.pid);
-                ChildWatch.add(this.pid, callback_pid);
+                try
+                {
+                    Process.spawn_async (
+                                 null,
+                                 this.command,
+                                 null,
+                                 SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
+                                 null,
+                                 out this.pid);
+                    ChildWatch.add(this.pid, callback_pid);
 
-                message ("Launching %s %s %s %s %s", this.name, this.command[1], this.command[2], this.command[3], this.command[4]);
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
-                warning ("Error when launching %s", this.name);
+                    GLib.stdout.printf ("Launching %s ", this.name);
+
+                    for (int a = 0 ; a <= this.command.length ; a++)
+                    {
+                        GLib.stdout.printf("%s ",this.command[a]);
+                    }
+                    GLib.stdout.printf("\n");
+                }
+                catch (SpawnError err)
+                {
+                    warning (err.message);
+                    warning ("Error when launching %s", this.name);
+                }
             }
         }
     }
