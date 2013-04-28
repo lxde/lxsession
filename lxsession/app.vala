@@ -62,11 +62,12 @@ public class AppObject: GLib.Object
                              out this.pid);
                 ChildWatch.add(this.pid, callback_pid);
 
-                message ("Launching %s %s %s", this.name, this.command[1], this.command[2]);
+                message ("Launching %s %s %s %s %s", this.name, this.command[1], this.command[2], this.command[3], this.command[4]);
             }
             catch (SpawnError err)
             {
                 warning (err.message);
+                warning ("Error when launching %s", this.name);
             }
         }
     }
