@@ -30,6 +30,7 @@ namespace Lxsession
         public string Leafpad_dest = Path.build_filename(Environment.get_user_config_dir(),"leafpad","leafpadrc");
         public string Lxterminal_dest = Path.build_filename(Environment.get_user_config_dir(),"lxterminal","lxterminal.conf");
        public string XScreensaver_dest = Path.build_filename(Environment.get_home_dir(),".xscreensaver");
+       public string libfm_dest = Path.build_filename(Environment.get_user_config_dir(),"libfm","libfm.conf");
 
         public ConffilesObject(string conffiles_conf)
         {
@@ -82,6 +83,7 @@ namespace Lxsession
             copy_conf ("Leafpad", Leafpad_dest);
             copy_conf ("Lxterminal", Lxterminal_dest);
             copy_conf ("XScreensaver", XScreensaver_dest);
+            copy_conf ("libfm", libfm_dest);
         }
     }
 }
