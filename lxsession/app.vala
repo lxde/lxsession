@@ -462,20 +462,20 @@ public class PowermanagerApp: SimpleAppObject
     }
 }
 
-public class FilemanagerApp: SimpleAppObject
+public class FileManagerApp: SimpleAppObject
 {
     string filemanager_command;
     string filemanager_session;
     string filemanager_extras;
 
-    public FilemanagerApp ()
+    public FileManagerApp ()
     {
         init();
     }
 
     public override void read_settings()
     {
-        filemanager_command = global_settings.file_manager_program;
+        filemanager_command = global_settings.file_manager_command;
         filemanager_session = global_settings.file_manager_session;
         filemanager_extras = global_settings.file_manager_extras;
 
@@ -540,9 +540,9 @@ public class DesktopApp: SimpleAppObject
                 string filemanager_session = global_settings.file_manager_session;
                 string filemanager_extras = global_settings.file_manager_extras;
 
-                if (global_filemanager_program != null)
+                if (global_file_manager != null)
                 {
-                    switch (global_filemanager_program.name)
+                    switch (global_file_manager.name)
                     {
                         case "pcmanfm":
                             string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;

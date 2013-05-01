@@ -36,7 +36,7 @@ public class LxsessionConfig: GLib.Object {
     public string panel_session { get; set; default = null;}
     public string screensaver_program { get; set; default = null;}
     public string power_manager_program { get; set; default = null;}
-    public string file_manager_program  { get; set; default = null;}
+    public string file_manager_command  { get; set; default = null;}
     public string file_manager_session { get; set; default = null;}
     public string file_manager_extras { get; set; default = null;}
     public string desktop_command { get; set; default = null;}
@@ -207,6 +207,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_panel_program_set.connect(on_request_panel_program_set);
         global_sig.request_panel_session_set.connect(on_request_panel_session_set);
 
+        /* File manager control */
+        global_sig.request_file_manager_command_set.connect(on_request_file_manager_command_set);
+        global_sig.request_file_manager_session_set.connect(on_request_file_manager_session_set);
+        global_sig.request_file_manager_extras_set.connect(on_request_file_manager_extras_set);
+
         /* Desktop control */
         global_sig.request_desktop_command_set.connect(on_request_desktop_command_set);
         global_sig.request_desktop_wallpaper_set.connect(on_request_desktop_wallpaper_set);
@@ -362,8 +367,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Filemanager
         try
         {
-            this.file_manager_program = kf.get_value ("Session", "file-manager/program");
-            if (this.file_manager_program != null)
+            this.file_manager_command = kf.get_value ("Session", "file-manager/command");
+            if (this.file_manager_command != null)
             {
                 try
                 {
@@ -1379,6 +1384,31 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing panel session");
         this.panel_session = manager;
         kf.set_value ("Session", "panel/session", this.panel_session);
+        save_keyfile();
+    }
+
+    /* File manager control */
+    public void on_request_file_manager_command_set (string manager)
+    {
+        message("Changing file manager command");
+        this.file_manager_command = manager;
+        kf.set_value ("Session", "panel/command", this.file_manager_command);
+        save_keyfile();
+    }
+
+    public void on_request_file_manager_session_set (string manager)
+    {
+        message("Changing file manager session");
+        this.file_manager_session = manager;
+        kf.set_value ("Session", "panel/session", this.file_manager_session);
+        save_keyfile();
+    }
+
+    public void on_request_file_manager_extras_set (string manager)
+    {
+        message("Changing file manager extras");
+        this.file_manager_extras = manager;
+        kf.set_value ("Session", "panel/extras", this.file_manager_extras);
         save_keyfile();
     }
 

@@ -35,7 +35,7 @@ namespace Lxsession {
 
     PanelApp global_panel;
     WindowManagerApp global_window_manager;
-    FilemanagerApp global_filemanager_program;
+    FileManagerApp global_file_manager;
     DesktopApp global_desktop_program;
     PolkitApp global_security_polkit;
     ScreensaverApp global_screensaver_program;
@@ -272,12 +272,6 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.file_manager_program != null)
-            {
-                var filemanagerprogram = new FilemanagerApp();
-                    global_filemanager_program = filemanagerprogram;
-            }
-
             if (global_settings.desktop_command != null)
             {
                 var desktopmanager = new DesktopApp();
@@ -404,9 +398,9 @@ namespace Lxsession {
             global_window_manager.stop();
         }
 
-        if (global_filemanager_program != null)
+        if (global_desktop_program != null)
         {
-            global_filemanager_program.stop();
+            global_desktop_program.stop();
         }
 
         if (global_security_polkit != null)

@@ -59,6 +59,11 @@ then
 	echo "Launching screenshot manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotManagerLaunch > /dev/null 2>&1
 
+elif [ "$1" = "filemanager" ]
+then
+	echo "Launching file manager"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.FileManagerLaunch > /dev/null 2>&1
+
 fi
 
 exit 0

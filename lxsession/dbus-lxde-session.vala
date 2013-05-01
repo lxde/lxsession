@@ -467,6 +467,76 @@ namespace Lxsession
             }
         }
 
+        /* Filemanager control */
+        public void FilemanagerCommandGet(out string command)
+        {
+            command = global_settings.file_manager_command;
+            message ("Get file manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerCommandSet(string command)
+        {
+            message ("Set file manager command to :%s", command);
+            global_sig.request_file_manager_command_set(command);
+        }
+
+        public void FilemanagerSessionGet(out string command)
+        {
+            command = global_settings.file_manager_session;
+            message ("Get file manager session: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerSessionSet(string command)
+        {
+            message ("Set file manager session to :%s", command);
+            global_sig.request_file_manager_session_set(command);
+        }
+
+        public void FilemanagerExtrasGet(out string command)
+        {
+            command = global_settings.file_manager_extras;
+            message ("Get file manager extras: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerExtrasSet(string command)
+        {
+            message ("Set file manager extras to :%s", command);
+            global_sig.request_file_manager_extras_set(command);
+        }
+
+        public void FilemanagerReload()
+        {
+            message("Reload Filemanager");
+            if (global_settings.file_manager_command == null)
+            {
+                warning("File manager not set");
+            }
+            else if (global_file_manager == null)
+            {
+                message("File manager doesn't exist, creating it");
+                var filemanager = new FileManagerApp();
+                global_file_manager = filemanager;
+                global_file_manager.launch();
+            }
+            else
+            {
+                message("Reload existing file manager");
+                global_file_manager.reload();
+            }
+        }
+
         /* Desktop manager */
         public void DesktopCommandGet(out string command)
         {
