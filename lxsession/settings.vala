@@ -39,6 +39,8 @@ public class LxsessionConfig: GLib.Object {
     public string file_manager_program  { get; set; default = null;}
     public string file_manager_session { get; set; default = null;}
     public string file_manager_extras { get; set; default = null;}
+    public string desktop_command { get; set; default = null;}
+    public string desktop_wallpaper { get; set; default = null;}
     public string polkit { get; set; default = null;}
     public string network_gui { get; set; default = null;}
     public string audio_manager { get; set; default = null;}
@@ -201,6 +203,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Panel control */
         global_sig.request_panel_program_set.connect(on_request_panel_program_set);
         global_sig.request_panel_session_set.connect(on_request_panel_session_set);
+
+        /* Desktop control */
+        global_sig.request_desktop_command_set.connect(on_request_desktop_command_set);
+        global_sig.request_desktop_wallpaper_set.connect(on_request_desktop_wallpaper_set);
 
         /* Composite manager */
         global_sig.request_composite_manager_command_set.connect(on_request_composite_manager_command_set);
@@ -372,6 +378,27 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
                 catch (KeyFileError err)
                 {
 		            message (err.message);
+                }
+            }
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Desktop handler
+        try
+        {
+            this.desktop_command = kf.get_value ("Session", "desktop/command");
+            if (this.desktop_command != null)
+            {
+                try
+                {
+                    this.desktop_wallpaper = kf.get_value ("Session", "desktop/wallpaper");
+                }
+                catch (KeyFileError err)
+                {
+	                message (err.message);
                 }
             }
         }
@@ -1331,6 +1358,23 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing panel session");
         this.panel_session = manager;
         kf.set_value ("Session", "panel/session", this.panel_session);
+        save_keyfile();
+    }
+
+    /* Desktop control */
+    public void on_request_desktop_command_set (string manager)
+    {
+        message("Changing desktop command");
+        this.desktop_command = manager;
+        kf.set_value ("Session", "desktop/command", this.desktop_command);
+        save_keyfile();
+    }
+
+    public void on_request_desktop_wallpaper_set (string manager)
+    {
+        message("Changing desktop command");
+        this.desktop_wallpaper = manager;
+        kf.set_value ("Session", "desktop/wallpaper", this.desktop_wallpaper);
         save_keyfile();
     }
 

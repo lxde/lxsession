@@ -36,6 +36,7 @@ namespace Lxsession {
     PanelApp global_panel;
     WindowManagerApp global_window_manager;
     FilemanagerApp global_filemanager_program;
+    DesktopApp global_desktop_program;
     PolkitApp global_security_polkit;
     ScreensaverApp global_screensaver_program;
     PowermanagerApp global_powermanager_program;
@@ -275,7 +276,13 @@ namespace Lxsession {
             {
                 var filemanagerprogram = new FilemanagerApp();
                     global_filemanager_program = filemanagerprogram;
-                    global_filemanager_program.launch();
+            }
+
+            if (global_settings.desktop_command != null)
+            {
+                var desktopmanager = new DesktopApp();
+                    global_desktop_program = desktopmanager;
+                    global_desktop_program.launch();
             }
 
             if (global_settings.composite_manager_autostart == "true")

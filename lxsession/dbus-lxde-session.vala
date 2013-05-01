@@ -467,6 +467,60 @@ namespace Lxsession
             }
         }
 
+        /* Desktop manager */
+        public void DesktopCommandGet(out string command)
+        {
+            command = global_settings.desktop_command;
+            message ("Get desktop command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DesktopCommandSet(string command)
+        {
+            message ("Set desktop command to :%s", command);
+            global_sig.request_desktop_command_set(command);
+        }
+
+        public void DesktopWallpaperGet(out string command)
+        {
+            command = global_settings.desktop_wallpaper;
+            message ("Get desktop wallpaper: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DesktopWallpaperSet(string command)
+        {
+            message ("Set desktop wallpaper to :%s", command);
+            global_sig.request_desktop_wallpaper_set(command);
+        }
+
+        public void DesktopReload()
+        {
+            message("Reload desktop manager");
+            if (global_settings.desktop_command == null)
+            {
+                warning("desktop manager not set");
+            }
+            else if (global_settings.composite_manager_command == null)
+            {
+                message("Desktop manager doesn't exist, creating it");
+                var desktop = new DesktopApp();
+                global_desktop_program = desktop;
+                global_desktop_program.launch();
+            }
+            else
+            {
+                message("Reload existing composite manager");
+                global_compositemanager_program.reload();
+            }
+        }
+
         /* TODO Triage this mess */
         public void UpdatesActivate (string dbus_arg)
         {

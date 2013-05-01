@@ -229,7 +229,7 @@ public class WindowManagerApp: SimpleAppObject
                         switch (session)
                         {
                             default:
-                                session_command = "--config-file ";
+                                session_command = "--config-file " + session;
                                 break;
                         }
                         break;
@@ -485,7 +485,7 @@ public class FilemanagerApp: SimpleAppObject
                 this.name = filemanager_command;
                 if (filemanager_session != null)
                 {
-                    string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
+                    string create_command = "pcmanfm --profile " + filemanager_session + filemanager_extras;
                     this.command = create_command.split_set(" ",0);
                 }
                 else
@@ -497,7 +497,7 @@ public class FilemanagerApp: SimpleAppObject
                 this.name = filemanager_command;
                 if (filemanager_session != null)
                 {
-                    string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
+                    string create_command = "pcmanfm-qt --profile " + filemanager_session + filemanager_extras;
                     this.command = create_command.split_set(" ",0);
                 }
                 else
@@ -506,11 +506,65 @@ public class FilemanagerApp: SimpleAppObject
                 }
                 break;
             case "nautilus":
-                string create_command = "nautilus" + " -n" + filemanager_extras;
+                string create_command = "nautilus" + " -n " + filemanager_extras;
                 this.command = create_command.split_set(" ",0);
                 break;
             default:
                 string[] create_command = filemanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
+public class DesktopApp: SimpleAppObject
+{
+    string desktop_command;
+    string desktop_wallpaper;
+
+    public DesktopApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+
+        desktop_command = global_settings.desktop_command;
+        desktop_wallpaper = global_settings.desktop_wallpaper;   
+
+        switch (desktop_command) 
+        {
+            case "filemanager":
+                string filemanager_session = global_settings.file_manager_session;
+                string filemanager_extras = global_settings.file_manager_extras;
+
+                if (global_filemanager_program != null)
+                {
+                    switch (global_filemanager_program.name)
+                    {
+                        case "pcmanfm":
+                            string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
+                            this.command = create_command.split_set(" ",0);
+                            break;
+                        case "pcmanfm-qt":
+                            string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
+                            this.command = create_command.split_set(" ",0);
+                            break;
+                        case "nautilus":
+                            string create_command = "nautilus" + " -n " + filemanager_extras;
+                            this.command = create_command.split_set(" ",0);
+                            break;
+                    }
+                }
+                break;
+            case "feh":
+                string create_command = "feh" + " --bg-scale " + desktop_wallpaper;
+                this.command = create_command.split_set(" ",0);
+                break;
+            default:
+                string[] create_command = desktop_command.split_set(" ",0);
                 this.name = create_command[0];
                 this.command = create_command;
                 break;
