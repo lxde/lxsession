@@ -355,6 +355,12 @@ namespace Lxsession {
             updates.activate();
         }
 
+        if (global_settings.upstart_user_session == "true")
+        {
+            var upstart_session = new UpstartUserSessionOption(global_settings);
+            upstart_session.activate();
+        }
+
         /* DBus Serveurs */
         if (global_settings.dbus_lxde == "true")
         {

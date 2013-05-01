@@ -285,6 +285,31 @@ namespace Lxsession
         }
     }
 
+    public class UpstartUserSessionOption: Option
+    {
+        private string command1;
+
+        public UpstartUserSessionOption (LxsessionConfig config)
+        {
+            base (config);
+            if (config.upstart_user_session == "true")
+            {
+                command1 = "init --user";
+            }
+        }
+        public new void activate()
+        {
+            try
+            {
+                Process.spawn_command_line_async(command1);
+            }
+            catch (SpawnError err)
+            {
+                warning (err.message);
+            }
+        }
+    }
+
     public class ProxyOption: Option
     {
         public ProxyOption (LxsessionConfig config)

@@ -55,6 +55,7 @@ public class LxsessionConfig: GLib.Object {
     public string composite_manager_command { get; set; default = null;}
     public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
+    public string upstart_user_session { get; set; default = null;}
 
     /* State */
     public string laptop_mode { get; set; default = null;}
@@ -149,6 +150,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_window_manager_extras.connect(on_update_window_manager_extras);
 
         global_sig.update_disable_autostart.connect(on_update_disable_autostart);
+
+        global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
 
         global_sig.update_keymap_mode.connect(on_update_keymap_mode);
         global_sig.update_keymap_model.connect(on_update_keymap_model);
@@ -548,6 +551,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.disable_autostart = kf.get_value("Session", "disable_autostart");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Upstart user session
+        try
+        {
+            this.upstart_user_session = kf.get_value("Session", "upstart_user_session");
         }
         catch (KeyFileError err)
         {
@@ -998,6 +1011,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing disable autostart option: %s", dbus_arg);
         this.disable_autostart = dbus_arg;
         kf.set_value ("Session", "disable_autostart", this.disable_autostart);
+        save_keyfile();
+    }
+
+    public void on_update_upstart_user_session (string dbus_arg)
+    {
+        message("Changing upstart user session option: %s", dbus_arg);
+        this.upstart_user_session = dbus_arg;
+        kf.set_value ("Session", "upstart_user_session", this.upstart_user_session);
         save_keyfile();
     }
 

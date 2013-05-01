@@ -323,7 +323,7 @@ namespace Lxsession
             }
         }
 
-        /* Upgrades maanger */
+        /* Upgrades manager */
         public void UpgradesManagerGet(out string command)
         {
             command = global_settings.upgrades_manager;
@@ -519,6 +519,23 @@ namespace Lxsession
                 message("Reload existing composite manager");
                 global_compositemanager_program.reload();
             }
+        }
+
+        /* Upstart user session */
+        public void UpstartUserSessionGet(out string command)
+        {
+            command = global_settings.upstart_user_session;
+            message ("Get upstart user session: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void UpstartUserSessionSet(string command)
+        {
+            message ("Set upstart user session:%s", command);
+            global_sig.request_upstart_user_session_set(command);
         }
 
         /* TODO Triage this mess */

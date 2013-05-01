@@ -139,6 +139,8 @@ public class LxSignals : Object
 
     public signal void update_updates_activate (string dbus_arg);
 
+    public signal void request_upstart_user_session_set (string dbus_arg);
+
     public signal void reload_settings_daemon();
 
     /* Set for managers */
@@ -153,7 +155,7 @@ public class LxSignals : Object
     public signal void request_panel_program_set(string dbus_arg);
     public signal void request_panel_session_set(string dbus_arg);
 
-    /* Panel control */
+    /* Desktop control */
     public signal void request_desktop_command_set(string dbus_arg);
     public signal void request_desktop_wallpaper_set(string dbus_arg);
 
