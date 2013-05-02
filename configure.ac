@@ -164,6 +164,7 @@ AC_CONFIG_FILES([
   lxpolkit/Makefile
   lxsession/Makefile
   lxsession-default/Makefile
+  lxsession-default-apps/Makefile
   lxsession-edit/Makefile
   lxsession-logout/Makefile
   lxsettings-daemon/Makefile

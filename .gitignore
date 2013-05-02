@@ -18,7 +18,7 @@ config.h.in~
 config.log
 config.status
 config.sub
-data/lxsession-edit.desktop
+data/*.desktop
 libtool
 lxclipboard/lxclipboard
 lxclipboard/main.c
@@ -26,6 +26,8 @@ lxsession-logout/lxsession-logout
 lxsession/lxsession
 lxsession/*.c
 lxsession/lxsession
+lxsession-default-apps/*.c
+lxsession-default-apps/lxsession-default-apps
 lxsession-edit/lxsession-edit
 lxpolkit/lxpolkit
 lxpolkit/main.c
@@ -60,3 +62,6 @@ debian/lxsession-data/
 debian/lxsession-edit.debhelper.log
 debian/lxsession-edit.substvars
 debian/lxsession-edit/
+debian/lxsession-logout.debhelper.log
+debian/lxsession-logout.substvars
+debian/lxsession-logout/

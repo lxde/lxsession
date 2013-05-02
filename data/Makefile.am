@@ -6,11 +6,13 @@ SUBDIRS= \
 
 desktopdir = $(datadir)/applications
 desktop_in_files = \
+	lxsession-default-apps.desktop.in \
 	lxsession-edit.desktop.in \
 	$(NULL)
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 DISTCLEANFILES = \
+	lxsession-default-apps.desktop \
 	lxsession-edit.desktop \
 	$(NULL)
 
