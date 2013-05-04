@@ -342,7 +342,12 @@ public class WindowManagerApp: SimpleAppObject
                              out pid);
                 ChildWatch.add(pid, this.callback_pid);
 
-                message ("Launching %s %s %s", this.name, this.command[1], this.command[2]);
+                for (int a = 0 ; a <= this.command.length ; a++)
+                {
+                    GLib.stdout.printf("%s ",this.command[a]);
+                }
+                GLib.stdout.printf("\n");
+
             }
             catch (SpawnError err){
                 warning (err.message);
