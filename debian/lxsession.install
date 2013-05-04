@@ -2,3 +2,4 @@ usr/bin/lxsession
 usr/bin/lxlock
 usr/bin/lxclipboard
 usr/bin/lxsession-default
+usr/bin/lxsession-default-terminal
