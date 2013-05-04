@@ -18,19 +18,31 @@ using Gtk;
 
 namespace LDefaultApps
 {
-    public Gtk.ComboBox ui_combobox_init (Gtk.Builder builder, string combobox_name, string[] combobox_list, string entry_name)
+    public Gtk.ComboBox ui_combobox_init (  Gtk.Builder builder,
+                                            string combobox_name,
+                                            string[] combobox_list, 
+                                            string entry_name,
+                                            string by_default)
     {
         Gtk.ListStore list_store = new Gtk.ListStore (2, typeof (string), typeof (int));
 	    Gtk.TreeIter iter;
+        Value default_value;
+        int default_index = -1;
 
-        for (int a = 0 ; a <= combobox_list.length ; a++)
+        for (int a = 0 ; a < combobox_list.length ; a++)
         {
                 list_store.append (out iter);
                 list_store.set (iter, 0, combobox_list[a], 1, a);
+                if (combobox_list[a] == by_default)
+                {
+                    default_index = a;
+                }
         }
 
         list_store.append (out iter);
         list_store.set (iter, 0, "Other", 1, 99);
+
+        message ("Defaut = %s", by_default);
 
         var return_combobox = builder.get_object (combobox_name) as Gtk.ComboBox;
         return_combobox.set_model (list_store);
@@ -39,6 +51,23 @@ namespace LDefaultApps
         return_combobox.pack_start (renderer, true);
         return_combobox.add_attribute (renderer, "text", 0);
         return_combobox.active = 0;
+
+        /* Set default */
+        var entry_default = builder.get_object (entry_name) as Entry;
+
+        if (default_index == -1)
+        {
+            message ("Iter == -1");
+            return_combobox.set_active_iter(iter);
+            entry_default.set_text(by_default);
+            entry_default.show_all();
+        }
+        else
+        {
+            message ("Iter == %d", default_index);
+            return_combobox.set_active(default_index);
+            entry_default.hide_all();
+        }
 
         return_combobox.changed.connect (() => {
             var entry = builder.get_object (entry_name) as Entry;
@@ -62,5 +91,37 @@ namespace LDefaultApps
         });
 
         return return_combobox;
+    }
+
+    public int return_combobox_position(Gtk.ComboBox combo)
+    {
+        Gtk.TreeIter iter;
+        Gtk.ListStore model;
+        GLib.Value value1;
+        GLib.Value value1_position;
+
+        combo.get_active_iter (out iter);
+        model = (Gtk.ListStore) combo.get_model ();
+        model.get_value (iter, 0, out value1);
+        model.get_value (iter, 1, out value1_position);
+
+        message (" Return position for %s", (string) value1);
+
+        return (int) value1_position;
+    }
+
+    public string return_combobox_text(Gtk.ComboBox combo)
+    {
+        Gtk.TreeIter iter;
+        Gtk.ListStore model;
+        GLib.Value value1;
+
+        combo.get_active_iter (out iter);
+        model = (Gtk.ListStore) combo.get_model ();
+        model.get_value (iter, 0, out value1);
+
+        message (" Return value for %s", (string) value1);
+
+        return (string) value1;
     }
 }
