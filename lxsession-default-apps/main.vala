@@ -84,11 +84,26 @@ namespace LDefaultApps
         builder.connect_signals (null);
         var window = builder.get_object ("main-win") as Window;
         window.destroy.connect (Gtk.main_quit);
+
+        /* Panel init */
+        var panel_command_combobox = new Gtk.ComboBox();
+        /*var panel_command_entry = builder.get_object ("panel_command_entry") as Entry; */
+        string[] panel_commands = { "lxpanel"};
+        panel_command_combobox = ui_combobox_init(builder, "panel_command_combobox", panel_commands, "panel_command_entry");
+
         window.show_all ();
-        Gtk.main ();
+
+        /* Panel hide */
+        var panel_command_entry = builder.get_object ("panel_command_entry") as Entry;
+        panel_command_entry.hide_all();
+
+        var panel_session_entry = builder.get_object ("panel_session_entry") as Entry;
+        panel_session_entry.hide_all();
 
         /* start main loop */
         new MainLoop().run();
+        Gtk.main ();
+
 
         return 0;
     }

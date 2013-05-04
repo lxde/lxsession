@@ -2,6 +2,7 @@ bin_PROGRAMS = lxsession-default-apps
 
 lxsession_default_apps_SOURCES = \
 	main.vala \
+	combobox.vala \
     $(NULL)
 
 lxsession_default_apps_VALAFLAGS = \
@@ -34,4 +35,5 @@ lxsession_default_apps_LDADD = \
 
 CLEANFILES = \
     main.c \
+    combobox.c \
     lxsession_default_apps_vala.stamp

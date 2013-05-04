@@ -1,0 +1,66 @@
+/* 
+    Copyright 2013 Julien Lavergne <gilir@ubuntu.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+using Gtk;
+
+namespace LDefaultApps
+{
+    public Gtk.ComboBox ui_combobox_init (Gtk.Builder builder, string combobox_name, string[] combobox_list, string entry_name)
+    {
+        Gtk.ListStore list_store = new Gtk.ListStore (2, typeof (string), typeof (int));
+	    Gtk.TreeIter iter;
+
+        for (int a = 0 ; a <= combobox_list.length ; a++)
+        {
+                list_store.append (out iter);
+                list_store.set (iter, 0, combobox_list[a], 1, a);
+        }
+
+        list_store.append (out iter);
+        list_store.set (iter, 0, "Other", 1, 99);
+
+        var return_combobox = builder.get_object (combobox_name) as Gtk.ComboBox;
+        return_combobox.set_model (list_store);
+
+        Gtk.CellRendererText renderer = new Gtk.CellRendererText ();
+        return_combobox.pack_start (renderer, true);
+        return_combobox.add_attribute (renderer, "text", 0);
+        return_combobox.active = 0;
+
+        return_combobox.changed.connect (() => {
+            var entry = builder.get_object (entry_name) as Entry;
+            Value val1;
+            Value val2;
+
+            return_combobox.get_active_iter (out iter);
+            list_store.get_value (iter, 0, out val1);
+            list_store.get_value (iter, 1, out val2);
+
+            message ("Selection: %s, %d\n", (string) val1, (int) val2);
+
+            if (val2 == 99)
+            {
+                entry.show_all();
+            }
+            else
+            {
+                entry.hide_all();
+            }
+        });
+
+        return return_combobox;
+    }
+}
