@@ -87,9 +87,13 @@ namespace LDefaultApps
 
         /* Panel init */
         var panel_command_combobox = new Gtk.ComboBox();
-        /*var panel_command_entry = builder.get_object ("panel_command_entry") as Entry; */
-        string[] panel_commands = { "lxpanel"};
+        var panel_session_combobox = new Gtk.ComboBox();
+
+        string[] panel_commands = { "", "lxpanel"};
         panel_command_combobox = ui_combobox_init(builder, "panel_command_combobox", panel_commands, "panel_command_entry");
+
+        string[] panel_sessions = { "", "Lubuntu", "LXDE"};
+        panel_session_combobox = ui_combobox_init(builder, "panel_session_combobox", panel_sessions, "panel_session_entry");
 
         window.show_all ();
 
