@@ -413,6 +413,76 @@ namespace Lxsession
             }
         }
 
+        /* Filemanager control */
+        public void FilemanagerCommandGet(out string command)
+        {
+            command = global_settings.file_manager_command;
+            message ("Get file manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerCommandSet(string command)
+        {
+            message ("Set file manager command to :%s", command);
+            global_sig.request_file_manager_command_set(command);
+        }
+
+        public void FilemanagerSessionGet(out string command)
+        {
+            command = global_settings.file_manager_session;
+            message ("Get file manager session: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerSessionSet(string command)
+        {
+            message ("Set file manager session to :%s", command);
+            global_sig.request_file_manager_session_set(command);
+        }
+
+        public void FilemanagerExtrasGet(out string command)
+        {
+            command = global_settings.file_manager_extras;
+            message ("Get file manager extras: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void FilemanagerExtrasSet(string command)
+        {
+            message ("Set file manager extras to :%s", command);
+            global_sig.request_file_manager_extras_set(command);
+        }
+
+        public void FilemanagerReload()
+        {
+            message("Reload Filemanager");
+            if (global_settings.file_manager_command == null)
+            {
+                warning("File manager not set");
+            }
+            else if (global_file_manager == null)
+            {
+                message("File manager doesn't exist, creating it");
+                var filemanager = new FileManagerApp();
+                global_file_manager = filemanager;
+                global_file_manager.launch();
+            }
+            else
+            {
+                message("Reload existing file manager");
+                global_file_manager.reload();
+            }
+        }
+
         /* Panel control */
         public void PanelCommandGet(out string command)
         {
@@ -521,73 +591,73 @@ namespace Lxsession
             }
         }
 
-        /* Filemanager control */
-        public void FilemanagerCommandGet(out string command)
+        /* Windows Manager control */
+        public void WindowsManagerCommandGet(out string command)
         {
-            command = global_settings.file_manager_command;
-            message ("Get file manager command: %s", command);
+            command = global_settings.windows_manager_command;
+            message ("Get windows manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void FilemanagerCommandSet(string command)
+        public void WindowsManagerCommandSet(string command)
         {
-            message ("Set file manager command to :%s", command);
-            global_sig.request_file_manager_command_set(command);
+            message ("Set windows manager command to :%s", command);
+            global_sig.request_windows_manager_command_set(command);
         }
 
-        public void FilemanagerSessionGet(out string command)
+        public void WindowsManagerSessionGet(out string command)
         {
-            command = global_settings.file_manager_session;
-            message ("Get file manager session: %s", command);
+            command = global_settings.windows_manager_session;
+            message ("Get windows manager session: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void FilemanagerSessionSet(string command)
+        public void WindowsManagerSessionSet(string command)
         {
-            message ("Set file manager session to :%s", command);
-            global_sig.request_file_manager_session_set(command);
+            message ("Set windows manager session to :%s", command);
+            global_sig.request_windows_manager_session_set(command);
         }
 
-        public void FilemanagerExtrasGet(out string command)
+        public void WindowsManagerExtrasGet(out string command)
         {
-            command = global_settings.file_manager_extras;
-            message ("Get file manager extras: %s", command);
+            command = global_settings.windows_manager_extras;
+            message ("Get windows manager extras: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void FilemanagerExtrasSet(string command)
+        public void WindowsManagerExtrasSet(string command)
         {
-            message ("Set file manager extras to :%s", command);
-            global_sig.request_file_manager_extras_set(command);
+            message ("Set windows manager extras to :%s", command);
+            global_sig.request_windows_manager_extras_set(command);
         }
 
-        public void FilemanagerReload()
+        public void WindowsManagerReload()
         {
-            message("Reload Filemanager");
-            if (global_settings.file_manager_command == null)
+            message("Reload Windows Manager");
+            if (global_settings.windows_manager_command == null)
             {
-                warning("File manager not set");
+                warning("Windows manager not set");
             }
-            else if (global_file_manager == null)
+            else if (global_windows_manager == null)
             {
-                message("File manager doesn't exist, creating it");
-                var filemanager = new FileManagerApp();
-                global_file_manager = filemanager;
-                global_file_manager.launch();
+                message("Windows manager doesn't exist, creating it");
+                var windowsmanager = new WindowsManagerApp();
+                global_windows_manager = windowsmanager;
+                global_windows_manager.launch();
             }
             else
             {
-                message("Reload existing file manager");
-                global_file_manager.reload();
+                message("Reload existing windows manager");
+                global_windows_manager.reload();
             }
         }
 
@@ -673,30 +743,6 @@ namespace Lxsession
         {
             message ("Signal update disable autostart option: %s", dbus_arg);
             global_sig.update_disable_autostart(dbus_arg);
-        }
-
-        public void WindowManager (string dbus_arg)
-        {
-            message ("Signal update window manager: %s", dbus_arg);
-            global_sig.update_window_manager(dbus_arg);
-        }
-
-        public void WindowManagerProgram (string dbus_arg)
-        {
-            message ("Signal update window manager program: %s", dbus_arg);
-            global_sig.update_window_manager_program(dbus_arg);
-        }
-
-        public void WindowManagerSession (string dbus_arg)
-        {
-            message ("Signal update window manager session: %s", dbus_arg);
-            global_sig.update_window_manager_session(dbus_arg);
-        }
-
-        public void WindowManagerExtras (string dbus_arg)
-        {
-            message ("Signal update window manager extras: %s", dbus_arg);
-            global_sig.update_window_manager_extras(dbus_arg);
         }
 
         public void KeymapMode (string dbus_arg)

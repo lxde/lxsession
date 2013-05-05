@@ -29,9 +29,9 @@ public class LxsessionConfig: GLib.Object {
 
     /* Applications */
     public string window_manager { get; set; default = null;}
-    public string window_manager_program { get; set; default = null;}
-    public string window_manager_session { get; set; default = null;}
-    public string window_manager_extras { get; set; default = null;}
+    public string windows_manager_command { get; set; default = null;}
+    public string windows_manager_session { get; set; default = null;}
+    public string windows_manager_extras { get; set; default = null;}
     public string panel_program { get; set; default = null;}
     public string panel_session { get; set; default = null;}
     public string dock_program { get; set; default = null;}
@@ -147,9 +147,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
-        global_sig.update_window_manager_program.connect(on_update_window_manager_session);
-        global_sig.update_window_manager_session.connect(on_update_window_manager_session);
-        global_sig.update_window_manager_extras.connect(on_update_window_manager_extras);
 
         global_sig.update_disable_autostart.connect(on_update_disable_autostart);
 
@@ -204,6 +201,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_terminal_manager_set.connect(on_request_terminal_manager_set);
         global_sig.request_screenshot_manager_set.connect(on_request_screenshot_manager_set);
         global_sig.request_upgrades_manager_set.connect(on_request_screenshot_manager_set);
+
+        /* Windows Manager control */
+        global_sig.request_windows_manager_command_set.connect(on_request_windows_manager_command_set);
+        global_sig.request_windows_manager_session_set.connect(on_request_windows_manager_session_set);
+        global_sig.request_windows_manager_extras_set.connect(on_request_windows_manager_extras_set);
 
         /* Panel control */
         global_sig.request_panel_program_set.connect(on_request_panel_program_set);
@@ -304,7 +306,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         try
         {
-            this.window_manager_program = kf.get_value ("Session", "window_manager/program");
+            this.windows_manager_command = kf.get_value ("Session", "windows_manager/command");
 	    }
         catch (KeyFileError err)
         {
@@ -313,7 +315,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         try
         {
-            this.window_manager_session = kf.get_value ("Session", "window_manager/session");
+            this.windows_manager_session = kf.get_value ("Session", "windows_manager/session");
 	    }
         catch (KeyFileError err)
         {
@@ -322,7 +324,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         try
         {
-            this.window_manager_extras = kf.get_value ("Session", "window_manager/extras");
+            this.windows_manager_extras = kf.get_value ("Session", "windows_manager/extras");
 	    }
         catch (KeyFileError err)
         {
@@ -990,35 +992,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     }
 
+    /* Compatibility for windows manager settings */
     public void on_update_window_manager (string dbus_arg)
     {
         message("Changing window manager: %s", dbus_arg);
         this.window_manager = dbus_arg;
         kf.set_value ("Session", "window_manager", this.window_manager);
-        save_keyfile();
-    }
-
-    public void on_update_window_manager_program (string dbus_arg)
-    {
-        message("Changing window manager program: %s", dbus_arg);
-        this.window_manager_program = dbus_arg;
-        kf.set_value ("Session", "window_manager/program", this.window_manager_program);
-        save_keyfile();
-    }
-
-    public void on_update_window_manager_session (string dbus_arg)
-    {
-        message("Changing window manager session: %s", dbus_arg);
-        this.window_manager_session = dbus_arg;
-        kf.set_value ("Session", "window_manager/session", this.window_manager_session);
-        save_keyfile();
-    }
-
-    public void on_update_window_manager_extras (string dbus_arg)
-    {
-        message("Changing window manager extras: %s", dbus_arg);
-        this.window_manager_extras = dbus_arg;
-        kf.set_value ("Session", "window_manager/extras", this.window_manager_extras);
         save_keyfile();
     }
 
@@ -1397,6 +1376,31 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    /* Windows manager control */
+    public void on_request_windows_manager_command_set (string manager)
+    {
+        message("Changing windows manager command");
+        this.windows_manager_command = manager;
+        kf.set_value ("Session", "windows_manager/command", this.windows_manager_command);
+        save_keyfile();
+    }
+
+    public void on_request_windows_manager_session_set (string manager)
+    {
+        message("Changing windows manager session");
+        this.windows_manager_session = manager;
+        kf.set_value ("Session", "windows_manager/session", this.windows_manager_session);
+        save_keyfile();
+    }
+
+    public void on_request_windows_manager_extras_set (string manager)
+    {
+        message("Changing windows manager extras");
+        this.windows_manager_extras = manager;
+        kf.set_value ("Session", "windows_manager/extras", this.windows_manager_extras);
+        save_keyfile();
+    }
+
     /* Panel control */
     public void on_request_panel_program_set (string manager)
     {
@@ -1455,7 +1459,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         kf.set_value ("Session", "file-manager/extras", this.file_manager_extras);
         save_keyfile();
     }
-
 
     /* Desktop control */
     public void on_request_desktop_command_set (string manager)

@@ -35,7 +35,7 @@ namespace Lxsession {
 
     PanelApp global_panel;
     DockApp global_dock;
-    WindowManagerApp global_window_manager;
+    WindowsManagerApp global_windows_manager;
     FileManagerApp global_file_manager;
     DesktopApp global_desktop_program;
     PolkitApp global_security_polkit;
@@ -188,15 +188,15 @@ namespace Lxsession {
         /* Launching windows manager */
         if (global_settings.window_manager != null)
         {
-            var windowmanager = new WindowManagerApp();
-            global_window_manager = windowmanager;
-            global_window_manager.launch();
+            var windowsmanager = new WindowsManagerApp();
+            global_windows_manager = windowsmanager;
+            global_windows_manager.launch();
         }
-        else if (global_settings.window_manager_program != null)
+        else if (global_settings.windows_manager_command != null)
         {
-            var windowmanager = new WindowManagerApp();
-            global_window_manager = windowmanager;
-            global_window_manager.launch();
+            var windowsmanager = new WindowsManagerApp();
+            global_windows_manager = windowsmanager;
+            global_windows_manager.launch();
         }
 
         /* Disable autostart if it's specified in the conf file. */
@@ -406,9 +406,9 @@ namespace Lxsession {
             global_dock.stop();
         }
 
-        if (global_window_manager != null)
+        if (global_windows_manager != null)
         {
-            global_window_manager.stop();
+            global_windows_manager.stop();
         }
 
         if (global_desktop_program != null)

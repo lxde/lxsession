@@ -4,9 +4,9 @@
 window_manager=openbox-lxde
 
 # Window manager : Advanced mode to launch the window manager (with session, usefull for launching openbox with specific arguments (like configuration file) and extras commands)
-window_manager/program=
-window_manager/session=
-window_manager/extras=
+windows_manager/command=
+windows_manager/session=
+windows_manager/extras=
 
 # Panel and its session (if necessary)
 panel/program=lxpanel

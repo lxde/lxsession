@@ -94,9 +94,6 @@ public string get_config_path (string conf_file) {
 public class LxSignals : Object
 {
     public signal void update_window_manager (string dbus_arg);
-    public signal void update_window_manager_program (string dbus_arg);
-    public signal void update_window_manager_session (string dbus_arg);
-    public signal void update_window_manager_extras (string dbus_arg);
 
     public signal void update_disable_autostart (string dbus_arg);
     public signal void update_keymap_mode (string dbus_arg);
@@ -150,6 +147,11 @@ public class LxSignals : Object
     public signal void request_terminal_manager_set(string manager);
     public signal void request_screenshot_manager_set(string manager);
     public signal void request_upgrades_manager_set(string manager);
+
+    /* Windows Manager */
+    public signal void request_windows_manager_command_set (string dbus_arg);
+    public signal void request_windows_manager_session_set (string dbus_arg);
+    public signal void request_windows_manager_extras_set (string dbus_arg);
 
     /* Panel control */
     public signal void request_panel_program_set(string dbus_arg);

@@ -161,14 +161,14 @@ public class SimpleAppObject: AppObject
     }
 } 
 
-public class WindowManagerApp: SimpleAppObject
+public class WindowsManagerApp: SimpleAppObject
 {
     string wm_command;
     string mode;
     string session;
     string extras;
 
-    public WindowManagerApp ()
+    public WindowsManagerApp ()
     {
         init();
     }
@@ -185,9 +185,9 @@ public class WindowManagerApp: SimpleAppObject
         else
         {
             mode = "advanced";
-            wm_command = global_settings.window_manager_program;
-            session = global_settings.window_manager_session;
-            extras = global_settings.window_manager_extras;
+            wm_command = global_settings.windows_manager_command;
+            session = global_settings.windows_manager_session;
+            extras = global_settings.windows_manager_extras;
         }
 
         string session_command;
