@@ -34,6 +34,8 @@ public class LxsessionConfig: GLib.Object {
     public string window_manager_extras { get; set; default = null;}
     public string panel_program { get; set; default = null;}
     public string panel_session { get; set; default = null;}
+    public string dock_program { get; set; default = null;}
+    public string dock_session { get; set; default = null;}
     public string screensaver_program { get; set; default = null;}
     public string power_manager_program { get; set; default = null;}
     public string file_manager_command  { get; set; default = null;}
@@ -207,6 +209,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_panel_program_set.connect(on_request_panel_program_set);
         global_sig.request_panel_session_set.connect(on_request_panel_session_set);
 
+        /* Dock control */
+        global_sig.request_dock_program_set.connect(on_request_dock_program_set);
+        global_sig.request_dock_session_set.connect(on_request_dock_session_set);
+
         /* File manager control */
         global_sig.request_file_manager_command_set.connect(on_request_file_manager_command_set);
         global_sig.request_file_manager_session_set.connect(on_request_file_manager_session_set);
@@ -332,6 +338,27 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
                 try
                 {
                     this.panel_session = kf.get_value ("Session", "panel/session");
+                }
+                catch (KeyFileError err)
+                {
+	                message (err.message);
+                }
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Dock
+        try
+        {
+            this.dock_program = kf.get_value ("Session", "dock/program");
+            if (this.dock_program != null)
+            {
+                try
+                {
+                    this.dock_session = kf.get_value ("Session", "dock/session");
                 }
                 catch (KeyFileError err)
                 {
@@ -1387,12 +1414,29 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    /* Dock control */
+    public void on_request_dock_program_set (string manager)
+    {
+        message("Changing dock program");
+        this.dock_program = manager;
+        kf.set_value ("Session", "dock/program", this.dock_program);
+        save_keyfile();
+    }
+
+    public void on_request_dock_session_set (string manager)
+    {
+        message("Changing dock session");
+        this.dock_session = manager;
+        kf.set_value ("Session", "dock/session", this.dock_session);
+        save_keyfile();
+    }
+
     /* File manager control */
     public void on_request_file_manager_command_set (string manager)
     {
         message("Changing file manager command");
         this.file_manager_command = manager;
-        kf.set_value ("Session", "panel/command", this.file_manager_command);
+        kf.set_value ("Session", "file-manager/command", this.file_manager_command);
         save_keyfile();
     }
 
@@ -1400,7 +1444,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing file manager session");
         this.file_manager_session = manager;
-        kf.set_value ("Session", "panel/session", this.file_manager_session);
+        kf.set_value ("Session", "file-manager/session", this.file_manager_session);
         save_keyfile();
     }
 
@@ -1408,9 +1452,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing file manager extras");
         this.file_manager_extras = manager;
-        kf.set_value ("Session", "panel/extras", this.file_manager_extras);
+        kf.set_value ("Session", "file-manager/extras", this.file_manager_extras);
         save_keyfile();
     }
+
 
     /* Desktop control */
     public void on_request_desktop_command_set (string manager)

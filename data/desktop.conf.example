@@ -12,6 +12,10 @@ window_manager/extras=
 panel/program=lxpanel
 panel/session=LXDE
 
+# Dock (or 2nd panel) and its session (if necessary)
+dock/program=
+dock/session=
+
 # Screensaver
 screensaver/program=xscreensaver
 

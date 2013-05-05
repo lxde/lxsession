@@ -467,6 +467,60 @@ namespace Lxsession
             }
         }
 
+        /* Dock control */
+        public void DockCommandGet(out string command)
+        {
+            command = global_settings.dock_program;
+            message ("Get dock command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DockCommandSet(string command)
+        {
+            message ("Set dock command to :%s", command);
+            global_sig.request_dock_program_set(command);
+        }
+
+        public void DockSessionGet(out string command)
+        {
+            command = global_settings.dock_session;
+            message ("Get dock session: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DockSessionSet(string command)
+        {
+            message ("Set dock command to :%s", command);
+            global_sig.request_dock_session_set(command);
+        }
+
+        public void DockReload()
+        {
+            message("Reload dock");
+            if (global_settings.dock_program == null)
+            {
+                warning("Dock not set");
+            }
+            else if (global_dock == null)
+            {
+                message("Dock doesn't exist, creating it");
+                var dockprogram = new DockApp();
+                global_dock = dockprogram;
+                global_dock.launch();
+            }
+            else
+            {
+                message("Reload existing dock");
+                global_dock.reload();
+            }
+        }
+
         /* Filemanager control */
         public void FilemanagerCommandGet(out string command)
         {

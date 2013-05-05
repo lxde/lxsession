@@ -359,8 +359,8 @@ public class WindowManagerApp: SimpleAppObject
 
 public class PanelApp: SimpleAppObject
 {
-    string panel_command;
-    string panel_session;
+    public string panel_command = global_settings.panel_program;
+    public string panel_session = global_settings.panel_session;
 
     public PanelApp ()
     {
@@ -369,9 +369,6 @@ public class PanelApp: SimpleAppObject
 
     public override void read_settings()
     {
-        panel_command = global_settings.panel_program;
-        panel_session = global_settings.panel_session;
-
         switch (panel_command) 
         {
             case "lxpanel":
@@ -386,6 +383,11 @@ public class PanelApp: SimpleAppObject
                     this.command = {panel_command};
                 }
                 break;
+            case "awn":
+                this.name = panel_command;
+                string create_command = "avant-window-navigator";
+                this.command = create_command.split_set(" ",0);
+                break;
             default:
                 string[] create_command = panel_command.split_set(" ",0);
                 this.name = create_command[0];
@@ -393,6 +395,17 @@ public class PanelApp: SimpleAppObject
                 break;
         }
         this.guard = true;
+    }
+}
+
+public class DockApp: PanelApp
+{
+    public new string panel_command = global_settings.dock_program;
+    public new string panel_session = global_settings.dock_session;
+
+    public DockApp ()
+    {
+        init();
     }
 }
 

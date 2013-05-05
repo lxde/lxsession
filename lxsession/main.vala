@@ -34,6 +34,7 @@ namespace Lxsession {
     LxsessionConfigKeyFile global_settings;
 
     PanelApp global_panel;
+    DockApp global_dock;
     WindowManagerApp global_window_manager;
     FileManagerApp global_file_manager;
     DesktopApp global_desktop_program;
@@ -215,6 +216,13 @@ namespace Lxsession {
                 global_panel.launch();
             }
 
+            if (global_settings.dock_program != null)
+            {
+                var dockprogram = new DockApp();
+                global_dock = dockprogram;
+                global_dock.launch();
+            }
+
             if (global_settings.screensaver_program != null)
             {
                 var screensaverprogram = new ScreensaverApp();
@@ -391,6 +399,11 @@ namespace Lxsession {
         if (global_panel != null)
         {
             global_panel.stop();
+        }
+
+        if (global_dock != null)
+        {
+            global_dock.stop();
         }
 
         if (global_window_manager != null)
