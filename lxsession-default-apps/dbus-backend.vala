@@ -37,6 +37,9 @@ namespace LDefaultApps
         public abstract string WindowsManagerCommandGet () throws IOError;
         public abstract string WindowsManagerSessionGet () throws IOError;
         public abstract string WindowsManagerExtrasGet () throws IOError;
+        public abstract void ScreensaverReload () throws IOError;
+        public abstract void ScreensaverCommandSet (string arg) throws IOError;
+        public abstract string ScreensaverCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -253,6 +256,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.WindowsManagerExtrasGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void ScreensaverReload()
+        {
+            try
+            {
+                dbus_lxsession.ScreensaverReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void ScreensaverCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.ScreensaverCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string ScreensaverCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.ScreensaverCommandGet();
             }
             catch (GLib.IOError err)
             {

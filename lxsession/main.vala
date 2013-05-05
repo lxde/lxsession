@@ -37,9 +37,9 @@ namespace Lxsession {
     DockApp global_dock;
     WindowsManagerApp global_windows_manager;
     FileManagerApp global_file_manager;
-    DesktopApp global_desktop_program;
+    DesktopApp global_desktop;
     PolkitApp global_security_polkit;
-    ScreensaverApp global_screensaver_program;
+    ScreensaverApp global_screensaver;
     PowermanagerApp global_powermanager_program;
     NetworkGuiApp global_networkgui_program;
     CompositeManagerApp global_compositemanager_program;
@@ -223,11 +223,11 @@ namespace Lxsession {
                 global_dock.launch();
             }
 
-            if (global_settings.screensaver_program != null)
+            if (global_settings.screensaver_command != null)
             {
-                var screensaverprogram = new ScreensaverApp();
-                global_screensaver_program = screensaverprogram;
-                global_screensaver_program.launch();
+                var screensaver = new ScreensaverApp();
+                global_screensaver = screensaver;
+                global_screensaver.launch();
             }
 
             if (global_settings.power_manager_program != null)
@@ -283,8 +283,8 @@ namespace Lxsession {
             if (global_settings.desktop_command != null)
             {
                 var desktopmanager = new DesktopApp();
-                    global_desktop_program = desktopmanager;
-                    global_desktop_program.launch();
+                    global_desktop = desktopmanager;
+                    global_desktop.launch();
             }
 
             if (global_settings.composite_manager_autostart == "true")
@@ -411,9 +411,9 @@ namespace Lxsession {
             global_windows_manager.stop();
         }
 
-        if (global_desktop_program != null)
+        if (global_desktop != null)
         {
-            global_desktop_program.stop();
+            global_desktop.stop();
         }
 
         if (global_security_polkit != null)
@@ -421,9 +421,9 @@ namespace Lxsession {
             global_security_polkit.stop();
         }
 
-        if (global_screensaver_program != null)
+        if (global_screensaver != null)
         {
-            global_screensaver_program.stop();
+            global_screensaver.stop();
         }
 
         if (global_powermanager_program != null)

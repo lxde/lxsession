@@ -420,7 +420,7 @@ public class ScreensaverApp: SimpleAppObject
 
     public override void read_settings()
     {
-        screensaver_command = global_settings.screensaver_program;
+        screensaver_command = global_settings.screensaver_command;
 
         switch (screensaver_command) 
         {

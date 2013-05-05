@@ -170,6 +170,9 @@ public class LxSignals : Object
     public signal void request_desktop_command_set(string dbus_arg);
     public signal void request_desktop_wallpaper_set(string dbus_arg);
 
+    /* Screensaver control */
+    public signal void request_screensaver_command_set(string dbus_arg);
+
     /* Composite manager */
     public signal void request_composite_manager_command_set(string manager);
     public signal void request_composite_manager_autostart_set (string dbus_arg);

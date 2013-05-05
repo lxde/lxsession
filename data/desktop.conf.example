@@ -17,7 +17,7 @@ dock/program=
 dock/session=
 
 # Screensaver
-screensaver/program=xscreensaver
+screensaver/command=xscreensaver
 
 # Power management
 power_manager/program=

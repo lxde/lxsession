@@ -701,17 +701,55 @@ namespace Lxsession
             {
                 warning("desktop manager not set");
             }
-            else if (global_settings.composite_manager_command == null)
+            else if (global_desktop == null)
             {
                 message("Desktop manager doesn't exist, creating it");
                 var desktop = new DesktopApp();
-                global_desktop_program = desktop;
-                global_desktop_program.launch();
+                global_desktop = desktop;
+                global_desktop.launch();
             }
             else
             {
                 message("Reload existing composite manager");
-                global_compositemanager_program.reload();
+                global_desktop.reload();
+            }
+        }
+
+        /* Screensaver */
+        public void ScreensaverCommandGet(out string command)
+        {
+            command = global_settings.screensaver_command;
+            message ("Get screensavercommand: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void ScreensaverCommandSet(string command)
+        {
+            message ("Set screensaver command to :%s", command);
+            global_sig.request_screensaver_command_set(command);
+        }
+
+        public void ScreensaverReload()
+        {
+            message("Reload screensaver");
+            if (global_settings.screensaver_command == null)
+            {
+                warning("screensaver command not set");
+            }
+            else if (global_screensaver == null)
+            {
+                message("Screensaver doesn't exist, creating it");
+                var screensaver = new ScreensaverApp();
+                global_screensaver = screensaver;
+                global_screensaver.launch();
+            }
+            else
+            {
+                message("Reload existing composite manager");
+                global_screensaver.reload();
             }
         }
 

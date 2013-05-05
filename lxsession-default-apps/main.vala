@@ -264,6 +264,38 @@ namespace LDefaultApps
             dbus_backend.WindowsManagerReload();
         });
 
+        /* Screensaver init */
+        var screensaver_command_combobox = new Gtk.ComboBox();
+        var screensaver_command_entry = builder.get_object ("screensaver_command_entry") as Entry;
+        string[] screensaver_commands = { "", "xscreensaver"};
+        string screensaver_command_default = dbus_backend.ScreensaverCommandGet();
+        screensaver_command_combobox = ui_combobox_init(  builder,
+                                                    "screensaver_command_combobox",
+                                                    screensaver_commands,
+                                                    "screensaver_command_entry",
+                                                    screensaver_command_default);
+
+        var screensaver_apply_button = builder.get_object("screensaver_apply") as Gtk.Button;
+        screensaver_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(screensaver_command_combobox) == 99)
+            {
+                dbus_backend.ScreensaverCommandSet(screensaver_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.ScreensaverCommandSet(return_combobox_text(screensaver_command_combobox));
+            }
+
+        });
+
+
+        var screensaver_reload_button = builder.get_object("screensaver_reload") as Gtk.Button;
+        screensaver_reload_button.clicked.connect (() => {
+            dbus_backend.ScreensaverReload();
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -303,6 +335,12 @@ namespace LDefaultApps
         if (return_combobox_position(window_extras_combobox) != 99)
         {
             window_extras_entry.hide_all();
+        }
+
+        /* Screensaver hide */
+        if (return_combobox_position(screensaver_command_combobox) != 99)
+        {
+            screensaver_command_entry.hide_all();
         }
 
         /* start main loop */

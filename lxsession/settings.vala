@@ -36,7 +36,7 @@ public class LxsessionConfig: GLib.Object {
     public string panel_session { get; set; default = null;}
     public string dock_program { get; set; default = null;}
     public string dock_session { get; set; default = null;}
-    public string screensaver_program { get; set; default = null;}
+    public string screensaver_command { get; set; default = null;}
     public string power_manager_program { get; set; default = null;}
     public string file_manager_command  { get; set; default = null;}
     public string file_manager_session { get; set; default = null;}
@@ -228,6 +228,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_composite_manager_command_set.connect(on_request_composite_manager_command_set);
         global_sig.request_composite_manager_autostart_set.connect(on_request_composite_manager_autostart_set);
 
+        /* Screensaver control */
+        global_sig.request_screensaver_command_set.connect(on_request_screensaver_command_set);
+
         /* Quit manager */
         global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
         global_sig.request_quit_manager_image_set.connect(on_request_quit_manager_image_set);
@@ -376,7 +379,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Screensaver
         try
         {
-            this.screensaver_program = kf.get_value ("Session", "screensaver/program");
+            this.screensaver_command = kf.get_value ("Session", "screensaver/command");
         }
         catch (KeyFileError err)
         {
@@ -1491,6 +1494,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing Composite Manager autostart");
         this.composite_manager_autostart = manager;
         kf.set_value ("Session", "composite_manager/autostart", this.composite_manager_autostart);
+        save_keyfile();
+    }
+
+    /* Screensaver manager */
+    public void on_request_screensaver_command_set (string manager)
+    {
+        message("Changing Screensaver command");
+        this.screensaver_command = manager;
+        kf.set_value ("Session", "screensaver/command", this.screensaver_command);
         save_keyfile();
     }
 }
