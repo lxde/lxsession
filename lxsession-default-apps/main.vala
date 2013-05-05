@@ -91,7 +91,7 @@ namespace LDefaultApps
         /* Panel init */
         var panel_command_combobox = new Gtk.ComboBox();
         var panel_command_entry = builder.get_object ("panel_command_entry") as Entry;
-        string[] panel_commands = { "", "lxpanel"};
+        string[] panel_commands = { "", "lxpanel", "awn"};
         string panel_command_default = dbus_backend.PanelCommandGet();
         panel_command_combobox = ui_combobox_init(  builder,
                                                     "panel_command_combobox",
@@ -141,6 +141,60 @@ namespace LDefaultApps
             dbus_backend.PanelReload();
         });
 
+        /* Dock init */
+        var dock_command_combobox = new Gtk.ComboBox();
+        var dock_command_entry = builder.get_object ("dock_command_entry") as Entry;
+        string[] dock_commands = { "", "lxpanel", "awn"};
+        string dock_command_default = dbus_backend.DockCommandGet();
+        dock_command_combobox = ui_combobox_init(  builder,
+                                                    "dock_command_combobox",
+                                                    dock_commands,
+                                                    "dock_command_entry",
+                                                    dock_command_default);
+
+
+        var dock_session_combobox = new Gtk.ComboBox();
+        var dock_session_entry = builder.get_object ("dock_session_entry") as Entry;
+        string[] dock_sessions = { "", "Lubuntu", "LXDE"};
+        string dock_session_default = dbus_backend.DockSessionGet();
+        dock_session_combobox = ui_combobox_init(  builder,
+                                                    "dock_session_combobox",
+                                                    dock_sessions,
+                                                    "dock_session_entry",
+                                                    dock_session_default);
+
+        var dock_apply_button = builder.get_object("dock_apply") as Gtk.Button;
+        dock_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(dock_command_combobox) == 99)
+            {
+                dbus_backend.DockCommandSet(dock_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.DockCommandSet(return_combobox_text(dock_command_combobox));
+            }
+
+
+            if (return_combobox_position(dock_session_combobox) == 99)
+            {
+                dbus_backend.DockSessionSet(dock_session_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.DockSessionSet(return_combobox_text(dock_session_combobox));
+            }
+
+        });
+
+
+        var dock_reload_button = builder.get_object("dock_reload") as Gtk.Button;
+        dock_reload_button.clicked.connect (() => {
+            dbus_backend.DockReload();
+        });
+
+
         /* Show all */
         window.show_all ();
 
@@ -153,6 +207,17 @@ namespace LDefaultApps
         if (return_combobox_position(panel_session_combobox) != 99)
         {
             panel_session_entry.hide_all();
+        }
+
+        /* Dock hide */
+        if (return_combobox_position(dock_command_combobox) != 99)
+        {
+            dock_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(dock_session_combobox) != 99)
+        {
+            dock_session_entry.hide_all();
         }
 
         /* start main loop */

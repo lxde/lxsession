@@ -26,7 +26,6 @@ namespace LDefaultApps
     {
         Gtk.ListStore list_store = new Gtk.ListStore (2, typeof (string), typeof (int));
 	    Gtk.TreeIter iter;
-        Value default_value;
         int default_index = -1;
 
         for (int a = 0 ; a < combobox_list.length ; a++)

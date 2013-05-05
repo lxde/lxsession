@@ -25,6 +25,11 @@ namespace LDefaultApps
         public abstract void PanelSessionSet (string arg) throws IOError;
         public abstract string PanelCommandGet () throws IOError;
         public abstract string PanelSessionGet () throws IOError;
+        public abstract void DockReload () throws IOError;
+        public abstract void DockCommandSet (string arg) throws IOError;
+        public abstract void DockSessionSet (string arg) throws IOError;
+        public abstract string DockCommandGet () throws IOError;
+        public abstract string DockSessionGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -40,27 +45,126 @@ namespace LDefaultApps
 
         public void PanelReload()
         {
-            dbus_lxsession.PanelReload();
+            try
+            {
+                dbus_lxsession.PanelReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
         }
 
         public void PanelCommandSet(string arg)
         {
-            dbus_lxsession.PanelCommandSet(arg);
+            try
+            {
+                dbus_lxsession.PanelCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
         }
 
         public void PanelSessionSet(string arg)
         {
-            dbus_lxsession.PanelSessionSet(arg);
+            try
+            {
+                dbus_lxsession.PanelSessionSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
         }
 
         public string PanelCommandGet()
         {
-            return dbus_lxsession.PanelCommandGet();
+            try
+            {
+                return dbus_lxsession.PanelCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
         }
 
         public string PanelSessionGet()
         {
-            return dbus_lxsession.PanelSessionGet();
+            try
+            {
+                return dbus_lxsession.PanelSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void DockReload()
+        {
+            try
+            {
+                dbus_lxsession.DockReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void DockCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DockCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void DockSessionSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DockSessionSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string DockCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.DockCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string DockSessionGet()
+        {
+            try
+            {
+                return dbus_lxsession.DockSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
         }
     }
 }
