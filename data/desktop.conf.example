@@ -20,7 +20,7 @@ dock/session=
 screensaver/command=xscreensaver
 
 # Power management
-power_manager/program=
+power_manager/command=
 
 # File manager (session if necessary, extras commands if necessary)
 file_manager/program=pcmanfm

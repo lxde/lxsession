@@ -296,6 +296,38 @@ namespace LDefaultApps
             dbus_backend.ScreensaverReload();
         });
 
+        /* Power Manager init */
+        var power_command_combobox = new Gtk.ComboBox();
+        var power_command_entry = builder.get_object ("power_command_entry") as Entry;
+        string[] power_commands = { "", "auto", "no"};
+        string power_command_default = dbus_backend.PowerManagerCommandGet();
+        power_command_combobox = ui_combobox_init(  builder,
+                                                    "power_command_combobox",
+                                                    power_commands,
+                                                    "power_command_entry",
+                                                    power_command_default);
+
+        var power_apply_button = builder.get_object("power_apply") as Gtk.Button;
+        power_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(power_command_combobox) == 99)
+            {
+                dbus_backend.PowerManagerCommandSet(power_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.PowerManagerCommandSet(return_combobox_text(power_command_combobox));
+            }
+
+        });
+
+
+        var power_reload_button = builder.get_object("power_reload") as Gtk.Button;
+        power_reload_button.clicked.connect (() => {
+            dbus_backend.PowerManagerReload();
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -343,6 +375,11 @@ namespace LDefaultApps
             screensaver_command_entry.hide_all();
         }
 
+        /* Power Manager hide */
+        if (return_combobox_position(power_command_combobox) != 99)
+        {
+            power_command_entry.hide_all();
+        }
         /* start main loop */
         Gtk.main ();
         new MainLoop().run();

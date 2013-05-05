@@ -439,19 +439,19 @@ public class ScreensaverApp: SimpleAppObject
     }
 }
 
-public class PowermanagerApp: SimpleAppObject
+public class PowerManagerApp: SimpleAppObject
 {
     string powermanager_command;
     string laptop_mode;
 
-    public PowermanagerApp ()
+    public PowerManagerApp ()
     {
         init();
     }
 
     public override void read_settings()
     {
-        powermanager_command = global_settings.power_manager_program;
+        powermanager_command = global_settings.power_manager_command;
         laptop_mode = global_settings.laptop_mode;
 
         switch (powermanager_command) 

@@ -40,6 +40,9 @@ namespace LDefaultApps
         public abstract void ScreensaverReload () throws IOError;
         public abstract void ScreensaverCommandSet (string arg) throws IOError;
         public abstract string ScreensaverCommandGet () throws IOError;
+        public abstract void PowerManagerReload () throws IOError;
+        public abstract void PowerManagerCommandSet (string arg) throws IOError;
+        public abstract string PowerManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -293,6 +296,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.ScreensaverCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void PowerManagerReload()
+        {
+            try
+            {
+                dbus_lxsession.PowerManagerReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void PowerManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.PowerManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string PowerManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.PowerManagerCommandGet();
             }
             catch (GLib.IOError err)
             {

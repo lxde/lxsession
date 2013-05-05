@@ -748,8 +748,46 @@ namespace Lxsession
             }
             else
             {
-                message("Reload existing composite manager");
+                message("Reload existing screensaver");
                 global_screensaver.reload();
+            }
+        }
+
+        /* Power Manager */
+        public void PowerManagerCommandGet(out string command)
+        {
+            command = global_settings.power_manager_command;
+            message ("Get power manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void PowerManagerCommandSet(string command)
+        {
+            message ("Set power manager command to :%s", command);
+            global_sig.request_power_manager_command_set(command);
+        }
+
+        public void PowerManagerReload()
+        {
+            message("Reload power manager");
+            if (global_settings.power_manager_command == null)
+            {
+                warning("Power manager command not set");
+            }
+            else if (global_power_manager == null)
+            {
+                message("Power Manager doesn't exist, creating it");
+                var powermanager = new PowerManagerApp();
+                global_power_manager = powermanager;
+                global_power_manager.launch();
+            }
+            else
+            {
+                message("Reload existing power manager");
+                global_power_manager.reload();
             }
         }
 

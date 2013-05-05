@@ -173,6 +173,9 @@ public class LxSignals : Object
     /* Screensaver control */
     public signal void request_screensaver_command_set(string dbus_arg);
 
+    /* Power Manager control */
+    public signal void request_power_manager_command_set(string dbus_arg);
+
     /* Composite manager */
     public signal void request_composite_manager_command_set(string manager);
     public signal void request_composite_manager_autostart_set (string dbus_arg);

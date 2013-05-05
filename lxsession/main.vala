@@ -40,7 +40,7 @@ namespace Lxsession {
     DesktopApp global_desktop;
     PolkitApp global_security_polkit;
     ScreensaverApp global_screensaver;
-    PowermanagerApp global_powermanager_program;
+    PowerManagerApp global_power_manager;
     NetworkGuiApp global_networkgui_program;
     CompositeManagerApp global_compositemanager_program;
     AudioManagerApp global_audio_manager;
@@ -230,7 +230,7 @@ namespace Lxsession {
                 global_screensaver.launch();
             }
 
-            if (global_settings.power_manager_program != null)
+            if (global_settings.power_manager_command != null)
             {
                 if (global_settings.laptop_mode == "unknown")
                 {
@@ -244,15 +244,15 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var powermanagerprogram = new PowermanagerApp();
-                    global_powermanager_program = powermanagerprogram;
-                    global_powermanager_program.launch();
+                    var powermanager = new PowerManagerApp();
+                    global_power_manager = powermanager;
+                    global_power_manager.launch();
                 }
                 else
                 {
-                    var powermanagerprogram = new PowermanagerApp();
-                    global_powermanager_program = powermanagerprogram;
-                    global_powermanager_program.launch();
+                    var powermanager = new PowerManagerApp();
+                    global_power_manager = powermanager;
+                    global_power_manager.launch();
                 }
             }
 
@@ -426,9 +426,9 @@ namespace Lxsession {
             global_screensaver.stop();
         }
 
-        if (global_powermanager_program != null)
+        if (global_power_manager != null)
         {
-            global_powermanager_program.stop();
+            global_power_manager.stop();
         }
 
         if (global_networkgui_program != null)
