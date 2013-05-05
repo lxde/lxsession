@@ -20,17 +20,17 @@ dock/session=
 screensaver/program=xscreensaver
 
 # Power management
-power-manager/program=
+power_manager/program=
 
 # File manager (session if necessary, extras commands if necessary)
-file-manager/program=pcmanfm
-file-manager/session=LXDE
-file-manager/extras=
+file_manager/program=pcmanfm
+file_manager/session=LXDE
+file_manager/extras=
 
 # Desktop manager (handler to draw and manager the desktop)
 # options possible : filemanager (to use the default file manager), feh (to use feh just to draw the background)
-desktop-manager/command=
-desktop-manager/wallpaper=
+desktop_manager/command=
+desktop_manager/wallpaper=
 
 # Polkit agent (use lxpolkit to use build-in support if enable at build time)
 polkit=lxpolkit

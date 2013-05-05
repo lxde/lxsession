@@ -386,7 +386,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Power manager
         try
         {
-            this.power_manager_program = kf.get_value ("Session", "power-manager/program");
+            this.power_manager_program = kf.get_value ("Session", "power_manager/program");
         }
         catch (KeyFileError err)
         {
@@ -396,12 +396,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Filemanager
         try
         {
-            this.file_manager_command = kf.get_value ("Session", "file-manager/command");
+            this.file_manager_command = kf.get_value ("Session", "file_manager/command");
             if (this.file_manager_command != null)
             {
                 try
                 {
-                    this.file_manager_session = kf.get_value ("Session", "file-manager/session");
+                    this.file_manager_session = kf.get_value ("Session", "file_manager/session");
                 }
                 catch (KeyFileError err)
                 {
@@ -410,7 +410,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
                 try
                 {
-                    this.file_manager_extras = kf.get_value ("Session", "file-manager/extras");
+                    this.file_manager_extras = kf.get_value ("Session", "file_manager/extras");
                 }
                 catch (KeyFileError err)
                 {
@@ -1440,7 +1440,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing file manager command");
         this.file_manager_command = manager;
-        kf.set_value ("Session", "file-manager/command", this.file_manager_command);
+        kf.set_value ("Session", "file_manager/command", this.file_manager_command);
         save_keyfile();
     }
 
@@ -1448,7 +1448,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing file manager session");
         this.file_manager_session = manager;
-        kf.set_value ("Session", "file-manager/session", this.file_manager_session);
+        kf.set_value ("Session", "file_manager/session", this.file_manager_session);
         save_keyfile();
     }
 
@@ -1456,7 +1456,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing file manager extras");
         this.file_manager_extras = manager;
-        kf.set_value ("Session", "file-manager/extras", this.file_manager_extras);
+        kf.set_value ("Session", "file_manager/extras", this.file_manager_extras);
         save_keyfile();
     }
 
