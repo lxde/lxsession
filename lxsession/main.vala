@@ -42,7 +42,7 @@ namespace Lxsession {
     ScreensaverApp global_screensaver;
     PowerManagerApp global_power_manager;
     NetworkGuiApp global_networkgui_program;
-    CompositeManagerApp global_compositemanager_program;
+    CompositeManagerApp global_composite_manager;
     AudioManagerApp global_audio_manager;
     QuitManagerApp global_quit_manager;
     WorkspaceManagerApp global_workspace_manager;
@@ -291,9 +291,9 @@ namespace Lxsession {
             {
                 if (global_settings.composite_manager_command != null)
                 {
-                    var compositemanagerprogram = new CompositeManagerApp();
-                    global_compositemanager_program = compositemanagerprogram;
-                    global_compositemanager_program.launch();
+                    var compositemanager = new CompositeManagerApp();
+                    global_composite_manager = compositemanager;
+                    global_composite_manager.launch();
                 }
             }
 
@@ -436,9 +436,9 @@ namespace Lxsession {
             global_networkgui_program.stop();
         }
 
-        if (global_compositemanager_program != null)
+        if (global_composite_manager != null)
         {
-            global_compositemanager_program.stop();
+            global_composite_manager.stop();
         }
 
         return 0;

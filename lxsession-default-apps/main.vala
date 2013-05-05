@@ -408,7 +408,7 @@ namespace LDefaultApps
 
         var desktop_wallpaper_combobox = new Gtk.ComboBox();
         var desktop_wallpaper_entry = builder.get_object ("desktop_wallpaper_entry") as Entry;
-        string[] desktop_wallpapers = { "", "Lubuntu", "LXDE"};
+        string[] desktop_wallpapers = {""};
         string desktop_wallpaper_default = dbus_backend.DesktopWallpaperGet();
         desktop_wallpaper_combobox = ui_combobox_init(  builder,
                                                     "desktop_wallpaper_combobox",
@@ -432,14 +432,62 @@ namespace LDefaultApps
 
             if (return_combobox_position(desktop_wallpaper_combobox) == 99)
             {
-                dbus_backend.PanelSessionSet(desktop_wallpaper_entry.get_text());
+                dbus_backend.DesktopWallpaperSet(desktop_wallpaper_entry.get_text());
             }
             else
             {
-                dbus_backend.PanelSessionSet(return_combobox_text(desktop_wallpaper_combobox));
+                dbus_backend.DesktopWallpaperSet(return_combobox_text(desktop_wallpaper_combobox));
             }
 
         });
+
+        /* Composite manager init */
+        var composite_command_combobox = new Gtk.ComboBox();
+        var composite_command_entry = builder.get_object ("composite_command_entry") as Entry;
+        string[] composite_commands = {""};
+        string composite_command_default = dbus_backend.CompositeManagerCommandGet();
+        composite_command_combobox = ui_combobox_init(  builder,
+                                                    "composite_command_combobox",
+                                                    composite_commands,
+                                                    "composite_command_entry",
+                                                    composite_command_default);
+
+
+        var composite_autostart_combobox = new Gtk.ComboBox();
+        var composite_autostart_entry = builder.get_object ("composite_autostart_entry") as Entry;
+        string[] composite_autostart = {"", "true", "false"};
+        string composite_autostart_default = dbus_backend.CompositeManagerAutostartGet();
+        composite_autostart_combobox = ui_combobox_init(  builder,
+                                                    "composite_autostart_combobox",
+                                                    composite_autostart,
+                                                    "composite_autostart_entry",
+                                                    composite_autostart_default);
+
+        var composite_apply_button = builder.get_object("composite_apply") as Gtk.Button;
+        composite_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(composite_command_combobox) == 99)
+            {
+                dbus_backend.CompositeManagerCommandSet(composite_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.CompositeManagerCommandSet(return_combobox_text(composite_command_combobox));
+            }
+
+
+            if (return_combobox_position(composite_autostart_combobox) == 99)
+            {
+                dbus_backend.CompositeManagerAutostartSet(composite_autostart_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.CompositeManagerAutostartSet(return_combobox_text(composite_autostart_combobox));
+            }
+
+        });
+
 
         /* Show all */
         window.show_all ();
@@ -519,6 +567,17 @@ namespace LDefaultApps
         if (return_combobox_position(desktop_wallpaper_combobox) != 99)
         {
             desktop_wallpaper_entry.hide_all();
+        }
+
+        /* Composite hide */
+        if (return_combobox_position(composite_command_combobox) != 99)
+        {
+            composite_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(composite_autostart_combobox) != 99)
+        {
+            composite_autostart_entry.hide_all();
         }
 
         /* start main loop */

@@ -399,17 +399,17 @@ namespace Lxsession
             {
                 warning("composite manager not set not set");
             }
-            else if (global_settings.composite_manager_command == null)
+            else if (global_composite_manager == null)
             {
                 message("Composite manager doesn't exist, creating it");
                 var composite = new CompositeManagerApp();
-                global_compositemanager_program = composite;
-                global_compositemanager_program.launch();
+                global_composite_manager = composite;
+                global_composite_manager.launch();
             }
             else
             {
                 message("Reload existing composite manager");
-                global_compositemanager_program.reload();
+                global_composite_manager.reload();
             }
         }
 

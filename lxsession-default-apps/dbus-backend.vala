@@ -55,6 +55,11 @@ namespace LDefaultApps
         public abstract void DesktopWallpaperSet (string arg) throws IOError;
         public abstract string DesktopCommandGet () throws IOError;
         public abstract string DesktopWallpaperGet () throws IOError;
+        public abstract void CompositeManagerReload () throws IOError;
+        public abstract void CompositeManagerCommandSet (string arg) throws IOError;
+        public abstract void CompositeManagerAutostartSet (string arg) throws IOError;
+        public abstract string CompositeManagerCommandGet () throws IOError;
+        public abstract string CompositeManagerAutostartGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -494,6 +499,68 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.DesktopWallpaperGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void CompositeManagerReload()
+        {
+            try
+            {
+                dbus_lxsession.CompositeManagerReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void CompositeManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.CompositeManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void CompositeManagerAutostartSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.CompositeManagerAutostartSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string CompositeManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.CompositeManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string CompositeManagerAutostartGet()
+        {
+            try
+            {
+                return dbus_lxsession.CompositeManagerAutostartGet();
             }
             catch (GLib.IOError err)
             {
