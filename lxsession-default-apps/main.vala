@@ -188,12 +188,81 @@ namespace LDefaultApps
 
         });
 
-
         var dock_reload_button = builder.get_object("dock_reload") as Gtk.Button;
         dock_reload_button.clicked.connect (() => {
             dbus_backend.DockReload();
         });
 
+        /* Window manager init */
+        var window_command_combobox = new Gtk.ComboBox();
+        var window_command_entry = builder.get_object ("window_command_entry") as Entry;
+        string[] window_commands = { "", "openbox", "openbox-custom"};
+        string window_command_default = dbus_backend.WindowsManagerCommandGet();
+        window_command_combobox = ui_combobox_init(  builder,
+                                                    "window_command_combobox",
+                                                    window_commands,
+                                                    "window_command_entry",
+                                                    window_command_default);
+
+
+        var window_session_combobox = new Gtk.ComboBox();
+        var window_session_entry = builder.get_object ("window_session_entry") as Entry;
+        string[] window_sessions = { "", "Lubuntu", "LXDE"};
+        string window_session_default = dbus_backend.WindowsManagerSessionGet();
+        window_session_combobox = ui_combobox_init(  builder,
+                                                    "window_session_combobox",
+                                                    window_sessions,
+                                                    "window_session_entry",
+                                                    window_session_default);
+
+        var window_extras_combobox = new Gtk.ComboBox();
+        var window_extras_entry = builder.get_object ("window_extras_entry") as Entry;
+        string[] window_extras = { ""};
+        string window_extras_default = dbus_backend.WindowsManagerExtrasGet();
+        window_extras_combobox = ui_combobox_init(  builder,
+                                                    "window_extras_combobox",
+                                                    window_extras,
+                                                    "window_extras_entry",
+                                                    window_extras_default);
+
+        var window_apply_button = builder.get_object("window_apply") as Gtk.Button;
+        window_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(window_command_combobox) == 99)
+            {
+                dbus_backend.WindowsManagerCommandSet(window_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.WindowsManagerCommandSet(return_combobox_text(window_command_combobox));
+            }
+
+
+            if (return_combobox_position(window_session_combobox) == 99)
+            {
+                dbus_backend.WindowsManagerSessionSet(window_session_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.WindowsManagerSessionSet(return_combobox_text(window_session_combobox));
+            }
+
+            if (return_combobox_position(window_extras_combobox) == 99)
+            {
+                dbus_backend.WindowsManagerExtrasSet(window_extras_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.WindowsManagerExtrasSet(return_combobox_text(window_extras_combobox));
+            }
+
+        });
+
+        var window_reload_button = builder.get_object("window_reload") as Gtk.Button;
+        window_reload_button.clicked.connect (() => {
+            dbus_backend.WindowsManagerReload();
+        });
 
         /* Show all */
         window.show_all ();
@@ -218,6 +287,22 @@ namespace LDefaultApps
         if (return_combobox_position(dock_session_combobox) != 99)
         {
             dock_session_entry.hide_all();
+        }
+
+        /* Window manager hide */
+        if (return_combobox_position(window_command_combobox) != 99)
+        {
+            window_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(window_session_combobox) != 99)
+        {
+            window_session_entry.hide_all();
+        }
+
+        if (return_combobox_position(window_extras_combobox) != 99)
+        {
+            window_extras_entry.hide_all();
         }
 
         /* start main loop */

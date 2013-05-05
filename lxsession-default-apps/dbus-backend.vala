@@ -30,6 +30,13 @@ namespace LDefaultApps
         public abstract void DockSessionSet (string arg) throws IOError;
         public abstract string DockCommandGet () throws IOError;
         public abstract string DockSessionGet () throws IOError;
+        public abstract void WindowsManagerReload () throws IOError;
+        public abstract void WindowsManagerCommandSet (string arg) throws IOError;
+        public abstract void WindowsManagerSessionSet (string arg) throws IOError;
+        public abstract void WindowsManagerExtrasSet (string arg) throws IOError;
+        public abstract string WindowsManagerCommandGet () throws IOError;
+        public abstract string WindowsManagerSessionGet () throws IOError;
+        public abstract string WindowsManagerExtrasGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -159,6 +166,93 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.DockSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void WindowsManagerReload()
+        {
+            try
+            {
+                dbus_lxsession.WindowsManagerReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void WindowsManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.WindowsManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void WindowsManagerSessionSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.WindowsManagerSessionSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void WindowsManagerExtrasSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.WindowsManagerExtrasSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string WindowsManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.WindowsManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string WindowsManagerSessionGet()
+        {
+            try
+            {
+                return dbus_lxsession.WindowsManagerSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string WindowsManagerExtrasGet()
+        {
+            try
+            {
+                return dbus_lxsession.WindowsManagerExtrasGet();
             }
             catch (GLib.IOError err)
             {
