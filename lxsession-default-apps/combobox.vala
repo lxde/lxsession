@@ -57,9 +57,23 @@ namespace LDefaultApps
         if (default_index == -1)
         {
             message ("Iter == -1");
-            return_combobox.set_active_iter(iter);
-            entry_default.set_text(by_default);
-            entry_default.show_all();
+            switch (by_default)
+            {
+                case (null):
+                    return_combobox.set_active(0);
+                    break;
+                case (""):
+                    return_combobox.set_active(0);
+                    break;
+                case (" "):
+                    return_combobox.set_active(0);
+                    break;
+                default:
+                    return_combobox.set_active_iter(iter);
+                    entry_default.set_text(by_default);
+                    entry_default.show_all();
+                    break;
+            }
         }
         else
         {
