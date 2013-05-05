@@ -710,7 +710,7 @@ namespace Lxsession
             }
             else
             {
-                message("Reload existing composite manager");
+                message("Reload existing desktop manager");
                 global_desktop.reload();
             }
         }

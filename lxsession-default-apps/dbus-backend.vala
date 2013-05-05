@@ -50,6 +50,11 @@ namespace LDefaultApps
         public abstract string FileManagerCommandGet () throws IOError;
         public abstract string FileManagerSessionGet () throws IOError;
         public abstract string FileManagerExtrasGet () throws IOError;
+        public abstract void DesktopReload () throws IOError;
+        public abstract void DesktopCommandSet (string arg) throws IOError;
+        public abstract void DesktopWallpaperSet (string arg) throws IOError;
+        public abstract string DesktopCommandGet () throws IOError;
+        public abstract string DesktopWallpaperGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -427,6 +432,68 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.FileManagerExtrasGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void DesktopReload()
+        {
+            try
+            {
+                dbus_lxsession.DesktopReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void DesktopCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DesktopCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void DesktopWallpaperSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DesktopWallpaperSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string DesktopCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.DesktopCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string DesktopWallpaperGet()
+        {
+            try
+            {
+                return dbus_lxsession.DesktopWallpaperGet();
             }
             catch (GLib.IOError err)
             {

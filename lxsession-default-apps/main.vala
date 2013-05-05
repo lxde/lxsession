@@ -394,6 +394,53 @@ namespace LDefaultApps
 
         });
 
+        /* Desktop manager init */
+        var desktop_command_combobox = new Gtk.ComboBox();
+        var desktop_command_entry = builder.get_object ("desktop_command_entry") as Entry;
+        string[] desktop_commands = { "", "filemanager", "feh"};
+        string desktop_command_default = dbus_backend.DesktopCommandGet();
+        desktop_command_combobox = ui_combobox_init(  builder,
+                                                    "desktop_command_combobox",
+                                                    desktop_commands,
+                                                    "desktop_command_entry",
+                                                    desktop_command_default);
+
+
+        var desktop_wallpaper_combobox = new Gtk.ComboBox();
+        var desktop_wallpaper_entry = builder.get_object ("desktop_wallpaper_entry") as Entry;
+        string[] desktop_wallpapers = { "", "Lubuntu", "LXDE"};
+        string desktop_wallpaper_default = dbus_backend.DesktopWallpaperGet();
+        desktop_wallpaper_combobox = ui_combobox_init(  builder,
+                                                    "desktop_wallpaper_combobox",
+                                                    desktop_wallpapers,
+                                                    "desktop_wallpaper_entry",
+                                                    desktop_wallpaper_default);
+
+        var desktop_apply_button = builder.get_object("desktop_apply") as Gtk.Button;
+        desktop_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(desktop_command_combobox) == 99)
+            {
+                dbus_backend.DesktopCommandSet(desktop_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.DesktopCommandSet(return_combobox_text(desktop_command_combobox));
+            }
+
+
+            if (return_combobox_position(desktop_wallpaper_combobox) == 99)
+            {
+                dbus_backend.PanelSessionSet(desktop_wallpaper_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.PanelSessionSet(return_combobox_text(desktop_wallpaper_combobox));
+            }
+
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -461,6 +508,17 @@ namespace LDefaultApps
         if (return_combobox_position(file_extras_combobox) != 99)
         {
             file_extras_entry.hide_all();
+        }
+
+        /* Desktop hide */
+        if (return_combobox_position(desktop_command_combobox) != 99)
+        {
+            desktop_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(desktop_wallpaper_combobox) != 99)
+        {
+            desktop_wallpaper_entry.hide_all();
         }
 
         /* start main loop */
