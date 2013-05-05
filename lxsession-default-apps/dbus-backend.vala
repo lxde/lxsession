@@ -43,6 +43,13 @@ namespace LDefaultApps
         public abstract void PowerManagerReload () throws IOError;
         public abstract void PowerManagerCommandSet (string arg) throws IOError;
         public abstract string PowerManagerCommandGet () throws IOError;
+        public abstract void FileManagerReload () throws IOError;
+        public abstract void FileManagerCommandSet (string arg) throws IOError;
+        public abstract void FileManagerSessionSet (string arg) throws IOError;
+        public abstract void FileManagerExtrasSet (string arg) throws IOError;
+        public abstract string FileManagerCommandGet () throws IOError;
+        public abstract string FileManagerSessionGet () throws IOError;
+        public abstract string FileManagerExtrasGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -333,6 +340,93 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.PowerManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void FileManagerReload()
+        {
+            try
+            {
+                dbus_lxsession.FileManagerReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void FileManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.FileManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void FileManagerSessionSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.FileManagerSessionSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void FileManagerExtrasSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.FileManagerExtrasSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string FileManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.FileManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string FileManagerSessionGet()
+        {
+            try
+            {
+                return dbus_lxsession.FileManagerSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string FileManagerExtrasGet()
+        {
+            try
+            {
+                return dbus_lxsession.FileManagerExtrasGet();
             }
             catch (GLib.IOError err)
             {

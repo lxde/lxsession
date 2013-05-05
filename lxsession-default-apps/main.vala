@@ -328,6 +328,72 @@ namespace LDefaultApps
             dbus_backend.PowerManagerReload();
         });
 
+        /* File manager init */
+        var file_command_combobox = new Gtk.ComboBox();
+        var file_command_entry = builder.get_object ("file_command_entry") as Entry;
+        string[] file_commands = { "", "pcmanfm", "pcmanfm-qt", "nautilus"};
+        string file_command_default = dbus_backend.FileManagerCommandGet();
+        file_command_combobox = ui_combobox_init(  builder,
+                                                    "file_command_combobox",
+                                                    file_commands,
+                                                    "file_command_entry",
+                                                    file_command_default);
+
+
+        var file_session_combobox = new Gtk.ComboBox();
+        var file_session_entry = builder.get_object ("file_session_entry") as Entry;
+        string[] file_sessions = { "", "Lubuntu", "LXDE"};
+        string file_session_default = dbus_backend.FileManagerSessionGet();
+        file_session_combobox = ui_combobox_init(  builder,
+                                                    "file_session_combobox",
+                                                    file_sessions,
+                                                    "file_session_entry",
+                                                    file_session_default);
+
+        var file_extras_combobox = new Gtk.ComboBox();
+        var file_extras_entry = builder.get_object ("file_extras_entry") as Entry;
+        string[] file_extras = { ""};
+        string file_extras_default = dbus_backend.FileManagerExtrasGet();
+        file_extras_combobox = ui_combobox_init(  builder,
+                                                    "file_extras_combobox",
+                                                    file_extras,
+                                                    "file_extras_entry",
+                                                    file_extras_default);
+
+        var file_apply_button = builder.get_object("file_apply") as Gtk.Button;
+        file_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(file_command_combobox) == 99)
+            {
+                dbus_backend.FileManagerCommandSet(file_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.FileManagerCommandSet(return_combobox_text(file_command_combobox));
+            }
+
+
+            if (return_combobox_position(file_session_combobox) == 99)
+            {
+                dbus_backend.FileManagerSessionSet(file_session_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.FileManagerSessionSet(return_combobox_text(file_session_combobox));
+            }
+
+            if (return_combobox_position(file_extras_combobox) == 99)
+            {
+                dbus_backend.FileManagerExtrasSet(file_extras_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.FileManagerExtrasSet(return_combobox_text(file_extras_combobox));
+            }
+
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -380,6 +446,23 @@ namespace LDefaultApps
         {
             power_command_entry.hide_all();
         }
+
+        /* File manager hide */
+        if (return_combobox_position(file_command_combobox) != 99)
+        {
+            file_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(file_session_combobox) != 99)
+        {
+            file_session_entry.hide_all();
+        }
+
+        if (return_combobox_position(file_extras_combobox) != 99)
+        {
+            file_extras_entry.hide_all();
+        }
+
         /* start main loop */
         Gtk.main ();
         new MainLoop().run();

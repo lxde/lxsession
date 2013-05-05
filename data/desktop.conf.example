@@ -23,7 +23,7 @@ screensaver/command=xscreensaver
 power_manager/command=
 
 # File manager (session if necessary, extras commands if necessary)
-file_manager/program=pcmanfm
+file_manager/command=pcmanfm
 file_manager/session=LXDE
 file_manager/extras=
 
