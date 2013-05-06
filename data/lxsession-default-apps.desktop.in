@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Icon=lxde-default-apps
-Exec=lxde-default-apps
-_Name=Default application for LXDE
-_Comment=Change the default application on LXDE
+Icon=lxsession-default-apps
+Exec=lxsession-default-apps
+_Name=Default applications for LXSession
+_Comment=Change the default applications on LXDE
 Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
 NotShowIn=GNOME;KDE;XFCE;
