@@ -650,7 +650,7 @@ public class NetworkGuiApp: SimpleAppObject
 
     public override void read_settings()
     {
-        network_command = global_settings.network_gui;
+        network_command = global_settings.network_gui_command;
         laptop_mode = global_settings.laptop_mode;
 
         switch (network_command)

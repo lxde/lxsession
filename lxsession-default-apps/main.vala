@@ -520,6 +520,38 @@ namespace LDefaultApps
             dbus_backend.PolkitReload();
         });
 
+        /* Network GUI init */
+        var network_command_combobox = new Gtk.ComboBox();
+        var network_command_entry = builder.get_object ("network_command_entry") as Entry;
+        string[] network_commands = { "", "auto", "no", "nm-applet", "wicd"};
+        string network_command_default = dbus_backend.NetworkGuiCommandGet();
+        network_command_combobox = ui_combobox_init(  builder,
+                                                    "network_command_combobox",
+                                                    network_commands,
+                                                    "network_command_entry",
+                                                    network_command_default);
+
+        var network_apply_button = builder.get_object("network_apply") as Gtk.Button;
+        network_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(network_command_combobox) == 99)
+            {
+                dbus_backend.NetworkGuiCommandSet(network_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.NetworkGuiCommandSet(return_combobox_text(network_command_combobox));
+            }
+
+        });
+
+
+        var network_reload_button = builder.get_object("network_reload") as Gtk.Button;
+        network_reload_button.clicked.connect (() => {
+            dbus_backend.NetworkGuiReload();
+        });
+
 
         /* Show all */
         window.show_all ();
@@ -610,6 +642,18 @@ namespace LDefaultApps
         if (return_combobox_position(composite_autostart_combobox) != 99)
         {
             composite_autostart_entry.hide_all();
+        }
+
+        /* Polkit hide */
+        if (return_combobox_position(polkit_command_combobox) != 99)
+        {
+            polkit_command_entry.hide_all();
+        }
+
+        /* Network GUI hide */
+        if (return_combobox_position(network_command_combobox) != 99)
+        {
+            network_command_entry.hide_all();
         }
 
         /* start main loop */

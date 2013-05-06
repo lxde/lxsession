@@ -179,6 +179,9 @@ public class LxSignals : Object
     /* Polkit control */
     public signal void request_polkit_command_set(string dbus_arg);
 
+    /* Network gui control */
+    public signal void request_network_gui_command_set(string dbus_arg);
+
     /* Composite manager */
     public signal void request_composite_manager_command_set(string manager);
     public signal void request_composite_manager_autostart_set (string dbus_arg);

@@ -44,7 +44,7 @@ public class LxsessionConfig: GLib.Object {
     public string desktop_command { get; set; default = null;}
     public string desktop_wallpaper { get; set; default = null;}
     public string polkit_command { get; set; default = null;}
-    public string network_gui { get; set; default = null;}
+    public string network_gui_command { get; set; default = null;}
     public string audio_manager { get; set; default = null;}
     public string quit_manager_command { get; set; default = null;}
     public string quit_manager_image { get; set; default = null;}
@@ -236,6 +236,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Polkit agent control */
         global_sig.request_polkit_command_set.connect(on_request_polkit_command_set);
+
+        /* Network gui control */
+        global_sig.request_network_gui_command_set.connect(on_request_network_gui_command_set);
 
         /* Quit manager */
         global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
@@ -466,7 +469,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Network GUI
         try
         {
-            this.network_gui = kf.get_value("Session", "network_gui");
+            this.network_gui_command = kf.get_value("Session", "network_gui/command");
         }
         catch (KeyFileError err)
         {
@@ -1527,6 +1530,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing polkit command");
         this.polkit_command = manager;
         kf.set_value ("Session", "polkit/command", this.polkit_command);
+        save_keyfile();
+    }
+
+    /* Network gui */
+    public void on_request_network_gui_command_set (string manager)
+    {
+        message("Changing network gui command");
+        this.network_gui_command = manager;
+        kf.set_value ("Session", "network_gui/command", this.network_gui_command);
         save_keyfile();
     }
 }

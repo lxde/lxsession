@@ -41,7 +41,7 @@ namespace Lxsession {
     PolkitApp global_polkit;
     ScreensaverApp global_screensaver;
     PowerManagerApp global_power_manager;
-    NetworkGuiApp global_networkgui_program;
+    NetworkGuiApp global_network_gui;
     CompositeManagerApp global_composite_manager;
     AudioManagerApp global_audio_manager;
     QuitManagerApp global_quit_manager;
@@ -256,7 +256,7 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.network_gui != null)
+            if (global_settings.network_gui_command != null)
             {
                 if (global_settings.laptop_mode == "unknown")
                 {
@@ -268,15 +268,15 @@ namespace Lxsession {
                         state_text = "yes";
                     }
                     global_sig.update_laptop_mode(state_text);
-                    var networkguiprogram = new NetworkGuiApp();
-                    global_networkgui_program = networkguiprogram;
-                    global_networkgui_program.launch();
+                    var networkgui = new NetworkGuiApp();
+                    global_network_gui = networkgui;
+                    global_network_gui.launch();
                 }
                 else
                 {
-                    var networkguiprogram = new NetworkGuiApp();
-                    global_networkgui_program = networkguiprogram;
-                    global_networkgui_program.launch();
+                    var networkgui = new NetworkGuiApp();
+                    global_network_gui = networkgui;
+                    global_network_gui.launch();
                 }
             }
 
@@ -431,9 +431,9 @@ namespace Lxsession {
             global_power_manager.stop();
         }
 
-        if (global_networkgui_program != null)
+        if (global_network_gui != null)
         {
-            global_networkgui_program.stop();
+            global_network_gui.stop();
         }
 
         if (global_composite_manager != null)

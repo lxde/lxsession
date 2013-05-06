@@ -829,6 +829,44 @@ namespace Lxsession
             }
         }
 
+        /* Network GUI */
+        public void NetworkGuiCommandGet(out string command)
+        {
+            command = global_settings.network_gui_command;
+            message ("Get network gui command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void NetworkGuiCommandSet(string command)
+        {
+            message ("Set network gui command to :%s", command);
+            global_sig.request_network_gui_command_set(command);
+        }
+
+        public void NetworkGuiReload()
+        {
+            message("Reload network gui");
+            if (global_settings.network_gui_command == null)
+            {
+                warning("Network gui command not set");
+            }
+            else if (global_network_gui == null)
+            {
+                message("Network gui doesn't exist, creating it");
+                var networkgui = new NetworkGuiApp();
+                global_network_gui = networkgui;
+                global_network_gui.launch();
+            }
+            else
+            {
+                message("Reload existing network gui");
+                global_network_gui.reload();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {

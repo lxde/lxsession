@@ -63,6 +63,9 @@ namespace LDefaultApps
         public abstract void PolkitReload () throws IOError;
         public abstract void PolkitCommandSet (string arg) throws IOError;
         public abstract string PolkitCommandGet () throws IOError;
+        public abstract void NetworkGuiReload () throws IOError;
+        public abstract void NetworkGuiCommandSet (string arg) throws IOError;
+        public abstract string NetworkGuiCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -571,6 +574,7 @@ namespace LDefaultApps
                 return "";
             }
         }
+
         public void PolkitReload()
         {
             try
@@ -600,6 +604,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.PolkitCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void NetworkGuiReload()
+        {
+            try
+            {
+                dbus_lxsession.NetworkGuiReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void NetworkGuiCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.NetworkGuiCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string NetworkGuiCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.NetworkGuiCommandGet();
             }
             catch (GLib.IOError err)
             {
