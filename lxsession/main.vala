@@ -38,7 +38,7 @@ namespace Lxsession {
     WindowsManagerApp global_windows_manager;
     FileManagerApp global_file_manager;
     DesktopApp global_desktop;
-    PolkitApp global_security_polkit;
+    PolkitApp global_polkit;
     ScreensaverApp global_screensaver;
     PowerManagerApp global_power_manager;
     NetworkGuiApp global_networkgui_program;
@@ -297,11 +297,11 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.polkit != null)
+            if (global_settings.polkit_command != null)
             {
                 var securitypolkit = new PolkitApp();
-                global_security_polkit = securitypolkit;
-                global_security_polkit.launch();
+                global_polkit = securitypolkit;
+                global_polkit.launch();
             }
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
@@ -390,10 +390,10 @@ namespace Lxsession {
             clipboard.deactivate();
         }
 
-        if (global_settings.polkit != null)
+        if (global_settings.polkit_command != null)
         {
-            global_security_polkit.deactivate();
-            global_security_polkit.stop();
+            global_polkit.deactivate();
+            global_polkit.stop();
         }
 
         if (global_panel != null)
@@ -416,9 +416,9 @@ namespace Lxsession {
             global_desktop.stop();
         }
 
-        if (global_security_polkit != null)
+        if (global_polkit != null)
         {
-            global_security_polkit.stop();
+            global_polkit.stop();
         }
 
         if (global_screensaver != null)

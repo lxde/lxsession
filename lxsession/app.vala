@@ -602,7 +602,7 @@ public class PolkitApp: SimpleAppObject
 
     public override void read_settings()
     {
-        polkit_command = global_settings.polkit;
+        polkit_command = global_settings.polkit_command;
 
         switch (polkit_command) 
         {

@@ -33,7 +33,7 @@ desktop_manager/command=
 desktop_manager/wallpaper=
 
 # Polkit agent (use lxpolkit to use build-in support if enable at build time)
-polkit=lxpolkit
+polkit/command=lxpolkit
 
 # Network GUI manager (auto to try to guess the best choice)
 network_gui=

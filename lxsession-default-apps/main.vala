@@ -488,6 +488,38 @@ namespace LDefaultApps
 
         });
 
+        /* Polkit agent init */
+        var polkit_command_combobox = new Gtk.ComboBox();
+        var polkit_command_entry = builder.get_object ("polkit_command_entry") as Entry;
+        string[] polkit_commands = { "", "gnome", "razorqt", "lxpolkit"};
+        string polkit_command_default = dbus_backend.PolkitCommandGet();
+        polkit_command_combobox = ui_combobox_init(  builder,
+                                                    "polkit_command_combobox",
+                                                    polkit_commands,
+                                                    "polkit_command_entry",
+                                                    polkit_command_default);
+
+        var polkit_apply_button = builder.get_object("polkit_apply") as Gtk.Button;
+        polkit_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(polkit_command_combobox) == 99)
+            {
+                dbus_backend.PolkitCommandSet(polkit_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.PolkitCommandSet(return_combobox_text(polkit_command_combobox));
+            }
+
+        });
+
+
+        var polkit_reload_button = builder.get_object("polkit_reload") as Gtk.Button;
+        polkit_reload_button.clicked.connect (() => {
+            dbus_backend.PolkitReload();
+        });
+
 
         /* Show all */
         window.show_all ();

@@ -791,6 +791,44 @@ namespace Lxsession
             }
         }
 
+        /* Polkit */
+        public void PolkitCommandGet(out string command)
+        {
+            command = global_settings.polkit_command;
+            message ("Get polkit command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void PolkitCommandSet(string command)
+        {
+            message ("Set polkit command to :%s", command);
+            global_sig.request_polkit_command_set(command);
+        }
+
+        public void PolkitReload()
+        {
+            message("Reload polkit");
+            if (global_settings.polkit_command == null)
+            {
+                warning("Polkit command not set");
+            }
+            else if (global_polkit == null)
+            {
+                message("Polkit doesn't exist, creating it");
+                var polkit = new PolkitApp();
+                global_polkit = polkit;
+                global_polkit.launch();
+            }
+            else
+            {
+                message("Reload existing polkit");
+                global_polkit.reload();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {

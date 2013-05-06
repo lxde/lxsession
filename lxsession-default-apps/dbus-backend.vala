@@ -60,6 +60,9 @@ namespace LDefaultApps
         public abstract void CompositeManagerAutostartSet (string arg) throws IOError;
         public abstract string CompositeManagerCommandGet () throws IOError;
         public abstract string CompositeManagerAutostartGet () throws IOError;
+        public abstract void PolkitReload () throws IOError;
+        public abstract void PolkitCommandSet (string arg) throws IOError;
+        public abstract string PolkitCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -561,6 +564,42 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.CompositeManagerAutostartGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+        public void PolkitReload()
+        {
+            try
+            {
+                dbus_lxsession.PolkitReload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void PolkitCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.PolkitCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string PolkitCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.PolkitCommandGet();
             }
             catch (GLib.IOError err)
             {

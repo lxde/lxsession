@@ -43,7 +43,7 @@ public class LxsessionConfig: GLib.Object {
     public string file_manager_extras { get; set; default = null;}
     public string desktop_command { get; set; default = null;}
     public string desktop_wallpaper { get; set; default = null;}
-    public string polkit { get; set; default = null;}
+    public string polkit_command { get; set; default = null;}
     public string network_gui { get; set; default = null;}
     public string audio_manager { get; set; default = null;}
     public string quit_manager_command { get; set; default = null;}
@@ -233,6 +233,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Power Manager control */
         global_sig.request_power_manager_command_set.connect(on_request_power_manager_command_set);
+
+        /* Polkit agent control */
+        global_sig.request_polkit_command_set.connect(on_request_polkit_command_set);
 
         /* Quit manager */
         global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
@@ -453,7 +456,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Polkit Agent
         try
         {
-            this.polkit = kf.get_value("Session", "polkit");
+            this.polkit_command = kf.get_value("Session", "polkit/command");
         }
         catch (KeyFileError err)
         {
@@ -1515,6 +1518,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing power manager command");
         this.power_manager_command = manager;
         kf.set_value ("Session", "power_manager/command", this.power_manager_command);
+        save_keyfile();
+    }
+
+    /* Polkit agent */
+    public void on_request_polkit_command_set (string manager)
+    {
+        message("Changing polkit command");
+        this.polkit_command = manager;
+        kf.set_value ("Session", "polkit/command", this.polkit_command);
         save_keyfile();
     }
 }
