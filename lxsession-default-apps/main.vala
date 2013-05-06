@@ -44,7 +44,7 @@ namespace LDefaultApps
             else
             {
                 /* TODO Make it smart with prefix */
-                builder_file_path = Path.build_filename("usr","share","lxsession","ui","lxsession-default-apps.ui");
+                builder_file_path = Path.build_filename("/usr","share","lxsession","ui","lxsession-default-apps.ui");
                 builder.add_from_file (builder_file_path);
             }
         } 
