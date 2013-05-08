@@ -157,7 +157,7 @@ namespace Lxsession
             /* Clean up number of desktop set by GDM */
             try
             {
-                Process.spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP 2");
+                Process.spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP");
             }
             catch (GLib.SpawnError err)
             {
