@@ -394,6 +394,11 @@ namespace LDefaultApps
 
         });
 
+        var file_reload_button = builder.get_object("file_reload") as Gtk.Button;
+        file_reload_button.clicked.connect (() => {
+            dbus_backend.FileManagerReload();
+        });
+
         /* Desktop manager init */
         var desktop_command_combobox = new Gtk.ComboBox();
         var desktop_command_entry = builder.get_object ("desktop_command_entry") as Entry;
@@ -441,6 +446,11 @@ namespace LDefaultApps
 
         });
 
+        var desktop_reload_button = builder.get_object("desktop_reload") as Gtk.Button;
+        desktop_reload_button.clicked.connect (() => {
+            dbus_backend.DesktopReload();
+        });
+
         /* Composite manager init */
         var composite_command_combobox = new Gtk.ComboBox();
         var composite_command_entry = builder.get_object ("composite_command_entry") as Entry;
@@ -486,6 +496,11 @@ namespace LDefaultApps
                 dbus_backend.CompositeManagerAutostartSet(return_combobox_text(composite_autostart_combobox));
             }
 
+        });
+
+        var composite_reload_button = builder.get_object("composite_reload") as Gtk.Button;
+        composite_reload_button.clicked.connect (() => {
+            dbus_backend.CompositeManagerReload();
         });
 
         /* Polkit agent init */
