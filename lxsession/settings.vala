@@ -438,12 +438,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Desktop handler
         try
         {
-            this.desktop_command = kf.get_value ("Session", "desktop/command");
+            this.desktop_command = kf.get_value ("Session", "desktop_manager/command");
             if (this.desktop_command != null)
             {
                 try
                 {
-                    this.desktop_wallpaper = kf.get_value ("Session", "desktop/wallpaper");
+                    this.desktop_wallpaper = kf.get_value ("Session", "desktop_manager/wallpaper");
                 }
                 catch (KeyFileError err)
                 {
@@ -1493,7 +1493,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing desktop command");
         this.desktop_command = manager;
-        kf.set_value ("Session", "desktop/command", this.desktop_command);
+        kf.set_value ("Session", "desktop_manager/command", this.desktop_command);
         save_keyfile();
     }
 
@@ -1501,7 +1501,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing desktop command");
         this.desktop_wallpaper = manager;
-        kf.set_value ("Session", "desktop/wallpaper", this.desktop_wallpaper);
+        kf.set_value ("Session", "desktop_manager/wallpaper", this.desktop_wallpaper);
         save_keyfile();
     }
 
