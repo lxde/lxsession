@@ -81,6 +81,11 @@ public class AppObject: GLib.Object
         }
     }
 
+    public virtual void read_config_settings()
+    {
+        /* Each object need to implement this, so settings will be read when process is reloaded */
+    }
+
     public virtual void read_settings()
     {
         /* Each object need to implement this, so settings will be read when process is reloaded */
@@ -96,12 +101,14 @@ public class AppObject: GLib.Object
     {
         message("Reloading process");
         this.stop();
+        this.read_config_settings();
         this.read_settings();
         this.launch();
     }
 
     public void init()
     {
+        read_config_settings();
         read_settings();
     }
 
@@ -359,12 +366,18 @@ public class WindowsManagerApp: SimpleAppObject
 
 public class PanelApp: SimpleAppObject
 {
-    public string panel_command = global_settings.panel_program;
-    public string panel_session = global_settings.panel_session;
+    public string panel_command;
+    public string panel_session;
 
     public PanelApp ()
     {
         init();
+    }
+
+    public override void read_config_settings()
+    {
+        panel_command = global_settings.panel_command;
+        panel_session = global_settings.panel_session;
     }
 
     public override void read_settings()
@@ -400,12 +413,15 @@ public class PanelApp: SimpleAppObject
 
 public class DockApp: PanelApp
 {
-    public new string panel_command = global_settings.dock_program;
-    public new string panel_session = global_settings.dock_session;
-
     public DockApp ()
     {
         init();
+    }
+
+    public override void read_config_settings()
+    {
+        panel_command = global_settings.dock_program;
+        panel_session = global_settings.dock_session;
     }
 }
 

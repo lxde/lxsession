@@ -9,7 +9,7 @@ windows_manager/session=
 windows_manager/extras=
 
 # Panel and its session (if necessary)
-panel/program=lxpanel
+panel/command=lxpanel
 panel/session=LXDE
 
 # Dock (or 2nd panel) and its session (if necessary)

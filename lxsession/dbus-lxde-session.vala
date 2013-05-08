@@ -486,7 +486,7 @@ namespace Lxsession
         /* Panel control */
         public void PanelCommandGet(out string command)
         {
-            command = global_settings.panel_program;
+            command = global_settings.panel_command;
             message ("Get panel command: %s", command);
             if (command == null)
             {
@@ -497,7 +497,7 @@ namespace Lxsession
         public void PanelCommandSet(string command)
         {
             message ("Set panel command to :%s", command);
-            global_sig.request_panel_program_set(command);
+            global_sig.request_panel_command_set(command);
         }
 
         public void PanelSessionGet(out string command)
@@ -512,22 +512,22 @@ namespace Lxsession
 
         public void PanelSessionSet(string command)
         {
-            message ("Set panel command to :%s", command);
+            message ("Set panel session to :%s", command);
             global_sig.request_panel_session_set(command);
         }
 
         public void PanelReload()
         {
             message("Reload panel");
-            if (global_settings.panel_program == null)
+            if (global_settings.panel_command == null)
             {
                 warning("Panel not set");
             }
             else if (global_panel == null)
             {
                 message("Panel doesn't exist, creating it");
-                var panelprogram = new PanelApp();
-                global_panel = panelprogram;
+                var panel = new PanelApp();
+                global_panel = panel;
                 global_panel.launch();
             }
             else

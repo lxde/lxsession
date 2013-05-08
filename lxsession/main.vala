@@ -209,10 +209,10 @@ namespace Lxsession {
         if (autostart == false)
         {
             /* Launch other specific applications */
-            if (global_settings.panel_program != null)
+            if (global_settings.panel_command != null)
             {
-                var panelprogram = new PanelApp();
-                global_panel = panelprogram;
+                var panel = new PanelApp();
+                global_panel = panel;
                 global_panel.launch();
             }
 

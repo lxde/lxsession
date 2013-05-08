@@ -32,7 +32,7 @@ public class LxsessionConfig: GLib.Object {
     public string windows_manager_command { get; set; default = null;}
     public string windows_manager_session { get; set; default = null;}
     public string windows_manager_extras { get; set; default = null;}
-    public string panel_program { get; set; default = null;}
+    public string panel_command { get; set; default = null;}
     public string panel_session { get; set; default = null;}
     public string dock_program { get; set; default = null;}
     public string dock_session { get; set; default = null;}
@@ -208,7 +208,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_windows_manager_extras_set.connect(on_request_windows_manager_extras_set);
 
         /* Panel control */
-        global_sig.request_panel_program_set.connect(on_request_panel_program_set);
+        global_sig.request_panel_command_set.connect(on_request_panel_command_set);
         global_sig.request_panel_session_set.connect(on_request_panel_session_set);
 
         /* Dock control */
@@ -346,8 +346,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Panel
         try
         {
-            this.panel_program = kf.get_value ("Session", "panel/program");
-            if (this.panel_program != null)
+            this.panel_command = kf.get_value ("Session", "panel/command");
+            if (this.panel_command != null)
             {
                 try
                 {
@@ -1430,11 +1430,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     }
 
     /* Panel control */
-    public void on_request_panel_program_set (string manager)
+    public void on_request_panel_command_set (string manager)
     {
-        message("Changing panel program");
-        this.panel_program = manager;
-        kf.set_value ("Session", "panel/program", this.panel_program);
+        message("Changing panel command");
+        this.panel_command = manager;
+        kf.set_value ("Session", "panel/command", this.panel_command);
         save_keyfile();
     }
 

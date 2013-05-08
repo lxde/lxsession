@@ -154,7 +154,7 @@ public class LxSignals : Object
     public signal void request_windows_manager_extras_set (string dbus_arg);
 
     /* Panel control */
-    public signal void request_panel_program_set(string dbus_arg);
+    public signal void request_panel_command_set(string dbus_arg);
     public signal void request_panel_session_set(string dbus_arg);
 
     /* Dock control */
