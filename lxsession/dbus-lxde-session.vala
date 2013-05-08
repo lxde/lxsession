@@ -413,8 +413,8 @@ namespace Lxsession
             }
         }
 
-        /* Filemanager control */
-        public void FilemanagerCommandGet(out string command)
+        /* FileManager control */
+        public void FileManagerCommandGet(out string command)
         {
             command = global_settings.file_manager_command;
             message ("Get file manager command: %s", command);
@@ -424,13 +424,13 @@ namespace Lxsession
             }
         }
 
-        public void FilemanagerCommandSet(string command)
+        public void FileManagerCommandSet(string command)
         {
             message ("Set file manager command to :%s", command);
             global_sig.request_file_manager_command_set(command);
         }
 
-        public void FilemanagerSessionGet(out string command)
+        public void FileManagerSessionGet(out string command)
         {
             command = global_settings.file_manager_session;
             message ("Get file manager session: %s", command);
@@ -440,13 +440,13 @@ namespace Lxsession
             }
         }
 
-        public void FilemanagerSessionSet(string command)
+        public void FileManagerSessionSet(string command)
         {
             message ("Set file manager session to :%s", command);
             global_sig.request_file_manager_session_set(command);
         }
 
-        public void FilemanagerExtrasGet(out string command)
+        public void FileManagerExtrasGet(out string command)
         {
             command = global_settings.file_manager_extras;
             message ("Get file manager extras: %s", command);
@@ -456,13 +456,13 @@ namespace Lxsession
             }
         }
 
-        public void FilemanagerExtrasSet(string command)
+        public void FileManagerExtrasSet(string command)
         {
             message ("Set file manager extras to :%s", command);
             global_sig.request_file_manager_extras_set(command);
         }
 
-        public void FilemanagerReload()
+        public void FileManagerReload()
         {
             message("Reload Filemanager");
             if (global_settings.file_manager_command == null)
