@@ -34,7 +34,7 @@ public class LxsessionConfig: GLib.Object {
     public string windows_manager_extras { get; set; default = null;}
     public string panel_command { get; set; default = null;}
     public string panel_session { get; set; default = null;}
-    public string dock_program { get; set; default = null;}
+    public string dock_command { get; set; default = null;}
     public string dock_session { get; set; default = null;}
     public string screensaver_command { get; set; default = null;}
     public string power_manager_command { get; set; default = null;}
@@ -212,7 +212,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_panel_session_set.connect(on_request_panel_session_set);
 
         /* Dock control */
-        global_sig.request_dock_program_set.connect(on_request_dock_program_set);
+        global_sig.request_dock_command_set.connect(on_request_dock_command_set);
         global_sig.request_dock_session_set.connect(on_request_dock_session_set);
 
         /* File manager control */
@@ -367,8 +367,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Dock
         try
         {
-            this.dock_program = kf.get_value ("Session", "dock/program");
-            if (this.dock_program != null)
+            this.dock_command = kf.get_value ("Session", "dock/command");
+            if (this.dock_command != null)
             {
                 try
                 {
@@ -1447,11 +1447,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     }
 
     /* Dock control */
-    public void on_request_dock_program_set (string manager)
+    public void on_request_dock_command_set (string manager)
     {
-        message("Changing dock program");
-        this.dock_program = manager;
-        kf.set_value ("Session", "dock/program", this.dock_program);
+        message("Changing dock command");
+        this.dock_command = manager;
+        kf.set_value ("Session", "dock/command", this.dock_command);
         save_keyfile();
     }
 

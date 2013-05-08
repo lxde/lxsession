@@ -216,10 +216,10 @@ namespace Lxsession {
                 global_panel.launch();
             }
 
-            if (global_settings.dock_program != null)
+            if (global_settings.dock_command != null)
             {
-                var dockprogram = new DockApp();
-                global_dock = dockprogram;
+                var dock = new DockApp();
+                global_dock = dock;
                 global_dock.launch();
             }
 

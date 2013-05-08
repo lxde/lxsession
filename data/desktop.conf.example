@@ -13,7 +13,7 @@ panel/command=lxpanel
 panel/session=LXDE
 
 # Dock (or 2nd panel) and its session (if necessary)
-dock/program=
+dock/command=
 dock/session=
 
 # Screensaver

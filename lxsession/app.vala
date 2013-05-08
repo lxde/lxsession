@@ -420,7 +420,7 @@ public class DockApp: PanelApp
 
     public override void read_config_settings()
     {
-        panel_command = global_settings.dock_program;
+        panel_command = global_settings.dock_command;
         panel_session = global_settings.dock_session;
     }
 }

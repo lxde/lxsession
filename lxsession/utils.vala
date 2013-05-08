@@ -158,7 +158,7 @@ public class LxSignals : Object
     public signal void request_panel_session_set(string dbus_arg);
 
     /* Dock control */
-    public signal void request_dock_program_set(string dbus_arg);
+    public signal void request_dock_command_set(string dbus_arg);
     public signal void request_dock_session_set(string dbus_arg);
 
     /* Filemanager control */

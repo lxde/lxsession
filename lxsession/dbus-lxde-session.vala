@@ -540,7 +540,7 @@ namespace Lxsession
         /* Dock control */
         public void DockCommandGet(out string command)
         {
-            command = global_settings.dock_program;
+            command = global_settings.dock_command;
             message ("Get dock command: %s", command);
             if (command == null)
             {
@@ -551,7 +551,7 @@ namespace Lxsession
         public void DockCommandSet(string command)
         {
             message ("Set dock command to :%s", command);
-            global_sig.request_dock_program_set(command);
+            global_sig.request_dock_command_set(command);
         }
 
         public void DockSessionGet(out string command)
@@ -566,22 +566,22 @@ namespace Lxsession
 
         public void DockSessionSet(string command)
         {
-            message ("Set dock command to :%s", command);
+            message ("Set dock session to :%s", command);
             global_sig.request_dock_session_set(command);
         }
 
         public void DockReload()
         {
             message("Reload dock");
-            if (global_settings.dock_program == null)
+            if (global_settings.dock_command == null)
             {
                 warning("Dock not set");
             }
             else if (global_dock == null)
             {
                 message("Dock doesn't exist, creating it");
-                var dockprogram = new DockApp();
-                global_dock = dockprogram;
+                var dock = new DockApp();
+                global_dock = dock;
                 global_dock.launch();
             }
             else
