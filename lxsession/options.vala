@@ -32,14 +32,25 @@ namespace Lxsession
 
         public void activate()
         {
-            try
+            switch (command)
             {
-                message ("Options - Launch command %s",command);
-                Process.spawn_command_line_async(command);
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
+                case null:
+                    break;
+                case "":
+                    break;
+                case " ":
+                    break;
+                default:
+                    try
+                    {
+                        message ("Options - Launch command %s",command);
+                        Process.spawn_command_line_async(command);
+                    }
+                    catch (SpawnError err)
+                    {
+                        warning (err.message);
+                    }
+                    break;
             }
         }
     }
