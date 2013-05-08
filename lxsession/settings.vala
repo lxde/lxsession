@@ -991,6 +991,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             {
                 /* Try to save on user config directory */
                 string user_config_dir = get_config_home_path("desktop.conf");
+
+                File file_parent;
+                var file = File.new_for_path(user_config_dir);
+                file_parent = file.get_parent();
+                if (!file_parent.query_exists())
+                {
+                    try
+                    {
+                        file_parent.make_directory_with_parents();
+                    }
+                    catch (GLib.Error err)
+                    {
+                        warning (err.message);
+                    }
+                }
+
                 FileUtils.set_contents (user_config_dir, str, str.length);
                 desktop_config_path = user_config_dir;
                 setup_monitor_desktop_file();
