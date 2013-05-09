@@ -149,16 +149,16 @@ namespace Lxsession
             if (global_settings.quit_manager_command == null)
             {
                 warning("Quit manager command not set");
-                if (global_quit_manager == null)
-                {
-                    var quit = new QuitManagerApp();
-                    global_quit_manager = quit;
-                    global_quit_manager.launch();
-                }
-                else
-                {
-                    global_quit_manager.launch();              
-                }
+            }
+            else if (global_quit_manager == null)
+            {
+                var quit = new QuitManagerApp();
+                global_quit_manager = quit;
+                global_quit_manager.launch();
+            }
+            else
+            {
+                global_quit_manager.launch();              
             }
         }
 
@@ -184,17 +184,16 @@ namespace Lxsession
             if (global_settings.workspace_manager_command == null)
             {
                 warning("Workspace manager command not set");
-
-                if (global_workspace_manager == null)
-                {
-                    var workspace = new WorkspaceManagerApp();
-                    global_workspace_manager = workspace;
-                    global_workspace_manager.launch();
-                }
-                else
-                {
-                    global_workspace_manager.launch();                
-                }
+            }
+            else if (global_workspace_manager == null)
+            {
+                var workspace = new WorkspaceManagerApp();
+                global_workspace_manager = workspace;
+                global_workspace_manager.launch();
+            }
+            else
+            {
+                global_workspace_manager.launch();                
             }
         }
 
@@ -220,17 +219,16 @@ namespace Lxsession
             if (global_settings.launcher_manager_command == null)
             {
                 warning("Launcher manager command not set");
-
-                if (global_launcher_manager == null)
-                {
-                    var launcher = new LauncherManagerApp();
-                    global_launcher_manager = launcher;
-                    global_launcher_manager.launch();
-                }
-                else
-                {
-                    global_launcher_manager.launch();
-                }
+            }
+            else if (global_launcher_manager == null)
+            {
+                var launcher = new LauncherManagerApp();
+                global_launcher_manager = launcher;
+                global_launcher_manager.launch();
+            }
+            else
+            {
+                global_launcher_manager.launch();
             }
         }
 
@@ -257,17 +255,16 @@ namespace Lxsession
             if (global_settings.terminal_manager_command == null)
             {
                 warning("Terminal manager command not set");
-
-                if (global_terminal_manager == null)
-                {
-                    var terminal = new TerminalManagerApp();
-                    global_terminal_manager = terminal;
-                    global_terminal_manager.launch();
-                }
-                else
-                {
-                    global_terminal_manager.launch();
-                }
+            }
+            else if (global_terminal_manager == null)
+            {
+                var terminal = new TerminalManagerApp();
+                global_terminal_manager = terminal;
+                global_terminal_manager.launch();
+            }
+            else
+            {
+                global_terminal_manager.launch();
             }
         }
 
@@ -294,17 +291,16 @@ namespace Lxsession
             if (global_settings.screenshot_manager_command == null)
             {
                 warning("Screenshot manager command not set");
-
-                if (global_screenshot_manager == null)
-                {
-                    var screenshot = new ScreenshotManagerApp();
-                    global_screenshot_manager = screenshot;
-                    global_screenshot_manager.launch();
-                }
-                else
-                {
-                    global_screenshot_manager.launch();
-                }
+            }
+            else if (global_screenshot_manager == null)
+            {
+                var screenshot = new ScreenshotManagerApp();
+                global_screenshot_manager = screenshot;
+                global_screenshot_manager.launch();
+            }
+            else
+            {
+                global_screenshot_manager.launch();
             }
         }
 
@@ -314,17 +310,16 @@ namespace Lxsession
             if (global_settings.screenshot_manager_command == null)
             {
                 warning("Screenshot manager command not set");
-
-                if (global_screenshot_manager == null)
-                {
-                    var screenshot = new ScreenshotManagerApp();
-                    global_screenshot_manager = screenshot;
-                    global_screenshot_manager.window_launch();
-                }
-                else
-                {
-                    global_screenshot_manager.window_launch();
-                }
+            }
+            else if (global_screenshot_manager == null)
+            {
+                var screenshot = new ScreenshotManagerApp();
+                global_screenshot_manager = screenshot;
+                global_screenshot_manager.window_launch();
+            }
+            else
+            {
+                global_screenshot_manager.window_launch();
             }
         }
 
@@ -351,17 +346,16 @@ namespace Lxsession
             if (global_settings.upgrades_manager_command == null)
             {
                 warning("Upgrades manager command not set");
-
-                if (global_upgrades_manager == null)
-                {
-                    var upgrades = new UpgradesManagerApp();
-                    global_upgrades_manager = upgrades;
-                    global_upgrades_manager.launch();
-                }
-                else
-                {
-                    global_upgrades_manager.launch();
-                }
+            }
+            else if (global_upgrades_manager == null)
+            {
+                var upgrades = new UpgradesManagerApp();
+                global_upgrades_manager = upgrades;
+                global_upgrades_manager.launch();
+            }
+            else
+            {
+                global_upgrades_manager.launch();
             }
         }
 
