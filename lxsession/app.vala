@@ -93,8 +93,11 @@ public class AppObject: GLib.Object
 
     public void stop()
     {
-        message("Stopping process");
-        Posix.kill ((int) this.pid, 15);
+        if ((int) this.pid != 0)
+        {
+            message("Stopping process with pid %d", (int) this.pid);
+            Posix.kill ((int) this.pid, 15);
+        }
     }
 
     public void reload()
