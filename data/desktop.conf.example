@@ -47,21 +47,21 @@ quit_manager/image=/usr/share/lxde/images/logout-banner.png
 quit_manager/layout=top
 
 # Workspace manager (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WorkspaceManagerLaunch)
-workspace_manager=
+workspace_manager/command=
 
 # Launcher to launch applications (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.LauncherManagerLaunch)
-launcher_manager=
+launcher_manager/command=
 
 # Terminal by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.TerminalManagerLaunch)
-terminal_manager=
+terminal_manager/command=
 
 # Screenshot utility by default
 # main program : dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotManagerLaunch
 # only windows : dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotWindowManagerLaunch
-screenshot_manager=
+screenshot_manager/command=
 
 # Upgrades by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradesManagerLaunch)
-upgrades_manager=
+upgrades_manager/command=
 
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard=lxclipboard
