@@ -567,6 +567,37 @@ namespace LDefaultApps
             dbus_backend.NetworkGuiReload();
         });
 
+        /* Audio manager init */
+        var audio_command_combobox = new Gtk.ComboBox();
+        var audio_command_entry = builder.get_object ("audio_command_entry") as Entry;
+        string[] audio_commands = { "", "alsamixer"};
+        string audio_command_default = dbus_backend.AudioManagerCommandGet();
+        audio_command_combobox = ui_combobox_init(  builder,
+                                                    "audio_command_combobox",
+                                                    audio_commands,
+                                                    "audio_command_entry",
+                                                    audio_command_default);
+
+        var audio_apply_button = builder.get_object("audio_apply") as Gtk.Button;
+        audio_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(audio_command_combobox) == 99)
+            {
+                dbus_backend.AudioManagerCommandSet(audio_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.AudioManagerCommandSet(return_combobox_text(audio_command_combobox));
+            }
+
+        });
+
+
+        var audio_reload_button = builder.get_object("audio_reload") as Gtk.Button;
+        audio_reload_button.clicked.connect (() => {
+            dbus_backend.AudioManagerLaunch();
+        });
 
         /* Show all */
         window.show_all ();
@@ -669,6 +700,12 @@ namespace LDefaultApps
         if (return_combobox_position(network_command_combobox) != 99)
         {
             network_command_entry.hide_all();
+        }
+
+        /* Audio manager hide */
+        if (return_combobox_position(audio_command_combobox) != 99)
+        {
+            audio_command_entry.hide_all();
         }
 
         /* start main loop */

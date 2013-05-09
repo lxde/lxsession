@@ -81,17 +81,16 @@ namespace Lxsession
             if (global_settings.audio_manager_command == null)
             {
                 warning("Audio manager not set");
-
-                if (global_audio_manager == null)
-                {
-                    var audio = new AudioManagerApp();
-                    global_audio_manager = audio;
-                    global_audio_manager.launch();
-                }
-                else
-                {
-                    global_audio_manager.launch();
-                }
+            }
+            else if (global_audio_manager == null)
+            {
+                var audio = new AudioManagerApp();
+                global_audio_manager = audio;
+                global_audio_manager.launch();
+            }
+            else
+            {
+                global_audio_manager.launch();
             }
         }
 

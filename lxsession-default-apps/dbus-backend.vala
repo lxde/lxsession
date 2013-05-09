@@ -66,6 +66,9 @@ namespace LDefaultApps
         public abstract void NetworkGuiReload () throws IOError;
         public abstract void NetworkGuiCommandSet (string arg) throws IOError;
         public abstract string NetworkGuiCommandGet () throws IOError;
+        public abstract void AudioManagerLaunch () throws IOError;
+        public abstract void AudioManagerCommandSet (string arg) throws IOError;
+        public abstract string AudioManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -641,6 +644,42 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.NetworkGuiCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+        public void AudioManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.AudioManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void AudioManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.AudioManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string AudioManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.AudioManagerCommandGet();
             }
             catch (GLib.IOError err)
             {
