@@ -59,38 +59,39 @@ namespace Lxsession
         }
 
         /* Audio Manager */
-        public void AudioManagerGet(out string command)
+        public void AudioManagerCommandGet(out string command)
         {
-            command = global_settings.audio_manager;
-            message ("Get audio manager: %s", command);
+            command = global_settings.audio_manager_command;
+            message ("Get audio manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void AudioManagerSet(string command)
+        public void AudioManagerCommandSet(string command)
         {
-            message ("Set audio manager to :%s", command);
-            global_sig.request_audio_manager_set(command);
+            message ("Set audio manager command to :%s", command);
+            global_sig.request_audio_manager_command_set(command);
         }
 
         public void AudioManagerLaunch()
         {
             message ("Launch audio manager");
-            if (global_settings.audio_manager == null)
+            if (global_settings.audio_manager_command == null)
             {
                 warning("Audio manager not set");
-            }
-            else if (global_audio_manager == null)
-            {
-                var audio = new AudioManagerApp();
-                global_audio_manager = audio;
-                global_audio_manager.launch();
-            }
-            else
-            {
-                global_audio_manager.launch();
+
+                if (global_audio_manager == null)
+                {
+                    var audio = new AudioManagerApp();
+                    global_audio_manager = audio;
+                    global_audio_manager.launch();
+                }
+                else
+                {
+                    global_audio_manager.launch();
+                }
             }
         }
 
@@ -149,213 +150,219 @@ namespace Lxsession
             if (global_settings.quit_manager_command == null)
             {
                 warning("Quit manager command not set");
-            }
-            else if (global_quit_manager == null)
-            {
-                var quit = new QuitManagerApp();
-                global_quit_manager = quit;
-                global_quit_manager.launch();
-            }
-            else
-            {
-                global_quit_manager.launch();              
+                if (global_quit_manager == null)
+                {
+                    var quit = new QuitManagerApp();
+                    global_quit_manager = quit;
+                    global_quit_manager.launch();
+                }
+                else
+                {
+                    global_quit_manager.launch();              
+                }
             }
         }
 
         /* Workspace Manager */
-        public void WorkspaceManagerGet(out string command)
+        public void WorkspaceManagerCommandGet(out string command)
         {
-            command = global_settings.workspace_manager;
-            message ("Get workspace manager: %s", command);
+            command = global_settings.workspace_manager_command;
+            message ("Get workspace manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void WorkspaceManagerSet(string command)
+        public void WorkspaceManagerCommandSet(string command)
         {
-            message ("Set workspace manager to :%s", command);
-            global_sig.request_workspace_manager_set(command);
+            message ("Set workspace manager command to :%s", command);
+            global_sig.request_workspace_manager_command_set(command);
         }
         public void WorkspaceManagerLaunch()
         {
             message("Start Workspace Manager");
-            if (global_settings.workspace_manager == null)
+            if (global_settings.workspace_manager_command == null)
             {
-                warning("Workspace manager not set");
-            }
-            else if (global_workspace_manager == null)
-            {
-                var workspace = new WorkspaceManagerApp();
-                global_workspace_manager = workspace;
-                global_workspace_manager.launch();
-            }
-            else
-            {
-                global_workspace_manager.launch();                
+                warning("Workspace manager command not set");
+
+                if (global_workspace_manager == null)
+                {
+                    var workspace = new WorkspaceManagerApp();
+                    global_workspace_manager = workspace;
+                    global_workspace_manager.launch();
+                }
+                else
+                {
+                    global_workspace_manager.launch();                
+                }
             }
         }
 
         /* Launcher manager */
-        public void LauncherManagerGet(out string command)
+        public void LauncherManagerCommandGet(out string command)
         {
-            command = global_settings.launcher_manager;
-            message ("Get launcher manager: %s", command);
+            command = global_settings.launcher_manager_command;
+            message ("Get launcher manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void LauncherManagerSet(string command)
+        public void LauncherManagerCommandSet(string command)
         {
-            message ("Set launcher manager to :%s", command);
-            global_sig.request_launcher_manager_set(command);
+            message ("Set launcher manager command to :%s", command);
+            global_sig.request_launcher_manager_command_set(command);
         }
         public void LauncherManagerLaunch()
         {
             message("Start Launcher Manager");
-            if (global_settings.launcher_manager == null)
+            if (global_settings.launcher_manager_command == null)
             {
-                warning("Launcher manager not set");
-            }
-            else if (global_launcher_manager == null)
-            {
-                var launcher = new LauncherManagerApp();
-                global_launcher_manager = launcher;
-                global_launcher_manager.launch();
-            }
-            else
-            {
-                global_launcher_manager.launch();
+                warning("Launcher manager command not set");
+
+                if (global_launcher_manager == null)
+                {
+                    var launcher = new LauncherManagerApp();
+                    global_launcher_manager = launcher;
+                    global_launcher_manager.launch();
+                }
+                else
+                {
+                    global_launcher_manager.launch();
+                }
             }
         }
 
         /* Terminal Manager */
-        public void TerminalManagerGet(out string command)
+        public void TerminalManagerCommandGet(out string command)
         {
-            command = global_settings.terminal_manager;
-            message ("Get terminal manager: %s", command);
+            command = global_settings.terminal_manager_command;
+            message ("Get terminal manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void TerminalManagerSet(string command)
+        public void TerminalManagerCommandSet(string command)
         {
-            message ("Set Terminal manager to :%s", command);
-            global_sig.request_terminal_manager_set(command);
+            message ("Set Terminal manager command to :%s", command);
+            global_sig.request_terminal_manager_command_set(command);
         }
 
         public void TerminalManagerLaunch()
         {
             message("Start Terminal Manager");
-            if (global_settings.terminal_manager == null)
+            if (global_settings.terminal_manager_command == null)
             {
-                warning("Terminal manager not set");
-            }
-            else if (global_terminal_manager == null)
-            {
-                var terminal = new TerminalManagerApp();
-                global_terminal_manager = terminal;
-                global_terminal_manager.launch();
-            }
-            else
-            {
-                global_terminal_manager.launch();
+                warning("Terminal manager command not set");
+
+                if (global_terminal_manager == null)
+                {
+                    var terminal = new TerminalManagerApp();
+                    global_terminal_manager = terminal;
+                    global_terminal_manager.launch();
+                }
+                else
+                {
+                    global_terminal_manager.launch();
+                }
             }
         }
 
         /* Screenshot manager */
-        public void ScreenshotManagerGet(out string command)
+        public void ScreenshotManagerCommandGet(out string command)
         {
-            command = global_settings.screenshot_manager;
-            message ("Get screenshot manager: %s", command);
+            command = global_settings.screenshot_manager_command;
+            message ("Get screenshot manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void ScreenshotManagerSet(string command)
+        public void ScreenshotManagerCommandSet(string command)
         {
-            message ("Set screenshot manager to :%s", command);
-            global_sig.request_screenshot_manager_set(command);
+            message ("Set screenshot manager command to :%s", command);
+            global_sig.request_screenshot_manager_command_set(command);
         }
 
         public void ScreenshotManagerLaunch()
         {
             message("Start Screenshot Manager");
-            if (global_settings.screenshot_manager == null)
+            if (global_settings.screenshot_manager_command == null)
             {
-                warning("Screenshot manager not set");
-            }
-            else if (global_screenshot_manager == null)
-            {
-                var screenshot = new ScreenshotManagerApp();
-                global_screenshot_manager = screenshot;
-                global_screenshot_manager.launch();
-            }
-            else
-            {
-                global_screenshot_manager.launch();
+                warning("Screenshot manager command not set");
+
+                if (global_screenshot_manager == null)
+                {
+                    var screenshot = new ScreenshotManagerApp();
+                    global_screenshot_manager = screenshot;
+                    global_screenshot_manager.launch();
+                }
+                else
+                {
+                    global_screenshot_manager.launch();
+                }
             }
         }
 
         public void ScreenshotWindowManagerLaunch()
         {
             message("Start Screenshot Window Manager");
-            if (global_settings.screenshot_manager == null)
+            if (global_settings.screenshot_manager_command == null)
             {
-                warning("Screenshot manager not set");
-            }
-            else if (global_screenshot_manager == null)
-            {
-                var screenshot = new ScreenshotManagerApp();
-                global_screenshot_manager = screenshot;
-                global_screenshot_manager.window_launch();
-            }
-            else
-            {
-                global_screenshot_manager.window_launch();
+                warning("Screenshot manager command not set");
+
+                if (global_screenshot_manager == null)
+                {
+                    var screenshot = new ScreenshotManagerApp();
+                    global_screenshot_manager = screenshot;
+                    global_screenshot_manager.window_launch();
+                }
+                else
+                {
+                    global_screenshot_manager.window_launch();
+                }
             }
         }
 
         /* Upgrades manager */
-        public void UpgradesManagerGet(out string command)
+        public void UpgradesManagerCommandGet(out string command)
         {
-            command = global_settings.upgrades_manager;
-            message ("Get upgrades manager: %s", command);
+            command = global_settings.upgrades_manager_command;
+            message ("Get upgrades manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void UpgradesManagerSet(string command)
+        public void UpgradesManagerCommandSet(string command)
         {
-            message ("Set upgrades manager to :%s", command);
-            global_sig.request_upgrades_manager_set(command);
+            message ("Set upgrades manager command to :%s", command);
+            global_sig.request_upgrades_manager_command_set(command);
         }
 
         public void UpgradesManagerLaunch()
         {
             message("Start Upgrades Manager");
-            if (global_settings.upgrades_manager == null)
+            if (global_settings.upgrades_manager_command == null)
             {
-                warning("Upgrades manager not set");
-            }
-            else if (global_upgrades_manager == null)
-            {
-                var upgrades = new UpgradesManagerApp();
-                global_upgrades_manager = upgrades;
-                global_upgrades_manager.launch();
-            }
-            else
-            {
-                global_upgrades_manager.launch();
+                warning("Upgrades manager command not set");
+
+                if (global_upgrades_manager == null)
+                {
+                    var upgrades = new UpgradesManagerApp();
+                    global_upgrades_manager = upgrades;
+                    global_upgrades_manager.launch();
+                }
+                else
+                {
+                    global_upgrades_manager.launch();
+                }
             }
         }
 

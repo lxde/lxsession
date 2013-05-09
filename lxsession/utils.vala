@@ -141,12 +141,12 @@ public class LxSignals : Object
     public signal void reload_settings_daemon();
 
     /* Set for managers */
-    public signal void request_audio_manager_set(string manager);
-    public signal void request_workspace_manager_set(string manager);
-    public signal void request_launcher_manager_set(string manager);
-    public signal void request_terminal_manager_set(string manager);
-    public signal void request_screenshot_manager_set(string manager);
-    public signal void request_upgrades_manager_set(string manager);
+    public signal void request_audio_manager_command_set(string manager);
+    public signal void request_workspace_manager_command_set(string manager);
+    public signal void request_launcher_manager_command_set(string manager);
+    public signal void request_terminal_manager_command_set(string manager);
+    public signal void request_screenshot_manager_command_set(string manager);
+    public signal void request_upgrades_manager_command_set(string manager);
 
     /* Windows Manager */
     public signal void request_windows_manager_command_set (string dbus_arg);

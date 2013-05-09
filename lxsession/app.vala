@@ -543,6 +543,7 @@ public class FileManagerApp: SimpleAppObject
                 }
                 break;
             case "nautilus":
+                this.name = filemanager_command;
                 string create_command = "nautilus" + " -n " + filemanager_extras;
                 this.command = create_command.split_set(" ",0);
                 break;
@@ -579,24 +580,32 @@ public class DesktopApp: SimpleAppObject
 
                 if (global_file_manager != null)
                 {
-                    switch (global_file_manager.name)
-                    {
-                        case "pcmanfm":
-                            string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
-                            this.command = create_command.split_set(" ",0);
-                            break;
-                        case "pcmanfm-qt":
-                            string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
-                            this.command = create_command.split_set(" ",0);
-                            break;
-                        case "nautilus":
-                            string create_command = "nautilus" + " -n " + filemanager_extras;
-                            this.command = create_command.split_set(" ",0);
-                            break;
-                    }
+                    message("File manager needed for desktop manager but doesn't exist, creating it");
+                    var filemanager = new FileManagerApp();
+                    global_file_manager = filemanager;
+                }
+
+                switch (global_settings.file_manager_command)
+                {
+                    case "pcmanfm":
+                        this.name = global_settings.file_manager_command;
+                        string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
+                        this.command = create_command.split_set(" ",0);
+                        break;
+                    case "pcmanfm-qt":
+                        this.name = global_settings.file_manager_command;
+                        string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
+                        this.command = create_command.split_set(" ",0);
+                        break;
+                    case "nautilus":
+                        this.name = global_settings.file_manager_command;
+                        string create_command = "nautilus" + " -n " + filemanager_extras;
+                        this.command = create_command.split_set(" ",0);
+                        break;
                 }
                 break;
             case "feh":
+                this.name = desktop_command;
                 string create_command = "feh" + " --bg-scale " + desktop_wallpaper;
                 this.command = create_command.split_set(" ",0);
                 break;
@@ -724,7 +733,7 @@ public class AudioManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        audiomanager_command = global_settings.audio_manager;
+        audiomanager_command = global_settings.audio_manager_command;
 
         switch (audiomanager_command)
         {
@@ -787,7 +796,7 @@ public class WorkspaceManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        workspacemanager_command = global_settings.workspace_manager;
+        workspacemanager_command = global_settings.workspace_manager_command;
 
         switch (workspacemanager_command)
         {
@@ -816,7 +825,7 @@ public class LauncherManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        launchermanager_command = global_settings.launcher_manager;
+        launchermanager_command = global_settings.launcher_manager_command;
 
         switch (launchermanager_command)
         {
@@ -840,7 +849,7 @@ public class TerminalManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        terminalmanager_command = global_settings.terminal_manager;
+        terminalmanager_command = global_settings.terminal_manager_command;
 
         switch (terminalmanager_command)
         {
@@ -893,7 +902,7 @@ public class ScreenshotManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        screenshotmanager_command = global_settings.screenshot_manager;
+        screenshotmanager_command = global_settings.screenshot_manager_command;
 
         switch (screenshotmanager_command)
         {
@@ -934,7 +943,7 @@ public class UpgradesManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        upgradesmanager_command = global_settings.upgrades_manager;
+        upgradesmanager_command = global_settings.upgrades_manager_command;
 
         switch (upgradesmanager_command)
         {

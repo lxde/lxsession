@@ -45,15 +45,15 @@ public class LxsessionConfig: GLib.Object {
     public string desktop_wallpaper { get; set; default = null;}
     public string polkit_command { get; set; default = null;}
     public string network_gui_command { get; set; default = null;}
-    public string audio_manager { get; set; default = null;}
+    public string audio_manager_command { get; set; default = null;}
     public string quit_manager_command { get; set; default = null;}
     public string quit_manager_image { get; set; default = null;}
     public string quit_manager_layout { get; set; default = null;}
-    public string workspace_manager { get; set; default = null;}
-    public string launcher_manager { get; set; default = null;}
-    public string terminal_manager { get; set; default = null;}
-    public string screenshot_manager { get; set; default = null;}
-    public string upgrades_manager { get; set; default = null;}
+    public string workspace_manager_command { get; set; default = null;}
+    public string launcher_manager_command { get; set; default = null;}
+    public string terminal_manager_command { get; set; default = null;}
+    public string screenshot_manager_command { get; set; default = null;}
+    public string upgrades_manager_command { get; set; default = null;}
     public string composite_manager_command { get; set; default = null;}
     public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
@@ -195,12 +195,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
         /* Set for managers */
-        global_sig.request_audio_manager_set.connect(on_request_audio_manager_set);
-        global_sig.request_workspace_manager_set.connect(on_request_workspace_manager_set);
-        global_sig.request_launcher_manager_set.connect(on_request_launcher_manager_set);
-        global_sig.request_terminal_manager_set.connect(on_request_terminal_manager_set);
-        global_sig.request_screenshot_manager_set.connect(on_request_screenshot_manager_set);
-        global_sig.request_upgrades_manager_set.connect(on_request_screenshot_manager_set);
+        global_sig.request_audio_manager_command_set.connect(on_request_audio_manager_command_set);
+        global_sig.request_workspace_manager_command_set.connect(on_request_workspace_manager_command_set);
+        global_sig.request_launcher_manager_command_set.connect(on_request_launcher_manager_command_set);
+        global_sig.request_terminal_manager_command_set.connect(on_request_terminal_manager_command_set);
+        global_sig.request_screenshot_manager_command_set.connect(on_request_screenshot_manager_command_set);
+        global_sig.request_upgrades_manager_command_set.connect(on_request_screenshot_manager_command_set);
 
         /* Windows Manager control */
         global_sig.request_windows_manager_command_set.connect(on_request_windows_manager_command_set);
@@ -479,7 +479,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Audio Manager
         try
         {
-            this.audio_manager = kf.get_value("Session", "audio_manager");
+            this.audio_manager_command = kf.get_value("Session", "audio_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -517,7 +517,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Workspace Manager
         try
         {
-            this.workspace_manager = kf.get_value("Session", "workspace_manager");
+            this.workspace_manager_command = kf.get_value("Session", "workspace_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -527,7 +527,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Launcher Manager
         try
         {
-            this.launcher_manager = kf.get_value("Session", "launcher_manager");
+            this.launcher_manager_command = kf.get_value("Session", "launcher_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -537,7 +537,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Terminal Manager
         try
         {
-            this.terminal_manager = kf.get_value("Session", "terminal_manager");
+            this.terminal_manager_command = kf.get_value("Session", "terminal_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -547,7 +547,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Screenshot Manager
         try
         {
-            this.screenshot_manager = kf.get_value("Session", "screenshot_manager");
+            this.screenshot_manager_command = kf.get_value("Session", "screenshot_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -557,7 +557,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Upgrades Manager
         try
         {
-            this.upgrades_manager = kf.get_value("Session", "upgrades_manager");
+            this.upgrades_manager_command = kf.get_value("Session", "upgrades_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -1332,11 +1332,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         settings_daemon_reload(kf);
     }
 
-    public void on_request_audio_manager_set (string manager)
+    public void on_request_audio_manager_command_set (string manager)
     {
-        message("Changing Audio Manager");
-        this.audio_manager = manager;
-        kf.set_value ("Session", "audio_manager", this.audio_manager);
+        message("Changing Audio Manager command");
+        this.audio_manager_command = manager;
+        kf.set_value ("Session", "audio_manager/command", this.audio_manager_command);
         save_keyfile();
     }
 
@@ -1364,43 +1364,43 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_request_workspace_manager_set (string manager)
+    public void on_request_workspace_manager_command_set (string manager)
     {
-        message("Changing Workspace Manager");
-        this.workspace_manager = manager;
-        kf.set_value ("Session", "workspace_manager", this.workspace_manager);
+        message("Changing Workspace Manager command");
+        this.workspace_manager_command = manager;
+        kf.set_value ("Session", "workspace_manager/command", this.workspace_manager_command);
         save_keyfile();
     }
 
-    public void on_request_launcher_manager_set (string manager)
+    public void on_request_launcher_manager_command_set (string manager)
     {
-        message("Changing Launcher Manager");
-        this.launcher_manager = manager;
-        kf.set_value ("Session", "launcher_manager", this.launcher_manager);
+        message("Changing Launcher Manager command");
+        this.launcher_manager_command = manager;
+        kf.set_value ("Session", "launcher_manager/command", this.launcher_manager_command);
         save_keyfile();
     }
 
-    public void on_request_terminal_manager_set (string manager)
+    public void on_request_terminal_manager_command_set (string manager)
     {
-        message("Changing Terminal Manager");
-        this.terminal_manager = manager;
-        kf.set_value ("Session", "terminal_manager", this.terminal_manager);
+        message("Changing Terminal Manager command");
+        this.terminal_manager_command = manager;
+        kf.set_value ("Session", "terminal_manager/command", this.terminal_manager_command);
         save_keyfile();
     }
 
-    public void on_request_screenshot_manager_set (string manager)
+    public void on_request_screenshot_manager_command_set (string manager)
     {
-        message("Changing Screenshot Manager");
-        this.screenshot_manager = manager;
-        kf.set_value ("Session", "screenshot_manager", this.screenshot_manager);
+        message("Changing Screenshot Manager command");
+        this.screenshot_manager_command = manager;
+        kf.set_value ("Session", "screenshot_manager/command", this.screenshot_manager_command);
         save_keyfile();
     }
 
-    public void on_request_upgrades_manager_set (string manager)
+    public void on_request_upgrades_manager_command_set (string manager)
     {
-        message("Changing Upgrades Manager");
-        this.upgrades_manager = manager;
-        kf.set_value ("Session", "upgrades_manager", this.upgrades_manager);
+        message("Changing Upgrades Manager command");
+        this.upgrades_manager_command = manager;
+        kf.set_value ("Session", "upgrades_manager/command", this.upgrades_manager_command);
         save_keyfile();
     }
 
