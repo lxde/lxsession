@@ -599,6 +599,109 @@ namespace LDefaultApps
             dbus_backend.AudioManagerLaunch();
         });
 
+        /* Quit manager init */
+        var quit_command_combobox = new Gtk.ComboBox();
+        var quit_command_entry = builder.get_object ("quit_command_entry") as Entry;
+        string[] quit_commands = { "", "lxsession-logout"};
+        string quit_command_default = dbus_backend.QuitManagerCommandGet();
+        quit_command_combobox = ui_combobox_init(  builder,
+                                                    "quit_command_combobox",
+                                                    quit_commands,
+                                                    "quit_command_entry",
+                                                    quit_command_default);
+
+
+        var quit_image_combobox = new Gtk.ComboBox();
+        var quit_image_entry = builder.get_object ("quit_image_entry") as Entry;
+        string[] quit_image = { "" };
+        string quit_image_default = dbus_backend.QuitManagerImageGet();
+        quit_image_combobox = ui_combobox_init(  builder,
+                                                    "quit_image_combobox",
+                                                    quit_image,
+                                                    "quit_image_entry",
+                                                    quit_image_default);
+
+        var quit_layout_combobox = new Gtk.ComboBox();
+        var quit_layout_entry = builder.get_object ("quit_layout_entry") as Entry;
+        string[] quit_layout = { ""};
+        string quit_layout_default = dbus_backend.QuitManagerLayoutGet();
+        quit_layout_combobox = ui_combobox_init(  builder,
+                                                    "quit_layout_combobox",
+                                                    quit_layout,
+                                                    "quit_layout_entry",
+                                                    quit_layout_default);
+
+        var quit_apply_button = builder.get_object("quit_apply") as Gtk.Button;
+        quit_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(quit_command_combobox) == 99)
+            {
+                dbus_backend.QuitManagerCommandSet(quit_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.QuitManagerCommandSet(return_combobox_text(quit_command_combobox));
+            }
+
+
+            if (return_combobox_position(quit_image_combobox) == 99)
+            {
+                dbus_backend.QuitManagerImageSet(quit_image_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.QuitManagerImageSet(return_combobox_text(quit_image_combobox));
+            }
+
+            if (return_combobox_position(quit_layout_combobox) == 99)
+            {
+                dbus_backend.QuitManagerLayoutSet(quit_layout_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.QuitManagerLayoutSet(return_combobox_text(quit_layout_combobox));
+            }
+
+        });
+
+        var quit_reload_button = builder.get_object("quit_reload") as Gtk.Button;
+        quit_reload_button.clicked.connect (() => {
+            dbus_backend.QuitManagerLaunch();
+        });
+
+        /* Workspace manager init */
+        var workspace_command_combobox = new Gtk.ComboBox();
+        var workspace_command_entry = builder.get_object ("workspace_command_entry") as Entry;
+        string[] workspace_commands = { "", "alsamixer"};
+        string workspace_command_default = dbus_backend.WorkspaceManagerCommandGet();
+        workspace_command_combobox = ui_combobox_init(  builder,
+                                                    "workspace_command_combobox",
+                                                    workspace_commands,
+                                                    "workspace_command_entry",
+                                                    workspace_command_default);
+
+        var workspace_apply_button = builder.get_object("workspace_apply") as Gtk.Button;
+        workspace_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(workspace_command_combobox) == 99)
+            {
+                dbus_backend.WorkspaceManagerCommandSet(workspace_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.WorkspaceManagerCommandSet(return_combobox_text(workspace_command_combobox));
+            }
+
+        });
+
+
+        var workspace_reload_button = builder.get_object("workspace_reload") as Gtk.Button;
+        workspace_reload_button.clicked.connect (() => {
+            dbus_backend.WorkspaceManagerLaunch();
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -706,6 +809,28 @@ namespace LDefaultApps
         if (return_combobox_position(audio_command_combobox) != 99)
         {
             audio_command_entry.hide_all();
+        }
+
+        /* Quit manager hide */
+        if (return_combobox_position(quit_command_combobox) != 99)
+        {
+            quit_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(quit_image_combobox) != 99)
+        {
+            quit_image_entry.hide_all();
+        }
+
+        if (return_combobox_position(quit_layout_combobox) != 99)
+        {
+            quit_layout_entry.hide_all();
+        }
+
+        /* Workspace manager hide */
+        if (return_combobox_position(workspace_command_combobox) != 99)
+        {
+            workspace_command_entry.hide_all();
         }
 
         /* start main loop */

@@ -69,6 +69,16 @@ namespace LDefaultApps
         public abstract void AudioManagerLaunch () throws IOError;
         public abstract void AudioManagerCommandSet (string arg) throws IOError;
         public abstract string AudioManagerCommandGet () throws IOError;
+        public abstract void QuitManagerLaunch () throws IOError;
+        public abstract void QuitManagerCommandSet (string arg) throws IOError;
+        public abstract void QuitManagerImageSet (string arg) throws IOError;
+        public abstract void QuitManagerLayoutSet (string arg) throws IOError;
+        public abstract string QuitManagerCommandGet () throws IOError;
+        public abstract string QuitManagerImageGet () throws IOError;
+        public abstract string QuitManagerLayoutGet () throws IOError;
+        public abstract void WorkspaceManagerLaunch () throws IOError;
+        public abstract void WorkspaceManagerCommandSet (string arg) throws IOError;
+        public abstract string WorkspaceManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -680,6 +690,129 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.AudioManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+        public void QuitManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.QuitManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void QuitManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.QuitManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void QuitManagerImageSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.QuitManagerImageSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void QuitManagerLayoutSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.QuitManagerLayoutSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string QuitManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.QuitManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string QuitManagerImageGet()
+        {
+            try
+            {
+                return dbus_lxsession.QuitManagerImageGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string QuitManagerLayoutGet()
+        {
+            try
+            {
+                return dbus_lxsession.QuitManagerLayoutGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void WorkspaceManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.WorkspaceManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void WorkspaceManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.WorkspaceManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string WorkspaceManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.WorkspaceManagerCommandGet();
             }
             catch (GLib.IOError err)
             {
