@@ -49,7 +49,7 @@ namespace Lxsession {
     LauncherManagerApp global_launcher_manager;
     TerminalManagerApp global_terminal_manager;
     ScreenshotManagerApp global_screenshot_manager;
-    UpgradesManagerApp global_upgrades_manager;
+    UpgradeManagerApp global_upgrade_manager;
 
     public class Main: GLib.Object
     {

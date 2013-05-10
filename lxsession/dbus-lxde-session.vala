@@ -323,39 +323,39 @@ namespace Lxsession
             }
         }
 
-        /* Upgrades manager */
-        public void UpgradesManagerCommandGet(out string command)
+        /* Upgrade manager */
+        public void UpgradeManagerCommandGet(out string command)
         {
-            command = global_settings.upgrades_manager_command;
-            message ("Get upgrades manager command: %s", command);
+            command = global_settings.upgrade_manager_command;
+            message ("Get upgrade manager command: %s", command);
             if (command == null)
             {
                 command = "";
             }
         }
 
-        public void UpgradesManagerCommandSet(string command)
+        public void UpgradeManagerCommandSet(string command)
         {
-            message ("Set upgrades manager command to :%s", command);
-            global_sig.request_upgrades_manager_command_set(command);
+            message ("Set upgrade manager command to :%s", command);
+            global_sig.request_upgrade_manager_command_set(command);
         }
 
-        public void UpgradesManagerLaunch()
+        public void UpgradeManagerLaunch()
         {
-            message("Start Upgrades Manager");
-            if (global_settings.upgrades_manager_command == null)
+            message("Start Upgrade Manager");
+            if (global_settings.upgrade_manager_command == null)
             {
-                warning("Upgrades manager command not set");
+                warning("Upgrade manager command not set");
             }
-            else if (global_upgrades_manager == null)
+            else if (global_upgrade_manager == null)
             {
-                var upgrades = new UpgradesManagerApp();
-                global_upgrades_manager = upgrades;
-                global_upgrades_manager.launch();
+                var upgrade = new UpgradeManagerApp();
+                global_upgrade_manager = upgrade;
+                global_upgrade_manager.launch();
             }
             else
             {
-                global_upgrades_manager.launch();
+                global_upgrade_manager.launch();
             }
         }
 

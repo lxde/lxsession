@@ -798,6 +798,39 @@ namespace LDefaultApps
             dbus_backend.ScreenshotManagerLaunch();
         });
 
+        /* Upgrade manager init */
+        var upgrade_command_combobox = new Gtk.ComboBox();
+        var upgrade_command_entry = builder.get_object ("upgrade_command_entry") as Entry;
+        string[] upgrade_commands = { "", "update-manager"};
+        string upgrade_command_default = dbus_backend.UpgradeManagerCommandGet();
+        upgrade_command_combobox = ui_combobox_init(  builder,
+                                                    "upgrade_command_combobox",
+                                                    upgrade_commands,
+                                                    "upgrade_command_entry",
+                                                    upgrade_command_default);
+
+        var upgrade_apply_button = builder.get_object("upgrade_apply") as Gtk.Button;
+        upgrade_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(upgrade_command_combobox) == 99)
+            {
+                dbus_backend.UpgradeManagerCommandSet(upgrade_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.UpgradeManagerCommandSet(return_combobox_text(upgrade_command_combobox));
+            }
+
+        });
+
+
+        var upgrade_reload_button = builder.get_object("upgrade_reload") as Gtk.Button;
+        upgrade_reload_button.clicked.connect (() => {
+            dbus_backend.UpgradeManagerLaunch();
+        });
+
+
         /* Show all */
         window.show_all ();
 
@@ -945,6 +978,12 @@ namespace LDefaultApps
         if (return_combobox_position(screenshot_command_combobox) != 99)
         {
             screenshot_command_entry.hide_all();
+        }
+
+        /* Upgrade manager hide */
+        if (return_combobox_position(upgrade_command_combobox) != 99)
+        {
+            upgrade_command_entry.hide_all();
         }
 
         /* start main loop */

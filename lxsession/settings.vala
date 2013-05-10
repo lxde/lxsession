@@ -53,7 +53,7 @@ public class LxsessionConfig: GLib.Object {
     public string launcher_manager_command { get; set; default = null;}
     public string terminal_manager_command { get; set; default = null;}
     public string screenshot_manager_command { get; set; default = null;}
-    public string upgrades_manager_command { get; set; default = null;}
+    public string upgrade_manager_command { get; set; default = null;}
     public string composite_manager_command { get; set; default = null;}
     public string composite_manager_autostart { get; set; default = null;}
     public string disable_autostart { get; set; default = null;}
@@ -200,7 +200,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_launcher_manager_command_set.connect(on_request_launcher_manager_command_set);
         global_sig.request_terminal_manager_command_set.connect(on_request_terminal_manager_command_set);
         global_sig.request_screenshot_manager_command_set.connect(on_request_screenshot_manager_command_set);
-        global_sig.request_upgrades_manager_command_set.connect(on_request_screenshot_manager_command_set);
+        global_sig.request_upgrade_manager_command_set.connect(on_request_screenshot_manager_command_set);
 
         /* Windows Manager control */
         global_sig.request_windows_manager_command_set.connect(on_request_windows_manager_command_set);
@@ -554,10 +554,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 		    message (err.message);
         }
 
-        // Upgrades Manager
+        // Upgrade Manager
         try
         {
-            this.upgrades_manager_command = kf.get_value("Session", "upgrades_manager/command");
+            this.upgrade_manager_command = kf.get_value("Session", "upgrade_manager/command");
         }
         catch (KeyFileError err)
         {
@@ -1396,11 +1396,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_request_upgrades_manager_command_set (string manager)
+    public void on_request_upgrade_manager_command_set (string manager)
     {
-        message("Changing Upgrades Manager command");
-        this.upgrades_manager_command = manager;
-        kf.set_value ("Session", "upgrades_manager/command", this.upgrades_manager_command);
+        message("Changing Upgrade Manager command");
+        this.upgrade_manager_command = manager;
+        kf.set_value ("Session", "upgrade_manager/command", this.upgrade_manager_command);
         save_keyfile();
     }
 

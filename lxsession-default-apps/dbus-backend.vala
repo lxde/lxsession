@@ -88,6 +88,9 @@ namespace LDefaultApps
         public abstract void ScreenshotManagerLaunch () throws IOError;
         public abstract void ScreenshotManagerCommandSet (string arg) throws IOError;
         public abstract string ScreenshotManagerCommandGet () throws IOError;
+        public abstract void UpgradeManagerLaunch () throws IOError;
+        public abstract void UpgradeManagerCommandSet (string arg) throws IOError;
+        public abstract string UpgradeManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -931,6 +934,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.ScreenshotManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void UpgradeManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.UpgradeManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void UpgradeManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.UpgradeManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string UpgradeManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.UpgradeManagerCommandGet();
             }
             catch (GLib.IOError err)
             {

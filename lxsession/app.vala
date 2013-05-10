@@ -937,23 +937,23 @@ public class ScreenshotManagerApp: SimpleAppObject
     }
 }
 
-public class UpgradesManagerApp: SimpleAppObject
+public class UpgradeManagerApp: SimpleAppObject
 {
-    string upgradesmanager_command;
+    string upgrademanager_command;
 
-    public UpgradesManagerApp ()
+    public UpgradeManagerApp ()
     {
         init();
     }
 
     public override void read_settings()
     {
-        upgradesmanager_command = global_settings.upgrades_manager_command;
+        upgrademanager_command = global_settings.upgrade_manager_command;
 
-        switch (upgradesmanager_command)
+        switch (upgrademanager_command)
         {
             default:
-                string[] create_command = upgradesmanager_command.split_set(" ",0);
+                string[] create_command = upgrademanager_command.split_set(" ",0);
                 this.name = create_command[0];
                 this.command = create_command;
                 break;

@@ -146,7 +146,7 @@ public class LxSignals : Object
     public signal void request_launcher_manager_command_set(string manager);
     public signal void request_terminal_manager_command_set(string manager);
     public signal void request_screenshot_manager_command_set(string manager);
-    public signal void request_upgrades_manager_command_set(string manager);
+    public signal void request_upgrade_manager_command_set(string manager);
 
     /* Windows Manager */
     public signal void request_windows_manager_command_set (string dbus_arg);
