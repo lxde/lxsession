@@ -673,7 +673,7 @@ namespace LDefaultApps
         /* Workspace manager init */
         var workspace_command_combobox = new Gtk.ComboBox();
         var workspace_command_entry = builder.get_object ("workspace_command_entry") as Entry;
-        string[] workspace_commands = { "", "alsamixer"};
+        string[] workspace_commands = { "", "obconf"};
         string workspace_command_default = dbus_backend.WorkspaceManagerCommandGet();
         workspace_command_combobox = ui_combobox_init(  builder,
                                                     "workspace_command_combobox",
@@ -732,6 +732,38 @@ namespace LDefaultApps
         var launcher_reload_button = builder.get_object("launcher_reload") as Gtk.Button;
         launcher_reload_button.clicked.connect (() => {
             dbus_backend.LauncherManagerLaunch();
+        });
+
+        /* Terminal manager init */
+        var terminal_command_combobox = new Gtk.ComboBox();
+        var terminal_command_entry = builder.get_object ("terminal_command_entry") as Entry;
+        string[] terminal_commands = { "" };
+        string terminal_command_default = dbus_backend.TerminalManagerCommandGet();
+        terminal_command_combobox = ui_combobox_init(  builder,
+                                                    "terminal_command_combobox",
+                                                    terminal_commands,
+                                                    "terminal_command_entry",
+                                                    terminal_command_default);
+
+        var terminal_apply_button = builder.get_object("terminal_apply") as Gtk.Button;
+        terminal_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(terminal_command_combobox) == 99)
+            {
+                dbus_backend.TerminalManagerCommandSet(terminal_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.TerminalManagerCommandSet(return_combobox_text(terminal_command_combobox));
+            }
+
+        });
+
+
+        var terminal_reload_button = builder.get_object("terminal_reload") as Gtk.Button;
+        terminal_reload_button.clicked.connect (() => {
+            dbus_backend.TerminalManagerLaunch();
         });
 
         /* Show all */
@@ -869,6 +901,12 @@ namespace LDefaultApps
         if (return_combobox_position(launcher_command_combobox) != 99)
         {
             launcher_command_entry.hide_all();
+        }
+
+        /* Terminal manager hide */
+        if (return_combobox_position(terminal_command_combobox) != 99)
+        {
+            terminal_command_entry.hide_all();
         }
 
         /* start main loop */

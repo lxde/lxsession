@@ -82,6 +82,9 @@ namespace LDefaultApps
         public abstract void LauncherManagerLaunch () throws IOError;
         public abstract void LauncherManagerCommandSet (string arg) throws IOError;
         public abstract string LauncherManagerCommandGet () throws IOError;
+        public abstract void TerminalManagerLaunch () throws IOError;
+        public abstract void TerminalManagerCommandSet (string arg) throws IOError;
+        public abstract string TerminalManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -852,6 +855,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.LauncherManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void TerminalManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.TerminalManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void TerminalManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.TerminalManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string TerminalManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.TerminalManagerCommandGet();
             }
             catch (GLib.IOError err)
             {
