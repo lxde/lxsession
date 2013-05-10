@@ -766,6 +766,38 @@ namespace LDefaultApps
             dbus_backend.TerminalManagerLaunch();
         });
 
+        /* Screenshot manager init */
+        var screenshot_command_combobox = new Gtk.ComboBox();
+        var screenshot_command_entry = builder.get_object ("screenshot_command_entry") as Entry;
+        string[] screenshot_commands = { "", "scrot"};
+        string screenshot_command_default = dbus_backend.ScreenshotManagerCommandGet();
+        screenshot_command_combobox = ui_combobox_init(  builder,
+                                                    "screenshot_command_combobox",
+                                                    screenshot_commands,
+                                                    "screenshot_command_entry",
+                                                    screenshot_command_default);
+
+        var screenshot_apply_button = builder.get_object("screenshot_apply") as Gtk.Button;
+        screenshot_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(screenshot_command_combobox) == 99)
+            {
+                dbus_backend.ScreenshotManagerCommandSet(screenshot_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.ScreenshotManagerCommandSet(return_combobox_text(screenshot_command_combobox));
+            }
+
+        });
+
+
+        var screenshot_reload_button = builder.get_object("screenshot_reload") as Gtk.Button;
+        screenshot_reload_button.clicked.connect (() => {
+            dbus_backend.ScreenshotManagerLaunch();
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -907,6 +939,12 @@ namespace LDefaultApps
         if (return_combobox_position(terminal_command_combobox) != 99)
         {
             terminal_command_entry.hide_all();
+        }
+
+        /* Screenshot manager hide */
+        if (return_combobox_position(screenshot_command_combobox) != 99)
+        {
+            screenshot_command_entry.hide_all();
         }
 
         /* start main loop */

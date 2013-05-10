@@ -85,6 +85,9 @@ namespace LDefaultApps
         public abstract void TerminalManagerLaunch () throws IOError;
         public abstract void TerminalManagerCommandSet (string arg) throws IOError;
         public abstract string TerminalManagerCommandGet () throws IOError;
+        public abstract void ScreenshotManagerLaunch () throws IOError;
+        public abstract void ScreenshotManagerCommandSet (string arg) throws IOError;
+        public abstract string ScreenshotManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -899,5 +902,42 @@ namespace LDefaultApps
                 return "";
             }
         }
+        public void ScreenshotManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.ScreenshotManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void ScreenshotManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.ScreenshotManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string ScreenshotManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.ScreenshotManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
     }
 }
