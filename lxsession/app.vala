@@ -829,6 +829,11 @@ public class LauncherManagerApp: SimpleAppObject
 
         switch (launchermanager_command)
         {
+            case "lxpanelctl":
+                this.name = "lxpanelctl";
+                string create_command = "lxpanelctl run";
+                this.command = create_command.split_set(" ",0);
+                break;
             default:
                 string[] create_command = launchermanager_command.split_set(" ",0);
                 this.name = create_command[0];

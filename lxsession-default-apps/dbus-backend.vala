@@ -79,6 +79,9 @@ namespace LDefaultApps
         public abstract void WorkspaceManagerLaunch () throws IOError;
         public abstract void WorkspaceManagerCommandSet (string arg) throws IOError;
         public abstract string WorkspaceManagerCommandGet () throws IOError;
+        public abstract void LauncherManagerLaunch () throws IOError;
+        public abstract void LauncherManagerCommandSet (string arg) throws IOError;
+        public abstract string LauncherManagerCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -813,6 +816,42 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.WorkspaceManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+        public void LauncherManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.LauncherManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void LauncherManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.LauncherManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string LauncherManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.LauncherManagerCommandGet();
             }
             catch (GLib.IOError err)
             {

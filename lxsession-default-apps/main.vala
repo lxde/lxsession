@@ -702,6 +702,38 @@ namespace LDefaultApps
             dbus_backend.WorkspaceManagerLaunch();
         });
 
+        /* Launcher manager init */
+        var launcher_command_combobox = new Gtk.ComboBox();
+        var launcher_command_entry = builder.get_object ("launcher_command_entry") as Entry;
+        string[] launcher_commands = { "", "lxpanelctl" };
+        string launcher_command_default = dbus_backend.LauncherManagerCommandGet();
+        launcher_command_combobox = ui_combobox_init(  builder,
+                                                    "launcher_command_combobox",
+                                                    launcher_commands,
+                                                    "launcher_command_entry",
+                                                    launcher_command_default);
+
+        var launcher_apply_button = builder.get_object("launcher_apply") as Gtk.Button;
+        launcher_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(launcher_command_combobox) == 99)
+            {
+                dbus_backend.LauncherManagerCommandSet(launcher_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.LauncherManagerCommandSet(return_combobox_text(launcher_command_combobox));
+            }
+
+        });
+
+
+        var launcher_reload_button = builder.get_object("launcher_reload") as Gtk.Button;
+        launcher_reload_button.clicked.connect (() => {
+            dbus_backend.LauncherManagerLaunch();
+        });
+
         /* Show all */
         window.show_all ();
 
@@ -831,6 +863,12 @@ namespace LDefaultApps
         if (return_combobox_position(workspace_command_combobox) != 99)
         {
             workspace_command_entry.hide_all();
+        }
+
+        /* Launcher manager hide */
+        if (return_combobox_position(launcher_command_combobox) != 99)
+        {
+            launcher_command_entry.hide_all();
         }
 
         /* start main loop */
