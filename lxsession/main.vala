@@ -51,6 +51,7 @@ namespace Lxsession {
     ScreenshotManagerApp global_screenshot_manager;
     UpgradeManagerApp global_upgrade_manager;
     ClipboardOption global_clipboard;
+    KeymapOption global_keymap;
 
     public class Main: GLib.Object
     {

@@ -862,6 +862,43 @@ namespace LDefaultApps
             dbus_backend.ClipboardActivate();
         });
 
+        /* Keymap init */
+        var keymap_mode_combobox = new Gtk.ComboBox();
+        string[] keymap_mode_commands = { "", "user"};
+        string keymap_mode_default = dbus_backend.KeymapModeGet();
+        keymap_mode_combobox = ui_combobox_init(    builder,
+                                                    "keymap_mode__combobox",
+                                                    keymap_mode_commands,
+                                                    "keymap_mode_entry",
+                                                    keymap_mode_default);
+
+        var keymap_model_entry = new Gtk.Entry();
+        keymap_model_entry.set_text(dbus_backend.KeymapModelGet());
+
+        var keymap_layout_entry = new Gtk.Entry();
+        keymap_layout_entry.set_text(dbus_backend.KeymapLayoutGet());
+
+        var keymap_variant_entry = new Gtk.Entry();
+        keymap_variant_entry.set_text(dbus_backend.KeymapVariantGet());
+
+        var keymap_options_entry = new Gtk.Entry();
+        keymap_options_entry.set_text(dbus_backend.KeymapOptionsGet());
+
+        var keymap_apply_button = builder.get_object("keymap_apply") as Gtk.Button;
+        keymap_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.KeymapModeSet(return_combobox_text(keymap_mode_combobox));
+            dbus_backend.KeymapModelSet(keymap_model_entry.get_text());
+            dbus_backend.KeymapLayoutSet(keymap_layout_entry.get_text());
+            dbus_backend.KeymapVariantSet(keymap_variant_entry.get_text());
+            dbus_backend.KeymapOptionsSet(keymap_options_entry.get_text());
+        });
+
+        var keymap_reload_button = builder.get_object("keymap_reload") as Gtk.Button;
+        keymap_reload_button.clicked.connect (() => {
+            dbus_backend.KeymapActivate();
+        });
+
         /* Show all */
         window.show_all ();
 

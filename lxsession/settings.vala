@@ -152,11 +152,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
 
-        global_sig.update_keymap_mode.connect(on_update_keymap_mode);
-        global_sig.update_keymap_model.connect(on_update_keymap_model);
-        global_sig.update_keymap_layout.connect(on_update_keymap_layout);
-        global_sig.update_keymap_variant.connect(on_update_keymap_variant);
-        global_sig.update_keymap_options.connect(on_update_keymap_options);
         global_sig.update_xrandr_mode.connect(on_update_xrandr_mode);
         global_sig.update_xrandr_command.connect(on_update_xrandr_command);
 
@@ -247,6 +242,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Clipboard control */
         global_sig.request_clipboard_command_set.connect(on_request_clipboard_command_set);
+
+        /* Keymap */
+        global_sig.request_keymap_mode_set.connect(on_request_keymap_mode_set);
+        global_sig.request_keymap_model_set.connect(on_request_keymap_model_set);
+        global_sig.request_keymap_layout_set.connect(on_request_keymap_layout_set);
+        global_sig.request_keymap_variant_set.connect(on_request_keymap_variant_set);
+        global_sig.request_keymap_options_set.connect(on_request_keymap_options_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1569,6 +1571,48 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         kf.set_value ("Session", "clipboard/command", this.clipboard_command);
         save_keyfile();
     }
+
+    /* Keymap */
+    public void on_request_keymap_mode_set (string manager)
+    {
+        message("Changing keymap mode");
+        this.keymap_mode = manager;
+        kf.set_value ("Keymap", "mode", this.keymap_mode);
+        save_keyfile();
+    }
+
+    public void on_request_keymap_model_set (string manager)
+    {
+        message("Changing keymap model");
+        this.keymap_model = manager;
+        kf.set_value ("Keymap", "model", this.keymap_model);
+        save_keyfile();
+    }
+
+    public void on_request_keymap_layout_set (string manager)
+    {
+        message("Changing keymap layout");
+        this.keymap_layout = manager;
+        kf.set_value ("Keymap", "layout", this.keymap_layout);
+        save_keyfile();
+    }
+
+    public void on_request_keymap_variant_set (string manager)
+    {
+        message("Changing keymap variant");
+        this.keymap_variant = manager;
+        kf.set_value ("Keymap", "variant", this.keymap_variant);
+        save_keyfile();
+    }
+
+    public void on_request_keymap_options_set (string manager)
+    {
+        message("Changing keymap options");
+        this.keymap_options = manager;
+        kf.set_value ("Keymap", "options", this.keymap_options);
+        save_keyfile();
+    }
+
 }
 
 }

@@ -94,6 +94,17 @@ namespace LDefaultApps
         public abstract void ClipboardActivate () throws IOError;
         public abstract void ClipboardCommandSet (string arg) throws IOError;
         public abstract string ClipboardCommandGet () throws IOError;
+        public abstract void KeymapActivate () throws IOError;
+        public abstract void KeymapModeSet (string arg) throws IOError;
+        public abstract string KeymapModeGet () throws IOError;
+        public abstract void KeymapModelSet (string arg) throws IOError;
+        public abstract string KeymapModelGet () throws IOError;
+        public abstract void KeymapLayoutSet (string arg) throws IOError;
+        public abstract string KeymapLayoutGet () throws IOError;
+        public abstract void KeymapVariantSet (string arg) throws IOError;
+        public abstract string KeymapVariantGet () throws IOError;
+        public abstract void KeymapOptionsSet (string arg) throws IOError;
+        public abstract string KeymapOptionsGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1019,5 +1030,141 @@ namespace LDefaultApps
             }
         }
 
+        public void KeymapActivate()
+        {
+            try
+            {
+                dbus_lxsession.KeymapActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void KeymapModeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.KeymapModeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string KeymapModeGet()
+        {
+            try
+            {
+                return dbus_lxsession.KeymapModeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void KeymapModelSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.KeymapModelSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string KeymapModelGet()
+        {
+            try
+            {
+                return dbus_lxsession.KeymapModelGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void KeymapLayoutSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.KeymapLayoutSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string KeymapLayoutGet()
+        {
+            try
+            {
+                return dbus_lxsession.KeymapLayoutGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void KeymapVariantSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.KeymapVariantSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string KeymapVariantGet()
+        {
+            try
+            {
+                return dbus_lxsession.KeymapVariantGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void KeymapOptionsSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.KeymapOptionsSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string KeymapOptionsGet()
+        {
+            try
+            {
+                return dbus_lxsession.KeymapOptionsGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
     }
 }

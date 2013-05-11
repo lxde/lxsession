@@ -900,9 +900,111 @@ namespace Lxsession
             }
             else
             {
-                message("Reload existing network gui");
+                message("Reload existing clipboard");
                 global_clipboard.desactivate();
                 global_clipboard.activate();
+            }
+        }
+
+        /* Keymap */
+        public void KeymapModeGet(out string command)
+        {
+            command = global_settings.keymap_mode;
+            message ("Get keymap mode: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void KeymapModeSet(string command)
+        {
+            message ("Set keymap mode to :%s", command);
+            global_sig.request_keymap_mode_set(command);
+        }
+
+        public void KeymapModelGet(out string command)
+        {
+            command = global_settings.keymap_model;
+            message ("Get keymap model: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void KeymapModelSet(string command)
+        {
+            message ("Set keymap model to :%s", command);
+            global_sig.request_keymap_model_set(command);
+        }
+
+        public void KeymapLayoutGet(out string command)
+        {
+            command = global_settings.keymap_layout;
+            message ("Get keymap layout: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void KeymapLayoutSet(string command)
+        {
+            message ("Set keymap layout to :%s", command);
+            global_sig.request_keymap_layout_set(command);
+        }
+
+        public void KeymapVariantGet(out string command)
+        {
+            command = global_settings.keymap_variant;
+            message ("Get keymap variant: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void KeymapVariantSet(string command)
+        {
+            message ("Set keymap variant to :%s", command);
+            global_sig.request_keymap_variant_set(command);
+        }
+
+        public void KeymapOptionsGet(out string command)
+        {
+            command = global_settings.keymap_options;
+            message ("Get keymap options: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void KeymapOptionsSet(string command)
+        {
+            message ("Set keymap options to :%s", command);
+            global_sig.request_keymap_options_set(command);
+        }
+
+        public void KeymapActivate()
+        {
+            message("Reload keymap");
+            if (global_settings.keymap_mode == null)
+            {
+                warning("Keymap mode not set");
+            }
+            else if (global_keymap == null)
+            {
+                message("Keymap doesn't exist, creating it");
+                var keymap = new KeymapOption(global_settings);
+                global_keymap = keymap;
+                global_keymap.activate();
+            }
+            else
+            {
+                message("Reload existing keymap");
+                global_keymap.activate();
             }
         }
 
@@ -934,36 +1036,6 @@ namespace Lxsession
         {
             message ("Signal update disable autostart option: %s", dbus_arg);
             global_sig.update_disable_autostart(dbus_arg);
-        }
-
-        public void KeymapMode (string dbus_arg)
-        {
-            message ("Signal update keymap mode: %s", dbus_arg);
-            global_sig.update_keymap_mode(dbus_arg);
-        }
-
-        public void KeymapModel (string dbus_arg)
-        {
-            message ("Signal update keymap model: %s", dbus_arg);
-            global_sig.update_keymap_model(dbus_arg);
-        }
-
-        public void KeymapLayout (string dbus_arg)
-        {
-            message ("Signal update keymap layout: %s", dbus_arg);
-            global_sig.update_keymap_layout(dbus_arg);
-        }
-
-        public void KeymapVariant (string dbus_arg)
-        {
-            message ("Signal update keymap variant: %s", dbus_arg);
-            global_sig.update_keymap_variant(dbus_arg);
-        }
-
-        public void KeymapOptions (string dbus_arg)
-        {
-            message ("Signal update keymap options: %s", dbus_arg);
-            global_sig.update_keymap_options(dbus_arg);
         }
 
         public void XrandrMode (string dbus_arg)
