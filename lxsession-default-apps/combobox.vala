@@ -52,7 +52,10 @@ namespace LDefaultApps
         return_combobox.active = 0;
 
         /* Set default */
-        var entry_default = builder.get_object (entry_name) as Entry;
+        if (entry_name != null)
+        {
+            var entry_default = builder.get_object (entry_name) as Entry;
+        }
 
         if (default_index == -1)
         {
@@ -70,8 +73,11 @@ namespace LDefaultApps
                     break;
                 default:
                     return_combobox.set_active_iter(iter);
-                    entry_default.set_text(by_default);
-                    entry_default.show_all();
+                    if (entry_name != null)
+                    {
+                        entry_default.set_text(by_default);
+                        entry_default.show_all();
+                    }
                     break;
             }
         }
@@ -79,11 +85,13 @@ namespace LDefaultApps
         {
             message ("Iter == %d", default_index);
             return_combobox.set_active(default_index);
-            entry_default.hide_all();
+            if (entry_name != null)
+            {
+                entry_default.hide_all();
+            }
         }
 
         return_combobox.changed.connect (() => {
-            var entry = builder.get_object (entry_name) as Entry;
             Value val1;
             Value val2;
 
@@ -93,13 +101,18 @@ namespace LDefaultApps
 
             message ("Selection: %s, %d\n", (string) val1, (int) val2);
 
-            if (val2 == 99)
+            if (entry_name != null)
             {
-                entry.show_all();
-            }
-            else
-            {
-                entry.hide_all();
+                var entry = builder.get_object (entry_name) as Entry;
+
+                if (val2 == 99)
+                {
+                    entry.show_all();
+                }
+                else
+                {
+                    entry.hide_all();
+                }
             }
         });
 

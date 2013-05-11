@@ -869,7 +869,7 @@ namespace LDefaultApps
         keymap_mode_combobox = ui_combobox_init(    builder,
                                                     "keymap_mode_combobox",
                                                     keymap_mode_commands,
-                                                    "keymap_mode_entry",
+                                                    null,
                                                     keymap_mode_default);
 
         var keymap_model_entry = new Gtk.Entry();
@@ -906,7 +906,7 @@ namespace LDefaultApps
         xrandr_mode_combobox = ui_combobox_init(    builder,
                                                     "xrandr_mode_combobox",
                                                     xrandr_mode_commands,
-                                                    "xrandr_mode_entry",
+                                                    null,
                                                     xrandr_mode_default);
 
         var xrandr_command_entry = new Gtk.Entry();
@@ -931,7 +931,7 @@ namespace LDefaultApps
         security_keyring_combobox = ui_combobox_init(   builder,
                                                         "security_keyring_combobox",
                                                         security_keyring_commands,
-                                                        "security_keyring_entry",
+                                                        null,
                                                         security_keyring_default);
 
         var security_apply_button = builder.get_object("security_apply") as Gtk.Button;
@@ -952,7 +952,7 @@ namespace LDefaultApps
         a11y_type_combobox = ui_combobox_init(   builder,
                                                     "a11y_type_combobox",
                                                     a11y_type_commands,
-                                                    "a11y_type_entry",
+                                                    null,
                                                     a11y_type_default);
 
         var a11y_apply_button = builder.get_object("a11y_apply") as Gtk.Button;
