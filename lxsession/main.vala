@@ -52,6 +52,7 @@ namespace Lxsession {
     UpgradeManagerApp global_upgrade_manager;
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
+    XrandrOption global_xrandr;
 
     public class Main: GLib.Object
     {

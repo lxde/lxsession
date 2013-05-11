@@ -152,9 +152,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
 
-        global_sig.update_xrandr_mode.connect(on_update_xrandr_mode);
-        global_sig.update_xrandr_command.connect(on_update_xrandr_command);
-
         global_sig.update_env_type.connect(on_update_env_type);
         global_sig.update_env_menu_prefix.connect(on_update_env_menu_prefix);
 
@@ -249,6 +246,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_keymap_layout_set.connect(on_request_keymap_layout_set);
         global_sig.request_keymap_variant_set.connect(on_request_keymap_variant_set);
         global_sig.request_keymap_options_set.connect(on_request_keymap_options_set);
+
+        /* Xrandr */
+        global_sig.request_xrandr_mode_set.connect(on_request_xrandr_mode_set);
+        global_sig.request_xrandr_command_set.connect(on_request_xrandr_command_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1074,62 +1075,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_update_keymap_mode (string dbus_arg)
-    {
-        message("Changing keymap mode: %s", dbus_arg);
-        this.keymap_mode = dbus_arg;
-        kf.set_value ("Keymap", "mode", this.keymap_mode);
-        save_keyfile();
-    }
-
-    public void on_update_keymap_model (string dbus_arg)
-    {
-        message("Changing keymap model: %s", dbus_arg);
-        this.keymap_model = dbus_arg;
-        kf.set_value ("Keymap", "model", this.keymap_model);
-        save_keyfile();
-    }
-
-    public void on_update_keymap_layout (string dbus_arg)
-    {
-        message("Changing keymap layout: %s", dbus_arg);
-        this.keymap_layout = dbus_arg;
-        kf.set_value ("Keymap", "layout", this.keymap_layout);
-        save_keyfile();
-    }
-
-    public void on_update_keymap_variant (string dbus_arg)
-    {
-        message("Changing keymap variant: %s", dbus_arg);
-        this.keymap_variant = dbus_arg;
-        kf.set_value ("Keymap", "variant", this.keymap_variant);
-        save_keyfile();
-    }
-
-    public void on_update_keymap_options (string dbus_arg)
-    {
-        message("Changing keymap options: %s", dbus_arg);
-        this.keymap_options = dbus_arg;
-        kf.set_value ("Keymap", "options", this.keymap_options);
-        save_keyfile();
-    }
-
-    public void on_update_xrandr_mode (string dbus_arg)
-    {
-        message("Changing xrandr mode: %s", dbus_arg);
-        this.xrandr_mode = dbus_arg;
-        kf.set_value ("XRandr", "mode", this.xrandr_mode);
-        save_keyfile();
-    }
-
-    public void on_update_xrandr_command (string dbus_arg)
-    {
-        message("Changing xrandr command: %s", dbus_arg);
-        this.xrandr_command = dbus_arg;
-        kf.set_value ("XRandr", "command", this.xrandr_command);
-        save_keyfile();
-    }
-
     public void on_update_env_type (string dbus_arg)
     {
         message("Changing envrionment type: %s", dbus_arg);
@@ -1610,6 +1555,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing keymap options");
         this.keymap_options = manager;
         kf.set_value ("Keymap", "options", this.keymap_options);
+        save_keyfile();
+    }
+
+    public void on_request_xrandr_mode_set (string manager)
+    {
+        message("Changing xrandr mode");
+        this.xrandr_mode = manager;
+        kf.set_value ("XRandr", "mode", this.xrandr_mode);
+        save_keyfile();
+    }
+
+    public void on_request_xrandr_command_set (string manager)
+    {
+        message("Changing xrandr command");
+        this.xrandr_command = manager;
+        kf.set_value ("XRandr", "command", this.xrandr_command);
         save_keyfile();
     }
 

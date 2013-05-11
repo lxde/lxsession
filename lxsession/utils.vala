@@ -96,8 +96,6 @@ public class LxSignals : Object
     public signal void update_window_manager (string dbus_arg);
 
     public signal void update_disable_autostart (string dbus_arg);
-    public signal void update_xrandr_mode (string dbus_arg);
-    public signal void update_xrandr_command (string dbus_arg);
 
     public signal void update_env_type (string dbus_arg);
     public signal void update_env_menu_prefix (string dbus_arg);
@@ -195,6 +193,10 @@ public class LxSignals : Object
     public signal void request_keymap_layout_set (string dbus_arg);
     public signal void request_keymap_variant_set (string dbus_arg);
     public signal void request_keymap_options_set (string dbus_arg);
+
+    /* XRandr */
+    public signal void request_xrandr_mode_set (string dbus_arg);
+    public signal void request_xrandr_command_set (string dbus_arg);
 
 }
 

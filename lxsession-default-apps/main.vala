@@ -867,7 +867,7 @@ namespace LDefaultApps
         string[] keymap_mode_commands = { "", "user"};
         string keymap_mode_default = dbus_backend.KeymapModeGet();
         keymap_mode_combobox = ui_combobox_init(    builder,
-                                                    "keymap_mode__combobox",
+                                                    "keymap_mode_combobox",
                                                     keymap_mode_commands,
                                                     "keymap_mode_entry",
                                                     keymap_mode_default);
@@ -897,6 +897,31 @@ namespace LDefaultApps
         var keymap_reload_button = builder.get_object("keymap_reload") as Gtk.Button;
         keymap_reload_button.clicked.connect (() => {
             dbus_backend.KeymapActivate();
+        });
+
+        /* Xrandr */
+        var xrandr_mode_combobox = new Gtk.ComboBox();
+        string[] xrandr_mode_commands = { "", "command"};
+        string xrandr_mode_default = dbus_backend.XrandrModeGet();
+        xrandr_mode_combobox = ui_combobox_init(    builder,
+                                                    "xrandr_mode_combobox",
+                                                    xrandr_mode_commands,
+                                                    "xrandr_mode_entry",
+                                                    xrandr_mode_default);
+
+        var xrandr_command_entry = new Gtk.Entry();
+        xrandr_command_entry.set_text(dbus_backend.XrandrCommandGet());
+
+        var xrandr_apply_button = builder.get_object("xrandr_apply") as Gtk.Button;
+        xrandr_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.XrandrModeSet(return_combobox_text(xrandr_mode_combobox));
+            dbus_backend.XrandrCommandSet(xrandr_command_entry.get_text());
+        });
+
+        var xrandr_reload_button = builder.get_object("xrandr_reload") as Gtk.Button;
+        xrandr_reload_button.clicked.connect (() => {
+            dbus_backend.XrandrActivate();
         });
 
         /* Show all */

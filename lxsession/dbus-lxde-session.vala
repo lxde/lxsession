@@ -1008,6 +1008,59 @@ namespace Lxsession
             }
         }
 
+        public void XrandrModeGet(out string command)
+        {
+            command = global_settings.xrandr_mode;
+            message ("Get xrandr mode: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void XrandrModeSet(string command)
+        {
+            message ("Set xrandr mode to :%s", command);
+            global_sig.request_xrandr_mode_set(command);
+        }
+
+        public void XrandrCommandGet(out string command)
+        {
+            command = global_settings.xrandr_command;
+            message ("Get xrandr command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void XrandrCommandSet(string command)
+        {
+            message ("Set xrandr command to :%s", command);
+            global_sig.request_xrandr_command_set(command);
+        }
+
+        public void XrandrActivate()
+        {
+            message("Reload xrandr");
+            if (global_settings.xrandr_mode == null)
+            {
+                warning("Xrandr mode not set");
+            }
+            else if (global_xrandr == null)
+            {
+                message("Xrandr doesn't exist, creating it");
+                var xrandr = new XrandrOption(global_settings);
+                global_xrandr = xrandr;
+                global_xrandr.activate();
+            }
+            else
+            {
+                message("Reload existing xrandr");
+                global_xrandr.activate();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {
@@ -1036,18 +1089,6 @@ namespace Lxsession
         {
             message ("Signal update disable autostart option: %s", dbus_arg);
             global_sig.update_disable_autostart(dbus_arg);
-        }
-
-        public void XrandrMode (string dbus_arg)
-        {
-            message ("Signal update xrandr mode: %s", dbus_arg);
-            global_sig.update_xrandr_mode(dbus_arg);
-        }
-
-        public void XrandrCommand (string dbus_arg)
-        {
-            message ("Signal update xrandr command: %s", dbus_arg);
-            global_sig.update_xrandr_command(dbus_arg);
         }
 
         public void GtkThemeName (string dbus_arg)

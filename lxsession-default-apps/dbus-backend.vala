@@ -105,6 +105,11 @@ namespace LDefaultApps
         public abstract string KeymapVariantGet () throws IOError;
         public abstract void KeymapOptionsSet (string arg) throws IOError;
         public abstract string KeymapOptionsGet () throws IOError;
+        public abstract void XrandrActivate () throws IOError;
+        public abstract void XrandrModeSet (string arg) throws IOError;
+        public abstract string XrandrModeGet () throws IOError;
+        public abstract void XrandrCommandSet (string arg) throws IOError;
+        public abstract string XrandrCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1166,5 +1171,68 @@ namespace LDefaultApps
                 return "";
             }
         }
+
+        public void XrandrActivate()
+        {
+            try
+            {
+                dbus_lxsession.XrandrActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void XrandrModeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.XrandrModeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string XrandrModeGet()
+        {
+            try
+            {
+                return dbus_lxsession.XrandrModeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void XrandrCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.XrandrCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string XrandrCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.XrandrCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
     }
 }
