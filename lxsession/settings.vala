@@ -245,6 +245,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_quit_manager_image_set.connect(on_request_quit_manager_image_set);
         global_sig.request_quit_manager_layout_set.connect(on_request_quit_manager_layout_set);
 
+        /* Clipboard control */
+        global_sig.request_clipboard_command_set.connect(on_request_clipboard_command_set);
+
         /* Monitor desktop file */
         setup_monitor_desktop_file();
     }
@@ -586,7 +589,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Clipboard
         try
         {
-            this.clipboard_command = kf.get_value("Session", "clipboard");
+            this.clipboard_command = kf.get_value("Session", "clipboard/command");
         }
         catch (KeyFileError err)
         {
@@ -1555,6 +1558,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing network gui command");
         this.network_gui_command = manager;
         kf.set_value ("Session", "network_gui/command", this.network_gui_command);
+        save_keyfile();
+    }
+
+    /* Clipboard */
+    public void on_request_clipboard_command_set (string manager)
+    {
+        message("Changing clipboard command");
+        this.clipboard_command = manager;
+        kf.set_value ("Session", "clipboard/command", this.clipboard_command);
         save_keyfile();
     }
 }

@@ -867,6 +867,45 @@ namespace Lxsession
             }
         }
 
+        /* Clipboard */
+        public void ClipboardCommandGet(out string command)
+        {
+            command = global_settings.clipboard_command;
+            message ("Get clipboard command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void ClipboardCommandSet(string command)
+        {
+            message ("Set clipboard command to :%s", command);
+            global_sig.request_clipboard_command_set(command);
+        }
+
+        public void ClipboardActivate()
+        {
+            message("Reload clipboard");
+            if (global_settings.clipboard_command == null)
+            {
+                warning("Clipboard command not set");
+            }
+            else if (global_clipboard == null)
+            {
+                message("Clipboard doesn't exist, creating it");
+                var clipboard = new ClipboardOption(global_settings);
+                global_clipboard = clipboard;
+                global_clipboard.activate();
+            }
+            else
+            {
+                message("Reload existing network gui");
+                global_clipboard.desactivate();
+                global_clipboard.activate();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {

@@ -830,6 +830,37 @@ namespace LDefaultApps
             dbus_backend.UpgradeManagerLaunch();
         });
 
+        /* Clipboard manager init */
+        var clipboard_command_combobox = new Gtk.ComboBox();
+        var clipboard_command_entry = builder.get_object ("clipboard_command_entry") as Entry;
+        string[] clipboard_commands = { "", "lxclipboard"};
+        string clipboard_command_default = dbus_backend.ClipboardCommandGet();
+        clipboard_command_combobox = ui_combobox_init(  builder,
+                                                    "clipboard_command_combobox",
+                                                    clipboard_commands,
+                                                    "clipboard_command_entry",
+                                                    clipboard_command_default);
+
+        var clipboard_apply_button = builder.get_object("clipboard_apply") as Gtk.Button;
+        clipboard_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(clipboard_command_combobox) == 99)
+            {
+                dbus_backend.ClipboardCommandSet(clipboard_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.ClipboardCommandSet(return_combobox_text(clipboard_command_combobox));
+            }
+
+        });
+
+
+        var clipboard_reload_button = builder.get_object("clipboard_reload") as Gtk.Button;
+        clipboard_reload_button.clicked.connect (() => {
+            dbus_backend.ClipboardActivate();
+        });
 
         /* Show all */
         window.show_all ();
@@ -984,6 +1015,12 @@ namespace LDefaultApps
         if (return_combobox_position(upgrade_command_combobox) != 99)
         {
             upgrade_command_entry.hide_all();
+        }
+
+        /* Clipboard manager hide */
+        if (return_combobox_position(clipboard_command_combobox) != 99)
+        {
+            clipboard_command_entry.hide_all();
         }
 
         /* start main loop */

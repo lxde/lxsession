@@ -50,6 +50,7 @@ namespace Lxsession {
     TerminalManagerApp global_terminal_manager;
     ScreenshotManagerApp global_screenshot_manager;
     UpgradeManagerApp global_upgrade_manager;
+    ClipboardOption global_clipboard;
 
     public class Main: GLib.Object
     {
@@ -167,9 +168,6 @@ namespace Lxsession {
            Export environnement variable
         */
          environment.export_env();
-
-        /* Options and Apps that need to be killed (build-in) */
-        var clipboard = new ClipboardOption(global_settings);
 
         /* Conf Files */
         string conffiles_conf = get_config_path ("conffiles.conf");
@@ -319,10 +317,12 @@ namespace Lxsession {
             }
         }
 
-        /* Options */
+        /* Options and Apps that need to be killed (build-in) */
         if (global_settings.clipboard_command != null)
         {
-            clipboard.activate();
+            var clipboard = new ClipboardOption(global_settings);
+            global_clipboard = clipboard;
+            global_clipboard.activate();
         }
 
         message ("Check keymap_mode %s", global_settings.keymap_mode);
@@ -385,9 +385,9 @@ namespace Lxsession {
         /* start main loop */
         new MainLoop().run();
 
-        if (global_settings.clipboard_command != null)
+        if (global_clipboard != null)
         {
-            clipboard.deactivate();
+            global_clipboard.desactivate();
         }
 
         if (global_settings.polkit_command != null)

@@ -91,6 +91,9 @@ namespace LDefaultApps
         public abstract void UpgradeManagerLaunch () throws IOError;
         public abstract void UpgradeManagerCommandSet (string arg) throws IOError;
         public abstract string UpgradeManagerCommandGet () throws IOError;
+        public abstract void ClipboardActivate () throws IOError;
+        public abstract void ClipboardCommandSet (string arg) throws IOError;
+        public abstract string ClipboardCommandGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -971,6 +974,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.UpgradeManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void ClipboardActivate()
+        {
+            try
+            {
+                dbus_lxsession.ClipboardActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void ClipboardCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.ClipboardCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string ClipboardCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.ClipboardCommandGet();
             }
             catch (GLib.IOError err)
             {

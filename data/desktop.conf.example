@@ -39,7 +39,7 @@ polkit/command=lxpolkit
 network_gui/command=
 
 # Audio preferences (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.AudioManagerLaunch)
-audio_manager=
+audio_manager/command=
 
 # Logout dialog (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch)
 quit_manager/command=lxsession-logout
@@ -64,7 +64,7 @@ screenshot_manager/command=
 upgrade_manager/command=
 
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
-clipboard=lxclipboard
+clipboard/command=lxclipboard
 
 # Use a standalone composite manager (with possibility to autostart it)
 composite_manager/command=

@@ -216,7 +216,7 @@ namespace Lxsession
                     break;
             }
         }
-        public void deactivate()
+        public void desactivate()
         {
 #if BUILDIN_CLIPBOARD
             clipboard_stop ();

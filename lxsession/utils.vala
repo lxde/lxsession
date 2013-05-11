@@ -191,6 +191,9 @@ public class LxSignals : Object
     public signal void request_quit_manager_image_set(string manager);
     public signal void request_quit_manager_layout_set(string manager);
 
+    /* clipboard control */
+    public signal void request_clipboard_command_set(string dbus_arg);
+
 }
 
 public bool detect_laptop()
