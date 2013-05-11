@@ -251,6 +251,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_xrandr_mode_set.connect(on_request_xrandr_mode_set);
         global_sig.request_xrandr_command_set.connect(on_request_xrandr_command_set);
 
+        /* Security */
+        global_sig.request_security_keyring_set.connect(on_request_security_keyring_set);
+
         /* Monitor desktop file */
         setup_monitor_desktop_file();
     }
@@ -1558,6 +1561,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    /* Xrandr */
     public void on_request_xrandr_mode_set (string manager)
     {
         message("Changing xrandr mode");
@@ -1571,6 +1575,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing xrandr command");
         this.xrandr_command = manager;
         kf.set_value ("XRandr", "command", this.xrandr_command);
+        save_keyfile();
+    }
+
+    /* Keyring */
+    public void on_request_security_keyring_set (string manager)
+    {
+        message("Changing security keyring");
+        this.security_keyring = manager;
+        kf.set_value ("Security", "keyring", this.security_keyring);
         save_keyfile();
     }
 

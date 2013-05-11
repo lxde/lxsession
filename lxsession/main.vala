@@ -53,6 +53,7 @@ namespace Lxsession {
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
     XrandrOption global_xrandr;
+    KeyringOption global_keyring;
 
     public class Main: GLib.Object
     {

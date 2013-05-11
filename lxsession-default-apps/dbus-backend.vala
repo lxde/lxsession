@@ -110,6 +110,9 @@ namespace LDefaultApps
         public abstract string XrandrModeGet () throws IOError;
         public abstract void XrandrCommandSet (string arg) throws IOError;
         public abstract string XrandrCommandGet () throws IOError;
+        public abstract void SecurityActivate () throws IOError;
+        public abstract void SecurityKeyringSet (string arg) throws IOError;
+        public abstract string SecurityKeyringGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1226,6 +1229,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.XrandrCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void SecurityActivate()
+        {
+            try
+            {
+                dbus_lxsession.SecurityActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void SecurityKeyringSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.SecurityKeyringSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string SecurityKeyringGet()
+        {
+            try
+            {
+                return dbus_lxsession.SecurityKeyringGet();
             }
             catch (GLib.IOError err)
             {

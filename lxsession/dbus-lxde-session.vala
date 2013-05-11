@@ -1061,6 +1061,43 @@ namespace Lxsession
             }
         }
 
+        public void SecurityKeyringGet(out string command)
+        {
+            command = global_settings.security_keyring;
+            message ("Get security keyring: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void SecurityKeyringSet(string command)
+        {
+            message ("Set security keyring to :%s", command);
+            global_sig.request_security_keyring_set(command);
+        }
+
+        public void SecurityActivate()
+        {
+            message("Reload security");
+            if (global_settings.security_keyring == null)
+            {
+                warning("Security keyring not set");
+            }
+            else if (global_keyring == null)
+            {
+                message("Keyring doesn't exist, creating it");
+                var keyring = new KeyringOption(global_settings);
+                global_keyring = keyring;
+                global_keyring.activate();
+            }
+            else
+            {
+                message("Reload existing keyring");
+                global_keyring.activate();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {

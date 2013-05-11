@@ -924,6 +924,27 @@ namespace LDefaultApps
             dbus_backend.XrandrActivate();
         });
 
+        /* Security */
+        var security_keyring_combobox = new Gtk.ComboBox();
+        string[] security_keyring_commands = { "", "gnome", "ssh-agent"};
+        string security_keyring_default = dbus_backend.SecurityKeyringGet();
+        security_keyring_combobox = ui_combobox_init(   builder,
+                                                        "security_keyring_combobox",
+                                                        security_keyring_commands,
+                                                        "security_keyring_entry",
+                                                        security_keyring_default);
+
+        var security_apply_button = builder.get_object("security_apply") as Gtk.Button;
+        security_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.SecurityKeyringSet(return_combobox_text(security_keyring_combobox));
+        });
+
+        var security_reload_button = builder.get_object("security_reload") as Gtk.Button;
+        security_reload_button.clicked.connect (() => {
+            dbus_backend.SecurityActivate();
+        });
+
         /* Show all */
         window.show_all ();
 

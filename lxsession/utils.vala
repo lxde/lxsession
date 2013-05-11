@@ -198,6 +198,9 @@ public class LxSignals : Object
     public signal void request_xrandr_mode_set (string dbus_arg);
     public signal void request_xrandr_command_set (string dbus_arg);
 
+    /* Security */
+    public signal void request_security_keyring_set (string dbus_arg);
+
 }
 
 public bool detect_laptop()
