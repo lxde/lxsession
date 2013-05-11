@@ -945,6 +945,27 @@ namespace LDefaultApps
             dbus_backend.SecurityActivate();
         });
 
+        /* a11y */
+        var a11y_type_combobox = new Gtk.ComboBox();
+        string[] a11y_type_commands = { "", "gnome"};
+        string a11y_type_default = dbus_backend.A11yTypeGet();
+        a11y_type_combobox = ui_combobox_init(   builder,
+                                                    "a11y_type_combobox",
+                                                    a11y_type_commands,
+                                                    "a11y_type_entry",
+                                                    a11y_type_default);
+
+        var a11y_apply_button = builder.get_object("a11y_apply") as Gtk.Button;
+        a11y_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.A11yTypeSet(return_combobox_text(a11y_type_combobox));
+        });
+
+        var a11y_reload_button = builder.get_object("a11y_reload") as Gtk.Button;
+        a11y_reload_button.clicked.connect (() => {
+            dbus_backend.A11yActivate();
+        });
+
         /* Show all */
         window.show_all ();
 

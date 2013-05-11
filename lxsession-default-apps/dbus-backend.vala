@@ -113,6 +113,9 @@ namespace LDefaultApps
         public abstract void SecurityActivate () throws IOError;
         public abstract void SecurityKeyringSet (string arg) throws IOError;
         public abstract string SecurityKeyringGet () throws IOError;
+        public abstract void A11yActivate () throws IOError;
+        public abstract void A11yTypeSet (string arg) throws IOError;
+        public abstract string A11yTypeGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1274,5 +1277,41 @@ namespace LDefaultApps
             }
         }
 
+        public void A11yActivate()
+        {
+            try
+            {
+                dbus_lxsession.A11yActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void A11yTypeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.A11yTypeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string A11yTypeGet()
+        {
+            try
+            {
+                return dbus_lxsession.A11yTypeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
     }
 }

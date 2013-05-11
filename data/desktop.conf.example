@@ -111,8 +111,6 @@ keyring=ssh-agent
 
 [a11y]
 # Accessibility options
-# Activate or not the following options
-activate=yes
 # Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
 type=gnome
 

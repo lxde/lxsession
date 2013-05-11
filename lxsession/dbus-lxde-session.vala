@@ -1098,6 +1098,43 @@ namespace Lxsession
             }
         }
 
+        public void A11yTypeGet(out string command)
+        {
+            command = global_settings.a11y_type;
+            message ("Get a11y type: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void A11yTypeSet(string command)
+        {
+            message ("Set a11y type to :%s", command);
+            global_sig.request_a11y_type_set(command);
+        }
+
+        public void A11yActivate()
+        {
+            message("Reload a11y");
+            if (global_settings.a11y_type == null)
+            {
+                warning("A11y type not set");
+            }
+            else if (global_a11y == null)
+            {
+                message("A11y doesn't exist, creating it");
+                var a11y = new A11yOption(global_settings);
+                global_a11y = a11y;
+                global_a11y.activate();
+            }
+            else
+            {
+                message("Reload existing a11y");
+                global_a11y.activate();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {

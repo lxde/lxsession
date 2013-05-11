@@ -201,6 +201,9 @@ public class LxSignals : Object
     /* Security */
     public signal void request_security_keyring_set (string dbus_arg);
 
+    /* a11y */
+    public signal void request_a11y_type_set (string dbus_arg);
+
 }
 
 public bool detect_laptop()

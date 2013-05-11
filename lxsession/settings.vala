@@ -84,7 +84,6 @@ public class LxsessionConfig: GLib.Object {
     public string security_keyring { get; set; default = null;}
 
     /* a11y */
-    public string a11y_activate { get; set; default = "false";}
     public string a11y_type { get; set; default = "gnome";}
 
     /* Updates */
@@ -253,6 +252,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Security */
         global_sig.request_security_keyring_set.connect(on_request_security_keyring_set);
+
+        /* a11y */
+        global_sig.request_a11y_type_set.connect(on_request_a11y_type_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -729,14 +731,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         }
 
         // a11y
-	    try
-        {
-            this.a11y_activate = kf.get_value ("a11y", "activate");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
 	    try
         {
             this.a11y_type = kf.get_value ("a11y", "type");
@@ -1584,6 +1578,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing security keyring");
         this.security_keyring = manager;
         kf.set_value ("Security", "keyring", this.security_keyring);
+        save_keyfile();
+    }
+
+    /* a11y */
+    public void on_request_a11y_type_set (string manager)
+    {
+        message("Changing a11y type");
+        this.a11y_type = manager;
+        kf.set_value ("a11y", "type", this.xrandr_command);
         save_keyfile();
     }
 

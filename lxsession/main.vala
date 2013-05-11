@@ -54,6 +54,7 @@ namespace Lxsession {
     KeymapOption global_keymap;
     XrandrOption global_xrandr;
     KeyringOption global_keyring;
+    A11yOption global_a11y;
 
     public class Main: GLib.Object
     {
