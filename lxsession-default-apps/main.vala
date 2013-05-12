@@ -1069,6 +1069,29 @@ namespace LDefaultApps
             }
         });
 
+        /* Environment */
+        var environment_type_combobox = new Gtk.ComboBox();
+        string[] environment_type_commands = { "", "Lubuntu"};
+        string environment_type_default = dbus_backend.EnvTypeGet();
+        environment_type_combobox = ui_combobox_init(   builder,
+                                                        "environment_type_combobox",
+                                                        environment_type_commands,
+                                                        null,
+                                                        environment_type_default);
+
+        environment_type_combobox.changed.connect (() => {
+            dbus_backend.EnvTypeSet(return_combobox_text(environment_type_combobox));
+        });
+
+        var enviroment_menu_prefix_entry = new Gtk.Entry();
+        enviroment_menu_prefix_entry.set_text(dbus_backend.EnvMenuPrefixGet());
+
+        var env_apply_button = builder.get_object("env_apply") as Gtk.Button;
+        env_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.EnvMenuPrefixSet(enviroment_menu_prefix_entry.get_text());
+        });
+
         /* Show all */
         window.show_all ();
 

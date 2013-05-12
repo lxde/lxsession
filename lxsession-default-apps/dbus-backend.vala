@@ -129,6 +129,10 @@ namespace LDefaultApps
         public abstract string DbusLxdeGet () throws IOError;
         public abstract void DbusGnomeSet (string arg) throws IOError;
         public abstract string DbusGnomeGet () throws IOError;
+        public abstract void EnvTypeSet (string arg) throws IOError;
+        public abstract string EnvTypeGet () throws IOError;
+        public abstract void EnvMenuPrefixSet (string arg) throws IOError;
+        public abstract string EnvMenuPrefixGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1481,6 +1485,56 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.DbusGnomeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void EnvTypeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.EnvTypeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string EnvTypeGet()
+        {
+            try
+            {
+                return dbus_lxsession.EnvTypeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void EnvMenuPrefixSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.EnvMenuPrefixSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string EnvMenuPrefixGet()
+        {
+            try
+            {
+                return dbus_lxsession.EnvMenuPrefixGet();
             }
             catch (GLib.IOError err)
             {

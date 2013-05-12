@@ -147,9 +147,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
 
-        global_sig.update_env_type.connect(on_update_env_type);
-        global_sig.update_env_menu_prefix.connect(on_update_env_menu_prefix);
-
         /* Xsettings */
         global_sig.update_gtk_theme_name.connect(on_update_gtk_theme_name);
         global_sig.update_gtk_icon_theme_name.connect(on_update_gtk_icon_theme_name);
@@ -264,6 +261,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Upstart */
         global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
+
+        /* Environment */
+        global_sig.request_env_type_set.connect(on_request_env_type_set);
+        global_sig.request_env_menu_prefix_set.connect(on_request_env_menu_prefix_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1602,6 +1603,23 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing dbus gnome");
         this.dbus_gnome = manager;
         kf.set_value ("Dbus", "dbus_gnome", this.dbus_gnome);
+        save_keyfile();
+    }
+
+    /* Environment */
+    public void on_request_env_type_set (string manager)
+    {
+        message("Changing environment type");
+        this.env_type = manager;
+        kf.set_value ("Environment", "type", this.env_type);
+        save_keyfile();
+    }
+
+    public void on_request_env_menu_prefix_set (string manager)
+    {
+        message("Changing environment menu prefix");
+        this.env_menu_prefix = manager;
+        kf.set_value ("Environment", "menu_prefix", this.env_menu_prefix);
         save_keyfile();
     }
 }

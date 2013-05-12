@@ -95,9 +95,7 @@ public class LxSignals : Object
 {
     public signal void update_window_manager (string dbus_arg);
 
-    public signal void update_env_type (string dbus_arg);
-    public signal void update_env_menu_prefix (string dbus_arg);
-
+    /* Xsettings */
     public signal void update_gtk_theme_name (string dbus_arg);
     public signal void update_gtk_icon_theme_name (string dbus_arg);
     public signal void update_gtk_font_name (string dbus_arg);
@@ -122,8 +120,6 @@ public class LxSignals : Object
     public signal void update_keyboard_delay (int dbus_arg);
     public signal void update_keyboard_interval (int dbus_arg);
     public signal void update_keyboard_beep (int dbus_arg);
-
-    public signal void request_upstart_user_session_set (string dbus_arg);
 
     public signal void reload_settings_daemon();
 
@@ -210,6 +206,13 @@ public class LxSignals : Object
     /* Dbus */
     public signal void request_dbus_lxde_set(string mode);
     public signal void request_dbus_gnome_set(string mode);
+
+    /* Upstart */
+    public signal void request_upstart_user_session_set (string dbus_arg);
+
+    /* Environment */
+    public signal void request_env_type_set(string mode);
+    public signal void request_env_menu_prefix_set(string mode);
 
 }
 

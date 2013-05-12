@@ -1256,6 +1256,38 @@ namespace Lxsession
             global_sig.request_dbus_gnome_set(command);
         }
 
+        public void EnvTypeSet(string command)
+        {
+            message ("Set environment type :%s", command);
+            global_sig.request_env_type_set(command);
+        }
+
+        public void EnvTypeGet(out string command)
+        {
+            command = global_settings.env_type;
+            message ("Get environment type: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void EnvMenuPrefixSet(string command)
+        {
+            message ("Set environment menu prefix :%s", command);
+            global_sig.request_env_menu_prefix_set(command);
+        }
+
+        public void EnvMenuPrefixGet(out string command)
+        {
+            command = global_settings.env_menu_prefix;
+            message ("Get environment menu prefix: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
         /* XSettings update */
         public void GtkThemeName (string dbus_arg)
         {
