@@ -1167,9 +1167,43 @@ namespace Lxsession
             }
             else
             {
-                message("Reload existing udpates");
+                message("Reload existing updates");
                 global_updates.activate();
             }
+        }
+
+        /* Disable autostart */
+        public void DisableAutostartGet(out string command)
+        {
+            command = global_settings.disable_autostart;
+            message ("Get disable autostart type: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DisableAutostartTypeSet(string command)
+        {
+            message ("Set disable autostart to :%s", command);
+            global_sig.request_disable_autostart_set(command);
+        }
+
+        /* Laptop mode */
+        public void LaptopModeGet(out string command)
+        {
+            command = global_settings.laptop_mode;
+            message ("Get laptop mode type: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void LaptopModeSet(string command)
+        {
+            message ("Set laptop_mode to :%s", command);
+            global_sig.request_laptop_mode_set(command);
         }
 
         /* Upstart user session */
@@ -1190,12 +1224,6 @@ namespace Lxsession
         }
 
         /* TODO Triage this mess */
-        public void DisableAutostart (string dbus_arg)
-        {
-            message ("Signal update disable autostart option: %s", dbus_arg);
-            global_sig.update_disable_autostart(dbus_arg);
-        }
-
         public void GtkThemeName (string dbus_arg)
         {
             message ("Signal update gtk_theme_name: %s", dbus_arg);

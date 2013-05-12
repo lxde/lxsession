@@ -4429,7 +4429,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkComboBox" id="disable_autostart_combobox1">
+                                  <object class="GtkComboBox" id="disable_autostart_combobox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>

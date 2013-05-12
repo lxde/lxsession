@@ -246,7 +246,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.update_laptop_mode(state_text);
+                    global_sig.request_laptop_mode_set(state_text);
                     var powermanager = new PowerManagerApp();
                     global_power_manager = powermanager;
                     global_power_manager.launch();
@@ -270,7 +270,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.update_laptop_mode(state_text);
+                    global_sig.request_laptop_mode_set(state_text);
                     var networkgui = new NetworkGuiApp();
                     global_network_gui = networkgui;
                     global_network_gui.launch();

@@ -147,13 +147,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
 
-        global_sig.update_disable_autostart.connect(on_update_disable_autostart);
-
         global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
 
         global_sig.update_env_type.connect(on_update_env_type);
         global_sig.update_env_menu_prefix.connect(on_update_env_menu_prefix);
 
+        /* Xsettings */
         global_sig.update_gtk_theme_name.connect(on_update_gtk_theme_name);
         global_sig.update_gtk_icon_theme_name.connect(on_update_gtk_icon_theme_name);
         global_sig.update_gtk_font_name.connect(on_update_gtk_font_name);
@@ -178,8 +177,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.update_keyboard_delay.connect(on_update_keyboard_delay);
         global_sig.update_keyboard_interval.connect(on_update_keyboard_interval);
         global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
-
-        global_sig.update_laptop_mode.connect(on_update_laptop_mode);
 
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
@@ -237,6 +234,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Clipboard control */
         global_sig.request_clipboard_command_set.connect(on_request_clipboard_command_set);
 
+        /* Autostart */
+        global_sig.request_disable_autostart_set.connect(on_request_disable_autostart_set);
+
         /* Keymap */
         global_sig.request_keymap_mode_set.connect(on_request_keymap_mode_set);
         global_sig.request_keymap_model_set.connect(on_request_keymap_model_set);
@@ -256,6 +256,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Updates */
         global_sig.request_updates_type_set.connect(on_request_updates_type_set);
+
+        /* Laptop mode */
+        global_sig.request_laptop_mode_set.connect(on_request_laptop_mode_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1033,30 +1036,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_update_composite_manager_command (string dbus_arg)
-    {
-        message("Changing composite manager command: %s", dbus_arg);
-        this.composite_manager_command = dbus_arg;
-        kf.set_value ("Session", "composite_manager/command", this.composite_manager_command);
-        save_keyfile();
-    }
-
-    public void on_update_composite_manager_autostart (string dbus_arg)
-    {
-        message("Changing composite manager autostart: %s", dbus_arg);
-        this.composite_manager_autostart = dbus_arg;
-        kf.set_value ("Session", "composite_manager/autostart", this.composite_manager_autostart);
-        save_keyfile();
-    }
-
-    public void on_update_disable_autostart (string dbus_arg)
-    {
-        message("Changing disable autostart option: %s", dbus_arg);
-        this.disable_autostart = dbus_arg;
-        kf.set_value ("Session", "disable_autostart", this.disable_autostart);
-        save_keyfile();
-    }
-
     public void on_update_upstart_user_session (string dbus_arg)
     {
         message("Changing upstart user session option: %s", dbus_arg);
@@ -1081,6 +1060,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    /* Xsettings */
     public void on_update_gtk_theme_name (string dbus_arg)
     {
         message("Changing gtk_theme_name: %s", dbus_arg);
@@ -1258,20 +1238,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
-    public void on_update_laptop_mode (string mode)
-    {
-        message("Changing laptop mode");
-        this.laptop_mode = mode;
-        kf.set_value ("State", "laptop_mode", this.laptop_mode);
-        save_keyfile();
-    }
-
     public void on_reload_settings_daemon ()
     {
         message("Reloading XSettings daemon");
         settings_daemon_reload(kf);
     }
 
+    /* Managers */
     public void on_request_audio_manager_command_set (string manager)
     {
         message("Changing Audio Manager command");
@@ -1589,6 +1562,24 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing updates type");
         this.updates_type = manager;
         kf.set_value ("Updates", "type", this.updates_type);
+        save_keyfile();
+    }
+
+    /* Autostart */
+    public void on_request_disable_autostart_set (string manager)
+    {
+        message("Changing disable autostart");
+        this.disable_autostart = manager;
+        kf.set_value ("Session", "disable_autostart", this.disable_autostart);
+        save_keyfile();
+    }
+
+    /* Laptop mode */
+    public void on_request_laptop_mode_set (string manager)
+    {
+        message("Changing laptop_mode");
+        this.laptop_mode = manager;
+        kf.set_value ("State", "laptop_mode", this.laptop_mode);
         save_keyfile();
     }
 

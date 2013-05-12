@@ -987,6 +987,34 @@ namespace LDefaultApps
             dbus_backend.UpdatesActivate();
         });
 
+        /* Disable autostart */
+        var disable_autostart_combobox = new Gtk.ComboBox();
+        string[] disable_autostart_commands = { "no", "config-only", "all"};
+        string disable_autostart_default = dbus_backend.DisableAutostartGet();
+        disable_autostart_combobox = ui_combobox_init(  builder,
+                                                        "disable_autostart_combobox",
+                                                        disable_autostart_commands,
+                                                        null,
+                                                        disable_autostart_default);
+
+        disable_autostart_combobox.changed.connect (() => {
+            dbus_backend.DisableAutostartSet(return_combobox_text(disable_autostart_combobox));
+        });
+
+        /* Laptop mode */
+        var laptop_mode_combobox = new Gtk.ComboBox();
+        string[] laptop_mode_commands = { "no", "yes", "unknown"};
+        string laptop_mode_default = dbus_backend.LaptopModeGet();
+        laptop_mode_combobox = ui_combobox_init(  builder,
+                                                  "laptop_mode_combobox",
+                                                  laptop_mode_commands,
+                                                  null,
+                                                  laptop_mode_default);
+
+        laptop_mode_combobox.changed.connect (() => {
+            dbus_backend.LaptopModeSet(return_combobox_text(laptop_mode_combobox));
+        });
+
         /* Show all */
         window.show_all ();
 

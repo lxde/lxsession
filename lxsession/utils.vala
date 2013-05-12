@@ -95,8 +95,6 @@ public class LxSignals : Object
 {
     public signal void update_window_manager (string dbus_arg);
 
-    public signal void update_disable_autostart (string dbus_arg);
-
     public signal void update_env_type (string dbus_arg);
     public signal void update_env_menu_prefix (string dbus_arg);
 
@@ -124,8 +122,6 @@ public class LxSignals : Object
     public signal void update_keyboard_delay (int dbus_arg);
     public signal void update_keyboard_interval (int dbus_arg);
     public signal void update_keyboard_beep (int dbus_arg);
-
-    public signal void update_laptop_mode(string mode);
 
     public signal void request_upstart_user_session_set (string dbus_arg);
 
@@ -204,6 +200,12 @@ public class LxSignals : Object
 
     /* Updates */
     public signal void request_updates_type_set (string dbus_arg);
+
+    /* Autostart */
+    public signal void request_disable_autostart_set (string dbus_arg);
+
+    /* State */
+    public signal void request_laptop_mode_set(string mode);
 
 }
 
