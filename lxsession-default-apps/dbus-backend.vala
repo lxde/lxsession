@@ -116,6 +116,9 @@ namespace LDefaultApps
         public abstract void A11yActivate () throws IOError;
         public abstract void A11yTypeSet (string arg) throws IOError;
         public abstract string A11yTypeGet () throws IOError;
+        public abstract void UpdatesActivate () throws IOError;
+        public abstract void UpdatesTypeSet (string arg) throws IOError;
+        public abstract string UpdatesTypeGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1306,6 +1309,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.A11yTypeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void UpdatesActivate()
+        {
+            try
+            {
+                dbus_lxsession.UpdatesActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void UpdatesTypeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.UpdatesTypeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string UpdatesTypeGet()
+        {
+            try
+            {
+                return dbus_lxsession.UpdatesTypeGet();
             }
             catch (GLib.IOError err)
             {

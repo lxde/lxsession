@@ -55,6 +55,7 @@ namespace Lxsession {
     XrandrOption global_xrandr;
     KeyringOption global_keyring;
     A11yOption global_a11y;
+    UpdatesOption global_updates;
 
     public class Main: GLib.Object
     {
@@ -355,7 +356,7 @@ namespace Lxsession {
             a11y.activate();
         }
 
-        if (global_settings.updates_activate == "true")
+        if (global_settings.updates_type != null)
         {
             var updates = new UpdatesOption(global_settings);
             updates.activate();

@@ -87,7 +87,7 @@ public class LxsessionConfig: GLib.Object {
     public string a11y_type { get; set; default = "gnome";}
 
     /* Updates */
-    public string updates_activate { get; set; default = "false";}
+    public string updates_type { get; set; default = null;}
 
     /* Environnement */
     public string env_type { get; set; default = null;}
@@ -181,8 +181,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         global_sig.update_laptop_mode.connect(on_update_laptop_mode);
 
-        global_sig.update_updates_activate.connect(on_update_updates_activate);
-
         global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
         /* Set for managers */
@@ -255,6 +253,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* a11y */
         global_sig.request_a11y_type_set.connect(on_request_a11y_type_set);
+
+        /* Updates */
+        global_sig.request_updates_type_set.connect(on_request_updates_type_set);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -743,7 +744,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         // Updates
 	    try
         {
-            this.updates_activate = kf.get_value ("Updates", "activate");
+            this.updates_type = kf.get_value ("Updates", "type");
         }
         catch (KeyFileError err)
         {
@@ -1061,14 +1062,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing upstart user session option: %s", dbus_arg);
         this.upstart_user_session = dbus_arg;
         kf.set_value ("Session", "upstart_user_session", this.upstart_user_session);
-        save_keyfile();
-    }
-
-    public void on_update_updates_activate (string dbus_arg)
-    {
-        message("Changing updates activate option: %s", dbus_arg);
-        this.updates_activate = dbus_arg;
-        kf.set_value ("Updates", "activate", this.updates_activate);
         save_keyfile();
     }
 
@@ -1586,7 +1579,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
     {
         message("Changing a11y type");
         this.a11y_type = manager;
-        kf.set_value ("a11y", "type", this.xrandr_command);
+        kf.set_value ("a11y", "type", this.a11y_type);
+        save_keyfile();
+    }
+
+    /* Updates */
+    public void on_request_updates_type_set (string manager)
+    {
+        message("Changing updates type");
+        this.updates_type = manager;
+        kf.set_value ("Updates", "type", this.updates_type);
         save_keyfile();
     }
 

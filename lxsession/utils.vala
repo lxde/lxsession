@@ -127,8 +127,6 @@ public class LxSignals : Object
 
     public signal void update_laptop_mode(string mode);
 
-    public signal void update_updates_activate (string dbus_arg);
-
     public signal void request_upstart_user_session_set (string dbus_arg);
 
     public signal void reload_settings_daemon();
@@ -203,6 +201,9 @@ public class LxSignals : Object
 
     /* a11y */
     public signal void request_a11y_type_set (string dbus_arg);
+
+    /* Updates */
+    public signal void request_updates_type_set (string dbus_arg);
 
 }
 

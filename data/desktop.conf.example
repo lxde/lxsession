@@ -115,7 +115,8 @@ keyring=ssh-agent
 type=gnome
 
 [Updates]
-activate=true
+# Updates checker, support build-in and update-notifier
+type=
 
 [Environment]
 type=

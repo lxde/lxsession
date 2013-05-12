@@ -966,6 +966,27 @@ namespace LDefaultApps
             dbus_backend.A11yActivate();
         });
 
+        /* Updates */
+        var updates_type_combobox = new Gtk.ComboBox();
+        string[] updates_type_commands = { "", "build-in", "update-notifier"};
+        string updates_type_default = dbus_backend.UpdatesTypeGet();
+        updates_type_combobox = ui_combobox_init(   builder,
+                                                    "updates_type_combobox",
+                                                    updates_type_commands,
+                                                    null,
+                                                    updates_type_default);
+
+        var updates_apply_button = builder.get_object("updates_apply") as Gtk.Button;
+        updates_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.UpdatesTypeSet(return_combobox_text(updates_type_combobox));
+        });
+
+        var updates_reload_button = builder.get_object("updates_reload") as Gtk.Button;
+        updates_reload_button.clicked.connect (() => {
+            dbus_backend.UpdatesActivate();
+        });
+
         /* Show all */
         window.show_all ();
 

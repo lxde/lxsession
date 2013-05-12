@@ -225,14 +225,40 @@ namespace Lxsession
     }
     public class UpdatesOption: Option
     {
+        private string command1;
+
         public UpdatesOption (LxsessionConfig config)
         {
             base (config);
+            switch (config.updates_type)
+            {
+                case "update-notifier":
+                    this.command1 = "update-notifier";
+                    break;
+                case "build-in":
+                    this.command1 = "build-in";
+                    break;
+            }
         }
 
         public new void activate()
         {
-            setup_apt_config ();
+            switch (this.command1)
+            {
+                case "build-in":
+                    setup_apt_config ();
+                    break;
+                case "update-notifier":
+                    try
+                    {
+                        Process.spawn_command_line_async(this.command1);
+                    }
+                    catch (SpawnError err)
+                    {
+                        warning (err.message);
+                    }
+                    break;
+            }
         }
 
         public void on_apt_update_file_change ()

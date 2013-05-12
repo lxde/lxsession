@@ -21,7 +21,7 @@ namespace LDefaultApps
     public Gtk.ComboBox ui_combobox_init (  Gtk.Builder builder,
                                             string combobox_name,
                                             string[] combobox_list, 
-                                            string entry_name,
+                                            string? entry_name,
                                             string by_default)
     {
         Gtk.ListStore list_store = new Gtk.ListStore (2, typeof (string), typeof (int));
@@ -52,11 +52,6 @@ namespace LDefaultApps
         return_combobox.active = 0;
 
         /* Set default */
-        if (entry_name != null)
-        {
-            var entry_default = builder.get_object (entry_name) as Entry;
-        }
-
         if (default_index == -1)
         {
             message ("Iter == -1");
@@ -75,6 +70,7 @@ namespace LDefaultApps
                     return_combobox.set_active_iter(iter);
                     if (entry_name != null)
                     {
+                        var entry_default = builder.get_object (entry_name) as Entry;
                         entry_default.set_text(by_default);
                         entry_default.show_all();
                     }
@@ -87,6 +83,7 @@ namespace LDefaultApps
             return_combobox.set_active(default_index);
             if (entry_name != null)
             {
+                var entry_default = builder.get_object (entry_name) as Entry;
                 entry_default.hide_all();
             }
         }

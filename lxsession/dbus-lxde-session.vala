@@ -1135,6 +1135,43 @@ namespace Lxsession
             }
         }
 
+        public void UpdatesTypeGet(out string command)
+        {
+            command = global_settings.updates_type;
+            message ("Get updates type: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void UpdatesTypeSet(string command)
+        {
+            message ("Set updates type to :%s", command);
+            global_sig.request_updates_type_set(command);
+        }
+
+        public void UpdatesActivate()
+        {
+            message("Reload updates");
+            if (global_settings.updates_type == null)
+            {
+                warning("Updates type not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Updates doesn't exist, creating it");
+                var updates = new UpdatesOption(global_settings);
+                global_updates = updates;
+                global_updates.activate();
+            }
+            else
+            {
+                message("Reload existing udpates");
+                global_updates.activate();
+            }
+        }
+
         /* Upstart user session */
         public void UpstartUserSessionGet(out string command)
         {
@@ -1153,12 +1190,6 @@ namespace Lxsession
         }
 
         /* TODO Triage this mess */
-        public void UpdatesActivate (string dbus_arg)
-        {
-            message ("Signal updates activate option: %s", dbus_arg);
-            global_sig.update_updates_activate(dbus_arg);
-        }
-
         public void DisableAutostart (string dbus_arg)
         {
             message ("Signal update disable autostart option: %s", dbus_arg);
