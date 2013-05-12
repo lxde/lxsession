@@ -147,8 +147,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Connect to signals changes */
         global_sig.update_window_manager.connect(on_update_window_manager);
 
-        global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
-
         global_sig.update_env_type.connect(on_update_env_type);
         global_sig.update_env_menu_prefix.connect(on_update_env_menu_prefix);
 
@@ -259,6 +257,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Laptop mode */
         global_sig.request_laptop_mode_set.connect(on_request_laptop_mode_set);
+
+        /* Dbus */
+        global_sig.request_dbus_lxde_set.connect(on_request_dbus_lxde_set);
+        global_sig.request_dbus_gnome_set.connect(on_request_dbus_gnome_set);
+
+        /* Upstart */
+        global_sig.request_upstart_user_session_set.connect(on_update_upstart_user_session);
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
@@ -1583,6 +1588,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         save_keyfile();
     }
 
+    /* Dbus */
+    public void on_request_dbus_lxde_set (string manager)
+    {
+        message("Changing dbus lxde");
+        this.dbus_lxde = manager;
+        kf.set_value ("Dbus", "dbus_lxde", this.dbus_lxde);
+        save_keyfile();
+    }
+
+    public void on_request_dbus_gnome_set (string manager)
+    {
+        message("Changing dbus gnome");
+        this.dbus_gnome = manager;
+        kf.set_value ("Dbus", "dbus_gnome", this.dbus_gnome);
+        save_keyfile();
+    }
 }
 
 }

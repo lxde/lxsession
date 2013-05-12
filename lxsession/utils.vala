@@ -207,6 +207,10 @@ public class LxSignals : Object
     /* State */
     public signal void request_laptop_mode_set(string mode);
 
+    /* Dbus */
+    public signal void request_dbus_lxde_set(string mode);
+    public signal void request_dbus_gnome_set(string mode);
+
 }
 
 public bool detect_laptop()

@@ -1042,6 +1042,33 @@ namespace LDefaultApps
             }
         });
 
+        /* Dbus */
+        var dbus_gnome_checkbutton = new Gtk.CheckButton.with_label ("Gnome");
+        var dbus_vbox = builder.get_object ("dbus_vbox") as Gtk.VBox;
+
+        dbus_vbox.add(dbus_gnome_checkbutton);
+
+        if (dbus_backend.DbusGnomeGet() == "true")
+        {
+            dbus_gnome_checkbutton.set_active(true);
+        }
+        else
+        {
+            dbus_gnome_checkbutton.set_active(false);
+        }
+
+        dbus_gnome_checkbutton.toggled.connect (() => {
+            message ("Click !");
+            if (dbus_gnome_checkbutton.get_active())
+            {
+                dbus_backend.DbusGnomeSet("true");
+            }
+            else
+            {
+                dbus_backend.DbusGnomeSet("false");
+            }
+        });
+
         /* Show all */
         window.show_all ();
 

@@ -125,6 +125,10 @@ namespace LDefaultApps
         public abstract string LaptopModeGet () throws IOError;
         public abstract void UpstartUserSessionSet (string arg) throws IOError;
         public abstract string UpstartUserSessionGet () throws IOError;
+        public abstract void DbusLxdeSet (string arg) throws IOError;
+        public abstract string DbusLxdeGet () throws IOError;
+        public abstract void DbusGnomeSet (string arg) throws IOError;
+        public abstract string DbusGnomeGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1427,6 +1431,56 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.UpstartUserSessionGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void DbusLxdeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DbusLxdeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string DbusLxdeGet()
+        {
+            try
+            {
+                return dbus_lxsession.DbusLxdeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void DbusGnomeSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.DbusGnomeSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string DbusGnomeGet()
+        {
+            try
+            {
+                return dbus_lxsession.DbusGnomeGet();
             }
             catch (GLib.IOError err)
             {

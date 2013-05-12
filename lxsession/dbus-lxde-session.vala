@@ -1223,7 +1223,40 @@ namespace Lxsession
             global_sig.request_upstart_user_session_set(command);
         }
 
-        /* TODO Triage this mess */
+        /* Dbus */
+        public void DbusLxdeGet(out string command)
+        {
+            command = global_settings.dbus_lxde;
+            message ("Get dbus lxde: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DbusLxdeSet(string command)
+        {
+            message ("Set dbus lxde session:%s", command);
+            global_sig.request_dbus_lxde_set(command);
+        }
+
+        public void DbusGnomeGet(out string command)
+        {
+            command = global_settings.dbus_gnome;
+            message ("Get dbus gnome: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void DbusGnomeSet(string command)
+        {
+            message ("Set dbus gnome session:%s", command);
+            global_sig.request_dbus_gnome_set(command);
+        }
+
+        /* XSettings update */
         public void GtkThemeName (string dbus_arg)
         {
             message ("Signal update gtk_theme_name: %s", dbus_arg);
@@ -1357,6 +1390,7 @@ namespace Lxsession
             global_sig.update_keyboard_beep(dbus_arg);
         }
 
+        /* Package manager running */
         public async void PackageManagerRunning (out bool is_running)
         {
             message ("Check if package manager is running");
