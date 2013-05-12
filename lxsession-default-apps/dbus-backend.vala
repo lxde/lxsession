@@ -123,6 +123,8 @@ namespace LDefaultApps
         public abstract string DisableAutostartGet () throws IOError;
         public abstract void LaptopModeSet (string arg) throws IOError;
         public abstract string LaptopModeGet () throws IOError;
+        public abstract void UpstartUserSessionSet (string arg) throws IOError;
+        public abstract string UpstartUserSessionGet () throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -1400,6 +1402,31 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.LaptopModeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void UpstartUserSessionSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.UpstartUserSessionSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string UpstartUserSessionGet()
+        {
+            try
+            {
+                return dbus_lxsession.UpstartUserSessionGet();
             }
             catch (GLib.IOError err)
             {

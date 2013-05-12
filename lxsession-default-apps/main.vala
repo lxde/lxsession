@@ -1015,6 +1015,33 @@ namespace LDefaultApps
             dbus_backend.LaptopModeSet(return_combobox_text(laptop_mode_combobox));
         });
 
+        /* Upstart Session */
+        /* Note using glade + Vala for checkbutton doesnt work, so we have to create it in the code */
+        var upstart_session_checkbutton = new Gtk.CheckButton.with_label ("Upstart Session");
+        var upstart_session_hbox = builder.get_object ("upstart_session_hbox") as Gtk.HBox;
+        upstart_session_hbox.add(upstart_session_checkbutton);
+
+        if (dbus_backend.UpstartUserSessionGet() == "true")
+        {
+            upstart_session_checkbutton.set_active(true);
+        }
+        else
+        {
+            upstart_session_checkbutton.set_active(false);
+        }
+
+        upstart_session_checkbutton.toggled.connect (() => {
+            message ("Click !");
+            if (upstart_session_checkbutton.get_active())
+            {
+                dbus_backend.UpstartUserSessionSet("true");
+            }
+            else
+            {
+                dbus_backend.UpstartUserSessionSet("false");
+            }
+        });
+
         /* Show all */
         window.show_all ();
 
