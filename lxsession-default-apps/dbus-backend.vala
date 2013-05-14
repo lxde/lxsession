@@ -82,6 +82,8 @@ namespace LDefaultApps
         public abstract void LauncherManagerLaunch () throws IOError;
         public abstract void LauncherManagerCommandSet (string arg) throws IOError;
         public abstract string LauncherManagerCommandGet () throws IOError;
+        public abstract void LauncherManagerAutostartSet (string arg) throws IOError;
+        public abstract string LauncherManagerAutostartGet () throws IOError;
         public abstract void TerminalManagerLaunch () throws IOError;
         public abstract void TerminalManagerCommandSet (string arg) throws IOError;
         public abstract string TerminalManagerCommandGet () throws IOError;
@@ -903,6 +905,31 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.LauncherManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void LauncherManagerAutostartSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.LauncherManagerAutostartSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string LauncherManagerAutostartGet()
+        {
+            try
+            {
+                return dbus_lxsession.LauncherManagerAutostartGet();
             }
             catch (GLib.IOError err)
             {

@@ -213,6 +213,23 @@ namespace Lxsession
             message ("Set launcher manager command to :%s", command);
             global_sig.request_launcher_manager_command_set(command);
         }
+
+        public void LauncherManagerAutostartGet(out string command)
+        {
+            command = global_settings.launcher_manager_autostart;
+            message ("Get launcher manager autostart: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void LauncherManagerAutostartSet(string command)
+        {
+            message ("Set launcher manager autostart to :%s", command);
+            global_sig.request_launcher_manager_autostart_set(command);
+        }
+
         public void LauncherManagerLaunch()
         {
             message("Start Launcher Manager");

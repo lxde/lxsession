@@ -734,6 +734,32 @@ namespace LDefaultApps
             dbus_backend.LauncherManagerLaunch();
         });
 
+        var launcher_autostart_checkbutton = new Gtk.CheckButton.with_label ("Autostart");
+        var launcher_vbox = builder.get_object ("launcher_vbox") as Gtk.VBox;
+
+        launcher_vbox.add(launcher_autostart_checkbutton);
+
+        if (dbus_backend.LauncherManagerAutostartGet() == "true")
+        {
+            launcher_autostart_checkbutton.set_active(true);
+        }
+        else
+        {
+            launcher_autostart_checkbutton.set_active(false);
+        }
+
+        launcher_autostart_checkbutton.toggled.connect (() => {
+            message ("Click !");
+            if (launcher_autostart_checkbutton.get_active())
+            {
+                dbus_backend.LauncherManagerAutostartSet("true");
+            }
+            else
+            {
+                dbus_backend.LauncherManagerAutostartSet("false");
+            }
+        });
+
         /* Terminal manager init */
         var terminal_command_combobox = new Gtk.ComboBox();
         var terminal_command_entry = builder.get_object ("terminal_command_entry") as Entry;

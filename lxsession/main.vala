@@ -306,6 +306,19 @@ namespace Lxsession {
                 global_polkit = securitypolkit;
                 global_polkit.launch();
             }
+
+
+
+            if (global_settings.launcher_manager_autostart == "true")
+            {
+                if (global_settings.launcher_manager_command != null)
+                {
+                    var launcher = new LauncherManagerApp();
+                    global_launcher_manager = launcher;
+                    global_launcher_manager.launch();
+                }
+            }
+
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
             auto.start_applications();

@@ -51,6 +51,7 @@ public class LxsessionConfig: GLib.Object {
     public string quit_manager_layout { get; set; default = null;}
     public string workspace_manager_command { get; set; default = null;}
     public string launcher_manager_command { get; set; default = null;}
+    public string launcher_manager_autostart { get; set; default = null;}
     public string terminal_manager_command { get; set; default = null;}
     public string screenshot_manager_command { get; set; default = null;}
     public string upgrade_manager_command { get; set; default = null;}
@@ -178,10 +179,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         /* Set for managers */
         global_sig.request_audio_manager_command_set.connect(on_request_audio_manager_command_set);
         global_sig.request_workspace_manager_command_set.connect(on_request_workspace_manager_command_set);
-        global_sig.request_launcher_manager_command_set.connect(on_request_launcher_manager_command_set);
         global_sig.request_terminal_manager_command_set.connect(on_request_terminal_manager_command_set);
         global_sig.request_screenshot_manager_command_set.connect(on_request_screenshot_manager_command_set);
         global_sig.request_upgrade_manager_command_set.connect(on_request_screenshot_manager_command_set);
+
+        /* Launcher manager */
+        global_sig.request_launcher_manager_command_set.connect(on_request_launcher_manager_command_set);
+        global_sig.request_launcher_manager_autostart_set.connect(on_request_launcher_manager_autostart_set);
 
         /* Windows Manager control */
         global_sig.request_windows_manager_command_set.connect(on_request_windows_manager_command_set);
@@ -549,6 +553,17 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.launcher_manager_command = kf.get_value("Session", "launcher_manager/command");
+            if (this.launcher_manager_command != null)
+            {
+                try
+                {
+                    this.launcher_manager_autostart = kf.get_value ("Session", "launcher_manager/autostart");
+                }
+                catch (KeyFileError err)
+                {
+	                message (err.message);
+                }
+            }
         }
         catch (KeyFileError err)
         {
@@ -1296,6 +1311,14 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing Launcher Manager command");
         this.launcher_manager_command = manager;
         kf.set_value ("Session", "launcher_manager/command", this.launcher_manager_command);
+        save_keyfile();
+    }
+
+    public void on_request_launcher_manager_autostart_set (string manager)
+    {
+        message("Changing Launcher Manager autostart");
+        this.launcher_manager_autostart = manager;
+        kf.set_value ("Session", "launcher_manager/autostart", this.launcher_manager_autostart);
         save_keyfile();
     }
 

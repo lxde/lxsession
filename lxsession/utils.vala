@@ -126,7 +126,6 @@ public class LxSignals : Object
     /* Set for managers */
     public signal void request_audio_manager_command_set(string manager);
     public signal void request_workspace_manager_command_set(string manager);
-    public signal void request_launcher_manager_command_set(string manager);
     public signal void request_terminal_manager_command_set(string manager);
     public signal void request_screenshot_manager_command_set(string manager);
     public signal void request_upgrade_manager_command_set(string manager);
@@ -173,6 +172,10 @@ public class LxSignals : Object
     public signal void request_quit_manager_command_set(string manager);
     public signal void request_quit_manager_image_set(string manager);
     public signal void request_quit_manager_layout_set(string manager);
+
+    /* Launcher manager */
+    public signal void request_launcher_manager_command_set(string manager);
+    public signal void request_launcher_manager_autostart_set(string manager);
 
     /* clipboard control */
     public signal void request_clipboard_command_set(string dbus_arg);
