@@ -181,7 +181,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_workspace_manager_command_set.connect(on_request_workspace_manager_command_set);
         global_sig.request_terminal_manager_command_set.connect(on_request_terminal_manager_command_set);
         global_sig.request_screenshot_manager_command_set.connect(on_request_screenshot_manager_command_set);
-        global_sig.request_upgrade_manager_command_set.connect(on_request_screenshot_manager_command_set);
+        global_sig.request_upgrade_manager_command_set.connect(on_request_upgrade_manager_command_set);
 
         /* Launcher manager */
         global_sig.request_launcher_manager_command_set.connect(on_request_launcher_manager_command_set);
