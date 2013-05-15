@@ -56,6 +56,9 @@ namespace Lxsession {
     KeyringOption global_keyring;
     A11yOption global_a11y;
     UpdatesOption global_updates;
+    IM1App global_im1;
+    IM2App global_im2;
+
 
     public class Main: GLib.Object
     {
@@ -316,6 +319,26 @@ namespace Lxsession {
                     var launcher = new LauncherManagerApp();
                     global_launcher_manager = launcher;
                     global_launcher_manager.launch();
+                }
+            }
+
+            if (global_settings.im1_autostart == "true")
+            {
+                if (global_settings.im1_command != null)
+                {
+                    var im1 = new IM1App();
+                    global_im1 = im1;
+                    global_im1.launch();
+                }
+            }
+
+            if (global_settings.im2_autostart == "true")
+            {
+                if (global_settings.im2_command != null)
+                {
+                    var im2 = new IM2App();
+                    global_im2 = im2;
+                    global_im2.launch();
                 }
             }
 

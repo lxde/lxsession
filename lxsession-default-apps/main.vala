@@ -503,6 +503,110 @@ namespace LDefaultApps
             dbus_backend.CompositeManagerReload();
         });
 
+        /* IM1 init */
+        var im1_command_combobox = new Gtk.ComboBox();
+        var im1_command_entry = builder.get_object ("im1_command_entry") as Entry;
+        string[] im1_commands = {""};
+        string im1_command_default = dbus_backend.IM1CommandGet();
+        im1_command_combobox = ui_combobox_init(  builder,
+                                                    "im1_command_combobox",
+                                                    im1_commands,
+                                                    "im1_command_entry",
+                                                    im1_command_default);
+
+
+        var im1_autostart_combobox = new Gtk.ComboBox();
+        var im1_autostart_entry = builder.get_object ("im1_autostart_entry") as Entry;
+        string[] im1_autostart = {"", "true", "false"};
+        string im1_autostart_default = dbus_backend.IM1AutostartGet();
+        im1_autostart_combobox = ui_combobox_init(  builder,
+                                                    "im1_autostart_combobox",
+                                                    im1_autostart,
+                                                    "im1_autostart_entry",
+                                                    im1_autostart_default);
+
+        var im1_apply_button = builder.get_object("im1_apply") as Gtk.Button;
+        im1_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(im1_command_combobox) == 99)
+            {
+                dbus_backend.IM1CommandSet(im1_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.IM1CommandSet(return_combobox_text(im1_command_combobox));
+            }
+
+
+            if (return_combobox_position(im1_autostart_combobox) == 99)
+            {
+                dbus_backend.IM1AutostartSet(im1_autostart_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.IM1AutostartSet(return_combobox_text(im1_autostart_combobox));
+            }
+
+        });
+
+        var im1_reload_button = builder.get_object("im1_reload") as Gtk.Button;
+        im1_reload_button.clicked.connect (() => {
+            dbus_backend.IM1Reload();
+        });
+
+        /* IM2 init */
+        var im2_command_combobox = new Gtk.ComboBox();
+        var im2_command_entry = builder.get_object ("im2_command_entry") as Entry;
+        string[] im2_commands = {""};
+        string im2_command_default = dbus_backend.IM2CommandGet();
+        im2_command_combobox = ui_combobox_init(  builder,
+                                                    "im2_command_combobox",
+                                                    im2_commands,
+                                                    "im2_command_entry",
+                                                    im2_command_default);
+
+
+        var im2_autostart_combobox = new Gtk.ComboBox();
+        var im2_autostart_entry = builder.get_object ("im2_autostart_entry") as Entry;
+        string[] im2_autostart = {"", "true", "false"};
+        string im2_autostart_default = dbus_backend.IM2AutostartGet();
+        im2_autostart_combobox = ui_combobox_init(  builder,
+                                                    "im2_autostart_combobox",
+                                                    im2_autostart,
+                                                    "im2_autostart_entry",
+                                                    im2_autostart_default);
+
+        var im2_apply_button = builder.get_object("im2_apply") as Gtk.Button;
+        im2_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(im2_command_combobox) == 99)
+            {
+                dbus_backend.IM2CommandSet(im2_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.IM2CommandSet(return_combobox_text(im2_command_combobox));
+            }
+
+
+            if (return_combobox_position(im2_autostart_combobox) == 99)
+            {
+                dbus_backend.IM2AutostartSet(im2_autostart_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.IM2AutostartSet(return_combobox_text(im2_autostart_combobox));
+            }
+
+        });
+
+        var im2_reload_button = builder.get_object("im2_reload") as Gtk.Button;
+        im2_reload_button.clicked.connect (() => {
+            dbus_backend.IM2Reload();
+        });
+
         /* Polkit agent init */
         var polkit_command_combobox = new Gtk.ComboBox();
         var polkit_command_entry = builder.get_object ("polkit_command_entry") as Entry;
@@ -1207,6 +1311,28 @@ namespace LDefaultApps
         if (return_combobox_position(composite_autostart_combobox) != 99)
         {
             composite_autostart_entry.hide_all();
+        }
+
+        /* IM1 hide */
+        if (return_combobox_position(im1_command_combobox) != 99)
+        {
+            im1_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(im1_autostart_combobox) != 99)
+        {
+            im1_autostart_entry.hide_all();
+        }
+
+        /* IM2 hide */
+        if (return_combobox_position(im2_command_combobox) != 99)
+        {
+            im2_command_entry.hide_all();
+        }
+
+        if (return_combobox_position(im2_autostart_combobox) != 99)
+        {
+            im2_autostart_entry.hide_all();
         }
 
         /* Polkit hide */

@@ -430,6 +430,114 @@ namespace Lxsession
             }
         }
 
+        /* IM1 manager */
+        public void IM1CommandGet(out string command)
+        {
+            command = global_settings.im1_command;
+            message ("Get im1: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void IM1CommandSet(string command)
+        {
+            message ("Set im1 to :%s", command);
+            global_sig.request_im1_command_set(command);
+        }
+
+        public void IM1AutostartGet(out string command)
+        {
+            command = global_settings.im1_autostart;
+            message ("Get im1 autostart: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void IM1AutostartSet(string command)
+        {
+            message ("Set im1 autostart to :%s", command);
+            global_sig.request_im1_autostart_set(command);
+        }
+
+        public void IM1Reload()
+        {
+            message("Reload im1");
+            if (global_settings.im1_command == null)
+            {
+                warning("im1 not set not set");
+            }
+            else if (global_im1 == null)
+            {
+                message("IM1 doesn't exist, creating it");
+                var im1 = new IM1App();
+                global_im1 = im1;
+                global_im1.launch();
+            }
+            else
+            {
+                message("Reload existing im1");
+                global_im1.reload();
+            }
+        }
+
+        /* IM2 manager */
+        public void IM2CommandGet(out string command)
+        {
+            command = global_settings.im2_command;
+            message ("Get im2: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void IM2CommandSet(string command)
+        {
+            message ("Set im2 to :%s", command);
+            global_sig.request_im2_command_set(command);
+        }
+
+        public void IM2AutostartGet(out string command)
+        {
+            command = global_settings.im2_autostart;
+            message ("Get im2 autostart: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void IM2AutostartSet(string command)
+        {
+            message ("Set im2 autostart to :%s", command);
+            global_sig.request_im2_autostart_set(command);
+        }
+
+        public void IM2Reload()
+        {
+            message("Reload im2");
+            if (global_settings.im2_command == null)
+            {
+                warning("im2 not set not set");
+            }
+            else if (global_im2 == null)
+            {
+                message("IM2 doesn't exist, creating it");
+                var im2 = new IM2App();
+                global_im2 = im2;
+                global_im2.launch();
+            }
+            else
+            {
+                message("Reload existing im2");
+                global_im2.reload();
+            }
+        }
+
         /* FileManager control */
         public void FileManagerCommandGet(out string command)
         {

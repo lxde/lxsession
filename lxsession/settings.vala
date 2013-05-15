@@ -45,6 +45,10 @@ public class LxsessionConfig: GLib.Object {
     public string desktop_wallpaper { get; set; default = null;}
     public string polkit_command { get; set; default = null;}
     public string network_gui_command { get; set; default = null;}
+    public string im1_command { get; set; default = null;}
+    public string im1_autostart { get; set; default = null;}
+    public string im2_command { get; set; default = null;}
+    public string im2_autostart { get; set; default = null;}
     public string audio_manager_command { get; set; default = null;}
     public string quit_manager_command { get; set; default = null;}
     public string quit_manager_image { get; set; default = null;}
@@ -224,6 +228,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* Network gui control */
         global_sig.request_network_gui_command_set.connect(on_request_network_gui_command_set);
+
+        /* IM manager */
+        global_sig.request_im1_command_set.connect(on_request_im1_command_set);
+        global_sig.request_im1_autostart_set.connect(on_request_im1_autostart_set);
+        global_sig.request_im2_command_set.connect(on_request_im2_command_set);
+        global_sig.request_im2_autostart_set.connect(on_request_im2_autostart_set);
 
         /* Quit manager */
         global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
@@ -613,6 +623,44 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.composite_manager_autostart = kf.get_value("Session", "composite_manager/autostart");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // IM 1
+        try
+        {
+            this.im1_command = kf.get_value("Session", "im1/command");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.im1_autostart = kf.get_value("Session", "im1/autostart");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // IM 2
+        try
+        {
+            this.im2_command = kf.get_value("Session", "im2/command");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.im2_autostart = kf.get_value("Session", "im2/autostart");
         }
         catch (KeyFileError err)
         {
@@ -1461,6 +1509,39 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing Composite Manager autostart");
         this.composite_manager_autostart = manager;
         kf.set_value ("Session", "composite_manager/autostart", this.composite_manager_autostart);
+        save_keyfile();
+    }
+
+    /* IM */
+    public void on_request_im1_command_set (string manager)
+    {
+        message("Changing im1 command");
+        this.im1_command = manager;
+        kf.set_value ("Session", "im1/command", this.im1_command);
+        save_keyfile();
+    }
+
+    public void on_request_im1_autostart_set (string manager)
+    {
+        message("Changing im1 autostart");
+        this.im1_autostart = manager;
+        kf.set_value ("Session", "im1/autostart", this.im1_autostart);
+        save_keyfile();
+    }
+
+    public void on_request_im2_command_set (string manager)
+    {
+        message("Changing im2 command");
+        this.im2_command = manager;
+        kf.set_value ("Session", "im2/command", this.im2_command);
+        save_keyfile();
+    }
+
+    public void on_request_im2_autostart_set (string manager)
+    {
+        message("Changing im2 autostart");
+        this.im2_autostart = manager;
+        kf.set_value ("Session", "im2/autostart", this.im2_autostart);
         save_keyfile();
     }
 

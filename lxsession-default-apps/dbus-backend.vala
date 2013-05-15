@@ -66,6 +66,16 @@ namespace LDefaultApps
         public abstract void NetworkGuiReload () throws IOError;
         public abstract void NetworkGuiCommandSet (string arg) throws IOError;
         public abstract string NetworkGuiCommandGet () throws IOError;
+        public abstract void IM1Reload () throws IOError;
+        public abstract void IM1CommandSet (string arg) throws IOError;
+        public abstract void IM1AutostartSet (string arg) throws IOError;
+        public abstract string IM1CommandGet () throws IOError;
+        public abstract string IM1AutostartGet () throws IOError;
+        public abstract void IM2Reload () throws IOError;
+        public abstract void IM2CommandSet (string arg) throws IOError;
+        public abstract void IM2AutostartSet (string arg) throws IOError;
+        public abstract string IM2CommandGet () throws IOError;
+        public abstract string IM2AutostartGet () throws IOError;
         public abstract void AudioManagerLaunch () throws IOError;
         public abstract void AudioManagerCommandSet (string arg) throws IOError;
         public abstract string AudioManagerCommandGet () throws IOError;
@@ -636,6 +646,130 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.CompositeManagerAutostartGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void IM1Reload()
+        {
+            try
+            {
+                dbus_lxsession.IM1Reload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void IM1CommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.IM1CommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void IM1AutostartSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.IM1AutostartSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string IM1CommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.IM1CommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string IM1AutostartGet()
+        {
+            try
+            {
+                return dbus_lxsession.IM1AutostartGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void IM2Reload()
+        {
+            try
+            {
+                dbus_lxsession.IM2Reload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void IM2CommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.IM2CommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void IM2AutostartSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.IM2AutostartSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string IM2CommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.IM2CommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string IM2AutostartGet()
+        {
+            try
+            {
+                return dbus_lxsession.IM2AutostartGet();
             }
             catch (GLib.IOError err)
             {
