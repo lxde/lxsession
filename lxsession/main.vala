@@ -58,7 +58,7 @@ namespace Lxsession {
     UpdatesOption global_updates;
     IM1App global_im1;
     IM2App global_im2;
-
+    WidgetApp global_widget1;
 
     public class Main: GLib.Object
     {
@@ -339,6 +339,16 @@ namespace Lxsession {
                     var im2 = new IM2App();
                     global_im2 = im2;
                     global_im2.launch();
+                }
+            }
+
+            if (global_settings.widget1_autostart == "true")
+            {
+                if (global_settings.widget1_command != null)
+                {
+                    var widget1 = new WidgetApp();
+                    global_widget1 = widget1;
+                    global_widget1.launch();
                 }
             }
 

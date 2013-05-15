@@ -174,6 +174,10 @@ public class LxSignals : Object
     public signal void request_im2_command_set(string manager);
     public signal void request_im2_autostart_set (string dbus_arg);
 
+    /* Widget */
+    public signal void request_widget1_command_set(string manager);
+    public signal void request_widget1_autostart_set (string dbus_arg);
+
     /* Quit manager */
     public signal void request_quit_manager_command_set(string manager);
     public signal void request_quit_manager_image_set(string manager);

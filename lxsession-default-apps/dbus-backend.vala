@@ -76,6 +76,11 @@ namespace LDefaultApps
         public abstract void IM2AutostartSet (string arg) throws IOError;
         public abstract string IM2CommandGet () throws IOError;
         public abstract string IM2AutostartGet () throws IOError;
+        public abstract void Widget1Reload () throws IOError;
+        public abstract void Widget1CommandSet (string arg) throws IOError;
+        public abstract void Widget1AutostartSet (string arg) throws IOError;
+        public abstract string Widget1CommandGet () throws IOError;
+        public abstract string Widget1AutostartGet () throws IOError;
         public abstract void AudioManagerLaunch () throws IOError;
         public abstract void AudioManagerCommandSet (string arg) throws IOError;
         public abstract string AudioManagerCommandGet () throws IOError;
@@ -770,6 +775,68 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.IM2AutostartGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void Widget1Reload()
+        {
+            try
+            {
+                dbus_lxsession.Widget1Reload();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void Widget1CommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.Widget1CommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void Widget1AutostartSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.Widget1AutostartSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string Widget1CommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.Widget1CommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public string Widget1AutostartGet()
+        {
+            try
+            {
+                return dbus_lxsession.Widget1AutostartGet();
             }
             catch (GLib.IOError err)
             {

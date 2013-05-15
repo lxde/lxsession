@@ -46,6 +46,10 @@ im1/autostart=
 im2/command=
 im2/autostart=
 
+# Widget program (conky, screenlet ...)
+widget1/command=
+widget1/autostart=
+
 # Audio preferences (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.AudioManagerLaunch)
 audio_manager/command=
 

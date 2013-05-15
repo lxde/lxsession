@@ -538,6 +538,60 @@ namespace Lxsession
             }
         }
 
+        /* Widget manager */
+        public void Widget1CommandGet(out string command)
+        {
+            command = global_settings.widget1_command;
+            message ("Get widget1: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void Widget1CommandSet(string command)
+        {
+            message ("Set widget1 to :%s", command);
+            global_sig.request_widget1_command_set(command);
+        }
+
+        public void Widget1AutostartGet(out string command)
+        {
+            command = global_settings.widget1_autostart;
+            message ("Get widget1: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void Widget1AutostartSet(string command)
+        {
+            message ("Set widget1 to :%s", command);
+            global_sig.request_widget1_autostart_set(command);
+        }
+
+        public void Widget1Reload()
+        {
+            message("Reload widget1");
+            if (global_settings.widget1_command == null)
+            {
+                warning("widget1 not set not set");
+            }
+            else if (global_widget1 == null)
+            {
+                message("Widget1 doesn't exist, creating it");
+                var widget1 = new WidgetApp();
+                global_widget1 = widget1;
+                global_widget1.launch();
+            }
+            else
+            {
+                message("Reload existing widget1");
+                global_widget1.reload();
+            }
+        }
+
         /* FileManager control */
         public void FileManagerCommandGet(out string command)
         {

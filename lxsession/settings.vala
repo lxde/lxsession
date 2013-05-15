@@ -49,6 +49,8 @@ public class LxsessionConfig: GLib.Object {
     public string im1_autostart { get; set; default = null;}
     public string im2_command { get; set; default = null;}
     public string im2_autostart { get; set; default = null;}
+    public string widget1_command { get; set; default = null;}
+    public string widget1_autostart { get; set; default = null;}
     public string audio_manager_command { get; set; default = null;}
     public string quit_manager_command { get; set; default = null;}
     public string quit_manager_image { get; set; default = null;}
@@ -234,6 +236,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_im1_autostart_set.connect(on_request_im1_autostart_set);
         global_sig.request_im2_command_set.connect(on_request_im2_command_set);
         global_sig.request_im2_autostart_set.connect(on_request_im2_autostart_set);
+
+        /* Widgets */
+        global_sig.request_widget1_command_set.connect(on_request_widget1_command_set);
+        global_sig.request_widget1_autostart_set.connect(on_request_widget1_autostart_set);
 
         /* Quit manager */
         global_sig.request_quit_manager_command_set.connect(on_request_quit_manager_command_set);
@@ -661,6 +667,25 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.im2_autostart = kf.get_value("Session", "im2/autostart");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        // Widget 1
+        try
+        {
+            this.widget1_command = kf.get_value("Session", "widget1/command");
+        }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        try
+        {
+            this.widget1_autostart = kf.get_value("Session", "widget1/autostart");
         }
         catch (KeyFileError err)
         {
@@ -1542,6 +1567,23 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing im2 autostart");
         this.im2_autostart = manager;
         kf.set_value ("Session", "im2/autostart", this.im2_autostart);
+        save_keyfile();
+    }
+
+    /* Widget */
+    public void on_request_widget1_command_set (string manager)
+    {
+        message("Changing widget1 command");
+        this.widget1_command = manager;
+        kf.set_value ("Session", "widget1/command", this.widget1_command);
+        save_keyfile();
+    }
+
+    public void on_request_widget1_autostart_set (string manager)
+    {
+        message("Changing widget1 autostart");
+        this.widget1_autostart = manager;
+        kf.set_value ("Session", "widget1/autostart", this.widget1_autostart);
         save_keyfile();
     }
 
