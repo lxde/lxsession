@@ -202,8 +202,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         global_sig.request_windows_manager_extras_set.connect(on_request_windows_manager_extras_set);
 
         /* Panel control */
-        global_sig.request_panel_command_set.connect(on_request_panel_command_set);
-        global_sig.request_panel_session_set.connect(on_request_panel_session_set);
+        global_sig.request_panel_command_set.connect(on_update_string_set);
+        global_sig.request_panel_session_set.connect(on_update_string_set);
 
         /* Dock control */
         global_sig.request_dock_command_set.connect(on_request_dock_command_set);
@@ -1135,6 +1135,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
             }
         }
 
+    }
+
+    public void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
+    {
+        if (kf_key2 == null)
+        {
+            message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+            kf.set_value (kf_categorie, kf_key1, dbus_arg);
+        }
+        else
+        {
+            message("Changing %s - %s - %s to %s" , kf_categorie, kf_key1, kf_key2, dbus_arg);
+            kf.set_value (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
+        }
+        save_keyfile();
+        read_keyfile();
     }
 
     /* Compatibility for windows manager settings */

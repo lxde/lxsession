@@ -676,7 +676,7 @@ namespace Lxsession
         public void PanelCommandSet(string command)
         {
             message ("Set panel command to :%s", command);
-            global_sig.request_panel_command_set(command);
+            global_sig.request_panel_command_set(command, "Session", "panel", "command");
         }
 
         public void PanelSessionGet(out string command)
@@ -692,7 +692,7 @@ namespace Lxsession
         public void PanelSessionSet(string command)
         {
             message ("Set panel session to :%s", command);
-            global_sig.request_panel_session_set(command);
+            global_sig.request_panel_session_set(command, "Session", "panel", "session");
         }
 
         public void PanelReload()
