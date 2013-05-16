@@ -349,19 +349,19 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         setup_monitor_desktop_file();
     }
 
-    public string read_keyfile_string_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2)
+    public string read_keyfile_string_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2, string? default_value)
     {
+        string copy_value = null;
         string return_value = null;
-
         try
         {
             if (kf_key2 == null)
             {
-                return_value = keyfile.get_value (kf_categorie, kf_key1);
+                copy_value = keyfile.get_value (kf_categorie, kf_key1);
             }
             else
             {
-                return_value = keyfile.get_value (kf_categorie, kf_key1 + "/" + kf_key2);
+                copy_value = keyfile.get_value (kf_categorie, kf_key1 + "/" + kf_key2);
             }
 	    }
         catch (KeyFileError err)
@@ -369,711 +369,202 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 		    message (err.message);
         }
 
-        return return_value;
+        if (copy_value == null)
+        {
+            return_value = default_value;
+        }
+        else
+        {
+            if (default_value != copy_value)
+            {
+                return_value = copy_value;
+            }
+            else
+            {
+                return_value = default_value;
+            }
+        }
 
+        return return_value;
+    }
+
+    public int read_keyfile_int_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2, int default_value)
+    {
+        int return_value = 0;
+
+        try
+        {
+            if (kf_key2 == null)
+            {
+                return_value = keyfile.get_integer (kf_categorie, kf_key1);
+            }
+            else
+            {
+                return_value = keyfile.get_integer (kf_categorie, kf_key1 + "/" + kf_key2);
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        if (return_value == 0)
+        {
+            return_value = default_value;
+        }
+        else
+        {
+            if (return_value == default_value)
+            {
+                return_value = default_value;
+            }
+        }
+        return return_value;
     }
 
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
 
-        this.panel_command = read_keyfile_string_value (kf, "Session", "panel", "command");
+        /* Windows manager */
+        this.window_manager = read_keyfile_string_value (kf, "Session", "window_manager", null, this.window_manager);
+        if (this.window_manager == null)
+        {
+            this.windows_manager_command = read_keyfile_string_value (kf, "Session", "windows_manager", "command", this.windows_manager_command);
+            if (this.windows_manager_command != null)
+            {
+                this.windows_manager_session = read_keyfile_string_value (kf, "Session", "windows_manager","session", this.windows_manager_session);
+                this.windows_manager_extras = read_keyfile_string_value (kf, "Session", "windows_manager", "extras", this.windows_manager_extras);
+            }
+        }
+
+        /* Panel */
+        this.panel_command = read_keyfile_string_value (kf, "Session", "panel", "command", this.panel_command);
         if (this.panel_command != null)
         {
-            this.panel_session = read_keyfile_string_value (kf, "Session", "panel", "session");
+            this.panel_session = read_keyfile_string_value (kf, "Session", "panel", "session", this.panel_session);
         }
 
-        // Windows manager
-        try
+        /* Dock */
+        this.dock_command = read_keyfile_string_value (kf, "Session", "dock", "command", this.dock_command);
+        if (this.dock_command != null)
         {
-            this.window_manager = kf.get_value ("Session", "window_manager");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.dock_session = read_keyfile_string_value (kf, "Session", "dock", "session", this.dock_session);
         }
 
-        try
+        /* File Manager */
+        this.file_manager_command = read_keyfile_string_value (kf, "Session", "file_manager", "command", this.file_manager_command);
+        if (this.file_manager_command != null)
         {
-            this.windows_manager_command = kf.get_value ("Session", "windows_manager/command");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.file_manager_session = read_keyfile_string_value (kf, "Session", "file_manager", "session", this.file_manager_session);
+            this.file_manager_extras = read_keyfile_string_value (kf, "Session", "file_manager", "extras", this.file_manager_extras);
         }
 
-        try
+        /* Desktop handler */
+        this.desktop_command = read_keyfile_string_value (kf, "Session", "desktop_manager", "command", this.desktop_command);
+        if (this.desktop_command != null)
         {
-            this.windows_manager_session = kf.get_value ("Session", "windows_manager/session");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.desktop_wallpaper = read_keyfile_string_value (kf, "Session", "desktop_manager", "wallpaper", this.desktop_wallpaper);
         }
 
-        try
+        /* Launcher manager */
+        this.launcher_manager_command = read_keyfile_string_value(kf, "Session", "launcher_manager", "command", this.launcher_manager_command);
+        if (this.launcher_manager_command != null)
         {
-            this.windows_manager_extras = kf.get_value ("Session", "windows_manager/extras");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.launcher_manager_autostart = read_keyfile_string_value (kf, "Session", "launcher_manager", "autostart", this.launcher_manager_autostart);
         }
 
-        // Dock
-        try
+        /* Composite manager */
+        this.composite_manager_command = read_keyfile_string_value(kf, "Session", "composite_manager", "command", this.composite_manager_command);
+        if (this.composite_manager_command != null)
         {
-            this.dock_command = kf.get_value ("Session", "dock/command");
-            if (this.dock_command != null)
-            {
-                try
-                {
-                    this.dock_session = kf.get_value ("Session", "dock/session");
-                }
-                catch (KeyFileError err)
-                {
-	                message (err.message);
-                }
-            }
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.composite_manager_autostart = read_keyfile_string_value(kf, "Session", "composite_manager", "autostart", this.composite_manager_autostart);
         }
 
-        // Screensaver
-        try
+        /* IM */
+        this.im1_command = read_keyfile_string_value(kf, "Session", "im1", "command", this.im1_command);
+        if (this.im1_command != null)
         {
-            this.screensaver_command = kf.get_value ("Session", "screensaver/command");
+            this.im1_autostart = read_keyfile_string_value(kf, "Session", "im1", "autostart", this.im1_autostart);
         }
-        catch (KeyFileError err)
+        this.im2_command = read_keyfile_string_value(kf, "Session", "im2", "command", this.im2_command);
+        if (this.im2_command != null)
         {
-		    message (err.message);
-        }
-
-        // Power manager
-        try
-        {
-            this.power_manager_command = kf.get_value ("Session", "power_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.im2_autostart = read_keyfile_string_value(kf, "Session", "im2", "autostart", this.im2_autostart);
         }
 
-        // Filemanager
-        try
+        /* Widget */
+        this.widget1_command = read_keyfile_string_value(kf, "Session", "widget1", "command", this.widget1_command);
+        if (this.widget1_command != null)
         {
-            this.file_manager_command = kf.get_value ("Session", "file_manager/command");
-            if (this.file_manager_command != null)
-            {
-                try
-                {
-                    this.file_manager_session = kf.get_value ("Session", "file_manager/session");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-
-                try
-                {
-                    this.file_manager_extras = kf.get_value ("Session", "file_manager/extras");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.widget1_autostart = read_keyfile_string_value(kf, "Session", "widget1", "autostart", this.widget1_autostart);
         }
 
-        // Desktop handler
-        try
+        /* Keymap */
+        this.keymap_mode = read_keyfile_string_value (kf, "Keymap", "mode", null, this.keymap_mode);
+        if (this.keymap_mode != null)
         {
-            this.desktop_command = kf.get_value ("Session", "desktop_manager/command");
-            if (this.desktop_command != null)
-            {
-                try
-                {
-                    this.desktop_wallpaper = kf.get_value ("Session", "desktop_manager/wallpaper");
-                }
-                catch (KeyFileError err)
-                {
-	                message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.keymap_model = read_keyfile_string_value (kf, "Keymap", "model", null, this.keymap_model);
+            this.keymap_layout = read_keyfile_string_value (kf, "Keymap", "layout", null, this.keymap_layout);
+            this.keymap_variant = read_keyfile_string_value (kf, "Keymap", "variant", null, this.keymap_variant);
+            this.keymap_options = read_keyfile_string_value (kf, "Keymap", "options", null, this.keymap_options);
         }
 
-        // Polkit Agent
-        try
+        /* Xrandr */
+        this.xrandr_mode = read_keyfile_string_value (kf, "XRandr", "mode", null, this.xrandr_mode);
+        if (this.xrandr_mode != null)
         {
-            this.polkit_command = kf.get_value("Session", "polkit/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
+            this.xrandr_command = read_keyfile_string_value (kf, "XRandr", "command", null, this.xrandr_command);
         }
 
-        // Network GUI
-        try
-        {
-            this.network_gui_command = kf.get_value("Session", "network_gui/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
+        /* Other */
+        this.screensaver_command = read_keyfile_string_value (kf, "Session", "screensaver", "command", this.screensaver_command);
+        this.power_manager_command = read_keyfile_string_value (kf, "Session", "power_manager", "command", this.power_manager_command);
+        this.polkit_command = read_keyfile_string_value(kf, "Session", "polkit", "command", this.polkit_command);
+        this.network_gui_command = read_keyfile_string_value(kf, "Session", "network_gui", "command", this.network_gui_command);
+        this.audio_manager_command = read_keyfile_string_value(kf, "Session", "audio_manager", "command", this.audio_manager_command);
+        this.quit_manager_command = read_keyfile_string_value(kf, "Session", "quit_manager", "command", this.quit_manager_command);
+        this.quit_manager_image = read_keyfile_string_value(kf, "Session", "quit_manager", "image", this.quit_manager_image);
+        this.quit_manager_layout = read_keyfile_string_value(kf, "Session", "quit_manager", "layout", this.quit_manager_layout);
+        this.workspace_manager_command = read_keyfile_string_value(kf, "Session", "workspace_manager", "command", this.workspace_manager_command);
+        this.terminal_manager_command = read_keyfile_string_value(kf, "Session", "terminal_manager", "command", this.terminal_manager_command);
+        this.screenshot_manager_command = read_keyfile_string_value(kf, "Session", "screenshot_manager", "command", this.screenshot_manager_command);
+        this.upgrade_manager_command = read_keyfile_string_value(kf, "Session", "upgrade_manager", "command", this.upgrade_manager_command);
+        this.clipboard_command = read_keyfile_string_value(kf, "Session", "clipboard", "command", this.clipboard_command);
+        this.disable_autostart = read_keyfile_string_value(kf, "Session", "disable_autostart", null, this.disable_autostart);
+        this.upstart_user_session = read_keyfile_string_value(kf, "Session", "upstart_user_session", null, this.upstart_user_session);
+        this.laptop_mode = read_keyfile_string_value(kf, "State", "laptop_mode", null, this.laptop_mode);
+        this.dbus_lxde = read_keyfile_string_value (kf, "Dbus", "lxde", null, this.dbus_lxde);
+        this.dbus_gnome = read_keyfile_string_value (kf, "Dbus", "gnome", null, this.dbus_gnome);
+        this.security_keyring = read_keyfile_string_value (kf, "Security", "keyring", null, this.security_keyring);
+        this.a11y_type = read_keyfile_string_value (kf, "a11y", "type", null, this.a11y_type);
+        this.updates_type = read_keyfile_string_value (kf, "Updates", "type", null, this.updates_type);
+        this.env_type = read_keyfile_string_value (kf, "Environment", "type", null, this.env_type);
+        this.env_menu_prefix = read_keyfile_string_value (kf, "Environment", "menu_prefix", null, this.env_menu_prefix);
 
-        // Audio Manager
-        try
-        {
-            this.audio_manager_command = kf.get_value("Session", "audio_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
+        this.gtk_theme_name = read_keyfile_string_value (kf, "GTK", "sNet", "ThemeName", this.gtk_theme_name);
+        this.gtk_icon_theme_name = read_keyfile_string_value (kf, "GTK", "sNet", "IconThemeName", this.gtk_icon_theme_name);
+        this.gtk_font_name = read_keyfile_string_value (kf, "GTK", "sGtk", "FontName", this.gtk_font_name);
+        this.gtk_toolbar_style = read_keyfile_int_value (kf, "GTK", "iGtk", "ToolbarStyle", this.gtk_toolbar_style);
+        this.gtk_button_images = read_keyfile_int_value (kf, "GTK", "iGtk", "ButtonImages", this.gtk_button_images);
+        this.gtk_menu_images = read_keyfile_int_value (kf, "GTK", "iGtk", "MenuImages", this.gtk_menu_images);
+        this.gtk_cursor_theme_size = read_keyfile_int_value (kf, "GTK", "iGtk", "CursorThemeSize", this.gtk_cursor_theme_size);
+        this.gtk_antialias = read_keyfile_int_value (kf, "GTK", "iXft", "Antialias", this.gtk_antialias);
+        this.gtk_hinting = read_keyfile_int_value (kf, "GTK", "iXft", "Hinting", this.gtk_hinting);
+        this.gtk_hint_style = read_keyfile_string_value (kf, "GTK", "sXft", "HintStyle", this.gtk_hint_style);
+        this.gtk_rgba = read_keyfile_string_value (kf, "GTK", "sXft", "RGBA", this.gtk_rgba);
+        this.gtk_color_scheme = read_keyfile_string_value (kf, "GTK", "sGtk", "ColorScheme", this.gtk_color_scheme);
+        this.gtk_cursor_theme_name = read_keyfile_string_value (kf, "GTK", "sGtk", "CursorThemeName", this.gtk_cursor_theme_name);
+        this.gtk_toolbar_icon_size = read_keyfile_int_value (kf, "GTK", "iGtk", "ToolbarIconSize", this.gtk_toolbar_icon_size);
+        this.gtk_enable_event_sounds = read_keyfile_int_value (kf, "GTK", "iNet", "EnableEventSounds", this.gtk_enable_event_sounds);
+        this.gtk_enable_input_feedback_sounds = read_keyfile_int_value (kf, "GTK", "iNet", "EnableInputFeedbackSounds", this.gtk_enable_input_feedback_sounds);
+        this.mouse_acc_factor = read_keyfile_int_value (kf, "Mouse", "AccFactor", null, this.mouse_acc_factor);
+        this.mouse_acc_threshold = read_keyfile_int_value (kf, "Mouse", "AccThreshold", null, this.mouse_acc_threshold);
+        this.mouse_left_handed = read_keyfile_int_value (kf, "Mouse", "LeftHanded", null, this.mouse_left_handed);
+        this.keyboard_delay = read_keyfile_int_value (kf, "Keyboard", "Delay", null, this.keyboard_delay);
+        this.keyboard_interval = read_keyfile_int_value (kf, "Keyboard", "Interval", null, this.keyboard_interval);
+        this.keyboard_beep = read_keyfile_int_value (kf, "Keyboard", "Beep", null, this.keyboard_beep);
 
-        // Quit Manager
-        try
-        {
-            this.quit_manager_command = kf.get_value("Session", "quit_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.quit_manager_image = kf.get_value("Session", "quit_manager/image");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.quit_manager_layout = kf.get_value("Session", "quit_manager/layout");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Workspace Manager
-        try
-        {
-            this.workspace_manager_command = kf.get_value("Session", "workspace_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Launcher Manager
-        try
-        {
-            this.launcher_manager_command = kf.get_value("Session", "launcher_manager/command");
-            if (this.launcher_manager_command != null)
-            {
-                try
-                {
-                    this.launcher_manager_autostart = kf.get_value ("Session", "launcher_manager/autostart");
-                }
-                catch (KeyFileError err)
-                {
-	                message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Terminal Manager
-        try
-        {
-            this.terminal_manager_command = kf.get_value("Session", "terminal_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Screenshot Manager
-        try
-        {
-            this.screenshot_manager_command = kf.get_value("Session", "screenshot_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Upgrade Manager
-        try
-        {
-            this.upgrade_manager_command = kf.get_value("Session", "upgrade_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Composite Manager
-        try
-        {
-            this.composite_manager_command = kf.get_value("Session", "composite_manager/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.composite_manager_autostart = kf.get_value("Session", "composite_manager/autostart");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // IM 1
-        try
-        {
-            this.im1_command = kf.get_value("Session", "im1/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.im1_autostart = kf.get_value("Session", "im1/autostart");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // IM 2
-        try
-        {
-            this.im2_command = kf.get_value("Session", "im2/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.im2_autostart = kf.get_value("Session", "im2/autostart");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Widget 1
-        try
-        {
-            this.widget1_command = kf.get_value("Session", "widget1/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.widget1_autostart = kf.get_value("Session", "widget1/autostart");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Clipboard
-        try
-        {
-            this.clipboard_command = kf.get_value("Session", "clipboard/command");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Disable autostart
-        try
-        {
-            this.disable_autostart = kf.get_value("Session", "disable_autostart");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Upstart user session
-        try
-        {
-            this.upstart_user_session = kf.get_value("Session", "upstart_user_session");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Laptop-mode
-        try
-        {
-            this.laptop_mode = kf.get_value("State", "laptop_mode");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Dbus
-        try
-        {
-            this.dbus_lxde = kf.get_value ("Dbus", "lxde");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        try
-        {
-            this.dbus_gnome = kf.get_value ("Dbus", "gnome");
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Keymap options
-        try
-        {
-            this.keymap_mode = kf.get_value ("Keymap", "mode");
-            if (this.keymap_mode != null)
-            {
-                try
-                {
-                    this.keymap_model = kf.get_value ("Keymap", "model");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    this.keymap_layout = kf.get_value ("Keymap", "layout");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    this.keymap_variant = kf.get_value ("Keymap", "variant");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-                try
-                {
-                    this.keymap_options = kf.get_value ("Keymap", "options");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // XRandr options
-        try
-        {
-            this.xrandr_mode = kf.get_value ("XRandr", "mode");
-            if (this.xrandr_mode != null)
-            {
-                try
-                {
-                    this.xrandr_command = kf.get_value ("XRandr", "command");
-                }
-                catch (KeyFileError err)
-                {
-		            message (err.message);
-                }
-            }
-        }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Security (keyring)
-	    try
-        {
-            this.security_keyring = kf.get_value ("Security", "keyring");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // a11y
-	    try
-        {
-            this.a11y_type = kf.get_value ("a11y", "type");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Proxy
-	    try
-        {
-            this.proxy_http = kf.get_value ("Proxy", "http");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Updates
-	    try
-        {
-            this.updates_type = kf.get_value ("Updates", "type");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Environment
-	    try
-        {
-            this.env_type = kf.get_value ("Environment", "type");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Environment
-	    try
-        {
-            this.env_menu_prefix = kf.get_value ("Environment", "menu_prefix");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // GTK
-	    try
-        {
-            this.gtk_theme_name = kf.get_value ("GTK", "sNet/ThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_icon_theme_name = kf.get_value ("GTK", "sNet/IconThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_font_name = kf.get_value ("GTK", "sGtk/FontName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_toolbar_style = kf.get_integer ("GTK", "iGtk/ToolbarStyle");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_button_images = kf.get_integer ("GTK", "iGtk/ButtonImages");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_menu_images = kf.get_integer ("GTK", "iGtk/MenuImages");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_cursor_theme_size = kf.get_integer ("GTK", "iGtk/CursorThemeSize");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_antialias = kf.get_integer ("GTK", "iXft/Antialias");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_hinting = kf.get_integer ("GTK", "iXft/Hinting");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_hint_style = kf.get_value ("GTK", "sXft/HintStyle");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_rgba = kf.get_value ("GTK", "sXft/RGBA");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_color_scheme = kf.get_value ("GTK", "sGtk/ColorScheme");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_cursor_theme_name = kf.get_value ("GTK", "sGtk/CursorThemeName");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_toolbar_icon_size = kf.get_integer ("GTK", "iGtk/ToolbarIconSize");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_enable_event_sounds = kf.get_integer ("GTK", "iNet/EnableEventSounds");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.gtk_enable_input_feedback_sounds = kf.get_integer ("GTK", "iNet/EnableInputFeedbackSounds");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Mouse
-	    try
-        {
-            this.mouse_acc_factor = kf.get_integer ("Mouse", "AccFactor");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.mouse_acc_threshold = kf.get_integer ("Mouse", "AccThreshold");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.mouse_left_handed = kf.get_integer ("Mouse", "LeftHanded");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-
-        // Keyboard
-	    try
-        {
-            this.keyboard_delay = kf.get_integer ("Keyboard", "Delay");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.keyboard_interval = kf.get_integer ("Keyboard", "Interval");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
-	    try
-        {
-            this.keyboard_beep = kf.get_integer ("Keyboard", "Beep");
-        }
-        catch (KeyFileError err)
-        {
-            warning (err.message);
-        }
     }
 
     public void sync_setting_files ()
