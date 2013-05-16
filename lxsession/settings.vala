@@ -351,7 +351,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
     public void read_keyfile()
     {
-        kf = load_keyfile (get_config_path ("desktop.conf"));
+        kf = load_keyfile (desktop_config_path);
 
         // Windows manager
         try
