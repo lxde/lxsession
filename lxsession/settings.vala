@@ -349,9 +349,39 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         setup_monitor_desktop_file();
     }
 
+    public string read_keyfile_string_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2)
+    {
+        string return_value = null;
+
+        try
+        {
+            if (kf_key2 == null)
+            {
+                return_value = keyfile.get_value (kf_categorie, kf_key1);
+            }
+            else
+            {
+                return_value = keyfile.get_value (kf_categorie, kf_key1 + "/" + kf_key2);
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        return return_value;
+
+    }
+
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
+
+        this.panel_command = read_keyfile_string_value (kf, "Session", "panel", "command");
+        if (this.panel_command != null)
+        {
+            this.panel_session = read_keyfile_string_value (kf, "Session", "panel", "session");
+        }
 
         // Windows manager
         try
@@ -384,27 +414,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         try
         {
             this.windows_manager_extras = kf.get_value ("Session", "windows_manager/extras");
-	    }
-        catch (KeyFileError err)
-        {
-		    message (err.message);
-        }
-
-        // Panel
-        try
-        {
-            this.panel_command = kf.get_value ("Session", "panel/command");
-            if (this.panel_command != null)
-            {
-                try
-                {
-                    this.panel_session = kf.get_value ("Session", "panel/session");
-                }
-                catch (KeyFileError err)
-                {
-	                message (err.message);
-                }
-            }
 	    }
         catch (KeyFileError err)
         {
