@@ -60,6 +60,7 @@ namespace Lxsession {
     IM2App global_im2;
     WidgetApp global_widget1;
     ProxyOption global_proxy;
+    UpstartUserSessionOption global_upstart_session;
 
     public class Main: GLib.Object
     {
@@ -382,25 +383,29 @@ namespace Lxsession {
         {
             message("Create Option Keymap");
             var keymap = new KeymapOption(global_settings);
-            keymap.activate();
+            global_keymap = keymap;
+            global_keymap.activate();
         }
 
         if (global_settings.xrandr_mode != null)
         {
             var xrandr = new XrandrOption(global_settings);
+            global_xrandr = xrandr;
             xrandr.activate();
         }
 
         if (global_settings.security_keyring != null)
         {
             var keyring = new KeyringOption(global_settings);
-            keyring.activate();
+            global_keyring = keyring;
+            global_keyring.activate();
         }
 
         if (global_settings.a11y_type == "true")
         {
             var a11y = new A11yOption(global_settings);
-            a11y.activate();
+            global_a11y = a11y;
+            global_a11y.activate();
         }
 
         if (global_settings.proxy_http != null)
@@ -413,13 +418,15 @@ namespace Lxsession {
         if (global_settings.updates_type != null)
         {
             var updates = new UpdatesOption(global_settings);
-            updates.activate();
+            global_updates = updates;
+            global_updates.activate();
         }
 
         if (global_settings.upstart_user_session == "true")
         {
             var upstart_session = new UpstartUserSessionOption(global_settings);
-            upstart_session.activate();
+            global_upstart_session = upstart_session;
+            global_upstart_session.activate();
         }
 
         /* DBus Serveurs */
