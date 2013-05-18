@@ -133,6 +133,9 @@ namespace LDefaultApps
         public abstract void A11yActivate () throws IOError;
         public abstract void A11yTypeSet (string arg) throws IOError;
         public abstract string A11yTypeGet () throws IOError;
+        public abstract void ProxyActivate () throws IOError;
+        public abstract void ProxyHttpSet (string arg) throws IOError;
+        public abstract string ProxyHttpGet () throws IOError;
         public abstract void UpdatesActivate () throws IOError;
         public abstract void UpdatesTypeSet (string arg) throws IOError;
         public abstract string UpdatesTypeGet () throws IOError;
@@ -1551,6 +1554,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.A11yTypeGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void ProxyActivate()
+        {
+            try
+            {
+                dbus_lxsession.ProxyActivate();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void ProxyHttpSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.ProxyHttpSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string ProxyHttpGet()
+        {
+            try
+            {
+                return dbus_lxsession.ProxyHttpGet();
             }
             catch (GLib.IOError err)
             {

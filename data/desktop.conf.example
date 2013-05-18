@@ -134,6 +134,9 @@ type=
 type=
 menu_prefix=lxde-
 
+[Proxy]
+http=
+
 
 [GTK]
 #iNet/DoubleClickTime=400

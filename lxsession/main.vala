@@ -59,6 +59,7 @@ namespace Lxsession {
     IM1App global_im1;
     IM2App global_im2;
     WidgetApp global_widget1;
+    ProxyOption global_proxy;
 
     public class Main: GLib.Object
     {
@@ -400,6 +401,13 @@ namespace Lxsession {
         {
             var a11y = new A11yOption(global_settings);
             a11y.activate();
+        }
+
+        if (global_settings.proxy_http != null)
+        {
+            var proxy = new ProxyOption(global_settings);
+            global_proxy = proxy;
+            global_proxy.activate();
         }
 
         if (global_settings.updates_type != null)

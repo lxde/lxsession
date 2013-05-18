@@ -93,6 +93,9 @@ public class LxsessionConfig: GLib.Object {
     /* a11y */
     public string a11y_type { get; set; default = "gnome";}
 
+    /* proxy */
+    public string proxy_http { get; set; default = null;}
+
     /* Updates */
     public string updates_type { get; set; default = null;}
 
@@ -268,6 +271,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 
         /* a11y */
         global_sig.request_a11y_type_set.connect(on_request_a11y_type_set);
+
+        /* Proxy */
+        global_sig.request_proxy_http_set.connect(on_request_proxy_http_set);
 
         /* Updates */
         global_sig.request_updates_type_set.connect(on_request_updates_type_set);
@@ -832,6 +838,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
 	    try
         {
             this.a11y_type = kf.get_value ("a11y", "type");
+        }
+        catch (KeyFileError err)
+        {
+            warning (err.message);
+        }
+
+        // Proxy
+	    try
+        {
+            this.proxy_http = kf.get_value ("Proxy", "http");
         }
         catch (KeyFileError err)
         {
@@ -1705,6 +1721,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig {
         message("Changing a11y type");
         this.a11y_type = manager;
         kf.set_value ("a11y", "type", this.a11y_type);
+        save_keyfile();
+    }
+
+    /* a11y */
+    public void on_request_proxy_http_set (string manager)
+    {
+        message("Changing proxy type");
+        this.proxy_http = manager;
+        kf.set_value ("Proxy", "http", this.proxy_http);
         save_keyfile();
     }
 

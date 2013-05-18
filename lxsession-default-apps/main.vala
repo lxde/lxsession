@@ -1274,6 +1274,21 @@ namespace LDefaultApps
             dbus_backend.EnvMenuPrefixSet(enviroment_menu_prefix_entry.get_text());
         });
 
+        /* Proxy */
+        var proxy_http_entry = builder.get_object("proxy_http_entry") as Gtk.Entry;
+        proxy_http_entry.set_text(dbus_backend.ProxyHttpGet());
+
+        var proxy_apply_button = builder.get_object("proxy_apply") as Gtk.Button;
+        proxy_apply_button.clicked.connect (() => {
+            message ("Click !");
+            dbus_backend.ProxyHttpSet(proxy_http_entry.get_text());
+        });
+
+        var proxy_reload_button = builder.get_object("proxy_reload") as Gtk.Button;
+        proxy_reload_button.clicked.connect (() => {
+            dbus_backend.ProxyActivate();
+        });
+
         /* Show all */
         window.show_all ();
 

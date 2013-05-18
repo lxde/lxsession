@@ -1314,6 +1314,43 @@ namespace Lxsession
             }
         }
 
+        public void ProxyHttpGet(out string command)
+        {
+            command = global_settings.proxy_http;
+            message ("Get proxy_http: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void ProxyHttpSet(string command)
+        {
+            message ("Set proxy_http to :%s", command);
+            global_sig.request_proxy_http_set(command);
+        }
+
+        public void ProxyActivate()
+        {
+            message("Reload proxy");
+            if (global_settings.proxy_http == null)
+            {
+                warning("Proxy http not set");
+            }
+            else if (global_proxy == null)
+            {
+                message("Proxy doesn't exist, creating it");
+                var proxy = new ProxyOption(global_settings);
+                global_proxy = proxy;
+                global_proxy.activate();
+            }
+            else
+            {
+                message("Reload existing proxy");
+                global_proxy.activate();
+            }
+        }
+
         public void UpdatesTypeGet(out string command)
         {
             command = global_settings.updates_type;

@@ -207,6 +207,9 @@ public class LxSignals : Object
     /* a11y */
     public signal void request_a11y_type_set (string dbus_arg);
 
+    /* Proxy */
+    public signal void request_proxy_http_set (string dbus_arg);
+
     /* Updates */
     public signal void request_updates_type_set (string dbus_arg);
 

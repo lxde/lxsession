@@ -349,11 +349,29 @@ namespace Lxsession
 
     public class ProxyOption: Option
     {
+        private string http;
+
         public ProxyOption (LxsessionConfig config)
         {
             base (config);
         }
-        /* TODO Provide proxy utilies */
+        public new void activate ()
+        {
+            http = global_settings.proxy_http;
+
+            switch (http)
+            {
+                case null:
+                    break;
+                case "":
+                    break;
+                case " ":
+                    break;
+                default:
+                    Environment.set_variable("HTTP_PROXY", http, true);
+                    break;
+            }
+        }
     }
 
 }
