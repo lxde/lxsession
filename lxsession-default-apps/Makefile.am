@@ -1,6 +1,7 @@
 bin_PROGRAMS = lxsession-default-apps
 
 lxsession_default_apps_SOURCES = \
+	autostart.vala \
 	main.vala \
 	combobox.vala \
 	dbus-backend.vala \
@@ -35,6 +36,7 @@ lxsession_default_apps_LDADD = \
 	$(NULL)
 
 CLEANFILES = \
+    autostart.c \
     main.c \
     combobox.c \
     dbus-backend.c \

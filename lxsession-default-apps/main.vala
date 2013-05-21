@@ -86,6 +86,9 @@ namespace LDefaultApps
         var window = builder.get_object ("main-win") as Window;
         window.destroy.connect (Gtk.main_quit);
 
+        /* Autostart list */
+        manual_autostart_init(builder);
+
         var dbus_backend = new DbusBackend();
 
         /* Panel init */
@@ -1179,8 +1182,22 @@ namespace LDefaultApps
                                                         null,
                                                         disable_autostart_default);
 
+
         disable_autostart_combobox.changed.connect (() => {
             dbus_backend.DisableAutostartSet(return_combobox_text(disable_autostart_combobox));
+            var auto_vbox = builder.get_object("manual_autostart_vbox") as Gtk.VBox;
+            var running_apps = builder.get_object("running_apps_vbox") as Gtk.VBox;
+
+            if (return_combobox_text(disable_autostart_combobox) == "all")
+            {
+                auto_vbox.hide_all();
+                running_apps.hide_all();
+            }
+            else
+            {
+                running_apps.show_all();
+                auto_vbox.show_all();
+            }
         });
 
         /* Laptop mode */

@@ -49,20 +49,28 @@ public class LxsessionAutostartConfig: GLib.Object {
                 var dis = new DataInputStream (file.read ());
                 string line;
 
-                while ((line = dis.read_line (null)) != null) {
-                if (line[0:1] != "@") {
-                        string[] command = line.split_set(" ",0);
-                        AppType app = { command[0], command, false, "" };
-                        app_list.add (app);
+                while ((line = dis.read_line (null)) != null)
+                {
+                    string first = line[0:1];
 
-                    }
-                    else {
-                        var builder = new StringBuilder ();
-                        builder.append(line);
-                        builder.erase(0,1);
-                        string[] command = builder.str.split_set(" ",0);
-                        AppType app = { command[0], command, true, "" };
-                        app_list.add (app);
+                    switch (first)
+                    {
+                        case ("@"):
+                            var builder = new StringBuilder ();
+                            builder.append(line);
+                            builder.erase(0,1);
+                            string[] command = builder.str.split_set(" ",0);
+                            AppType app = { command[0], command, true, "" };
+                            app_list.add (app);
+                            break;
+                        case ("#"):
+                            /* Commented, skip */
+                            break;
+                        default:
+                            string[] command = line.split_set(" ",0);
+                            AppType app = { command[0], command, false, "" };
+                            app_list.add (app);
+                            break;
                     }
                  }
             } catch (Error e) {
