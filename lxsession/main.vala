@@ -149,7 +149,7 @@ namespace Lxsession {
         global_sig = sig;
 
         /* Configuration */
-        var config = new LxsessionConfigKeyFile(session, desktop_environnement, global_sig);
+        var config = new LxsessionConfigKeyFile(session, desktop_environnement);
         global_settings = config;
 
         /* Sync desktop.conf and autostart setting files */

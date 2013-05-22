@@ -72,7 +72,7 @@ namespace Lxsession
         public void AudioManagerCommandSet(string command)
         {
             message ("Set audio manager command to :%s", command);
-            global_sig.request_audio_manager_command_set(command);
+            global_sig.request_audio_manager_command_set(command, "Session", "audio_manager", "command");
         }
 
         public void AudioManagerLaunch()
@@ -108,7 +108,7 @@ namespace Lxsession
         public void QuitManagerCommandSet(string command)
         {
             message ("Set quit manager command to :%s", command);
-            global_sig.request_quit_manager_command_set(command);
+            global_sig.request_quit_manager_command_set(command, "Session", "quit_manager", "command");
         }
 
         public void QuitManagerImageGet(out string command)
@@ -124,7 +124,7 @@ namespace Lxsession
         public void QuitManagerImageSet(string command)
         {
             message ("Set quit manager image to :%s", command);
-            global_sig.request_quit_manager_image_set(command);
+            global_sig.request_quit_manager_image_set(command, "Session", "quit_manager", "image");
         }
 
         public void QuitManagerLayoutGet(out string command)
@@ -137,10 +137,10 @@ namespace Lxsession
             }
         }
 
-        public void QuitManagerlayoutSet(string command)
+        public void QuitManagerLayoutSet(string command)
         {
             message ("Set quit manager layout to :%s", command);
-            global_sig.request_quit_manager_layout_set(command);
+            global_sig.request_quit_manager_layout_set(command, "Session", "quit_manager", "layout");
         }
 
         public void QuitManagerLaunch()
@@ -176,7 +176,7 @@ namespace Lxsession
         public void WorkspaceManagerCommandSet(string command)
         {
             message ("Set workspace manager command to :%s", command);
-            global_sig.request_workspace_manager_command_set(command);
+            global_sig.request_workspace_manager_command_set(command, "Session", "workspace_manager", "command");
         }
         public void WorkspaceManagerLaunch()
         {
@@ -211,7 +211,7 @@ namespace Lxsession
         public void LauncherManagerCommandSet(string command)
         {
             message ("Set launcher manager command to :%s", command);
-            global_sig.request_launcher_manager_command_set(command);
+            global_sig.request_launcher_manager_command_set(command, "Session", "launcher_manager", "command");
         }
 
         public void LauncherManagerAutostartGet(out string command)
@@ -227,7 +227,7 @@ namespace Lxsession
         public void LauncherManagerAutostartSet(string command)
         {
             message ("Set launcher manager autostart to :%s", command);
-            global_sig.request_launcher_manager_autostart_set(command);
+            global_sig.request_launcher_manager_autostart_set(command, "Session", "launcher_manager", "autostart");
         }
 
         public void LauncherManagerLaunch()
@@ -263,7 +263,7 @@ namespace Lxsession
         public void TerminalManagerCommandSet(string command)
         {
             message ("Set Terminal manager command to :%s", command);
-            global_sig.request_terminal_manager_command_set(command);
+            global_sig.request_terminal_manager_command_set(command, "Session", "terminal_manager", "command");
         }
 
         public void TerminalManagerLaunch()
@@ -299,7 +299,7 @@ namespace Lxsession
         public void ScreenshotManagerCommandSet(string command)
         {
             message ("Set screenshot manager command to :%s", command);
-            global_sig.request_screenshot_manager_command_set(command);
+            global_sig.request_screenshot_manager_command_set(command, "Session", "screenshot_manager", "command");
         }
 
         public void ScreenshotManagerLaunch()
@@ -354,7 +354,7 @@ namespace Lxsession
         public void UpgradeManagerCommandSet(string command)
         {
             message ("Set upgrade manager command to :%s", command);
-            global_sig.request_upgrade_manager_command_set(command);
+            global_sig.request_upgrade_manager_command_set(command, "Session", "upgrade_manager", "command");
         }
 
         public void UpgradeManagerLaunch()
@@ -390,7 +390,7 @@ namespace Lxsession
         public void CompositeManagerCommandSet(string command)
         {
             message ("Set composite manager to :%s", command);
-            global_sig.request_composite_manager_command_set(command);
+            global_sig.request_composite_manager_command_set(command, "Session", "composite_manager", "command");
         }
 
         public void CompositeManagerAutostartGet(out string command)
@@ -406,7 +406,7 @@ namespace Lxsession
         public void CompositeManagerAutostartSet(string command)
         {
             message ("Set composite manager to :%s", command);
-            global_sig.request_composite_manager_autostart_set(command);
+            global_sig.request_composite_manager_autostart_set(command, "Session", "composite_manager", "autostart");
         }
 
         public void CompositeManagerReload()
@@ -444,7 +444,7 @@ namespace Lxsession
         public void IM1CommandSet(string command)
         {
             message ("Set im1 to :%s", command);
-            global_sig.request_im1_command_set(command);
+            global_sig.request_im1_command_set(command, "Session", "im1", "command");
         }
 
         public void IM1AutostartGet(out string command)
@@ -460,7 +460,7 @@ namespace Lxsession
         public void IM1AutostartSet(string command)
         {
             message ("Set im1 autostart to :%s", command);
-            global_sig.request_im1_autostart_set(command);
+            global_sig.request_im1_autostart_set(command, "Session", "im2", "autostart");
         }
 
         public void IM1Reload()
@@ -498,7 +498,7 @@ namespace Lxsession
         public void IM2CommandSet(string command)
         {
             message ("Set im2 to :%s", command);
-            global_sig.request_im2_command_set(command);
+            global_sig.request_im2_command_set(command, "Session", "im2", "command");
         }
 
         public void IM2AutostartGet(out string command)
@@ -514,7 +514,7 @@ namespace Lxsession
         public void IM2AutostartSet(string command)
         {
             message ("Set im2 autostart to :%s", command);
-            global_sig.request_im2_autostart_set(command);
+            global_sig.request_im2_autostart_set(command, "Session", "im2", "autostart");
         }
 
         public void IM2Reload()
@@ -552,7 +552,7 @@ namespace Lxsession
         public void Widget1CommandSet(string command)
         {
             message ("Set widget1 to :%s", command);
-            global_sig.request_widget1_command_set(command);
+            global_sig.request_widget1_command_set(command, "Session", "widget1", "command");
         }
 
         public void Widget1AutostartGet(out string command)
@@ -568,7 +568,7 @@ namespace Lxsession
         public void Widget1AutostartSet(string command)
         {
             message ("Set widget1 to :%s", command);
-            global_sig.request_widget1_autostart_set(command);
+            global_sig.request_widget1_autostart_set(command, "Session", "widget1", "autostart");
         }
 
         public void Widget1Reload()
@@ -606,7 +606,7 @@ namespace Lxsession
         public void FileManagerCommandSet(string command)
         {
             message ("Set file manager command to :%s", command);
-            global_sig.request_file_manager_command_set(command);
+            global_sig.request_file_manager_command_set(command, "Session", "file_manager", "command");
         }
 
         public void FileManagerSessionGet(out string command)
@@ -622,7 +622,7 @@ namespace Lxsession
         public void FileManagerSessionSet(string command)
         {
             message ("Set file manager session to :%s", command);
-            global_sig.request_file_manager_session_set(command);
+            global_sig.request_file_manager_session_set(command, "Session", "file_manager", "session");
         }
 
         public void FileManagerExtrasGet(out string command)
@@ -638,7 +638,7 @@ namespace Lxsession
         public void FileManagerExtrasSet(string command)
         {
             message ("Set file manager extras to :%s", command);
-            global_sig.request_file_manager_extras_set(command);
+            global_sig.request_file_manager_extras_set(command, "Session", "file_manager", "extras");
         }
 
         public void FileManagerReload()
@@ -730,7 +730,7 @@ namespace Lxsession
         public void DockCommandSet(string command)
         {
             message ("Set dock command to :%s", command);
-            global_sig.request_dock_command_set(command);
+            global_sig.request_dock_command_set(command, "Session", "dock", "command");
         }
 
         public void DockSessionGet(out string command)
@@ -746,7 +746,7 @@ namespace Lxsession
         public void DockSessionSet(string command)
         {
             message ("Set dock session to :%s", command);
-            global_sig.request_dock_session_set(command);
+            global_sig.request_dock_session_set(command, "Session", "dock", "command");
         }
 
         public void DockReload()
@@ -784,7 +784,7 @@ namespace Lxsession
         public void WindowsManagerCommandSet(string command)
         {
             message ("Set windows manager command to :%s", command);
-            global_sig.request_windows_manager_command_set(command);
+            global_sig.request_windows_manager_command_set(command, "Session", "windows_manager", "command");
         }
 
         public void WindowsManagerSessionGet(out string command)
@@ -800,7 +800,7 @@ namespace Lxsession
         public void WindowsManagerSessionSet(string command)
         {
             message ("Set windows manager session to :%s", command);
-            global_sig.request_windows_manager_session_set(command);
+            global_sig.request_windows_manager_session_set(command, "Session", "windows_manager", "session");
         }
 
         public void WindowsManagerExtrasGet(out string command)
@@ -816,7 +816,7 @@ namespace Lxsession
         public void WindowsManagerExtrasSet(string command)
         {
             message ("Set windows manager extras to :%s", command);
-            global_sig.request_windows_manager_extras_set(command);
+            global_sig.request_windows_manager_extras_set(command, "Session", "windows_manager", "extras");
         }
 
         public void WindowsManagerReload()
@@ -854,7 +854,7 @@ namespace Lxsession
         public void DesktopCommandSet(string command)
         {
             message ("Set desktop command to :%s", command);
-            global_sig.request_desktop_command_set(command);
+            global_sig.request_desktop_command_set(command, "Session", "desktop_manager", "command");
         }
 
         public void DesktopWallpaperGet(out string command)
@@ -870,7 +870,7 @@ namespace Lxsession
         public void DesktopWallpaperSet(string command)
         {
             message ("Set desktop wallpaper to :%s", command);
-            global_sig.request_desktop_wallpaper_set(command);
+            global_sig.request_desktop_wallpaper_set(command, "Session", "desktop_manager", "wallpaper");
         }
 
         public void DesktopReload()
@@ -908,7 +908,7 @@ namespace Lxsession
         public void ScreensaverCommandSet(string command)
         {
             message ("Set screensaver command to :%s", command);
-            global_sig.request_screensaver_command_set(command);
+            global_sig.request_screensaver_command_set(command, "Session", "screensaver", "command");
         }
 
         public void ScreensaverReload()
@@ -946,7 +946,7 @@ namespace Lxsession
         public void PowerManagerCommandSet(string command)
         {
             message ("Set power manager command to :%s", command);
-            global_sig.request_power_manager_command_set(command);
+            global_sig.request_power_manager_command_set(command, "Session", "power_manager", "command");
         }
 
         public void PowerManagerReload()
@@ -984,7 +984,7 @@ namespace Lxsession
         public void PolkitCommandSet(string command)
         {
             message ("Set polkit command to :%s", command);
-            global_sig.request_polkit_command_set(command);
+            global_sig.request_polkit_command_set(command, "Session", "polkit", "command");
         }
 
         public void PolkitReload()
@@ -1022,7 +1022,7 @@ namespace Lxsession
         public void NetworkGuiCommandSet(string command)
         {
             message ("Set network gui command to :%s", command);
-            global_sig.request_network_gui_command_set(command);
+            global_sig.request_network_gui_command_set(command, "Session", "network_gui", "command");
         }
 
         public void NetworkGuiReload()
@@ -1060,7 +1060,7 @@ namespace Lxsession
         public void ClipboardCommandSet(string command)
         {
             message ("Set clipboard command to :%s", command);
-            global_sig.request_clipboard_command_set(command);
+            global_sig.request_clipboard_command_set(command, "Session", "clipboard", "command");
         }
 
         public void ClipboardActivate()
@@ -1099,7 +1099,7 @@ namespace Lxsession
         public void KeymapModeSet(string command)
         {
             message ("Set keymap mode to :%s", command);
-            global_sig.request_keymap_mode_set(command);
+            global_sig.request_keymap_mode_set(command, "Keymap", "mode", null);
         }
 
         public void KeymapModelGet(out string command)
@@ -1115,7 +1115,7 @@ namespace Lxsession
         public void KeymapModelSet(string command)
         {
             message ("Set keymap model to :%s", command);
-            global_sig.request_keymap_model_set(command);
+            global_sig.request_keymap_model_set(command, "Keymap", "model", null);
         }
 
         public void KeymapLayoutGet(out string command)
@@ -1131,7 +1131,7 @@ namespace Lxsession
         public void KeymapLayoutSet(string command)
         {
             message ("Set keymap layout to :%s", command);
-            global_sig.request_keymap_layout_set(command);
+            global_sig.request_keymap_layout_set(command, "Keymap", "layout", null);
         }
 
         public void KeymapVariantGet(out string command)
@@ -1147,7 +1147,7 @@ namespace Lxsession
         public void KeymapVariantSet(string command)
         {
             message ("Set keymap variant to :%s", command);
-            global_sig.request_keymap_variant_set(command);
+            global_sig.request_keymap_variant_set(command, "Keymap", "variant", null);
         }
 
         public void KeymapOptionsGet(out string command)
@@ -1163,7 +1163,7 @@ namespace Lxsession
         public void KeymapOptionsSet(string command)
         {
             message ("Set keymap options to :%s", command);
-            global_sig.request_keymap_options_set(command);
+            global_sig.request_keymap_options_set(command, "Keymap", "options", null);
         }
 
         public void KeymapActivate()
@@ -1200,7 +1200,7 @@ namespace Lxsession
         public void XrandrModeSet(string command)
         {
             message ("Set xrandr mode to :%s", command);
-            global_sig.request_xrandr_mode_set(command);
+            global_sig.request_xrandr_mode_set(command, "XRandr", "mode", null);
         }
 
         public void XrandrCommandGet(out string command)
@@ -1216,7 +1216,7 @@ namespace Lxsession
         public void XrandrCommandSet(string command)
         {
             message ("Set xrandr command to :%s", command);
-            global_sig.request_xrandr_command_set(command);
+            global_sig.request_xrandr_command_set(command, "XRandr", "command", null);
         }
 
         public void XrandrActivate()
@@ -1253,7 +1253,7 @@ namespace Lxsession
         public void SecurityKeyringSet(string command)
         {
             message ("Set security keyring to :%s", command);
-            global_sig.request_security_keyring_set(command);
+            global_sig.request_security_keyring_set(command, "Security", "keyring", null);
         }
 
         public void SecurityActivate()
@@ -1290,7 +1290,7 @@ namespace Lxsession
         public void A11yTypeSet(string command)
         {
             message ("Set a11y type to :%s", command);
-            global_sig.request_a11y_type_set(command);
+            global_sig.request_a11y_type_set(command, "a11y", "type", null);
         }
 
         public void A11yActivate()
@@ -1364,7 +1364,7 @@ namespace Lxsession
         public void UpdatesTypeSet(string command)
         {
             message ("Set updates type to :%s", command);
-            global_sig.request_updates_type_set(command);
+            global_sig.request_updates_type_set(command, "Updates", "type", null);
         }
 
         public void UpdatesActivate()
@@ -1402,7 +1402,7 @@ namespace Lxsession
         public void DisableAutostartTypeSet(string command)
         {
             message ("Set disable autostart to :%s", command);
-            global_sig.request_disable_autostart_set(command);
+            global_sig.request_disable_autostart_set(command, "Session", "disable_autostart", null);
         }
 
         /* Laptop mode */
@@ -1436,7 +1436,7 @@ namespace Lxsession
         public void UpstartUserSessionSet(string command)
         {
             message ("Set upstart user session:%s", command);
-            global_sig.request_upstart_user_session_set(command);
+            global_sig.request_upstart_user_session_set(command, "Session", "upstart_user_session", null);
         }
 
         /* Dbus */
@@ -1453,7 +1453,7 @@ namespace Lxsession
         public void DbusLxdeSet(string command)
         {
             message ("Set dbus lxde session:%s", command);
-            global_sig.request_dbus_lxde_set(command);
+            global_sig.request_dbus_lxde_set(command, "Dbus", "lxde", null);
         }
 
         public void DbusGnomeGet(out string command)
@@ -1469,13 +1469,13 @@ namespace Lxsession
         public void DbusGnomeSet(string command)
         {
             message ("Set dbus gnome session:%s", command);
-            global_sig.request_dbus_gnome_set(command);
+            global_sig.request_dbus_gnome_set(command, "Dbus", "gnome", null);
         }
 
         public void EnvTypeSet(string command)
         {
             message ("Set environment type :%s", command);
-            global_sig.request_env_type_set(command);
+            global_sig.request_env_type_set(command, "Environment", "type", null);
         }
 
         public void EnvTypeGet(out string command)
@@ -1491,7 +1491,7 @@ namespace Lxsession
         public void EnvMenuPrefixSet(string command)
         {
             message ("Set environment menu prefix :%s", command);
-            global_sig.request_env_menu_prefix_set(command);
+            global_sig.request_env_menu_prefix_set(command, "Environment", "menu_prefix", null);
         }
 
         public void EnvMenuPrefixGet(out string command)
@@ -1508,134 +1508,134 @@ namespace Lxsession
         public void GtkThemeName (string dbus_arg)
         {
             message ("Signal update gtk_theme_name: %s", dbus_arg);
-            global_sig.update_gtk_theme_name(dbus_arg);
+            global_sig.update_gtk_theme_name(dbus_arg, "GTK", "sNet", "ThemeName");
         }
 
         public void GtkIconThemeName (string dbus_arg)
         {
             message ("Signal update gtk_icon_theme_name: %s", dbus_arg);
-            global_sig.update_gtk_icon_theme_name(dbus_arg);
+            global_sig.update_gtk_icon_theme_name(dbus_arg, "GTK", "sNet", "IconThemeName");
         }
 
         public void GtkFontName (string dbus_arg)
         {
             message ("Signal update gtk_font_name: %s", dbus_arg);
-            global_sig.update_gtk_font_name(dbus_arg);
+            global_sig.update_gtk_font_name(dbus_arg, "GTK", "sGtk", "FontName");
         }
 
         public void GtkToolbarStyle (int dbus_arg)
         {
             message ("Signal update gtk_toolbar_style: %i", dbus_arg);
-            global_sig.update_gtk_toolbar_style(dbus_arg);
+            global_sig.update_gtk_toolbar_style(dbus_arg, "GTK", "iGtk", "ToolbarStyle");
         }
 
         public void GtkButtonImages (int dbus_arg)
         {
             message ("Signal update gtk_button_images: %i", dbus_arg);
-            global_sig.update_gtk_button_images(dbus_arg);
+            global_sig.update_gtk_button_images(dbus_arg, "GTK", "iGtk", "ButtonImages");
         }
 
         public void GtkMenuImages (int dbus_arg)
         {
             message ("Signal update gtk_menu_images: %i", dbus_arg);
-            global_sig.update_gtk_menu_images(dbus_arg);
+            global_sig.update_gtk_menu_images(dbus_arg, "GTK", "iGtk", "MenuImages");
         }
 
         public void GtkCursorThemeSize (int dbus_arg)
         {
             message ("Signal update gtk_cursor_theme_size: %i", dbus_arg);
-            global_sig.update_gtk_cursor_theme_size(dbus_arg);
+            global_sig.update_gtk_cursor_theme_size(dbus_arg, "GTK", "iGtk", "CursorThemeSize");
         }
 
         public void GtkAntialias (int dbus_arg)
         {
             message ("Signal update gtk_antialias: %i", dbus_arg);
-            global_sig.update_gtk_antialias(dbus_arg);
+            global_sig.update_gtk_antialias(dbus_arg, "GTK", "iXft", "Antialias");
         }
 
         public void GtkHinting (int dbus_arg)
         {
             message ("Signal update gtk_hinting: %i", dbus_arg);
-            global_sig.update_gtk_hinting(dbus_arg);
+            global_sig.update_gtk_hinting(dbus_arg, "GTK", "iXft", "Hinting");
         }
 
         public void GtkHintStyle (string dbus_arg)
         {
             message ("Signal update gtk_hint_style: %s", dbus_arg);
-            global_sig.update_gtk_hint_style(dbus_arg);
+            global_sig.update_gtk_hint_style(dbus_arg, "GTK", "sXft", "HintStyle");
         }
 
         public void GtkRgba (string dbus_arg)
         {
             message ("Signal update gtk_rgba: %s", dbus_arg);
-            global_sig.update_gtk_rgba(dbus_arg);
+            global_sig.update_gtk_rgba(dbus_arg, "GTK", "sXft", "RGBA");
         }
 
         public void GtkColorScheme (string dbus_arg)
         {
             message ("Signal update gtk_color_scheme: %s", dbus_arg);
-            global_sig.update_gtk_color_scheme(dbus_arg);
+            global_sig.update_gtk_color_scheme(dbus_arg, "GTK", "sGtk", "ColorScheme");
         }
 
         public void GtkCursorThemeName (string dbus_arg)
         {
             message ("Signal update gtk_cursor_theme_name: %s", dbus_arg);
-            global_sig.update_gtk_cursor_theme_name(dbus_arg);
+            global_sig.update_gtk_cursor_theme_name(dbus_arg, "GTK", "sGtk", "CursorThemeName");
         }
 
 
         public void GtkToolbarIconSize (int dbus_arg)
         {
             message ("Signal update gtk_toolbar_icon_size: %i", dbus_arg);
-            global_sig.update_gtk_toolbar_icon_size(dbus_arg);
+            global_sig.update_gtk_toolbar_icon_size(dbus_arg, "GTK", "iGtk", "ToolbarIconSize");
         }
 
         public void GtkEnableEventSounds (int dbus_arg)
         {
             message ("Signal update gtk_enable_event_sounds: %i", dbus_arg);
-            global_sig.update_gtk_enable_event_sounds(dbus_arg);
+            global_sig.update_gtk_enable_event_sounds(dbus_arg, "GTK", "iNet", "EnableEventSounds");
         }
 
         public void GtkEnableInputFeedbackSounds (int dbus_arg)
         {
             message ("Signal update gtk_enable_input_feedback_sounds: %i", dbus_arg);
-            global_sig.update_gtk_enable_input_feedback_sounds(dbus_arg);
+            global_sig.update_gtk_enable_input_feedback_sounds(dbus_arg, "GTK", "iNet", "EnableInputFeedbackSounds");
         }
 
         public void MouseAccFactor (int dbus_arg)
         {
             message ("Signal update mouse_acc_factor: %i", dbus_arg);
-            global_sig.update_mouse_acc_factor(dbus_arg);
+            global_sig.update_mouse_acc_factor(dbus_arg, "Mouse", "AccFactor", null);
         }
 
         public void MouseAccThreshold (int dbus_arg)
         {
             message ("Signal update mouse_acc_threshold: %i", dbus_arg);
-            global_sig.update_mouse_acc_threshold(dbus_arg);
+            global_sig.update_mouse_acc_threshold(dbus_arg, "Mouse", "AccThreshold", null);
         }
 
         public void MouseLeftHanded (int dbus_arg)
         {
             message ("Signal update mouse_left_handed: %i", dbus_arg);
-            global_sig.update_mouse_left_handed(dbus_arg);
+            global_sig.update_mouse_left_handed(dbus_arg, "Mouse", "LeftHanded", null);
         }
 
         public void KeyboardDelay (int dbus_arg)
         {
             message ("Signal update keyboard_delay: %i", dbus_arg);
-            global_sig.update_keyboard_delay(dbus_arg);
+            global_sig.update_keyboard_delay(dbus_arg, "Keyboard", "Delay", null);
         }
 
         public void KeyboardInterval (int dbus_arg)
         {
             message ("Signal update keyboard_interval: %i", dbus_arg);
-            global_sig.update_keyboard_interval(dbus_arg);
+            global_sig.update_keyboard_interval(dbus_arg, "Keyboard", "Interval", null);
         }
 
         public void KeyboardBeep (int dbus_arg)
         {
             message ("Signal update keyboard_beep: %i", dbus_arg);
-            global_sig.update_keyboard_beep(dbus_arg);
+            global_sig.update_keyboard_beep(dbus_arg, "Keyboard", "Beep", null);
         }
 
         /* Package manager running */
