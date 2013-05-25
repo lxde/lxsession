@@ -69,6 +69,7 @@ namespace Lxsession {
         static bool reload = false;
         static bool noxsettings = false;
         static bool autostart = false;
+        static string compatibility = "";
 
         const OptionEntry[] option_entries = {
         { "session", 's', 0, OptionArg.STRING, ref session, "specify name of the desktop session profile", "NAME" },
@@ -76,6 +77,7 @@ namespace Lxsession {
         { "reload", 'r', 0, OptionArg.NONE, ref reload, "reload configurations (for Xsettings daemon)", null },
         { "noxsettings", 'n', 0, OptionArg.NONE, ref noxsettings, "disable Xsettings daemon support", null },
         { "noautostart", 'a', 0, OptionArg.NONE, ref autostart, "autostart applications disable (window-manager mode only)", null },
+        { "compatibility", 'c', 0, OptionArg.STRING, ref compatibility, "specify a compatibility mode for settings (only razor-qt supported)", "NAME" },
         { null }
         };
 
@@ -149,8 +151,16 @@ namespace Lxsession {
         global_sig = sig;
 
         /* Configuration */
-        var config = new LxsessionConfigKeyFile(session, desktop_environnement);
-        global_settings = config;
+        if (compatibility == "razor-qt")
+        {
+            var config = new RazorQtConfigKeyFile(session, desktop_environnement);
+            global_settings = config;
+        }
+        else
+        {
+            var config = new LxsessionConfigKeyFile(session, desktop_environnement);
+            global_settings = config;
+        }
 
         /* Sync desktop.conf and autostart setting files */
         global_settings.sync_setting_files ();
