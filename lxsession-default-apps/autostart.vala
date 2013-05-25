@@ -148,7 +148,6 @@ namespace LDefaultApps
             string tmp_path = Path.build_filename(Environment.get_user_cache_dir(), "lxsession-default-apps", "autostart.tmp");
             var tmp_file = File.new_for_path (tmp_path);
             var dest_file = File.new_for_path (read_autostart_conf());
-            tmp_file.delete();
 
             FileStream stream = FileStream.open (read_autostart_conf(), "r");
             var tmp_stream = new DataOutputStream (tmp_file.create (FileCreateFlags.REPLACE_DESTINATION));
@@ -176,6 +175,7 @@ namespace LDefaultApps
             }
 
             tmp_file.copy(dest_file, FileCopyFlags.OVERWRITE);
+            tmp_file.delete();
             
             manual_autostart_init(builder);
         }

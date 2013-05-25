@@ -1282,7 +1282,7 @@ namespace LDefaultApps
             dbus_backend.EnvTypeSet(return_combobox_text(environment_type_combobox));
         });
 
-        var enviroment_menu_prefix_entry = new Gtk.Entry();
+        var enviroment_menu_prefix_entry = builder.get_object("environment_menu_prefix_entry") as Gtk.Entry;
         enviroment_menu_prefix_entry.set_text(dbus_backend.EnvMenuPrefixGet());
 
         var env_apply_button = builder.get_object("env_apply") as Gtk.Button;
