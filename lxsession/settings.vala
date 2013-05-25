@@ -97,6 +97,9 @@ namespace Lxsession
         /* Updates */
         public string updates_type { get; set; default = null;}
 
+        /* Proxy */
+        public string proxy_http { get; set; default = null;}
+
         /* Environnement */
         public string env_type { get; set; default = null;}
         public string env_menu_prefix { get; set; default = "lxde-";}
@@ -129,6 +132,10 @@ namespace Lxsession
         public int keyboard_interval { get; set; default = 30;}
         public int keyboard_beep { get; set; default = 1;}
 
+        public LxsessionConfig ()
+        {
+
+        }
 
         public void init_signal ()
         {
@@ -153,15 +160,13 @@ namespace Lxsession
             global_sig.update_gtk_enable_event_sounds.connect(on_update_int_set);
             global_sig.update_gtk_enable_input_feedback_sounds.connect(on_update_int_set);
 
-            global_sig.update_mouse_acc_factor.connect(on_update_mouse_acc_factor);
-            global_sig.update_mouse_acc_threshold.connect(on_update_mouse_acc_threshold);
-            global_sig.update_mouse_left_handed.connect(on_update_mouse_left_handed);
+            global_sig.update_mouse_acc_factor.connect(on_update_int_set);
+            global_sig.update_mouse_acc_threshold.connect(on_update_int_set);
+            global_sig.update_mouse_left_handed.connect(on_update_int_set);
 
-            global_sig.update_keyboard_delay.connect(on_update_keyboard_delay);
-            global_sig.update_keyboard_interval.connect(on_update_keyboard_interval);
-            global_sig.update_keyboard_beep.connect(on_update_keyboard_beep);
-
-            global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
+            global_sig.update_keyboard_delay.connect(on_update_int_set);
+            global_sig.update_keyboard_interval.connect(on_update_int_set);
+            global_sig.update_keyboard_beep.connect(on_update_int_set);
 
             /* Set for managers */
             global_sig.request_audio_manager_command_set.connect(on_update_string_set);
@@ -266,14 +271,17 @@ namespace Lxsession
             /* Environment */
             global_sig.request_env_type_set.connect(on_update_string_set);
             global_sig.request_env_menu_prefix_set.connect(on_update_string_set);
+
+            /* Proxy */
+            global_sig.request_proxy_http_set.connect(on_update_string_set);
         }
 
-        public virtual on_update_string_set ()
+        public virtual void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
         {
 
         }
 
-        public virtual on_update_int_set ()
+        public virtual void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
         {
 
         }
@@ -283,7 +291,7 @@ namespace Lxsession
 public class LxsessionConfigKeyFile: LxsessionConfig
 {
     /* Settings locations */
-    public KeyFile kf;
+    public KeyFile kf = new KeyFile();
     public string desktop_config_path { get; set; default = null;}
     public string desktop_config_home_path { get; set; default = null;}
     public GLib.File desktop_file ;
@@ -294,7 +302,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg)
     {
-        kf = new KeyFile();
+        global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
 
         init_desktop_files();
         
@@ -672,7 +680,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_keyfile();
     }
 
-    public override void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
+    public override  void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
     {
         if (kf_key2 == null)
         {
@@ -687,20 +695,20 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         save_keyfile();
         read_keyfile();
     }
+
+    public void on_reload_settings_daemon ()
+    {
+        message("Reloading XSettings daemon");
+        settings_daemon_reload(kf);
+    }
+
 }
 
 public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 {
-    public string razor-panel;
-    public string razor-desktop;
-    public string razor-appswitcher;
-    public string razor-runner;
-    public string razor-policykit-agent;
-
-    public RazorQtConfigKeyFile(session_arg, desktop_env_name_arg)
+    public RazorQtConfigKeyFile(string session_arg, string desktop_env_name_arg)
     {
-        base (session_arg, desktop_env_name_arg)
-            kf = new KeyFile();
+        base (session_arg, desktop_env_name_arg);
 
             init_desktop_files();
             
@@ -715,19 +723,19 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             setup_monitor_desktop_file();
     }
 
-    public override void init_desktop_files()
+    public new void init_desktop_files()
     {
         desktop_config_path = Path.build_filename("usr", "share", "razor", "session.conf");
         desktop_config_home_path = Path.build_filename(Environment.get_user_config_dir (), "razor", "session.conf");
     }
 
-    public override void read_keyfile()
+    public new void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
 
         /* Windows manager */
-        this.window_manager_command = read_keyfile_string_value (kf, "General", "windowmanager", null, this.window_manager_command);
-        /* TODO Convert thsi config on file to lxsession config
+        this.windows_manager_command = read_keyfile_string_value (kf, "General", "windowmanager", null, this.windows_manager_command);
+        /* TODO Convert this config on file to lxsession config
         razor-panel=true
         razor-desktop=true
         razor-appswitcher=false
@@ -737,7 +745,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
         
     }
 
-    public override void save_keyfile ()
+    public new void save_keyfile ()
     {
         /* TODO Save on both razor and lxsession conf file*/
     }
