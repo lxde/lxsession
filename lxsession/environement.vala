@@ -188,6 +188,9 @@ namespace Lxsession
 
             /* Enable GTK+2 integration for OpenOffice.org, if available. */
             Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
+
+            /* Add path for Qt plugins (usefull for razor session */
+            Environment.set_variable("QT_PLUGIN_PATH" ,"${QT_PLUGIN_PATH}:/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
         }
     }
 

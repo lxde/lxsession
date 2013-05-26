@@ -718,11 +718,19 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
 public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 {
-    public KeyFile kf_razor = new KeyFile();
-    public string desktop_razor_config_path;
-    public string desktop_razor_config_home_path;
-    public GLib.File desktop_razor_file ;
-    public GLib.File home_desktop_razor_file ;
+    public KeyFile kf_session = new KeyFile();
+
+    public string session_razor_config_path;
+    public string session_razor_config_home_path;
+    public GLib.File session_razor_file ;
+    public GLib.File home_session_razor_file ;
+
+    public KeyFile kf_conf = new KeyFile();
+
+    public string conf_razor_config_path;
+    public string conf_razor_config_home_path;
+    public GLib.File confrazor_file ;
+    public GLib.File home_conf_razor_file ;
 
     public RazorQtConfigKeyFile(string session_arg, string desktop_env_name_arg)
     {
@@ -744,54 +752,92 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
     public void init_desktop_razor_files()
     {
-        desktop_razor_config_home_path = Path.build_filename(Environment.get_user_config_dir (), "razor", "session.conf");
-        var home_desktop_razor_file = File.new_for_path(desktop_razor_config_home_path);
+        session_razor_config_home_path = Path.build_filename(Environment.get_user_config_dir (), "razor", "session.conf");
+        var home_session_razor_file = File.new_for_path(session_razor_config_home_path);
 
-        desktop_razor_config_path = Path.build_filename("usr", "share", "razor", "session.conf");
-        var desktop_razor_file = File.new_for_path(desktop_razor_config_path);
+        session_razor_config_path = Path.build_filename("etc", "xdg", "razor", "session.conf");
+        var session_razor_file = File.new_for_path(session_razor_config_path);
 
-        if (home_desktop_razor_file.query_exists ())
+        if (home_session_razor_file.query_exists ())
         {
-            desktop_razor_config_path = desktop_razor_config_home_path;
+            session_razor_config_path = session_razor_config_home_path;
         }
-        else if (desktop_razor_file.query_exists ())
+        else if (session_razor_file.query_exists ())
         {
-            /* Do nothing, keep desktop_razor_config_path value */
+            /* Do nothing, keep session_razor_config_path value */
         }
         else
         {
-            desktop_razor_config_path = desktop_razor_config_home_path;
+            session_razor_config_path = session_razor_config_home_path;
             try
             {
-                home_desktop_razor_file.create(FileCreateFlags.NONE);
+                home_session_razor_file.create(FileCreateFlags.NONE);
             }
             catch (GLib.Error err)
             {
 		        message (err.message);
             }
         }
+
+        conf_razor_config_home_path = Path.build_filename(Environment.get_user_config_dir (), "razor", "razor.conf");
+        var home_conf_razor_file = File.new_for_path(conf_razor_config_home_path);
+
+        conf_razor_config_path = Path.build_filename("etc", "xdg", "razor", "razor.conf");
+        var conf_razor_file = File.new_for_path(conf_razor_config_path);
+
+        if (home_conf_razor_file.query_exists ())
+        {
+            conf_razor_config_path = conf_razor_config_home_path;
+        }
+        else if (conf_razor_file.query_exists ())
+        {
+            /* Do nothing, keep conf_razor_config_path value */
+        }
+        else
+        {
+            conf_razor_config_path = conf_razor_config_home_path;
+            try
+            {
+                home_conf_razor_file.create(FileCreateFlags.NONE);
+            }
+            catch (GLib.Error err)
+            {
+		        message (err.message);
+            }
+        }
+
     }
 
     public override void read_secondary_keyfile()
     {
-        kf_razor = load_keyfile (desktop_razor_config_path);
+
+        /* override razor menu prefix */
+        this.env_menu_prefix = "razor-";
+
+        kf_session = load_keyfile (session_razor_config_path);
 
         /* Windows manager */
-        this.windows_manager_command = read_keyfile_string_value (kf_razor, "General", "windowmanager", null, this.windows_manager_command);
+        this.windows_manager_command = read_keyfile_string_value (kf_session, "General", "windowmanager", null, this.windows_manager_command);
 
         /* Panel */
-        this.panel_command = read_razor_keyfile_bool_value (kf_razor, "modules", "razor-panel", null, this.panel_command);
-        this.desktop_command = read_razor_keyfile_bool_value (kf_razor, "modules", "razor-desktop", null, this.desktop_command);
-        this.launcher_manager_command = read_razor_keyfile_bool_value (kf_razor, "modules", "razor-runner", null, launcher_manager_command);
+        this.panel_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-panel", null, this.panel_command);
+        this.desktop_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-desktop", null, this.desktop_command);
+        this.launcher_manager_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-runner", null, launcher_manager_command);
         if (this.launcher_manager_command == "razor-runner")
         {
             this.launcher_manager_autostart = "true";
         }
-        this.polkit_command = read_razor_keyfile_bool_value (kf_razor, "modules", "razor-policykit-agent", null, this.polkit_command);
+        this.polkit_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-policykit-agent", null, this.polkit_command);
 
         /* TODO Convert this config on file to lxsession config
         razor-appswitcher=false
         */
+
+        kf_conf = load_keyfile (session_razor_config_path);
+
+        this.gtk_theme_name = read_keyfile_string_value (kf_conf, "Theme", "theme", null, this.gtk_theme_name);
+        this.gtk_icon_theme_name = read_keyfile_string_value (kf_conf, "Theme", "icon_theme", null, this.gtk_icon_theme_name);
+
     }
 
     public string read_razor_keyfile_bool_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2, string? default_value)
@@ -837,55 +883,67 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
     public override void save_secondary_keyfile()
     {
-        desktop_razor_config_path = desktop_razor_config_home_path;
+        session_razor_config_path = session_razor_config_home_path;
+        conf_razor_config_path = conf_razor_config_home_path;
 
-        kf_razor.set_value ("General", "windowmanager", this.windows_manager_command);
+        kf_session.set_value ("General", "windowmanager", this.windows_manager_command);
 
         if (this.panel_command == "razor-panel")
         {
-            kf_razor.set_value ("modules", "razor-panel", "true");
+            kf_session.set_value ("modules", "razor-panel", "true");
         }
         else
         {
-            kf_razor.set_value ("modules", "razor-panel", "false");
+            kf_session.set_value ("modules", "razor-panel", "false");
         }
 
         if (this.desktop_command == "razor-desktop")
         {
-            kf_razor.set_value ("modules", "razor-desktop", "true");
+            kf_session.set_value ("modules", "razor-desktop", "true");
         }
         else
         {
-            kf_razor.set_value ("modules", "razor-desktop", "false");
+            kf_session.set_value ("modules", "razor-desktop", "false");
         }
 
         if (this.launcher_manager_command == "razor-runner")
         {
-            kf_razor.set_value ("modules", "razor-runner", "true");
+            kf_session.set_value ("modules", "razor-runner", "true");
         }
         else
         {
-            kf_razor.set_value ("modules", "razor-runner", "false");
+            kf_session.set_value ("modules", "razor-runner", "false");
         }
 
         if (this.polkit_command == "razor-policykit-agent")
         {
-            kf_razor.set_value ("modules", "razor-policykit-agent", "true");
+            kf_session.set_value ("modules", "razor-policykit-agent", "true");
         }
         else
         {
-            kf_razor.set_value ("modules", "razor-policykit-agent", "false");
+            kf_session.set_value ("modules", "razor-policykit-agent", "false");
         }
 
         /* TODO Convert this config on file to lxsession config
         razor-appswitcher=false
         */
 
-        message ("Saving razor desktop file");
-        var str = kf_razor.to_data (null);
+        message ("Saving razor session file");
+        var str_session = kf_session.to_data (null);
         try
         {
-            FileUtils.set_contents (desktop_razor_config_path, str, str.length);
+            FileUtils.set_contents (session_razor_config_path, str_session, str_session.length);
+        }
+        catch (FileError err)
+        {
+            warning (err.message);
+        }
+
+        message ("Saving razor conf file");
+        var str_conf = kf_conf.to_data (null);
+        try
+        {
+            FileUtils.set_contents (conf_razor_config_path, str_conf, str_conf.length);
         }
         catch (FileError err)
         {
