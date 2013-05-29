@@ -1270,7 +1270,7 @@ namespace LDefaultApps
 
         /* Environment */
         var environment_type_combobox = new Gtk.ComboBox();
-        string[] environment_type_commands = { "", "Lubuntu"};
+        string[] environment_type_commands = { "", "lubuntu"};
         string environment_type_default = dbus_backend.EnvTypeGet();
         environment_type_combobox = ui_combobox_init(   builder,
                                                         "environment_type_combobox",
