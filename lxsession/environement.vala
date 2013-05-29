@@ -107,6 +107,7 @@ namespace Lxsession
             string custom_data;
             string return_config;
             string return_data;
+            string qt_plugin;
 
             config_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
             data_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
@@ -190,7 +191,8 @@ namespace Lxsession
             Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
 
             /* Add path for Qt plugins (usefull for razor session */
-            Environment.set_variable("QT_PLUGIN_PATH" ,"${QT_PLUGIN_PATH}:/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
+            qt_plugin = Environment.get_variable("QT_PLUGIN_PATH");
+            Environment.set_variable("QT_PLUGIN_PATH" , qt_plugin + ":/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
         }
     }
 
