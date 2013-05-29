@@ -28,6 +28,20 @@ namespace LDefaultApps
             string config_system_path;
             config_system_path = get_config_path("autostart");
             var file = File.new_for_path (config_system_path);
+            var config_parent = config_file.get_parent();
+
+            if (!config_parent.query_exists ())
+            {
+                try
+                {
+                    config_parent.make_directory_with_parents ();
+                }
+                catch (GLib.Error e)
+                {
+                    message (e.message);
+                }
+            }
+
             try
             {
                 file.copy (config_file, FileCopyFlags.NONE);
