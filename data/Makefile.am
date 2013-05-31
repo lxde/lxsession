@@ -29,5 +29,6 @@ EXTRA_DIST= \
 	desktop.conf.example \
 	conffiles.conf.example \
 	$(desktop_DATA) \
+	$(desktop_in_files) \
 	$(image_DATA) \
 	$(NULL)
