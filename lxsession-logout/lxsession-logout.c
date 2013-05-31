@@ -191,6 +191,11 @@ static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
     {
         kill(handler_context->lxsession_pid, SIGTERM);
     }
+    else
+    {
+        /* Assume we are under openbox */
+        g_spawn_command_line_async("openbox --exit", NULL);
+    }
     gtk_main_quit();
 }
 
