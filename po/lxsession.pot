@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-30 13:35+0100\n"
+"POT-Creation-Date: 2013-05-31 21:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,47 +37,42 @@ msgstr ""
 msgid "Position of the banner"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:406
-#: ../lxsession-logout/lxsession-logout.c:420
+#: ../lxsession-logout/lxsession-logout.c:434
 #, c-format
 msgid "Error: %s\n"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:420
-msgid "LXSession is not running."
-msgstr ""
-
-#: ../lxsession-logout/lxsession-logout.c:603
+#: ../lxsession-logout/lxsession-logout.c:687
 #, c-format
-msgid "<b><big>Logout %s session?</big></b>"
+msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:611
+#: ../lxsession-logout/lxsession-logout.c:695
 msgid "Sh_utdown"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:622
+#: ../lxsession-logout/lxsession-logout.c:706
 msgid "_Reboot"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:633
+#: ../lxsession-logout/lxsession-logout.c:717
 msgid "_Suspend"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:644
+#: ../lxsession-logout/lxsession-logout.c:728
 msgid "_Hibernate"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:655
+#: ../lxsession-logout/lxsession-logout.c:739
 msgid "S_witch User"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:666
+#: ../lxsession-logout/lxsession-logout.c:750
 msgid "L_ock Screen"
 msgstr ""
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:675
+#: ../lxsession-logout/lxsession-logout.c:759
 msgid "_Logout"
 msgstr ""
 
@@ -91,6 +86,14 @@ msgstr ""
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
+msgstr ""
+
+#: ../lxpolkit/lxpolkit.c:43
+msgid "Error"
+msgstr ""
+
+#: ../lxpolkit/lxpolkit.c:46
+msgid "Information"
 msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
@@ -144,6 +147,234 @@ msgstr ""
 msgid "Identity:"
 msgstr ""
 
+#: ../data/ui/lxsession-default-apps.ui.h:1
+msgid "Command"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:2
+msgid "Session"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:3
+msgid "Apply"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:4
+msgid "Reload"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:5
+msgid "<b>Panel</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:6
+msgid "Extras"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:7
+msgid "<b>Window Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:8
+msgid "<b>File Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:9
+msgid "<b>Screensaver</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:10
+msgid "<b>Polkit agent</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:11
+msgid "<b>Dock</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:12
+msgid "Autostart"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:13
+msgid "<b>Composite Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:14
+msgid "Wallpaper"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:15
+msgid "<b>Desktop</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:16
+msgid "<b>Power Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:17
+msgid "<b>Network GUI</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:18
+msgid "<b>Communication 1</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:19
+msgid "<b>Communication 2</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:20
+msgid "<b>Widget 1</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:21
+msgid "Running applications"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:22
+msgid "<b>Audio manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:23
+msgid "Image"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:24
+msgid "Layout"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:25
+msgid "<b>Quit Manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:26
+msgid "<b>Workspace manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:27
+msgid "<b>Launcher manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:28
+msgid "<b>Terminal manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:29
+msgid "<b>Screenshot manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:30
+msgid "<b>Upgrade manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:31
+msgid "Launching applications"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:32
+msgid "Disable autostarted applications ?"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:33
+msgid "<b>Settings</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:34
+msgid "<b>Manual autostarted applications</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:35
+msgid "<b>Clipboard manager</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:36
+msgid "Mode"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:37
+msgid "Model"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:38
+msgid "Variant"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:39
+msgid "Options"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:40
+msgid "<b>Keymap</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:41
+msgid "<b>XRandr</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:42
+msgid "Keyring"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:43
+msgid "<b>Security</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:44
+msgid "Type"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:45
+msgid "<b>a11y</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:46
+msgid "Activate updates"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:47
+msgid "<b>Updates</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:48
+msgid "Http"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:49
+msgid "<b>Proxy</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:50
+msgid "Laptop mode"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:51
+msgid "<b>General settings</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:52
+msgid "<b>Dbus</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:53
+msgid "Menu prefix"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:54
+msgid "<b>Environment</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:55
+msgid "Settings"
+msgstr ""
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
+msgstr ""
+
+#: ../data/lxsession-default-apps.desktop.in.h:1
+msgid "Default applications for LXSession"
+msgstr ""
+
+#: ../data/lxsession-default-apps.desktop.in.h:2
+msgid "Change the default applications on LXDE"
 msgstr ""
