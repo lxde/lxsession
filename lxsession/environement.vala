@@ -111,6 +111,18 @@ namespace Lxsession
             config_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
             data_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
 
+            if (session == "Lubuntu")
+            {
+                /* Assuming env_type is unset du to migration from old lxsession */
+                custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;
+                custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
+            }
+            else
+            {
+                custom_config = "/etc/xdg";
+                custom_data ="/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
+            }
+
             switch (global_settings.env_type)
             {
                 case "lubuntu":
@@ -118,36 +130,44 @@ namespace Lxsession
                     custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
                     break;
                 default:
-                    custom_config = "/etc/xdg";
-                    custom_data ="/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
                     break;
             }
 
             if (config_dirs == null)
             {
                 return_config = custom_config;
+                message ("confir_dirs is null, export : %s", return_config);
             }
             else
             {
                 return_config = custom_config + ":" + config_dirs;
+                message ("custom_config :%s", custom_config);
+                message ("config_dirs :%s", config_dirs);
+                message ("confir_dirs not null, export : %s", return_config);
             }
 
             if (return_config != null)
             {
+                message ("Exporting XDG_CONFIG_DIRS");
                 Environment.set_variable("XDG_CONFIG_DIRS", return_config, true);
             }
 
             if (data_dirs == null)
             {
                 return_data = custom_data;
+                message ("data_dirs is null, export : %s", return_data);
             }
             else
             {
-                return_data = custom_data + ":" + config_dirs;
+                return_data = custom_data + ":" + data_dirs;
+                message ("custom_data :%s", custom_data);
+                message ("data_dirs :%s", data_dirs);
+                message ("data_dirs not null, export : %s", return_data);
             }
 
             if (return_data != null)
             {
+                message ("Exporting XDG_DATA_DIRS");
                 Environment.set_variable("XDG_DATA_DIRS", return_data, true);
             }
         }
