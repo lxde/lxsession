@@ -330,7 +330,7 @@ namespace Lxsession {
                 {
                     var launcher = new LauncherManagerApp();
                     global_launcher_manager = launcher;
-                    global_launcher_manager.launch();
+                    global_launcher_manager.autostart_launch();
                 }
             }
 

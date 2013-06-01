@@ -841,6 +841,27 @@ public class LauncherManagerApp: SimpleAppObject
                 break;
         }
     }
+
+    public void autostart_launch()
+    {
+        switch (launchermanager_command)
+        {
+            case "synapse":
+                string create_autostart_command = "synapse --startup";
+                try
+                {
+                    Process.spawn_command_line_async(create_autostart_command);
+                }
+                catch (SpawnError err)
+                {
+                    warning (err.message);
+                }
+                break;
+            default:
+                this.launch();
+                break;
+        }
+    }
 }
 
 public class TerminalManagerApp: SimpleAppObject
