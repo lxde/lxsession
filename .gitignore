@@ -8,7 +8,6 @@ install-sh
 ltmain.sh
 lxsession-logout/Makefile.in
 lxsession/Makefile.in
-m4/
 man/Makefile.in
 missing
 po/Makefile.in.in
