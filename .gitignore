@@ -5,7 +5,6 @@ config.h.in
 configure
 depcomp
 install-sh
-ltmain.sh
 lxsession-logout/Makefile.in
 lxsession/Makefile.in
 man/Makefile.in
