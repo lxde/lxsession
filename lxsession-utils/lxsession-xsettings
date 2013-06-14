@@ -20,7 +20,7 @@
 echo $1  # first argument
 echo $2  # second argument
 
-if [ "$1" = "restart" ]
+if [ "$1" = "reload" ]
 then
 	echo "Restart Xsettings"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.ReloadSettingsDaemon > /dev/null 2>&1
