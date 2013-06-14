@@ -36,7 +36,7 @@
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
-#include "dbus-interface.h"
+#include "lxsession-logout-dbus-interface.h"
 
 /* Command parameters. */
 static char * prompt = NULL;
@@ -212,7 +212,7 @@ static void change_root_property(GtkWidget* w, const char* prop_name, const char
 /* Handler for "clicked" signal on Shutdown button. */
 static void shutdown_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    char * error_result = NULL;
+    GError *err = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     if (handler_context->ltsp)
@@ -224,21 +224,27 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
         }
     }
     else if (handler_context->shutdown_ConsoleKit)
-        error_result = dbus_ConsoleKit_Stop();
+        dbus_ConsoleKit_Stop(&err);
     else if (handler_context->shutdown_logind)
-        error_result = dbus_logind_PowerOff();
+        dbus_logind_PowerOff(&err);
     else if (handler_context->shutdown_HAL)
-        error_result = dbus_HAL_Shutdown();
+        dbus_HAL_Shutdown(&err);
 
-    if (error_result != NULL)
-        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
-        else gtk_main_quit();
+	if (err)
+	{
+		gtk_label_set_text(GTK_LABEL(handler_context->error_label), err->message);
+		g_error_free (err);
+	}
+	else
+    {
+        gtk_main_quit();
+    }
 }
 
 /* Handler for "clicked" signal on Reboot button. */
 static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    char * error_result = NULL;
+    GError *err = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     if (handler_context->ltsp)
@@ -250,53 +256,71 @@ static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
         }
     }
     else if (handler_context->reboot_ConsoleKit)
-        error_result = dbus_ConsoleKit_Restart();
+        dbus_ConsoleKit_Restart(&err);
     else if (handler_context->reboot_logind)
-        error_result = dbus_logind_Reboot();
+        dbus_logind_Reboot(&err);
     else if (handler_context->reboot_HAL)
-        error_result = dbus_HAL_Reboot();
+        dbus_HAL_Reboot(&err);
 
-    if (error_result != NULL)
-        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
-        else gtk_main_quit();
+	if (err)
+	{
+		gtk_label_set_text(GTK_LABEL(handler_context->error_label), err->message);
+		g_error_free (err);
+	}
+	else
+    {
+        gtk_main_quit();
+    }
 }
 
 /* Handler for "clicked" signal on Suspend button. */
 static void suspend_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    char * error_result = NULL;
+    GError *err = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
     if (handler_context->suspend_UPower)
-        error_result = dbus_UPower_Suspend();
+        dbus_UPower_Suspend(&err);
     else if (handler_context->suspend_logind)
-        error_result = dbus_logind_Suspend();
+        dbus_logind_Suspend(&err);
     else if (handler_context->suspend_HAL)
-        error_result = dbus_HAL_Suspend();
+        dbus_HAL_Suspend(&err);
 
-    if (error_result != NULL)
-        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
-        else gtk_main_quit();
+	if (err)
+	{
+		gtk_label_set_text(GTK_LABEL(handler_context->error_label), err->message);
+		g_error_free (err);
+	}
+	else
+    {
+        gtk_main_quit();
+    }
 }
 
 /* Handler for "clicked" signal on Hibernate button. */
 static void hibernate_clicked(GtkButton * button, HandlerContext * handler_context)
 {
-    char * error_result = NULL;
+    GError *err = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
     if (handler_context->hibernate_UPower)
-        error_result = dbus_UPower_Hibernate();
+        dbus_UPower_Hibernate(&err);
     else if (handler_context->hibernate_logind)
-        error_result = dbus_logind_Hibernate();
+        dbus_logind_Hibernate(&err);
     else if (handler_context->hibernate_HAL)
-        error_result = dbus_HAL_Hibernate();
+        dbus_HAL_Hibernate(&err);
 
-    if (error_result != NULL)
-        gtk_label_set_text(GTK_LABEL(handler_context->error_label), error_result);
-        else gtk_main_quit();
+	if (err)
+	{
+		gtk_label_set_text(GTK_LABEL(handler_context->error_label), err->message);
+		g_error_free (err);
+	}
+	else
+    {
+        gtk_main_quit();
+    }
 }
 
 /* Handler for "clicked" signal on Switch User button. */
