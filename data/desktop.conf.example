@@ -82,6 +82,9 @@ clipboard/command=lxclipboard
 composite_manager/command=
 composite_manager/autostart=true
 
+# Utility to lock screen
+lock_manager/command=lxlock
+
 # Disable autostart of applications in system and home autostart directory
 # all : disable all applications (home, system, specify in this config file)
 # config-only : disable applications from home and system (start only the ones in this config file)

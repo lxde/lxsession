@@ -105,6 +105,9 @@ namespace LDefaultApps
         public abstract void ScreenshotManagerLaunch () throws IOError;
         public abstract void ScreenshotManagerCommandSet (string arg) throws IOError;
         public abstract string ScreenshotManagerCommandGet () throws IOError;
+        public abstract void LockManagerLaunch () throws IOError;
+        public abstract void LockManagerCommandSet (string arg) throws IOError;
+        public abstract string LockManagerCommandGet () throws IOError;
         public abstract void UpgradeManagerLaunch () throws IOError;
         public abstract void UpgradeManagerCommandSet (string arg) throws IOError;
         public abstract string UpgradeManagerCommandGet () throws IOError;
@@ -1207,6 +1210,43 @@ namespace LDefaultApps
             try
             {
                 return dbus_lxsession.ScreenshotManagerCommandGet();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+                return "";
+            }
+        }
+
+        public void LockManagerLaunch()
+        {
+            try
+            {
+                dbus_lxsession.LockManagerLaunch();
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public void LockManagerCommandSet(string arg)
+        {
+            try
+            {
+                dbus_lxsession.LockManagerCommandSet(arg);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
+            }
+        }
+
+        public string LockManagerCommandGet()
+        {
+            try
+            {
+                return dbus_lxsession.LockManagerCommandGet();
             }
             catch (GLib.IOError err)
             {

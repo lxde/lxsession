@@ -983,6 +983,38 @@ namespace LDefaultApps
             dbus_backend.ScreenshotManagerLaunch();
         });
 
+        /* Lock manager init */
+        var lock_command_combobox = new Gtk.ComboBox();
+        var lock_command_entry = builder.get_object ("lock_command_entry") as Entry;
+        string[] lock_commands = { "", "lxlock"};
+        string lock_command_default = dbus_backend.LockManagerCommandGet();
+        lock_command_combobox = ui_combobox_init(  builder,
+                                                    "lock_command_combobox",
+                                                    lock_commands,
+                                                    "lock_command_entry",
+                                                    lock_command_default);
+
+        var lock_apply_button = builder.get_object("lock_apply") as Gtk.Button;
+        lock_apply_button.clicked.connect (() => {
+            message ("Click !");
+
+            if (return_combobox_position(lock_command_combobox) == 99)
+            {
+                dbus_backend.LockManagerCommandSet(lock_command_entry.get_text());
+            }
+            else
+            {
+                dbus_backend.LockManagerCommandSet(return_combobox_text(lock_command_combobox));
+            }
+
+        });
+
+
+        var lock_reload_button = builder.get_object("lock_reload") as Gtk.Button;
+        lock_reload_button.clicked.connect (() => {
+            dbus_backend.LockManagerLaunch();
+        });
+
         /* Upgrade manager init */
         var upgrade_command_combobox = new Gtk.ComboBox();
         var upgrade_command_entry = builder.get_object ("upgrade_command_entry") as Entry;
@@ -1486,6 +1518,12 @@ namespace LDefaultApps
         if (return_combobox_position(screenshot_command_combobox) != 99)
         {
             screenshot_command_entry.hide_all();
+        }
+
+        /* Lock manager hide */
+        if (return_combobox_position(lock_command_combobox) != 99)
+        {
+            lock_command_entry.hide_all();
         }
 
         /* Upgrade manager hide */

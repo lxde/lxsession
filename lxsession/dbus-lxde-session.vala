@@ -340,6 +340,42 @@ namespace Lxsession
             }
         }
 
+        /* Lock manager */
+        public void LockManagerCommandGet(out string command)
+        {
+            command = global_settings.lock_manager_command;
+            message ("Get lock manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void LockManagerCommandSet(string command)
+        {
+            message ("Set lock manager command to :%s", command);
+            global_sig.request_lock_manager_command_set(command);
+        }
+
+        public void LockManagerLaunch()
+        {
+            message("Start Lock Manager");
+            if (global_settings.lock_manager_command == null)
+            {
+                warning("Lock manager command not set");
+            }
+            else if (global_lock_manager == null)
+            {
+                var lock_manager = new LockManagerApp();
+                global_lock_manager = lock_manager;
+                global_lock_manager.launch();
+            }
+            else
+            {
+                global_lock_manager.launch();
+            }
+        }
+
         /* Upgrade manager */
         public void UpgradeManagerCommandGet(out string command)
         {

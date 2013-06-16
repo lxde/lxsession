@@ -64,6 +64,7 @@ namespace Lxsession
         public string upgrade_manager_command { get; set; default = null;}
         public string composite_manager_command { get; set; default = null;}
         public string composite_manager_autostart { get; set; default = null;}
+        public string lock_manager_command { get; set; default = "lxlock";}
         public string disable_autostart { get; set; default = null;}
         public string upstart_user_session { get; set; default = null;}
 
@@ -207,6 +208,9 @@ namespace Lxsession
 
             /* Screensaver control */
             global_sig.request_screensaver_command_set.connect(on_update_string_set);
+
+            /* Lock control */
+            global_sig.request_lock_manager_command_set.connect(on_update_string_set);
 
             /* Power Manager control */
             global_sig.request_power_manager_command_set.connect(on_update_string_set);
@@ -556,6 +560,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         this.workspace_manager_command = read_keyfile_string_value(kf, "Session", "workspace_manager", "command", this.workspace_manager_command);
         this.terminal_manager_command = read_keyfile_string_value(kf, "Session", "terminal_manager", "command", this.terminal_manager_command);
         this.screenshot_manager_command = read_keyfile_string_value(kf, "Session", "screenshot_manager", "command", this.screenshot_manager_command);
+        this.lock_manager_command = read_keyfile_string_value(kf, "Session", "lock_manager", "command", this.lock_manager_command);
         this.upgrade_manager_command = read_keyfile_string_value(kf, "Session", "upgrade_manager", "command", this.upgrade_manager_command);
         this.clipboard_command = read_keyfile_string_value(kf, "Session", "clipboard", "command", this.clipboard_command);
         this.disable_autostart = read_keyfile_string_value(kf, "Session", "disable_autostart", null, this.disable_autostart);

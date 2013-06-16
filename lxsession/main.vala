@@ -49,6 +49,7 @@ namespace Lxsession {
     LauncherManagerApp global_launcher_manager;
     TerminalManagerApp global_terminal_manager;
     ScreenshotManagerApp global_screenshot_manager;
+    LockManagerApp global_lock_manager;
     UpgradeManagerApp global_upgrade_manager;
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;

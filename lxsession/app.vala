@@ -1033,6 +1033,30 @@ public class ScreenshotManagerApp: SimpleAppObject
     }
 }
 
+public class LockManagerApp: SimpleAppObject
+{
+    string lockmanager_command;
+
+    public LockManagerApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        lockmanager_command = global_settings.lock_manager_command;
+
+        switch (lockmanager_command)
+        {
+            default:
+                string[] create_command = lockmanager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 public class UpgradeManagerApp: SimpleAppObject
 {
     string upgrademanager_command;
