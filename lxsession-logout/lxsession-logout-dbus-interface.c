@@ -23,6 +23,8 @@
 static GDBusProxy *upower_proxy = NULL;
 static GDBusProxy *ck_proxy = NULL;
 static GDBusProxy *systemd_proxy = NULL;
+static GDBusProxy *lightdm_proxy = NULL;
+static GDBusProxy *lxde_proxy = NULL;
 
 
 /*** UPower mechanism ***/
@@ -315,7 +317,7 @@ lightdm_call_function (const gchar *function, gboolean default_result, GError **
 }
 
 gboolean
-dbus_Lighdm_SwitchToGreeter (GError **error)
+dbus_Lightdm_SwitchToGreeter (GError **error)
 {
     return lightdm_call_function ("SwitchToGreeter", TRUE, error);
 }

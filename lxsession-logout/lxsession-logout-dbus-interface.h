@@ -44,7 +44,7 @@ extern void dbus_systemd_Suspend(GError **);
 extern void dbus_systemd_Hibernate(GError **);
 
 /* Interface to lightdm for switch user. */
-extern gboolean dbus_Lighdm_SwitchToGreeter (GError **error);
+extern gboolean dbus_Lightdm_SwitchToGreeter (GError **error);
 
 /* Interface to lxde for logout. */
 extern gboolean dbus_LXDE_Logout (GError **error);

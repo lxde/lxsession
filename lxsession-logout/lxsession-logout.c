@@ -61,18 +61,14 @@ typedef struct {
     int hibernate_available : 1;	/* Hibernate is available */
     int switch_user_available : 1;	/* Switch User is available */
 
-    int shutdown_logind : 1;		/* Shutdown is available via logind */
-    int reboot_logind : 1;		/* Reboot is available via logind */
-    int suspend_logind : 1;		/* Suspend is available via logind */
-    int hibernate_logind : 1;		/* Hibernate is available via logind */
+    int shutdown_systemd : 1;		/* Shutdown is available via systemd */
+    int reboot_systemd : 1;		/* Reboot is available via systemd */
+    int suspend_systemd : 1;		/* Suspend is available via systemd */
+    int hibernate_systemd : 1;		/* Hibernate is available via systemd */
     int shutdown_ConsoleKit : 1;	/* Shutdown is available via ConsoleKit */
     int reboot_ConsoleKit : 1;		/* Reboot is available via ConsoleKit */
     int suspend_UPower : 1;		/* Suspend is available via UPower */
     int hibernate_UPower : 1;		/* Hibernate is available via UPower */
-    int shutdown_HAL : 1;		/* Shutdown is available via HAL */
-    int reboot_HAL : 1;			/* Reboot is available via HAL */
-    int suspend_HAL : 1;		/* Suspend is available via HAL */
-    int hibernate_HAL : 1;		/* Hibernate is available via HAL */
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
     int switch_user_LIGHTDM : 1;	/* Switch User is available via GDM */
     int switch_user_KDM : 1;		/* Switch User is available via LIGHTDM */
@@ -225,10 +221,8 @@ static void shutdown_clicked(GtkButton * button, HandlerContext * handler_contex
     }
     else if (handler_context->shutdown_ConsoleKit)
         dbus_ConsoleKit_Stop(&err);
-    else if (handler_context->shutdown_logind)
-        dbus_logind_PowerOff(&err);
-    else if (handler_context->shutdown_HAL)
-        dbus_HAL_Shutdown(&err);
+    else if (handler_context->shutdown_systemd)
+        dbus_systemd_PowerOff(&err);
 
 	if (err)
 	{
@@ -257,10 +251,8 @@ static void reboot_clicked(GtkButton * button, HandlerContext * handler_context)
     }
     else if (handler_context->reboot_ConsoleKit)
         dbus_ConsoleKit_Restart(&err);
-    else if (handler_context->reboot_logind)
-        dbus_logind_Reboot(&err);
-    else if (handler_context->reboot_HAL)
-        dbus_HAL_Reboot(&err);
+    else if (handler_context->reboot_systemd)
+        dbus_systemd_Reboot(&err);
 
 	if (err)
 	{
@@ -282,10 +274,8 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
     lock_screen();
     if (handler_context->suspend_UPower)
         dbus_UPower_Suspend(&err);
-    else if (handler_context->suspend_logind)
-        dbus_logind_Suspend(&err);
-    else if (handler_context->suspend_HAL)
-        dbus_HAL_Suspend(&err);
+    else if (handler_context->suspend_systemd)
+        dbus_systemd_Suspend(&err);
 
 	if (err)
 	{
@@ -307,10 +297,8 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
     lock_screen();
     if (handler_context->hibernate_UPower)
         dbus_UPower_Hibernate(&err);
-    else if (handler_context->hibernate_logind)
-        dbus_logind_Hibernate(&err);
-    else if (handler_context->hibernate_HAL)
-        dbus_HAL_Hibernate(&err);
+    else if (handler_context->hibernate_systemd)
+        dbus_systemd_Hibernate(&err);
 
 	if (err)
 	{
@@ -326,6 +314,7 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
 /* Handler for "clicked" signal on Switch User button. */
 static void switch_user_clicked(GtkButton * button, HandlerContext * handler_context)
 {
+    GError *err = NULL;
     gtk_label_set_text(GTK_LABEL(handler_context->error_label), NULL);
 
     lock_screen();
@@ -334,11 +323,19 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
     else if (handler_context->switch_user_KDM)
         g_spawn_command_line_sync("kdmctl reserve", NULL, NULL, NULL, NULL);
     else if (handler_context->switch_user_LIGHTDM)
-        dbus_Lightdm_SwitchToGreeter();
+        dbus_Lightdm_SwitchToGreeter(&err);
     else if(handler_context->switch_user_LXDM)
         g_spawn_command_line_sync("lxdm-binary -c USER_SWITCH", NULL, NULL, NULL, NULL);
 
-    gtk_main_quit();
+	if (err)
+	{
+		gtk_label_set_text(GTK_LABEL(handler_context->error_label), err->message);
+		g_error_free (err);
+	}
+	else
+    {
+        gtk_main_quit();
+    }
 }
 
 /* Handler for "clicked" signal on Lock button. */
@@ -473,26 +470,26 @@ int main(int argc, char * argv[])
     const char * p = g_getenv("_LXSESSION_PID");
     if (p != NULL) handler_context.lxsession_pid = atoi(p);
 
-    /* Initialize capabilities of the logind mechanism. */
-    if (dbus_logind_CanPowerOff())
+    /* Initialize capabilities of the systemd mechanism. */
+    if (dbus_systemd_CanPowerOff())
     {
         handler_context.shutdown_available = TRUE;
-        handler_context.shutdown_logind = TRUE;
+        handler_context.shutdown_systemd = TRUE;
     }
-    if (dbus_logind_CanReboot())
+    if (dbus_systemd_CanReboot())
     {
         handler_context.reboot_available = TRUE;
-        handler_context.reboot_logind = TRUE;
+        handler_context.reboot_systemd = TRUE;
     }
-    if (dbus_logind_CanSuspend())
+    if (dbus_systemd_CanSuspend())
     {
         handler_context.suspend_available = TRUE;
-        handler_context.suspend_logind = TRUE;
+        handler_context.suspend_systemd = TRUE;
     }
-    if (dbus_logind_CanHibernate())
+    if (dbus_systemd_CanHibernate())
     {
         handler_context.hibernate_available = TRUE;
-        handler_context.hibernate_logind = TRUE;
+        handler_context.hibernate_systemd = TRUE;
     }
 
     /* Initialize capabilities of the ConsoleKit mechanism. */
@@ -517,28 +514,6 @@ int main(int argc, char * argv[])
     {
         handler_context.hibernate_available = TRUE;
         handler_context.hibernate_UPower = TRUE;
-    }
-
-    /* Initialize capabilities of the HAL mechanism. */
-    if (!handler_context.shutdown_available && dbus_HAL_CanShutdown())
-    {
-        handler_context.shutdown_available = TRUE;
-        handler_context.shutdown_HAL = TRUE;
-    }
-    if (!handler_context.reboot_available && dbus_HAL_CanReboot())
-    {
-        handler_context.reboot_available = TRUE;
-        handler_context.reboot_HAL = TRUE;
-    }
-    if (!handler_context.suspend_available && dbus_HAL_CanSuspend())
-    {
-        handler_context.suspend_available = TRUE;
-        handler_context.suspend_HAL = TRUE;
-    }
-    if (!handler_context.hibernate_available && dbus_HAL_CanHibernate())
-    {
-        handler_context.hibernate_available = TRUE;
-        handler_context.hibernate_HAL = TRUE;
     }
 
     /* If we are under GDM, its "Switch User" is available. */
