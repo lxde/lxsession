@@ -212,7 +212,13 @@ namespace Lxsession
             /* Add path for Qt plugins (usefull for razor session */
             string qt_plugin;
             qt_plugin = Environment.get_variable("QT_PLUGIN_PATH");
-            Environment.set_variable("QT_PLUGIN_PATH" , qt_plugin + ":/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
+            if (qt_plugin != null)
+            {
+                if (qt_plugin != "")
+                {
+                    Environment.set_variable("QT_PLUGIN_PATH" , qt_plugin + ":/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
+                }
+            }
         }
     }
 
