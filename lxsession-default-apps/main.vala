@@ -1089,16 +1089,16 @@ namespace LDefaultApps
                                                     null,
                                                     keymap_mode_default);
 
-        var keymap_model_entry = new Gtk.Entry();
+        var keymap_model_entry = builder.get_object("keymap_model_entry") as Gtk.Entry;
         keymap_model_entry.set_text(dbus_backend.KeymapModelGet());
 
-        var keymap_layout_entry = new Gtk.Entry();
+        var keymap_layout_entry = builder.get_object("keymap_layout_entry") as Gtk.Entry;
         keymap_layout_entry.set_text(dbus_backend.KeymapLayoutGet());
 
-        var keymap_variant_entry = new Gtk.Entry();
+        var keymap_variant_entry = builder.get_object("keymap_variant_entry") as Gtk.Entry;
         keymap_variant_entry.set_text(dbus_backend.KeymapVariantGet());
 
-        var keymap_options_entry = new Gtk.Entry();
+        var keymap_options_entry = builder.get_object("keymap_options_entry") as Gtk.Entry;
         keymap_options_entry.set_text(dbus_backend.KeymapOptionsGet());
 
         var keymap_apply_button = builder.get_object("keymap_apply") as Gtk.Button;
@@ -1126,7 +1126,7 @@ namespace LDefaultApps
                                                     null,
                                                     xrandr_mode_default);
 
-        var xrandr_command_entry = new Gtk.Entry();
+        var xrandr_command_entry = builder.get_object("xrandr_command_entry") as Gtk.Entry;
         xrandr_command_entry.set_text(dbus_backend.XrandrCommandGet());
 
         var xrandr_apply_button = builder.get_object("xrandr_apply") as Gtk.Button;
@@ -1540,7 +1540,6 @@ namespace LDefaultApps
 
         /* start main loop */
         Gtk.main ();
-        new MainLoop().run();
 
 
         return 0;
