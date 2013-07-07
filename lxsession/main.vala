@@ -194,9 +194,9 @@ namespace Lxsession {
         string conffiles_conf = get_config_path ("conffiles.conf");
         if (FileUtils.test (conffiles_conf, FileTest.EXISTS))
         {
-            /* Use the conffiles utility
+            /* Use the conffiles utility */
             var conffiles = new ConffilesObject(conffiles_conf);
-            */
+            conffiles.apply();
         }
 
         /* Create the Xsettings manager */

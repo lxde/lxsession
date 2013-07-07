@@ -24,27 +24,56 @@ namespace Lxsession
 
         public KeyFile kf;
 
-        /* TODO Make the openbox one smarter, with link to the variable set in lxsession ofr openbox */
-        public string Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lubuntu.xml");
+        public string Openbox_dest;
         public string Qt_dest = Path.build_filename(Environment.get_user_config_dir(),"Trolltech.conf");
         public string Leafpad_dest = Path.build_filename(Environment.get_user_config_dir(),"leafpad","leafpadrc");
         public string Lxterminal_dest = Path.build_filename(Environment.get_user_config_dir(),"lxterminal","lxterminal.conf");
-       public string XScreensaver_dest = Path.build_filename(Environment.get_home_dir(),".xscreensaver");
-       public string libfm_dest = Path.build_filename(Environment.get_user_config_dir(),"libfm","libfm.conf");
+        public string XScreensaver_dest = Path.build_filename(Environment.get_home_dir(),".xscreensaver");
+        public string libfm_dest = Path.build_filename(Environment.get_user_config_dir(),"libfm","libfm.conf");
+        public string cairo_dock_dest = Path.build_filename(Environment.get_user_config_dir(),"cairo-dock","cairo-dock.conf");
+
 
         public ConffilesObject(string conffiles_conf)
         {
             /* Constructor */
             kf = load_keyfile (conffiles_conf);
+            if (global_settings.windows_manager_command == "openbox")
+            {
+                if (global_settings.windows_manager_session == "LXDE")
+                {
+                    Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lxde-rc.xml");
+                }
+                else if (global_settings.windows_manager_session == "Lubuntu")
+                    {
+                        Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lubuntu-rc.xml");
+                    }
+            }
+            else
+            {
+                    Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lxde-rc.xml");
+            }
         }
 
         public void copy_file (string source_path, string dest_path)
         {
             File source_file = File.new_for_path (source_path);
             File dest_file = File.new_for_path (dest_path);
+            File dest_directory = dest_file.get_parent();
+
             if (!dest_file.query_exists ())
             {
-                /*TODO Create sub directories ?*/
+                if (!dest_directory.query_exists ())
+                {
+                    try
+                    {
+                        dest_directory.make_directory_with_parents();
+                    }
+                    catch (GLib.Error err)
+                    {
+                        message (err.message);
+                    }
+                }
+
                 try
                 {
                     source_file.copy(dest_file, FileCopyFlags.NONE, null);
@@ -55,7 +84,7 @@ namespace Lxsession
                 }
             }
         }
-        public string load_dest_path(string config_type)
+        public string load_source_path(string config_type)
         {
             string source;
             try
@@ -69,11 +98,11 @@ namespace Lxsession
                 return "";
             }
         }
-        public void copy_conf (string config_type, string source_path)
+        public void copy_conf (string config_type, string dest_path)
         {
             if (this.kf.has_group (config_type))
             {
-                copy_file(source_path, load_dest_path(config_type));
+                copy_file(load_source_path(config_type), dest_path);
             }
         }
         public void apply ()
@@ -84,6 +113,7 @@ namespace Lxsession
             copy_conf ("Lxterminal", Lxterminal_dest);
             copy_conf ("XScreensaver", XScreensaver_dest);
             copy_conf ("libfm", libfm_dest);
+            copy_conf ("cairo-dock", cairo_dock_dest);
         }
     }
 }
