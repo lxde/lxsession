@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2012-10-12 09:05+0200\n"
-"Last-Translator: Lutz <lthuns@opensuse.org>\n"
+"PO-Revision-Date: 2013-07-08 18:40+0000\n"
+"Last-Translator: Daniel <d@winzen4.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1373308852.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -101,29 +102,27 @@ msgstr "Gruppe: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Desktop-Sitzungseinstellungen"
 
 #: ../data/ui/lxsession-edit.ui.h:2
-#, fuzzy
 msgid "Applications automatically started after entering desktop:"
 msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Automatisch gestartete Anwendungen"
+msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
 msgstr "Fensterverwallter:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
-#, fuzzy
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Befehl zum Starten der Fensterverwaltung\n"
-"(Der Standardbefehl für LXDE lautet openbox-lxde)"
+"Befehlszeile zum Starten der Fensterverwaltung\n"
+"(Der Standfensterverwaltungsbefehl für LXDE sollte openbox-lxde sein)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -132,6 +131,11 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Warnung:</b> Ändern Sie dies <b>NICHT</b>, außer Sie wissen genau, was "
+"Sie machen.\n"
+"\n"
+"<b>HINWEIS:</b> Diese Einstellungen treten bei der nächsten Anmeldung in "
+"Kraft."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -139,15 +143,19 @@ msgstr "Erweiterte Optionen"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Authentifizierung"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr "Identität:"
+msgstr ""
+"<b>Warnung:</b> Ändern Sie dies <b>NICHT</b>, außer Sie wissen genau, was "
+"Sie tuen.\n"
+"\n"
+"<b>HINWEIS:</b> Diese Einstellung treten beim nächsten Anmelden ein."
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Automatisch gestartete Anwendungen verwalten"
 
 #~ msgid "Logout"
 #~ msgstr "Abmelden"
