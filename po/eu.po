@@ -3,15 +3,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
+"PO-Revision-Date: 2013-07-08 21:23+0000\n"
+"Last-Translator: Asier <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Basque\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\\n\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1373318624.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -75,46 +76,49 @@ msgstr "Amaitu _saioa"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Gaituta"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Aplikazioa"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Iruzkina"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Pasahitza:"
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Errorea: %s\n"
+msgstr "Taldea: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Mahaigaineko saioaren ezarpenak"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Mahaigainera sartzean automatikoki abiaraziriko aplikazioak:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automatikoki abiaraziriko aplikazioak"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Leiho-kudeatzailea:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Leiho-kudeatzailea abiarazteko erabilitako komando lerroa\n"
+"(LXDEren leiho-kudeatzailearen komando lehenetsiak openbox-lxde izan behar "
+"luke)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -123,22 +127,25 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Kontuz:</b><b>EZ</b>ukitu hau ez badakizu zertan ari zaren.\n"
+"\n"
+"<b>OHARRA:</b> Ezarpen honek hurrengo saio hasieran izango du eragina."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Aukera aurreratuak"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autentifikazioa"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identitatea:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Kudeatu mahaigaineko saioan kargaturiko aplikazioak"
 
 #~ msgid "Logout"
 #~ msgstr "Amaitu saioa"
