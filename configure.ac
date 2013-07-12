@@ -162,6 +162,7 @@ AC_CONFIG_FILES([
   lxlock/Makefile
   lxpolkit/Makefile
   lxsession/Makefile
+  lxsession-db/Makefile
   lxsession-default/Makefile
   lxsession-default-apps/Makefile
   lxsession-edit/Makefile

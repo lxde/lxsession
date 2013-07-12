@@ -175,6 +175,10 @@ public class LxSignals : Object
     public signal void request_im2_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="im2", string? kf_key2="command");
     public signal void request_im2_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="im2", string? kf_key2="autostart");
 
+    /* Mime applications */
+    public signal void request_webbrowser_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="webbrowser", string? kf_key2="command");
+    public signal void request_email_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="email", string? kf_key2="command");
+
     /* Widget */
     public signal void request_widget1_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="widget1", string? kf_key2="command");
     public signal void request_widget1_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="widget1", string? kf_key2="autostart");
@@ -230,6 +234,15 @@ public class LxSignals : Object
     /* Environment */
     public signal void request_env_type_set(string dbus_arg, string kf_categorie = "Environment", string kf_key1 = "type", string? kf_key2=null);
     public signal void request_env_menu_prefix_set(string dbus_arg, string kf_categorie = "Environment", string kf_key1="menu_prefix", string? kf_key2=null);
+
+    /* Mime */
+    public signal void request_mime_distro_set(string dbus_arg, string kf_categorie = "Mime", string kf_key1 = "distro", string? kf_key2=null);
+    public signal void request_mime_folders_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "folders", string kf_key2="installed");
+    public signal void request_mime_folders_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "folders", string kf_key2="available");
+    public signal void request_mime_webbrowser_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "webbrowser", string kf_key2="installed");
+    public signal void request_mime_webbrowser_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "webbrowser", string kf_key2="available");
+    public signal void request_mime_email_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="installed");
+    public signal void request_mime_email_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="available");
 
 }
 

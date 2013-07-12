@@ -7,6 +7,7 @@ SUBDIRS= data \
          lxlock \
          lxpolkit \
          lxsession \
+         lxsession-db \
          lxsession-default \
          lxsession-default-apps \
          lxsession-edit \

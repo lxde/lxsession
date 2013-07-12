@@ -67,6 +67,8 @@ namespace Lxsession
         public string lock_manager_command { get; set; default = "lxlock";}
         public string disable_autostart { get; set; default = null;}
         public string upstart_user_session { get; set; default = null;}
+        public string webbrowser_command { get; set; default = null;}
+        public string email_command { get; set; default = null;}
 
         /* State */
         public string laptop_mode { get; set; default = null;}
@@ -132,6 +134,17 @@ namespace Lxsession
         public int keyboard_delay { get; set; default = 500;}
         public int keyboard_interval { get; set; default = 30;}
         public int keyboard_beep { get; set; default = 1;}
+
+        /* Mime */
+        public string   mime_distro { get; set; default = null;}
+        public string   mime_format_installed { get; set; default = null;}
+        public string   mime_format_available { get; set; default = null;}
+        public string[] mime_folders_installed { get; set; default = null;}
+        public string[] mime_folders_available { get; set; default = null;}
+        public string[] mime_webbrowser_installed { get; set; default = null;}
+        public string[] mime_webbrowser_available { get; set; default = null;}
+        public string[] mime_email_installed { get; set; default = null;}
+        public string[] mime_email_available { get; set; default = null;}
 
         public LxsessionConfig ()
         {
@@ -231,6 +244,10 @@ namespace Lxsession
             global_sig.request_widget1_command_set.connect(on_update_string_set);
             global_sig.request_widget1_autostart_set.connect(on_update_string_set);
 
+            /* Mime applications */
+            global_sig.request_webbrowser_command_set.connect(on_update_string_set);
+            global_sig.request_email_command_set.connect(on_update_string_set);
+
             /* Quit manager */
             global_sig.request_quit_manager_command_set.connect(on_update_string_set);
             global_sig.request_quit_manager_image_set.connect(on_update_string_set);
@@ -278,9 +295,40 @@ namespace Lxsession
 
             /* Proxy */
             global_sig.request_proxy_http_set.connect(on_update_string_set);
+
+            /* Mime */
+            global_sig.request_mime_distro_set.connect(on_update_string_set);
+            global_sig.request_mime_folders_installed_set.connect(on_update_string_list_set);
+            global_sig.request_mime_folders_available_set.connect(on_update_string_list_set);
+            global_sig.request_mime_webbrowser_installed_set.connect(on_update_string_list_set);
+            global_sig.request_mime_webbrowser_available_set.connect(on_update_string_list_set);
+            global_sig.request_mime_email_installed_set.connect(on_update_string_list_set);
+            global_sig.request_mime_email_available_set.connect(on_update_string_list_set);
+        }
+
+        public void init_mime()
+        {
+            switch (mime_distro)
+            {
+                case "ubuntu":
+                    mime_folders_installed = {"/usr/share/applications"};
+                    mime_folders_available = {"/usr/share/app-install/desktop"};
+                    break;
+                default:
+                    if (mime_folders_installed == null)
+                    {
+                        mime_folders_installed = {"/usr/share/applications"};
+                    }
+                    break;
+            }
         }
 
         public virtual void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
+        {
+
+        }
+
+        public virtual void on_update_string_list_set (string[] dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
         {
 
         }
@@ -319,6 +367,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
+
+        /* Init Mime type database */
+        init_mime();
     }
 
     public void init_desktop_files()
@@ -453,6 +504,45 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         return return_value;
     }
 
+    public string[] read_keyfile_string_list_value (KeyFile keyfile, string kf_categorie, string kf_key1, string? kf_key2, string[] default_value)
+    {
+        string[] copy_value = null;
+        string[] return_value = null;
+        try
+        {
+            if (kf_key2 == null)
+            {
+                copy_value = keyfile.get_string_list (kf_categorie, kf_key1);
+            }
+            else
+            {
+                copy_value = keyfile.get_string_list (kf_categorie, kf_key1 + "/" + kf_key2);
+            }
+	    }
+        catch (KeyFileError err)
+        {
+		    message (err.message);
+        }
+
+        if (copy_value == null)
+        {
+            return_value = default_value;
+        }
+        else
+        {
+            if (default_value != copy_value)
+            {
+                return_value = copy_value;
+            }
+            else
+            {
+                return_value = default_value;
+            }
+        }
+
+        return return_value;
+    }
+
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
@@ -531,6 +621,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             this.widget1_autostart = read_keyfile_string_value(kf, "Session", "widget1", "autostart", this.widget1_autostart);
         }
 
+        /* Mime applications */
+        this.webbrowser_command = read_keyfile_string_value(kf, "Session", "webbrowser", "command", this.webbrowser_command);
+        this.email_command = read_keyfile_string_value(kf, "Session", "email", "command", this.email_command);
+
         /* Keymap */
         this.keymap_mode = read_keyfile_string_value (kf, "Keymap", "mode", null, this.keymap_mode);
         if (this.keymap_mode != null)
@@ -596,6 +690,15 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         this.keyboard_delay = read_keyfile_int_value (kf, "Keyboard", "Delay", null, this.keyboard_delay);
         this.keyboard_interval = read_keyfile_int_value (kf, "Keyboard", "Interval", null, this.keyboard_interval);
         this.keyboard_beep = read_keyfile_int_value (kf, "Keyboard", "Beep", null, this.keyboard_beep);
+
+        /* Mime */
+        this.mime_distro = read_keyfile_string_value (kf, "Mime", "distro", null, this.mime_distro);
+        this.mime_folders_installed = read_keyfile_string_list_value (kf, "Mime", "folders", "installed", this.mime_folders_installed);
+        this.mime_folders_available = read_keyfile_string_list_value (kf, "Mime", "folders", "available", this.mime_folders_available);
+        this.mime_webbrowser_installed = read_keyfile_string_list_value (kf, "Mime", "webbrowser", "installed", this.mime_webbrowser_installed);
+        this.mime_webbrowser_available = read_keyfile_string_list_value (kf, "Mime", "webbrowser", "available", this.mime_webbrowser_available);
+        this.mime_email_installed = read_keyfile_string_list_value (kf, "Mime", "email", "installed", this.mime_email_installed);
+        this.mime_email_available = read_keyfile_string_list_value (kf, "Mime", "email", "available", this.mime_email_available);
 
         read_secondary_keyfile();
 
@@ -697,6 +800,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_keyfile();
     }
 
+    public override void on_update_string_list_set (string[] dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
+    {
+        if (kf_key2 == null)
+        {
+            message("Changing %s - %s" , kf_categorie, kf_key1);
+            kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
+        }
+        else
+        {
+            message("Changing %s - %s - %s" , kf_categorie, kf_key1, kf_key2);
+            kf.set_string_list (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
+        }
+        save_keyfile();
+        read_keyfile();
+    }
+
     public override void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
     {
         if (kf_key2 == null)
@@ -753,6 +872,9 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
             /* Monitor desktop file */
             setup_monitor_desktop_file();
+
+            /* Init Mime type database */
+            init_mime();
     }
 
     public void init_desktop_razor_files()
