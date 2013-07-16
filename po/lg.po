@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2010-10-03 22:12+0200\n"
+"PO-Revision-Date: 2013-07-16 23:06+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lg\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1374015995.0\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -92,47 +93,49 @@ msgstr "Komya _olutuula luno"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Etandikenga"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Puloguramu"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Kunnyonyola"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Kasumuluzo:"
 
 # I think this is the error message.
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Kiremya: %s\n"
+msgstr "Guruupu: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Nteekateeka z'awakolerwa"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Puloguramu z'oyagala zitandikirengawo awakolerwa nga walabise:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Puloguramu z'oyagala zitandikirengawo"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Puloguramu eteekateeka madirisa:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Ekiragiro ekitandika pulguramu eteekateeka madirisa\n"
+"(Ekiragiro eky'enkalakkalira ekya LXDE kisaanye okuba openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -141,19 +144,22 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Kulabula:</b> Kino <b>TOKIKYUSA</b> okujjako nga wekakasa ky'okola.\n"
+"\n"
+"<b>GENDERERA:</b> Byotegeka wano bijjakutandika okukola ku lutuula oluddako."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Ebyetaagisa Bumanyirivu"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Enkakasa"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Obumanye:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Teekateeka puloguramu eziba zitandika buli lutuula"
