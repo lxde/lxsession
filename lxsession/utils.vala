@@ -130,6 +130,7 @@ public class LxSignals : Object
     public signal void request_screenshot_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="screenshot_manager", string? kf_key2="command");
     public signal void request_upgrade_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="upgrade_manager", string? kf_key2="command");
     public signal void request_lock_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="lock_manager", string? kf_key2="command");
+    public signal void request_message_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="message_manager", string? kf_key2="command");
 
     /* Windows Manager */
     public signal void request_windows_manager_command_set (string dbus_arg, string kf_categorie="Session", string kf_key1="windows_manager", string? kf_key2="command");

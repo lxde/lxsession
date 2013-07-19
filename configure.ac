@@ -167,6 +167,7 @@ AC_CONFIG_FILES([
   lxsession-default-apps/Makefile
   lxsession-edit/Makefile
   lxsession-logout/Makefile
+  lxsession-message/Makefile
   lxsession-utils/Makefile
   lxsettings-daemon/Makefile
   man/Makefile

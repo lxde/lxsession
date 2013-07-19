@@ -12,6 +12,7 @@ SUBDIRS= data \
          lxsession-default-apps \
          lxsession-edit \
          lxsession-logout \
+         lxsession-message \
          lxsession-utils \
          lxsettings-daemon \
          man \

@@ -27,6 +27,10 @@ lxsession/lxsession
 lxsession-default-apps/*.c
 lxsession-default-apps/lxsession-default-apps
 lxsession-edit/lxsession-edit
+lxsession-db/*.c
+lxsession-db/lxsession-db
+lxsession-message/*.c
+lxsession-message/lxsession-message-gtk
 lxpolkit/lxpolkit
 lxpolkit/main.c
 man/Makefile
@@ -43,6 +47,7 @@ Makefile
 */.deps/
 */*.o
 */*_vala.stamp
+autom4te.cache/
 debian/files
 debian/lxsession.debhelper.log
 debian/lxsession.substvars
@@ -63,3 +68,6 @@ debian/lxsession-edit/
 debian/lxsession-logout.debhelper.log
 debian/lxsession-logout.substvars
 debian/lxsession-logout/
+debian/lxsession-default-apps/
+debian/lxsession-default-apps.debhelper.log
+debian/lxsession-default-apps.substvars

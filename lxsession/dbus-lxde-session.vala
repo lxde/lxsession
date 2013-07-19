@@ -1082,6 +1082,44 @@ namespace Lxsession
             }
         }
 
+        /* Message */
+        public void MessageManagerCommandGet(out string command)
+        {
+            command = global_settings.message_manager_command;
+            message ("Get message manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void MessageManagerCommandSet(string command)
+        {
+            message ("Set message manager command :%s", command);
+            global_sig.request_message_manager_command_set(command);
+        }
+
+        public void MessageManagerLaunch()
+        {
+            message("Launch message manager");
+            if (global_settings.message_manager_command == null)
+            {
+                warning("message manager command not set");
+            }
+            else if (global_message_manager == null)
+            {
+                message("Message_manager doesn't exist, creating it");
+                var messagemanager = new GenericSimpleApp(global_settings.message_manager_command);
+                global_message_manager = messagemanager;
+                global_message_manager.launch();
+            }
+            else
+            {
+                message("Reload existing message_manager");
+                global_message_manager.reload();
+            }
+        }
+
         /* Clipboard */
         public void ClipboardCommandGet(out string command)
         {

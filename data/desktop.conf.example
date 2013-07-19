@@ -85,11 +85,8 @@ composite_manager/autostart=true
 # Utility to lock screen
 lock_manager/command=lxlock
 
-# Disable autostart of applications in system and home autostart directory
-# all : disable all applications (home, system, specify in this config file)
-# config-only : disable applications from home and system (start only the ones in this config file)
-# no : autostart all applications
-disable_autostart=no
+# Utility to display messages (only lxsession-message-* supported)
+message_manager/command=lxsession-message-gtk
 
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
@@ -98,6 +95,12 @@ webbrowser/desktop=
 # Default email client (desktop is the corresponding desktop file)
 email/command=
 email/desktop=
+
+# Disable autostart of applications in system and home autostart directory
+# all : disable all applications (home, system, specify in this config file)
+# config-only : disable applications from home and system (start only the ones in this config file)
+# no : autostart all applications
+disable_autostart=no
 
 [Mime]
 # Set installed and available folers with knows values, depending on the distro (only ubuntu is implemented).

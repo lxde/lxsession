@@ -31,7 +31,7 @@ public class AppObject: GLib.Object
 {
 
     /* Core App Object, all other App objects should inherent from it
-       You should not do an instance of it, use GenericAppObject if you want
+       You should not do an instance of it, use SimpleAppObject if you want
        a usefull Object
     */
 
@@ -147,18 +147,6 @@ public class AppObject: GLib.Object
 }
 
 
-public class GenericAppObject: AppObject
-{
-
-    public GenericAppObject(AppType app_type)
-    {
-        this.name = app_type.name;
-        this.command = app_type.command;
-        this.guard = app_type.guard;
-        this.application_type = app_type.application_type;
-    }
-}   
-
 public class SimpleAppObject: AppObject
 {
 
@@ -170,6 +158,36 @@ public class SimpleAppObject: AppObject
         this.application_type = "";
     }
 } 
+
+public class GenericAppObject: AppObject
+{
+
+    public GenericAppObject(AppType app_type)
+    {
+        this.name = app_type.name;
+        this.command = app_type.command;
+        this.guard = app_type.guard;
+        this.application_type = app_type.application_type;
+    }
+} 
+
+public class GenericSimpleApp: SimpleAppObject
+{
+    string settings_command;
+
+    public GenericSimpleApp (string argument)
+    {
+        init();
+        this.settings_command = argument;
+    }
+
+    public override void read_settings()
+    {
+        string[] create_command = this.settings_command.split_set(" ",0);
+        this.name = create_command[0];
+        this.command = create_command;
+    }
+}
 
 public class WindowsManagerApp: SimpleAppObject
 {
