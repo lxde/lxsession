@@ -64,7 +64,7 @@ namespace Lxsession
         public string upgrade_manager_command { get; set; default = null;}
         public string composite_manager_command { get; set; default = null;}
         public string composite_manager_autostart { get; set; default = null;}
-        public string lock_manager_command { get; set; default = "lxlock";}
+        public string lock_manager_command { get; set; default = null;}
         public string message_manager_command { get; set; default = null;}
         public string disable_autostart { get; set; default = null;}
         public string upstart_user_session { get; set; default = null;}
@@ -73,6 +73,7 @@ namespace Lxsession
 
         /* State */
         public string laptop_mode { get; set; default = null;}
+        public string guest_default { get; set; default = "true";}
 
         /* Clipboard */
         public string clipboard_command { get; set; default = "lxclipboard";}
@@ -283,6 +284,7 @@ namespace Lxsession
 
             /* Laptop mode */
             global_sig.request_laptop_mode_set.connect(on_update_string_set);
+            global_sig.request_guest_default_set.connect(on_update_string_set);
 
             /* Dbus */
             global_sig.request_dbus_lxde_set.connect(on_update_string_set);
@@ -323,6 +325,105 @@ namespace Lxsession
                     }
                     break;
             }
+        }
+
+        public void guest_default()
+        {
+        /*  Distribution, if you want to ensure good transition from previous version of lxsession
+            you need to patch here to set the default for various new commands
+        */
+
+         string xdg_current_desktop = Environment.get_variable("XDG_CURRENT_DESKTOP");
+         string desktop_session = Environment.get_variable("DESKTOP_SESSION");
+
+        /* Migrate old windows-manager settings to the new ones */
+        if (window_manager == "openbox-lxde")
+        {
+            if (windows_manager_command == null)
+            {
+                windows_manager_command = "openbox";
+                windows_manager_session = "LXDE";
+            }
+        }
+
+        if (xdg_current_desktop == "LXDE")
+        {
+            /* We are under a LXDE generic desktop, guess some LXDE default */
+            if (quit_manager_command == null)
+            {
+                quit_manager_command = "lxsession-logout";
+                quit_manager_image = "/usr/share/lxde/images/logout-banner.png";
+                quit_manager_layout = "top";
+            }
+
+            if (lock_manager_command == null)
+            {
+                lock_manager_command = "lxlock";
+            }
+
+            if (terminal_manager_command == null)
+            {
+                terminal_manager_command = "lxterminal";
+            }
+
+            if (launcher_manager_command == null)
+            {
+                launcher_manager_command = "lxpanelctl";
+            }
+
+        }
+
+        if (desktop_session == "Lubuntu")
+        {
+            if (quit_manager_command == null)
+            {
+                quit_manager_command = "lxsession-logout";
+                quit_manager_image = "/usr/share/lubuntu/images/logout-banner.png";
+                quit_manager_layout = "top";
+            }
+
+            /* Migrate old windows-manager settings to the new ones */
+            if (window_manager == "openbox-lubuntu")
+            {
+                if (windows_manager_command == null)
+                {
+                    windows_manager_command = "openbox";
+                    windows_manager_session = "Lubuntu";
+                }
+            }
+
+            if (workspace_manager_command == null)
+            {
+                workspace_manager_command = "obconf";
+            }
+
+            if (audio_manager_command == null)
+            {
+                audio_manager_command = "alsamixer";
+            }
+
+            if (screenshot_manager_command == null)
+            {
+                screenshot_manager_command = "scrot";
+            }
+
+            if (upgrade_manager_command == null)
+            {
+                upgrade_manager_command = "upgrade-manager";
+            }
+
+            if (webbrowser_command == null)
+            {
+                webbrowser_command = "firefox";
+            }
+
+            if (email_command == null)
+            {
+                email_command = "sylpheed";
+            }
+
+        }
+
         }
 
         public virtual void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
@@ -372,6 +473,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         /* Init Mime type database */
         init_mime();
+
+        /* Guess default */
+        if (this.guess_default == "true")
+        {
+            guest_default();
+        }
     }
 
     public void init_desktop_files()
@@ -878,6 +985,12 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
             /* Init Mime type database */
             init_mime();
+
+            /* Guess default */
+            if (this.guess_default == "true")
+            {
+                guest_default();
+            }
     }
 
     public void init_desktop_razor_files()
