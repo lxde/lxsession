@@ -49,6 +49,14 @@ public class AppObject: GLib.Object
 
     public void launch ()
     {
+        generic_launch (null);
+    }
+
+    public void generic_launch (string? arg1)
+    {
+        this.read_config_settings();
+        this.read_settings();
+
         if (this.name != null)
         {
             if (this.name != "")
@@ -56,7 +64,7 @@ public class AppObject: GLib.Object
                 try
                 {
                     Process.spawn_async (
-                                 null,
+                                 arg1,
                                  this.command,
                                  null,
                                  SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
@@ -64,7 +72,7 @@ public class AppObject: GLib.Object
                                  out this.pid);
                     ChildWatch.add(this.pid, callback_pid);
 
-                    GLib.stdout.printf ("Launching %s ", this.name);
+                    message ("Launching %s ", this.name);
 
                     for (int a = 0 ; a <= this.command.length ; a++)
                     {
@@ -104,8 +112,6 @@ public class AppObject: GLib.Object
     {
         message("Reloading process");
         this.stop();
-        this.read_config_settings();
-        this.read_settings();
         this.launch();
     }
 
@@ -357,7 +363,11 @@ public class WindowsManagerApp: SimpleAppObject
         }
     }
 
-    public new void launch () {
+    public new void launch ()
+    {
+        this.read_config_settings();
+        this.read_settings();
+
         if (this.name != null)
         {
             try {
@@ -891,10 +901,13 @@ public class TerminalManagerApp: SimpleAppObject
         init();
     }
 
-    public override void read_settings()
+    public override void read_config_settings()
     {
         terminalmanager_command = global_settings.terminal_manager_command;
+    }
 
+    public override void read_settings()
+    {
         switch (terminalmanager_command)
         {
             case "lxterminal":
@@ -908,6 +921,16 @@ public class TerminalManagerApp: SimpleAppObject
                 this.command = create_command;
                 break;
         }
+    }
+
+    public new void launch (string argument)
+    {
+        if (argument == "")
+        {
+            argument = null;
+        }
+
+        generic_launch (argument);
     }
 }
 

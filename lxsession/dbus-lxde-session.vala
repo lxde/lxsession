@@ -266,7 +266,7 @@ namespace Lxsession
             global_sig.request_terminal_manager_command_set(command);
         }
 
-        public void TerminalManagerLaunch()
+        public void TerminalManagerLaunch(string? arg1)
         {
             message("Start Terminal Manager");
             if (global_settings.terminal_manager_command == null)
@@ -277,11 +277,11 @@ namespace Lxsession
             {
                 var terminal = new TerminalManagerApp();
                 global_terminal_manager = terminal;
-                global_terminal_manager.launch();
+                global_terminal_manager.launch(arg1);
             }
             else
             {
-                global_terminal_manager.launch();
+                global_terminal_manager.launch(arg1);
             }
         }
 
