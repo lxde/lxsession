@@ -70,7 +70,7 @@ lxsession_VALAFLAGS = \
 	--vapidir=$(srcdir)/../vapi \
 	--pkg dbus-glib-1 \
 	--pkg gio-2.0 \
-	--pkg gee-1.0 \
+	--pkg gee-0.8 \
 	--pkg posix \
 	--pkg lxsettings-daemon \
 	--pkg xdg-autostart \
