@@ -71,3 +71,6 @@ debian/lxsession-logout/
 debian/lxsession-default-apps/
 debian/lxsession-default-apps.debhelper.log
 debian/lxsession-default-apps.substvars
+debian/lxsession-message-gtk.debhelper.log
+debian/lxsession-message-gtk.substvars
+debian/lxsession-message-gtk/
