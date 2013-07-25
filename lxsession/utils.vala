@@ -224,6 +224,8 @@ public class LxSignals : Object
 
     /* State */
     public signal void request_laptop_mode_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "laptop_mode", string? kf_key2 = null);
+    public signal void request_guess_default_state_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "guess_default", string? kf_key2 = null);
+
 
     /* Dbus */
     public signal void request_dbus_lxde_set(string dbus_arg, string kf_categorie="Dbus", string kf_key1="lxde", string? kf_key2=null);

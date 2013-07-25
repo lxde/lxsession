@@ -73,7 +73,7 @@ namespace Lxsession
 
         /* State */
         public string laptop_mode { get; set; default = null;}
-        public string guest_default { get; set; default = "true";}
+        public string guess_default_state { get; set; default = "true";}
 
         /* Clipboard */
         public string clipboard_command { get; set; default = "lxclipboard";}
@@ -284,7 +284,7 @@ namespace Lxsession
 
             /* Laptop mode */
             global_sig.request_laptop_mode_set.connect(on_update_string_set);
-            global_sig.request_guest_default_set.connect(on_update_string_set);
+            global_sig.request_guess_default_state_set.connect(on_update_string_set);
 
             /* Dbus */
             global_sig.request_dbus_lxde_set.connect(on_update_string_set);
@@ -327,7 +327,7 @@ namespace Lxsession
             }
         }
 
-        public void guest_default()
+        public void guess_default()
         {
         /*  Distribution, if you want to ensure good transition from previous version of lxsession
             you need to patch here to set the default for various new commands
@@ -475,9 +475,9 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         init_mime();
 
         /* Guess default */
-        if (this.guess_default == "true")
+        if (this.guess_default_state == "true")
         {
-            guest_default();
+            guess_default();
         }
     }
 
@@ -770,6 +770,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         this.disable_autostart = read_keyfile_string_value(kf, "Session", "disable_autostart", null, this.disable_autostart);
         this.upstart_user_session = read_keyfile_string_value(kf, "Session", "upstart_user_session", null, this.upstart_user_session);
         this.laptop_mode = read_keyfile_string_value(kf, "State", "laptop_mode", null, this.laptop_mode);
+        this.guess_default_state = read_keyfile_string_value(kf, "State", "guess_default", null, this.laptop_mode);
         this.dbus_lxde = read_keyfile_string_value (kf, "Dbus", "lxde", null, this.dbus_lxde);
         this.dbus_gnome = read_keyfile_string_value (kf, "Dbus", "gnome", null, this.dbus_gnome);
         this.security_keyring = read_keyfile_string_value (kf, "Security", "keyring", null, this.security_keyring);
@@ -987,9 +988,9 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             init_mime();
 
             /* Guess default */
-            if (this.guess_default == "true")
+            if (this.guess_default_state == "true")
             {
-                guest_default();
+                guess_default();
             }
     }
 
