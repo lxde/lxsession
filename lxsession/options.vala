@@ -374,4 +374,67 @@ namespace Lxsession
         }
     }
 
+    public class XSettingsOption: GLib.Object
+    {
+        private string command;
+
+        public XSettingsOption (string? command_arg)
+        {
+            if (command_arg == null)
+            {
+                command = global_settings.xsettings_manager_command;
+            }
+            else
+            {
+                command = command_arg;
+            }
+        }
+
+        public new void activate ()
+        {
+            switch (command)
+            {
+                case null:
+                    break;
+                case "":
+                    break;
+                case " ":
+                    break;
+                case "build-in":
+                    settings_daemon_start(load_keyfile (get_config_path ("desktop.conf")));
+                    break;
+                case "gnome":
+                    try
+                    {
+                        Process.spawn_command_line_async("gnome-settings-daemon");
+                    }
+                    catch (GLib.SpawnError e)
+                    {
+                        warning(e.message);
+                    }
+                    break;
+                case "xfce":
+                    try
+                    {
+                        Process.spawn_command_line_async("xfsettingsd");
+                    }
+                    catch (GLib.SpawnError e)
+                    {
+                        warning(e.message);
+                    }
+                    break;
+                default:
+                    try
+                    {
+                        Process.spawn_command_line_async(command);
+                    }
+                    catch (GLib.SpawnError e)
+                    {
+                        warning(e.message);
+                    }
+                    break;
+            }
+        }
+    }
+
 }

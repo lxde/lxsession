@@ -54,8 +54,44 @@ namespace Lxsession
 
         public void ReloadSettingsDaemon()
         {
+            /* Dummy, used for compatibility */
             message ("Restart Xsettings Deamon");
-            global_sig.reload_settings_daemon();
+            XsettingsManagerActivate();
+        }
+
+        public void XsettingsManagerCommandGet(out string command)
+        {
+            command = global_settings.xsettings_manager_command;
+            message ("Get xsettings manager command: %s", command);
+            if (command == null)
+            {
+                command = "";
+            }
+        }
+
+        public void XsettingsManagerCommandSet(string command)
+        {
+            message ("Set xsettings manager command to :%s", command);
+            global_sig.request_xsettings_manager_command_set(command);
+        }
+
+        public void XsettingsManagerActivate()
+        {
+            message ("Activate xsettings manager");
+            if (global_settings.xsettings_manager_command == null)
+            {
+                warning("Xsettings manager not set");
+            }
+            else if (global_xsettings_manager == null)
+            {
+                var xsettings = new XSettingsOption(global_settings.xsettings_manager_command);
+                global_xsettings_manager = xsettings;
+                global_xsettings_manager.activate();
+            }
+            else
+            {
+                global_xsettings_manager.activate();
+            }
         }
 
         /* Audio Manager */

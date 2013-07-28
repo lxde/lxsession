@@ -63,6 +63,7 @@ namespace Lxsession {
     WidgetApp global_widget1;
     ProxyOption global_proxy;
     UpstartUserSessionOption global_upstart_session;
+    XSettingsOption global_xsettings_manager;
 
     public class Main: GLib.Object
     {
@@ -167,6 +168,17 @@ namespace Lxsession {
         /* Sync desktop.conf and autostart setting files */
         global_settings.sync_setting_files ();
 
+        /* Create the Xsettings manager */
+        if (noxsettings == false)
+        {
+            if (global_xsettings_manager == null)
+            {
+                var xsettings = new XSettingsOption(global_settings.xsettings_manager_command);
+                global_xsettings_manager = xsettings;
+            }
+            global_xsettings_manager.activate();
+        }
+
         var environment = new LxsessionEnv(session, desktop_environnement);
 
         /* 
@@ -198,11 +210,6 @@ namespace Lxsession {
             /* Use the conffiles utility */
             var conffiles = new ConffilesObject(conffiles_conf);
             conffiles.apply();
-        }
-
-        /* Create the Xsettings manager */
-        if (noxsettings == false) {
-            settings_daemon_start(load_keyfile (get_config_path ("desktop.conf")));
         }
 
         /* Launching windows manager */

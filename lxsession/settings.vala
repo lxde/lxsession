@@ -78,6 +78,9 @@ namespace Lxsession
         /* Clipboard */
         public string clipboard_command { get; set; default = "lxclipboard";}
 
+        /* XSettings */
+        public string xsettings_manager_command { get; set; default = "build-in";}
+
         /* Dbus */
         public string dbus_lxde { get; set; default = "true";}
         public string dbus_gnome { get; set; default = null;}
@@ -191,6 +194,7 @@ namespace Lxsession
             global_sig.request_screenshot_manager_command_set.connect(on_update_string_set);
             global_sig.request_upgrade_manager_command_set.connect(on_update_string_set);
             global_sig.request_message_manager_command_set.connect(on_update_string_set);
+            global_sig.request_xsettings_manager_command_set.connect(on_update_string_set);
 
             /* Launcher manager */
             global_sig.request_launcher_manager_command_set.connect(on_update_string_set);
@@ -457,8 +461,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg)
     {
-        global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
-
         init_desktop_files();
         
         this.session_name = session_arg;
@@ -522,11 +524,21 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
     }
 
+    public void reload_xsettings ()
+    {
+        if (global_xsettings_manager == null)
+        {
+            var xsettings = new XSettingsOption(this.xsettings_manager_command);
+            global_xsettings_manager = xsettings;
+        }
+        global_xsettings_manager.activate();
+    }
+
     public void on_desktop_file_change ()
     {
         read_keyfile();
         message("Desktop file change, reloading XSettings daemon");
-        settings_daemon_reload(kf);
+        reload_xsettings();
     }
 
     public void on_desktop_file_creation ()
@@ -536,7 +548,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         monitor_cancel.cancel();
 
         read_keyfile();
-        settings_daemon_reload(kf);
+        reload_xsettings();
         setup_monitor_desktop_file();
     }
 
@@ -942,13 +954,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         save_keyfile();
         read_keyfile();
     }
-
-    public void on_reload_settings_daemon ()
-    {
-        message("Reloading XSettings daemon");
-        settings_daemon_reload(kf);
-    }
-
 }
 
 public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
