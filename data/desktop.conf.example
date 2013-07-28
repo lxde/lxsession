@@ -118,6 +118,8 @@ email/available=
 [State]
 # unknown if untested, yes if on laptop, no if not
 laptop_mode=unknown
+# Try to guess the default
+guess_default=true
 
 [Dbus]
 # Default Dbus interfaces, should be always true
