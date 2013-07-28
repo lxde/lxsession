@@ -2,7 +2,7 @@ AC_INIT([lxsession],[0.4.9.3],[],[lxsession])
 
 # Autotols programs
 AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign])
-AC_PREREQ([2.69])
+AC_PREREQ([2.68])
 IT_PROG_INTLTOOL([0.40.0],[no-xml])
 
 #Initialize libtool
