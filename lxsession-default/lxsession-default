@@ -20,7 +20,7 @@
 echo $1  # first argument
 echo $2  # second argument
 
-if [ "$1" = "audio" ]
+if [ "$1" = "audio" && "$2" = "preferences"  ]
 then
 	echo "Launching audio preferences"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.AudioManagerLaunch > /dev/null 2>&1
@@ -64,6 +64,12 @@ then
 	echo "Launching file manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.FileManagerLaunch > /dev/null 2>&1
 
+
+elif [ "$1" = "desktop" && "$2" = "settings" ]
+then
+	echo "Launching settings for desktop manager"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.DesktopManagerLaunchSettings > /dev/null 2>&1
+
 elif [ "$1" = "windows-manager" ]
 then
 	echo "Launching file manager"
@@ -73,6 +79,21 @@ elif [ "$1" = "lock" ]
 then
 	echo "Launching lock manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.LockManagerLaunch > /dev/null 2>&1
+
+elif [ "$1" = "webbrowser" ]
+then
+	echo "Launching webbrowser application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WebbrowserLaunch > /dev/null 2>&1
+
+elif [ "$1" = "email" ]
+then
+	echo "Launching email application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WebbrowserLaunch > /dev/null 2>&1
+
+elif [ "$1" = "im1" ]
+then
+	echo "Launching im application 1"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.IM1Reload > /dev/null 2>&1
 
 fi
 
