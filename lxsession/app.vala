@@ -582,6 +582,25 @@ public class FileManagerApp: SimpleAppObject
                 break;
         }
     }
+
+    public void launch_settings
+    {
+        string[] backup_command = this.command;
+
+        switch (this.name)
+        {
+            case "pcmanfm":
+                string create_settings_command = "pcmanfm --desktop-pref";
+                this.command = create_settings_command.split_set(" ",0);
+                break;
+
+            default:
+                break;
+        }
+        this.launch();
+        this.command = backup_command;
+    }
+
 }
 
 public class DesktopApp: SimpleAppObject

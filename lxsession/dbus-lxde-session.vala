@@ -734,6 +734,20 @@ namespace Lxsession
             }
         }
 
+        public void FileManagerLaunch()
+        {
+            message("Launch another file manager");
+            if (global_settings.file_manager_command == null)
+            {
+                warning("File manager not set");
+            }
+            else
+            {
+                var filemanager = new FileManagerApp();
+                filemanager.launch();
+            }
+        }
+
         /* Panel control */
         public void PanelCommandGet(out string command)
         {
@@ -963,6 +977,27 @@ namespace Lxsession
             {
                 message("Reload existing desktop manager");
                 global_desktop.reload();
+            }
+        }
+
+        public void DesktopLaunchSettings()
+        {
+            message("Launch settings for desktop manager");
+            if (global_settings.desktop_command == null)
+            {
+                warning("desktop manager not set");
+            }
+            else if (global_desktop == null)
+            {
+                message("Desktop manager doesn't exist, creating it");
+                var desktop = new DesktopApp();
+                global_desktop = desktop;
+                global_desktop.launch_settings();
+            }
+            else
+            {
+                message("Reload existing desktop manager");
+                global_desktop.launch_settings();
             }
         }
 
