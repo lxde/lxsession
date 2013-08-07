@@ -5,3 +5,4 @@ usr/bin/lxsession-default
 usr/bin/lxsession-default-terminal
 usr/bin/lxsession-xsettings
 usr/bin/lxsession-db
+usr/bin/lxsettings-daemon
