@@ -99,6 +99,24 @@ webbrowser/desktop=
 email/command=
 email/desktop=
 
+# Other default application
+pdf_reader/command=
+video_player/command=
+audio_player/command=
+images_display/command=
+text_editor/command=
+archive/command=
+charmap/command=
+calculator/command=
+spreadsheet/command=
+bittorent/command=
+document/command=
+webcam/command=
+burn/command=
+notes/command=
+disk_utility/command=
+tasks/command=
+
 # Disable autostart of applications in system and home autostart directory
 # all : disable all applications (home, system, specify in this config file)
 # config-only : disable applications from home and system (start only the ones in this config file)

@@ -70,6 +70,22 @@ namespace Lxsession
         public string upstart_user_session { get; set; default = null;}
         public string webbrowser_command { get; set; default = null;}
         public string email_command { get; set; default = null;}
+        public string pdf_reader_command { get; set; default = null;}
+        public string video_player_command { get; set; default = null;}
+        public string audio_player_command { get; set; default = null;}
+        public string images_display_command { get; set; default = null;}
+        public string text_editor_command { get; set; default = null;}
+        public string archive_command { get; set; default = null;}
+        public string charmap_command { get; set; default = null;}
+        public string calculator_command { get; set; default = null;}
+        public string spreadsheet_command { get; set; default = null;}
+        public string bittorent_command { get; set; default = null;}
+        public string document_command { get; set; default = null;}
+        public string webcam_command { get; set; default = null;}
+        public string burn_command { get; set; default = null;}
+        public string notes_command { get; set; default = null;}
+        public string disk_utility_command { get; set; default = null;}
+        public string tasks_command { get; set; default = null;}
 
         /* State */
         public string laptop_mode { get; set; default = null;}
@@ -254,6 +270,22 @@ namespace Lxsession
             /* Mime applications */
             global_sig.request_webbrowser_command_set.connect(on_update_string_set);
             global_sig.request_email_command_set.connect(on_update_string_set);
+            global_sig.request_pdf_reader_command_set.connect(on_update_string_set);
+            global_sig.request_video_player_command_set.connect(on_update_string_set);
+            global_sig.request_audio_player_command_set.connect(on_update_string_set);
+            global_sig.request_images_display_command_set.connect(on_update_string_set);
+            global_sig.request_text_editor_command_set.connect(on_update_string_set);
+            global_sig.request_archive_command_set.connect(on_update_string_set);
+            global_sig.request_charmap_command_set.connect(on_update_string_set);
+            global_sig.request_calculator_command_set.connect(on_update_string_set);
+            global_sig.request_spreadsheet_command_set.connect(on_update_string_set);
+            global_sig.request_bittorent_command_set.connect(on_update_string_set);
+            global_sig.request_document_command_set.connect(on_update_string_set);
+            global_sig.request_webcam_command_set.connect(on_update_string_set);
+            global_sig.request_burn_command_set.connect(on_update_string_set);
+            global_sig.request_notes_command_set.connect(on_update_string_set);
+            global_sig.request_disk_utility_command_set.connect(on_update_string_set);
+            global_sig.request_tasks_command_set.connect(on_update_string_set);
 
             /* Quit manager */
             global_sig.request_quit_manager_command_set.connect(on_update_string_set);
@@ -426,6 +458,85 @@ namespace Lxsession
                 email_command = "sylpheed";
             }
 
+            if (pdf_reader_command == null)
+            {
+                pdf_reader_command = "evince";
+            }
+
+            if (video_player_command == null)
+            {
+                video_player_command = "gnome-mplayer";
+            }
+
+            if (audio_player_command == null)
+            {
+                audio_player_command = "audacious";
+            }
+
+            if (images_display_command == null)
+            {
+                images_display_command = "gpicview";
+            }
+
+            if (text_editor_command == null)
+            {
+                text_editor_command = "leafpad";
+            }
+
+            if (archive_command == null)
+            {
+                archive_command = "file-roller";
+            }
+
+            if (charmap_command == null)
+            {
+                charmap_command = "gucharmap";
+            }
+
+            if (calculator_command == null)
+            {
+                calculator_command = "galculator";
+            }
+
+            if (spreadsheet_command == null)
+            {
+                spreadsheet_command = "gnumeric";
+            }
+
+            if (bittorent_command == null)
+            {
+                bittorent_command = "transmission-gtk";
+            }
+
+            if (document_command == null)
+            {
+                document_command = "abiword";
+            }
+
+            if (webcam_command == null)
+            {
+                webcam_command = "gucview";
+            }
+
+            if (burn_command == null)
+            {
+                burn_command = "xfburn";
+            }
+
+            if (notes_command == null)
+            {
+                notes_command = "xpad";
+            }
+
+            if (disk_utility_command == null)
+            {
+                disk_utility_command = "xpad";
+            }
+
+            if (tasks_command == null)
+            {
+                tasks_command = "lxtask";
+            }
         }
 
         }
@@ -745,6 +856,22 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         /* Mime applications */
         this.webbrowser_command = read_keyfile_string_value(kf, "Session", "webbrowser", "command", this.webbrowser_command);
         this.email_command = read_keyfile_string_value(kf, "Session", "email", "command", this.email_command);
+        this.pdf_reader_command = read_keyfile_string_value(kf, "Session", "pdf_reader", "command", this.pdf_reader_command);
+        this.video_player_command = read_keyfile_string_value(kf, "Session", "video_player", "command", this.video_player_command);
+        this.audio_player_command = read_keyfile_string_value(kf, "Session", "audio_player", "command", this.audio_player_command);
+        this.images_display_command = read_keyfile_string_value(kf, "Session", "images_display", "command", this.images_display_command);
+        this.text_editor_command = read_keyfile_string_value(kf, "Session", "text_editor", "command", this.text_editor_command);
+        this.archive_command = read_keyfile_string_value(kf, "Session", "archive", "command", this.archive_command);
+        this.charmap_command = read_keyfile_string_value(kf, "Session", "charmap", "command", this.charmap_command);
+        this.calculator_command = read_keyfile_string_value(kf, "Session", "calculator", "command", this.calculator_command);
+        this.spreadsheet_command = read_keyfile_string_value(kf, "Session", "spreadsheet", "command", this.spreadsheet_command);
+        this.bittorent_command = read_keyfile_string_value(kf, "Session", "bittorent", "command", this.bittorent_command);
+        this.document_command = read_keyfile_string_value(kf, "Session", "document", "command", this.document_command);
+        this.webcam_command = read_keyfile_string_value(kf, "Session", "webcam", "command", this.webcam_command);
+        this.burn_command = read_keyfile_string_value(kf, "Session", "burn", "command", this.burn_command);
+        this.notes_command = read_keyfile_string_value(kf, "Session", "notes", "command", this.notes_command);
+        this.disk_utility_command = read_keyfile_string_value(kf, "Session", "disk_utility", "command", this.disk_utility_command);
+        this.tasks_command = read_keyfile_string_value(kf, "Session", "tasks", "command", this.tasks_command);
 
         /* Keymap */
         this.keymap_mode = read_keyfile_string_value (kf, "Keymap", "mode", null, this.keymap_mode);

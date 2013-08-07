@@ -83,12 +83,12 @@ then
 elif [ "$1" = "webbrowser" ]
 then
 	echo "Launching webbrowser application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WebbrowserLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'webbrowser' string:'' > /dev/null 2>&1
 
 elif [ "$1" = "email" ]
 then
 	echo "Launching email application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WebbrowserLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'email' string:'' > /dev/null 2>&1
 
 elif [ "$1" = "im1" ]
 then

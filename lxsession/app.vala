@@ -183,13 +183,13 @@ public class GenericSimpleApp: SimpleAppObject
 
     public GenericSimpleApp (string argument)
     {
+        settings_command = argument;
         init();
-        this.settings_command = argument;
     }
 
     public override void read_settings()
     {
-        string[] create_command = this.settings_command.split_set(" ",0);
+        string[] create_command = settings_command.split_set(" ",0);
         this.name = create_command[0];
         this.command = create_command;
     }
@@ -582,25 +582,6 @@ public class FileManagerApp: SimpleAppObject
                 break;
         }
     }
-
-    public void launch_settings
-    {
-        string[] backup_command = this.command;
-
-        switch (this.name)
-        {
-            case "pcmanfm":
-                string create_settings_command = "pcmanfm --desktop-pref";
-                this.command = create_settings_command.split_set(" ",0);
-                break;
-
-            default:
-                break;
-        }
-        this.launch();
-        this.command = backup_command;
-    }
-
 }
 
 public class DesktopApp: SimpleAppObject
@@ -664,6 +645,25 @@ public class DesktopApp: SimpleAppObject
         }
         this.guard = true;
     }
+
+    public void launch_settings()
+    {
+        string[] backup_command = this.command;
+
+        switch (this.name)
+        {
+            case "pcmanfm":
+                string create_settings_command = "pcmanfm --desktop-pref";
+                this.command = create_settings_command.split_set(" ",0);
+                break;
+
+            default:
+                break;
+        }
+        this.launch();
+        this.command = backup_command;
+    }
+
 }
 
 public class PolkitApp: SimpleAppObject
