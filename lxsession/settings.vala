@@ -365,180 +365,177 @@ namespace Lxsession
 
         public void guess_default()
         {
-        /*  Distribution, if you want to ensure good transition from previous version of lxsession
-            you need to patch here to set the default for various new commands
-        */
-
-         string xdg_current_desktop = Environment.get_variable("XDG_CURRENT_DESKTOP");
-         string desktop_session = Environment.get_variable("DESKTOP_SESSION");
-
-        /* Migrate old windows-manager settings to the new ones */
-        if (window_manager == "openbox-lxde")
-        {
-            if (windows_manager_command == null)
-            {
-                windows_manager_command = "openbox";
-                windows_manager_session = "LXDE";
-            }
-        }
-
-        if (xdg_current_desktop == "LXDE")
-        {
-            /* We are under a LXDE generic desktop, guess some LXDE default */
-            if (quit_manager_command == null)
-            {
-                quit_manager_command = "lxsession-logout";
-                quit_manager_image = "/usr/share/lxde/images/logout-banner.png";
-                quit_manager_layout = "top";
-            }
-
-            if (lock_manager_command == null)
-            {
-                lock_manager_command = "lxlock";
-            }
-
-            if (terminal_manager_command == null)
-            {
-                terminal_manager_command = "lxterminal";
-            }
-
-            if (launcher_manager_command == null)
-            {
-                launcher_manager_command = "lxpanelctl";
-            }
-
-        }
-
-        if (desktop_session == "Lubuntu")
-        {
-            if (quit_manager_command == null)
-            {
-                quit_manager_command = "lxsession-logout";
-                quit_manager_image = "/usr/share/lubuntu/images/logout-banner.png";
-                quit_manager_layout = "top";
-            }
 
             /* Migrate old windows-manager settings to the new ones */
-            if (window_manager == "openbox-lubuntu")
+            if (window_manager == "openbox-lxde")
             {
                 if (windows_manager_command == null)
                 {
                     windows_manager_command = "openbox";
-                    windows_manager_session = "Lubuntu";
+                    windows_manager_session = "LXDE";
                 }
             }
 
-            if (workspace_manager_command == null)
-            {
-                workspace_manager_command = "obconf";
-            }
+            /*  Distribution, if you want to ensure good transition from previous version of lxsession
+                you need to patch here to set the default for various new commands
+                See Lubuntu example below
+            */
 
-            if (audio_manager_command == null)
+            if (this.session_name == "Lubuntu")
             {
-                audio_manager_command = "alsamixer";
-            }
+                if (quit_manager_command == null)
+                {
+                    quit_manager_command = "lxsession-logout";
+                    quit_manager_image = "/usr/share/lubuntu/images/logout-banner.png";
+                    quit_manager_layout = "top";
+                }
 
-            if (screenshot_manager_command == null)
+                /* Migrate old windows-manager settings to the new ones */
+                if (window_manager == "openbox-lubuntu")
+                {
+                    if (windows_manager_command == null)
+                    {
+                        windows_manager_command = "openbox";
+                        windows_manager_session = "Lubuntu";
+                    }
+                }
+
+                if (workspace_manager_command == null)
+                {
+                    workspace_manager_command = "obconf";
+                }
+
+                if (audio_manager_command == null)
+                {
+                    audio_manager_command = "alsamixer";
+                }
+
+                if (screenshot_manager_command == null)
+                {
+                    screenshot_manager_command = "scrot";
+                }
+
+                if (upgrade_manager_command == null)
+                {
+                    upgrade_manager_command = "upgrade-manager";
+                }
+
+                if (webbrowser_command == null)
+                {
+                    webbrowser_command = "firefox";
+                }
+
+                if (email_command == null)
+                {
+                    email_command = "sylpheed";
+                }
+
+                if (pdf_reader_command == null)
+                {
+                    pdf_reader_command = "evince";
+                }
+
+                if (video_player_command == null)
+                {
+                    video_player_command = "gnome-mplayer";
+                }
+
+                if (audio_player_command == null)
+                {
+                    audio_player_command = "audacious";
+                }
+
+                if (images_display_command == null)
+                {
+                    images_display_command = "gpicview";
+                }
+
+                if (text_editor_command == null)
+                {
+                    text_editor_command = "leafpad";
+                }
+
+                if (archive_command == null)
+                {
+                    archive_command = "file-roller";
+                }
+
+                if (charmap_command == null)
+                {
+                    charmap_command = "gucharmap";
+                }
+
+                if (calculator_command == null)
+                {
+                    calculator_command = "galculator";
+                }
+
+                if (spreadsheet_command == null)
+                {
+                    spreadsheet_command = "gnumeric";
+                }
+
+                if (bittorent_command == null)
+                {
+                    bittorent_command = "transmission-gtk";
+                }
+
+                if (document_command == null)
+                {
+                    document_command = "abiword";
+                }
+
+                if (webcam_command == null)
+                {
+                    webcam_command = "gucview";
+                }
+
+                if (burn_command == null)
+                {
+                    burn_command = "xfburn";
+                }
+
+                if (notes_command == null)
+                {
+                    notes_command = "xpad";
+                }
+
+                if (disk_utility_command == null)
+                {
+                    disk_utility_command = "xpad";
+                }
+
+                if (tasks_command == null)
+                {
+                    tasks_command = "lxtask";
+                }
+            }
+            if (this.desktop_env_name == "LXDE")
             {
-                screenshot_manager_command = "scrot";
-            }
+                /* We are under a LXDE generic desktop, guess some LXDE default */
+                if (quit_manager_command == null)
+                {
+                    quit_manager_command = "lxsession-logout";
+                    quit_manager_image = "/usr/share/lxde/images/logout-banner.png";
+                    quit_manager_layout = "top";
+                }
 
-            if (upgrade_manager_command == null)
-            {
-                upgrade_manager_command = "upgrade-manager";
-            }
+                if (lock_manager_command == null)
+                {
+                    lock_manager_command = "lxlock";
+                }
 
-            if (webbrowser_command == null)
-            {
-                webbrowser_command = "firefox";
-            }
+                if (terminal_manager_command == null)
+                {
+                    terminal_manager_command = "lxterminal";
+                }
 
-            if (email_command == null)
-            {
-                email_command = "sylpheed";
-            }
+                if (launcher_manager_command == null)
+                {
+                    launcher_manager_command = "lxpanelctl";
+                }
 
-            if (pdf_reader_command == null)
-            {
-                pdf_reader_command = "evince";
             }
-
-            if (video_player_command == null)
-            {
-                video_player_command = "gnome-mplayer";
-            }
-
-            if (audio_player_command == null)
-            {
-                audio_player_command = "audacious";
-            }
-
-            if (images_display_command == null)
-            {
-                images_display_command = "gpicview";
-            }
-
-            if (text_editor_command == null)
-            {
-                text_editor_command = "leafpad";
-            }
-
-            if (archive_command == null)
-            {
-                archive_command = "file-roller";
-            }
-
-            if (charmap_command == null)
-            {
-                charmap_command = "gucharmap";
-            }
-
-            if (calculator_command == null)
-            {
-                calculator_command = "galculator";
-            }
-
-            if (spreadsheet_command == null)
-            {
-                spreadsheet_command = "gnumeric";
-            }
-
-            if (bittorent_command == null)
-            {
-                bittorent_command = "transmission-gtk";
-            }
-
-            if (document_command == null)
-            {
-                document_command = "abiword";
-            }
-
-            if (webcam_command == null)
-            {
-                webcam_command = "gucview";
-            }
-
-            if (burn_command == null)
-            {
-                burn_command = "xfburn";
-            }
-
-            if (notes_command == null)
-            {
-                notes_command = "xpad";
-            }
-
-            if (disk_utility_command == null)
-            {
-                disk_utility_command = "xpad";
-            }
-
-            if (tasks_command == null)
-            {
-                tasks_command = "lxtask";
-            }
-        }
-
         }
 
         public virtual void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
@@ -909,7 +906,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         this.disable_autostart = read_keyfile_string_value(kf, "Session", "disable_autostart", null, this.disable_autostart);
         this.upstart_user_session = read_keyfile_string_value(kf, "Session", "upstart_user_session", null, this.upstart_user_session);
         this.laptop_mode = read_keyfile_string_value(kf, "State", "laptop_mode", null, this.laptop_mode);
-        this.guess_default_state = read_keyfile_string_value(kf, "State", "guess_default", null, this.laptop_mode);
+        this.guess_default_state = read_keyfile_string_value(kf, "State", "guess_default", null, this.guess_default_state);
         this.dbus_lxde = read_keyfile_string_value (kf, "Dbus", "lxde", null, this.dbus_lxde);
         this.dbus_gnome = read_keyfile_string_value (kf, "Dbus", "gnome", null, this.dbus_gnome);
         this.security_keyring = read_keyfile_string_value (kf, "Security", "keyring", null, this.security_keyring);
