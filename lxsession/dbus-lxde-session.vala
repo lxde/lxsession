@@ -96,12 +96,33 @@ namespace Lxsession
 
         public void SessionSupport (out string[] list)
         {
-            /* TODO */
+            list = {"webbrowser",
+                    "email",
+                    "pdf_reader",
+                    "video_player",
+                    "audio_player",
+                    "images_display",
+                    "images_display",
+                    "text_editor",
+                    "archive",
+                    "charmap",
+                    "calculator",
+                    "spreadsheet",
+                    "bittorent",
+                    "document",
+                    "webcam",
+                    "burn",
+                    "notes",
+                    "disk_utility",
+                    "tasks"
+                    };
         }
 
         public void SessionSupportDetail (string key1, out string[] list)
         {
-            /* TODO */
+            string tmp;
+            constructor_dbus ("support", key1, null, null, out tmp);
+            list = tmp.split_set(";",0);
         }
 
         private void constructor_dbus (string mode, string key1, string? key2, string? default_value, out string command)
