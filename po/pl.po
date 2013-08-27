@@ -9,18 +9,18 @@ msgstr ""
 "Project-Id-Version: lxsession 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2011-02-19 10:08+0100\n"
-"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"PO-Revision-Date: 2013-08-27 10:21+0000\n"
+"Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
-"%100<10 || n%100>=20)) ? 1 : 2));\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Poedit-Country: Poland\n"
-"X-Generator: Pootle 2.0.0\n"
+"X-POOTLE-MTIME: 1377598915.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -84,46 +84,48 @@ msgstr "Wy_loguj"
 
 #: ../lxsession-edit/lxsession-edit.c:365
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: ../lxsession-edit/lxsession-edit.c:370
 msgid "Application"
-msgstr ""
+msgstr "Program"
 
 #: ../lxsession-edit/lxsession-edit.c:378
 msgid "Comment"
-msgstr ""
+msgstr "Komentarz"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Hasło: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Błąd: %s\n"
+msgstr "Grupa: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Ustawienia sesji"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Programy, które automatycznie są uruchamiane po wyświetleniu pulpitu:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automatycznie uruchamiane programy"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Menedżer okien:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Wiersz poleceń używany do uruchomienia menedżera okien\n"
+"(Domyślnym poleceniem dla menedżera okien LXDE powinno być openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -132,22 +134,26 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Ostrzeżenie:</b> <b>NIE</b> dotykaj tego, chyba że dokładnie wiesz co "
+"robisz.\n"
+"\n"
+"<b>UWAGA:</b> To ustawienie zadziała po następnym zalogowaniu."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Zaawansowane opcje"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Uwierzytelnienie"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Tożsamość:"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Zarządzaj programami uruchamianymi wraz z sesją"
 
 #~ msgid "Logout"
 #~ msgstr "Wyloguj"
