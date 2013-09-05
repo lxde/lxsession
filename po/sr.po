@@ -9,15 +9,14 @@ msgstr ""
 "Project-Id-Version: LXSession x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:22+0200\n"
-"PO-Revision-Date: 2012-09-23 22:11+0200\n"
-"Last-Translator: Jay A. <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2013-09-06 01:56+0100\n"
+"Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -48,7 +47,7 @@ msgstr "Грешка: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:388
 msgid "LXSession is not running."
-msgstr "LXSession није покренут"
+msgstr "ЛИкс-Сесија није покренут"
 
 #: ../lxsession-logout/lxsession-logout.c:564
 #, c-format
@@ -61,7 +60,7 @@ msgstr "У_гаси рачунар"
 
 #: ../lxsession-logout/lxsession-logout.c:583
 msgid "_Reboot"
-msgstr "_Ресетуј рачунар"
+msgstr "Поново пок_рени"
 
 #: ../lxsession-logout/lxsession-logout.c:594
 msgid "_Suspend"
@@ -73,7 +72,7 @@ msgstr "_Замрзни рачунар"
 
 #: ../lxsession-logout/lxsession-logout.c:616
 msgid "S_witch User"
-msgstr "Промени корисника"
+msgstr "Промени _корисника"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:625
@@ -101,7 +100,8 @@ msgstr "Лозинка:"
 msgid "Group: %s"
 msgstr "Група: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#: ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
 msgstr "Поставке сесије радне површи"
 
@@ -115,27 +115,25 @@ msgstr "Самопокренути програми"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr "Управљач прозорима:"
+msgstr "Управљач прозора:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Наредба за покретање управљача прозорима\n"
-"(Подразумевана наредба за „LXDE“ окружење је „openbox-lxde“)"
+"Наредба за покретање управљача прозора\n"
+"(Подразумевана наредба за ЛИкс-ДЕ окружење је „openbox-lxde“)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
-"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
-"are doing.\n"
+"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you are doing.\n"
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
 "<b>Упозорење:</b> Ако нисте сигурни, <b>не мењајте</b> ова подешавања.\n"
 "\n"
-"<b>Обавештење:</b> Ово подешавање ће се применити у наредном пријављивању на "
-"систем."
+"<b>Обавештење:</b> Ово подешавање ће се применити у наредном пријављивању на систем."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
