@@ -66,7 +66,7 @@ namespace Lxsession
         public string composite_manager_autostart { get; set; default = null;}
         public string lock_manager_command { get; set; default = null;}
         public string message_manager_command { get; set; default = null;}
-        public string disable_autostart { get; set; default = null;}
+        public string disable_autostart { get; set; default = "no";}
         public string upstart_user_session { get; set; default = null;}
         public string webbrowser_command { get; set; default = null;}
         public string email_command { get; set; default = null;}
