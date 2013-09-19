@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Icon=lxsession-default-apps
+Icon=xfwm4
 Exec=lxsession-default-apps
 _Name=Default applications for LXSession
 _Comment=Change the default applications on LXDE

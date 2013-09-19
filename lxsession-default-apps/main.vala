@@ -86,6 +86,15 @@ namespace LDefaultApps
         var window = builder.get_object ("main-win") as Window;
         window.destroy.connect (Gtk.main_quit);
 
+        try
+        {
+            window.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+        }
+        catch (Error e)
+        {
+            message ("Could not load application icon: %s\n", e.message);
+        }
+
         /* Autostart list */
         manual_autostart_init(builder);
 
@@ -1220,6 +1229,13 @@ namespace LDefaultApps
             var auto_vbox = builder.get_object("manual_autostart_vbox") as Gtk.VBox;
             var running_apps = builder.get_object("running_apps_vbox") as Gtk.VBox;
 
+            var known_apps_box = builder.get_object("autostart_known_box") as Gtk.HBox;
+            var known_apps =  builder.get_object("autostart_treeview") as Gtk.TreeView;
+
+            init_list_view(known_apps);
+            load_autostart(Environment.get_variable("XDG_CURRENT_DESKTOP"));
+            known_apps.set_model (get_autostart_list ());
+
             if (return_combobox_text(disable_autostart_combobox) == "all")
             {
                 auto_vbox.hide_all();
@@ -1229,6 +1245,15 @@ namespace LDefaultApps
             {
                 running_apps.show_all();
                 auto_vbox.show_all();
+            }
+
+            if (return_combobox_text(disable_autostart_combobox) == "no")
+            {
+                known_apps_box.show_all();
+            }
+            else
+            {
+                known_apps_box.hide_all();
             }
         });
 

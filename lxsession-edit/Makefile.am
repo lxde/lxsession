@@ -21,4 +21,6 @@ lxsession_edit_LDADD = \
 
 lxsession_edit_SOURCES = \
 	lxsession-edit.c \
+	lxsession-edit-common.c \
+	lxsession-edit-common.h \
 	$(NULL)

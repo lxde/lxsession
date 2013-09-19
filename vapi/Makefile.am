@@ -1,6 +1,7 @@
 noinst_DATA = \
 	lxclipboard.vapi \
 	lxpolkit.vapi \
+	lxsession-edit.vapi \
 	lxsettings-daemon.vapi \
 	xdg-autostart.vapi
 

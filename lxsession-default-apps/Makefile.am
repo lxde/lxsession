@@ -5,6 +5,7 @@ lxsession_default_apps_SOURCES = \
 	main.vala \
 	combobox.vala \
 	dbus-backend.vala \
+    ../lxsession-edit/lxsession-edit-common.c \
     $(NULL)
 
 lxsession_default_apps_VALAFLAGS = \
@@ -13,6 +14,7 @@ lxsession_default_apps_VALAFLAGS = \
 	--pkg dbus-glib-1 \
 	--pkg gio-2.0 \
 	--pkg posix \
+	--pkg lxsession-edit \
 	$(NULL)
 
 lxsession_default_apps_CFLAGS = \
