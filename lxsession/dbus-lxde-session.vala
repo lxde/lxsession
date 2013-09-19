@@ -51,10 +51,9 @@ namespace Lxsession
             var session = new SessionObject();
             session.lxsession_restart();
         }
-
+/* TODO Fix
         public void ReloadSettingsDaemon()
         {
-            /* Dummy, used for compatibility */
             message ("Restart Xsettings Deamon");
             XsettingsManagerActivate();
         }
@@ -93,7 +92,7 @@ namespace Lxsession
                 global_xsettings_manager.activate();
             }
         }
-
+*/
         public void SessionSupport (out string[] list)
         {
             list = {"webbrowser",

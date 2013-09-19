@@ -373,7 +373,7 @@ namespace Lxsession
             }
         }
     }
-
+/* TODO Fix
     public class XSettingsOption: GLib.Object
     {
         private string command;
@@ -436,5 +436,5 @@ namespace Lxsession
             }
         }
     }
-
+*/
 }

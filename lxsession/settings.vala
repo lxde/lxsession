@@ -569,6 +569,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public LxsessionConfigKeyFile(string session_arg, string desktop_env_name_arg)
     {
+        global_sig.reload_settings_daemon.connect(on_reload_settings_daemon);
+
         init_desktop_files();
         
         this.session_name = session_arg;
@@ -632,6 +634,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
     }
 
+/*
     public void reload_xsettings ()
     {
         if (global_xsettings_manager == null)
@@ -641,12 +644,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
         global_xsettings_manager.activate();
     }
+*/
 
     public void on_desktop_file_change ()
     {
         read_keyfile();
         message("Desktop file change, reloading XSettings daemon");
-        reload_xsettings();
+        settings_daemon_reload(kf);
     }
 
     public void on_desktop_file_creation ()
@@ -656,7 +660,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         monitor_cancel.cancel();
 
         read_keyfile();
-        reload_xsettings();
+        settings_daemon_reload(kf);
         setup_monitor_desktop_file();
     }
 
@@ -1078,6 +1082,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         save_keyfile();
         read_keyfile();
     }
+
+    public void on_reload_settings_daemon ()
+    {
+        message("Reloading XSettings daemon");
+        settings_daemon_reload(kf);
+    }
+
 }
 
 public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
