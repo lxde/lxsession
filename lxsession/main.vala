@@ -328,7 +328,11 @@ namespace Lxsession {
             {
                 var securitypolkit = new PolkitApp();
                 global_polkit = securitypolkit;
+#if BUILDIN_POLKIT
+                /* Do nothing, it's already initialize when creating the app */
+#else
                 global_polkit.launch();
+#endif
             }
 
 
