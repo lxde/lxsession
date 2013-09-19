@@ -449,7 +449,7 @@ int main(int argc, char** argv)
             }
         }
         if( loaded )
-            wm_cmd = g_key_file_get_string(kf, "Session", "window_manager", NULL);
+            wm_cmd = g_key_file_get_string(kf, "Session", "windows_manager/command", NULL);
 
         if( ! wm_cmd || !*wm_cmd )
         {
@@ -485,7 +485,7 @@ int main(int argc, char** argv)
             {
                 char* data;
                 gsize len;
-                g_key_file_set_string( kf, "Session", "window_manager", wm_cmd );
+                g_key_file_set_string( kf, "Session", "windows_manager/command", wm_cmd );
                 data = g_key_file_to_data(kf, &len, NULL);
                 g_file_set_contents(cfg, data, len, NULL);
                 g_free( wm_cmd );
