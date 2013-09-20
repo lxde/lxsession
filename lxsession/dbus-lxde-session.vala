@@ -95,33 +95,32 @@ namespace Lxsession
 
         public void SessionSupport (out string[] list)
         {
-            list = {"webbrowser",
-                    "email",
-                    "pdf_reader",
-                    "video_player",
-                    "audio_player",
-                    "images_display",
-                    "text_editor",
-                    "archive",
-                    "charmap",
-                    "calculator",
-                    "spreadsheet",
-                    "bittorent",
-                    "document",
-                    "webcam",
-                    "burn",
-                    "notes",
-                    "disk_utility",
-                    "tasks"
-                    };
+            string tmp_support;
+            tmp_support = global_settings.get_support("Session");
+
+            list = tmp_support.split_set(";",0);
+            // TODO Remove the last item (empty)
         }
 
         public void SessionSupportDetail (string key1, out string[] list)
         {
-            string tmp;
-            string type;
-            constructor_dbus ("support", "Session", key1, null, null, out tmp, out type);
+            string tmp = null;
+
+            Value tmp_value;
+            string tmp_type = null;
+
+            constructor_dbus ("support", "Session", key1, null, null, out tmp_value, out tmp_type);
+
+            switch (tmp_type)
+            {
+                case "string":
+                    tmp = (string) tmp_value;
+                    break;
+            }
+
+            message ("tmp for support detail: %s", tmp);
             list = tmp.split_set(";",0);
+            // TODO Remove the last item (empty)
         }
 
         private void constructor_dbus (string mode, string categorie, string key1, string? key2, string? default_value, out string command, out string type)
@@ -137,45 +136,19 @@ namespace Lxsession
                     message ("try to look at config_item_db");
                     global_settings.get_item(categorie, key1, key2, out command, out type);
                     break;
-/* TODO Activate this
+                case "launch":
+                    global_settings.get_item(categorie, key1, key2, out command, out type);
+                    break;
                 case "support":
-                    variable = global_settings.get_support_key(categorie, key1);
+                    command = global_settings.get_support_key(categorie, key1);
                     type = "string";
                     break;
-*/
             }
 
             if (type != "string")
             {
             switch (key1)
             {
-                case "webbrowser":
-                    switch (mode)
-                    {
-                        case "get":
-                            if (key2 == "command")
-                            {
-                                command = global_settings.webbrowser_command;
-                            }
-                            break;
-
-                        case "set":
-                            if (default_value == null)
-                            {
-                                global_sig.request_webbrowser_command_set(default_value);
-                            }
-                            break;
-
-                        case "support":
-                            command = "command;";
-                            break;
-
-                        case "launch":
-                            command = global_settings.webbrowser_command;
-                            break;
-                    }
-                    break;
-
                 case "email":
                     switch (mode)
                     {

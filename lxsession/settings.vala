@@ -70,7 +70,6 @@ namespace Lxsession
         public string message_manager_command { get; set; default = null;}
         public string disable_autostart { get; set; default = "no";}
         public string upstart_user_session { get; set; default = null;}
-        public string webbrowser_command { get; set; default = null;}
         public string email_command { get; set; default = null;}
         public string pdf_reader_command { get; set; default = null;}
         public string video_player_command { get; set; default = null;}
@@ -171,24 +170,28 @@ namespace Lxsession
 
         /* Settings db */
         public HashMap<string, string> config_item_db;
+        public HashMap<string, string> session_support_item_db;
 
         public LxsessionConfig ()
         {
-            config_item_db = init_config_item_db();
+            config_item_db = init_item_db();
+            session_support_item_db = init_item_db();
         }
 
-        private HashMap<string, string> init_config_item_db ()
+        private HashMap<string, string> init_item_db ()
         {
             var return_map = new HashMap<string, string> ();
             return return_map;
         }
 
-        public void create_config_item (string categorie, string key1, string key2, string type, string variable)
+        public void create_config_item (string categorie, string key1, string key2, string type, string? variable)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
 
             config_item_db[item_key] = variable;
+
+            update_support_keys (categorie, key1, key2);
         }
 
         public void get_item(string categorie, string key1, string key2, out string variable, out string type)
@@ -200,8 +203,15 @@ namespace Lxsession
 
             variable = config_item_db[item_key];
             type = "string";
+        }
 
-            
+        public string get_item_string (string categorie, string key1, string key2)
+        {
+            string type_output;
+            string variable_output;
+            get_item(categorie, key1, key2, out variable_output, out type_output);
+
+            return variable_output;
         }
 
         public void set_config_item_value (string categorie, string key1, string? key2, string type, string dbus_arg)
@@ -223,6 +233,61 @@ namespace Lxsession
                 create_config_item(categorie, key1, key2, type, dbus_arg);
             }
          }
+
+        public void update_support_keys (string categorie, string key1, string key2)
+        {
+            if (categorie == "Session")
+            {
+                if (session_support_item_db.has_key(key1))
+                {
+                    string[] list = session_support_item_db[key1].split_set(";",0);
+                    if (key2 in list)
+                    {
+                        /* Pass, already in support */
+                    }
+                    else
+                    {
+                        session_support_item_db[key1] = session_support_item_db[key1] + key2 + ";";
+                    }
+                }
+                else
+                {
+                    session_support_item_db[key1] = key2 + ";";
+                }
+            }
+        }
+
+        public string get_support (string categorie)
+        {
+            string items = null;
+            if (categorie == "Session")
+            {
+                foreach (string key in session_support_item_db.keys)
+                {
+                    if (items == null)
+                    {
+                        items = key + ";";
+                    }
+                    else
+                    {
+                        items = items + key + ";" ;
+                    }
+                }
+                message ("Return items: %s", items);
+            }
+            return items;
+        }
+
+        public string get_support_key (string categorie, string key1)
+        {
+            string return_value = null;
+            if (categorie == "Session")
+            {
+                message("Return support key: %s", session_support_item_db[key1]);
+                return_value =  session_support_item_db[key1];
+            }
+            return return_value;
+        }
 
         public void init_signal ()
         {
@@ -474,9 +539,9 @@ namespace Lxsession
                     upgrade_manager_command = "upgrade-manager";
                 }
 
-                if (webbrowser_command == null)
+                if (get_item_string("Session", "webbrowser", "command") == null)
                 {
-                    webbrowser_command = "firefox";
+                    set_config_item_value("Session", "webbrowser", "command","string", "firefox");
                 }
 
                 if (email_command == null)
@@ -853,6 +918,36 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         return return_value;
     }
 
+
+    public void read_key_value (KeyFile kf, string categorie, string key1, string? key2, string type)
+    {
+        string default_variable = null;
+        string final_variable = null;
+        string type_output = null;
+
+        string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+        if (config_item_db.has_key(item_key))
+        {
+            message ("Create new config key: %s", item_key);
+            create_config_item(categorie, key1, key2, type, null);
+        }
+        else
+        {
+            get_item(categorie, key1, key2, out default_variable, out type_output);
+        }
+
+        switch (type)
+        {
+            case "string":
+                final_variable = read_keyfile_string_value(kf, categorie, key1, key2, default_variable);
+                break;
+        }
+
+        set_config_item_value(categorie, key1, key2, type, final_variable);
+
+    }
+
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
@@ -932,7 +1027,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
 
         /* Mime applications */
-        set_config_item_value("Session", "webbrowser", "command", "string", this.webbrowser_command);
+        read_key_value(kf, "Session", "webbrowser", "command", "string");
+
         this.email_command = read_keyfile_string_value(kf, "Session", "email", "command", this.email_command);
         this.pdf_reader_command = read_keyfile_string_value(kf, "Session", "pdf_reader", "command", this.pdf_reader_command);
         this.video_player_command = read_keyfile_string_value(kf, "Session", "video_player", "command", this.video_player_command);
