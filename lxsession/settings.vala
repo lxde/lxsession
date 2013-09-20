@@ -19,6 +19,8 @@
 
 /* TODO Split correctly the settings for enable differents backends (.ini, gsettings ...) */ 
 
+using Gee;
+
 namespace Lxsession
 {
     public class LxsessionConfig: GLib.Object
@@ -167,14 +169,66 @@ namespace Lxsession
         public string[] mime_email_installed { get; set; default = null;}
         public string[] mime_email_available { get; set; default = null;}
 
+        /* Settings db */
+        public HashMap<string, string> config_item_db;
+
         public LxsessionConfig ()
         {
-
+            config_item_db = init_config_item_db();
         }
+
+        private HashMap<string, string> init_config_item_db ()
+        {
+            var return_map = new HashMap<string, string> ();
+            return return_map;
+        }
+
+        public void create_config_item (string categorie, string key1, string key2, string type, string variable)
+        {
+            /* only support string for now */
+            string item_key = categorie + ";" + key1 + ";" + key2 + ";";
+
+            config_item_db[item_key] = variable;
+        }
+
+        public void get_item(string categorie, string key1, string key2, out string variable, out string type)
+        {
+            /* only support string for now */
+            string item_key = categorie + ";" + key1 + ";" + key2 + ";";
+
+            message ("get_item item_key: %s", item_key);
+
+            variable = config_item_db[item_key];
+            type = "string";
+
+            
+        }
+
+        public void set_config_item_value (string categorie, string key1, string? key2, string type, string dbus_arg)
+        {
+            /*
+                Update config_item_db, or create the config_item if it's not exist.
+            */
+            string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+            message ("key of read_value: %s", item_key);
+
+            if (config_item_db.has_key(item_key))
+            {
+                message ("Enter if of read_value");
+                config_item_db[item_key] = dbus_arg;
+            }
+            else
+            {
+                create_config_item(categorie, key1, key2, type, dbus_arg);
+            }
+         }
 
         public void init_signal ()
         {
             /* Connect to signals changes */
+            global_sig.generic_set_signal.connect(on_update_generic);
+
             global_sig.update_window_manager.connect(on_update_string_set);
 
             /* Xsettings */
@@ -538,6 +592,25 @@ namespace Lxsession
             }
         }
 
+        public void on_update_generic (string dbus_arg, string categorie, string key1, string? key2)
+        {
+            string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+            string type = "string";
+
+            message ("key of set_value: %s", item_key);
+
+            if (config_item_db.has_key(item_key))
+            {
+                switch (type)
+                {
+                    case "string":
+                        on_update_string_set (dbus_arg, categorie, key1, key2);
+                        break;
+                }
+            }
+        }
+
         public virtual void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
         {
 
@@ -859,7 +932,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
 
         /* Mime applications */
-        this.webbrowser_command = read_keyfile_string_value(kf, "Session", "webbrowser", "command", this.webbrowser_command);
+        set_config_item_value("Session", "webbrowser", "command", "string", this.webbrowser_command);
         this.email_command = read_keyfile_string_value(kf, "Session", "email", "command", this.email_command);
         this.pdf_reader_command = read_keyfile_string_value(kf, "Session", "pdf_reader", "command", this.pdf_reader_command);
         this.video_player_command = read_keyfile_string_value(kf, "Session", "video_player", "command", this.video_player_command);

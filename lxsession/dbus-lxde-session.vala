@@ -119,14 +119,34 @@ namespace Lxsession
         public void SessionSupportDetail (string key1, out string[] list)
         {
             string tmp;
-            constructor_dbus ("support", key1, null, null, out tmp);
+            string type;
+            constructor_dbus ("support", "Session", key1, null, null, out tmp, out type);
             list = tmp.split_set(";",0);
         }
 
-        private void constructor_dbus (string mode, string key1, string? key2, string? default_value, out string command)
+        private void constructor_dbus (string mode, string categorie, string key1, string? key2, string? default_value, out string command, out string type)
         {
+            message("Enter constructor_dbus, for %s, %s, %s and %s", mode, categorie, key1, key2);
+
+            type = null;
             command = null;
 
+            switch (mode)
+            {
+                case "get":
+                    message ("try to look at config_item_db");
+                    global_settings.get_item(categorie, key1, key2, out command, out type);
+                    break;
+/* TODO Activate this
+                case "support":
+                    variable = global_settings.get_support_key(categorie, key1);
+                    type = "string";
+                    break;
+*/
+            }
+
+            if (type != "string")
+            {
             switch (key1)
             {
                 case "webbrowser":
@@ -619,35 +639,48 @@ namespace Lxsession
                     command = null;
                     break;
             }
+            }
         }
 
         public void SessionGet(string key1, string key2, out string command)
         {
-            constructor_dbus ("get", key1, key2, null, out command);
+            message ("Enter Get method");
 
-            message ("Get %s %s: %s", key1, key2, command);
-            if (command == null)
+            Value tmp_value;
+            string tmp_type;
+
+            constructor_dbus ("get", "Session", key1, key2, null, out tmp_value, out tmp_type);
+
+            switch (tmp_type)
             {
-                command = "";
+                case "string":
+                    command = (string) tmp_value;
+                    if (command == null)
+                    {
+                        command = "";
+                    }
+                    break;
+                default:
+                    command = "";
+                    break;
             }
-
+            message ("Get %s %s: %s", key1, key2, command);
         }
 
         public void SessionSet(string key1, string key2, string command_to_set)
         {
-            message ("Set %s %s: %s", key1, key2, command_to_set);
+            message ("Set %s %s", key1, key2);
 
-            string settings;
-
-            constructor_dbus("set", key1, key2, command_to_set, out settings);
+            global_sig.generic_set_signal(command_to_set, "Session", key1, key2);
          }
 
 
         public void SessionLaunch(string name, string option)
         {
             string settings;
+            string type;
 
-            constructor_dbus("launch", name, "command", null, out settings);
+            constructor_dbus("launch", "Session", name, "command", null, out settings, out type);
             if (settings == null)
             {
                 message("Error, %s not set", name);
