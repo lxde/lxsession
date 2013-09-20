@@ -373,25 +373,21 @@ namespace Lxsession
             }
         }
     }
-/* TODO Fix
+
+
     public class XSettingsOption: GLib.Object
     {
         private string command;
 
-        public XSettingsOption (string? command_arg)
+        public XSettingsOption ()
         {
-            if (command_arg == null)
-            {
-                command = global_settings.xsettings_manager_command;
-            }
-            else
-            {
-                command = command_arg;
-            }
+
         }
 
         public new void activate ()
         {
+            command = global_settings.xsettings_manager_command;
+
             switch (command)
             {
                 case null:
@@ -435,6 +431,20 @@ namespace Lxsession
                     break;
             }
         }
+
+        public void reload ()
+        {
+            command = global_settings.xsettings_manager_command;
+
+            switch (command)
+            {
+                case "build-in":
+                    settings_daemon_reload(load_keyfile (get_config_path ("desktop.conf")));
+                    break;
+                default:
+                    this.activate();
+                    break;
+            }
+        }
     }
-*/
 }

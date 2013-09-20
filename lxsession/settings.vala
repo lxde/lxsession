@@ -634,23 +634,27 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
     }
 
-/*
     public void reload_xsettings ()
     {
         if (global_xsettings_manager == null)
         {
-            var xsettings = new XSettingsOption(this.xsettings_manager_command);
+            var xsettings = new XSettingsOption();
             global_xsettings_manager = xsettings;
+            global_xsettings_manager.activate();
+            message("Create a xsettings option");
         }
-        global_xsettings_manager.activate();
+        else
+        {
+            global_xsettings_manager.reload();
+            message("Reload the xsettings option");
+        }
     }
-*/
 
     public void on_desktop_file_change ()
     {
         read_keyfile();
         message("Desktop file change, reloading XSettings daemon");
-        settings_daemon_reload(kf);
+        reload_xsettings();
     }
 
     public void on_desktop_file_creation ()
@@ -660,7 +664,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         monitor_cancel.cancel();
 
         read_keyfile();
-        settings_daemon_reload(kf);
+        reload_xsettings();
         setup_monitor_desktop_file();
     }
 
@@ -1086,7 +1090,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
     public void on_reload_settings_daemon ()
     {
         message("Reloading XSettings daemon");
-        settings_daemon_reload(kf);
+        reload_xsettings();
     }
 
 }

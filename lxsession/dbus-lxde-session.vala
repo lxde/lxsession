@@ -51,7 +51,7 @@ namespace Lxsession
             var session = new SessionObject();
             session.lxsession_restart();
         }
-/* TODO Fix
+
         public void ReloadSettingsDaemon()
         {
             message ("Restart Xsettings Deamon");
@@ -83,16 +83,16 @@ namespace Lxsession
             }
             else if (global_xsettings_manager == null)
             {
-                var xsettings = new XSettingsOption(global_settings.xsettings_manager_command);
+                var xsettings = new XSettingsOption();
                 global_xsettings_manager = xsettings;
                 global_xsettings_manager.activate();
             }
             else
             {
-                global_xsettings_manager.activate();
+                global_xsettings_manager.reload();
             }
         }
-*/
+
         public void SessionSupport (out string[] list)
         {
             list = {"webbrowser",
