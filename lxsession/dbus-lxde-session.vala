@@ -101,7 +101,6 @@ namespace Lxsession
                     "video_player",
                     "audio_player",
                     "images_display",
-                    "images_display",
                     "text_editor",
                     "archive",
                     "charmap",
