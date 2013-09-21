@@ -234,7 +234,7 @@ namespace Lxsession
                         WindowsManagerReload();
                         break;
 
-                    case "desktop":
+                    case "desktop_manager":
                         if (option == "settings")
                         {
                             DesktopLaunchSettings();
