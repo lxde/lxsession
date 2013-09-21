@@ -18,6 +18,6 @@
 #
 
 echo "Launching terminal manager"
-dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.TerminalManagerLaunch string:$PWD> /dev/null 2>&1
+dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"terminal_manager" string:$PWD> /dev/null 2>&1
 
 exit 0

@@ -25,57 +25,57 @@ case "$1" in
     if ["$2" = "preferences"  ]
     then
 	    echo "Launching audio preferences"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.AudioManagerLaunch > /dev/null 2>&1
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_manager" string:'' > /dev/null 2>&1
     fi
     ;;
 "quit")
 	echo "Launching quit manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"quit_manager" string:'' > /dev/null 2>&1
     ;;
 "workspace")
 	echo "Launching workspace manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WorkspaceManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"workspace_manager" string:'' > /dev/null 2>&1
     ;;
 "launcher")
 	echo "Launching launcher manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.LauncherManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"launcher_manager" string:'' > /dev/null 2>&1
     ;;
 "terminal")
 	echo "Launching terminal manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.TerminalManagerLaunch string:$PWD> /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"terminal_manager" string:$PWD> /dev/null 2>&1
     ;;
 "upgrades")
 	echo "Launching upgrades manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradesManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"upgrades_manager" string:'' > /dev/null 2>&1
     ;;
 "screenshot")
     if ["$2" = "window"]
     then
 	    echo "Launching screenshot manager (current window)"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotWindowManagerLaunch
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.SessionLaunch string:"windows_manager" string:''> /dev/null 2>&1
     else
 	    echo "Launching screenshot manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.ScreenshotManagerLaunch > /dev/null 2>&1
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'' > /dev/null 2>&1
     fi
     ;;
-"filemanager")
+"file_manager")
 	echo "Launching file manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.FileManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"file_manager" string:'' > /dev/null 2>&1
     ;;
-"desktop")
+"desktop_manager")
     if [ "$2" = "settings" ]
     then
 	    echo "Launching settings for desktop manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.DesktopManagerLaunchSettings > /dev/null 2>&1
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"desktop_manager" string:"settings" > /dev/null 2>&1
     fi
     ;;
-"windows-manager")
+"windows_manager")
 	echo "Launching windows manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.WindowsManagerReload > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"windows_manager"  string:'' > /dev/null 2>&1
     ;;
 "lock")
 	echo "Launching lock manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.LockManagerLaunch > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock"  string:'' > /dev/null 2>&1
     ;;
 "webbrowser")
 	echo "Launching webbrowser application"
@@ -87,7 +87,7 @@ case "$1" in
     ;;
 "im1")
 	echo "Launching im application 1"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.IM1Reload > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"im1" string:'' > /dev/null 2>&1
     ;;
 *)
     ;;
