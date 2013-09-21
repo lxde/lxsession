@@ -209,19 +209,19 @@ public class WindowsManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        if (global_settings.window_manager != null)
+        if (global_settings.get_item_string("Session", "window_manager", null) != null)
         {
             mode = "simple";
-            wm_command = global_settings.window_manager;
+            wm_command = global_settings.get_item_string("Session", "window_manager", null);
             session = "";
             extras = "";
         }
         else
         {
             mode = "advanced";
-            wm_command = global_settings.windows_manager_command;
-            session = global_settings.windows_manager_session;
-            extras = global_settings.windows_manager_extras;
+            wm_command = global_settings.get_item_string("Session", "windows_manager", "command");
+            session = global_settings.get_item_string("Session", "windows_manager", "session");
+            extras = global_settings.get_item_string("Session", "windows_manager", "extras");
         }
 
         string session_command;
@@ -336,7 +336,7 @@ public class WindowsManagerApp: SimpleAppObject
         {
             this.name = "wm_safe";
             this.command = {find_window_manager()};
-            global_sig.update_window_manager("wm_safe");
+            global_settings.set_generic_default("Session", "windows_manager", "command", "string", "wm_safe");
         }
 
         Process.close_pid (pid);
@@ -407,8 +407,10 @@ public class PanelApp: SimpleAppObject
 
     public override void read_config_settings()
     {
-        panel_command = global_settings.panel_command;
-        panel_session = global_settings.panel_session;
+        panel_command = global_settings.get_item_string("Session", "panel", "command");
+        message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "command"));
+        panel_session = global_settings.get_item_string("Session", "panel", "session");
+        message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "session"));
     }
 
     public override void read_settings()
@@ -451,8 +453,8 @@ public class DockApp: PanelApp
 
     public override void read_config_settings()
     {
-        panel_command = global_settings.dock_command;
-        panel_session = global_settings.dock_session;
+        panel_command = global_settings.get_item_string("Session", "dock", "command");
+        panel_session = global_settings.get_item_string("Session", "dock", "session");
     }
 }
 
@@ -467,7 +469,7 @@ public class ScreensaverApp: SimpleAppObject
 
     public override void read_settings()
     {
-        screensaver_command = global_settings.screensaver_command;
+        screensaver_command = global_settings.get_item_string("Session", "screensaver", "command");
 
         switch (screensaver_command) 
         {
@@ -498,7 +500,7 @@ public class PowerManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        powermanager_command = global_settings.power_manager_command;
+        powermanager_command = global_settings.get_item_string("Session", "power_manager", "command");
         laptop_mode = global_settings.laptop_mode;
 
         switch (powermanager_command) 
@@ -540,9 +542,9 @@ public class FileManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        filemanager_command = global_settings.file_manager_command;
-        filemanager_session = global_settings.file_manager_session;
-        filemanager_extras = global_settings.file_manager_extras;
+        filemanager_command = global_settings.get_item_string("Session", "file_manager", "command");
+        filemanager_session = global_settings.get_item_string("Session", "file_manager", "session");
+        filemanager_extras = global_settings.get_item_string("Session", "file_manager", "extras");
 
         switch (filemanager_command) 
         {
@@ -597,14 +599,14 @@ public class DesktopApp: SimpleAppObject
     public override void read_settings()
     {
 
-        desktop_command = global_settings.desktop_command;
-        desktop_wallpaper = global_settings.desktop_wallpaper;   
+        desktop_command = global_settings.get_item_string("Session", "desktop_manager", "command");
+        desktop_wallpaper = global_settings.get_item_string("Session", "desktop_manager", "wallpaper");   
 
         switch (desktop_command) 
         {
             case "filemanager":
-                string filemanager_session = global_settings.file_manager_session;
-                string filemanager_extras = global_settings.file_manager_extras;
+                string filemanager_session = global_settings.get_item_string("Session", "file_manager", "session");
+                string filemanager_extras = global_settings.get_item_string("Session", "file_manager", "extras");
 
                 if (global_file_manager != null)
                 {
@@ -613,20 +615,20 @@ public class DesktopApp: SimpleAppObject
                     global_file_manager = filemanager;
                 }
 
-                switch (global_settings.file_manager_command)
+                switch (global_settings.get_item_string("Session", "file_manager", "command"))
                 {
                     case "pcmanfm":
-                        this.name = global_settings.file_manager_command;
+                        this.name = global_settings.get_item_string("Session", "file_manager", "command");
                         string create_command = "pcmanfm --desktop --profile " + filemanager_session + filemanager_extras;
                         this.command = create_command.split_set(" ",0);
                         break;
                     case "pcmanfm-qt":
-                        this.name = global_settings.file_manager_command;
+                        this.name = global_settings.get_item_string("Session", "file_manager", "command");
                         string create_command = "pcmanfm-qt --desktop --profile " + filemanager_session + filemanager_extras;
                         this.command = create_command.split_set(" ",0);
                         break;
                     case "nautilus":
-                        this.name = global_settings.file_manager_command;
+                        this.name = global_settings.get_item_string("Session", "file_manager", "command");
                         string create_command = "nautilus" + " -n " + filemanager_extras;
                         this.command = create_command.split_set(" ",0);
                         break;
@@ -677,7 +679,7 @@ public class PolkitApp: SimpleAppObject
 
     public override void read_settings()
     {
-        polkit_command = global_settings.polkit_command;
+        polkit_command = global_settings.get_item_string("Session", "polkit", "command");
 
         switch (polkit_command) 
         {
@@ -725,7 +727,7 @@ public class NetworkGuiApp: SimpleAppObject
 
     public override void read_settings()
     {
-        network_command = global_settings.network_gui_command;
+        network_command = global_settings.get_item_string("Session", "network_gui", "command");
         laptop_mode = global_settings.laptop_mode;
 
         switch (network_command)
@@ -780,7 +782,7 @@ public class AudioManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        audiomanager_command = global_settings.audio_manager_command;
+        audiomanager_command = global_settings.get_item_string("Session", "audio_manager", "command");
 
         switch (audiomanager_command)
         {
@@ -812,9 +814,9 @@ public class QuitManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        quitmanager_command = global_settings.quit_manager_command;
-        quitmanager_image = global_settings.quit_manager_image;
-        quitmanager_layout = global_settings.quit_manager_layout;
+        quitmanager_command = global_settings.get_item_string("Session", "quit_manager", "command");
+        quitmanager_image = global_settings.get_item_string("Session", "quit_manager", "image");
+        quitmanager_layout = global_settings.get_item_string("Session", "quit_manager", "layout");
 
         switch (quitmanager_command)
         {
@@ -843,7 +845,7 @@ public class WorkspaceManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        workspacemanager_command = global_settings.workspace_manager_command;
+        workspacemanager_command = global_settings.get_item_string("Session", "workspace_manager", "command");
 
         switch (workspacemanager_command)
         {
@@ -872,7 +874,7 @@ public class LauncherManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        launchermanager_command = global_settings.launcher_manager_command;
+        launchermanager_command = global_settings.get_item_string("Session", "launcher_manager", "command");
 
         switch (launchermanager_command)
         {
@@ -922,7 +924,7 @@ public class TerminalManagerApp: SimpleAppObject
 
     public override void read_config_settings()
     {
-        terminalmanager_command = global_settings.terminal_manager_command;
+        terminalmanager_command = global_settings.get_item_string("Session", "terminal_manager", "command");
     }
 
     public override void read_settings()
@@ -964,7 +966,7 @@ public class CompositeManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        compositemanager_command = global_settings.composite_manager_command;
+        compositemanager_command = global_settings.get_item_string("Session", "composite_manager", "command");
 
         switch (compositemanager_command)
         {
@@ -1008,7 +1010,7 @@ public class IM1App: IMApp
 
     public override void read_config_settings()
     {
-        im_command = global_settings.im1_command;
+        im_command = global_settings.get_item_string("Session", "im1", "command");
     }
 }
 
@@ -1021,7 +1023,7 @@ public class IM2App: IMApp
 
     public override void read_config_settings()
     {
-        im_command = global_settings.im2_command;
+        im_command = global_settings.get_item_string("Session", "im2", "command");
     }
 }
 
@@ -1036,7 +1038,7 @@ public class WidgetApp: SimpleAppObject
 
     public override void read_config_settings()
     {
-        widget_command = global_settings.widget1_command;
+        widget_command = global_settings.get_item_string("Session", "widget1", "command");
     }
 
     public override void read_settings()
@@ -1063,7 +1065,7 @@ public class ScreenshotManagerApp: SimpleAppObject
 
     public override void read_settings()
     {
-        screenshotmanager_command = global_settings.screenshot_manager_command;
+        screenshotmanager_command = global_settings.get_item_string("Session", "screenshot_manager", "command");
 
         switch (screenshotmanager_command)
         {
@@ -1090,54 +1092,6 @@ public class ScreenshotManagerApp: SimpleAppObject
         }
         this.launch();
         this.command = backup_command;
-    }
-}
-
-public class LockManagerApp: SimpleAppObject
-{
-    string lockmanager_command;
-
-    public LockManagerApp ()
-    {
-        init();
-    }
-
-    public override void read_settings()
-    {
-        lockmanager_command = global_settings.lock_manager_command;
-
-        switch (lockmanager_command)
-        {
-            default:
-                string[] create_command = lockmanager_command.split_set(" ",0);
-                this.name = create_command[0];
-                this.command = create_command;
-                break;
-        }
-    }
-}
-
-public class UpgradeManagerApp: SimpleAppObject
-{
-    string upgrademanager_command;
-
-    public UpgradeManagerApp ()
-    {
-        init();
-    }
-
-    public override void read_settings()
-    {
-        upgrademanager_command = global_settings.upgrade_manager_command;
-
-        switch (upgrademanager_command)
-        {
-            default:
-                string[] create_command = upgrademanager_command.split_set(" ",0);
-                this.name = create_command[0];
-                this.command = create_command;
-                break;
-        }
     }
 }
 

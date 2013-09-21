@@ -49,8 +49,6 @@ namespace Lxsession {
     LauncherManagerApp global_launcher_manager;
     TerminalManagerApp global_terminal_manager;
     ScreenshotManagerApp global_screenshot_manager;
-    LockManagerApp global_lock_manager;
-    UpgradeManagerApp global_upgrade_manager;
     GenericSimpleApp global_message_manager;
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
@@ -217,21 +215,23 @@ namespace Lxsession {
         }
 
         /* Launching windows manager */
-        if (global_settings.window_manager != null)
+        if (global_settings.get_item_string("Session", "window_manager", null) != null)
         {
+            message("DEBUG1 : %s", global_settings.get_item_string("Session", "window_manager", null));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
         }
-        else if (global_settings.windows_manager_command != null)
+        else if (global_settings.get_item_string("Session", "windows_manager", "command") != null)
         {
+            message("DEBUG2 : %s", global_settings.get_item_string("Session", "windows_manager", "command"));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
         }
 
         /* Disable autostart if it's specified in the conf file. */
-        if (global_settings.disable_autostart == "all")
+        if (global_settings.get_item_string("Session", "disable_autostart", null) == "all")
         {
             autostart = true;
         }
@@ -240,28 +240,28 @@ namespace Lxsession {
         if (autostart == false)
         {
             /* Launch other specific applications */
-            if (global_settings.panel_command != null)
+            if (global_settings.get_item_string("Session", "panel", "command") != null)
             {
                 var panel = new PanelApp();
                 global_panel = panel;
                 global_panel.launch();
             }
 
-            if (global_settings.dock_command != null)
+            if (global_settings.get_item_string("Session", "dock", "command") != null)
             {
                 var dock = new DockApp();
                 global_dock = dock;
                 global_dock.launch();
             }
 
-            if (global_settings.screensaver_command != null)
+            if (global_settings.get_item_string("Session", "screensaver", "command") != null)
             {
                 var screensaver = new ScreensaverApp();
                 global_screensaver = screensaver;
                 global_screensaver.launch();
             }
 
-            if (global_settings.power_manager_command != null)
+            if (global_settings.get_item_string("Session", "power_manager", "command") != null)
             {
                 if (global_settings.laptop_mode == "unknown")
                 {
@@ -287,7 +287,7 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.network_gui_command != null)
+            if (global_settings.get_item_string("Session", "network_gui", "command") != null)
             {
                 if (global_settings.laptop_mode == "unknown")
                 {
@@ -311,16 +311,17 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.desktop_command != null)
+            if (global_settings.get_item_string("Session", "desktop_manager", "command") != null)
             {
+                message("DEBUG4 : %s", global_settings.get_item_string("Session", "desktop_manager", "command"));
                 var desktopmanager = new DesktopApp();
                     global_desktop = desktopmanager;
                     global_desktop.launch();
             }
 
-            if (global_settings.composite_manager_autostart == "true")
+            if (global_settings.get_item_string("Session", "composite_manager", "autostart") == "true")
             {
-                if (global_settings.composite_manager_command != null)
+                if (global_settings.get_item_string("Session", "composite_manager", "command") != null)
                 {
                     var compositemanager = new CompositeManagerApp();
                     global_composite_manager = compositemanager;
@@ -328,7 +329,7 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.polkit_command != null)
+            if (global_settings.get_item_string("Session", "polkit", "command") != null)
             {
                 var securitypolkit = new PolkitApp();
                 global_polkit = securitypolkit;
@@ -341,9 +342,9 @@ namespace Lxsession {
 
 
 
-            if (global_settings.launcher_manager_autostart == "true")
+            if (global_settings.get_item_string("Session", "launcher_manager", "autostart") == "true")
             {
-                if (global_settings.launcher_manager_command != null)
+                if (global_settings.get_item_string("Session", "launcher_manager", "command") != null)
                 {
                     var launcher = new LauncherManagerApp();
                     global_launcher_manager = launcher;
@@ -351,9 +352,9 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.im1_autostart == "true")
+            if (global_settings.get_item_string("Session", "im1", "autostart") == "true")
             {
-                if (global_settings.im1_command != null)
+                if (global_settings.get_item_string("Session", "im1", "command") != null)
                 {
                     var im1 = new IM1App();
                     global_im1 = im1;
@@ -361,9 +362,9 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.im2_autostart == "true")
+            if (global_settings.get_item_string("Session", "im2", "autostart") == "true")
             {
-                if (global_settings.im2_command != null)
+                if (global_settings.get_item_string("Session", "im2", "command") != null)
                 {
                     var im2 = new IM2App();
                     global_im2 = im2;
@@ -371,9 +372,9 @@ namespace Lxsession {
                 }
             }
 
-            if (global_settings.widget1_autostart == "true")
+            if (global_settings.get_item_string("Session", "widget1", "autostart") == "true")
             {
-                if (global_settings.widget1_command != null)
+                if (global_settings.get_item_string("Session", "widget1", "command") != null)
                 {
                     var widget1 = new WidgetApp();
                     global_widget1 = widget1;
@@ -386,7 +387,7 @@ namespace Lxsession {
             auto.start_applications();
 
             /* Autostart application define xdg directories */
-            if (global_settings.disable_autostart == "config-only")
+            if (global_settings.get_item_string("Session", "disable_autostart", null) == "config-only")
             {
                 /* Pass, we don't want autostarted applications */
             }
@@ -398,7 +399,7 @@ namespace Lxsession {
         }
 
         /* Options and Apps that need to be killed (build-in) */
-        if (global_settings.clipboard_command != null)
+        if (global_settings.get_item_string("Session", "clipboard", "command") != null)
         {
             var clipboard = new ClipboardOption(global_settings);
             global_clipboard = clipboard;
@@ -449,7 +450,7 @@ namespace Lxsession {
             global_updates.activate();
         }
 
-        if (global_settings.upstart_user_session == "true")
+        if (global_settings.get_item_string("Session", "upstart_user_session", null) == "true")
         {
             var upstart_session = new UpstartUserSessionOption(global_settings);
             global_upstart_session = upstart_session;
@@ -483,7 +484,7 @@ namespace Lxsession {
             global_clipboard.desactivate();
         }
 
-        if (global_settings.polkit_command != null)
+        if (global_settings.get_item_string("Session", "polkit", "command") != null)
         {
             global_polkit.deactivate();
             global_polkit.stop();

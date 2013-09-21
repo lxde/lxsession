@@ -123,96 +123,6 @@ public class LxSignals : Object
 
     public signal void reload_settings_daemon();
 
-    /* Set for managers */
-    public signal void request_audio_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="audio_manager", string? kf_key2="command");
-    public signal void request_workspace_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="workspace_manager", string? kf_key2="command");
-    public signal void request_terminal_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="terminal_manager", string? kf_key2="command");
-    public signal void request_screenshot_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="screenshot_manager", string? kf_key2="command");
-    public signal void request_upgrade_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="upgrade_manager", string? kf_key2="command");
-    public signal void request_lock_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="lock_manager", string? kf_key2="command");
-    public signal void request_message_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="message_manager", string? kf_key2="command");
-    public signal void request_xsettings_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="xsettings_manager", string? kf_key2="command");
-
-    /* Windows Manager */
-    public signal void request_windows_manager_command_set (string dbus_arg, string kf_categorie="Session", string kf_key1="windows_manager", string? kf_key2="command");
-    public signal void request_windows_manager_session_set (string dbus_arg, string kf_categorie="Session", string kf_key1="windows_manager", string? kf_key2="session");
-    public signal void request_windows_manager_extras_set (string dbus_arg, string kf_categorie="Session", string kf_key1="windows_manager", string? kf_key2="extras");
-
-    /* Panel control */
-    public signal void request_panel_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="panel", string? kf_key2="command");
-    public signal void request_panel_session_set(string dbus_arg, string kf_categorie="Session", string kf_key1="panel", string? kf_key2="session");
-
-    /* Dock control */
-    public signal void request_dock_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="dock", string? kf_key2="command");
-    public signal void request_dock_session_set(string dbus_arg, string kf_categorie="Session", string kf_key1="dock", string? kf_key2="session");
-
-    /* Filemanager control */
-    public signal void request_file_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="file_manager", string? kf_key2="command");
-    public signal void request_file_manager_session_set(string dbus_arg, string kf_categorie="Session", string kf_key1="file_manager", string? kf_key2="session");
-    public signal void request_file_manager_extras_set(string dbus_arg, string kf_categorie="Session", string kf_key1="file_manager", string? kf_key2="extras");
-
-    /* Desktop control */
-    public signal void request_desktop_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="desktop_manager", string? kf_key2="command");
-    public signal void request_desktop_wallpaper_set(string dbus_arg, string kf_categorie="Session", string kf_key1="desktop_manager", string? kf_key2="wallpaper");
-
-    /* Screensaver control */
-    public signal void request_screensaver_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="screensaver", string? kf_key2="command");
-
-    /* Power Manager control */
-    public signal void request_power_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="power_manager", string? kf_key2="command");
-
-    /* Polkit control */
-    public signal void request_polkit_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="polkit", string? kf_key2="command");
-
-    /* Network gui control */
-    public signal void request_network_gui_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="network_gui", string? kf_key2="command");
-
-    /* Composite manager */
-    public signal void request_composite_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="composite_manager", string? kf_key2="command");
-    public signal void request_composite_manager_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="composite_manager", string? kf_key2="autostart");
-
-    /* IM */
-    public signal void request_im1_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="im1", string? kf_key2="command");
-    public signal void request_im1_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="im1", string? kf_key2="autostart");
-    public signal void request_im2_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="im2", string? kf_key2="command");
-    public signal void request_im2_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="im2", string? kf_key2="autostart");
-
-    /* Mime applications */
-    public signal void request_webbrowser_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="webbrowser", string? kf_key2="command");
-    public signal void request_email_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="email", string? kf_key2="command");
-    public signal void request_pdf_reader_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="pdf_reader", string? kf_key2="command");
-    public signal void request_video_player_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="video_player", string? kf_key2="command");
-    public signal void request_audio_player_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="audio_player", string? kf_key2="command");
-    public signal void request_images_display_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="images_display", string? kf_key2="command");
-    public signal void request_text_editor_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="text_editor", string? kf_key2="command");
-    public signal void request_archive_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="archive", string? kf_key2="command");
-    public signal void request_charmap_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="charmap", string? kf_key2="command");
-    public signal void request_calculator_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="calculator", string? kf_key2="command");
-    public signal void request_spreadsheet_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="spreadsheet", string? kf_key2="command");
-    public signal void request_bittorent_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="bittorent", string? kf_key2="command");
-    public signal void request_document_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="document", string? kf_key2="command");
-    public signal void request_webcam_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="webcam", string? kf_key2="command");
-    public signal void request_burn_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="burn", string? kf_key2="command");
-    public signal void request_notes_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="notes", string? kf_key2="command");
-    public signal void request_disk_utility_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="disk_utility", string? kf_key2="command");
-    public signal void request_tasks_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="tasks", string? kf_key2="command");
-
-    /* Widget */
-    public signal void request_widget1_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="widget1", string? kf_key2="command");
-    public signal void request_widget1_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="widget1", string? kf_key2="autostart");
-
-    /* Quit manager */
-    public signal void request_quit_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="quit_manager", string? kf_key2="command");
-    public signal void request_quit_manager_image_set(string dbus_arg, string kf_categorie="Session", string kf_key1="quit_manager", string? kf_key2="image");
-    public signal void request_quit_manager_layout_set(string dbus_arg, string kf_categorie="Session", string kf_key1="quit_manager", string? kf_key2="layout");
-
-    /* Launcher manager */
-    public signal void request_launcher_manager_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="launcher_manager", string? kf_key2="command");
-    public signal void request_launcher_manager_autostart_set(string dbus_arg, string kf_categorie="Session", string kf_key1="launcher_manager", string? kf_key2="autostart");
-
-    /* clipboard control */
-    public signal void request_clipboard_command_set(string dbus_arg, string kf_categorie="Session", string kf_key1="clipboard", string? kf_key2="command");
-
     /* Keymap control */
     public signal void request_keymap_mode_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="mode", string? kf_key2=null);
     public signal void request_keymap_model_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="model", string? kf_key2=null);
@@ -236,9 +146,6 @@ public class LxSignals : Object
     /* Updates */
     public signal void request_updates_type_set (string dbus_arg, string kf_categorie="Updates", string kf_key1="type", string? kf_key2=null);
 
-    /* Autostart */
-    public signal void request_disable_autostart_set (string dbus_arg, string kf_categorie="Session", string kf_key1="disable_autostart", string? kf_key2=null);
-
     /* State */
     public signal void request_laptop_mode_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "laptop_mode", string? kf_key2 = null);
     public signal void request_guess_default_state_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "guess_default", string? kf_key2 = null);
@@ -248,8 +155,6 @@ public class LxSignals : Object
     public signal void request_dbus_lxde_set(string dbus_arg, string kf_categorie="Dbus", string kf_key1="lxde", string? kf_key2=null);
     public signal void request_dbus_gnome_set(string dbus_arg, string kf_categorie="Dbus", string kf_key1="gnome", string? kf_key2=null);
 
-    /* Upstart */
-    public signal void request_upstart_user_session_set (string dbus_arg, string kf_categorie ="Session", string kf_key1 = "upstart_user_session", string? kf_key2=null);
 
     /* Environment */
     public signal void request_env_type_set(string dbus_arg, string kf_categorie = "Environment", string kf_key1 = "type", string? kf_key2=null);

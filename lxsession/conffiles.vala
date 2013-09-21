@@ -37,13 +37,13 @@ namespace Lxsession
         {
             /* Constructor */
             kf = load_keyfile (conffiles_conf);
-            if (global_settings.windows_manager_command == "openbox")
+            if (global_settings.get_item_string("Session", "windows_manager", "command") == "openbox")
             {
-                if (global_settings.windows_manager_session == "LXDE")
+                if (global_settings.get_item_string("Session", "windows_manager", "session") == "LXDE")
                 {
                     Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lxde-rc.xml");
                 }
-                else if (global_settings.windows_manager_session == "Lubuntu")
+                else if (global_settings.get_item_string("Session", "windows_manager", "session") == "Lubuntu")
                     {
                         Openbox_dest = Path.build_filename(Environment.get_user_config_dir(),"openbox", "lubuntu-rc.xml");
                     }

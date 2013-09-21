@@ -58,41 +58,6 @@ namespace Lxsession
             XsettingsManagerActivate();
         }
 
-        public void XsettingsManagerCommandGet(out string command)
-        {
-            command = global_settings.xsettings_manager_command;
-            message ("Get xsettings manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void XsettingsManagerCommandSet(string command)
-        {
-            message ("Set xsettings manager command to :%s", command);
-            global_sig.request_xsettings_manager_command_set(command);
-        }
-
-        public void XsettingsManagerActivate()
-        {
-            message ("Activate xsettings manager");
-            if (global_settings.xsettings_manager_command == null)
-            {
-                warning("Xsettings manager not set");
-            }
-            else if (global_xsettings_manager == null)
-            {
-                var xsettings = new XSettingsOption();
-                global_xsettings_manager = xsettings;
-                global_xsettings_manager.activate();
-            }
-            else
-            {
-                global_xsettings_manager.reload();
-            }
-        }
-
         public void SessionSupport (out string[] list)
         {
             string tmp_support;
@@ -195,6 +160,115 @@ namespace Lxsession
                 /* TODO Make it more generic by tweaking the app objects (adding a type ?) */
                 switch (name)
                 {
+                    case "xsettings_manager":
+                        XsettingsManagerActivate();
+                        break;
+
+                    case "audio_manager":
+                        AudioManagerLaunch();
+                        break;
+
+                    case "quit_manager":
+                        QuitManagerLaunch();
+                        break;
+
+                    case "workspace_manager":
+                        WorkspaceManagerLaunch();
+                        break;
+
+                    case "launcher_manager":
+                        LauncherManagerLaunch();
+                        break;
+
+                    case "terminal_manager":
+                        TerminalManagerLaunch(option);
+                        break;
+
+                    case "screenshot_manager":
+                        if (option == "window")
+                        {
+                            ScreenshotWindowManagerLaunch();
+                        }
+                        else
+                        {
+                            ScreenshotManagerLaunch();
+                        }
+                        break;
+
+                    case "composite_manager":
+                        CompositeManagerReload();
+                        break;
+
+                    case "im1":
+                        IM1Reload();
+                        break;
+
+                    case "im2":
+                        IM2Reload();
+                        break;
+
+                    case "widget1":
+                        Widget1Reload();
+                        break;
+
+                    case "file_manager":
+                        if (option == "launch")
+                        {
+                            FileManagerLaunch();
+                        }
+                        else
+                        {
+                            FileManagerReload();
+                        }
+                        break;
+
+                    case "panel":
+                        PanelReload();
+                        break;
+
+                    case "dock":
+                        DockReload();
+                        break;
+
+                    case "windows_manager":
+                        WindowsManagerReload();
+                        break;
+
+                    case "desktop":
+                        if (option == "settings")
+                        {
+                            DesktopLaunchSettings();
+                        }
+                        else
+                        {
+                            DesktopReload();
+                        }
+                        break;
+
+                    case "screensaver":
+                        ScreensaverReload();
+                        break;
+
+                    case "power_manager":
+                        PowerManagerReload();
+                        break;
+
+                    case "polkit":
+                        PolkitReload();
+                        break;
+
+                    case "network_gui":
+                        NetworkGuiReload();
+                        break;
+
+                    case "message_manager":
+                        MessageManagerLaunch();
+                        break;
+
+                    case "clipboard":
+                        ClipboardActivate();
+                        break;
+
                     default:
                         var application = new GenericSimpleApp(settings);
                         application.launch();
@@ -203,27 +277,31 @@ namespace Lxsession
             }
         }
 
-        /* Audio Manager */
-        public void AudioManagerCommandGet(out string command)
+        /* Xsettings Manager */
+        private void XsettingsManagerActivate()
         {
-            command = global_settings.audio_manager_command;
-            message ("Get audio manager command: %s", command);
-            if (command == null)
+            message ("Activate xsettings manager");
+            if (global_settings.get_item_string("Session", "xsettings_manager", "command") == null)
             {
-                command = "";
+                warning("Xsettings manager not set");
+            }
+            else if (global_xsettings_manager == null)
+            {
+                var xsettings = new XSettingsOption();
+                global_xsettings_manager = xsettings;
+                global_xsettings_manager.activate();
+            }
+            else
+            {
+                global_xsettings_manager.reload();
             }
         }
 
-        public void AudioManagerCommandSet(string command)
-        {
-            message ("Set audio manager command to :%s", command);
-            global_sig.request_audio_manager_command_set(command);
-        }
-
-        public void AudioManagerLaunch()
+        /* Audio Manager */
+        private void AudioManagerLaunch()
         {
             message ("Launch audio manager");
-            if (global_settings.audio_manager_command == null)
+            if (global_settings.get_item_string("Session", "audio_manager", "command") == null)
             {
                 warning("Audio manager not set");
             }
@@ -240,58 +318,10 @@ namespace Lxsession
         }
 
         /* Quit Manager */
-        public void QuitManagerCommandGet(out string command)
-        {
-            command = global_settings.quit_manager_command;
-            message ("Get quit manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void QuitManagerCommandSet(string command)
-        {
-            message ("Set quit manager command to :%s", command);
-            global_sig.request_quit_manager_command_set(command);
-        }
-
-        public void QuitManagerImageGet(out string command)
-        {
-            command = global_settings.quit_manager_image;
-            message ("Get quit manager image: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void QuitManagerImageSet(string command)
-        {
-            message ("Set quit manager image to :%s", command);
-            global_sig.request_quit_manager_image_set(command);
-        }
-
-        public void QuitManagerLayoutGet(out string command)
-        {
-            command = global_settings.quit_manager_layout;
-            message ("Get quit manager layout: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void QuitManagerLayoutSet(string command)
-        {
-            message ("Set quit manager layout to :%s", command);
-            global_sig.request_quit_manager_layout_set(command);
-        }
-
-        public void QuitManagerLaunch()
+        private void QuitManagerLaunch()
         {
             message("Start Quit Manager");
-            if (global_settings.quit_manager_command == null)
+            if (global_settings.get_item_string("Session", "quit_manager", "command") == null)
             {
                 warning("Quit manager command not set");
             }
@@ -308,25 +338,10 @@ namespace Lxsession
         }
 
         /* Workspace Manager */
-        public void WorkspaceManagerCommandGet(out string command)
-        {
-            command = global_settings.workspace_manager_command;
-            message ("Get workspace manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void WorkspaceManagerCommandSet(string command)
-        {
-            message ("Set workspace manager command to :%s", command);
-            global_sig.request_workspace_manager_command_set(command);
-        }
-        public void WorkspaceManagerLaunch()
+        private void WorkspaceManagerLaunch()
         {
             message("Start Workspace Manager");
-            if (global_settings.workspace_manager_command == null)
+            if (global_settings.get_item_string("Session", "workspace_manager", "command") == null)
             {
                 warning("Workspace manager command not set");
             }
@@ -343,42 +358,10 @@ namespace Lxsession
         }
 
         /* Launcher manager */
-        public void LauncherManagerCommandGet(out string command)
-        {
-            command = global_settings.launcher_manager_command;
-            message ("Get launcher manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void LauncherManagerCommandSet(string command)
-        {
-            message ("Set launcher manager command to :%s", command);
-            global_sig.request_launcher_manager_command_set(command);
-        }
-
-        public void LauncherManagerAutostartGet(out string command)
-        {
-            command = global_settings.launcher_manager_autostart;
-            message ("Get launcher manager autostart: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void LauncherManagerAutostartSet(string command)
-        {
-            message ("Set launcher manager autostart to :%s", command);
-            global_sig.request_launcher_manager_autostart_set(command);
-        }
-
-        public void LauncherManagerLaunch()
+        private void LauncherManagerLaunch()
         {
             message("Start Launcher Manager");
-            if (global_settings.launcher_manager_command == null)
+            if (global_settings.get_item_string("Session", "launcher_manager", "command") == null)
             {
                 warning("Launcher manager command not set");
             }
@@ -395,26 +378,10 @@ namespace Lxsession
         }
 
         /* Terminal Manager */
-        public void TerminalManagerCommandGet(out string command)
-        {
-            command = global_settings.terminal_manager_command;
-            message ("Get terminal manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void TerminalManagerCommandSet(string command)
-        {
-            message ("Set Terminal manager command to :%s", command);
-            global_sig.request_terminal_manager_command_set(command);
-        }
-
-        public void TerminalManagerLaunch(string? arg1)
+        private void TerminalManagerLaunch(string? arg1)
         {
             message("Start Terminal Manager");
-            if (global_settings.terminal_manager_command == null)
+            if (global_settings.get_item_string("Session", "terminal_manager", "command") == null)
             {
                 warning("Terminal manager command not set");
             }
@@ -431,26 +398,10 @@ namespace Lxsession
         }
 
         /* Screenshot manager */
-        public void ScreenshotManagerCommandGet(out string command)
-        {
-            command = global_settings.screenshot_manager_command;
-            message ("Get screenshot manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void ScreenshotManagerCommandSet(string command)
-        {
-            message ("Set screenshot manager command to :%s", command);
-            global_sig.request_screenshot_manager_command_set(command);
-        }
-
-        public void ScreenshotManagerLaunch()
+        private void ScreenshotManagerLaunch()
         {
             message("Start Screenshot Manager");
-            if (global_settings.screenshot_manager_command == null)
+            if (global_settings.get_item_string("Session", "screenshot_manager", "command") == null)
             {
                 warning("Screenshot manager command not set");
             }
@@ -466,10 +417,10 @@ namespace Lxsession
             }
         }
 
-        public void ScreenshotWindowManagerLaunch()
+        private void ScreenshotWindowManagerLaunch()
         {
             message("Start Screenshot Window Manager");
-            if (global_settings.screenshot_manager_command == null)
+            if (global_settings.get_item_string("Session", "screenshot_manager", "command") == null)
             {
                 warning("Screenshot manager command not set");
             }
@@ -482,118 +433,14 @@ namespace Lxsession
             else
             {
                 global_screenshot_manager.window_launch();
-            }
-        }
-
-        /* Lock manager */
-        public void LockManagerCommandGet(out string command)
-        {
-            command = global_settings.lock_manager_command;
-            message ("Get lock manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void LockManagerCommandSet(string command)
-        {
-            message ("Set lock manager command to :%s", command);
-            global_sig.request_lock_manager_command_set(command);
-        }
-
-        public void LockManagerLaunch()
-        {
-            message("Start Lock Manager");
-            if (global_settings.lock_manager_command == null)
-            {
-                warning("Lock manager command not set");
-            }
-            else if (global_lock_manager == null)
-            {
-                var lock_manager = new LockManagerApp();
-                global_lock_manager = lock_manager;
-                global_lock_manager.launch();
-            }
-            else
-            {
-                global_lock_manager.launch();
-            }
-        }
-
-        /* Upgrade manager */
-        public void UpgradeManagerCommandGet(out string command)
-        {
-            command = global_settings.upgrade_manager_command;
-            message ("Get upgrade manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void UpgradeManagerCommandSet(string command)
-        {
-            message ("Set upgrade manager command to :%s", command);
-            global_sig.request_upgrade_manager_command_set(command);
-        }
-
-        public void UpgradeManagerLaunch()
-        {
-            message("Start Upgrade Manager");
-            if (global_settings.upgrade_manager_command == null)
-            {
-                warning("Upgrade manager command not set");
-            }
-            else if (global_upgrade_manager == null)
-            {
-                var upgrade = new UpgradeManagerApp();
-                global_upgrade_manager = upgrade;
-                global_upgrade_manager.launch();
-            }
-            else
-            {
-                global_upgrade_manager.launch();
             }
         }
 
         /* Composite manager */
-        public void CompositeManagerCommandGet(out string command)
-        {
-            command = global_settings.composite_manager_command;
-            message ("Get composite manager: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void CompositeManagerCommandSet(string command)
-        {
-            message ("Set composite manager to :%s", command);
-            global_sig.request_composite_manager_command_set(command);
-        }
-
-        public void CompositeManagerAutostartGet(out string command)
-        {
-            command = global_settings.composite_manager_autostart;
-            message ("Get composite manager: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void CompositeManagerAutostartSet(string command)
-        {
-            message ("Set composite manager to :%s", command);
-            global_sig.request_composite_manager_autostart_set(command);
-        }
-
-        public void CompositeManagerReload()
+        private void CompositeManagerReload()
         {
             message("Reload composite manager");
-            if (global_settings.composite_manager_command == null)
+            if (global_settings.get_item_string("Session", "composite_manager", "command") == null)
             {
                 warning("composite manager not set not set");
             }
@@ -612,42 +459,10 @@ namespace Lxsession
         }
 
         /* IM1 manager */
-        public void IM1CommandGet(out string command)
-        {
-            command = global_settings.im1_command;
-            message ("Get im1: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void IM1CommandSet(string command)
-        {
-            message ("Set im1 to :%s", command);
-            global_sig.request_im1_command_set(command);
-        }
-
-        public void IM1AutostartGet(out string command)
-        {
-            command = global_settings.im1_autostart;
-            message ("Get im1 autostart: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void IM1AutostartSet(string command)
-        {
-            message ("Set im1 autostart to :%s", command);
-            global_sig.request_im1_autostart_set(command);
-        }
-
-        public void IM1Reload()
+        private void IM1Reload()
         {
             message("Reload im1");
-            if (global_settings.im1_command == null)
+            if (global_settings.get_item_string("Session", "im1", "command") == null)
             {
                 warning("im1 not set not set");
             }
@@ -666,42 +481,11 @@ namespace Lxsession
         }
 
         /* IM2 manager */
-        public void IM2CommandGet(out string command)
-        {
-            command = global_settings.im2_command;
-            message ("Get im2: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
 
-        public void IM2CommandSet(string command)
-        {
-            message ("Set im2 to :%s", command);
-            global_sig.request_im2_command_set(command);
-        }
-
-        public void IM2AutostartGet(out string command)
-        {
-            command = global_settings.im2_autostart;
-            message ("Get im2 autostart: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void IM2AutostartSet(string command)
-        {
-            message ("Set im2 autostart to :%s", command);
-            global_sig.request_im2_autostart_set(command);
-        }
-
-        public void IM2Reload()
+        private void IM2Reload()
         {
             message("Reload im2");
-            if (global_settings.im2_command == null)
+            if (global_settings.get_item_string("Session", "im2", "command") == null)
             {
                 warning("im2 not set not set");
             }
@@ -720,42 +504,10 @@ namespace Lxsession
         }
 
         /* Widget manager */
-        public void Widget1CommandGet(out string command)
-        {
-            command = global_settings.widget1_command;
-            message ("Get widget1: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void Widget1CommandSet(string command)
-        {
-            message ("Set widget1 to :%s", command);
-            global_sig.request_widget1_command_set(command);
-        }
-
-        public void Widget1AutostartGet(out string command)
-        {
-            command = global_settings.widget1_autostart;
-            message ("Get widget1: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void Widget1AutostartSet(string command)
-        {
-            message ("Set widget1 to :%s", command);
-            global_sig.request_widget1_autostart_set(command);
-        }
-
-        public void Widget1Reload()
+        private void Widget1Reload()
         {
             message("Reload widget1");
-            if (global_settings.widget1_command == null)
+            if (global_settings.get_item_string("Session", "widget1", "command") == null)
             {
                 warning("widget1 not set not set");
             }
@@ -774,58 +526,10 @@ namespace Lxsession
         }
 
         /* FileManager control */
-        public void FileManagerCommandGet(out string command)
-        {
-            command = global_settings.file_manager_command;
-            message ("Get file manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void FileManagerCommandSet(string command)
-        {
-            message ("Set file manager command to :%s", command);
-            global_sig.request_file_manager_command_set(command);
-        }
-
-        public void FileManagerSessionGet(out string command)
-        {
-            command = global_settings.file_manager_session;
-            message ("Get file manager session: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void FileManagerSessionSet(string command)
-        {
-            message ("Set file manager session to :%s", command);
-            global_sig.request_file_manager_session_set(command);
-        }
-
-        public void FileManagerExtrasGet(out string command)
-        {
-            command = global_settings.file_manager_extras;
-            message ("Get file manager extras: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void FileManagerExtrasSet(string command)
-        {
-            message ("Set file manager extras to :%s", command);
-            global_sig.request_file_manager_extras_set(command);
-        }
-
-        public void FileManagerReload()
+        private void FileManagerReload()
         {
             message("Reload Filemanager");
-            if (global_settings.file_manager_command == null)
+            if (global_settings.get_item_string("Session", "file_manager", "command") == null)
             {
                 warning("File manager not set");
             }
@@ -843,10 +547,10 @@ namespace Lxsession
             }
         }
 
-        public void FileManagerLaunch()
+        private void FileManagerLaunch()
         {
             message("Launch another file manager");
-            if (global_settings.file_manager_command == null)
+            if (global_settings.get_item_string("Session", "file_manager", "command") == null)
             {
                 warning("File manager not set");
             }
@@ -858,42 +562,10 @@ namespace Lxsession
         }
 
         /* Panel control */
-        public void PanelCommandGet(out string command)
-        {
-            command = global_settings.panel_command;
-            message ("Get panel command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void PanelCommandSet(string command)
-        {
-            message ("Set panel command to :%s", command);
-            global_sig.request_panel_command_set(command);
-        }
-
-        public void PanelSessionGet(out string command)
-        {
-            command = global_settings.panel_session;
-            message ("Get panel session: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void PanelSessionSet(string command)
-        {
-            message ("Set panel session to :%s", command);
-            global_sig.request_panel_session_set(command);
-        }
-
-        public void PanelReload()
+        private void PanelReload()
         {
             message("Reload panel");
-            if (global_settings.panel_command == null)
+            if (global_settings.get_item_string("Session", "panel", "command") == null)
             {
                 warning("Panel not set");
             }
@@ -912,42 +584,10 @@ namespace Lxsession
         }
 
         /* Dock control */
-        public void DockCommandGet(out string command)
-        {
-            command = global_settings.dock_command;
-            message ("Get dock command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DockCommandSet(string command)
-        {
-            message ("Set dock command to :%s", command);
-            global_sig.request_dock_command_set(command);
-        }
-
-        public void DockSessionGet(out string command)
-        {
-            command = global_settings.dock_session;
-            message ("Get dock session: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DockSessionSet(string command)
-        {
-            message ("Set dock session to :%s", command);
-            global_sig.request_dock_session_set(command);
-        }
-
-        public void DockReload()
+        private void DockReload()
         {
             message("Reload dock");
-            if (global_settings.dock_command == null)
+            if (global_settings.get_item_string("Session", "dock", "command") == null)
             {
                 warning("Dock not set");
             }
@@ -966,58 +606,10 @@ namespace Lxsession
         }
 
         /* Windows Manager control */
-        public void WindowsManagerCommandGet(out string command)
-        {
-            command = global_settings.windows_manager_command;
-            message ("Get windows manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void WindowsManagerCommandSet(string command)
-        {
-            message ("Set windows manager command to :%s", command);
-            global_sig.request_windows_manager_command_set(command);
-        }
-
-        public void WindowsManagerSessionGet(out string command)
-        {
-            command = global_settings.windows_manager_session;
-            message ("Get windows manager session: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void WindowsManagerSessionSet(string command)
-        {
-            message ("Set windows manager session to :%s", command);
-            global_sig.request_windows_manager_session_set(command);
-        }
-
-        public void WindowsManagerExtrasGet(out string command)
-        {
-            command = global_settings.windows_manager_extras;
-            message ("Get windows manager extras: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void WindowsManagerExtrasSet(string command)
-        {
-            message ("Set windows manager extras to :%s", command);
-            global_sig.request_windows_manager_extras_set(command);
-        }
-
-        public void WindowsManagerReload()
+        private void WindowsManagerReload()
         {
             message("Reload Windows Manager");
-            if (global_settings.windows_manager_command == null)
+            if (global_settings.get_item_string("Session", "windows_manager", "command") == null)
             {
                 warning("Windows manager not set");
             }
@@ -1036,42 +628,10 @@ namespace Lxsession
         }
 
         /* Desktop manager */
-        public void DesktopCommandGet(out string command)
-        {
-            command = global_settings.desktop_command;
-            message ("Get desktop command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DesktopCommandSet(string command)
-        {
-            message ("Set desktop command to :%s", command);
-            global_sig.request_desktop_command_set(command);
-        }
-
-        public void DesktopWallpaperGet(out string command)
-        {
-            command = global_settings.desktop_wallpaper;
-            message ("Get desktop wallpaper: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DesktopWallpaperSet(string command)
-        {
-            message ("Set desktop wallpaper to :%s", command);
-            global_sig.request_desktop_wallpaper_set(command);
-        }
-
-        public void DesktopReload()
+        private void DesktopReload()
         {
             message("Reload desktop manager");
-            if (global_settings.desktop_command == null)
+            if (global_settings.get_item_string("Session", "desktop", "command") == null)
             {
                 warning("desktop manager not set");
             }
@@ -1089,10 +649,10 @@ namespace Lxsession
             }
         }
 
-        public void DesktopLaunchSettings()
+        private void DesktopLaunchSettings()
         {
             message("Launch settings for desktop manager");
-            if (global_settings.desktop_command == null)
+            if (global_settings.get_item_string("Session", "desktop", "command") == null)
             {
                 warning("desktop manager not set");
             }
@@ -1111,26 +671,10 @@ namespace Lxsession
         }
 
         /* Screensaver */
-        public void ScreensaverCommandGet(out string command)
-        {
-            command = global_settings.screensaver_command;
-            message ("Get screensavercommand: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void ScreensaverCommandSet(string command)
-        {
-            message ("Set screensaver command to :%s", command);
-            global_sig.request_screensaver_command_set(command);
-        }
-
-        public void ScreensaverReload()
+        private void ScreensaverReload()
         {
             message("Reload screensaver");
-            if (global_settings.screensaver_command == null)
+            if (global_settings.get_item_string("Session", "screensaver", "command") == null)
             {
                 warning("screensaver command not set");
             }
@@ -1149,26 +693,10 @@ namespace Lxsession
         }
 
         /* Power Manager */
-        public void PowerManagerCommandGet(out string command)
-        {
-            command = global_settings.power_manager_command;
-            message ("Get power manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void PowerManagerCommandSet(string command)
-        {
-            message ("Set power manager command to :%s", command);
-            global_sig.request_power_manager_command_set(command);
-        }
-
-        public void PowerManagerReload()
+        private void PowerManagerReload()
         {
             message("Reload power manager");
-            if (global_settings.power_manager_command == null)
+            if (global_settings.get_item_string("Session", "power_manager", "command") == null)
             {
                 warning("Power manager command not set");
             }
@@ -1187,26 +715,10 @@ namespace Lxsession
         }
 
         /* Polkit */
-        public void PolkitCommandGet(out string command)
-        {
-            command = global_settings.polkit_command;
-            message ("Get polkit command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void PolkitCommandSet(string command)
-        {
-            message ("Set polkit command to :%s", command);
-            global_sig.request_polkit_command_set(command);
-        }
-
-        public void PolkitReload()
+        private void PolkitReload()
         {
             message("Reload polkit");
-            if (global_settings.polkit_command == null)
+            if (global_settings.get_item_string("Session", "polkit", "command") == null)
             {
                 warning("Polkit command not set");
             }
@@ -1225,26 +737,10 @@ namespace Lxsession
         }
 
         /* Network GUI */
-        public void NetworkGuiCommandGet(out string command)
-        {
-            command = global_settings.network_gui_command;
-            message ("Get network gui command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void NetworkGuiCommandSet(string command)
-        {
-            message ("Set network gui command to :%s", command);
-            global_sig.request_network_gui_command_set(command);
-        }
-
-        public void NetworkGuiReload()
+        private void NetworkGuiReload()
         {
             message("Reload network gui");
-            if (global_settings.network_gui_command == null)
+            if (global_settings.get_item_string("Session", "network_gui", "command") == null)
             {
                 warning("Network gui command not set");
             }
@@ -1263,33 +759,17 @@ namespace Lxsession
         }
 
         /* Message */
-        public void MessageManagerCommandGet(out string command)
-        {
-            command = global_settings.message_manager_command;
-            message ("Get message manager command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void MessageManagerCommandSet(string command)
-        {
-            message ("Set message manager command :%s", command);
-            global_sig.request_message_manager_command_set(command);
-        }
-
         public void MessageManagerLaunch()
         {
             message("Launch message manager");
-            if (global_settings.message_manager_command == null)
+            if (global_settings.get_item_string("Session", "message_manager", "command") == null)
             {
                 warning("message manager command not set");
             }
             else if (global_message_manager == null)
             {
                 message("Message_manager doesn't exist, creating it");
-                var messagemanager = new GenericSimpleApp(global_settings.message_manager_command);
+                var messagemanager = new GenericSimpleApp(global_settings.get_item_string("Session", "message_manager", "command"));
                 global_message_manager = messagemanager;
                 global_message_manager.launch();
             }
@@ -1301,26 +781,10 @@ namespace Lxsession
         }
 
         /* Clipboard */
-        public void ClipboardCommandGet(out string command)
-        {
-            command = global_settings.clipboard_command;
-            message ("Get clipboard command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void ClipboardCommandSet(string command)
-        {
-            message ("Set clipboard command to :%s", command);
-            global_sig.request_clipboard_command_set(command);
-        }
-
         public void ClipboardActivate()
         {
             message("Reload clipboard");
-            if (global_settings.clipboard_command == null)
+            if (global_settings.get_item_string("Session", "clipboard", "command") == null)
             {
                 warning("Clipboard command not set");
             }
@@ -1642,23 +1106,6 @@ namespace Lxsession
             }
         }
 
-        /* Disable autostart */
-        public void DisableAutostartGet(out string command)
-        {
-            command = global_settings.disable_autostart;
-            message ("Get disable autostart type: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DisableAutostartSet(string command)
-        {
-            message ("Set disable autostart to :%s", command);
-            global_sig.request_disable_autostart_set(command);
-        }
-
         /* Laptop mode */
         public void LaptopModeGet(out string command)
         {
@@ -1674,23 +1121,6 @@ namespace Lxsession
         {
             message ("Set laptop_mode to :%s", command);
             global_sig.request_laptop_mode_set(command);
-        }
-
-        /* Upstart user session */
-        public void UpstartUserSessionGet(out string command)
-        {
-            command = global_settings.upstart_user_session;
-            message ("Get upstart user session: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void UpstartUserSessionSet(string command)
-        {
-            message ("Set upstart user session:%s", command);
-            global_sig.request_upstart_user_session_set(command);
         }
 
         /* Dbus */

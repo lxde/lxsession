@@ -203,7 +203,7 @@ namespace Lxsession
         public ClipboardOption (LxsessionConfig config)
         {
             base (config);
-            switch (config.clipboard_command)
+            switch (config.get_item_string("Session", "clipboard", "command"))
             {
                 case "lxclipboard":
 #if BUILDIN_CLIPBOARD
@@ -329,7 +329,7 @@ namespace Lxsession
         public UpstartUserSessionOption (LxsessionConfig config)
         {
             base (config);
-            if (config.upstart_user_session == "true")
+            if (config.get_item_string("Session", "upstart_user_session", null) == "true")
             {
                 command1 = "init --user";
             }
@@ -386,7 +386,7 @@ namespace Lxsession
 
         public new void activate ()
         {
-            command = global_settings.xsettings_manager_command;
+            command = global_settings.get_item_string("Session", "xsettings_manager", "command");
 
             switch (command)
             {
@@ -434,7 +434,7 @@ namespace Lxsession
 
         public void reload ()
         {
-            command = global_settings.xsettings_manager_command;
+            command = global_settings.get_item_string("Session", "xsettings_manager", "command");
 
             switch (command)
             {

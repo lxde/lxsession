@@ -30,56 +30,9 @@ namespace Lxsession
         public string session_name { get; set; default = "LXDE";}
         public string desktop_env_name { get; set; default = "LXDE";}
 
-        /* Applications */
-        public string window_manager { get; set; default = null;}
-        public string windows_manager_command { get; set; default = null;}
-        public string windows_manager_session { get; set; default = null;}
-        public string windows_manager_extras { get; set; default = null;}
-        public string panel_command { get; set; default = null;}
-        public string panel_session { get; set; default = null;}
-        public string dock_command { get; set; default = null;}
-        public string dock_session { get; set; default = null;}
-        public string screensaver_command { get; set; default = null;}
-        public string power_manager_command { get; set; default = null;}
-        public string file_manager_command  { get; set; default = null;}
-        public string file_manager_session { get; set; default = null;}
-        public string file_manager_extras { get; set; default = null;}
-        public string desktop_command { get; set; default = null;}
-        public string desktop_wallpaper { get; set; default = null;}
-        public string polkit_command { get; set; default = null;}
-        public string network_gui_command { get; set; default = null;}
-        public string im1_command { get; set; default = null;}
-        public string im1_autostart { get; set; default = null;}
-        public string im2_command { get; set; default = null;}
-        public string im2_autostart { get; set; default = null;}
-        public string widget1_command { get; set; default = null;}
-        public string widget1_autostart { get; set; default = null;}
-        public string audio_manager_command { get; set; default = null;}
-        public string quit_manager_command { get; set; default = null;}
-        public string quit_manager_image { get; set; default = null;}
-        public string quit_manager_layout { get; set; default = null;}
-        public string workspace_manager_command { get; set; default = null;}
-        public string launcher_manager_command { get; set; default = null;}
-        public string launcher_manager_autostart { get; set; default = null;}
-        public string terminal_manager_command { get; set; default = null;}
-        public string screenshot_manager_command { get; set; default = null;}
-        public string upgrade_manager_command { get; set; default = null;}
-        public string composite_manager_command { get; set; default = null;}
-        public string composite_manager_autostart { get; set; default = null;}
-        public string lock_manager_command { get; set; default = null;}
-        public string message_manager_command { get; set; default = null;}
-        public string disable_autostart { get; set; default = "no";}
-        public string upstart_user_session { get; set; default = null;}
-
         /* State */
         public string laptop_mode { get; set; default = null;}
         public string guess_default_state { get; set; default = "true";}
-
-        /* Clipboard */
-        public string clipboard_command { get; set; default = "lxclipboard";}
-
-        /* XSettings */
-        public string xsettings_manager_command { get; set; default = "build-in";}
 
         /* Dbus */
         public string dbus_lxde { get; set; default = "true";}
@@ -177,18 +130,18 @@ namespace Lxsession
             update_support_keys (categorie, key1, key2);
         }
 
-        public void get_item(string categorie, string key1, string key2, out string variable, out string type)
+        public void get_item(string categorie, string key1, string? key2, out string variable, out string type)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
 
-            message ("get_item item_key: %s", item_key);
+            // DEBUG message ("get_item item_key: %s", item_key);
 
             variable = config_item_db[item_key];
             type = "string";
         }
 
-        public string get_item_string (string categorie, string key1, string key2)
+        public string get_item_string (string categorie, string key1, string? key2)
         {
             string type_output;
             string variable_output;
@@ -204,7 +157,7 @@ namespace Lxsession
             */
             string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-            message ("key of read_value: %s", item_key);
+            // DEBUG message ("key of read_value: %s", item_key);
 
             if (config_item_db.has_key(item_key))
             {
@@ -217,20 +170,27 @@ namespace Lxsession
             }
          }
 
-        public void update_support_keys (string categorie, string key1, string key2)
+        public void update_support_keys (string categorie, string key1, string? key2)
         {
             if (categorie == "Session")
             {
                 if (session_support_item_db.has_key(key1))
                 {
                     string[] list = session_support_item_db[key1].split_set(";",0);
-                    if (key2 in list)
+                    if (key2 == null)
                     {
-                        /* Pass, already in support */
+                        /* Pass, the key2 is empty, so no detailled support available*/
                     }
                     else
                     {
-                        session_support_item_db[key1] = session_support_item_db[key1] + key2 + ";";
+                        if (key2 in list)
+                        {
+                            /* Pass, already in support */
+                        }
+                        else
+                        {
+                            session_support_item_db[key1] = session_support_item_db[key1] + key2 + ";";
+                        }
                     }
                 }
                 else
@@ -277,8 +237,6 @@ namespace Lxsession
             /* Connect to signals changes */
             global_sig.generic_set_signal.connect(on_update_generic);
 
-            global_sig.update_window_manager.connect(on_update_string_set);
-
             /* Xsettings */
             global_sig.update_gtk_theme_name.connect(on_update_string_set);
             global_sig.update_gtk_icon_theme_name.connect(on_update_string_set);
@@ -304,81 +262,6 @@ namespace Lxsession
             global_sig.update_keyboard_delay.connect(on_update_int_set);
             global_sig.update_keyboard_interval.connect(on_update_int_set);
             global_sig.update_keyboard_beep.connect(on_update_int_set);
-
-            /* Set for managers */
-            global_sig.request_audio_manager_command_set.connect(on_update_string_set);
-            global_sig.request_workspace_manager_command_set.connect(on_update_string_set);
-            global_sig.request_terminal_manager_command_set.connect(on_update_string_set);
-            global_sig.request_screenshot_manager_command_set.connect(on_update_string_set);
-            global_sig.request_upgrade_manager_command_set.connect(on_update_string_set);
-            global_sig.request_message_manager_command_set.connect(on_update_string_set);
-            global_sig.request_xsettings_manager_command_set.connect(on_update_string_set);
-
-            /* Launcher manager */
-            global_sig.request_launcher_manager_command_set.connect(on_update_string_set);
-            global_sig.request_launcher_manager_autostart_set.connect(on_update_string_set);
-
-            /* Windows Manager control */
-            global_sig.request_windows_manager_command_set.connect(on_update_string_set);
-            global_sig.request_windows_manager_session_set.connect(on_update_string_set);
-            global_sig.request_windows_manager_extras_set.connect(on_update_string_set);
-
-            /* Panel control */
-            global_sig.request_panel_command_set.connect(on_update_string_set);
-            global_sig.request_panel_session_set.connect(on_update_string_set);
-
-            /* Dock control */
-            global_sig.request_dock_command_set.connect(on_update_string_set);
-            global_sig.request_dock_session_set.connect(on_update_string_set);
-
-            /* File manager control */
-            global_sig.request_file_manager_command_set.connect(on_update_string_set);
-            global_sig.request_file_manager_session_set.connect(on_update_string_set);
-            global_sig.request_file_manager_extras_set.connect(on_update_string_set);
-
-            /* Desktop control */
-            global_sig.request_desktop_command_set.connect(on_update_string_set);
-            global_sig.request_desktop_wallpaper_set.connect(on_update_string_set);
-
-            /* Composite manager */
-            global_sig.request_composite_manager_command_set.connect(on_update_string_set);
-            global_sig.request_composite_manager_autostart_set.connect(on_update_string_set);
-
-            /* Screensaver control */
-            global_sig.request_screensaver_command_set.connect(on_update_string_set);
-
-            /* Lock control */
-            global_sig.request_lock_manager_command_set.connect(on_update_string_set);
-
-            /* Power Manager control */
-            global_sig.request_power_manager_command_set.connect(on_update_string_set);
-
-            /* Polkit agent control */
-            global_sig.request_polkit_command_set.connect(on_update_string_set);
-
-            /* Network gui control */
-            global_sig.request_network_gui_command_set.connect(on_update_string_set);
-
-            /* IM manager */
-            global_sig.request_im1_command_set.connect(on_update_string_set);
-            global_sig.request_im1_autostart_set.connect(on_update_string_set);
-            global_sig.request_im2_command_set.connect(on_update_string_set);
-            global_sig.request_im2_autostart_set.connect(on_update_string_set);
-
-            /* Widgets */
-            global_sig.request_widget1_command_set.connect(on_update_string_set);
-            global_sig.request_widget1_autostart_set.connect(on_update_string_set);
-
-            /* Quit manager */
-            global_sig.request_quit_manager_command_set.connect(on_update_string_set);
-            global_sig.request_quit_manager_image_set.connect(on_update_string_set);
-            global_sig.request_quit_manager_layout_set.connect(on_update_string_set);
-
-            /* Clipboard control */
-            global_sig.request_clipboard_command_set.connect(on_update_string_set);
-
-            /* Autostart */
-            global_sig.request_disable_autostart_set.connect(on_update_string_set);
 
             /* Keymap */
             global_sig.request_keymap_mode_set.connect(on_update_string_set);
@@ -407,9 +290,6 @@ namespace Lxsession
             /* Dbus */
             global_sig.request_dbus_lxde_set.connect(on_update_string_set);
             global_sig.request_dbus_gnome_set.connect(on_update_string_set);
-
-            /* Upstart */
-            global_sig.request_upstart_user_session_set.connect(on_update_string_set);
 
             /* Environment */
             global_sig.request_env_type_set.connect(on_update_string_set);
@@ -449,14 +329,17 @@ namespace Lxsession
         {
 
             /* Migrate old windows-manager settings to the new ones */
-            if (window_manager == "openbox-lxde")
+            if (get_item_string("Session", "window_manager", null) == "openbox-lxde")
             {
-                if (windows_manager_command == null)
-                {
-                    windows_manager_command = "openbox";
-                    windows_manager_session = "LXDE";
-                }
+                set_generic_default("Session", "windows_manager", "command", "string", "openbox");
+                set_generic_default("Session", "windows_manager", "session", "string", "LXDE");
             }
+
+            /* Keep old behavior for autostarted application if this option is not specify */
+            set_generic_default("Session", "disable_autostart", null, "string", "no");
+
+            set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
+            set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
 
             /*  Distribution, if you want to ensure good transition from previous version of lxsession
                 you need to patch here to set the default for various new commands
@@ -465,42 +348,21 @@ namespace Lxsession
 
             if (this.session_name == "Lubuntu")
             {
-                if (quit_manager_command == null)
-                {
-                    quit_manager_command = "lxsession-logout";
-                    quit_manager_image = "/usr/share/lubuntu/images/logout-banner.png";
-                    quit_manager_layout = "top";
-                }
+                set_generic_default("Session", "quit_manager", "command", "string", "lxsession-logout");
+                set_generic_default("Session", "quit_manager", "image", "string", "/usr/share/lubuntu/images/logout-banner.png");
+                set_generic_default("Session", "quit_manager", "layout", "string", "top");
 
                 /* Migrate old windows-manager settings to the new ones */
-                if (window_manager == "openbox-lubuntu")
+                if (get_item_string("Session", "window_manager", null) == "openbox-lubuntu")
                 {
-                    if (windows_manager_command == null)
-                    {
-                        windows_manager_command = "openbox";
-                        windows_manager_session = "Lubuntu";
-                    }
+                    set_generic_default("Session", "windows_manager", "command", "string", "openbox");
+                    set_generic_default("Session", "windows_manager", "session", "string", "Lubuntu");
                 }
 
-                if (workspace_manager_command == null)
-                {
-                    workspace_manager_command = "obconf";
-                }
-
-                if (audio_manager_command == null)
-                {
-                    audio_manager_command = "alsamixer";
-                }
-
-                if (screenshot_manager_command == null)
-                {
-                    screenshot_manager_command = "scrot";
-                }
-
-                if (upgrade_manager_command == null)
-                {
-                    upgrade_manager_command = "upgrade-manager";
-                }
+                set_generic_default("Session", "workspace_manager", "command", "string", "obconf");
+                set_generic_default("Session", "audio_manager", "command", "string", "alsamixer");
+                set_generic_default("Session", "screenshot_manager", "command", "string", "scrot");
+                set_generic_default("Session", "upgrade_manager", "command", "string", "upgrade-manager");
 
                 set_generic_default("Session", "webbrowser", "command", "string", "firefox");
                 set_generic_default("Session", "email", "command", "string", "sylpheed");
@@ -524,32 +386,17 @@ namespace Lxsession
             if (this.desktop_env_name == "LXDE")
             {
                 /* We are under a LXDE generic desktop, guess some LXDE default */
-                if (quit_manager_command == null)
-                {
-                    quit_manager_command = "lxsession-logout";
-                    quit_manager_image = "/usr/share/lxde/images/logout-banner.png";
-                    quit_manager_layout = "top";
-                }
+                set_generic_default("Session", "quit_manager", "command", "string", "lxsession-logout");
+                set_generic_default("Session", "quit_manager", "image", "string", "/usr/share/lxde/images/logout-banner.png");
+                set_generic_default("Session", "quit_manager", "layout", "string", "top");
 
-                if (lock_manager_command == null)
-                {
-                    lock_manager_command = "lxlock";
-                }
-
-                if (terminal_manager_command == null)
-                {
-                    terminal_manager_command = "lxterminal";
-                }
-
-                if (launcher_manager_command == null)
-                {
-                    launcher_manager_command = "lxpanelctl";
-                }
-
+                set_generic_default("Session", "lock_manager", "layout", "string", "lxlock");
+                set_generic_default("Session", "terminal_manager", "layout", "string", "lxterminal");
+                set_generic_default("Session", "launcher_manager", "layout", "string", "lxpanelctl");
             }
         }
 
-        public void set_generic_default(string categorie, string key1, string key2, string type, string default_value)
+        public void set_generic_default(string categorie, string key1, string? key2, string type, string default_value)
         {
             switch (type)
             {
@@ -858,78 +705,104 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         kf = load_keyfile (desktop_config_path);
 
         /* Windows manager */
-        this.window_manager = read_keyfile_string_value (kf, "Session", "window_manager", null, this.window_manager);
-        if (this.window_manager == null)
+        if (read_keyfile_string_value(kf, "Session", "windows_manager", "command", null) != null)
         {
-            this.windows_manager_command = read_keyfile_string_value (kf, "Session", "windows_manager", "command", this.windows_manager_command);
-            if (this.windows_manager_command != null)
-            {
-                this.windows_manager_session = read_keyfile_string_value (kf, "Session", "windows_manager","session", this.windows_manager_session);
-                this.windows_manager_extras = read_keyfile_string_value (kf, "Session", "windows_manager", "extras", this.windows_manager_extras);
-            }
+            read_key_value(kf, "Session", "windows_manager", "command", "string");
+            read_key_value(kf, "Session", "windows_manager", "session", "string");
+            read_key_value(kf, "Session", "windows_manager", "extras", "string");
+        }
+        else
+        {
+            read_key_value(kf, "Session", "window_manager", null, "string");
         }
 
         /* Panel */
-        this.panel_command = read_keyfile_string_value (kf, "Session", "panel", "command", this.panel_command);
-        if (this.panel_command != null)
+        if (read_keyfile_string_value(kf, "Session", "panel", "command", null) != null)
         {
-            this.panel_session = read_keyfile_string_value (kf, "Session", "panel", "session", this.panel_session);
+            read_key_value(kf, "Session", "panel", "command", "string");
+            read_key_value(kf, "Session", "panel", "session", "string");
         }
 
         /* Dock */
-        this.dock_command = read_keyfile_string_value (kf, "Session", "dock", "command", this.dock_command);
-        if (this.dock_command != null)
+        if (read_keyfile_string_value(kf, "Session", "dock", "command", null) != null)
         {
-            this.dock_session = read_keyfile_string_value (kf, "Session", "dock", "session", this.dock_session);
+            read_key_value(kf, "Session", "dock", "command", "string");
+            read_key_value(kf, "Session", "dock", "session", "string");
         }
 
         /* File Manager */
-        this.file_manager_command = read_keyfile_string_value (kf, "Session", "file_manager", "command", this.file_manager_command);
-        if (this.file_manager_command != null)
+        if (read_keyfile_string_value(kf, "Session", "file_manager", "command", null) != null)
         {
-            this.file_manager_session = read_keyfile_string_value (kf, "Session", "file_manager", "session", this.file_manager_session);
-            this.file_manager_extras = read_keyfile_string_value (kf, "Session", "file_manager", "extras", this.file_manager_extras);
+            read_key_value(kf, "Session", "file_manager", "command", "string");
+            read_key_value(kf, "Session", "file_manager", "session", "string");
+            read_key_value(kf, "Session", "file_manager", "extras", "string");
         }
 
         /* Desktop handler */
-        this.desktop_command = read_keyfile_string_value (kf, "Session", "desktop_manager", "command", this.desktop_command);
-        if (this.desktop_command != null)
+        if (read_keyfile_string_value(kf, "Session", "desktop_manager", "command", null) != null)
         {
-            this.desktop_wallpaper = read_keyfile_string_value (kf, "Session", "desktop_manager", "wallpaper", this.desktop_wallpaper);
+            read_key_value(kf, "Session", "desktop_manager", "command", "string");
+            read_key_value(kf, "Session", "desktop_manager", "wallpaper", "string");
         }
 
         /* Launcher manager */
-        this.launcher_manager_command = read_keyfile_string_value(kf, "Session", "launcher_manager", "command", this.launcher_manager_command);
-        if (this.launcher_manager_command != null)
+        if (read_keyfile_string_value(kf, "Session", "launcher_manager", "command", null) != null)
         {
-            this.launcher_manager_autostart = read_keyfile_string_value (kf, "Session", "launcher_manager", "autostart", this.launcher_manager_autostart);
+            read_key_value(kf, "Session", "launcher_manager", "command", "string");
+            read_key_value(kf, "Session", "launcher_manager", "autostart", "string");
         }
 
         /* Composite manager */
-        this.composite_manager_command = read_keyfile_string_value(kf, "Session", "composite_manager", "command", this.composite_manager_command);
-        if (this.composite_manager_command != null)
+        if (read_keyfile_string_value(kf, "Session", "composite_manager", "command", null) != null)
         {
-            this.composite_manager_autostart = read_keyfile_string_value(kf, "Session", "composite_manager", "autostart", this.composite_manager_autostart);
+            read_key_value(kf, "Session", "composite_manager", "command", "string");
+            read_key_value(kf, "Session", "composite_manager", "autostart", "string");
         }
 
         /* IM */
-        this.im1_command = read_keyfile_string_value(kf, "Session", "im1", "command", this.im1_command);
-        if (this.im1_command != null)
+        if (read_keyfile_string_value(kf, "Session", "im1", "command", null) != null)
         {
-            this.im1_autostart = read_keyfile_string_value(kf, "Session", "im1", "autostart", this.im1_autostart);
+            read_key_value(kf, "Session", "im1", "command", "string");
+            read_key_value(kf, "Session", "im1", "autostart", "string");
         }
-        this.im2_command = read_keyfile_string_value(kf, "Session", "im2", "command", this.im2_command);
-        if (this.im2_command != null)
+
+        if (read_keyfile_string_value(kf, "Session", "im2", "command", null) != null)
         {
-            this.im2_autostart = read_keyfile_string_value(kf, "Session", "im2", "autostart", this.im2_autostart);
+            read_key_value(kf, "Session", "im2", "command", "string");
+            read_key_value(kf, "Session", "im2", "autostart", "string");
         }
 
         /* Widget */
-        this.widget1_command = read_keyfile_string_value(kf, "Session", "widget1", "command", this.widget1_command);
-        if (this.widget1_command != null)
+        if (read_keyfile_string_value(kf, "Session", "widget1", "command", null) != null)
         {
-            this.widget1_autostart = read_keyfile_string_value(kf, "Session", "widget1", "autostart", this.widget1_autostart);
+            read_key_value(kf, "Session", "widget1", "command", "string");
+            read_key_value(kf, "Session", "widget1", "autostart", "string");
         }
+
+        /* Other session applications */
+        read_key_value(kf, "Session", "screensaver", "command", "string");
+        read_key_value(kf, "Session", "power_manager", "command", "string");
+        read_key_value(kf, "Session", "polkit", "command", "string");
+        read_key_value(kf, "Session", "audio_manager", "command", "string");
+        read_key_value(kf, "Session", "quit_manager", "command", "string");
+
+        if (read_keyfile_string_value(kf, "Session", "quit_manager", "command", null) != null)
+        {
+            read_key_value(kf, "Session", "quit_manager", "command", "string");
+            read_key_value(kf, "Session", "quit_manager", "image", "string");
+            read_key_value(kf, "Session", "quit_manager", "layout", "string");
+        }
+
+        read_key_value(kf, "Session", "workspace_manager", "command", "string");
+        read_key_value(kf, "Session", "terminal_manager", "command", "string");
+        read_key_value(kf, "Session", "screenshot_manager", "command", "string");
+        read_key_value(kf, "Session", "lock_manager", "command", "string");
+        read_key_value(kf, "Session", "message_manager", "command", "string");
+        read_key_value(kf, "Session", "upgrade_manager", "command", "string");
+        read_key_value(kf, "Session", "clipboard", "command", "string");
+        read_key_value(kf, "Session", "disable_autostart", null, "string");
+        read_key_value(kf, "Session", "upstart_user_session", null, "string");
+        read_key_value(kf, "Session", "xsettings_manager", "command", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
@@ -969,23 +842,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         }
 
         /* Other */
-        this.screensaver_command = read_keyfile_string_value (kf, "Session", "screensaver", "command", this.screensaver_command);
-        this.power_manager_command = read_keyfile_string_value (kf, "Session", "power_manager", "command", this.power_manager_command);
-        this.polkit_command = read_keyfile_string_value(kf, "Session", "polkit", "command", this.polkit_command);
-        this.network_gui_command = read_keyfile_string_value(kf, "Session", "network_gui", "command", this.network_gui_command);
-        this.audio_manager_command = read_keyfile_string_value(kf, "Session", "audio_manager", "command", this.audio_manager_command);
-        this.quit_manager_command = read_keyfile_string_value(kf, "Session", "quit_manager", "command", this.quit_manager_command);
-        this.quit_manager_image = read_keyfile_string_value(kf, "Session", "quit_manager", "image", this.quit_manager_image);
-        this.quit_manager_layout = read_keyfile_string_value(kf, "Session", "quit_manager", "layout", this.quit_manager_layout);
-        this.workspace_manager_command = read_keyfile_string_value(kf, "Session", "workspace_manager", "command", this.workspace_manager_command);
-        this.terminal_manager_command = read_keyfile_string_value(kf, "Session", "terminal_manager", "command", this.terminal_manager_command);
-        this.screenshot_manager_command = read_keyfile_string_value(kf, "Session", "screenshot_manager", "command", this.screenshot_manager_command);
-        this.lock_manager_command = read_keyfile_string_value(kf, "Session", "lock_manager", "command", this.lock_manager_command);
-        this.message_manager_command = read_keyfile_string_value(kf, "Session", "message_manager", "command", this.message_manager_command);
-        this.upgrade_manager_command = read_keyfile_string_value(kf, "Session", "upgrade_manager", "command", this.upgrade_manager_command);
-        this.clipboard_command = read_keyfile_string_value(kf, "Session", "clipboard", "command", this.clipboard_command);
-        this.disable_autostart = read_keyfile_string_value(kf, "Session", "disable_autostart", null, this.disable_autostart);
-        this.upstart_user_session = read_keyfile_string_value(kf, "Session", "upstart_user_session", null, this.upstart_user_session);
         this.laptop_mode = read_keyfile_string_value(kf, "State", "laptop_mode", null, this.laptop_mode);
         this.guess_default_state = read_keyfile_string_value(kf, "State", "guess_default", null, this.guess_default_state);
         this.dbus_lxde = read_keyfile_string_value (kf, "Dbus", "lxde", null, this.dbus_lxde);
@@ -1269,6 +1125,34 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
     }
 
+    public void read_razor_key_value (KeyFile kf, string categorie, string key1, string? key2, string type, string categorie_razor, string key1_razor, string? key2_razor)
+    {
+        string default_variable = null;
+        string final_variable = null;
+        string type_output = null;
+
+        string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+        if (config_item_db.has_key(item_key))
+        {
+            message ("Create new config key: %s", item_key);
+            create_config_item(categorie, key1, key2, type, null);
+        }
+        else
+        {
+            get_item(categorie, key1, key2, out default_variable, out type_output);
+        }
+
+        switch (type)
+        {
+            case "string":
+                final_variable = read_razor_keyfile_bool_value(kf, categorie_razor, key1_razor, key2_razor, default_variable);
+                break;
+        }
+
+        set_config_item_value(categorie, key1, key2, type, final_variable);
+    }
+
     public override void read_secondary_keyfile()
     {
 
@@ -1278,17 +1162,19 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
         kf_session = load_keyfile (session_razor_config_path);
 
         /* Windows manager */
-        this.windows_manager_command = read_keyfile_string_value (kf_session, "General", "windowmanager", null, this.windows_manager_command);
+        read_razor_key_value(kf, "Session", "windows_manager", "command", "string", "General", "windowmanager", null);
 
         /* Panel */
-        this.panel_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-panel", null, this.panel_command);
-        this.desktop_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-desktop", null, this.desktop_command);
-        this.launcher_manager_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-runner", null, launcher_manager_command);
-        if (this.launcher_manager_command == "razor-runner")
+        read_razor_key_value(kf, "Session", "panel", "command", "string", "modules", "razor-panel", null);
+        read_razor_key_value(kf, "Session", "desktop", "command", "string", "modules", "razor-desktop", null);
+        read_razor_key_value(kf, "Session", "launcher_manager", "command", "string", "modules", "razor-runner", null);
+
+        if (get_item_string("Session", "launcher_manager", "command") == "razor-runner")
         {
-            this.launcher_manager_autostart = "true";
+            set_config_item_value("Session", "launcher_manager", "autostart", "string", "true");
         }
-        this.polkit_command = read_razor_keyfile_bool_value (kf_session, "modules", "razor-policykit-agent", null, this.polkit_command);
+
+        read_razor_key_value(kf, "Session", "polkit", "command", "string", "modules", "razor-policykit-agent", null);
 
         /* TODO Convert this config on file to lxsession config
         razor-appswitcher=false
@@ -1347,9 +1233,9 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
         session_razor_config_path = session_razor_config_home_path;
         conf_razor_config_path = conf_razor_config_home_path;
 
-        kf_session.set_value ("General", "windowmanager", this.windows_manager_command);
+        kf_session.set_value ("General", "windowmanager", get_item_string("Session", "windows_manager", "command"));
 
-        if (this.panel_command == "razor-panel")
+        if (get_item_string("Session", "panel", "command") == "razor-panel")
         {
             kf_session.set_value ("modules", "razor-panel", "true");
         }
@@ -1358,7 +1244,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             kf_session.set_value ("modules", "razor-panel", "false");
         }
 
-        if (this.desktop_command == "razor-desktop")
+        if (get_item_string("Session", "desktop", "command") == "razor-desktop")
         {
             kf_session.set_value ("modules", "razor-desktop", "true");
         }
@@ -1367,7 +1253,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             kf_session.set_value ("modules", "razor-desktop", "false");
         }
 
-        if (this.launcher_manager_command == "razor-runner")
+        if (get_item_string("Session", "launcher_manager", "command") == "razor-runner")
         {
             kf_session.set_value ("modules", "razor-runner", "true");
         }
@@ -1376,7 +1262,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             kf_session.set_value ("modules", "razor-runner", "false");
         }
 
-        if (this.polkit_command == "razor-policykit-agent")
+        if (get_item_string("Session", "polkit", "command") == "razor-policykit-agent")
         {
             kf_session.set_value ("modules", "razor-policykit-agent", "true");
         }
