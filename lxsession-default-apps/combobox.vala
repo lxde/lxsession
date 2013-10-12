@@ -147,4 +147,42 @@ namespace LDefaultApps
 
         return (string) value1;
     }
+
+    void init_combobox_gui(Builder builder, DbusBackend dbus_backend, string key1, string key2, string[] default_values)
+    {
+        var combobox = new Gtk.ComboBox();
+        var entry = builder.get_object (key1 + "_" + key2 + "_entry") as Entry;
+        string default_get = dbus_backend.SessionGet(key1, key2);
+        combobox = ui_combobox_init(    builder,
+                                        key1 + "_" + key2 +"_combobox",
+                                        default_values,
+                                        key1 + "_" + key2 +"_entry",
+                                        default_get);
+
+        combobox.changed.connect (() => {
+            if (return_combobox_position(combobox) == 99)
+            {
+                dbus_backend.SessionSet(key1, key2, entry.get_text());
+            }
+            else
+            {
+                dbus_backend.SessionSet(key1, key2, return_combobox_text(combobox));
+            }
+        });
+
+        if (return_combobox_position(combobox) != 99)
+        {
+            message ("Hide !");
+            var entry_box = (Gtk.Widget) entry;
+            entry_box.hide();
+        }
+    }
+
+    void init_launch_button(Builder builder, DbusBackend dbus_backend, string key1, string key2)
+    {
+        var button = builder.get_object(key1 + "_reload") as Gtk.Button;
+        button.clicked.connect (() => {
+            dbus_backend.SessionLaunch(key1, key2);
+        });
+    }
 }

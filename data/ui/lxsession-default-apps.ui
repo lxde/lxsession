@@ -75,15 +75,26 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="panel_command_entry">
+                                              <object class="GtkHBox" id="panel_command_entry_hbox">
                                                 <property name="visible">True</property>
-                                                <property name="can_focus">True</property>
-                                                <property name="invisible_char">•</property>
-                                                <property name="invisible_char_set">True</property>
-                                                <property name="primary_icon_activatable">False</property>
-                                                <property name="secondary_icon_activatable">False</property>
-                                                <property name="primary_icon_sensitive">True</property>
-                                                <property name="secondary_icon_sensitive">True</property>
+                                                <property name="can_focus">False</property>
+                                                <child>
+                                                  <object class="GtkEntry" id="panel_command_entry">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="invisible_char">•</property>
+                                                    <property name="invisible_char_set">True</property>
+                                                    <property name="primary_icon_activatable">False</property>
+                                                    <property name="secondary_icon_activatable">False</property>
+                                                    <property name="primary_icon_sensitive">True</property>
+                                                    <property name="secondary_icon_sensitive">True</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">False</property>
+                                                    <property name="position">0</property>
+                                                  </packing>
+                                                </child>
                                               </object>
                                               <packing>
                                                 <property name="expand">False</property>
@@ -263,7 +274,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="window_command_combobox">
+                                              <object class="GtkComboBox" id="windows_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -275,7 +286,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="window_command_entry">
+                                              <object class="GtkEntry" id="windows_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -315,7 +326,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="window_session_combobox">
+                                              <object class="GtkComboBox" id="windows_manager_session_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -327,7 +338,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="window_session_entry">
+                                              <object class="GtkEntry" id="windows_manager_session_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -367,7 +378,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="window_extras_combobox">
+                                              <object class="GtkComboBox" id="windows_manager_extras_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -379,7 +390,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="window_extras_entry">
+                                              <object class="GtkEntry" id="windows_manager_extras_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -414,21 +425,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="window_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="window_reload">
+                                          <object class="GtkButton" id="windows_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -519,7 +519,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="file_command_combobox">
+                                              <object class="GtkComboBox" id="file_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -531,7 +531,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="file_command_entry">
+                                              <object class="GtkEntry" id="file_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -571,7 +571,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="file_session_combobox">
+                                              <object class="GtkComboBox" id="file_manager_session_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -583,7 +583,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="file_session_entry">
+                                              <object class="GtkEntry" id="file_manager_session_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -623,7 +623,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="file_extras_combobox">
+                                              <object class="GtkComboBox" id="file_manager_extras_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -635,7 +635,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="file_extras_entry">
+                                              <object class="GtkEntry" id="file_manager_extras_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -670,21 +670,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="file_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="file_reload">
+                                          <object class="GtkButton" id="file_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -775,7 +764,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="screensaver_command_combobox">
+                                              <object class="GtkComboBox" id="screensaver_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -787,7 +776,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="screensaver_command_entry">
+                                              <object class="GtkEntry" id="screensaver_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -822,21 +811,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="screensaver_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="screensaver_reload">
+                                          <object class="GtkButton" id="screensaver_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -1285,7 +1263,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="composite_command_combobox">
+                                              <object class="GtkComboBox" id="composite_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1297,7 +1275,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="composite_command_entry">
+                                              <object class="GtkEntry" id="composite_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -1337,7 +1315,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="composite_autostart_combobox">
+                                              <object class="GtkComboBox" id="composite_manager_autostart_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1349,7 +1327,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="composite_autostart_entry">
+                                              <object class="GtkEntry" id="composite_manager_autostart_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -1384,21 +1362,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="composite_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="composite_reload">
+                                          <object class="GtkButton" id="composite_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -1493,7 +1460,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="desktop_command_combobox">
+                                              <object class="GtkComboBox" id="desktop_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1505,7 +1472,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="desktop_command_entry">
+                                              <object class="GtkEntry" id="desktop_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -1545,7 +1512,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="desktop_wallpaper_combobox">
+                                              <object class="GtkComboBox" id="desktop_manager_wallpaper_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1557,7 +1524,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="desktop_wallpaper_entry">
+                                              <object class="GtkEntry" id="desktop_manager_wallpaper_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -1592,21 +1559,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="desktop_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="desktop_reload">
+                                          <object class="GtkButton" id="desktop_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -1701,7 +1657,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="power_command_combobox">
+                                              <object class="GtkComboBox" id="power_manager_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1713,7 +1669,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="power_command_entry">
+                                              <object class="GtkEntry" id="power_manager_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -1748,21 +1704,10 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
-                                          <object class="GtkButton" id="power_apply">
-                                            <property name="label" translatable="yes">Apply</property>
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">True</property>
-                                            <property name="receives_default">True</property>
-                                            <property name="use_action_appearance">False</property>
-                                          </object>
-                                          <packing>
-                                            <property name="expand">False</property>
-                                            <property name="fill">False</property>
-                                            <property name="position">0</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="GtkButton" id="power_reload">
+                                          <object class="GtkButton" id="power_manager_reload">
                                             <property name="label" translatable="yes">Reload</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
@@ -1857,7 +1802,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkComboBox" id="network_command_combobox">
+                                              <object class="GtkComboBox" id="network_gui_command_combobox">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                               </object>
@@ -1869,7 +1814,7 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkEntry" id="network_command_entry">
+                                              <object class="GtkEntry" id="network_gui_command_entry">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="invisible_char">•</property>
@@ -2910,7 +2855,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="audio_command_combobox">
+                                          <object class="GtkComboBox" id="audio_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -2922,7 +2867,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="audio_command_entry">
+                                          <object class="GtkEntry" id="audio_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -2957,21 +2902,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="audio_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="audio_reload">
+                                      <object class="GtkButton" id="audio_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -2981,7 +2912,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -3079,7 +3010,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="quit_command_combobox">
+                                          <object class="GtkComboBox" id="quit_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3091,7 +3022,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="quit_command_entry">
+                                          <object class="GtkEntry" id="quit_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3131,7 +3062,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="quit_image_combobox">
+                                          <object class="GtkComboBox" id="quit_manager_image_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3143,7 +3074,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="quit_image_entry">
+                                          <object class="GtkEntry" id="quit_manager_image_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3183,7 +3114,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="quit_layout_combobox">
+                                          <object class="GtkComboBox" id="quit_manager_layout_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3195,7 +3126,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="quit_layout_entry">
+                                          <object class="GtkEntry" id="quit_manager_layout_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3230,21 +3161,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="quit_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="quit_reload">
+                                      <object class="GtkButton" id="quit_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -3254,7 +3171,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -3345,7 +3262,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="workspace_command_combobox">
+                                          <object class="GtkComboBox" id="workspace_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3357,7 +3274,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="workspace_command_entry">
+                                          <object class="GtkEntry" id="workspace_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3392,21 +3309,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="workspace_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="workspace_reload">
+                                      <object class="GtkButton" id="workspace_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -3416,7 +3319,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -3490,6 +3393,32 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
+                                  <object class="GtkVBox" id="vbox33">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <child>
+                                      <object class="GtkButton" id="launcher_manager_reload">
+                                        <property name="label" translatable="yes">Reload</property>
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="use_action_appearance">False</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">False</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="fill">False</property>
+                                    <property name="pack_type">end</property>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
                                   <object class="GtkVBox" id="launcher_vbox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
@@ -3510,7 +3439,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="launcher_command_combobox">
+                                          <object class="GtkComboBox" id="launcher_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3522,7 +3451,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="launcher_command_entry">
+                                          <object class="GtkEntry" id="launcher_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3552,46 +3481,6 @@
                                   <packing>
                                     <property name="expand">False</property>
                                     <property name="fill">False</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkVBox" id="vbox33">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <object class="GtkButton" id="launcher_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="launcher_reload">
-                                        <property name="label" translatable="yes">Reload</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">False</property>
-                                    <property name="pack_type">end</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
@@ -3667,7 +3556,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="terminal_command_combobox">
+                                          <object class="GtkComboBox" id="terminal_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3679,7 +3568,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="terminal_command_entry">
+                                          <object class="GtkEntry" id="terminal_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3714,21 +3603,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="terminal_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="terminal_reload">
+                                      <object class="GtkButton" id="terminal_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -3738,7 +3613,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -3842,7 +3717,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="screenshot_command_combobox">
+                                          <object class="GtkComboBox" id="screenshot_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -3854,7 +3729,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="screenshot_command_entry">
+                                          <object class="GtkEntry" id="screenshot_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -3889,21 +3764,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="screenshot_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="screenshot_reload">
+                                      <object class="GtkButton" id="screenshot_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -3913,7 +3774,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -3996,7 +3857,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="upgrade_command_combobox">
+                                          <object class="GtkComboBox" id="upgrade_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -4008,7 +3869,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="upgrade_command_entry">
+                                          <object class="GtkEntry" id="upgrade_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -4043,21 +3904,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="upgrade_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="upgrade_reload">
+                                      <object class="GtkButton" id="upgrade_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -4067,7 +3914,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
@@ -4158,7 +4005,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkComboBox" id="lock_command_combobox">
+                                          <object class="GtkComboBox" id="lock_manager_command_combobox">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                           </object>
@@ -4170,7 +4017,7 @@
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="lock_command_entry">
+                                          <object class="GtkEntry" id="lock_manager_command_entry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
@@ -4205,21 +4052,7 @@
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
-                                      <object class="GtkButton" id="lock_apply">
-                                        <property name="label" translatable="yes">Apply</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="use_action_appearance">False</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkButton" id="lock_reload">
+                                      <object class="GtkButton" id="lock_manager_reload">
                                         <property name="label" translatable="yes">Reload</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -4229,7 +4062,7 @@
                                       <packing>
                                         <property name="expand">False</property>
                                         <property name="fill">False</property>
-                                        <property name="position">1</property>
+                                        <property name="position">0</property>
                                       </packing>
                                     </child>
                                   </object>
