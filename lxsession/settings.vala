@@ -65,34 +65,6 @@ namespace Lxsession
         public string env_type { get; set; default = null;}
         public string env_menu_prefix { get; set; default = "lxde-";}
 
-        /* GTK */
-        public string gtk_theme_name { get; set; default = null;}
-        public string gtk_icon_theme_name { get; set; default = null;}
-        public string gtk_font_name { get; set; default = null;}
-        public int gtk_toolbar_style { get; set; default = 3;}
-        public int gtk_button_images { get; set; default = 0;}
-        public int gtk_menu_images { get; set; default = 1;}
-        public int gtk_cursor_theme_size { get; set; default = 18;}
-        public int gtk_antialias { get; set; default = 1;}
-        public int gtk_hinting { get; set; default = 1;}
-        public string gtk_hint_style { get; set; default = "hintslight";}
-        public string gtk_rgba { get; set; default = "rgb";}
-        public string gtk_color_scheme { get; set; default = null;}
-        public string gtk_cursor_theme_name { get; set; default = "DMZ-White";}
-        public int gtk_toolbar_icon_size { get; set; default = 3;}
-        public int gtk_enable_event_sounds { get; set; default = 1;}
-        public int gtk_enable_input_feedback_sounds { get; set; default = 1;}
-
-        /* Mouse */
-        public int mouse_acc_factor { get; set; default = 20;}
-        public int mouse_acc_threshold { get; set; default = 10;}
-        public int mouse_left_handed { get; set; default = 0;}
-
-        /* Keyboard */
-        public int keyboard_delay { get; set; default = 500;}
-        public int keyboard_interval { get; set; default = 30;}
-        public int keyboard_beep { get; set; default = 1;}
-
         /* Mime */
         public string   mime_distro { get; set; default = null;}
         public string   mime_format_installed { get; set; default = null;}
@@ -107,11 +79,13 @@ namespace Lxsession
         /* Settings db */
         public HashMap<string, string> config_item_db;
         public HashMap<string, string> session_support_item_db;
+        public HashMap<string, string> xsettings_support_item_db;
 
         public LxsessionConfig ()
         {
             config_item_db = init_item_db();
             session_support_item_db = init_item_db();
+            xsettings_support_item_db = init_item_db();
         }
 
         private HashMap<string, string> init_item_db ()
@@ -170,65 +144,91 @@ namespace Lxsession
             }
          }
 
+        public HashMap<string, string> get_support_db(string categorie)
+        {
+            var support_db = new HashMap<string, string> ();
+            /* Init for session, so it will not be null */
+            support_db = session_support_item_db;
+
+            switch (categorie)
+            {
+                case "Session":
+                    support_db = session_support_item_db;
+                    break;
+                case "GTK":
+                    support_db = xsettings_support_item_db;
+                    break;
+                case "Mouse":
+                    support_db = xsettings_support_item_db;
+                    break;
+                case "Keyboard":
+                    support_db = xsettings_support_item_db;
+                    break;
+            }
+
+            return support_db;
+        }
+
         public void update_support_keys (string categorie, string key1, string? key2)
         {
-            if (categorie == "Session")
+            var support_db = new HashMap<string, string> ();
+            support_db = get_support_db(categorie);
+
+            if (support_db.has_key(key1))
             {
-                if (session_support_item_db.has_key(key1))
+                string[] list = support_db[key1].split_set(";",0);
+                if (key2 == null)
                 {
-                    string[] list = session_support_item_db[key1].split_set(";",0);
-                    if (key2 == null)
-                    {
-                        /* Pass, the key2 is empty, so no detailled support available*/
-                    }
-                    else
-                    {
-                        if (key2 in list)
-                        {
-                            /* Pass, already in support */
-                        }
-                        else
-                        {
-                            session_support_item_db[key1] = session_support_item_db[key1] + key2 + ";";
-                        }
-                    }
+                    /* Pass, the key2 is empty, so no detailled support available*/
                 }
                 else
                 {
-                    session_support_item_db[key1] = key2 + ";";
+                    if (key2 in list)
+                    {
+                        /* Pass, already in support */
+                    }
+                    else
+                    {
+                        support_db[key1] = support_db[key1] + key2 + ";";
+                    }
                 }
+            }
+            else
+            {
+                support_db[key1] = key2 + ";";
             }
         }
 
         public string get_support (string categorie)
         {
             string items = null;
-            if (categorie == "Session")
+            var support_db = new HashMap<string, string> ();
+            support_db = get_support_db(categorie);
+
+            foreach (string key in support_db.keys)
             {
-                foreach (string key in session_support_item_db.keys)
+                if (items == null)
                 {
-                    if (items == null)
-                    {
-                        items = key + ";";
-                    }
-                    else
-                    {
-                        items = items + key + ";" ;
-                    }
+                    items = key + ";";
                 }
-                message ("Return items: %s", items);
+                else
+                {
+                    items = items + key + ";" ;
+                }
             }
+
             return items;
         }
 
         public string get_support_key (string categorie, string key1)
         {
             string return_value = null;
-            if (categorie == "Session")
-            {
-                message("Return support key: %s", session_support_item_db[key1]);
-                return_value =  session_support_item_db[key1];
-            }
+            var support_db = new HashMap<string, string> ();
+            support_db = get_support_db(categorie);
+
+            message("Return support key: %s", support_db[key1]);
+            return_value =  support_db[key1];
+
             return return_value;
         }
 
@@ -236,32 +236,6 @@ namespace Lxsession
         {
             /* Connect to signals changes */
             global_sig.generic_set_signal.connect(on_update_generic);
-
-            /* Xsettings */
-            global_sig.update_gtk_theme_name.connect(on_update_string_set);
-            global_sig.update_gtk_icon_theme_name.connect(on_update_string_set);
-            global_sig.update_gtk_font_name.connect(on_update_string_set);
-            global_sig.update_gtk_toolbar_style.connect(on_update_int_set);
-            global_sig.update_gtk_button_images.connect(on_update_int_set);
-            global_sig.update_gtk_menu_images.connect(on_update_int_set);
-            global_sig.update_gtk_cursor_theme_size.connect(on_update_int_set);
-            global_sig.update_gtk_antialias.connect(on_update_int_set);
-            global_sig.update_gtk_hinting.connect(on_update_int_set);
-            global_sig.update_gtk_hint_style.connect(on_update_string_set);
-            global_sig.update_gtk_rgba.connect(on_update_string_set);
-            global_sig.update_gtk_color_scheme.connect(on_update_string_set);
-            global_sig.update_gtk_cursor_theme_name.connect(on_update_string_set);
-            global_sig.update_gtk_toolbar_icon_size.connect(on_update_int_set);
-            global_sig.update_gtk_enable_event_sounds.connect(on_update_int_set);
-            global_sig.update_gtk_enable_input_feedback_sounds.connect(on_update_int_set);
-
-            global_sig.update_mouse_acc_factor.connect(on_update_int_set);
-            global_sig.update_mouse_acc_threshold.connect(on_update_int_set);
-            global_sig.update_mouse_left_handed.connect(on_update_int_set);
-
-            global_sig.update_keyboard_delay.connect(on_update_int_set);
-            global_sig.update_keyboard_interval.connect(on_update_int_set);
-            global_sig.update_keyboard_beep.connect(on_update_int_set);
 
             /* Keymap */
             global_sig.request_keymap_mode_set.connect(on_update_string_set);
@@ -341,7 +315,40 @@ namespace Lxsession
             set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
 
-            /*  Distribution, if you want to ensure good transition from previous version of lxsession
+            /* Set Xsettings default */
+
+            set_generic_default("Gtk", "iXft", "Antialias", "string", "1");
+            set_generic_default("Gtk", "iXft", "Hinting", "string", "1");
+            set_generic_default("Gtk", "sXft", "HintStyle", "string", "hintslight");
+            set_generic_default("Gtk", "sXft", "RGBA", "string", "rgb");
+
+            set_generic_default("Gtk", "sNet", "ThemeName", "string", "Clearlooks");
+            set_generic_default("Gtk", "sNet", "IconThemeName", "string", "nuoveXT2");
+            set_generic_default("Gtk", "iNet", "EnableEventSounds", "string", "1");
+            set_generic_default("Gtk", "iNet", "EnableInputFeedbackSounds", "string", "1");
+            set_generic_default("Gtk", "iGtk", "ColorScheme", "string", "");
+            set_generic_default("Gtk", "sGtk", "FontName", "string", "Sans 10");
+            set_generic_default("Gtk", "iGtk", "ToolbarStyle", "string", "3");
+            set_generic_default("Gtk", "iGtk", "ToolbarIconSize", "string", "3");
+            set_generic_default("Gtk", "iGtk", "ButtonImages", "string", "1");
+            set_generic_default("Gtk", "iGtk", "MenuImages", "string", "1");
+            set_generic_default("Gtk", "iGtk", "CursorThemeSize", "string", "18");
+            set_generic_default("Gtk", "sGtk", "CursorThemeName", "string", "DMZ-White");
+/*
+            TODO    Add also the ones from the spec : http://www.freedesktop.org/wiki/Specifications/XSettingsRegistry/
+                    And the commented one of the desktop.conf.example
+
+*/
+            set_generic_default("Mouse", "AccFactor", null, "string", "20");
+            set_generic_default("Mouse", "AccThreshold", null, "string", "10");
+            set_generic_default("Mouse", "LeftHanded", null, "string", "0");
+
+            set_generic_default("Keyboard", "Delay", null, "string", "500");
+            set_generic_default("Keyboard", "Interval", null, "string", "30");
+            set_generic_default("Keyboard", "Beep", null, "string", "1");
+
+
+            /*  Distributions, if you want to ensure good transition from previous version of lxsession
                 you need to patch here to set the default for various new commands
                 See Lubuntu example below
             */
@@ -852,28 +859,28 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         this.env_type = read_keyfile_string_value (kf, "Environment", "type", null, this.env_type);
         this.env_menu_prefix = read_keyfile_string_value (kf, "Environment", "menu_prefix", null, this.env_menu_prefix);
 
-        this.gtk_theme_name = read_keyfile_string_value (kf, "GTK", "sNet", "ThemeName", this.gtk_theme_name);
-        this.gtk_icon_theme_name = read_keyfile_string_value (kf, "GTK", "sNet", "IconThemeName", this.gtk_icon_theme_name);
-        this.gtk_font_name = read_keyfile_string_value (kf, "GTK", "sGtk", "FontName", this.gtk_font_name);
-        this.gtk_toolbar_style = read_keyfile_int_value (kf, "GTK", "iGtk", "ToolbarStyle", this.gtk_toolbar_style);
-        this.gtk_button_images = read_keyfile_int_value (kf, "GTK", "iGtk", "ButtonImages", this.gtk_button_images);
-        this.gtk_menu_images = read_keyfile_int_value (kf, "GTK", "iGtk", "MenuImages", this.gtk_menu_images);
-        this.gtk_cursor_theme_size = read_keyfile_int_value (kf, "GTK", "iGtk", "CursorThemeSize", this.gtk_cursor_theme_size);
-        this.gtk_antialias = read_keyfile_int_value (kf, "GTK", "iXft", "Antialias", this.gtk_antialias);
-        this.gtk_hinting = read_keyfile_int_value (kf, "GTK", "iXft", "Hinting", this.gtk_hinting);
-        this.gtk_hint_style = read_keyfile_string_value (kf, "GTK", "sXft", "HintStyle", this.gtk_hint_style);
-        this.gtk_rgba = read_keyfile_string_value (kf, "GTK", "sXft", "RGBA", this.gtk_rgba);
-        this.gtk_color_scheme = read_keyfile_string_value (kf, "GTK", "sGtk", "ColorScheme", this.gtk_color_scheme);
-        this.gtk_cursor_theme_name = read_keyfile_string_value (kf, "GTK", "sGtk", "CursorThemeName", this.gtk_cursor_theme_name);
-        this.gtk_toolbar_icon_size = read_keyfile_int_value (kf, "GTK", "iGtk", "ToolbarIconSize", this.gtk_toolbar_icon_size);
-        this.gtk_enable_event_sounds = read_keyfile_int_value (kf, "GTK", "iNet", "EnableEventSounds", this.gtk_enable_event_sounds);
-        this.gtk_enable_input_feedback_sounds = read_keyfile_int_value (kf, "GTK", "iNet", "EnableInputFeedbackSounds", this.gtk_enable_input_feedback_sounds);
-        this.mouse_acc_factor = read_keyfile_int_value (kf, "Mouse", "AccFactor", null, this.mouse_acc_factor);
-        this.mouse_acc_threshold = read_keyfile_int_value (kf, "Mouse", "AccThreshold", null, this.mouse_acc_threshold);
-        this.mouse_left_handed = read_keyfile_int_value (kf, "Mouse", "LeftHanded", null, this.mouse_left_handed);
-        this.keyboard_delay = read_keyfile_int_value (kf, "Keyboard", "Delay", null, this.keyboard_delay);
-        this.keyboard_interval = read_keyfile_int_value (kf, "Keyboard", "Interval", null, this.keyboard_interval);
-        this.keyboard_beep = read_keyfile_int_value (kf, "Keyboard", "Beep", null, this.keyboard_beep);
+        read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
+        read_key_value(kf, "GTK", "sNet", "IconThemeName", "string");
+        read_key_value(kf, "GTK", "sGtk", "FontName", "string");
+        read_key_value(kf, "GTK", "iGtk", "ToolbarStyle", "string");
+        read_key_value(kf, "GTK", "iGtk", "ButtonImages", "string");
+        read_key_value(kf, "GTK", "iGtk", "MenuImages", "string");
+        read_key_value(kf, "GTK", "iGtk", "CursorThemeSize", "string");
+        read_key_value(kf, "GTK", "iXft", "Antialias", "string");
+        read_key_value(kf, "GTK", "iXft", "Hinting", "string");
+        read_key_value(kf, "GTK", "sXft", "HintStyle", "string");
+        read_key_value(kf, "GTK", "sXft", "RGBA", "string");
+        read_key_value(kf, "GTK", "sGtk", "ColorScheme", "string");
+        read_key_value(kf, "GTK", "sGtk", "CursorThemeName", "string");
+        read_key_value(kf, "GTK", "iGtk", "ToolbarIconSize", "string");
+        read_key_value(kf, "GTK", "iNet", "EnableEventSounds", "string");
+        read_key_value(kf, "GTK", "iNet", "EnableInputFeedbackSounds", "string");
+        read_key_value(kf, "Mouse", "AccFactor", null, "string");
+        read_key_value(kf, "Mouse", "AccThreshold", null, "string");
+        read_key_value(kf, "Mouse", "LeftHanded", null, "string");
+        read_key_value(kf, "Keyboard", "Delay", null, "string");
+        read_key_value(kf, "Keyboard", "Interval", null, "string");
+        read_key_value(kf, "Keyboard", "Beep", null, "string");
 
         /* Mime */
         this.mime_distro = read_keyfile_string_value (kf, "Mime", "distro", null, this.mime_distro);
@@ -1182,8 +1189,8 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
         kf_conf = load_keyfile (session_razor_config_path);
 
-        this.gtk_theme_name = read_keyfile_string_value (kf_conf, "Theme", "theme", null, this.gtk_theme_name);
-        this.gtk_icon_theme_name = read_keyfile_string_value (kf_conf, "Theme", "icon_theme", null, this.gtk_icon_theme_name);
+        read_razor_key_value(kf_conf, "GTK", "sNet", "ThemeName", "string", "Theme", "theme", null);
+        read_razor_key_value(kf_conf, "GTK", "sNet", "IconThemeName", "string", "Theme", "icon_theme", null);
 
     }
 

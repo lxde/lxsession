@@ -96,31 +96,6 @@ public class LxSignals : Object
     public signal void update_window_manager (string dbus_arg, string kf_categorie = "Session", string kf_key1 = "window_manager", string? kf_key2 = null);
 
     /* Xsettings */
-    public signal void update_gtk_theme_name (string dbus_arg, string kf_categorie="GTK", string kf_key1="sNet", string? kf_key2="ThemeName");
-    public signal void update_gtk_icon_theme_name (string dbus_arg, string kf_categorie="GTK", string kf_key1="sNet", string? kf_key2="IconThemeName");
-    public signal void update_gtk_font_name (string dbus_arg, string kf_categorie="GTK", string kf_key1="sGtk", string? kf_key2="FontName");
-    public signal void update_gtk_toolbar_style (int dbus_arg, string kf_categorie="GTK", string kf_key1="iGtk", string? kf_key2 = "ToolbarStyle");
-    public signal void update_gtk_button_images (int dbus_arg, string kf_categorie="GTK", string kf_key1="iGtk", string? kf_key2="ButtonImages");
-    public signal void update_gtk_menu_images (int dbus_arg, string kf_categorie="GTK", string kf_key1="iGtk", string? kf_key2="MenuImages");
-    public signal void update_gtk_cursor_theme_size (int dbus_arg, string kf_categorie="GTK", string kf_key1="iGtk", string? kf_key2="CursorThemeSize");
-    public signal void update_gtk_antialias (int dbus_arg, string kf_categorie="GTK", string kf_key1="iXft", string? kf_key2="Antialias");
-    public signal void update_gtk_hinting (int dbus_arg, string kf_categorie="GTK", string kf_key1="iXft", string? kf_key2="Hinting");
-    public signal void update_gtk_hint_style (string dbus_arg, string kf_categorie="GTK", string kf_key1="sXft", string? kf_key2="HintStyle");
-    public signal void update_gtk_rgba (string dbus_arg, string kf_categorie="GTK", string kf_key1="sXft", string? kf_key2="RGBA");
-    public signal void update_gtk_color_scheme (string dbus_arg, string kf_categorie="GTK", string kf_key1="sGtk", string? kf_key2="ColorScheme");
-    public signal void update_gtk_cursor_theme_name (string dbus_arg, string kf_categorie="GTK", string kf_key1="sGtk", string? kf_key2="CursorThemeName");
-    public signal void update_gtk_toolbar_icon_size (int dbus_arg, string kf_categorie="GTK", string kf_key1="iGtk", string? kf_key2="ToolbarIconSize");
-    public signal void update_gtk_enable_event_sounds (int dbus_arg, string kf_categorie="GTK", string kf_key1="iNet", string? kf_key2="EnableEventSounds");
-    public signal void update_gtk_enable_input_feedback_sounds (int dbus_arg, string kf_categorie="GTK", string kf_key1="iNet", string? kf_key2="EnableInputFeedbackSounds");
-
-    public signal void update_mouse_acc_factor (int dbus_arg, string kf_categorie="Mouse", string kf_key1="AccFactor", string? kf_key2 = null);
-    public signal void update_mouse_acc_threshold (int dbus_arg, string kf_categorie="Mouse", string kf_key1="AccThreshold", string? kf_key2=null);
-    public signal void update_mouse_left_handed (int dbus_arg, string kf_categorie="Mouse", string kf_key1="LeftHanded", string? kf_key2=null);
-
-    public signal void update_keyboard_delay (int dbus_arg, string kf_categorie="Keyboard", string kf_key1="Delay", string? kf_key2=null);
-    public signal void update_keyboard_interval (int dbus_arg, string kf_categorie="Keyboard", string kf_key1="Interval", string? kf_key2=null);
-    public signal void update_keyboard_beep (int dbus_arg, string kf_categorie="Keyboard", string kf_key1="Beep", string? kf_key2=null);
-
     public signal void reload_settings_daemon();
 
     /* Keymap control */
