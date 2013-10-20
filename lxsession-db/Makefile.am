@@ -8,7 +8,6 @@ lxsession_db_SOURCES = \
 lxsession_db_VALAFLAGS = \
 	--vapidir=$(srcdir)/../vapi \
 	--pkg gtk+-2.0 \
-	--pkg gee-0.8 \
 	$(NULL)
 
 lxsession_db_CFLAGS = \

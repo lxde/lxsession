@@ -17,17 +17,15 @@
  *      MA 02110-1301, USA.
  */
 
-using Gee;
-
 namespace Lxsession {
 
 public class LxsessionAutostartConfig: GLib.Object {
 
-    private ArrayList<AppType?> stock_list ;
+    private Array<AppType?> stock_list ;
 
     public LxsessionAutostartConfig() {
 
-        /* Copy the ArrayList, can't be modify inside constructor */
+        /* Copy the Array, can't be modify inside constructor */
         stock_list = load_autostart_file();
 /*
         foreach (AppType s in stock_list) {
@@ -36,10 +34,10 @@ public class LxsessionAutostartConfig: GLib.Object {
 */
     }
 
-    public ArrayList<AppType?> load_autostart_file() {
+    public Array<AppType?> load_autostart_file() {
 
         var file = File.new_for_path (get_config_path ("autostart"));
-        var app_list = new ArrayList<AppType?> ();
+        var app_list = new Array<AppType?> ();
 
         message ("Autostart path : %s", file.get_path());
 
@@ -61,7 +59,7 @@ public class LxsessionAutostartConfig: GLib.Object {
                             builder.erase(0,1);
                             string[] command = builder.str.split_set(" ",0);
                             AppType app = { command[0], command, true, "" };
-                            app_list.add (app);
+                            app_list.append_val (app);
                             break;
                         case ("#"):
                             /* Commented, skip */
@@ -69,7 +67,7 @@ public class LxsessionAutostartConfig: GLib.Object {
                         default:
                             string[] command = line.split_set(" ",0);
                             AppType app = { command[0], command, false, "" };
-                            app_list.add (app);
+                            app_list.append_val (app);
                             break;
                     }
                  }
@@ -85,7 +83,8 @@ public class LxsessionAutostartConfig: GLib.Object {
 
     public void start_applications() {
 
-        foreach (AppType s in stock_list) {
+        for (int i = 0; i < stock_list.length; ++i) {
+            unowned AppType s = stock_list.index(i);
             var launch_app = new GenericAppObject(s);
             launch_app.launch();
         }

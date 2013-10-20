@@ -21,7 +21,6 @@
    TODO packagekit handler (GUI and stuff) ?
    TODO Use wnck for managing launching applications ?
 */
-using Gee;
 using Posix;
 
 namespace Lxsession
@@ -295,28 +294,29 @@ public class WindowsManagerApp: SimpleAppObject
     private string find_window_manager()
     {
 
-        var wm_list = new ArrayList<string> ();
+        var wm_list = new Array<string> ();
 
-        wm_list.add("openbox-lxde");
-        wm_list.add("openbox-lubuntu");
-        wm_list.add("openbox");
-        wm_list.add("compiz");
-        wm_list.add("kwin");
-        wm_list.add("mutter");
-        wm_list.add("fluxbox");
-        wm_list.add("metacity");
-        wm_list.add("xfwin");
-        wm_list.add("matchbox");
+        wm_list.append_val("openbox-lxde");
+        wm_list.append_val("openbox-lubuntu");
+        wm_list.append_val("openbox");
+        wm_list.append_val("compiz");
+        wm_list.append_val("kwin");
+        wm_list.append_val("mutter");
+        wm_list.append_val("fluxbox");
+        wm_list.append_val("metacity");
+        wm_list.append_val("xfwin");
+        wm_list.append_val("matchbox");
 
         string return_value = "";
 
-        foreach (string i in wm_list)
+        for(int i = 0; i < wm_list.length; ++i)
         {
-            string test_wm = Environment.find_program_in_path(i);
+			unowned string wm = wm_list.index(i);
+            string test_wm = Environment.find_program_in_path(wm);
             if ( test_wm != null)
             {
-                message ("Finding %s",i);
-                return_value = i;
+                message ("Finding %s",wm);
+                return_value = wm;
                 break;
             }
         }

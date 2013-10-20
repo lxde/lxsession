@@ -15,8 +15,6 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Gee;
-
 namespace Lxsession
 {
     [DBus(name = "org.lxde.SessionManager")]
@@ -36,12 +34,12 @@ namespace Lxsession
 
     public class DBDefaultApps: GLib.Object
     {
-        public ArrayList<string> webbrowser_installed = new ArrayList<string> ();
-        public ArrayList<string> webbrowser_available = new ArrayList<string> ();
+        public List<string> webbrowser_installed = new List<string> ();
+        public List<string> webbrowser_available = new List<string> ();
         public string webbrowser_installed_blacklist;
 
-        public ArrayList<string> email_installed = new ArrayList<string> ();
-        public ArrayList<string> email_available = new ArrayList<string> ();
+        public List<string> email_installed = new List<string> ();
+        public List<string> email_available = new List<string> ();
         public string email_installed_blacklist;
 
         public signal void finish_scanning_installed();
@@ -245,7 +243,7 @@ namespace Lxsession
 
         /* TODO Make a genereic find_ function ? */
 
-        private void find_webbrowser_list(KeyFile kf, string desktop_path, string name, ArrayList<string> list)
+        private void find_webbrowser_list(KeyFile kf, string desktop_path, string name, List<string> list)
         {
             try
             {
@@ -260,7 +258,7 @@ namespace Lxsession
                     {
                         if ("WebBrowser" in categories)
                         {
-                            list.add (name);
+                            list.append (name);
                         }
                     }
                 }
@@ -271,7 +269,7 @@ namespace Lxsession
             }
         }
 
-        private void find_email_list(KeyFile kf, string desktop_path, string name, ArrayList<string> list)
+        private void find_email_list(KeyFile kf, string desktop_path, string name, List<string> list)
         {
             try
             {
@@ -286,7 +284,7 @@ namespace Lxsession
                     {
                         if ("Email" in categories)
                         {
-                            list.add (name);
+                            list.append (name);
                         }
                     }
                 }
@@ -297,7 +295,7 @@ namespace Lxsession
             }
         }
 
-        public string[] string_array_list_to_array (ArrayList<string> list)
+        public string[] string_array_list_to_array (List<string> list)
         {
             string tmp_string = null;
             string[] array_save;
