@@ -19,8 +19,6 @@
 
 /* TODO Split correctly the settings for enable differents backends (.ini, gsettings ...) */ 
 
-using Gee;
-
 namespace Lxsession
 {
     public class LxsessionConfig: GLib.Object
@@ -42,18 +40,18 @@ namespace Lxsession
         public string[] mime_email_available { get; set; default = null;}
 
         /* Settings db */
-        public HashMap<string, string> config_item_db;
-        public HashMap<string, string> session_support_item_db;
-        public HashMap<string, string> xsettings_support_item_db;
-        public HashMap<string, string> state_support_item_db;
-        public HashMap<string, string> dbus_support_item_db;
-        public HashMap<string, string> keymap_support_item_db;
-        public HashMap<string, string> xrandr_support_item_db;
-        public HashMap<string, string> security_support_item_db;
-        public HashMap<string, string> ally_support_item_db;
-        public HashMap<string, string> updates_support_item_db;
-        public HashMap<string, string> environment_support_item_db;
-        public HashMap<string, string> proxy_support_item_db;
+        public HashTable<string, string> config_item_db;
+        public HashTable<string, string> session_support_item_db;
+        public HashTable<string, string> xsettings_support_item_db;
+        public HashTable<string, string> state_support_item_db;
+        public HashTable<string, string> dbus_support_item_db;
+        public HashTable<string, string> keymap_support_item_db;
+        public HashTable<string, string> xrandr_support_item_db;
+        public HashTable<string, string> security_support_item_db;
+        public HashTable<string, string> ally_support_item_db;
+        public HashTable<string, string> updates_support_item_db;
+        public HashTable<string, string> environment_support_item_db;
+        public HashTable<string, string> proxy_support_item_db;
 
         public LxsessionConfig ()
         {
@@ -71,9 +69,9 @@ namespace Lxsession
             proxy_support_item_db = init_item_db();
         }
 
-        private HashMap<string, string> init_item_db ()
+        private HashTable<string, string> init_item_db ()
         {
-            var return_map = new HashMap<string, string> ();
+            var return_map = new HashTable<string, string> (str_hash, str_equal);
             return return_map;
         }
 
@@ -117,7 +115,7 @@ namespace Lxsession
 
             // DEBUG message ("key of read_value: %s", item_key);
 
-            if (config_item_db.has_key(item_key))
+            if (config_item_db.contains(item_key))
             {
                 message ("Enter if of read_value");
                 if (config_item_db[item_key] != dbus_arg)
@@ -132,9 +130,9 @@ namespace Lxsession
             }
          }
 
-        public HashMap<string, string> get_support_db(string categorie)
+        public HashTable<string, string> get_support_db(string categorie)
         {
-            var support_db = new HashMap<string, string> ();
+            var support_db = new HashTable<string, string> (str_hash, str_equal);
             /* Init for session, so it will not be null */
             support_db = session_support_item_db;
 
@@ -189,10 +187,10 @@ namespace Lxsession
 
         public void update_support_keys (string categorie, string key1, string? key2)
         {
-            var support_db = new HashMap<string, string> ();
+            var support_db = new HashTable<string, string> (str_hash, str_equal);
             support_db = get_support_db(categorie);
 
-            if (support_db.has_key(key1))
+            if (support_db.contains(key1))
             {
                 string[] list = support_db[key1].split_set(";",0);
                 if (key2 == null)
@@ -220,10 +218,10 @@ namespace Lxsession
         public string get_support (string categorie)
         {
             string items = null;
-            var support_db = new HashMap<string, string> ();
+            var support_db = new HashTable<string, string> (str_hash, str_equal);
             support_db = get_support_db(categorie);
 
-            foreach (string key in support_db.keys)
+            foreach (string key in support_db.get_keys())
             {
                 if (items == null)
                 {
@@ -241,7 +239,7 @@ namespace Lxsession
         public string get_support_key (string categorie, string key1)
         {
             string return_value = null;
-            var support_db = new HashMap<string, string> ();
+            var support_db = new HashTable<string, string> (str_hash, str_equal);
             support_db = get_support_db(categorie);
 
             message("Return support key: %s", support_db[key1]);
@@ -411,7 +409,7 @@ namespace Lxsession
 
             message ("key of set_value: %s", item_key);
 
-            if (config_item_db.has_key(item_key))
+            if (config_item_db.contains(item_key))
             {
                 switch (type)
                 {
@@ -672,7 +670,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-        if (config_item_db.has_key(item_key) == false)
+        if (config_item_db.contains(item_key) == false)
         {
             message ("Create new config key: %s", item_key);
             create_config_item(categorie, key1, key2, type, null);
@@ -1127,7 +1125,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-        if (config_item_db.has_key(item_key))
+        if (config_item_db.contains(item_key))
         {
             message ("Create new config key: %s", item_key);
             create_config_item(categorie, key1, key2, type, null);
