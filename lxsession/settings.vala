@@ -83,6 +83,7 @@ namespace Lxsession
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
 
             config_item_db[item_key] = variable;
+            on_update_generic(variable, categorie, key1, key2);
 
             update_support_keys (categorie, key1, key2);
         }
@@ -119,7 +120,11 @@ namespace Lxsession
             if (config_item_db.has_key(item_key))
             {
                 message ("Enter if of read_value");
-                config_item_db[item_key] = dbus_arg;
+                if (config_item_db[item_key] != dbus_arg)
+                {
+                    config_item_db[item_key] = dbus_arg;
+                    on_update_generic(dbus_arg, categorie, key1, key2);
+                }
             }
             else
             {
@@ -279,7 +284,6 @@ namespace Lxsession
 
         public void guess_default()
         {
-
             /* Migrate old windows-manager settings to the new ones */
             if (get_item_string("Session", "window_manager", null) == "openbox-lxde")
             {
@@ -392,6 +396,7 @@ namespace Lxsession
                 case "string":
                     if (get_item_string(categorie, key1, key2) == null)
                     {
+                        message ("Settings default for %s, %s, %s : %s", categorie, key1, key2, default_value);
                         set_config_item_value(categorie, key1, key2, type, default_value);
                     }
                     break;
@@ -431,7 +436,6 @@ namespace Lxsession
         {
 
         }
-
     }
 
 public class LxsessionConfigKeyFile: LxsessionConfig
@@ -668,7 +672,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-        if (config_item_db.has_key(item_key))
+        if (config_item_db.has_key(item_key) == false)
         {
             message ("Create new config key: %s", item_key);
             create_config_item(categorie, key1, key2, type, null);

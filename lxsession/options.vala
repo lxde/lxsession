@@ -397,6 +397,7 @@ namespace Lxsession
                 case " ":
                     break;
                 case "build-in":
+                    message("Activate xsettings_manager build-in"); 
                     settings_daemon_start(load_keyfile (get_config_path ("desktop.conf")));
                     break;
                 case "gnome":
@@ -439,9 +440,11 @@ namespace Lxsession
             switch (command)
             {
                 case "build-in":
+                    message("Reload xsettings_manager build-in"); 
                     settings_daemon_reload(load_keyfile (get_config_path ("desktop.conf")));
                     break;
                 default:
+                    message("Reload xsettings_manager default"); 
                     this.activate();
                     break;
             }
