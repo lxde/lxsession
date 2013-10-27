@@ -100,6 +100,321 @@ namespace Lxsession
             GenericSet("Xsettings", key1, key2, command_to_set);
         }
 
+        /* State API */
+        public void StateSupport (out string[] list)
+        {
+            list = GenericSupport ("State");
+        }
+
+        public void StateSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("State", key1);
+        }
+
+        public void StateGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("State", key1, key2);
+        }
+
+        public void StateSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("State", key1, key2, command_to_set);
+        }
+
+        /* Dbus API */
+        public void DbusSupport (out string[] list)
+        {
+            list = GenericSupport ("Dbus");
+        }
+
+        public void DbusSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Dbus", key1);
+        }
+
+        public void DbusGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Dbus", key1, key2);
+        }
+
+        public void DbusSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Dbus", key1, key2, command_to_set);
+        }
+
+        /* Keymap API */
+        public void KeymapSupport (out string[] list)
+        {
+            list = GenericSupport ("Keymap");
+        }
+
+        public void KeymapSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Keymap", key1);
+        }
+
+        public void KeymapGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Keymap", key1, key2);
+        }
+
+        public void KeymapSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Keymap", key1, key2, command_to_set);
+        }
+
+        public void KeymapActivate()
+        {
+            message("Reload keymap");
+            if (global_settings.get_item_string("Keymap", "mode", null) == null)
+            {
+                warning("Keymap mode not set");
+            }
+            else if (global_keymap == null)
+            {
+                message("Keymap doesn't exist, creating it");
+                var keymap = new KeymapOption(global_settings);
+                global_keymap = keymap;
+                global_keymap.activate();
+            }
+            else
+            {
+                message("Reload existing keymap");
+                global_keymap.activate();
+            }
+        }
+
+        /* XRandr API */
+        public void XRandrSupport (out string[] list)
+        {
+            list = GenericSupport ("XRandr");
+        }
+
+        public void XRandrSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("XRandr", key1);
+        }
+
+        public void XRandrGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("XRandr", key1, key2);
+        }
+
+        public void XRandrSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("XRandr", key1, key2, command_to_set);
+        }
+
+        public void XrandrActivate()
+        {
+            message("Reload xrandr");
+            if (global_settings.get_item_string("XRandr", "mode", null) == null)
+            {
+                warning("Xrandr mode not set");
+            }
+            else if (global_xrandr == null)
+            {
+                message("Xrandr doesn't exist, creating it");
+                var xrandr = new XrandrOption(global_settings);
+                global_xrandr = xrandr;
+                global_xrandr.activate();
+            }
+            else
+            {
+                message("Reload existing xrandr");
+                global_xrandr.activate();
+            }
+        }
+
+        /* Security API */
+        public void SecuritySupport (out string[] list)
+        {
+            list = GenericSupport ("Security");
+        }
+
+        public void SecuritySupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Security", key1);
+        }
+
+        public void SecurityGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Security", key1, key2);
+        }
+
+        public void SecuritySet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Security", key1, key2, command_to_set);
+        }
+
+        public void SecurityActivate()
+        {
+            message("Reload security");
+            if (global_settings.get_item_string("Security", "keyring", null) == null)
+            {
+                warning("Security keyring not set");
+            }
+            else if (global_keyring == null)
+            {
+                message("Keyring doesn't exist, creating it");
+                var keyring = new KeyringOption(global_settings);
+                global_keyring = keyring;
+                global_keyring.activate();
+            }
+            else
+            {
+                message("Reload existing keyring");
+                global_keyring.activate();
+            }
+        }
+
+        /* a11y API */
+        public void a11ySupport (out string[] list)
+        {
+            list = GenericSupport ("a11y");
+        }
+
+        public void a11ySupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("a11y", key1);
+        }
+
+        public void a11yGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("a11y", key1, key2);
+        }
+
+        public void a11ySet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("a11y", key1, key2, command_to_set);
+        }
+
+        public void A11yActivate()
+        {
+            message("Reload a11y");
+            if (global_settings.get_item_string("a11y", "type", null) == null)
+            {
+                warning("A11y type not set");
+            }
+            else if (global_a11y == null)
+            {
+                message("A11y doesn't exist, creating it");
+                var a11y = new A11yOption(global_settings);
+                global_a11y = a11y;
+                global_a11y.activate();
+            }
+            else
+            {
+                message("Reload existing a11y");
+                global_a11y.activate();
+            }
+        }
+
+        /* Updates API */
+        public void UpdatesSupport (out string[] list)
+        {
+            list = GenericSupport ("Updates");
+        }
+
+        public void UpdatesSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Updates", key1);
+        }
+
+        public void UpdatesGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Updates", key1, key2);
+        }
+
+        public void UpdatesSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Updates", key1, key2, command_to_set);
+        }
+
+        public void UpdatesActivate()
+        {
+            message("Reload updates");
+            if (global_settings.get_item_string("Updates", "type", null) == null)
+            {
+                warning("Updates type not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Updates doesn't exist, creating it");
+                var updates = new UpdatesOption(global_settings);
+                global_updates = updates;
+                global_updates.activate();
+            }
+            else
+            {
+                message("Reload existing updates");
+                global_updates.activate();
+            }
+        }
+
+        /* Environment API */
+        public void EnvironmentSupport (out string[] list)
+        {
+            list = GenericSupport ("Environment");
+        }
+
+        public void EnvironmentSupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Environment", key1);
+        }
+
+        public void EnvironmentGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Environment", key1, key2);
+        }
+
+        public void EnvironmentSet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Environment", key1, key2, command_to_set);
+        }
+
+        /* Proxy API */
+        public void ProxySupport (out string[] list)
+        {
+            list = GenericSupport ("Proxy");
+        }
+
+        public void ProxySupportDetail (string key1, out string[] list)
+        {
+            list = GenericSupportDetail ("Proxy", key1);
+        }
+
+        public void ProxyGet(string key1, string key2, out string command)
+        {
+            command = GenericGet("Proxy", key1, key2);
+        }
+
+        public void ProxySet(string key1, string key2, string command_to_set)
+        {
+            GenericSet("Proxy", key1, key2, command_to_set);
+        }
+
+        public void ProxyActivate()
+        {
+            message("Reload proxy");
+            if (global_settings.get_item_string("Proxy", "http", null) == null)
+            {
+                warning("Proxy http not set");
+            }
+            else if (global_proxy == null)
+            {
+                message("Proxy doesn't exist, creating it");
+                var proxy = new ProxyOption(global_settings);
+                global_proxy = proxy;
+                global_proxy.activate();
+            }
+            else
+            {
+                message("Reload existing proxy");
+                global_proxy.activate();
+            }
+        }
+
         private string[] GenericSupport (string categorie)
         {
             string tmp_support;
@@ -187,7 +502,7 @@ namespace Lxsession
             return command;
         }
 
-        public void GenericSet(string categorie, string key1, string key2, string command_to_set)
+        private void GenericSet(string categorie, string key1, string key2, string command_to_set)
         {
             message ("Set %s %s", key1, key2);
 
@@ -810,7 +1125,7 @@ namespace Lxsession
         }
 
         /* Message */
-        public void MessageManagerLaunch()
+        private void MessageManagerLaunch()
         {
             message("Launch message manager");
             if (global_settings.get_item_string("Session", "message_manager", "command") == null)
@@ -832,7 +1147,7 @@ namespace Lxsession
         }
 
         /* Clipboard */
-        public void ClipboardActivate()
+        private void ClipboardActivate()
         {
             message("Reload clipboard");
             if (global_settings.get_item_string("Session", "clipboard", "command") == null)
@@ -851,391 +1166,6 @@ namespace Lxsession
                 message("Reload existing clipboard");
                 global_clipboard.desactivate();
                 global_clipboard.activate();
-            }
-        }
-
-        /* Keymap */
-        public void KeymapModeGet(out string command)
-        {
-            command = global_settings.keymap_mode;
-            message ("Get keymap mode: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void KeymapModeSet(string command)
-        {
-            message ("Set keymap mode to :%s", command);
-            global_sig.request_keymap_mode_set(command);
-        }
-
-        public void KeymapModelGet(out string command)
-        {
-            command = global_settings.keymap_model;
-            message ("Get keymap model: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void KeymapModelSet(string command)
-        {
-            message ("Set keymap model to :%s", command);
-            global_sig.request_keymap_model_set(command);
-        }
-
-        public void KeymapLayoutGet(out string command)
-        {
-            command = global_settings.keymap_layout;
-            message ("Get keymap layout: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void KeymapLayoutSet(string command)
-        {
-            message ("Set keymap layout to :%s", command);
-            global_sig.request_keymap_layout_set(command);
-        }
-
-        public void KeymapVariantGet(out string command)
-        {
-            command = global_settings.keymap_variant;
-            message ("Get keymap variant: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void KeymapVariantSet(string command)
-        {
-            message ("Set keymap variant to :%s", command);
-            global_sig.request_keymap_variant_set(command);
-        }
-
-        public void KeymapOptionsGet(out string command)
-        {
-            command = global_settings.keymap_options;
-            message ("Get keymap options: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void KeymapOptionsSet(string command)
-        {
-            message ("Set keymap options to :%s", command);
-            global_sig.request_keymap_options_set(command);
-        }
-
-        public void KeymapActivate()
-        {
-            message("Reload keymap");
-            if (global_settings.keymap_mode == null)
-            {
-                warning("Keymap mode not set");
-            }
-            else if (global_keymap == null)
-            {
-                message("Keymap doesn't exist, creating it");
-                var keymap = new KeymapOption(global_settings);
-                global_keymap = keymap;
-                global_keymap.activate();
-            }
-            else
-            {
-                message("Reload existing keymap");
-                global_keymap.activate();
-            }
-        }
-
-        public void XrandrModeGet(out string command)
-        {
-            command = global_settings.xrandr_mode;
-            message ("Get xrandr mode: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void XrandrModeSet(string command)
-        {
-            message ("Set xrandr mode to :%s", command);
-            global_sig.request_xrandr_mode_set(command);
-        }
-
-        public void XrandrCommandGet(out string command)
-        {
-            command = global_settings.xrandr_command;
-            message ("Get xrandr command: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void XrandrCommandSet(string command)
-        {
-            message ("Set xrandr command to :%s", command);
-            global_sig.request_xrandr_command_set(command);
-        }
-
-        public void XrandrActivate()
-        {
-            message("Reload xrandr");
-            if (global_settings.xrandr_mode == null)
-            {
-                warning("Xrandr mode not set");
-            }
-            else if (global_xrandr == null)
-            {
-                message("Xrandr doesn't exist, creating it");
-                var xrandr = new XrandrOption(global_settings);
-                global_xrandr = xrandr;
-                global_xrandr.activate();
-            }
-            else
-            {
-                message("Reload existing xrandr");
-                global_xrandr.activate();
-            }
-        }
-
-        public void SecurityKeyringGet(out string command)
-        {
-            command = global_settings.security_keyring;
-            message ("Get security keyring: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void SecurityKeyringSet(string command)
-        {
-            message ("Set security keyring to :%s", command);
-            global_sig.request_security_keyring_set(command);
-        }
-
-        public void SecurityActivate()
-        {
-            message("Reload security");
-            if (global_settings.security_keyring == null)
-            {
-                warning("Security keyring not set");
-            }
-            else if (global_keyring == null)
-            {
-                message("Keyring doesn't exist, creating it");
-                var keyring = new KeyringOption(global_settings);
-                global_keyring = keyring;
-                global_keyring.activate();
-            }
-            else
-            {
-                message("Reload existing keyring");
-                global_keyring.activate();
-            }
-        }
-
-        public void A11yTypeGet(out string command)
-        {
-            command = global_settings.a11y_type;
-            message ("Get a11y type: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void A11yTypeSet(string command)
-        {
-            message ("Set a11y type to :%s", command);
-            global_sig.request_a11y_type_set(command);
-        }
-
-        public void A11yActivate()
-        {
-            message("Reload a11y");
-            if (global_settings.a11y_type == null)
-            {
-                warning("A11y type not set");
-            }
-            else if (global_a11y == null)
-            {
-                message("A11y doesn't exist, creating it");
-                var a11y = new A11yOption(global_settings);
-                global_a11y = a11y;
-                global_a11y.activate();
-            }
-            else
-            {
-                message("Reload existing a11y");
-                global_a11y.activate();
-            }
-        }
-
-        public void ProxyHttpGet(out string command)
-        {
-            command = global_settings.proxy_http;
-            message ("Get proxy_http: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void ProxyHttpSet(string command)
-        {
-            message ("Set proxy_http to :%s", command);
-            global_sig.request_proxy_http_set(command);
-        }
-
-        public void ProxyActivate()
-        {
-            message("Reload proxy");
-            if (global_settings.proxy_http == null)
-            {
-                warning("Proxy http not set");
-            }
-            else if (global_proxy == null)
-            {
-                message("Proxy doesn't exist, creating it");
-                var proxy = new ProxyOption(global_settings);
-                global_proxy = proxy;
-                global_proxy.activate();
-            }
-            else
-            {
-                message("Reload existing proxy");
-                global_proxy.activate();
-            }
-        }
-
-        public void UpdatesTypeGet(out string command)
-        {
-            command = global_settings.updates_type;
-            message ("Get updates type: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void UpdatesTypeSet(string command)
-        {
-            message ("Set updates type to :%s", command);
-            global_sig.request_updates_type_set(command);
-        }
-
-        public void UpdatesActivate()
-        {
-            message("Reload updates");
-            if (global_settings.updates_type == null)
-            {
-                warning("Updates type not set");
-            }
-            else if (global_updates == null)
-            {
-                message("Updates doesn't exist, creating it");
-                var updates = new UpdatesOption(global_settings);
-                global_updates = updates;
-                global_updates.activate();
-            }
-            else
-            {
-                message("Reload existing updates");
-                global_updates.activate();
-            }
-        }
-
-        /* Laptop mode */
-        public void LaptopModeGet(out string command)
-        {
-            command = global_settings.laptop_mode;
-            message ("Get laptop mode type: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void LaptopModeSet(string command)
-        {
-            message ("Set laptop_mode to :%s", command);
-            global_sig.request_laptop_mode_set(command);
-        }
-
-        /* Dbus */
-        public void DbusLxdeGet(out string command)
-        {
-            command = global_settings.dbus_lxde;
-            message ("Get dbus lxde: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DbusLxdeSet(string command)
-        {
-            message ("Set dbus lxde session:%s", command);
-            global_sig.request_dbus_lxde_set(command);
-        }
-
-        public void DbusGnomeGet(out string command)
-        {
-            command = global_settings.dbus_gnome;
-            message ("Get dbus gnome: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void DbusGnomeSet(string command)
-        {
-            message ("Set dbus gnome session:%s", command);
-            global_sig.request_dbus_gnome_set(command);
-        }
-
-        public void EnvTypeSet(string command)
-        {
-            message ("Set environment type :%s", command);
-            global_sig.request_env_type_set(command);
-        }
-
-        public void EnvTypeGet(out string command)
-        {
-            command = global_settings.env_type;
-            message ("Get environment type: %s", command);
-            if (command == null)
-            {
-                command = "";
-            }
-        }
-
-        public void EnvMenuPrefixSet(string command)
-        {
-            message ("Set environment menu prefix :%s", command);
-            global_sig.request_env_menu_prefix_set(command);
-        }
-
-        public void EnvMenuPrefixGet(out string command)
-        {
-            command = global_settings.env_menu_prefix;
-            message ("Get environment menu prefix: %s", command);
-            if (command == null)
-            {
-                command = "";
             }
         }
 

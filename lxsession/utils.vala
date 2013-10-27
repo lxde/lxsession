@@ -98,43 +98,6 @@ public class LxSignals : Object
     /* Xsettings */
     public signal void reload_settings_daemon();
 
-    /* Keymap control */
-    public signal void request_keymap_mode_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="mode", string? kf_key2=null);
-    public signal void request_keymap_model_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="model", string? kf_key2=null);
-    public signal void request_keymap_layout_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="layout", string? kf_key2=null);
-    public signal void request_keymap_variant_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="variant", string? kf_key2=null);
-    public signal void request_keymap_options_set (string dbus_arg, string kf_categorie="Keymap", string kf_key1="options", string? kf_key2=null);
-
-    /* XRandr */
-    public signal void request_xrandr_mode_set (string dbus_arg, string kf_categorie="XRandr", string kf_key1="mode", string? kf_key2=null);
-    public signal void request_xrandr_command_set (string dbus_arg, string kf_categorie="XRandr", string kf_key1="command", string? kf_key2=null);
-
-    /* Security */
-    public signal void request_security_keyring_set (string dbus_arg, string kf_categorie="Security", string kf_key1="keyring", string? kf_key2=null);
-
-    /* a11y */
-    public signal void request_a11y_type_set (string dbus_arg, string kf_categorie="a11y", string kf_key1="type", string? kf_key2=null);
-
-    /* Proxy */
-    public signal void request_proxy_http_set (string dbus_arg, string kf_categorie = "Proxy", string kf_key1="http", string? kf_key2=null);
-
-    /* Updates */
-    public signal void request_updates_type_set (string dbus_arg, string kf_categorie="Updates", string kf_key1="type", string? kf_key2=null);
-
-    /* State */
-    public signal void request_laptop_mode_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "laptop_mode", string? kf_key2 = null);
-    public signal void request_guess_default_state_set(string dbus_arg, string kf_categorie = "State", string kf_key1 = "guess_default", string? kf_key2 = null);
-
-
-    /* Dbus */
-    public signal void request_dbus_lxde_set(string dbus_arg, string kf_categorie="Dbus", string kf_key1="lxde", string? kf_key2=null);
-    public signal void request_dbus_gnome_set(string dbus_arg, string kf_categorie="Dbus", string kf_key1="gnome", string? kf_key2=null);
-
-
-    /* Environment */
-    public signal void request_env_type_set(string dbus_arg, string kf_categorie = "Environment", string kf_key1 = "type", string? kf_key2=null);
-    public signal void request_env_menu_prefix_set(string dbus_arg, string kf_categorie = "Environment", string kf_key1="menu_prefix", string? kf_key2=null);
-
     /* Mime */
     public signal void request_mime_distro_set(string dbus_arg, string kf_categorie = "Mime", string kf_key1 = "distro", string? kf_key2=null);
     public signal void request_mime_folders_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "folders", string kf_key2="installed");

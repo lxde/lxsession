@@ -30,41 +30,6 @@ namespace Lxsession
         public string session_name { get; set; default = "LXDE";}
         public string desktop_env_name { get; set; default = "LXDE";}
 
-        /* State */
-        public string laptop_mode { get; set; default = null;}
-        public string guess_default_state { get; set; default = "true";}
-
-        /* Dbus */
-        public string dbus_lxde { get; set; default = "true";}
-        public string dbus_gnome { get; set; default = null;}
-
-        /* Keymap */
-        public string keymap_mode { get; set; default = null;}
-        public string keymap_model { get; set; default = null;}
-        public string keymap_layout { get; set; default = null;}
-        public string keymap_variant { get; set; default = null;}
-        public string keymap_options { get; set; default = null;}
-
-        /* Xrandr */
-        public string xrandr_mode { get; set; default = null;}
-        public string xrandr_command { get; set; default = null;}
-
-        /* Security */
-        public string security_keyring { get; set; default = null;}
-
-        /* a11y */
-        public string a11y_type { get; set; default = "gnome";}
-
-        /* Updates */
-        public string updates_type { get; set; default = null;}
-
-        /* Proxy */
-        public string proxy_http { get; set; default = null;}
-
-        /* Environnement */
-        public string env_type { get; set; default = null;}
-        public string env_menu_prefix { get; set; default = "lxde-";}
-
         /* Mime */
         public string   mime_distro { get; set; default = null;}
         public string   mime_format_installed { get; set; default = null;}
@@ -80,12 +45,30 @@ namespace Lxsession
         public HashMap<string, string> config_item_db;
         public HashMap<string, string> session_support_item_db;
         public HashMap<string, string> xsettings_support_item_db;
+        public HashMap<string, string> state_support_item_db;
+        public HashMap<string, string> dbus_support_item_db;
+        public HashMap<string, string> keymap_support_item_db;
+        public HashMap<string, string> xrandr_support_item_db;
+        public HashMap<string, string> security_support_item_db;
+        public HashMap<string, string> ally_support_item_db;
+        public HashMap<string, string> updates_support_item_db;
+        public HashMap<string, string> environment_support_item_db;
+        public HashMap<string, string> proxy_support_item_db;
 
         public LxsessionConfig ()
         {
             config_item_db = init_item_db();
             session_support_item_db = init_item_db();
             xsettings_support_item_db = init_item_db();
+            state_support_item_db = init_item_db();
+            dbus_support_item_db = init_item_db();
+            keymap_support_item_db = init_item_db();
+            xrandr_support_item_db = init_item_db();
+            security_support_item_db = init_item_db();
+            ally_support_item_db = init_item_db();
+            updates_support_item_db = init_item_db();
+            environment_support_item_db = init_item_db();
+            proxy_support_item_db = init_item_db();
         }
 
         private HashMap<string, string> init_item_db ()
@@ -155,6 +138,9 @@ namespace Lxsession
                 case "Session":
                     support_db = session_support_item_db;
                     break;
+                case "Xsettings":
+                    support_db = xsettings_support_item_db;
+                    break;
                 case "GTK":
                     support_db = xsettings_support_item_db;
                     break;
@@ -163,6 +149,33 @@ namespace Lxsession
                     break;
                 case "Keyboard":
                     support_db = xsettings_support_item_db;
+                    break;
+                case "State":
+                    support_db = state_support_item_db;
+                    break;
+                case "Dbus":
+                    support_db = dbus_support_item_db;
+                    break;
+                case "Keymap":
+                    support_db = keymap_support_item_db;
+                    break;
+                case "XRandr":
+                    support_db = xrandr_support_item_db;
+                    break;
+                case "Security":
+                    support_db = security_support_item_db;
+                    break;
+                case "a11y":
+                    support_db = ally_support_item_db;
+                    break;
+                case "Updates":
+                    support_db = updates_support_item_db;
+                    break;
+                case "Environment":
+                    support_db = environment_support_item_db;
+                    break;
+                case "Proxy":
+                    support_db = proxy_support_item_db;
                     break;
             }
 
@@ -236,41 +249,6 @@ namespace Lxsession
         {
             /* Connect to signals changes */
             global_sig.generic_set_signal.connect(on_update_generic);
-
-            /* Keymap */
-            global_sig.request_keymap_mode_set.connect(on_update_string_set);
-            global_sig.request_keymap_model_set.connect(on_update_string_set);
-            global_sig.request_keymap_layout_set.connect(on_update_string_set);
-            global_sig.request_keymap_variant_set.connect(on_update_string_set);
-            global_sig.request_keymap_options_set.connect(on_update_string_set);
-
-            /* Xrandr */
-            global_sig.request_xrandr_mode_set.connect(on_update_string_set);
-            global_sig.request_xrandr_command_set.connect(on_update_string_set);
-
-            /* Security */
-            global_sig.request_security_keyring_set.connect(on_update_string_set);
-
-            /* a11y */
-            global_sig.request_a11y_type_set.connect(on_update_string_set);
-
-            /* Updates */
-            global_sig.request_updates_type_set.connect(on_update_string_set);
-
-            /* Laptop mode */
-            global_sig.request_laptop_mode_set.connect(on_update_string_set);
-            global_sig.request_guess_default_state_set.connect(on_update_string_set);
-
-            /* Dbus */
-            global_sig.request_dbus_lxde_set.connect(on_update_string_set);
-            global_sig.request_dbus_gnome_set.connect(on_update_string_set);
-
-            /* Environment */
-            global_sig.request_env_type_set.connect(on_update_string_set);
-            global_sig.request_env_menu_prefix_set.connect(on_update_string_set);
-
-            /* Proxy */
-            global_sig.request_proxy_http_set.connect(on_update_string_set);
 
             /* Mime */
             global_sig.request_mime_distro_set.connect(on_update_string_set);
@@ -347,6 +325,10 @@ namespace Lxsession
             set_generic_default("Keyboard", "Interval", null, "string", "30");
             set_generic_default("Keyboard", "Beep", null, "string", "1");
 
+            /* Misc */
+            set_generic_default("State", "guess_default", null, "string", "true");
+            set_generic_default("Dbus", "lxde", null, "string", "true");
+            set_generic_default("Environment", "menu_prefix", null, "string", "lxde-");
 
             /*  Distributions, if you want to ensure good transition from previous version of lxsession
                 you need to patch here to set the default for various new commands
@@ -484,7 +466,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         init_mime();
 
         /* Guess default */
-        if (this.guess_default_state == "true")
+        if (get_item_string("State", "guess_default", null) != "false")
         {
             guess_default();
         }
@@ -832,32 +814,33 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "tasks", "command", "string");
 
         /* Keymap */
-        this.keymap_mode = read_keyfile_string_value (kf, "Keymap", "mode", null, this.keymap_mode);
-        if (this.keymap_mode != null)
+        if (read_keyfile_string_value(kf, "Keymap", "mode", null, null) != null)
         {
-            this.keymap_model = read_keyfile_string_value (kf, "Keymap", "model", null, this.keymap_model);
-            this.keymap_layout = read_keyfile_string_value (kf, "Keymap", "layout", null, this.keymap_layout);
-            this.keymap_variant = read_keyfile_string_value (kf, "Keymap", "variant", null, this.keymap_variant);
-            this.keymap_options = read_keyfile_string_value (kf, "Keymap", "options", null, this.keymap_options);
+            read_key_value(kf, "Keymap", "mode", null, "string");
+            read_key_value(kf, "Keymap", "model", null, "string");
+            read_key_value(kf, "Keymap", "layout", null, "string");
+            read_key_value(kf, "Keymap", "variant", null, "string");
+            read_key_value(kf, "Keymap", "options", null, "string");
         }
 
         /* Xrandr */
-        this.xrandr_mode = read_keyfile_string_value (kf, "XRandr", "mode", null, this.xrandr_mode);
-        if (this.xrandr_mode != null)
+        if (read_keyfile_string_value(kf, "XRandr", "mode", null, null) != null)
         {
-            this.xrandr_command = read_keyfile_string_value (kf, "XRandr", "command", null, this.xrandr_command);
+            read_key_value(kf, "XRandr", "mode", null, "string");
+            read_key_value(kf, "XRandr", "command", null, "string");
         }
 
         /* Other */
-        this.laptop_mode = read_keyfile_string_value(kf, "State", "laptop_mode", null, this.laptop_mode);
-        this.guess_default_state = read_keyfile_string_value(kf, "State", "guess_default", null, this.guess_default_state);
-        this.dbus_lxde = read_keyfile_string_value (kf, "Dbus", "lxde", null, this.dbus_lxde);
-        this.dbus_gnome = read_keyfile_string_value (kf, "Dbus", "gnome", null, this.dbus_gnome);
-        this.security_keyring = read_keyfile_string_value (kf, "Security", "keyring", null, this.security_keyring);
-        this.a11y_type = read_keyfile_string_value (kf, "a11y", "type", null, this.a11y_type);
-        this.updates_type = read_keyfile_string_value (kf, "Updates", "type", null, this.updates_type);
-        this.env_type = read_keyfile_string_value (kf, "Environment", "type", null, this.env_type);
-        this.env_menu_prefix = read_keyfile_string_value (kf, "Environment", "menu_prefix", null, this.env_menu_prefix);
+        read_key_value(kf, "State", "laptop_mode", null, "string");
+        read_key_value(kf, "State", "guess_default", null, "string");
+        read_key_value(kf, "Dbus", "lxde", null, "string");
+        read_key_value(kf, "Dbus", "gnome", null, "string");
+        read_key_value(kf, "Security", "keyring", null, "string");
+        read_key_value(kf, "a11y", "type", null, "string");
+        read_key_value(kf, "Updates", "type", null, "string");
+        read_key_value(kf, "Environment", "type", null, "string");
+        read_key_value(kf, "Environment", "menu_prefix", null, "string");
+        read_key_value(kf, "Proxy", "http", null, "string");
 
         read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
         read_key_value(kf, "GTK", "sNet", "IconThemeName", "string");
@@ -1068,7 +1051,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
             init_mime();
 
             /* Guess default */
-            if (this.guess_default_state == "true")
+            if (get_item_string("State", "guess_default", null) != "false")
             {
                 guess_default();
             }
@@ -1164,7 +1147,7 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
     {
 
         /* override razor menu prefix */
-        this.env_menu_prefix = "razor-";
+        set_generic_default("Environment", "menu_prefix", null, "string", "razor-");
 
         kf_session = load_keyfile (session_razor_config_path);
 

@@ -501,7 +501,7 @@ public class PowerManagerApp: SimpleAppObject
     public override void read_settings()
     {
         powermanager_command = global_settings.get_item_string("Session", "power_manager", "command");
-        laptop_mode = global_settings.laptop_mode;
+        laptop_mode = global_settings.get_item_string("State", "laptop_mode", null);
 
         switch (powermanager_command) 
         {
@@ -728,7 +728,7 @@ public class NetworkGuiApp: SimpleAppObject
     public override void read_settings()
     {
         network_command = global_settings.get_item_string("Session", "network_gui", "command");
-        laptop_mode = global_settings.laptop_mode;
+        laptop_mode = global_settings.get_item_string("State", "laptop_mode", null);
 
         switch (network_command)
         {

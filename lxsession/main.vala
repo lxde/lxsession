@@ -263,7 +263,7 @@ namespace Lxsession {
 
             if (global_settings.get_item_string("Session", "power_manager", "command") != null)
             {
-                if (global_settings.laptop_mode == "unknown")
+                if (global_settings.get_item_string("State", "laptop_mode", null) == "unknown")
                 {
                     /*  Test if you are on laptop, but don't wait the update on Settings object to launch
                         the program */
@@ -274,7 +274,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.request_laptop_mode_set(state_text);
+                    global_sig.generic_set_signal(state_text, "State", "laptop_mode", null);
                     var powermanager = new PowerManagerApp();
                     global_power_manager = powermanager;
                     global_power_manager.launch();
@@ -289,7 +289,7 @@ namespace Lxsession {
 
             if (global_settings.get_item_string("Session", "network_gui", "command") != null)
             {
-                if (global_settings.laptop_mode == "unknown")
+                if (global_settings.get_item_string("State", "laptop_mode", null) == "unknown")
                 {
                     /* test if you are on laptop, but don't wait the update on Settings object to launch the program */
                     bool state = detect_laptop();
@@ -298,7 +298,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.request_laptop_mode_set(state_text);
+                    global_sig.generic_set_signal(state_text, "State", "laptop_mode", null);
                     var networkgui = new NetworkGuiApp();
                     global_network_gui = networkgui;
                     global_network_gui.launch();
@@ -406,8 +406,8 @@ namespace Lxsession {
             global_clipboard.activate();
         }
 
-        message ("Check keymap_mode %s", global_settings.keymap_mode);
-        if (global_settings.keymap_mode != null)
+        message ("Check keymap_mode %s", global_settings.get_item_string("Keymap", "mode", null));
+        if (global_settings.get_item_string("Keymap", "mode", null) != null)
         {
             message("Create Option Keymap");
             var keymap = new KeymapOption(global_settings);
@@ -415,35 +415,35 @@ namespace Lxsession {
             global_keymap.activate();
         }
 
-        if (global_settings.xrandr_mode != null)
+        if (global_settings.get_item_string("XRandr", "mode", null) != null)
         {
             var xrandr = new XrandrOption(global_settings);
             global_xrandr = xrandr;
             xrandr.activate();
         }
 
-        if (global_settings.security_keyring != null)
+        if (global_settings.get_item_string("Security", "keyring", null) != null)
         {
             var keyring = new KeyringOption(global_settings);
             global_keyring = keyring;
             global_keyring.activate();
         }
 
-        if (global_settings.a11y_type == "true")
+        if (global_settings.get_item_string("a11y", "type", null) == "true")
         {
             var a11y = new A11yOption(global_settings);
             global_a11y = a11y;
             global_a11y.activate();
         }
 
-        if (global_settings.proxy_http != null)
+        if (global_settings.get_item_string("Proxy", "http", null) != null)
         {
             var proxy = new ProxyOption(global_settings);
             global_proxy = proxy;
             global_proxy.activate();
         }
 
-        if (global_settings.updates_type != null)
+        if (global_settings.get_item_string("Updates", "type", null) != null)
         {
             var updates = new UpdatesOption(global_settings);
             global_updates = updates;
@@ -458,7 +458,7 @@ namespace Lxsession {
         }
 
         /* DBus Serveurs */
-        if (global_settings.dbus_lxde == "true")
+        if (global_settings.get_item_string("Dbus", "lxde", null) == "true")
         {
             Bus.own_name (BusType.SESSION, "org.lxde.SessionManager", BusNameOwnerFlags.NONE,
                           on_bus_aquired,
@@ -466,7 +466,7 @@ namespace Lxsession {
                           () => warning ("Could not aquire name\n"));
         }
 
-        if (global_settings.dbus_gnome == "true") 
+        if (global_settings.get_item_string("Dbus", "gnome", null) == "true") 
         {
 
             Bus.own_name (BusType.SESSION, "org.gnome.SessionManager", BusNameOwnerFlags.NONE,

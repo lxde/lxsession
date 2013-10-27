@@ -66,7 +66,7 @@ namespace Lxsession
             home_path = Environment.get_variable("HOME");
             config_home = Environment.get_variable("XDG_CONFIG_HOME");
 
-            Environment.set_variable("XDG_MENU_PREFIX", global_settings.env_menu_prefix, true);
+            Environment.set_variable("XDG_MENU_PREFIX", global_settings.get_item_string("Environment", "menu_prefix", null), true);
 
             set_xdg_dirs ();
             set_misc ();
@@ -123,7 +123,7 @@ namespace Lxsession
                 custom_data ="/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
             }
 
-            switch (global_settings.env_type)
+            switch (global_settings.get_item_string("Environment", "type", null))
             {
                 case "lubuntu":
                     custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;

@@ -60,7 +60,7 @@ namespace Lxsession
         public KeymapOption (LxsessionConfig config)
         {
             base (config);
-            if (config.keymap_mode == "user")
+            if (config.get_item_string("Keymap", "mode", null) == "user")
             {
                 command = create_user_mode_command(config);
             }
@@ -69,30 +69,30 @@ namespace Lxsession
         {
             var builder = new StringBuilder ();
             builder.append("setxkbmap ");
-            if (config.keymap_model != null)
+            if (config.get_item_string("Keymap", "model", null) != null)
             {
                 builder.append("-model ");
-                builder.append(config.keymap_model);
+                builder.append(config.get_item_string("Keymap", "model", null));
                 builder.append(" ");
             }
-            if (config.keymap_layout != null)
+            if (config.get_item_string("Keymap", "layout", null) != null)
             {
                 builder.append("-layout ");
-                builder.append(config.keymap_layout);
+                builder.append(config.get_item_string("Keymap", "layout", null));
                 builder.append(" ");
             }
-            if (config.keymap_variant != null)
+            if (config.get_item_string("Keymap", "variant", null) != null)
             {
                 builder.append("-variant ");
-                message ("Show keymap variant : %s", config.keymap_variant);
-                builder.append(config.keymap_variant);
+                message ("Show keymap variant : %s", config.get_item_string("Keymap", "variant", null));
+                builder.append(config.get_item_string("Keymap", "variant", null));
                 builder.append(" ");
             }
-            if (config.keymap_options != null)
+            if (config.get_item_string("Keymap", "options", null) != null)
             {
                 builder.append("-options ");
-                message ("Show keymap options : %s", config.keymap_options);
-                builder.append(config.keymap_options);
+                message ("Show keymap options : %s", config.get_item_string("Keymap", "options", null));
+                builder.append(config.get_item_string("Keymap", "options", null));
                 builder.append(" ");
             }
 
@@ -106,14 +106,14 @@ namespace Lxsession
         public XrandrOption (LxsessionConfig config)
         {
             base (config);
-            if (config.xrandr_mode == "command")
+            if (config.get_item_string("XRandr", "mode", null) == "command")
             {
                 command = create_command_mode_command(config);
             }
         }
         public string create_command_mode_command(LxsessionConfig config)
         {
-            command = config.xrandr_command;
+            command = config.get_item_string("XRandr", "command", null);
             return command;
         }
     }
@@ -127,7 +127,7 @@ namespace Lxsession
         public KeyringOption (LxsessionConfig config)
         {
             base (config);
-            switch (config.security_keyring)
+            switch (config.get_item_string("Security", "keyring", null))
             {
                 case "gnome-all":
                     command1 = "gnome-keyring-daemon --start --components=gpg";
@@ -178,7 +178,7 @@ namespace Lxsession
         public A11yOption (LxsessionConfig config)
         {
             base (config);
-            switch (config.a11y_type)
+            switch (config.get_item_string("a11y", "type", null))
             {
                 case "gnome":
                     command1 = "/usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately";
@@ -230,7 +230,7 @@ namespace Lxsession
         public UpdatesOption (LxsessionConfig config)
         {
             base (config);
-            switch (config.updates_type)
+            switch (config.get_item_string("Updates", "type", null))
             {
                 case "update-notifier":
                     this.command1 = "update-notifier";
@@ -357,7 +357,7 @@ namespace Lxsession
         }
         public new void activate ()
         {
-            http = global_settings.proxy_http;
+            http = global_settings.get_item_string("Proxy", "http", null);
 
             switch (http)
             {
