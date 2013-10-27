@@ -319,7 +319,7 @@ namespace LDefaultApps
         /* Keymap init */
         var keymap_mode_combobox = new Gtk.ComboBox();
         string[] keymap_mode_commands = { "", "user"};
-        string keymap_mode_default = dbus_backend.KeymapModeGet();
+        string keymap_mode_default = dbus_backend.KeymapGet("mode", null);
         keymap_mode_combobox = ui_combobox_init(    builder,
                                                     "keymap_mode_combobox",
                                                     keymap_mode_commands,
@@ -327,25 +327,25 @@ namespace LDefaultApps
                                                     keymap_mode_default);
 
         var keymap_model_entry = builder.get_object("keymap_model_entry") as Gtk.Entry;
-        keymap_model_entry.set_text(dbus_backend.KeymapModelGet());
+        keymap_model_entry.set_text(dbus_backend.KeymapGet("model", null));
 
         var keymap_layout_entry = builder.get_object("keymap_layout_entry") as Gtk.Entry;
-        keymap_layout_entry.set_text(dbus_backend.KeymapLayoutGet());
+        keymap_layout_entry.set_text(dbus_backend.KeymapGet("layout", null));
 
         var keymap_variant_entry = builder.get_object("keymap_variant_entry") as Gtk.Entry;
-        keymap_variant_entry.set_text(dbus_backend.KeymapVariantGet());
+        keymap_variant_entry.set_text(dbus_backend.KeymapGet("variant", null));
 
         var keymap_options_entry = builder.get_object("keymap_options_entry") as Gtk.Entry;
-        keymap_options_entry.set_text(dbus_backend.KeymapOptionsGet());
+        keymap_options_entry.set_text(dbus_backend.KeymapGet("options", null));
 
         var keymap_apply_button = builder.get_object("keymap_apply") as Gtk.Button;
         keymap_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.KeymapModeSet(return_combobox_text(keymap_mode_combobox));
-            dbus_backend.KeymapModelSet(keymap_model_entry.get_text());
-            dbus_backend.KeymapLayoutSet(keymap_layout_entry.get_text());
-            dbus_backend.KeymapVariantSet(keymap_variant_entry.get_text());
-            dbus_backend.KeymapOptionsSet(keymap_options_entry.get_text());
+            dbus_backend.KeymapSet("mode", null, return_combobox_text(keymap_mode_combobox));
+            dbus_backend.KeymapSet("model", null, keymap_model_entry.get_text());
+            dbus_backend.KeymapSet("layout", null, keymap_layout_entry.get_text());
+            dbus_backend.KeymapSet("variant", null, keymap_variant_entry.get_text());
+            dbus_backend.KeymapSet("options", null, keymap_options_entry.get_text());
         });
 
         var keymap_reload_button = builder.get_object("keymap_reload") as Gtk.Button;
@@ -356,7 +356,7 @@ namespace LDefaultApps
         /* Xrandr */
         var xrandr_mode_combobox = new Gtk.ComboBox();
         string[] xrandr_mode_commands = { "", "command"};
-        string xrandr_mode_default = dbus_backend.XrandrModeGet();
+        string xrandr_mode_default = dbus_backend.XrandrGet("mode", null);
         xrandr_mode_combobox = ui_combobox_init(    builder,
                                                     "xrandr_mode_combobox",
                                                     xrandr_mode_commands,
@@ -364,13 +364,13 @@ namespace LDefaultApps
                                                     xrandr_mode_default);
 
         var xrandr_command_entry = builder.get_object("xrandr_command_entry") as Gtk.Entry;
-        xrandr_command_entry.set_text(dbus_backend.XrandrCommandGet());
+        xrandr_command_entry.set_text(dbus_backend.XrandrGet("command", null));
 
         var xrandr_apply_button = builder.get_object("xrandr_apply") as Gtk.Button;
         xrandr_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.XrandrModeSet(return_combobox_text(xrandr_mode_combobox));
-            dbus_backend.XrandrCommandSet(xrandr_command_entry.get_text());
+            dbus_backend.XrandrSet("mode", null, return_combobox_text(xrandr_mode_combobox));
+            dbus_backend.XrandrSet("command", null, xrandr_command_entry.get_text());
         });
 
         var xrandr_reload_button = builder.get_object("xrandr_reload") as Gtk.Button;
@@ -381,7 +381,7 @@ namespace LDefaultApps
         /* Security */
         var security_keyring_combobox = new Gtk.ComboBox();
         string[] security_keyring_commands = { "", "gnome", "ssh-agent"};
-        string security_keyring_default = dbus_backend.SecurityKeyringGet();
+        string security_keyring_default = dbus_backend.SecurityGet("keyring", null);
         security_keyring_combobox = ui_combobox_init(   builder,
                                                         "security_keyring_combobox",
                                                         security_keyring_commands,
@@ -391,7 +391,7 @@ namespace LDefaultApps
         var security_apply_button = builder.get_object("security_apply") as Gtk.Button;
         security_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.SecurityKeyringSet(return_combobox_text(security_keyring_combobox));
+            dbus_backend.SecuritySet("keyring", null, return_combobox_text(security_keyring_combobox));
         });
 
         var security_reload_button = builder.get_object("security_reload") as Gtk.Button;
@@ -402,7 +402,7 @@ namespace LDefaultApps
         /* a11y */
         var a11y_type_combobox = new Gtk.ComboBox();
         string[] a11y_type_commands = { "", "gnome"};
-        string a11y_type_default = dbus_backend.A11yTypeGet();
+        string a11y_type_default = dbus_backend.A11yGet("type", null);
         a11y_type_combobox = ui_combobox_init(   builder,
                                                     "a11y_type_combobox",
                                                     a11y_type_commands,
@@ -412,7 +412,7 @@ namespace LDefaultApps
         var a11y_apply_button = builder.get_object("a11y_apply") as Gtk.Button;
         a11y_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.A11yTypeSet(return_combobox_text(a11y_type_combobox));
+            dbus_backend.A11ySet("type", null, return_combobox_text(a11y_type_combobox));
         });
 
         var a11y_reload_button = builder.get_object("a11y_reload") as Gtk.Button;
@@ -423,7 +423,7 @@ namespace LDefaultApps
         /* Updates */
         var updates_type_combobox = new Gtk.ComboBox();
         string[] updates_type_commands = { "", "build-in", "update-notifier"};
-        string updates_type_default = dbus_backend.UpdatesTypeGet();
+        string updates_type_default = dbus_backend.UpdatesGet("type", null);
         updates_type_combobox = ui_combobox_init(   builder,
                                                     "updates_type_combobox",
                                                     updates_type_commands,
@@ -433,7 +433,7 @@ namespace LDefaultApps
         var updates_apply_button = builder.get_object("updates_apply") as Gtk.Button;
         updates_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.UpdatesTypeSet(return_combobox_text(updates_type_combobox));
+            dbus_backend.UpdatesSet("type", null, return_combobox_text(updates_type_combobox));
         });
 
         var updates_reload_button = builder.get_object("updates_reload") as Gtk.Button;
@@ -444,7 +444,7 @@ namespace LDefaultApps
         /* Laptop mode */
         var laptop_mode_combobox = new Gtk.ComboBox();
         string[] laptop_mode_commands = { "no", "yes", "unknown"};
-        string laptop_mode_default = dbus_backend.LaptopModeGet();
+        string laptop_mode_default = dbus_backend.StateGet("laptop_mode", null);
         laptop_mode_combobox = ui_combobox_init(  builder,
                                                   "laptop_mode_combobox",
                                                   laptop_mode_commands,
@@ -452,7 +452,7 @@ namespace LDefaultApps
                                                   laptop_mode_default);
 
         laptop_mode_combobox.changed.connect (() => {
-            dbus_backend.LaptopModeSet(return_combobox_text(laptop_mode_combobox));
+            dbus_backend.StateSet("laptop_mode", null, return_combobox_text(laptop_mode_combobox));
         });
 
         /* Dbus */
@@ -461,7 +461,7 @@ namespace LDefaultApps
 
         dbus_vbox.add(dbus_gnome_checkbutton);
 
-        if (dbus_backend.DbusGnomeGet() == "true")
+        if (dbus_backend.DbusGet("gnome", null) == "true")
         {
             dbus_gnome_checkbutton.set_active(true);
         }
@@ -474,18 +474,18 @@ namespace LDefaultApps
             message ("Click !");
             if (dbus_gnome_checkbutton.get_active())
             {
-                dbus_backend.DbusGnomeSet("true");
+                dbus_backend.DbusSet("gnome", null, "true");
             }
             else
             {
-                dbus_backend.DbusGnomeSet("false");
+                dbus_backend.DbusSet("gnome", null, "false");
             }
         });
 
         /* Environment */
         var environment_type_combobox = new Gtk.ComboBox();
         string[] environment_type_commands = { "", "lubuntu"};
-        string environment_type_default = dbus_backend.EnvTypeGet();
+        string environment_type_default = dbus_backend.EnvironmentGet("type", null);
         environment_type_combobox = ui_combobox_init(   builder,
                                                         "environment_type_combobox",
                                                         environment_type_commands,
@@ -493,26 +493,26 @@ namespace LDefaultApps
                                                         environment_type_default);
 
         environment_type_combobox.changed.connect (() => {
-            dbus_backend.EnvTypeSet(return_combobox_text(environment_type_combobox));
+            dbus_backend.EnvironmentSet("type", null, return_combobox_text(environment_type_combobox));
         });
 
         var enviroment_menu_prefix_entry = builder.get_object("environment_menu_prefix_entry") as Gtk.Entry;
-        enviroment_menu_prefix_entry.set_text(dbus_backend.EnvMenuPrefixGet());
+        enviroment_menu_prefix_entry.set_text(dbus_backend.EnvironmentGet("menu_prefix", null));
 
         var env_apply_button = builder.get_object("env_apply") as Gtk.Button;
         env_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.EnvMenuPrefixSet(enviroment_menu_prefix_entry.get_text());
+            dbus_backend.EnvironmentSet("menu_prefix", null, enviroment_menu_prefix_entry.get_text());
         });
 
         /* Proxy */
         var proxy_http_entry = builder.get_object("proxy_http_entry") as Gtk.Entry;
-        proxy_http_entry.set_text(dbus_backend.ProxyHttpGet());
+        proxy_http_entry.set_text(dbus_backend.ProxyGet("http", null));
 
         var proxy_apply_button = builder.get_object("proxy_apply") as Gtk.Button;
         proxy_apply_button.clicked.connect (() => {
             message ("Click !");
-            dbus_backend.ProxyHttpSet(proxy_http_entry.get_text());
+            dbus_backend.ProxySet("http", null, proxy_http_entry.get_text());
         });
 
         var proxy_reload_button = builder.get_object("proxy_reload") as Gtk.Button;

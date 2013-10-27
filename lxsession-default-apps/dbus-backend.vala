@@ -27,43 +27,37 @@ namespace LDefaultApps
         public abstract string[] SessionSupportDetail (string key1) throws IOError;
 
         public abstract void KeymapActivate () throws IOError;
-        public abstract void KeymapModeSet (string arg) throws IOError;
-        public abstract string KeymapModeGet () throws IOError;
-        public abstract void KeymapModelSet (string arg) throws IOError;
-        public abstract string KeymapModelGet () throws IOError;
-        public abstract void KeymapLayoutSet (string arg) throws IOError;
-        public abstract string KeymapLayoutGet () throws IOError;
-        public abstract void KeymapVariantSet (string arg) throws IOError;
-        public abstract string KeymapVariantGet () throws IOError;
-        public abstract void KeymapOptionsSet (string arg) throws IOError;
-        public abstract string KeymapOptionsGet () throws IOError;
+        public abstract void KeymapSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string KeymapGet (string key1, string? key2) throws IOError;
+
         public abstract void XrandrActivate () throws IOError;
-        public abstract void XrandrModeSet (string arg) throws IOError;
-        public abstract string XrandrModeGet () throws IOError;
-        public abstract void XrandrCommandSet (string arg) throws IOError;
-        public abstract string XrandrCommandGet () throws IOError;
+        public abstract void XrandrSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string XrandrGet (string key1, string? key2) throws IOError;
+
         public abstract void SecurityActivate () throws IOError;
-        public abstract void SecurityKeyringSet (string arg) throws IOError;
-        public abstract string SecurityKeyringGet () throws IOError;
+        public abstract void SecuritySet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string SecurityGet (string key1, string? key2) throws IOError;
+
         public abstract void A11yActivate () throws IOError;
-        public abstract void A11yTypeSet (string arg) throws IOError;
-        public abstract string A11yTypeGet () throws IOError;
+        public abstract void A11ySet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string A11yGet (string key1, string? key2) throws IOError;
+
         public abstract void ProxyActivate () throws IOError;
-        public abstract void ProxyHttpSet (string arg) throws IOError;
-        public abstract string ProxyHttpGet () throws IOError;
+        public abstract void ProxySet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string ProxyGet (string key1, string? key2) throws IOError;
+
         public abstract void UpdatesActivate () throws IOError;
-        public abstract void UpdatesTypeSet (string arg) throws IOError;
-        public abstract string UpdatesTypeGet () throws IOError;
-        public abstract void LaptopModeSet (string arg) throws IOError;
-        public abstract string LaptopModeGet () throws IOError;
-        public abstract void DbusLxdeSet (string arg) throws IOError;
-        public abstract string DbusLxdeGet () throws IOError;
-        public abstract void DbusGnomeSet (string arg) throws IOError;
-        public abstract string DbusGnomeGet () throws IOError;
-        public abstract void EnvTypeSet (string arg) throws IOError;
-        public abstract string EnvTypeGet () throws IOError;
-        public abstract void EnvMenuPrefixSet (string arg) throws IOError;
-        public abstract string EnvMenuPrefixGet () throws IOError;
+        public abstract void UpdatesSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string UpdatesGet (string key1, string? key2) throws IOError;
+
+        public abstract void StateSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string StateGet (string key1, string? key2) throws IOError;
+
+        public abstract void DbusSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string DbusGet (string key1, string? key2) throws IOError;
+
+        public abstract void EnvironmentSet (string key1, string? key2, string command_to_set) throws IOError;
+        public abstract string EnvironmentGet (string key1, string? key2) throws IOError;
     }
 
     public class DbusBackend : GLib.Object
@@ -87,6 +81,10 @@ namespace LDefaultApps
         public string SessionGet (string key1, string? key2)
         {
             string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 return_value = dbus_lxsession.SessionGet(key1, key2);
@@ -162,11 +160,11 @@ namespace LDefaultApps
             }
         }
 
-        public void KeymapModeSet(string arg)
+        public void KeymapSet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.KeymapModeSet(arg);
+                dbus_lxsession.KeymapSet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -174,117 +172,22 @@ namespace LDefaultApps
             }
         }
 
-        public string KeymapModeGet()
+        public string KeymapGet(string key1, string? key2)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
+            string return_value = null;
             try
             {
-                return dbus_lxsession.KeymapModeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void KeymapModelSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.KeymapModelSet(arg);
+                return_value = dbus_lxsession.KeymapGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
             }
-        }
-
-        public string KeymapModelGet()
-        {
-            try
-            {
-                return dbus_lxsession.KeymapModelGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void KeymapLayoutSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.KeymapLayoutSet(arg);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string KeymapLayoutGet()
-        {
-            try
-            {
-                return dbus_lxsession.KeymapLayoutGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void KeymapVariantSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.KeymapVariantSet(arg);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string KeymapVariantGet()
-        {
-            try
-            {
-                return dbus_lxsession.KeymapVariantGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void KeymapOptionsSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.KeymapOptionsSet(arg);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string KeymapOptionsGet()
-        {
-            try
-            {
-                return dbus_lxsession.KeymapOptionsGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
+            return return_value;
         }
 
         public void XrandrActivate()
@@ -299,11 +202,11 @@ namespace LDefaultApps
             }
         }
 
-        public void XrandrModeSet(string arg)
+        public void XrandrSet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.XrandrModeSet(arg);
+                dbus_lxsession.XrandrSet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -311,42 +214,22 @@ namespace LDefaultApps
             }
         }
 
-        public string XrandrModeGet()
+        public string XrandrGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.XrandrModeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void XrandrCommandSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.XrandrCommandSet(arg);
+                return_value = dbus_lxsession.XrandrGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
             }
-        }
-
-        public string XrandrCommandGet()
-        {
-            try
-            {
-                return dbus_lxsession.XrandrCommandGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
+            return return_value;
         }
 
         public void SecurityActivate()
@@ -361,11 +244,11 @@ namespace LDefaultApps
             }
         }
 
-        public void SecurityKeyringSet(string arg)
+        public void SecuritySet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.SecurityKeyringSet(arg);
+                dbus_lxsession.SecuritySet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -373,17 +256,22 @@ namespace LDefaultApps
             }
         }
 
-        public string SecurityKeyringGet()
+        public string SecurityGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.SecurityKeyringGet();
+                return_value = dbus_lxsession.SecurityGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
-                return "";
             }
+            return return_value;
         }
 
         public void A11yActivate()
@@ -398,11 +286,11 @@ namespace LDefaultApps
             }
         }
 
-        public void A11yTypeSet(string arg)
+        public void A11ySet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.A11yTypeSet(arg);
+                dbus_lxsession.A11ySet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -410,17 +298,22 @@ namespace LDefaultApps
             }
         }
 
-        public string A11yTypeGet()
+        public string A11yGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.A11yTypeGet();
+                return_value = dbus_lxsession.A11yGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
-                return "";
             }
+            return return_value;
         }
 
         public void ProxyActivate()
@@ -435,11 +328,11 @@ namespace LDefaultApps
             }
         }
 
-        public void ProxyHttpSet(string arg)
+        public void ProxySet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.ProxyHttpSet(arg);
+                dbus_lxsession.ProxySet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -447,17 +340,22 @@ namespace LDefaultApps
             }
         }
 
-        public string ProxyHttpGet()
+        public string ProxyGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.ProxyHttpGet();
+                return_value = dbus_lxsession.ProxyGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
-                return "";
             }
+            return return_value;
         }
 
         public void UpdatesActivate()
@@ -472,11 +370,11 @@ namespace LDefaultApps
             }
         }
 
-        public void UpdatesTypeSet(string arg)
+        public void UpdatesSet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                dbus_lxsession.UpdatesTypeSet(arg);
+                dbus_lxsession.UpdatesSet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -484,49 +382,29 @@ namespace LDefaultApps
             }
         }
 
-        public string UpdatesTypeGet()
+        public string UpdatesGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.UpdatesTypeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void LaptopModeSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.LaptopModeSet(arg);
+                return_value = dbus_lxsession.UpdatesGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
             }
+            return return_value;
         }
 
-        public string LaptopModeGet()
+        public void StateSet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                return dbus_lxsession.LaptopModeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void DbusLxdeSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.DbusLxdeSet(arg);
+                dbus_lxsession.StateSet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -534,49 +412,29 @@ namespace LDefaultApps
             }
         }
 
-        public string DbusLxdeGet()
+        public string StateGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.DbusLxdeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void DbusGnomeSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.DbusGnomeSet(arg);
+                return_value = dbus_lxsession.StateGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
             }
+            return return_value;
         }
 
-        public string DbusGnomeGet()
+        public void DbusSet(string key1, string? key2, string command_to_set)
         {
             try
             {
-                return dbus_lxsession.DbusGnomeGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
-        }
-
-        public void EnvTypeSet(string arg)
-        {
-            try
-            {
-                dbus_lxsession.EnvTypeSet(arg);
+                dbus_lxsession.DbusSet(key1, key2, command_to_set);
             }
             catch (GLib.IOError err)
             {
@@ -584,42 +442,52 @@ namespace LDefaultApps
             }
         }
 
-        public string EnvTypeGet()
+        public string DbusGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                return dbus_lxsession.EnvTypeGet();
+                return_value = dbus_lxsession.DbusGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
-                return "";
+            }
+            return return_value;
+        }
+
+        public void EnvironmentSet(string key1, string? key2, string command_to_set)
+        {
+            try
+            {
+                dbus_lxsession.EnvironmentSet(key1, key2, command_to_set);
+            }
+            catch (GLib.IOError err)
+            {
+                warning (err.message);
             }
         }
 
-        public void EnvMenuPrefixSet(string arg)
+        public string EnvironmentGet(string key1, string? key2)
         {
+            string return_value = null;
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
-                dbus_lxsession.EnvMenuPrefixSet(arg);
+                return_value = dbus_lxsession.EnvironmentGet(key1, key2);
             }
             catch (GLib.IOError err)
             {
                 warning (err.message);
             }
-        }
-
-        public string EnvMenuPrefixGet()
-        {
-            try
-            {
-                return dbus_lxsession.EnvMenuPrefixGet();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-                return "";
-            }
+            return return_value;
         }
     }
 }
