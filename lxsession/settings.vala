@@ -81,7 +81,11 @@ namespace Lxsession
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
 
             config_item_db[item_key] = variable;
-            on_update_generic(variable, categorie, key1, key2);
+
+            if (variable != null)
+            {
+                on_update_generic(variable, categorie, key1, key2);
+            }
 
             update_support_keys (categorie, key1, key2);
         }
@@ -115,9 +119,9 @@ namespace Lxsession
 
             // DEBUG message ("key of read_value: %s", item_key);
 
-            if (config_item_db.contains(item_key))
+            if (config_item_db.contains(item_key) == true)
             {
-                message ("Enter if of read_value");
+                message ("Enter if of read_value for %s, %s, %s, %s, %s: ", categorie, key1, key2, type, dbus_arg);
                 if (config_item_db[item_key] != dbus_arg)
                 {
                     config_item_db[item_key] = dbus_arg;
@@ -251,7 +255,7 @@ namespace Lxsession
         public void init_signal ()
         {
             /* Connect to signals changes */
-            global_sig.generic_set_signal.connect(on_update_generic);
+            global_sig.generic_set_signal.connect(set_config_item_value);
 
             /* Mime */
             global_sig.request_mime_distro_set.connect(on_update_string_set);
@@ -409,7 +413,7 @@ namespace Lxsession
 
             message ("key of set_value: %s", item_key);
 
-            if (config_item_db.contains(item_key))
+            if (config_item_db.contains(item_key) == true)
             {
                 switch (type)
                 {
@@ -513,7 +517,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         } catch (GLib.Error err) {
             message (err.message);
         }
-    }
+    } 
 
     public void reload_xsettings ()
     {
@@ -533,7 +537,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public void on_desktop_file_change ()
     {
-        read_keyfile();
         message("Desktop file change, reloading XSettings daemon");
         reload_xsettings();
     }
@@ -544,7 +547,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         desktop_config_path = desktop_config_home_path;
         monitor_cancel.cancel();
 
-        read_keyfile();
         reload_xsettings();
         setup_monitor_desktop_file();
     }
@@ -973,7 +975,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             kf.set_value (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
         }
         save_keyfile();
-        read_keyfile();
     }
 
     public override void on_update_string_list_set (string[] dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
@@ -989,7 +990,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             kf.set_string_list (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
         }
         save_keyfile();
-        read_keyfile();
     }
 
     public override void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
@@ -1005,7 +1005,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             kf.set_integer (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
         }
         save_keyfile();
-        read_keyfile();
     }
 
     public void on_reload_settings_daemon ()

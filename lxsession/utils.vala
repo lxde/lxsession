@@ -107,7 +107,7 @@ public class LxSignals : Object
     public signal void request_mime_email_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="installed");
     public signal void request_mime_email_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="available");
 
-    public signal void generic_set_signal (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2);
+    public signal void generic_set_signal (string categorie, string key1, string? key2, string type, string dbus_arg);
 
 }
 

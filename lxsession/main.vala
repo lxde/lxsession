@@ -274,7 +274,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.generic_set_signal(state_text, "State", "laptop_mode", null);
+                    global_sig.generic_set_signal("State", "laptop_mode", null, "string", state_text);
                     var powermanager = new PowerManagerApp();
                     global_power_manager = powermanager;
                     global_power_manager.launch();
@@ -298,7 +298,7 @@ namespace Lxsession {
                     {
                         state_text = "yes";
                     }
-                    global_sig.generic_set_signal(state_text, "State", "laptop_mode", null);
+                    global_sig.generic_set_signal("State", "laptop_mode", null, "string", state_text);
                     var networkgui = new NetworkGuiApp();
                     global_network_gui = networkgui;
                     global_network_gui.launch();

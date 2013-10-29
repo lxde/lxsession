@@ -506,7 +506,7 @@ namespace Lxsession
         {
             message ("Set %s %s", key1, key2);
 
-            global_sig.generic_set_signal(command_to_set, categorie, key1, key2);
+            global_sig.generic_set_signal(categorie, key1, key2, "string", command_to_set);
          }
 
 
