@@ -301,23 +301,23 @@ namespace Lxsession
 
             /* Set Xsettings default */
 
-            set_generic_default("Gtk", "iXft", "Antialias", "string", "1");
-            set_generic_default("Gtk", "iXft", "Hinting", "string", "1");
-            set_generic_default("Gtk", "sXft", "HintStyle", "string", "hintslight");
-            set_generic_default("Gtk", "sXft", "RGBA", "string", "rgb");
+            set_generic_default("GTK", "iXft", "Antialias", "string", "1");
+            set_generic_default("GTK", "iXft", "Hinting", "string", "1");
+            set_generic_default("GTK", "sXft", "HintStyle", "string", "hintslight");
+            set_generic_default("GTK", "sXft", "RGBA", "string", "rgb");
 
-            set_generic_default("Gtk", "sNet", "ThemeName", "string", "Clearlooks");
-            set_generic_default("Gtk", "sNet", "IconThemeName", "string", "nuoveXT2");
-            set_generic_default("Gtk", "iNet", "EnableEventSounds", "string", "1");
-            set_generic_default("Gtk", "iNet", "EnableInputFeedbackSounds", "string", "1");
-            set_generic_default("Gtk", "iGtk", "ColorScheme", "string", "");
-            set_generic_default("Gtk", "sGtk", "FontName", "string", "Sans 10");
-            set_generic_default("Gtk", "iGtk", "ToolbarStyle", "string", "3");
-            set_generic_default("Gtk", "iGtk", "ToolbarIconSize", "string", "3");
-            set_generic_default("Gtk", "iGtk", "ButtonImages", "string", "1");
-            set_generic_default("Gtk", "iGtk", "MenuImages", "string", "1");
-            set_generic_default("Gtk", "iGtk", "CursorThemeSize", "string", "18");
-            set_generic_default("Gtk", "sGtk", "CursorThemeName", "string", "DMZ-White");
+            set_generic_default("GTK", "sNet", "ThemeName", "string", "Clearlooks");
+            set_generic_default("GTK", "sNet", "IconThemeName", "string", "nuoveXT2");
+            set_generic_default("GTK", "iNet", "EnableEventSounds", "string", "1");
+            set_generic_default("GTK", "iNet", "EnableInputFeedbackSounds", "string", "1");
+            set_generic_default("GTK", "iGtk", "ColorScheme", "string", "");
+            set_generic_default("GTK", "sGtk", "FontName", "string", "Sans 10");
+            set_generic_default("GTK", "iGtk", "ToolbarStyle", "string", "3");
+            set_generic_default("GTK", "iGtk", "ToolbarIconSize", "string", "3");
+            set_generic_default("GTK", "iGtk", "ButtonImages", "string", "1");
+            set_generic_default("GTK", "iGtk", "MenuImages", "string", "1");
+            set_generic_default("GTK", "iGtk", "CursorThemeSize", "string", "18");
+            set_generic_default("GTK", "sGtk", "CursorThemeName", "string", "DMZ-White");
 /*
             TODO    Add also the ones from the spec : http://www.freedesktop.org/wiki/Specifications/XSettingsRegistry/
                     And the commented one of the desktop.conf.example
