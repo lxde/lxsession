@@ -151,6 +151,10 @@ namespace Lxsession {
         var sig = new LxSignals();
         global_sig = sig;
 
+        var environment = new LxsessionEnv(session, desktop_environnement);
+        /* First export env variable which doesn't need the settings. useful to set xdg directories */
+        environment.export_primary_env();
+
         /* Configuration */
         if (compatibility == "razor-qt")
         {
@@ -165,8 +169,6 @@ namespace Lxsession {
 
         /* Sync desktop.conf and autostart setting files */
         global_settings.sync_setting_files ();
-
-        var environment = new LxsessionEnv(session, desktop_environnement);
 
         /* 
            Check is lxsession is alone

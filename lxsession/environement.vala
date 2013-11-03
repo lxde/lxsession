@@ -47,13 +47,15 @@ namespace Lxsession
             session = session_arg;
             desktop_environment = desktop_environment_arg;
             display_name = Environment.get_variable(display_env);
+            home_path = Environment.get_variable("HOME");
+            config_home = Environment.get_variable("XDG_CONFIG_HOME");
 
         }
 
-        public void export_env()
+        /* Export environment that doesn't need settings, should be export before reading settings */
+        public void export_primary_env ()
         {
-
-            message("Exporting variable");
+            message("Exporting primary_variable");
             message("desktop_environnement %s", desktop_environment_env);
             pid_str = "%d".printf (Posix.getpid());
             Environment.set_variable(session_env, session, true);
@@ -63,19 +65,24 @@ namespace Lxsession
 
             Environment.set_application_name ("lxsession");
 
-            home_path = Environment.get_variable("HOME");
-            config_home = Environment.get_variable("XDG_CONFIG_HOME");
-
-            Environment.set_variable("XDG_MENU_PREFIX", global_settings.get_item_string("Environment", "menu_prefix", null), true);
-
-            set_xdg_dirs ();
-            set_misc ();
-
             if (config_home == null)
             {
                 config_home = home_path + "/.config";
                 Environment.set_variable("XDG_CONFIG_HOME", config_home, true);
             }
+
+            set_xdg_dirs (null);
+        }
+
+        public void export_env()
+        {
+            message("Exporting variable");
+            message("desktop_environnement %s", desktop_environment_env);
+
+            Environment.set_variable("XDG_MENU_PREFIX", global_settings.get_item_string("Environment", "menu_prefix", null), true);
+
+            set_xdg_dirs ("all");
+            set_misc ();
 
         }
 
@@ -100,7 +107,7 @@ namespace Lxsession
             }
         }
 
-        public void set_xdg_dirs ()
+        public void set_xdg_dirs (string? mode)
         {
             /* TODO Allow several value, like Lubuntu;Xubuntu; */
             string custom_config;
@@ -109,7 +116,7 @@ namespace Lxsession
             string return_data;
 
             config_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
-            data_dirs = Environment.get_variable("XDG_CONFIG_DIRS");
+            data_dirs = Environment.get_variable("XDG_DATA_DIRS");
 
             if (session == "Lubuntu")
             {
@@ -123,14 +130,17 @@ namespace Lxsession
                 custom_data ="/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
             }
 
-            switch (global_settings.get_item_string("Environment", "type", null))
+            if (mode == "all")
             {
-                case "lubuntu":
-                    custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;
-                    custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
-                    break;
-                default:
-                    break;
+                switch (global_settings.get_item_string("Environment", "type", null))
+                {
+                    case "lubuntu":
+                        custom_config = "/etc/xdg/lubuntu:/etc/xdg" ;
+                        custom_data = "/etc/xdg/lubuntu:/usr/local/share:/usr/share:/usr/share/gdm:/var/lib/menu-xdg";
+                        break;
+                    default:
+                        break;
+                }
             }
 
             if (config_dirs == null)
@@ -175,14 +185,7 @@ namespace Lxsession
         public void set_misc ()
         {
             /* Clean up number of desktop set by GDM */
-            try
-            {
-                Process.spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP");
-            }
-            catch (GLib.SpawnError err)
-            {
-                message (err.message);
-            }
+            lxsession_spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP");
 
             /* Start Dbus */
             string dbus_path;
@@ -195,14 +198,7 @@ namespace Lxsession
             {
                 if (dbus_env ==null)
                 {
-                    try
-                    {
-                        Process.spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
-                    }
-                    catch (GLib.SpawnError err)
-                    {
-                        message (err.message);
-                    }
+                    lxsession_spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
                 }
             }
 
