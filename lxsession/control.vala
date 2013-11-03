@@ -38,29 +38,15 @@ namespace Lxsession
 
         public void inhib_screensaver (uint toplevel_xid)
         {
-            try
-            {
-                string create_command = "xdg-screensaver suspend" + " " + toplevel_xid.to_string();
-                Process.spawn_command_line_async(create_command);
-                message("Inhib Screensaver");
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
-            }
+            string create_command = "xdg-screensaver suspend" + " " + toplevel_xid.to_string();
+            lxsession_spawn_command_line_async(create_command);
+            message("Inhib Screensaver");
         }
 
         public void uninhibit_screensaver ()
         {
-            try
-            {
-                Process.spawn_command_line_async("xdg-screensaver reset");
-                message("Disable Inhib Screensaver");
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
-            }
+            lxsession_spawn_command_line_async("xdg-screensaver reset");
+            message("Disable Inhib Screensaver");
         }
     }
 }

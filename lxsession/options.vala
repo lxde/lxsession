@@ -41,15 +41,8 @@ namespace Lxsession
                 case " ":
                     break;
                 default:
-                    try
-                    {
-                        message ("Options - Launch command %s",command);
-                        Process.spawn_command_line_async(command);
-                    }
-                    catch (SpawnError err)
-                    {
-                        warning (err.message);
-                    }
+                    message ("Options - Launch command %s",command);
+                    lxsession_spawn_command_line_async(command);
                     break;
             }
         }
@@ -143,31 +136,24 @@ namespace Lxsession
         }
         public new void activate()
         {
-            try
+            if (command1 != null)
             {
-                if (command1 != null)
-                {
-                    Process.spawn_command_line_async(command1);
-                }
-
-                if (command2 != null)
-                {
-                    Process.spawn_command_line_async(command2);
-                }
-
-                if (command3 != null)
-                {
-                    Process.spawn_command_line_async(command3);
-                }
-
-                if (command4 != null)
-                {
-                    Process.spawn_command_line_async(command4);
-                }
+                lxsession_spawn_command_line_async(command1);
             }
-            catch (SpawnError err)
+
+            if (command2 != null)
             {
-                warning (err.message);
+                lxsession_spawn_command_line_async(command2);
+            }
+
+            if (command3 != null)
+            {
+                lxsession_spawn_command_line_async(command3);
+            }
+
+            if (command4 != null)
+            {
+                lxsession_spawn_command_line_async(command4);
             }
         }
     }
@@ -188,14 +174,7 @@ namespace Lxsession
         }
         public new void activate()
         {
-            try
-            {
-                Process.spawn_command_line_async(command1);
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
-            }
+            lxsession_spawn_command_line_async(command1);
         }
     }
     public class ClipboardOption: Option
@@ -249,14 +228,7 @@ namespace Lxsession
                     setup_apt_config ();
                     break;
                 case "update-notifier":
-                    try
-                    {
-                        Process.spawn_command_line_async(this.command1);
-                    }
-                    catch (SpawnError err)
-                    {
-                        warning (err.message);
-                    }
+                    lxsession_spawn_command_line_async(this.command1);
                     break;
             }
         }
@@ -274,10 +246,11 @@ namespace Lxsession
             int exit_status;
 
             try {
+                string[] spawn_env = Environ.get ();
                 Process.spawn_sync (
                             null,
                             create_command,
-                            null,
+                            spawn_env,
                             SpawnFlags.STDOUT_TO_DEV_NULL,
                             null, 
                             out standard_output,
@@ -336,14 +309,7 @@ namespace Lxsession
         }
         public new void activate()
         {
-            try
-            {
-                Process.spawn_command_line_async(command1);
-            }
-            catch (SpawnError err)
-            {
-                warning (err.message);
-            }
+            lxsession_spawn_command_line_async(command1);
         }
     }
 
@@ -401,34 +367,13 @@ namespace Lxsession
                     settings_daemon_start(load_keyfile (get_config_path ("desktop.conf")));
                     break;
                 case "gnome":
-                    try
-                    {
-                        Process.spawn_command_line_async("gnome-settings-daemon");
-                    }
-                    catch (GLib.SpawnError e)
-                    {
-                        warning(e.message);
-                    }
+                    lxsession_spawn_command_line_async("gnome-settings-daemon");
                     break;
                 case "xfce":
-                    try
-                    {
-                        Process.spawn_command_line_async("xfsettingsd");
-                    }
-                    catch (GLib.SpawnError e)
-                    {
-                        warning(e.message);
-                    }
+                    lxsession_spawn_command_line_async("xfsettingsd");
                     break;
                 default:
-                    try
-                    {
-                        Process.spawn_command_line_async(command);
-                    }
-                    catch (GLib.SpawnError e)
-                    {
-                        warning(e.message);
-                    }
+                    lxsession_spawn_command_line_async(command);
                     break;
             }
         }

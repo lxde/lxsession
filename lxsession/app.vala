@@ -62,10 +62,11 @@ public class AppObject: GLib.Object
             {
                 try
                 {
+                    string[] spawn_env = Environ.get ();
                     Process.spawn_async (
                                  arg1,
                                  this.command,
-                                 null,
+                                 spawn_env,
                                  SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
                                  null,
                                  out this.pid);
@@ -371,10 +372,11 @@ public class WindowsManagerApp: SimpleAppObject
         if (this.name != null)
         {
             try {
+                string[] spawn_env = Environ.get ();
                 Process.spawn_async (
                              null,
                              this.command,
-                             null,
+                             spawn_env,
                              SpawnFlags.SEARCH_PATH | SpawnFlags.DO_NOT_REAP_CHILD,
                              null,
                              out pid);
@@ -899,7 +901,7 @@ public class LauncherManagerApp: SimpleAppObject
                 string create_autostart_command = "synapse --startup";
                 try
                 {
-                    Process.spawn_command_line_async(create_autostart_command);
+                    lxsession_spawn_command_line_async(create_autostart_command);
                 }
                 catch (SpawnError err)
                 {

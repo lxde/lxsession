@@ -53,6 +53,7 @@ lxsession_SOURCES = \
     dbus-lxde-session.vala \
     environement.vala \
     options.vala \
+    process.vala \
     settings.vala \
     utils.vala \
     ../lxsettings-daemon/settings-daemon.c \
@@ -113,5 +114,6 @@ CLEANFILES = \
     dbus-lxde-session.c \
     environement.c \
     options.c \
+    process.c \
     settings.c \
     utils.c
