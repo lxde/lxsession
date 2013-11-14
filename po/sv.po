@@ -39,6 +39,7 @@ msgid "Position of the banner"
 msgstr "Position för banderollen"
 
 #: ../lxsession-logout/lxsession-logout.c:460
+#, c-format
 #, c-format, c-format, c-format
 msgid "Error: %s\n"
 msgstr "Fel: %s\n"
@@ -102,6 +103,7 @@ msgid "Password: "
 msgstr "Lösenord: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
 #, c-format, c-format, c-format
 msgid "Group: %s"
 msgstr "Grupp: %s"
