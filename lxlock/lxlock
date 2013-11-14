@@ -3,6 +3,7 @@
 #
 #  Copyright (C) 1999, 2003 Olivier Fourdan (fourdan@xfce.org)
 #  Copyright (C) 2012 Julien Lavergne (gilir@ubuntu.com)
+#  Copyright (C) 2013 Jarno Suni (8@iki.fi)
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -20,16 +21,16 @@
 #
 
 # Try to lock the screen with thos applications (in this order) :
-# lighdtm, xscreensaver, gnome-screensaver, slock, slock, i3lock and xdg-screensaver
+# xscreensaver, gnome-screensaver, slock, slock, i3lock and xdg-screensaver
 
-if test x"`which dm-tool 2>/dev/null`" != x""; then
-    dm-tool switch-to-greeter
-elif `dbus-send --system --print-reply --dest=org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus.GetNameOwner string:org.freedesktop.DisplayManager > /dev/null 2>&1` ; then
-    seat="$XDG_SEAT_PATH"
-    dbus-send --system --print-reply --dest=org.freedesktop.DisplayManager "$seat" org.freedesktop.DisplayManager.Seat.SwitchToGreeter  \
-              2> /dev/null
-elif test x"`which xscreensaver-command 2>/dev/null`" != x""; then
-    xscreensaver-command -lock 
+if test x"`which xscreensaver-command 2>/dev/null`" != x""; then
+    xscreensaver-command -lock
+    xscreensaver-command -lock >/dev/null 2>&1 ||
+    (
+     # Probably the daemon was not running. Start the daemon and retry.
+     xscreensaver -nosplash >/dev/null 2>&1 &
+     xscreensaver-command -lock >/dev/null 2>&1
+    )
 elif test x"`which gnome-screensaver-command 2>/dev/null`" != x""; then
     gnome-screensaver-command --lock
 elif test x"`which slock 2>/dev/null`" != x""; then
