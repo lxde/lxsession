@@ -663,20 +663,23 @@ int main(int argc, char * argv[])
         if (session_name == NULL)
             session_name = "LXDE";
 
-        const gchar *command_line = "lsb_release -r -s";
         gchar *output = NULL;
-        GError *error;
 
-        if (!g_spawn_command_line_sync( command_line,
-                                        &output,
-                                        NULL,
-                                        NULL,
-                                        &error))
+        if (g_find_program_in_path("lsb_release"))
         {
+            const gchar *command_line = "lsb_release -r -s";
+            GError *error;
+            if (!g_spawn_command_line_sync( command_line,
+                                            &output,
+                                            NULL,
+                                            NULL,
+                                            &error))
+            {
 
-            fprintf (stderr, "Error: %s\n", error->message);
-            g_error_free (error);
+                fprintf (stderr, "Error: %s\n", error->message);
+                g_error_free (error);
 
+            }
         }
 
         if (output == NULL)
