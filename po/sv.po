@@ -398,16 +398,3 @@ msgstr "Standardprogram för LXSession"
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
 msgstr "Ändra standardprogram för LXDE"
-
-#~ msgid "LXSession is not running."
-#~ msgstr "LXSession se ne izvaja."
-
-#, c-format
-#~ msgid "<b><big>Logout %s session?</big></b>"
-#~ msgstr "<b><big>Ali se želite odjaviti iz seje %s?</big></b>"
-
-#~ msgid "Logout"
-#~ msgstr "Salir"
-
-#~ msgid "Logout"
-#~ msgstr "Logga ut"
