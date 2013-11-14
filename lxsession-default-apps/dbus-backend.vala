@@ -110,6 +110,10 @@ namespace LDefaultApps
 
         public void SessionSet (string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.SessionSet(key1, key2, command_to_set);
@@ -162,6 +166,10 @@ namespace LDefaultApps
 
         public void KeymapSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.KeymapSet(key1, key2, command_to_set);
@@ -204,6 +212,10 @@ namespace LDefaultApps
 
         public void XrandrSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.XrandrSet(key1, key2, command_to_set);
@@ -246,6 +258,10 @@ namespace LDefaultApps
 
         public void SecuritySet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.SecuritySet(key1, key2, command_to_set);
@@ -288,6 +304,10 @@ namespace LDefaultApps
 
         public void A11ySet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.A11ySet(key1, key2, command_to_set);
@@ -330,6 +350,10 @@ namespace LDefaultApps
 
         public void ProxySet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.ProxySet(key1, key2, command_to_set);
@@ -372,6 +396,10 @@ namespace LDefaultApps
 
         public void UpdatesSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.UpdatesSet(key1, key2, command_to_set);
@@ -402,6 +430,10 @@ namespace LDefaultApps
 
         public void StateSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.StateSet(key1, key2, command_to_set);
@@ -432,6 +464,10 @@ namespace LDefaultApps
 
         public void DbusSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.DbusSet(key1, key2, command_to_set);
@@ -462,6 +498,10 @@ namespace LDefaultApps
 
         public void EnvironmentSet(string key1, string? key2, string command_to_set)
         {
+            if (key2 == null)
+            {
+                key2 = "";
+            }
             try
             {
                 dbus_lxsession.EnvironmentSet(key1, key2, command_to_set);
