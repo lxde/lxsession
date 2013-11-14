@@ -1,3 +1,4 @@
+if USE_GTK
 bin_PROGRAMS = lxclipboard
 
 lxclipboard_SOURCES = \
@@ -24,8 +25,9 @@ lxclipboard_LDADD = \
 	$(X11_LIBS) \
 	$(NULL)
 
-EXTRA_DIST = \
-    clipboard.h
-
 CLEAN = \
     main.c
+endif
+
+EXTRA_DIST = \
+    clipboard.h

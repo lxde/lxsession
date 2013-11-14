@@ -1,3 +1,4 @@
+if USE_GTK
 bin_PROGRAMS = lxsession-message-gtk
 
 lxsession_message_gtk_SOURCES = \
@@ -24,3 +25,4 @@ lxsession_message_gtk_LDADD = \
 
 CLEAN = \
     main.c
+endif

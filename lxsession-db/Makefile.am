@@ -1,3 +1,4 @@
+if USE_GTK
 bin_PROGRAMS = lxsession-db
 
 lxsession_db_SOURCES = \
@@ -32,3 +33,4 @@ CLEANFILES = \
 	main.c \
 	desktop-files-backend.c \
     lxsession_db_vala.stamp
+endif

@@ -2,6 +2,7 @@
 
 NULL=
 
+if USE_GTK
 bin_PROGRAMS = lxsession-edit
 
 lxsession_edit_CFLAGS = \
@@ -24,3 +25,4 @@ lxsession_edit_SOURCES = \
 	lxsession-edit-common.c \
 	lxsession-edit-common.h \
 	$(NULL)
+endif

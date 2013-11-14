@@ -1,3 +1,4 @@
+if USE_GTK
 bin_PROGRAMS = lxsession-default-apps
 
 lxsession_default_apps_SOURCES = \
@@ -43,3 +44,4 @@ CLEANFILES = \
     combobox.c \
     dbus-backend.c \
     lxsession_default_apps_vala.stamp
+endif

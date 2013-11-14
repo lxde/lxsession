@@ -1,5 +1,5 @@
 NULL=
-
+if USE_GTK
 bin_PROGRAMS = lxpolkit
 
 lxpolkit_SOURCES = \
@@ -34,6 +34,7 @@ lxpolkit_LDADD = \
 
 CLEANFILES = \
     main.c
+endif
 
 EXTRA_DIST = \
         lxpolkit.h \

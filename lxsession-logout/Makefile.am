@@ -1,3 +1,4 @@
+if USE_GTK
 bin_PROGRAMS = lxsession-logout
 
 lxsession_logout_CFLAGS =  $(GTK_CFLAGS) $(SM_CFLAGS) $(DBUS_CFLAGS) \
@@ -11,3 +12,4 @@ lxsession_logout_SOURCES= \
 	lxsession-logout-dbus-interface.c \
 	lxsession-logout-dbus-interface.h \
 	lxsession-logout.c
+endif

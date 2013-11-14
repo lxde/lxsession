@@ -1,5 +1,5 @@
 bin_PROGRAMS = lxsession
-
+if USE_GTK
 if USE_BUILDIN_CLIPBOARD
 buildinclip_SOURCES = \
     ../lxclipboard/clipboard.c \
@@ -40,6 +40,7 @@ buildinpolkit_LDADD = \
     $(GTK_LIBS) \
     $(POLKIT_LIBS) \
     $(NULL)
+endif
 endif
 
 lxsession_SOURCES = \
@@ -85,7 +86,6 @@ lxsession_CFLAGS = \
 	-I$(srcdir)/xdg-autostart \
 	$(GLIB_CFLAGS) \
 	$(GIO_CFLAGS) \
-	$(GEE_CFLAGS) \
 	$(DBUSGLIB_CFLAGS) \
 	$(ADDITIONAL_FLAGS) \
 	$(buildinclip_CFLAGS) \
@@ -96,7 +96,6 @@ lxsession_CFLAGS = \
 lxsession_LDADD = \
 	$(GLIB_LIBS) \
 	$(GIO_LIBS) \
-	$(GEE_LIBS) \
 	$(DBUSGLIB_LIBS) \
 	$(X11_LIBS) \
 	$(buildinclip_LDADD) \
