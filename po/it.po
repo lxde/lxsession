@@ -1,23 +1,23 @@
-# Translation of lxsession-lite to Italian
-# Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
-# This file is distributed under the same license as the lxsession-lite package
-# Fabio Barone <phonky at gmx.net>, 2009
-# Andrea Florio <andrea@opensuse.org>, 2010
-# Daniele Forsi <daniele@forsi.it>, 2012.
+# Japanese translations for lxsession-lite package
+# lxsession-lite パッケージに対する日本語訳
+# Copyright (C) 2008 THE lxsession-lite'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxsession-lite package.
+# Hironao Komatsu <hironao@users.sourceforge.net>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession-lite 0.3.6\n"
+"Project-Id-Version: lxsession 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2010-03-09 00:29+0100\n"
-"Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
-"Language-Team: Italian\n"
+"PO-Revision-Date: 2013-11-14 18:27+0000\n"
+"Last-Translator: Daniele <daniele@forsi.it>\n"
+"Language-Team: ja_JP <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1384453658.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -42,14 +42,14 @@ msgid "Position of the banner"
 msgstr "Posizione dell'immagine"
 
 #: ../lxsession-logout/lxsession-logout.c:460
-#, c-format
+#, c-format, c-format
 msgid "Error: %s\n"
 msgstr "Errore: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Chiudere la sessione %s?</big></b>"
+msgstr "<b><big>Chiudere la sessione %s %s?</big></b>"
 
 # Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
 #: ../lxsession-logout/lxsession-logout.c:699
@@ -74,7 +74,7 @@ msgstr "Cambia _utente"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Bl_occa schermo"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -83,55 +83,57 @@ msgstr "_Chiudi sessione"
 
 #: ../lxsession-edit/lxsession-edit-common.c:373
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 #: ../lxsession-edit/lxsession-edit-common.c:378
 msgid "Application"
-msgstr ""
+msgstr "Applicazione"
 
 #: ../lxsession-edit/lxsession-edit-common.c:386
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Errore: %s\n"
+msgstr "Errore"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Informazione"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Password: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format, c-format, c-format, c-format
 msgid "Group: %s"
-msgstr "Errore: %s\n"
+msgstr "Gruppo: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Impostazioni sessione desktop"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Applicazioni avviate automaticamente dopo l'ingresso nel desktop:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Applicazioni avviate automaticamente"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Gestore finestre:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Riga di comando usata per lanciare il gestore finestre\n"
+"(il comando predefinito per il gestore finestre di LXDE dovrebbe essere "
+"openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -140,58 +142,62 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Attenzione:</b> <b>NON toccare</b> se non si sa esattamente cosa si sta "
+"facendo.\n"
+"\n"
+"<b>NOTA:</b> questa impostazione avrà effetto al prossimo accesso."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opzioni avanzate"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticazione"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identità:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "Command"
-msgstr ""
+msgstr "Comando"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Sessione"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Applica"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Ricarica"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Pannello</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Extra"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "<b>Window Manager</b>"
-msgstr ""
+msgstr "<b>Gestore finestre</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Gestore file</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Salvaschermo</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Agente Polkit</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
@@ -199,7 +205,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Avvio automatico"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
@@ -207,11 +213,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Sfondo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>Scrivania</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
@@ -223,31 +229,31 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>Comunicazioni 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>Comunicazioni 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Widget 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
-msgstr ""
+msgstr "Applicazioni in esecuzione"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Gestore audio</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "Immagine"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "Disposizione"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
@@ -255,7 +261,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Gestore spazio di lavoro</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
@@ -263,7 +269,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>Gestore terminale</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
@@ -271,23 +277,23 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>Gestore aggiornamenti</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>Gestore blocco schermo</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Launching applications"
-msgstr ""
+msgstr "Lancio applicazioni"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Disabilitare applicazioni avviate automaticamente?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Impostazioni</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "<b>Manual autostarted applications</b>"
@@ -295,106 +301,110 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Applicazioni conosciute</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "<b>Gestore appunti</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "Modalità"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "Modello"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Options"
-msgstr ""
+msgstr "Opzioni"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Mappa tastiera</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "Portachiavi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>Sicurezza</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>Accessibilità</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Attiva aggiornamenti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>Aggiornamenti</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "HTTP"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>Proxy</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Modalità laptop"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Impostazioni generali</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
-msgstr ""
+msgstr "Prefisso menu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Ambiente</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Gestisce le applicazioni avviate nella sessione desktop"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Applicazioni predefinite per LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Cambia le applicazioni predefinite in LXDE"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession attualmente non è in esecuzione."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Chiudere la sessione %s?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Chiudere sessione"
