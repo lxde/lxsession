@@ -229,19 +229,19 @@ namespace LDefaultApps
                                                         null,
                                                         disable_autostart_default);
 
+        dbus_backend.SessionSet("disable_autostart", "", return_combobox_text(disable_autostart_combobox));
+        var auto_vbox = builder.get_object("manual_autostart_vbox") as Gtk.VBox;
+        var running_apps = builder.get_object("running_apps_vbox") as Gtk.VBox;
+
+        var known_apps_box = builder.get_object("autostart_known_box") as Gtk.HBox;
+        var known_apps =  builder.get_object("autostart_treeview") as Gtk.TreeView;
+
+        init_list_view(known_apps);
+        load_autostart(Environment.get_variable("XDG_CURRENT_DESKTOP"));
+        known_apps.set_model (get_autostart_list ());
+        known_apps_box.hide_all();
 
         disable_autostart_combobox.changed.connect (() => {
-            dbus_backend.SessionSet("disable_autostart", "", return_combobox_text(disable_autostart_combobox));
-            var auto_vbox = builder.get_object("manual_autostart_vbox") as Gtk.VBox;
-            var running_apps = builder.get_object("running_apps_vbox") as Gtk.VBox;
-
-            var known_apps_box = builder.get_object("autostart_known_box") as Gtk.HBox;
-            var known_apps =  builder.get_object("autostart_treeview") as Gtk.TreeView;
-
-            init_list_view(known_apps);
-            load_autostart(Environment.get_variable("XDG_CURRENT_DESKTOP"));
-            known_apps.set_model (get_autostart_list ());
-
             if (return_combobox_text(disable_autostart_combobox) == "all")
             {
                 auto_vbox.hide_all();
