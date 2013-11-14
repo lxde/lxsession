@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the lxsession package.
 # Artur Kruszewski <mazdac@gmail.com>, 2009.
 # Piotr Sokół <psokol@jabster.pl>, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession 0.4.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-08-27 10:21+0000\n"
+"PO-Revision-Date: 2013-11-14 14:26+0000\n"
 "Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
@@ -20,7 +19,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1377598915.0\n"
+"X-POOTLE-MTIME: 1384439187.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -48,9 +47,9 @@ msgid "Error: %s\n"
 msgstr "Błąd: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Zakończyć sesję %s?</big></b>"
+msgstr "<b><big>Wylogować %s %s sesję?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
@@ -74,7 +73,7 @@ msgstr "_Przełącz użytkownika"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Zabl_okuj ekran"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -94,13 +93,12 @@ msgid "Comment"
 msgstr "Komentarz"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Błąd: %s\n"
+msgstr "Błąd"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Informacja"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -160,62 +158,60 @@ msgid "Identity:"
 msgstr "Tożsamość:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Komentarz"
+msgstr "Polecenie"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Sesja"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Zastosuj"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Wczytaj ponownie"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Panel</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Dodatki"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Menedżer okien:"
+msgstr "<b>Menedżer okien</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Menedżer plików</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Wygaszacz ekranu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Agent zestawu polityk</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>Dok</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Autostart"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>Menedżer kompozycji</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Tapeta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
@@ -242,9 +238,8 @@ msgid "<b>Widget 1</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Program"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
@@ -260,11 +255,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>Menedżer zamykania</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Menedżer obszarów roboczych</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
@@ -287,23 +282,20 @@ msgid "<b>Lock screen manager</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Program"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Automatycznie uruchamiane programy"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Automatycznie uruchamiane programy"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
@@ -326,9 +318,8 @@ msgid "Variant"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Zaawansowane opcje"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
@@ -408,6 +399,10 @@ msgstr ""
 
 #~ msgid "LXSession is not running."
 #~ msgstr "Program LXSession nie jest uruchomiony."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Zakończyć sesję %s?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Wyloguj"
