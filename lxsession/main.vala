@@ -60,6 +60,7 @@ namespace Lxsession {
     IM2App global_im2;
     WidgetApp global_widget1;
     GenericSimpleApp global_notification;
+    GenericSimpleApp global_keybindings;
     ProxyOption global_proxy;
     UpstartUserSessionOption global_upstart_session;
     XSettingsOption global_xsettings_manager;
@@ -392,6 +393,16 @@ namespace Lxsession {
                     var notification = new GenericSimpleApp(global_settings.get_item_string("Session", "notification", "command"));
                     global_notification = notification;
                     global_notification.launch();
+                }
+            }
+
+            if (global_settings.get_item_string("Session", "keybindings", "autostart") == "true")
+            {
+                if (global_settings.get_item_string("Session", "keybindings", "command") != null)
+                {
+                    var keybindings = new GenericSimpleApp(global_settings.get_item_string("Session", "keybindings", "command"));
+                    global_keybindings = keybindings;
+                    global_keybindings.launch();
                 }
             }
 

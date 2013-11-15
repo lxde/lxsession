@@ -93,7 +93,11 @@ xsettings_manager/command=build-in
 
 # Utility for displaying notification
 notification/command=
-notification/autostart=
+notification/autostart=true
+
+# Utility for running a keybindings daemon
+notification/command=
+notification/autostart=true
 
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
