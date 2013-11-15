@@ -3,42 +3,41 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2012-09-24 09:05+0300\n"
+"PO-Revision-Date: 2013-11-15 17:05+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
-"Language-Team: Lietuvių <>\n"
-"Language: \n"
+"Language-Team: Lietuvių\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 2.91.5\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Pasirinktinė žinutė kuri bus rodoma dialoge"
+msgstr "Tekstas, rodomas dialogo viršuje"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
-msgstr "žinutė"
+msgstr "pranešimas"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Pranešimas, rodomas dialoge"
+msgstr "Paveiksliukas rodomas dialoge"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
-msgstr "paveikslėlis"
+msgstr "paveiksliuko failas"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Pranešimo pozicija"
+msgstr "Paveiksliuko vieta"
 
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
@@ -46,21 +45,21 @@ msgid "Error: %s\n"
 msgstr "Klaida: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Atsijungti iš %s sesijos?</big></b>"
+msgstr "<b><big>Atjungti %s %s seansą ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
-msgstr "Išj_ungti"
+msgstr "_Išjungti"
 
 #: ../lxsession-logout/lxsession-logout.c:710
 msgid "_Reboot"
-msgstr "Įkelti iš _naujo"
+msgstr "_Paleisti iš naujo"
 
 #: ../lxsession-logout/lxsession-logout.c:721
 msgid "_Suspend"
-msgstr "Užmi_gdyti"
+msgstr "_Užmigdyti"
 
 #: ../lxsession-logout/lxsession-logout.c:732
 msgid "_Hibernate"
@@ -68,11 +67,11 @@ msgstr "_Hibernuoti"
 
 #: ../lxsession-logout/lxsession-logout.c:743
 msgid "S_witch User"
-msgstr "_Keisti naudotoją"
+msgstr "Perjungti _naudotoją"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Už_rakinti ekraną"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -92,13 +91,12 @@ msgid "Comment"
 msgstr "Komentaras"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Klaida: %s\n"
+msgstr "Klaida"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Informacija"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -111,15 +109,15 @@ msgstr "Grupė: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Darbastalio sesijos nustatymai"
+msgstr "Darbalaukio seanso nustatymai"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr "Programa kuri bus automatiškai paleista atėjus į darbastalį:"
+msgstr "Programos kurios automatiškai paleidžiamos atvėrus darbastalį:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Automatiškai paleidžiamos programos"
+msgstr "Automatiškai paleistos programos"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -130,8 +128,8 @@ msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Komandinė eilutė kuria bus paleidžiama langų tvarkyklė\n"
-"(Numatyta LXDE langų tvarkyklės komanda turėtų būti „openbox-lxde“)"
+"Komandinė eilutė kuria paleidžiama langų tvarkyklė\n"
+"(Numatyta LXDE langų tvarkyklės turėtų būti openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -140,271 +138,267 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Įspėjimas:</b>  <b>NELIESKITE</b> nebent tiksliai žinote ką darote.\n"
+"<b>Įspėjimas:</b> <b>Nelieskite</b> nebent tiksliai žinote ką darote.\n"
 "\n"
 "<b>PASTABA:</b> Šis nustatymas įsigalios kitą kart prisijungus."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr "Papildomi parametrai"
+msgstr "Sudėtingesnės parinktys"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr "Tapatybės patvirtinimas"
+msgstr "Tapatumo nustatymas"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
 msgstr "Tapatybė:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Komentaras"
+msgstr "Komanda"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Seansas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Pritaikyti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Įkelti iš naujo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Skydelis</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Papildomai"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Langų tvarkyklė:"
+msgstr "<b>Langų tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Failų tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Ekrano užsklanda</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Polkit agentas</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>Skydelis</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Automatinis paleidimas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>„Composite“ tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Fonas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>Darbastalis</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>Energijos valdymas</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>Tinklo grafinė sąsaja</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>Bendravimas 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>Bendravimas 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Valdiklis 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Programa"
+msgstr "Veikiančios programos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Garso tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "Paveikslėlis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "Išdėstymas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>Išėjimo tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Darbo lauko tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>Paleidėjo tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>Terminalo tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>Ekranvaizdžio tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>Atnaujinimų tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>Ekrano užrakinimo tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Programa"
+msgstr "Paleidžiamos programos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Automatiškai paleidžiamos programos"
+msgstr "Uždrausti automatiškai paleistas programas?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Nustatymai</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Automatiškai paleidžiamos programos"
+msgstr "<b>Rankiniu būdu paleistos programos</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Žinomos programos</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "<b>Iškarpinės tvarkyklė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "Režimas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "Modelis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "Variantas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Papildomi parametrai"
+msgstr "Parinktys"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Simbolių žemėlapis</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandR</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "Raktinė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>Saugumas<b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "Tipas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>a11y</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Aktyvuoti atnaujinimus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>Atnaujinimai</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>Įgaliotasis serveris</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Nešiojamo kompiuterio režimas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Bendri nustatymai</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
-msgstr ""
+msgstr "Meniu priešdėlis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Aplinka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "Nustatymai"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr "Tvarkykite programas įkrautas į darbastalio sesiją"
+msgstr "Tvarkykite darbastalio sesijos programas"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Numatytosios LXSession programos"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Pakeisti numatytąsias LXDE programas"
 
 #~ msgid "LXSession is not running."
-#~ msgstr "LXSession nepaleista."
+#~ msgstr "LXSession은 실행중이 아닙니다."
+
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>%s 세션을 로그아웃하시겠습니까?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "_Atsijungti"
