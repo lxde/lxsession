@@ -91,6 +91,10 @@ message_manager/command=lxsession-message-gtk
 # Utility to load and apply xsettings (options available : "gnome", "xfce" and "build-in" for using build-in support of lxsession)
 xsettings_manager/command=build-in
 
+# Utility for displaying notification
+notification/command=
+notification/autostart=
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=

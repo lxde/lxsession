@@ -772,6 +772,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             read_key_value(kf, "Session", "widget1", "autostart", "string");
         }
 
+        /* Notification */
+        if (read_keyfile_string_value(kf, "Session", "notification", "command", null) != null)
+        {
+            read_key_value(kf, "Session", "notification", "command", "string");
+            read_key_value(kf, "Session", "notification", "autostart", "string");
+        }
+
         /* Other session applications */
         read_key_value(kf, "Session", "screensaver", "command", "string");
         read_key_value(kf, "Session", "power_manager", "command", "string");

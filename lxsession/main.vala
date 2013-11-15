@@ -384,6 +384,16 @@ namespace Lxsession {
                 }
             }
 
+            if (global_settings.get_item_string("Session", "notification", "autostart") == "true")
+            {
+                if (global_settings.get_item_string("Session", "notification", "command") != null)
+                {
+                    var notification = new GenericSimpleApp();
+                    global_notification = notification;
+                    global_notification.launch();
+                }
+            }
+
             /* Autostart application define by the user */
             var auto = new LxsessionAutostartConfig();
             auto.start_applications();
