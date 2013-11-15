@@ -59,6 +59,7 @@ namespace Lxsession {
     IM1App global_im1;
     IM2App global_im2;
     WidgetApp global_widget1;
+    GenericSimpleApp global_notification;
     ProxyOption global_proxy;
     UpstartUserSessionOption global_upstart_session;
     XSettingsOption global_xsettings_manager;
@@ -388,7 +389,7 @@ namespace Lxsession {
             {
                 if (global_settings.get_item_string("Session", "notification", "command") != null)
                 {
-                    var notification = new GenericSimpleApp();
+                    var notification = new GenericSimpleApp(global_settings.get_item_string("Session", "notification", "command"));
                     global_notification = notification;
                     global_notification.launch();
                 }
