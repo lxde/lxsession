@@ -96,8 +96,8 @@ notification/command=
 notification/autostart=true
 
 # Utility for running a keybindings daemon
-notification/command=
-notification/autostart=true
+keybindings/command=
+keybindings/autostart=true
 
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
