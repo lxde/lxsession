@@ -1,23 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
+# German translation for lxsession.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# This file is distributed under the same license as the lxsession package.
+# Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-07-16 23:06+0000\n"
+"PO-Revision-Date: 2013-11-19 13:02+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Deutsch <LL@li.org>\n"
 "Language: lg\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1374015995.0\n"
+"X-POOTLE-MTIME: 1384866159.0\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -51,9 +50,9 @@ msgid "Error: %s\n"
 msgstr "Kiremya: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
+msgstr "<b><big>Olutuula lwa %s %s lukome?</big></b>"
 
 # Turn the machine completely off
 #: ../lxsession-logout/lxsession-logout.c:699
@@ -82,7 +81,7 @@ msgstr "Kolera mu akawunti e_ndala"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Olutimbe L_usaanikire"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -101,15 +100,13 @@ msgstr "Puloguramu"
 msgid "Comment"
 msgstr "Kunnyonyola"
 
-# I think this is the error message.
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Kiremya: %s\n"
+msgstr "Kiremya"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Kumanyisa"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -169,17 +166,16 @@ msgid "Identity:"
 msgstr "Obumanye:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Kunnyonyola"
+msgstr "Kiragiro"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Lutuula"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Kazza"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
@@ -187,16 +183,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Lubaawo</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Birala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Puloguramu eteekateeka madirisa:"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
@@ -236,7 +231,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>W'okolera ku bya Kayungirizi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
@@ -251,25 +246,24 @@ msgid "<b>Widget 1</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Puloguramu"
+msgstr "Puloguramu ezikola kakano"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekataaka bya kuwuliriza</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "Kifaananyi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "Ntereeza"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>Mala eby'okuteekateeka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
@@ -296,23 +290,20 @@ msgid "<b>Lock screen manager</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Puloguramu"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Puloguramu z'oyagala zitandikirengawo"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Ntegeka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Puloguramu z'oyagala zitandikirengawo"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
@@ -335,9 +326,8 @@ msgid "Variant"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Ebyetaagisa Bumanyirivu"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
@@ -373,7 +363,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
@@ -418,3 +408,13 @@ msgstr ""
 # Message telling you that there is no LXSession running at the moment.
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession tebindabinda."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
+
+#~ msgid "Logout"
+#~ msgstr "Abmelden"
+
+#~ msgid "Save current session"
+#~ msgstr "Aktuelle Sitzung speichern"
