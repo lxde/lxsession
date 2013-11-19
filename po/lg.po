@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-11-19 13:02+0000\n"
+"PO-Revision-Date: 2013-11-19 20:07+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: lg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1384866159.0\n"
+"X-POOTLE-MTIME: 1384891628.0\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -110,7 +110,7 @@ msgstr "Kumanyisa"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr "Kasumuluzo:"
+msgstr "Kasumuluzo: "
 
 # I think this is the error message.
 #: ../lxpolkit/lxpolkit-listener.c:251
@@ -191,23 +191,23 @@ msgstr "Birala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "<b>Window Manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka Madirisa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka Fayiro</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Puloguramu ekisa awakolerwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Puloguramu Polkit gy'ekozesa okukusaba obukakafu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>Paaka ya puloguramu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
@@ -215,19 +215,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>Puloguramu ekwanaganya ebirabikira awakolerwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Ekifaananyi eky'okubwaliriro"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>Awakolerwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka nkozesa ya masanyalaze</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
@@ -243,7 +243,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Katundua k'endabika 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
@@ -267,19 +267,19 @@ msgstr "<b>Mala eby'okuteekateeka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka bitundu ebikolerwamu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka ttandikiro</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka biwandikiro</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>Ekiteekateeka nkwata y'ebifaananyi eby'ebiri ku lutimbe</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
@@ -335,7 +335,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
@@ -355,11 +355,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Zuukusa eby'entumbula"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>Ntumbuzi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
@@ -367,19 +367,19 @@ msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>Masanganzira etuuka ku intaneti</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Nkola ya ku laputoopu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Butegeke bw'ebitalibimu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
@@ -387,11 +387,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Nviromenti</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "Butegeke"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
@@ -399,11 +399,11 @@ msgstr "Teekateeka puloguramu eziba zitandika buli lutuula"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Puloguramu ez'omu lutuula lwa LXDE ez'enkalakkalira"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Kyusa puloguramu ez'omu lutuula lwa LXDE ez'enkalakkalira"
 
 # Message telling you that there is no LXSession running at the moment.
 #~ msgid "LXSession is not running."
