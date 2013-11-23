@@ -1,19 +1,23 @@
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2012-09-29 13:11+0200\n"
-"Last-Translator: Y P <yupadmin@gmail.com>\n"
+"PO-Revision-Date: 2013-11-23 19:43+0000\n"
+"Last-Translator: Andriy <andrej@rep.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1385235792.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -41,9 +45,9 @@ msgid "Error: %s\n"
 msgstr "Помилка: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Вийти з %s сесії?</big></b>"
+msgstr "<b><big>Вийти з %s %s сесії?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
@@ -67,7 +71,7 @@ msgstr "_Змінити користувача"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "З_аблокувати екран"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -87,13 +91,12 @@ msgid "Comment"
 msgstr "Коментар"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Помилка: %s\n"
+msgstr "Помилка"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Інформація"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -152,66 +155,64 @@ msgid "Identity:"
 msgstr "Ідентичність:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Коментар"
+msgstr "Команда"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Сеанс"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Застосувати"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Оновити"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Панель</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Додатково"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Менеджер вікон:"
+msgstr "<b>Менеджер вікон</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Менеджер файлів</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Зберігач екрану</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Агент PolKit</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>Док</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Автозапуск"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>Композитний менеджер</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Шпалери"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>Стільниця</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
@@ -234,9 +235,8 @@ msgid "<b>Widget 1</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Програма"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
@@ -244,19 +244,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "Зображення"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "Компонування"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>Вийти</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Менеджер робочого простору</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
@@ -279,23 +279,20 @@ msgid "<b>Lock screen manager</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Програма"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Програми, що автоматично запускаються"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Параметри</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Програми, що автоматично запускаються"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
@@ -307,20 +304,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "Варіант"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Розширені налаштування"
+msgstr "Параметри"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
@@ -332,15 +328,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "В'язка ключів"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>Безпека</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
@@ -352,15 +348,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>Оновлення</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>Проксі</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
@@ -368,7 +364,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Загальні налаштування</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
@@ -384,7 +380,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
@@ -400,6 +396,10 @@ msgstr ""
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXsession не запущено."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Вийти з %s сесії?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Вилогувати"
