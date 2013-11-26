@@ -3,24 +3,27 @@
 # Copyright (C) 2008 THE lxsession-lite'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession-lite package.
 # Hironao Komatsu <hironao@users.sourceforge.net>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2009-05-01 18:42+0900\n"
-"Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
+"PO-Revision-Date: 2013-11-26 05:05+0000\n"
+"Last-Translator: Hironao <hirkmt@gmail.com>\n"
 "Language-Team: ja_JP <LL@li.org>\n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1385442311.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "ダイアログに表示するメッセージ"
 
+# tutto maiuscolo perché è un parametro per la riga di comando
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "メッセージ"
@@ -29,6 +32,7 @@ msgstr "メッセージ"
 msgid "Banner to show on the dialog"
 msgstr "表示するダイアログのバナー"
 
+# tutto maiuscolo perché è un parametro per la riga di comando
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "画像ファイル"
@@ -38,15 +42,16 @@ msgid "Position of the banner"
 msgstr "バナーの位置"
 
 #: ../lxsession-logout/lxsession-logout.c:460
-#, c-format
+#, c-format, c-format
 msgid "Error: %s\n"
 msgstr "エラー: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>%s セッションをログアウトしますか?</big></b>"
+msgstr "<b><big>%s %s セッションをログアウトしますか?</big></b>"
 
+# Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
 msgstr "シャットダウン(_U)"
@@ -69,7 +74,7 @@ msgstr "ユーザの切り替え(_W)"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "スクリーンのロック(_O)"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -89,20 +94,19 @@ msgid "Comment"
 msgstr "コメント"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "エラー: %s\n"
+msgstr "エラー"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "情報"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
 msgstr "パスワード: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, c-format
+#, c-format, c-format, c-format, c-format
 msgid "Group: %s"
 msgstr "グループ: %s"
 
@@ -137,8 +141,7 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>警告:</b> 何をしているか分からないときはこの設定を<b>変更しないでください"
-"</b>。\n"
+"<b>警告:</b> 何をしているか分からないときはこの設定を<b>変更しないでください</b>。\n"
 "\n"
 "<b>注意:</b> この設定は次回ログイン以降有効になります。"
 
@@ -155,239 +158,232 @@ msgid "Identity:"
 msgstr "同一性:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "コメント"
+msgstr "コマンド"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "セッション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "再読み込み"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>パネル</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "追加"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "ウィンドウマネージャ:"
+msgstr "<b>ウィンドウマネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>ファイルマネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>スクリーンセーバー</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Polkit エージェント</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>ドック</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "自動立ちあげ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>合成マネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "壁紙"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>デスクトップ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>電源管理</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>ネットワーク GUI</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>通信 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>通信 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>ウィジェット 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "アプリケーション"
+msgstr "実行するアプリケーション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>オーディオマネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "画像"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "配列"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>終了マネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>ワークスペースの管理</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>ランチャの管理</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>端末の管理</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>スクリーンショット</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>更新マネージャ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>スクリーンロック</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "アプリケーション"
+msgstr "立ち上げるアプリケーション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "自動スタートするアプリケーション"
+msgstr "アプリケーションの自動立ちあげを無効にしますか?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>設定</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "自動スタートするアプリケーション"
+msgstr "<b>自動立ちあげを手動で行うアプリケーション</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>既知のアプリケーション </b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "クリップボード・マネージャ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "モード"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "モデル"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "変種"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "高度なオプション"
+msgstr "オプション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>キーマップ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "Keyring"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>セキュリティ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>a11y</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "更新の適用"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>更新</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>プロクシ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "ラップトップモード"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>一般</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
-msgstr ""
+msgstr "メニュー接頭辞"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>環境</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
@@ -395,14 +391,21 @@ msgstr "デスクトップセッションにロードされたアプリケーシ
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "LXSession のデフォルトのアプリケーション"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "LXDE のデフォルトのアプリケーションを変更する"
 
 #~ msgid "LXSession is not running."
-#~ msgstr "LXSession は実行されていません."
+#~ msgstr "LXSession attualmente non è in esecuzione."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Chiudere la sessione %s?</big></b>"
 
 #~ msgid "Logout"
-#~ msgstr "ログアウト"
+#~ msgstr "Chiudere sessione"
+
+#~ msgid "Save current session"
+#~ msgstr "Salvare la sessione attuale"
