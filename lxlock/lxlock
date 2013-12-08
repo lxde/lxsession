@@ -21,27 +21,25 @@
 #
 
 # Try to lock the screen with thos applications (in this order) :
-# xscreensaver, gnome-screensaver, slock, slock, i3lock and xdg-screensaver
+# light-locker-command, xscreensaver, gnome-screensaver, slock, xlock, i3lock and xdg-screensaver
 
-if test x"`which xscreensaver-command 2>/dev/null`" != x""; then
-    xscreensaver-command -lock
-    xscreensaver-command -lock >/dev/null 2>&1 ||
-    (
-     # Probably the daemon was not running. Start the daemon and retry.
-     xscreensaver -nosplash >/dev/null 2>&1 &
-     xscreensaver-command -lock >/dev/null 2>&1
-    )
-elif test x"`which gnome-screensaver-command 2>/dev/null`" != x""; then
+if pidof light-locker >/dev/null; then
+    light-locker-command -l >/dev/null 2>&1
+elif pidof xscreensaver >/dev/null; then
+    xscreensaver-command -lock >/dev/null 2>&1
+elif pidof gnome-screensaver >/dev/null; then
     gnome-screensaver-command --lock
-elif test x"`which slock 2>/dev/null`" != x""; then
-    slock
-elif test x"`which xlock 2>/dev/null`" != x""; then
+elif which slock >/dev/null; then
+    slock &
+elif which xlock 2>/dev/null; then
     xlock $*
-elif test x"`which i3lock 2>/dev/null`" != x""; then
+elif which i3lock >/dev/null; then
     i3lock -d
-# In the end, try to fallback to xdg-screensaver. Don't do at the first try, 
-# because if lxlock is called by xdg-screensaver, we may enter a loop.
 else
-    xdg-screensaver lock 
+    # In the end, try to fallback to xscreensaver
+
+    # assert: gnome-screensaver is not running
+    xscreensaver -nosplash >/dev/null 2>&1 &
+    xscreensaver-command -lock >/dev/null 2>&1
 fi
 exit 0
