@@ -28,17 +28,6 @@ namespace Lxsession
         public string session_name { get; set; default = "LXDE";}
         public string desktop_env_name { get; set; default = "LXDE";}
 
-        /* Mime */
-        public string   mime_distro { get; set; default = null;}
-        public string   mime_format_installed { get; set; default = null;}
-        public string   mime_format_available { get; set; default = null;}
-        public string[] mime_folders_installed { get; set; default = null;}
-        public string[] mime_folders_available { get; set; default = null;}
-        public string[] mime_webbrowser_installed { get; set; default = null;}
-        public string[] mime_webbrowser_available { get; set; default = null;}
-        public string[] mime_email_installed { get; set; default = null;}
-        public string[] mime_email_available { get; set; default = null;}
-
         /* Settings db */
         public HashTable<string, string> config_item_db;
         public HashTable<string, string> session_support_item_db;
@@ -241,32 +230,6 @@ namespace Lxsession
         {
             /* Connect to signals changes */
             global_sig.generic_set_signal.connect(set_config_item_value);
-
-            /* Mime */
-            global_sig.request_mime_distro_set.connect(on_update_string_set);
-            global_sig.request_mime_folders_installed_set.connect(on_update_string_list_set);
-            global_sig.request_mime_folders_available_set.connect(on_update_string_list_set);
-            global_sig.request_mime_webbrowser_installed_set.connect(on_update_string_list_set);
-            global_sig.request_mime_webbrowser_available_set.connect(on_update_string_list_set);
-            global_sig.request_mime_email_installed_set.connect(on_update_string_list_set);
-            global_sig.request_mime_email_available_set.connect(on_update_string_list_set);
-        }
-
-        public void init_mime()
-        {
-            switch (mime_distro)
-            {
-                case "ubuntu":
-                    mime_folders_installed = {"/usr/share/applications"};
-                    mime_folders_available = {"/usr/share/app-install/desktop"};
-                    break;
-                default:
-                    if (mime_folders_installed == null)
-                    {
-                        mime_folders_installed = {"/usr/share/applications"};
-                    }
-                    break;
-            }
         }
 
         public void guess_default()
@@ -454,9 +417,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         /* Monitor desktop file */
         setup_monitor_desktop_file();
-
-        /* Init Mime type database */
-        init_mime();
 
         /* Guess default */
         if (get_item_string("State", "guess_default", null) != "false")
@@ -871,15 +831,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Keyboard", "Interval", null, "string");
         read_key_value(kf, "Keyboard", "Beep", null, "string");
 
-        /* Mime */
-        this.mime_distro = read_keyfile_string_value (kf, "Mime", "distro", null, this.mime_distro);
-        this.mime_folders_installed = read_keyfile_string_list_value (kf, "Mime", "folders", "installed", this.mime_folders_installed);
-        this.mime_folders_available = read_keyfile_string_list_value (kf, "Mime", "folders", "available", this.mime_folders_available);
-        this.mime_webbrowser_installed = read_keyfile_string_list_value (kf, "Mime", "webbrowser", "installed", this.mime_webbrowser_installed);
-        this.mime_webbrowser_available = read_keyfile_string_list_value (kf, "Mime", "webbrowser", "available", this.mime_webbrowser_available);
-        this.mime_email_installed = read_keyfile_string_list_value (kf, "Mime", "email", "installed", this.mime_email_installed);
-        this.mime_email_available = read_keyfile_string_list_value (kf, "Mime", "email", "available", this.mime_email_available);
-
         read_secondary_keyfile();
 
     }
@@ -1049,9 +1000,6 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
             /* Monitor desktop file */
             setup_monitor_desktop_file();
-
-            /* Init Mime type database */
-            init_mime();
 
             /* Guess default */
             if (get_item_string("State", "guess_default", null) != "false")

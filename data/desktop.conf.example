@@ -142,19 +142,6 @@ tasks/command=
 # no : autostart all applications
 disable_autostart=no
 
-[Mime]
-# Set installed and available folers with knows values, depending on the distro (only ubuntu is implemented).
-distro=
-# Set a list of folders containing available info of installed applications
-folders/installed=
-# Set a list of folders containing available info of available applications
-folders/available=
-#List of application available by category
-webbrowser/installed=
-webbrowser/available=
-email/installed=
-email/available=
-
 [State]
 # unknown if untested, yes if on laptop, no if not
 laptop_mode=unknown

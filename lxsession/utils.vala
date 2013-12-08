@@ -98,15 +98,6 @@ public class LxSignals : Object
     /* Xsettings */
     public signal void reload_settings_daemon();
 
-    /* Mime */
-    public signal void request_mime_distro_set(string dbus_arg, string kf_categorie = "Mime", string kf_key1 = "distro", string? kf_key2=null);
-    public signal void request_mime_folders_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "folders", string kf_key2="installed");
-    public signal void request_mime_folders_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "folders", string kf_key2="available");
-    public signal void request_mime_webbrowser_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "webbrowser", string kf_key2="installed");
-    public signal void request_mime_webbrowser_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "webbrowser", string kf_key2="available");
-    public signal void request_mime_email_installed_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="installed");
-    public signal void request_mime_email_available_set(string[] dbus_arg, string kf_categorie = "Mime", string kf_key1 = "email", string kf_key2="available");
-
     public signal void generic_set_signal (string categorie, string key1, string? key2, string type, string dbus_arg);
 
 }
