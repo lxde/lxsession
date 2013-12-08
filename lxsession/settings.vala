@@ -294,6 +294,7 @@ namespace Lxsession
             set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
             set_generic_default("Session", "proxy_manager", "command", "string", "build-in");
+            set_generic_default("Session", "a11y", "command", "string", "build-in");
 
             /* Set Xsettings default */
 
@@ -808,6 +809,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "xsettings_manager", "command", "string");
         read_key_value(kf, "Session", "proxy_manager", "command", "string");
         read_key_value(kf, "Session", "proxy_manager", "http", "string");
+        read_key_value(kf, "Session", "a11y", "command", "string");
+        read_key_value(kf, "Session", "a11y", "type", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
@@ -852,7 +855,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Dbus", "lxde", null, "string");
         read_key_value(kf, "Dbus", "gnome", null, "string");
         read_key_value(kf, "Security", "keyring", null, "string");
-        read_key_value(kf, "a11y", "type", null, "string");
         read_key_value(kf, "Updates", "type", null, "string");
         read_key_value(kf, "Environment", "type", null, "string");
         read_key_value(kf, "Environment", "menu_prefix", null, "string");

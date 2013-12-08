@@ -268,48 +268,6 @@ namespace Lxsession
             }
         }
 
-        /* a11y API */
-        public void a11ySupport (out string[] list)
-        {
-            list = GenericSupport ("a11y");
-        }
-
-        public void a11ySupportDetail (string key1, out string[] list)
-        {
-            list = GenericSupportDetail ("a11y", key1);
-        }
-
-        public void a11yGet(string key1, string key2, out string command)
-        {
-            command = GenericGet("a11y", key1, key2);
-        }
-
-        public void a11ySet(string key1, string key2, string command_to_set)
-        {
-            GenericSet("a11y", key1, key2, command_to_set);
-        }
-
-        public void A11yActivate()
-        {
-            message("Reload a11y");
-            if (global_settings.get_item_string("a11y", "type", null) == null)
-            {
-                warning("A11y type not set");
-            }
-            else if (global_a11y == null)
-            {
-                message("A11y doesn't exist, creating it");
-                var a11y = new A11yOption(global_settings);
-                global_a11y = a11y;
-                global_a11y.activate();
-            }
-            else
-            {
-                message("Reload existing a11y");
-                global_a11y.activate();
-            }
-        }
-
         /* Updates API */
         public void UpdatesSupport (out string[] list)
         {

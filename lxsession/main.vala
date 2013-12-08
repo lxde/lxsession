@@ -54,7 +54,7 @@ namespace Lxsession {
     KeymapOption global_keymap;
     XrandrOption global_xrandr;
     KeyringOption global_keyring;
-    A11yOption global_a11y;
+    A11yApp global_a11y;
     UpdatesOption global_updates;
     GenericSimpleApp global_im1;
     GenericSimpleApp global_im2;
@@ -453,11 +453,11 @@ namespace Lxsession {
             global_keyring.activate();
         }
 
-        if (global_settings.get_item_string("a11y", "type", null) == "true")
+        if (global_settings.get_item_string("Session", "a11y", "command") == "true")
         {
-            var a11y = new A11yOption(global_settings);
+            var a11y = new A11yApp();
             global_a11y = a11y;
-            global_a11y.activate();
+            global_a11y.launch();
         }
 
         if (global_settings.get_item_string("Session", "proxy_manager", "command") != null)

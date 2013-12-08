@@ -104,6 +104,11 @@ keybindings/autostart=true
 proxy_manager/command=build-in
 proxy_manager/http=
 
+# Accessibility options. Options available : build-in
+a11y/command = build-in
+# Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
+a11y/type=gnome
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=
@@ -179,11 +184,6 @@ command=
 [Security]
 # Default Keyring program (default for ssh-agent, gnome-all for gnome-keyring-daemon full support
 keyring=ssh-agent
-
-[a11y]
-# Accessibility options
-# Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
-type=gnome
 
 [Updates]
 # Updates checker, support build-in and update-notifier

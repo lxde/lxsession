@@ -1006,6 +1006,44 @@ public class ProxyManagerApp: SimpleAppObject
     }
 }
 
+public class A11yApp: SimpleAppObject
+{
+    string a11y_command;
+    string a11y_type;
+
+    public A11yApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        a11y_command = global_settings.get_item_string("Session", "a11y", "command");
+        a11y_type = global_settings.get_item_string("Session", "a11y", "type");
+
+        switch (a11y_command)
+        {
+            case "build-in":
+                switch (a11y_type)
+                {
+                    case null:
+                        break;
+                    case "":
+                        break;
+                    case " ":
+                        break;
+                    case "gnome":
+                        string tmp_command = "/usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately";
+                        string[] create_command = tmp_command.split_set(" ",0);
+                        this.name = create_command[0];
+                        this.command = create_command;
+                        break;
+                }
+                break;
+        }
+    }
+}
+
 public class ScreenshotManagerApp: SimpleAppObject
 {
     string screenshotmanager_command;

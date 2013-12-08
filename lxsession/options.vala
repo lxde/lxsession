@@ -157,26 +157,7 @@ namespace Lxsession
             }
         }
     }
-    public class A11yOption: Option
-    {
-        private string command1;
 
-        public A11yOption (LxsessionConfig config)
-        {
-            base (config);
-            switch (config.get_item_string("a11y", "type", null))
-            {
-                case "gnome":
-                    command1 = "/usr/lib/at-spi2-core/at-spi-bus-launcher --launch-immediately";
-                    break;
-            }
-
-        }
-        public new void activate()
-        {
-            lxsession_spawn_command_line_async(command1);
-        }
-    }
     public class ClipboardOption: Option
     {
         public ClipboardOption (LxsessionConfig config)
