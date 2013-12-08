@@ -385,9 +385,9 @@ namespace Lxsession
                 set_generic_default("Session", "quit_manager", "image", "string", "/usr/share/lxde/images/logout-banner.png");
                 set_generic_default("Session", "quit_manager", "layout", "string", "top");
 
-                set_generic_default("Session", "lock_manager", "layout", "string", "lxlock");
-                set_generic_default("Session", "terminal_manager", "layout", "string", "lxterminal");
-                set_generic_default("Session", "launcher_manager", "layout", "string", "lxpanelctl");
+                set_generic_default("Session", "lock_manager", "command", "string", "lxlock");
+                set_generic_default("Session", "terminal_manager", "command", "string", "lxterminal");
+                set_generic_default("Session", "launcher_manager", "command", "string", "lxpanelctl");
             }
         }
 
