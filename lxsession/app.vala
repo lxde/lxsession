@@ -40,6 +40,10 @@ public class AppObject: GLib.Object
     public string[] command { get; set;}
     public bool guard { get; set; default = false;}
     public string application_type { get; set;}
+    public int crash_count { get; set; default = 0;}
+
+    /* Number of time the application have to crash before stoping to reload */
+    public int stop_reload { get; set; default = 5;}
 
     public AppObject()
     {
@@ -131,7 +135,7 @@ public class AppObject: GLib.Object
         Process.close_pid (pid);
 
         if (this.guard == true)
-        { 
+        {
             switch (status)
             {
                 case 0:
@@ -144,10 +148,18 @@ public class AppObject: GLib.Object
                     message("Exit normal, don't reload");
                     break;
                 default:
-                    message("Exit not normal, reload");
-                    this.launch();
+                    message("Exit not normal, try to reload");
+                    this.crash_count = this.crash_count + 1;
+                    if (this.crash_count <= this.stop_reload)
+                    {
+                        this.launch();
+                    }
+                    else
+                    {
+                        message("Application crashed too much, stop reloading");
+                    }
                     break;
-		    }
+	        }
         }
     }
 }
@@ -344,8 +356,7 @@ public class WindowsManagerApp: SimpleAppObject
 
         if (this.guard == true)
         { 
-
-		    switch (status)
+	        switch (status)
             {
                 case 0:
                     message("Exit normal, don't reload");
@@ -357,10 +368,18 @@ public class WindowsManagerApp: SimpleAppObject
                     message("Exit normal, don't reload");
                     break;
                 default:
-                    message("Exit not normal, reload");
-                    this.launch();
+                    message("Exit not normal, try to reload");
+                    this.crash_count = this.crash_count + 1;
+                    if (this.crash_count <= this.stop_reload)
+                    {
+                        this.launch();
+                    }
+                    else
+                    {
+                        message("Application crashed too much, stop reloading");
+                    }
                     break;
-		    }
+	        }
         }
     }
 
@@ -371,7 +390,8 @@ public class WindowsManagerApp: SimpleAppObject
 
         if (this.name != null)
         {
-            try {
+            try
+            {
                 string[] spawn_env = Environ.get ();
                 Process.spawn_async (
                              null,
@@ -389,7 +409,8 @@ public class WindowsManagerApp: SimpleAppObject
                 GLib.stdout.printf("\n");
 
             }
-            catch (SpawnError err){
+            catch (SpawnError err)
+            {
                 warning (err.message);
             }
         }
@@ -899,14 +920,7 @@ public class LauncherManagerApp: SimpleAppObject
         {
             case "synapse":
                 string create_autostart_command = "synapse --startup";
-                try
-                {
-                    lxsession_spawn_command_line_async(create_autostart_command);
-                }
-                catch (SpawnError err)
-                {
-                    warning (err.message);
-                }
+                lxsession_spawn_command_line_async(create_autostart_command);
                 break;
             default:
                 this.launch();
