@@ -110,6 +110,9 @@ a11y/command = gnome
 # Default Keyring program (default for ssh-agent, gnome-all for gnome-keyring-daemon full support)
 keyring/command=ssh-agent
 
+# Command to launch for configuring Xrandr ex: xrandr --mode ...
+xrandr/command=
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=
@@ -162,12 +165,6 @@ model=
 layout=
 variant=
 options=
-
-[XRandr]
-# Mode command only available
-mode=
-# Command to launch for configuring Xrandr ex: xrandr --mode ...
-command=
 
 [Updates]
 # Updates checker, support build-in and update-notifier

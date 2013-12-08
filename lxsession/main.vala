@@ -52,7 +52,7 @@ namespace Lxsession {
     GenericSimpleApp global_message_manager;
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
-    XrandrOption global_xrandr;
+    XrandrApp global_xrandr;
     KeyringApp global_keyring;
     A11yApp global_a11y;
     UpdatesOption global_updates;
@@ -439,11 +439,11 @@ namespace Lxsession {
             global_keymap.activate();
         }
 
-        if (global_settings.get_item_string("XRandr", "mode", null) != null)
+        if (global_settings.get_item_string("Session", "xrandr", "command") != null)
         {
-            var xrandr = new XrandrOption(global_settings);
+            var xrandr = new XrandrApp();
             global_xrandr = xrandr;
-            xrandr.activate();
+            xrandr.launch();
         }
 
         if (global_settings.get_item_string("Session", "keyring", "command") != null)

@@ -184,48 +184,6 @@ namespace Lxsession
             }
         }
 
-        /* XRandr API */
-        public void XRandrSupport (out string[] list)
-        {
-            list = GenericSupport ("XRandr");
-        }
-
-        public void XRandrSupportDetail (string key1, out string[] list)
-        {
-            list = GenericSupportDetail ("XRandr", key1);
-        }
-
-        public void XRandrGet(string key1, string key2, out string command)
-        {
-            command = GenericGet("XRandr", key1, key2);
-        }
-
-        public void XRandrSet(string key1, string key2, string command_to_set)
-        {
-            GenericSet("XRandr", key1, key2, command_to_set);
-        }
-
-        public void XrandrActivate()
-        {
-            message("Reload xrandr");
-            if (global_settings.get_item_string("XRandr", "mode", null) == null)
-            {
-                warning("Xrandr mode not set");
-            }
-            else if (global_xrandr == null)
-            {
-                message("Xrandr doesn't exist, creating it");
-                var xrandr = new XrandrOption(global_settings);
-                global_xrandr = xrandr;
-                global_xrandr.activate();
-            }
-            else
-            {
-                message("Reload existing xrandr");
-                global_xrandr.activate();
-            }
-        }
-
         /* Updates API */
         public void UpdatesSupport (out string[] list)
         {
@@ -492,6 +450,8 @@ namespace Lxsession
                     case "clipboard":
                         ClipboardActivate();
                         break;
+
+                    /* TODO readd a11y, proxy, xrandr, security ...*/
 
                     default:
                         var application = new GenericSimpleApp(settings);

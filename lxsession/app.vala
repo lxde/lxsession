@@ -1042,6 +1042,39 @@ public class A11yApp: SimpleAppObject
     }
 }
 
+public class XrandrApp: SimpleAppObject
+{
+    /*  Don't use GenericApp, we may want to implement other option than
+        reading a xrandr command directly
+    */
+    string xrandr_command;
+
+    public XrandrApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        xrandr_command = global_settings.get_item_string("Session", "xrandr", "command");
+
+        switch (xrandr_command)
+        {
+            case null:
+                break;
+            case "":
+                break;
+            case " ":
+                break;
+            default:
+                string[] create_command = xrandr_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 public class KeyringApp: SimpleAppObject
 {
     string keyring_command;

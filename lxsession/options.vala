@@ -94,22 +94,6 @@ namespace Lxsession
             return command;
         }
     }
-    public class XrandrOption: Option
-    {
-        public XrandrOption (LxsessionConfig config)
-        {
-            base (config);
-            if (config.get_item_string("XRandr", "mode", null) == "command")
-            {
-                command = create_command_mode_command(config);
-            }
-        }
-        public string create_command_mode_command(LxsessionConfig config)
-        {
-            command = config.get_item_string("XRandr", "command", null);
-            return command;
-        }
-    }
 
     public class ClipboardOption: Option
     {

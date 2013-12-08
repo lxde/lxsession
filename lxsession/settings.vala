@@ -35,7 +35,6 @@ namespace Lxsession
         public HashTable<string, string> state_support_item_db;
         public HashTable<string, string> dbus_support_item_db;
         public HashTable<string, string> keymap_support_item_db;
-        public HashTable<string, string> xrandr_support_item_db;
         public HashTable<string, string> updates_support_item_db;
         public HashTable<string, string> environment_support_item_db;
 
@@ -47,7 +46,6 @@ namespace Lxsession
             state_support_item_db = init_item_db();
             dbus_support_item_db = init_item_db();
             keymap_support_item_db = init_item_db();
-            xrandr_support_item_db = init_item_db();
             updates_support_item_db = init_item_db();
             environment_support_item_db = init_item_db();
         }
@@ -148,9 +146,6 @@ namespace Lxsession
                     break;
                 case "Keymap":
                     support_db = keymap_support_item_db;
-                    break;
-                case "XRandr":
-                    support_db = xrandr_support_item_db;
                     break;
                 case "Updates":
                     support_db = updates_support_item_db;
@@ -761,6 +756,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "proxy_manager", "http", "string");
         read_key_value(kf, "Session", "a11y", "command", "string");
         read_key_value(kf, "Session", "keyring", "command", "string");
+        read_key_value(kf, "Session", "xrandr", "command", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
@@ -790,13 +786,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             read_key_value(kf, "Keymap", "layout", null, "string");
             read_key_value(kf, "Keymap", "variant", null, "string");
             read_key_value(kf, "Keymap", "options", null, "string");
-        }
-
-        /* Xrandr */
-        if (read_keyfile_string_value(kf, "XRandr", "mode", null, null) != null)
-        {
-            read_key_value(kf, "XRandr", "mode", null, "string");
-            read_key_value(kf, "XRandr", "command", null, "string");
         }
 
         /* Other */
