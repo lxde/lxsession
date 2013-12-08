@@ -61,7 +61,7 @@ namespace Lxsession {
     WidgetApp global_widget1;
     GenericSimpleApp global_notification;
     GenericSimpleApp global_keybindings;
-    ProxyOption global_proxy;
+    ProxyManagerApp global_proxy;
     UpstartUserSessionOption global_upstart_session;
     XSettingsOption global_xsettings_manager;
 
@@ -460,11 +460,11 @@ namespace Lxsession {
             global_a11y.activate();
         }
 
-        if (global_settings.get_item_string("Proxy", "http", null) != null)
+        if (global_settings.get_item_string("Session", "proxy_manager", "command") != null)
         {
-            var proxy = new ProxyOption(global_settings);
+            var proxy = new ProxyManagerApp();
             global_proxy = proxy;
-            global_proxy.activate();
+            global_proxy.launch();
         }
 
         if (global_settings.get_item_string("Updates", "type", null) != null)

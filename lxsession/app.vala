@@ -995,6 +995,41 @@ public class CompositeManagerApp: SimpleAppObject
     }
 }
 
+public class ProxyManagerApp: SimpleAppObject
+{
+    string proxymanager_command;
+    string proxymanager_http;
+
+    public ProxyManagerApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        proxymanager_command = global_settings.get_item_string("Session", "proxy_manager", "command");
+        proxymanager_http = global_settings.get_item_string("Session", "proxy_manager", "http");
+
+        switch (proxymanager_command)
+        {
+            case "build-in":
+                switch (proxymanager_http)
+                {
+                    case null:
+                        break;
+                    case "":
+                        break;
+                    case " ":
+                        break;
+                    default:
+                    Environment.set_variable("HTTP_PROXY", proxymanager_http, true);
+                    break;
+                }
+                break;
+        }
+    }
+}
+
 public class IMApp: SimpleAppObject
 {
     public string im_command;

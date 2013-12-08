@@ -99,6 +99,11 @@ notification/autostart=true
 keybindings/command=
 keybindings/autostart=true
 
+# Utility to set proxy environment variable. Options available : build-in
+# http: Set the variable to export
+proxy_manager/command=build-in
+proxy_manager/http=
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=
@@ -189,10 +194,6 @@ type=
 menu_prefix=lxde-
 # Enable appmenu integration
 ubuntu_menuproxy=false
-
-[Proxy]
-http=
-
 
 [GTK]
 #iNet/DoubleClickTime=400

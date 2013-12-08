@@ -373,48 +373,6 @@ namespace Lxsession
             GenericSet("Environment", key1, key2, command_to_set);
         }
 
-        /* Proxy API */
-        public void ProxySupport (out string[] list)
-        {
-            list = GenericSupport ("Proxy");
-        }
-
-        public void ProxySupportDetail (string key1, out string[] list)
-        {
-            list = GenericSupportDetail ("Proxy", key1);
-        }
-
-        public void ProxyGet(string key1, string key2, out string command)
-        {
-            command = GenericGet("Proxy", key1, key2);
-        }
-
-        public void ProxySet(string key1, string key2, string command_to_set)
-        {
-            GenericSet("Proxy", key1, key2, command_to_set);
-        }
-
-        public void ProxyActivate()
-        {
-            message("Reload proxy");
-            if (global_settings.get_item_string("Proxy", "http", null) == null)
-            {
-                warning("Proxy http not set");
-            }
-            else if (global_proxy == null)
-            {
-                message("Proxy doesn't exist, creating it");
-                var proxy = new ProxyOption(global_settings);
-                global_proxy = proxy;
-                global_proxy.activate();
-            }
-            else
-            {
-                message("Reload existing proxy");
-                global_proxy.activate();
-            }
-        }
-
         private string[] GenericSupport (string categorie)
         {
             string tmp_support;

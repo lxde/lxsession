@@ -51,7 +51,6 @@ namespace Lxsession
         public HashTable<string, string> ally_support_item_db;
         public HashTable<string, string> updates_support_item_db;
         public HashTable<string, string> environment_support_item_db;
-        public HashTable<string, string> proxy_support_item_db;
 
         public LxsessionConfig ()
         {
@@ -66,7 +65,6 @@ namespace Lxsession
             ally_support_item_db = init_item_db();
             updates_support_item_db = init_item_db();
             environment_support_item_db = init_item_db();
-            proxy_support_item_db = init_item_db();
         }
 
         private HashTable<string, string> init_item_db ()
@@ -180,9 +178,6 @@ namespace Lxsession
                     break;
                 case "Environment":
                     support_db = environment_support_item_db;
-                    break;
-                case "Proxy":
-                    support_db = proxy_support_item_db;
                     break;
             }
 
@@ -298,6 +293,7 @@ namespace Lxsession
 
             set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
+            set_generic_default("Session", "proxy_manager", "command", "string", "build-in");
 
             /* Set Xsettings default */
 
@@ -810,6 +806,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "disable_autostart", null, "string");
         read_key_value(kf, "Session", "upstart_user_session", null, "string");
         read_key_value(kf, "Session", "xsettings_manager", "command", "string");
+        read_key_value(kf, "Session", "proxy_manager", "command", "string");
+        read_key_value(kf, "Session", "proxy_manager", "http", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
@@ -858,7 +856,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Updates", "type", null, "string");
         read_key_value(kf, "Environment", "type", null, "string");
         read_key_value(kf, "Environment", "menu_prefix", null, "string");
-        read_key_value(kf, "Proxy", "http", null, "string");
 
         read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
         read_key_value(kf, "GTK", "sNet", "IconThemeName", "string");

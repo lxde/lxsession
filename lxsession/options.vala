@@ -313,34 +313,6 @@ namespace Lxsession
         }
     }
 
-    public class ProxyOption: Option
-    {
-        private string http;
-
-        public ProxyOption (LxsessionConfig config)
-        {
-            base (config);
-        }
-        public new void activate ()
-        {
-            http = global_settings.get_item_string("Proxy", "http", null);
-
-            switch (http)
-            {
-                case null:
-                    break;
-                case "":
-                    break;
-                case " ":
-                    break;
-                default:
-                    Environment.set_variable("HTTP_PROXY", http, true);
-                    break;
-            }
-        }
-    }
-
-
     public class XSettingsOption: GLib.Object
     {
         private string command;
