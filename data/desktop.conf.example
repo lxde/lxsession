@@ -187,6 +187,8 @@ type=
 [Environment]
 type=
 menu_prefix=lxde-
+# Enable appmenu integration
+ubuntu_menuproxy=false
 
 [Proxy]
 http=

@@ -215,6 +215,12 @@ namespace Lxsession
                     Environment.set_variable("QT_PLUGIN_PATH" , qt_plugin + ":/usr/lib64/kde4/plugins:/usr/lib/kde4/plugins", true);
                 }
             }
+
+            /* Add support for App menu */
+            if (global_settings.get_item_string("Environment", "ubuntu_menuproxy", null) == "true")
+            {
+                Environment.set_variable("UBUNTU_MENUPROXY", "libappmenu.so", true);
+            }
         }
     }
 
