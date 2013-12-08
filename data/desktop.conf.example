@@ -75,6 +75,9 @@ screenshot_manager/command=
 # Upgrade by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradeManagerLaunch)
 upgrade_manager/command=
 
+# Updates checker, support build-in and update-notifier
+updates_manager/command=
+
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard/command=lxclipboard
 
@@ -165,10 +168,6 @@ model=
 layout=
 variant=
 options=
-
-[Updates]
-# Updates checker, support build-in and update-notifier
-type=
 
 [Environment]
 type=

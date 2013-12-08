@@ -184,48 +184,6 @@ namespace Lxsession
             }
         }
 
-        /* Updates API */
-        public void UpdatesSupport (out string[] list)
-        {
-            list = GenericSupport ("Updates");
-        }
-
-        public void UpdatesSupportDetail (string key1, out string[] list)
-        {
-            list = GenericSupportDetail ("Updates", key1);
-        }
-
-        public void UpdatesGet(string key1, string key2, out string command)
-        {
-            command = GenericGet("Updates", key1, key2);
-        }
-
-        public void UpdatesSet(string key1, string key2, string command_to_set)
-        {
-            GenericSet("Updates", key1, key2, command_to_set);
-        }
-
-        public void UpdatesActivate()
-        {
-            message("Reload updates");
-            if (global_settings.get_item_string("Updates", "type", null) == null)
-            {
-                warning("Updates type not set");
-            }
-            else if (global_updates == null)
-            {
-                message("Updates doesn't exist, creating it");
-                var updates = new UpdatesOption(global_settings);
-                global_updates = updates;
-                global_updates.activate();
-            }
-            else
-            {
-                message("Reload existing updates");
-                global_updates.activate();
-            }
-        }
-
         /* Environment API */
         public void EnvironmentSupport (out string[] list)
         {
@@ -451,7 +409,7 @@ namespace Lxsession
                         ClipboardActivate();
                         break;
 
-                    /* TODO readd a11y, proxy, xrandr, security ...*/
+                    /* TODO readd a11y, proxy, xrandr, security, updates ...*/
 
                     default:
                         var application = new GenericSimpleApp(settings);

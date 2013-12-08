@@ -55,7 +55,7 @@ namespace Lxsession {
     XrandrApp global_xrandr;
     KeyringApp global_keyring;
     A11yApp global_a11y;
-    UpdatesOption global_updates;
+    UpdatesManagerApp global_updates;
     GenericSimpleApp global_im1;
     GenericSimpleApp global_im2;
     GenericSimpleApp global_widget1;
@@ -467,11 +467,11 @@ namespace Lxsession {
             global_proxy.launch();
         }
 
-        if (global_settings.get_item_string("Updates", "type", null) != null)
+        if (global_settings.get_item_string("Session", "udpates_manager", "command") != null)
         {
-            var updates = new UpdatesOption(global_settings);
+            var updates = new UpdatesManagerApp();
             global_updates = updates;
-            global_updates.activate();
+            global_updates.launch();
         }
 
         if (global_settings.get_item_string("Session", "upstart_user_session", null) == "true")
