@@ -110,53 +110,6 @@ namespace Lxsession
             return command;
         }
     }
-    public class KeyringOption: Option
-    {
-        private string command1;
-        private string command2;
-        private string command3;
-        private string command4;
-
-        public KeyringOption (LxsessionConfig config)
-        {
-            base (config);
-            switch (config.get_item_string("Security", "keyring", null))
-            {
-                case "gnome-all":
-                    command1 = "gnome-keyring-daemon --start --components=gpg";
-                    command2 = "gnome-keyring-daemon --start --components=pkcs11";
-                    command3 = "gnome-keyring-daemon --start --components=secrets";
-                    command4 = "gnome-keyring-daemon --start --components=ssh";
-                    break;
-                case "ssh-agent":
-                    command1 = "/usr/bin/ssh-agent -s";
-                    break;
-            }
-
-        }
-        public new void activate()
-        {
-            if (command1 != null)
-            {
-                lxsession_spawn_command_line_async(command1);
-            }
-
-            if (command2 != null)
-            {
-                lxsession_spawn_command_line_async(command2);
-            }
-
-            if (command3 != null)
-            {
-                lxsession_spawn_command_line_async(command3);
-            }
-
-            if (command4 != null)
-            {
-                lxsession_spawn_command_line_async(command4);
-            }
-        }
-    }
 
     public class ClipboardOption: Option
     {

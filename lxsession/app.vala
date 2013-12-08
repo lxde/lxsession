@@ -1044,6 +1044,44 @@ public class A11yApp: SimpleAppObject
     }
 }
 
+public class KeyringApp: SimpleAppObject
+{
+    string keyring_command;
+    string keyring_type;
+
+    public KeyringApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        keyring_command = global_settings.get_item_string("Session", "keyring", "command");
+        keyring_type = global_settings.get_item_string("Session", "keyring", "type");
+
+        switch (keyring_command)
+        {
+            case "gnome-all":
+                string tmp_command = "gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg";
+                string[] create_command = tmp_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+            case "ssh-agent":
+                string tmp_command = "/usr/bin/ssh-agent -s";
+                string[] create_command = tmp_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+            default:
+                string[] create_command = keyring_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+}
+
 public class ScreenshotManagerApp: SimpleAppObject
 {
     string screenshotmanager_command;

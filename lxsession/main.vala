@@ -53,7 +53,7 @@ namespace Lxsession {
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
     XrandrOption global_xrandr;
-    KeyringOption global_keyring;
+    KeyringApp global_keyring;
     A11yApp global_a11y;
     UpdatesOption global_updates;
     GenericSimpleApp global_im1;
@@ -446,11 +446,11 @@ namespace Lxsession {
             xrandr.activate();
         }
 
-        if (global_settings.get_item_string("Security", "keyring", null) != null)
+        if (global_settings.get_item_string("Session", "keyring", "command") != null)
         {
-            var keyring = new KeyringOption(global_settings);
+            var keyring = new KeyringApp();
             global_keyring = keyring;
-            global_keyring.activate();
+            global_keyring.launch();
         }
 
         if (global_settings.get_item_string("Session", "a11y", "command") == "true")

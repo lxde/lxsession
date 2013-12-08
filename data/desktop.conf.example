@@ -109,6 +109,9 @@ a11y/command = build-in
 # Type of accessibility to enable (GNOME, KDE or other). Only GNOME supported now.
 a11y/type=gnome
 
+# Default Keyring program (default for ssh-agent, gnome-all for gnome-keyring-daemon full support)
+keyring/command=ssh-agent
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=
@@ -180,10 +183,6 @@ options=
 mode=
 # Command to launch for configuring Xrandr ex: xrandr --mode ...
 command=
-
-[Security]
-# Default Keyring program (default for ssh-agent, gnome-all for gnome-keyring-daemon full support
-keyring=ssh-agent
 
 [Updates]
 # Updates checker, support build-in and update-notifier

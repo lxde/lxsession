@@ -226,48 +226,6 @@ namespace Lxsession
             }
         }
 
-        /* Security API */
-        public void SecuritySupport (out string[] list)
-        {
-            list = GenericSupport ("Security");
-        }
-
-        public void SecuritySupportDetail (string key1, out string[] list)
-        {
-            list = GenericSupportDetail ("Security", key1);
-        }
-
-        public void SecurityGet(string key1, string key2, out string command)
-        {
-            command = GenericGet("Security", key1, key2);
-        }
-
-        public void SecuritySet(string key1, string key2, string command_to_set)
-        {
-            GenericSet("Security", key1, key2, command_to_set);
-        }
-
-        public void SecurityActivate()
-        {
-            message("Reload security");
-            if (global_settings.get_item_string("Security", "keyring", null) == null)
-            {
-                warning("Security keyring not set");
-            }
-            else if (global_keyring == null)
-            {
-                message("Keyring doesn't exist, creating it");
-                var keyring = new KeyringOption(global_settings);
-                global_keyring = keyring;
-                global_keyring.activate();
-            }
-            else
-            {
-                message("Reload existing keyring");
-                global_keyring.activate();
-            }
-        }
-
         /* Updates API */
         public void UpdatesSupport (out string[] list)
         {

@@ -167,9 +167,6 @@ namespace Lxsession
                 case "XRandr":
                     support_db = xrandr_support_item_db;
                     break;
-                case "Security":
-                    support_db = security_support_item_db;
-                    break;
                 case "a11y":
                     support_db = ally_support_item_db;
                     break;
@@ -295,6 +292,7 @@ namespace Lxsession
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
             set_generic_default("Session", "proxy_manager", "command", "string", "build-in");
             set_generic_default("Session", "a11y", "command", "string", "build-in");
+            set_generic_default("Session", "keyring", "command", "string", "ssh-agent");
 
             /* Set Xsettings default */
 
@@ -811,6 +809,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "proxy_manager", "http", "string");
         read_key_value(kf, "Session", "a11y", "command", "string");
         read_key_value(kf, "Session", "a11y", "type", "string");
+        read_key_value(kf, "Session", "keyring", "command", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
@@ -854,7 +853,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "State", "guess_default", null, "string");
         read_key_value(kf, "Dbus", "lxde", null, "string");
         read_key_value(kf, "Dbus", "gnome", null, "string");
-        read_key_value(kf, "Security", "keyring", null, "string");
         read_key_value(kf, "Updates", "type", null, "string");
         read_key_value(kf, "Environment", "type", null, "string");
         read_key_value(kf, "Environment", "menu_prefix", null, "string");
