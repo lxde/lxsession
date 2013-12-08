@@ -381,10 +381,12 @@ void init_list_view( GtkTreeView* view )
     render = gtk_cell_renderer_text_new();
     gtk_tree_view_column_pack_start( col, render, TRUE );
     gtk_tree_view_column_set_attributes( col, render, "text", COL_NAME, NULL );
-
+/*
+    Remove the comment, make the windows huge
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes(_("Comment"), render, "text", COL_COMMENT, NULL );
     gtk_tree_view_append_column(view, col);
+*/
 }
 
 GtkListStore* get_autostart_list ()
