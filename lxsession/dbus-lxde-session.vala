@@ -519,10 +519,6 @@ namespace Lxsession
                         }
                         break;
 
-                    case "widget1":
-                        Widget1Reload();
-                        break;
-
                     case "file_manager":
                         if (option == "launch")
                         {
@@ -745,28 +741,6 @@ namespace Lxsession
             else
             {
                 global_screenshot_manager.window_launch();
-            }
-        }
-
-        /* Widget manager */
-        private void Widget1Reload()
-        {
-            message("Reload widget1");
-            if (global_settings.get_item_string("Session", "widget1", "command") == null)
-            {
-                warning("widget1 not set not set");
-            }
-            else if (global_widget1 == null)
-            {
-                message("Widget1 doesn't exist, creating it");
-                var widget1 = new WidgetApp();
-                global_widget1 = widget1;
-                global_widget1.launch();
-            }
-            else
-            {
-                message("Reload existing widget1");
-                global_widget1.reload();
             }
         }
 

@@ -58,7 +58,7 @@ namespace Lxsession {
     UpdatesOption global_updates;
     GenericSimpleApp global_im1;
     GenericSimpleApp global_im2;
-    WidgetApp global_widget1;
+    GenericSimpleApp global_widget1;
     GenericSimpleApp global_notification;
     GenericSimpleApp global_keybindings;
     ProxyManagerApp global_proxy;
@@ -380,7 +380,7 @@ namespace Lxsession {
             {
                 if (global_settings.get_item_string("Session", "widget1", "command") != null)
                 {
-                    var widget1 = new WidgetApp();
+                    var widget1 = new GenericSimpleApp(global_settings.get_item_string("Session", "widget1", "command"));
                     global_widget1 = widget1;
                     global_widget1.launch();
                 }

@@ -1006,33 +1006,6 @@ public class ProxyManagerApp: SimpleAppObject
     }
 }
 
-public class WidgetApp: SimpleAppObject
-{
-    public string widget_command;
-
-    public WidgetApp ()
-    {
-        init();
-    }
-
-    public override void read_config_settings()
-    {
-        widget_command = global_settings.get_item_string("Session", "widget1", "command");
-    }
-
-    public override void read_settings()
-    {
-        switch (widget_command)
-        {
-            default:
-                string[] create_command = widget_command.split_set(" ",0);
-                this.name = create_command[0];
-                this.command = create_command;
-                break;
-        }
-    }
-}
-
 public class ScreenshotManagerApp: SimpleAppObject
 {
     string screenshotmanager_command;
