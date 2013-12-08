@@ -519,10 +519,6 @@ namespace Lxsession
                         }
                         break;
 
-                    case "composite_manager":
-                        CompositeManagerReload();
-                        break;
-
                     case "im1":
                         IM1Reload();
                         break;
@@ -757,28 +753,6 @@ namespace Lxsession
             else
             {
                 global_screenshot_manager.window_launch();
-            }
-        }
-
-        /* Composite manager */
-        private void CompositeManagerReload()
-        {
-            message("Reload composite manager");
-            if (global_settings.get_item_string("Session", "composite_manager", "command") == null)
-            {
-                warning("composite manager not set not set");
-            }
-            else if (global_composite_manager == null)
-            {
-                message("Composite manager doesn't exist, creating it");
-                var composite = new CompositeManagerApp();
-                global_composite_manager = composite;
-                global_composite_manager.launch();
-            }
-            else
-            {
-                message("Reload existing composite manager");
-                global_composite_manager.reload();
             }
         }
 

@@ -971,30 +971,6 @@ public class TerminalManagerApp: SimpleAppObject
     }
 }
 
-public class CompositeManagerApp: SimpleAppObject
-{
-    string compositemanager_command;
-
-    public CompositeManagerApp ()
-    {
-        init();
-    }
-
-    public override void read_settings()
-    {
-        compositemanager_command = global_settings.get_item_string("Session", "composite_manager", "command");
-
-        switch (compositemanager_command)
-        {
-            default:
-                string[] create_command = compositemanager_command.split_set(" ",0);
-                this.name = create_command[0];
-                this.command = create_command;
-                break;
-        }
-    }
-}
-
 public class ProxyManagerApp: SimpleAppObject
 {
     string proxymanager_command;
