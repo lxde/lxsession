@@ -1006,54 +1006,6 @@ public class ProxyManagerApp: SimpleAppObject
     }
 }
 
-public class IMApp: SimpleAppObject
-{
-    public string im_command;
-
-    public IMApp ()
-    {
-        init();
-    }
-
-    public override void read_settings()
-    {
-        switch (im_command)
-        {
-            default:
-                string[] create_command = im_command.split_set(" ",0);
-                this.name = create_command[0];
-                this.command = create_command;
-                break;
-        }
-    }
-}
-
-public class IM1App: IMApp
-{
-    public IM1App ()
-    {
-        init();
-    }
-
-    public override void read_config_settings()
-    {
-        im_command = global_settings.get_item_string("Session", "im1", "command");
-    }
-}
-
-public class IM2App: IMApp
-{
-    public IM2App ()
-    {
-        init();
-    }
-
-    public override void read_config_settings()
-    {
-        im_command = global_settings.get_item_string("Session", "im2", "command");
-    }
-}
-
 public class WidgetApp: SimpleAppObject
 {
     public string widget_command;

@@ -519,14 +519,6 @@ namespace Lxsession
                         }
                         break;
 
-                    case "im1":
-                        IM1Reload();
-                        break;
-
-                    case "im2":
-                        IM2Reload();
-                        break;
-
                     case "widget1":
                         Widget1Reload();
                         break;
@@ -753,51 +745,6 @@ namespace Lxsession
             else
             {
                 global_screenshot_manager.window_launch();
-            }
-        }
-
-        /* IM1 manager */
-        private void IM1Reload()
-        {
-            message("Reload im1");
-            if (global_settings.get_item_string("Session", "im1", "command") == null)
-            {
-                warning("im1 not set not set");
-            }
-            else if (global_im1 == null)
-            {
-                message("IM1 doesn't exist, creating it");
-                var im1 = new IM1App();
-                global_im1 = im1;
-                global_im1.launch();
-            }
-            else
-            {
-                message("Reload existing im1");
-                global_im1.reload();
-            }
-        }
-
-        /* IM2 manager */
-
-        private void IM2Reload()
-        {
-            message("Reload im2");
-            if (global_settings.get_item_string("Session", "im2", "command") == null)
-            {
-                warning("im2 not set not set");
-            }
-            else if (global_im2 == null)
-            {
-                message("IM2 doesn't exist, creating it");
-                var im2 = new IM2App();
-                global_im2 = im2;
-                global_im2.launch();
-            }
-            else
-            {
-                message("Reload existing im2");
-                global_im2.reload();
             }
         }
 

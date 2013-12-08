@@ -56,8 +56,8 @@ namespace Lxsession {
     KeyringOption global_keyring;
     A11yOption global_a11y;
     UpdatesOption global_updates;
-    IM1App global_im1;
-    IM2App global_im2;
+    GenericSimpleApp global_im1;
+    GenericSimpleApp global_im2;
     WidgetApp global_widget1;
     GenericSimpleApp global_notification;
     GenericSimpleApp global_keybindings;
@@ -360,7 +360,7 @@ namespace Lxsession {
             {
                 if (global_settings.get_item_string("Session", "im1", "command") != null)
                 {
-                    var im1 = new IM1App();
+                    var im1 = new GenericSimpleApp(global_settings.get_item_string("Session", "im1", "command"));
                     global_im1 = im1;
                     global_im1.launch();
                 }
@@ -370,7 +370,7 @@ namespace Lxsession {
             {
                 if (global_settings.get_item_string("Session", "im2", "command") != null)
                 {
-                    var im2 = new IM2App();
+                    var im2 = new GenericSimpleApp(global_settings.get_item_string("Session", "im2", "command"));
                     global_im2 = im2;
                     global_im2.launch();
                 }
