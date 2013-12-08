@@ -453,7 +453,7 @@ namespace Lxsession {
             global_keyring.launch();
         }
 
-        if (global_settings.get_item_string("Session", "a11y", "command") == "true")
+        if (global_settings.get_item_string("Session", "a11y", "command") != null)
         {
             var a11y = new A11yApp();
             global_a11y = a11y;

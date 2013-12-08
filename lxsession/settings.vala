@@ -47,8 +47,6 @@ namespace Lxsession
         public HashTable<string, string> dbus_support_item_db;
         public HashTable<string, string> keymap_support_item_db;
         public HashTable<string, string> xrandr_support_item_db;
-        public HashTable<string, string> security_support_item_db;
-        public HashTable<string, string> ally_support_item_db;
         public HashTable<string, string> updates_support_item_db;
         public HashTable<string, string> environment_support_item_db;
 
@@ -61,8 +59,6 @@ namespace Lxsession
             dbus_support_item_db = init_item_db();
             keymap_support_item_db = init_item_db();
             xrandr_support_item_db = init_item_db();
-            security_support_item_db = init_item_db();
-            ally_support_item_db = init_item_db();
             updates_support_item_db = init_item_db();
             environment_support_item_db = init_item_db();
         }
@@ -166,9 +162,6 @@ namespace Lxsession
                     break;
                 case "XRandr":
                     support_db = xrandr_support_item_db;
-                    break;
-                case "a11y":
-                    support_db = ally_support_item_db;
                     break;
                 case "Updates":
                     support_db = updates_support_item_db;
@@ -291,7 +284,6 @@ namespace Lxsession
             set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
             set_generic_default("Session", "proxy_manager", "command", "string", "build-in");
-            set_generic_default("Session", "a11y", "command", "string", "build-in");
             set_generic_default("Session", "keyring", "command", "string", "ssh-agent");
 
             /* Set Xsettings default */
@@ -808,7 +800,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "proxy_manager", "command", "string");
         read_key_value(kf, "Session", "proxy_manager", "http", "string");
         read_key_value(kf, "Session", "a11y", "command", "string");
-        read_key_value(kf, "Session", "a11y", "type", "string");
         read_key_value(kf, "Session", "keyring", "command", "string");
 
         /* Mime applications */
