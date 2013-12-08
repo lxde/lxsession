@@ -6,6 +6,7 @@ lxsession_default_apps_SOURCES = \
 	main.vala \
 	combobox.vala \
 	dbus-backend.vala \
+	utils.vala \
     ../lxsession-edit/lxsession-edit-common.c \
     $(NULL)
 
@@ -43,5 +44,6 @@ CLEANFILES = \
     main.c \
     combobox.c \
     dbus-backend.c \
+	utils.c \
     lxsession_default_apps_vala.stamp
 endif
