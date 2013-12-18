@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-12-03 21:02+0000\n"
-"Last-Translator: Anari <anari.jalakas@gmail.com>\n"
+"PO-Revision-Date: 2013-12-18 11:29+0000\n"
+"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1386104574.0\n"
+"X-POOTLE-MTIME: 1387366196.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -29,7 +29,7 @@ msgstr "sõnum"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Bänner mida näidatakse dialoogis"
+msgstr "Bänner, mida näidatakse dialoogis"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -42,16 +42,16 @@ msgstr "Bänneri asukoht"
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
 msgid "Error: %s\n"
-msgstr "<b><big>Sessioonist %s %s väljumine?</big></b>"
+msgstr "Viga: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
 #, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Sessioonist %s %s väljumine?</big></b>"
+msgstr "<b><big>Kas logida %s sessioonist %s välja?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
-msgstr "_Väljalülitamine"
+msgstr "_Lülita välja"
 
 #: ../lxsession-logout/lxsession-logout.c:710
 msgid "_Reboot"
@@ -59,24 +59,24 @@ msgstr "_Taaskäivita"
 
 #: ../lxsession-logout/lxsession-logout.c:721
 msgid "_Suspend"
-msgstr "_Seiska"
+msgstr "_Uinak"
 
 #: ../lxsession-logout/lxsession-logout.c:732
 msgid "_Hibernate"
-msgstr "_Hiberneeri"
+msgstr "Tal_veuni"
 
 #: ../lxsession-logout/lxsession-logout.c:743
 msgid "S_witch User"
-msgstr "_Kasutaja vahetamine"
+msgstr "Vaheta _kasutajat"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr "Ekraani _lukustamine"
+msgstr "Lukusta _ekraan"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
 msgid "_Logout"
-msgstr "Vä_ljalogimine"
+msgstr "_Logi välja"
 
 #: ../lxsession-edit/lxsession-edit-common.c:373
 msgid "Enabled"
@@ -109,7 +109,7 @@ msgstr "Grupp: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Töölauaseanssi seaded"
+msgstr "Töölauaseansi seaded"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
@@ -141,7 +141,7 @@ msgstr ""
 "<b>Hoiatus:</b> Palun <b>ÄRA</b> muuda seda, kui sa ei tea täpselt mida sa "
 "teed.\n"
 "\n"
-"<b>MÄRKUS:</b> See muudatus mõjub järgmisel sisselogimisel."
+"<b>Märkus:</b> See muudatus mõjub järgmisel sisselogimisel."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -205,7 +205,7 @@ msgstr "Automaatkäivitus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr "<b>Kuvaloomise haldur</b>"
+msgstr "<b>Komposiidi haldur</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
@@ -285,7 +285,7 @@ msgstr "Rakenduste käivitamine"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr "Keela automaatselt käivitatavad rakendused?"
+msgstr "Kas keela automaatselt käivitatavad rakendused?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -321,7 +321,7 @@ msgstr "Valikud"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr "<b>Klahvitabel</b>"
+msgstr "<b>Klahvipaigutus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
@@ -357,7 +357,7 @@ msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr "<b>Proxy</b>"
+msgstr "<b>Proksi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
