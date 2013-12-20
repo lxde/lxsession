@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-12-18 11:29+0000\n"
+"PO-Revision-Date: 2013-12-20 01:26+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1387366196.0\n"
+"X-POOTLE-MTIME: 1387502784.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -129,7 +129,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Aknahalduri käivitamise käsk\n"
-"(Vaikimisi aknahalduri käsk on \"openbox-lxde\")"
+"(vaikimisi aknahalduri käsk on openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -138,7 +138,7 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Hoiatus:</b> Palun <b>ÄRA</b> muuda seda, kui sa ei tea täpselt mida sa "
+"<b>Hoiatus:</b> Palun <b>ÄRA</b> muuda seda, kui sa ei tea täpselt, mida sa "
 "teed.\n"
 "\n"
 "<b>Märkus:</b> See muudatus mõjub järgmisel sisselogimisel."
@@ -193,7 +193,7 @@ msgstr "<b>Ekraanisäästja</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr "<b>Polkit agent</b>"
+msgstr "<b>Polkiti agent</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
@@ -297,7 +297,7 @@ msgstr "<b>Käsitsi määratud isekäivituvad rakendused</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr "<b>Teada rakendused</b>"
+msgstr "<b>Tuntud rakendused</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
