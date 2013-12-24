@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-11-25 08:36+0000\n"
+"PO-Revision-Date: 2013-12-24 06:03+0000\n"
 "Last-Translator: Ivica <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1385368603.0\n"
+"X-POOTLE-MTIME: 1387865027.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -135,6 +135,9 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Upozorenje:</b> Ne<b>MOJ</b> ovo dirati ukoliko doista ne znaš što radiš.\n"
+"\n"
+"<b>OBAVIJEST:</b> Ove postavke će postati aktivne nakon iduće prijave."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -226,15 +229,15 @@ msgstr "<b>Komunikacija 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Widget 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
-msgstr ""
+msgstr "Pokrenuti programi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Audio upravitelj</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
@@ -262,7 +265,7 @@ msgstr "<b>Upravitelj terminala</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>Upravitelj slika zaslona</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
@@ -338,7 +341,7 @@ msgstr "<b>a11y</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Aktivirajte ažuriranja"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
@@ -354,7 +357,7 @@ msgstr "<b>Proxy</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Laptop način rada"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
