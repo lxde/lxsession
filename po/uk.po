@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-11-23 19:43+0000\n"
+"PO-Revision-Date: 2014-01-05 00:10+0000\n"
 "Last-Translator: Andriy <andrej@rep.kiev.ua>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1385235792.0\n"
+"X-POOTLE-MTIME: 1388880605.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -216,31 +216,31 @@ msgstr "<b>Стільниця</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>Керування живленням</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>Доступ до мережі</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>Зв'язок 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>Зв'язок 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Елемент 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
-msgstr ""
+msgstr "Працюючі програми"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Керування звуком</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
@@ -260,31 +260,31 @@ msgstr "<b>Менеджер робочого простору</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>Керування запуском</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>Керування терміналом</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>Керування знімками екрану</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>Керування оновленнями</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>Керування блокуванням екрану</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Launching applications"
-msgstr ""
+msgstr "Запуск програм"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Вимкнути автоматично запущені програми?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -292,15 +292,15 @@ msgstr "<b>Параметри</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>Обрані програми автоматичного запуску</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Відомі програми</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "<b>Керування буфером обміну</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
@@ -320,11 +320,11 @@ msgstr "Параметри"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Клавіатура</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
@@ -340,11 +340,11 @@ msgstr "Тип"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>Спеціальні можливості</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Активувати оновлення"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
@@ -360,7 +360,7 @@ msgstr "<b>Проксі</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Режим ноутбука"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
@@ -368,15 +368,15 @@ msgstr "<b>Загальні налаштування</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
-msgstr ""
+msgstr "Префікс меню"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Оточення</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
@@ -388,11 +388,11 @@ msgstr "Керування програмами, що завантажені п�
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Типові програми для LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Виберіть типові програми для LXDE"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXsession не запущено."
