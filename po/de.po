@@ -2,14 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-07-08 18:40+0000\n"
-"Last-Translator: Daniel <d@winzen4.de>\n"
+"PO-Revision-Date: 2014-01-09 16:49+0000\n"
+"Last-Translator: Dar_Kuntu <ZAck13@gmx.at>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -17,66 +16,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1373308852.0\n"
+"X-POOTLE-MTIME: 1389286150.0\n"
 
+# This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Benutzerdefinierte Meldung"
+msgstr "Benutzerdefinierte Meldung zum Anzeigen im Dialogfenster"
 
+# message = bubaka. 1 to 1 relationship between English and Luganda.
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "Meldung"
 
+# This message prompts you to choose a banner that will appear in a dialog box.
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Anzuzeigende Grafik"
+msgstr "Banner zum Anzeigen im Dialogfenster"
 
+# This is the prompt for you to indicate the file that contains the image
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "Bilddatei"
 
+# Prompt to indicate/set where the banner will sit
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Position der Grafik"
+msgstr "Banner Position"
 
+# I think this is the error message.
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Von der %s-Sitzung abmelden?</big></b>"
+msgstr "<b><big>%s %s Sitzung abmelden?</big></b>"
 
+# Turn the machine completely off
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
-msgstr "Au_sschalten"
+msgstr "Her_unterfahren"
 
+# Make the machine shut down and restart itself
 #: ../lxsession-logout/lxsession-logout.c:710
 msgid "_Reboot"
 msgstr "Neu sta_rten"
 
+# Have the machine pause, leaving things exactly where they are
 #: ../lxsession-logout/lxsession-logout.c:721
 msgid "_Suspend"
-msgstr "_Bereitschaft"
+msgstr "_Standby"
 
+# Have the machine close all jobs and go into a low energy state - still logged in
 #: ../lxsession-logout/lxsession-logout.c:732
 msgid "_Hibernate"
 msgstr "Ru_hezustand"
 
+# Work in another user account while keeping the current one open and read to return to
 #: ../lxsession-logout/lxsession-logout.c:743
 msgid "S_witch User"
 msgstr "Benutzer _wechseln"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "C_omputer sperren"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
 msgid "_Logout"
-msgstr "Abme_lden"
+msgstr "_Abmelden"
 
 #: ../lxsession-edit/lxsession-edit-common.c:373
 msgid "Enabled"
@@ -88,21 +98,21 @@ msgstr "Anwendung"
 
 #: ../lxsession-edit/lxsession-edit-common.c:386
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "Anmerkung"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Fehler: %s\n"
+msgstr "Fehler"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
 msgstr "Passwort: "
 
+# I think this is the error message.
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
 msgid "Group: %s"
@@ -110,61 +120,62 @@ msgstr "Gruppe: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Desktop-Sitzungseinstellungen"
+msgstr "Desktopsitzungseinstellungen"
 
 #: ../data/ui/lxsession-edit.ui.h:2
+#, fuzzy
 msgid "Applications automatically started after entering desktop:"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr "Puloguramu z'oyagala zitandikirengawo awakolerwa nga walabise:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
+#, fuzzy
 msgid "Automatically Started Applications"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr "Puloguramu z'oyagala zitandikirengawo"
 
 #: ../data/ui/lxsession-edit.ui.h:4
+#, fuzzy
 msgid "Window Manager:"
-msgstr "Fensterverwallter:"
+msgstr "Puloguramu eteekateeka madirisa:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
+#, fuzzy
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Befehlszeile zum Starten der Fensterverwaltung\n"
-"(Der Standfensterverwaltungsbefehl für LXDE sollte openbox-lxde sein)"
+"Ekiragiro ekitandika pulguramu eteekateeka madirisa\n"
+"(Ekiragiro eky'enkalakkalira ekya LXDE kisaanye okuba openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
+#, fuzzy
 msgid ""
 "<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
 "are doing.\n"
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Warnung:</b> Ändern Sie dies <b>NICHT</b>, außer Sie wissen genau, was "
-"Sie machen.\n"
+"<b>Kulabula:</b> Kino <b>TOKIKYUSA</b> okujjako nga wekakasa ky'okola.\n"
 "\n"
-"<b>HINWEIS:</b> Diese Einstellungen treten bei der nächsten Anmeldung in "
-"Kraft."
+"<b>GENDERERA:</b> Byotegeka wano bijjakutandika okukola ku lutuula oluddako."
 
 #: ../data/ui/lxsession-edit.ui.h:10
+#, fuzzy
 msgid "Advanced Options"
-msgstr "Erweiterte Optionen"
+msgstr "Ebyetaagisa Bumanyirivu"
 
 #: ../data/ui/lxpolkit.ui.h:1
+#, fuzzy
 msgid "Authentication"
-msgstr "Authentifizierung"
+msgstr "Enkakasa"
 
 #: ../data/ui/lxpolkit.ui.h:2
+#, fuzzy
 msgid "Identity:"
-msgstr ""
-"<b>Warnung:</b> Ändern Sie dies <b>NICHT</b>, außer Sie wissen genau, was "
-"Sie tuen.\n"
-"\n"
-"<b>HINWEIS:</b> Diese Einstellung treten beim nächsten Anmelden ein."
+msgstr "Obumanye:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Kommentar"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
@@ -187,9 +198,8 @@ msgid "Extras"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Fensterverwallter:"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
@@ -244,9 +254,8 @@ msgid "<b>Widget 1</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Anwendung"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
@@ -289,23 +298,20 @@ msgid "<b>Lock screen manager</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Anwendung"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
@@ -328,9 +334,8 @@ msgid "Variant"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Erweiterte Optionen"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
@@ -397,8 +402,9 @@ msgid "Settings"
 msgstr ""
 
 #: ../data/lxsession-edit.desktop.in.h:2
+#, fuzzy
 msgid "Manage applications loaded in desktop session"
-msgstr "Automatisch gestartete Anwendungen verwalten"
+msgstr "Teekateeka puloguramu eziba zitandika buli lutuula"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
@@ -408,8 +414,13 @@ msgstr ""
 msgid "Change the default applications on LXDE"
 msgstr ""
 
+# Message telling you that there is no LXSession running at the moment.
 #~ msgid "LXSession is not running."
-#~ msgstr "LXSession wird nicht ausgeführt."
+#~ msgstr "LXSession tebindabinda."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Abmelden"
