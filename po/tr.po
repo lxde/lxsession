@@ -2,21 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2012-10-10 01:14+0200\n"
-"Last-Translator: Necdet <necdetyucel@gmail.com>\n"
+"PO-Revision-Date: 2014-01-12 02:37+0000\n"
+"Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1389494240.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -44,9 +44,9 @@ msgid "Error: %s\n"
 msgstr "Hata: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>%s oturumu kapansın mı?</big></b>"
+msgstr "<b><big>%s %s oturumu kapansın mı?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
@@ -70,7 +70,7 @@ msgstr "K_ullanıcı Değiştir"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Ekranı _Kilitle"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -90,17 +90,16 @@ msgid "Comment"
 msgstr "Yorum"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Hata: %s\n"
+msgstr "Hata"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Bilgi"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr "Parola:"
+msgstr "Parola: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
@@ -149,246 +148,239 @@ msgstr "Gelişmiş Seçenekler"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr "Kimlik Doğrulama"
+msgstr "Kimlik doğrulama"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
 msgstr "Kimlik:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "Command"
-msgstr "Yorum"
+msgstr "Komut"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
-msgstr ""
+msgstr "Oturum"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "Uygula"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Yeniden Yükle"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>Panel</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
-msgstr ""
+msgstr "Ekler"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "<b>Window Manager</b>"
-msgstr "Pencere Yöneticisi:"
+msgstr "<b>Pencere Yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>Dosya Yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>Ekran Koruyucu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>Polkit ajanı</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
-msgstr ""
+msgstr "<b>Dok</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Otomatik Başlat"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
-msgstr ""
+msgstr "<b>Birleşim Yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "Duvar kağıdı"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>Masaüstü</b> "
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>Güç Yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>Ağ Grafik Arayüzü</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>İletişim 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>İletişim 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>Programcık 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
 msgid "Running applications"
-msgstr "Uygulama"
+msgstr "Çalışan uygulamalar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>Ses yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "Görüntü"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
-msgstr ""
+msgstr "Yerleşim"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>Çıkış Yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>Çalışma alanı yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>Başlatıcı yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>Terminal yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>Ekran görüntüsü yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>Sürüm yükseltme yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>Ekran kilitleme yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Launching applications"
-msgstr "Uygulama"
+msgstr "Uygulamalar başlatılıyor"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr "Otomatik Başlatılan Uygulamalar"
+msgstr "Otomatik başlatılan uygulamalar kapatılsın mı?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Ayarlar</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr "Otomatik Başlatılan Uygulamalar"
+msgstr "<b>Elle otomatik başlatılan uygulamalar</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Bilinen Uygulamalar</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "<b>Pano yöneticisi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "Kip"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "Değişken"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Options"
-msgstr "Gelişmiş Seçenekler"
+msgstr "Seçenekler"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Tuş haritası</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "Anahtarlık"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>Güvenlik</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "Tür"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>a11y</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "Güncellemeleri etkinleştir"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>Güncellemeler</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>Vekil sunucu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "Dizüstü kipi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Genel ayarlar</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "Menu prefix"
-msgstr ""
+msgstr "Menü öneki"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Çevre</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
@@ -396,14 +388,18 @@ msgstr "Masaüstü oturumuna yüklenen uygulamaları yönet"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "LXSession için öntanımlı uygulamalar"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "LXDE için varsayılan uygulamaları degiştirin"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession çalışmıyor."
+
+#, c-format
+#~ msgid "<b><big>Logout %s session?</big></b>"
+#~ msgstr "<b><big>%s oturumu kapansın mı?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Oturumu Kapat"
