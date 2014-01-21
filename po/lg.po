@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-11-19 20:07+0000\n"
+"PO-Revision-Date: 2014-01-21 22:44+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: lg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1384891628.0\n"
+"X-POOTLE-MTIME: 1390344284.0\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -179,7 +179,7 @@ msgstr "Kazza"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "Ddamu okutandika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
@@ -211,7 +211,7 @@ msgstr "<b>Paaka ya puloguramu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "Ebitandikirawo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
@@ -283,19 +283,19 @@ msgstr "<b>Ekiteekateeka nkwata y'ebifaananyi eby'ebiri ku lutimbe</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>Kuteekateeka mutindo gwa sisitemu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>Kuteekateeka ekikis'awakolerwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Launching applications"
-msgstr ""
+msgstr "Kutandika puloguramu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Komya puloguramu ezitandikirwawo ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -307,11 +307,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Puloguramu Ezizuulidwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
-msgstr ""
+msgstr "<b>Teekateeka awaterekebwa ebikoppedwa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
@@ -327,11 +327,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Options"
-msgstr ""
+msgstr "Ebisoboka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Ntegeka ya mapeesa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "<b>XRandr</b>"
@@ -339,11 +339,11 @@ msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "Fayiro omukuumirwa busumuluzo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>Obumizi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
