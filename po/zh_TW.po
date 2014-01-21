@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-12-17 14:37+0000\n"
+"PO-Revision-Date: 2014-01-21 06:53+0000\n"
 "Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1387291026.0\n"
+"X-POOTLE-MTIME: 1390287220.0\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -214,39 +214,39 @@ msgstr "桌布"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>桌面</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>電源管理員</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>網路使用者圖像介面</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>通訊 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>通訊 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>器件 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
-msgstr ""
+msgstr "執行應用程式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>音訊管理員</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Layout"
@@ -261,7 +261,6 @@ msgid "<b>Workspace manager</b>"
 msgstr "<b>工作區管理員</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
-#, fuzzy
 msgid "<b>Launcher manager</b>"
 msgstr "<b>啟動器管理員</b>"
 
@@ -286,20 +285,23 @@ msgid "Launching applications"
 msgstr "啟動應用程式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
+#, fuzzy
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "是否不再自動啟動應用程式？"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>設定</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
+#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>手動自動啟動的應用程式</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
+#, fuzzy
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>已知應用程式</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
@@ -322,12 +324,14 @@ msgid "Options"
 msgstr "選項"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
+#, fuzzy
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>按鍵配置</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
+#, fuzzy
 msgid "<b>XRandr</b>"
-msgstr ""
+msgstr "<b>XRandr</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
@@ -346,24 +350,28 @@ msgid "<b>a11y</b>"
 msgstr "<b>無障礙功能</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
+#, fuzzy
 msgid "Activate updates"
-msgstr ""
+msgstr "啟用更新"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>更新</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
+#, fuzzy
 msgid "Http"
-msgstr ""
+msgstr "Http"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
+#, fuzzy
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>代理程式</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
+#, fuzzy
 msgid "Laptop mode"
-msgstr ""
+msgstr "手提電腦模式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
