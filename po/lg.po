@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2014-01-21 22:44+0000\n"
+"PO-Revision-Date: 2014-01-26 21:26+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: lg\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1390344284.0\n"
+"X-POOTLE-MTIME: 1390771616.0\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -347,11 +347,11 @@ msgstr "<b>Obumizi</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "Kika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
-msgstr ""
+msgstr "<b>Ebyanguya enkozesa ya sisitemu</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
