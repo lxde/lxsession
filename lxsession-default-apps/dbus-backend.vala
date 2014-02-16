@@ -30,26 +30,6 @@ namespace LDefaultApps
         public abstract void KeymapSet (string key1, string? key2, string command_to_set) throws IOError;
         public abstract string KeymapGet (string key1, string? key2) throws IOError;
 
-        public abstract void XrandrActivate () throws IOError;
-        public abstract void XrandrSet (string key1, string? key2, string command_to_set) throws IOError;
-        public abstract string XrandrGet (string key1, string? key2) throws IOError;
-
-        public abstract void SecurityActivate () throws IOError;
-        public abstract void SecuritySet (string key1, string? key2, string command_to_set) throws IOError;
-        public abstract string SecurityGet (string key1, string? key2) throws IOError;
-
-        public abstract void A11yActivate () throws IOError;
-        public abstract void A11ySet (string key1, string? key2, string command_to_set) throws IOError;
-        public abstract string A11yGet (string key1, string? key2) throws IOError;
-
-        public abstract void ProxyActivate () throws IOError;
-        public abstract void ProxySet (string key1, string? key2, string command_to_set) throws IOError;
-        public abstract string ProxyGet (string key1, string? key2) throws IOError;
-
-        public abstract void UpdatesActivate () throws IOError;
-        public abstract void UpdatesSet (string key1, string? key2, string command_to_set) throws IOError;
-        public abstract string UpdatesGet (string key1, string? key2) throws IOError;
-
         public abstract void StateSet (string key1, string? key2, string command_to_set) throws IOError;
         public abstract string StateGet (string key1, string? key2) throws IOError;
 
@@ -63,8 +43,9 @@ namespace LDefaultApps
     public class DbusBackend : GLib.Object
     {
         DbusLxsession dbus_lxsession = null;
+        string dbus_type = null;
 
-        public DbusBackend ()
+        public DbusBackend (string type)
         {
             try
             {
@@ -76,7 +57,51 @@ namespace LDefaultApps
             {
                 warning (err.message);
             }
+
+            if (type == null)
+            {
+                dbus_type = "session";
+            }
+            else
+            {
+                dbus_type = type;
+            }
         }
+
+        public string Get (string key1, string? key2)
+        {
+            string return_value = "";
+
+            switch (dbus_type)
+            {
+                case "session":
+                    return_value = SessionGet (key1, key2);
+                    break;
+            }
+
+            return return_value;
+        }
+
+        public void Set (string key1, string? key2, string command_to_set)
+        {
+            switch (dbus_type)
+            {
+                case "session":
+                    SessionSet (key1, key2, command_to_set);
+                    break;
+            }
+        }
+
+        public void Launch (string name, string option)
+        {
+            switch (dbus_type)
+            {
+                case "session":
+                    SessionLaunch (name, option);
+                    break;
+            }
+        }
+
 
         public string SessionGet (string key1, string? key2)
         {
@@ -190,236 +215,6 @@ namespace LDefaultApps
             try
             {
                 return_value = dbus_lxsession.KeymapGet(key1, key2);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-            return return_value;
-        }
-
-        public void XrandrActivate()
-        {
-            try
-            {
-                dbus_lxsession.XrandrActivate();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public void XrandrSet(string key1, string? key2, string command_to_set)
-        {
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                dbus_lxsession.XrandrSet(key1, key2, command_to_set);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string XrandrGet(string key1, string? key2)
-        {
-            string return_value = null;
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                return_value = dbus_lxsession.XrandrGet(key1, key2);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-            return return_value;
-        }
-
-        public void SecurityActivate()
-        {
-            try
-            {
-                dbus_lxsession.SecurityActivate();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public void SecuritySet(string key1, string? key2, string command_to_set)
-        {
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                dbus_lxsession.SecuritySet(key1, key2, command_to_set);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string SecurityGet(string key1, string? key2)
-        {
-            string return_value = null;
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                return_value = dbus_lxsession.SecurityGet(key1, key2);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-            return return_value;
-        }
-
-        public void A11yActivate()
-        {
-            try
-            {
-                dbus_lxsession.A11yActivate();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public void A11ySet(string key1, string? key2, string command_to_set)
-        {
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                dbus_lxsession.A11ySet(key1, key2, command_to_set);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string A11yGet(string key1, string? key2)
-        {
-            string return_value = null;
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                return_value = dbus_lxsession.A11yGet(key1, key2);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-            return return_value;
-        }
-
-        public void ProxyActivate()
-        {
-            try
-            {
-                dbus_lxsession.ProxyActivate();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public void ProxySet(string key1, string? key2, string command_to_set)
-        {
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                dbus_lxsession.ProxySet(key1, key2, command_to_set);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string ProxyGet(string key1, string? key2)
-        {
-            string return_value = null;
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                return_value = dbus_lxsession.ProxyGet(key1, key2);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-            return return_value;
-        }
-
-        public void UpdatesActivate()
-        {
-            try
-            {
-                dbus_lxsession.UpdatesActivate();
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public void UpdatesSet(string key1, string? key2, string command_to_set)
-        {
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                dbus_lxsession.UpdatesSet(key1, key2, command_to_set);
-            }
-            catch (GLib.IOError err)
-            {
-                warning (err.message);
-            }
-        }
-
-        public string UpdatesGet(string key1, string? key2)
-        {
-            string return_value = null;
-            if (key2 == null)
-            {
-                key2 = "";
-            }
-            try
-            {
-                return_value = dbus_lxsession.UpdatesGet(key1, key2);
             }
             catch (GLib.IOError err)
             {

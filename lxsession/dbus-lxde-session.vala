@@ -409,7 +409,25 @@ namespace Lxsession
                         ClipboardActivate();
                         break;
 
-                    /* TODO readd a11y, proxy, xrandr, security, updates ...*/
+                    case "a11y":
+                        A11yActivate();
+                        break;
+
+                    case "proxy_manager":
+                        ProxyActivate();
+                        break;
+
+                    case "xrandr":
+                        XrandrActivate();
+                        break;
+
+                    case "keyring":
+                        KeyringActivate();
+                        break;
+
+                    case "updates_manager":
+                        UpdatesActivate();
+                        break;
 
                     default:
                         var application = new GenericSimpleApp(settings);
@@ -419,6 +437,110 @@ namespace Lxsession
             }
         }
 
+        public void UpdatesActivate()
+        {
+            message("Reload updates_manager");
+            if (global_settings.get_item_string("Session", "udpates_manager", "command") == null)
+            {
+                warning("Updates_manager not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Keyring doesn't exist, creating it");
+                var updates = new UpdatesManagerApp();
+                global_updates = updates;
+                global_updates.launch();
+            }
+            else
+            {
+                message("Reload existing keyring");
+                global_updates.reload();
+            }
+        }
+
+        public void KeyringActivate()
+        {
+            message("Reload security");
+            if (global_settings.get_item_string("Session", "xrandr", "command") == null)
+            {
+                warning("Security keyring not set");
+            }
+            else if (global_keyring == null)
+            {
+                message("Keyring doesn't exist, creating it");
+                var keyring = new KeyringApp();
+                global_keyring = keyring;
+                global_keyring.launch();
+            }
+            else
+            {
+                message("Reload existing keyring");
+                global_keyring.reload();
+            }
+        }
+
+        public void XrandrActivate()
+        {
+            message("Reload xrandr");
+            if (global_settings.get_item_string("Session", "xrandr", "command") == null)
+            {
+                warning("Xrandr mode not set");
+            }
+            else if (global_xrandr == null)
+            {
+                message("Xrandr doesn't exist, creating it");
+                var xrandr = new XrandrApp();
+                global_xrandr = xrandr;
+                global_xrandr.launch();
+            }
+            else
+            {
+                message("Reload existing xrandr");
+                global_xrandr.reload();
+            }
+        }
+
+        public void ProxyActivate()
+        {
+            message("Reload proxy");
+            if (global_settings.get_item_string("Session", "proxy_manager", "command") == null)
+            {
+                warning("Proxy http not set");
+            }
+            else if (global_proxy == null)
+            {
+                message("Proxy doesn't exist, creating it");
+                var proxy = new ProxyManagerApp();
+                global_proxy = proxy;
+                global_proxy.launch();
+            }
+            else
+            {
+                message("Reload existing proxy");
+                global_proxy.reload();
+            }
+        }
+
+        public void A11yActivate()
+        {
+            message("Reload a11y");
+            if (global_settings.get_item_string("Session", "a11y", "command") == null)
+            {
+                warning("A11y type not set");
+            }
+            else if (global_a11y == null)
+            {
+                message("A11y doesn't exist, creating it");
+                var a11y = new A11yApp();
+                global_a11y = a11y;
+                global_a11y.launch();
+            }
+            else
+            {
+                message("Reload existing a11y");
+                global_a11y.reload();
+            }
+        }
         /* Xsettings Manager */
         private void XsettingsManagerActivate()
         {

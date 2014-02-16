@@ -226,6 +226,32 @@ namespace LDefaultApps
         
     }
 
+    public void autostart_core_applications (Builder builder, DbusBackend dbus_backend)
+    {
+        /* TODO Finish this
+        var vbox = builder.get_object("autostart_core_applications") as Gtk.VBox;
+        var item_box = new Gtk.VBox(false, 0);
+        vbox.add(item_box);
+
+        First, applications that are always autostarted (don't accept to disable)
+        string[] list_not_disable = {"windows_manager", "panel"};
+
+        for (int a = 0 ; a < list_not_disable.length ; a++)
+        {
+            string default_text = dbus_backend.Get(list_not_disable[a],"command");
+            if ( default_text != "")
+            {
+                var item_label = new Label(default_text);
+                item_box.add(item_label);
+            }
+
+        }
+
+        vbox.show_all();
+        */
+
+    }
+
     /* TODO make the 2 following function common, or Dbus, or env, or anything to replace this c&p */
     public string get_config_home_path (string conf_file)
     {

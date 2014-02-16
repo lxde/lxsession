@@ -23,14 +23,14 @@ namespace Lxsession
 
     public class Main: GLib.Object
     {
-        static string settings = "";
+        //static string settings = "";
         static string mode = "";
-        static string backend = "";
+        //static string backend = "";
 
         const OptionEntry[] option_entries = {
 //        { "settings", 's', 0, OptionArg.STRING, ref mode, "specify the settings to read (default to lxsession)", "NAME" },
         { "mode", 'm', 0, OptionArg.STRING, ref mode, "specify the mode to launch (display or write)", "NAME" },
-//        { "backend", 'b', 0, OptionArg.STRING, ref mode, "specify the backend to write (default to lxsession)", "NAME" },
+//        { "backend", 'b', 0, OptionArg.STRING, ref mode, "specify the backend to write (default to lxsession-default-apps)", "NAME" },
         { null }
         };
 

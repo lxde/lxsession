@@ -17,6 +17,11 @@
 
 namespace LDefaultApps
 {
+    public class LDefaultAppsSignals : Object
+    {
+        public signal void update_ui();
+    }
+
     KeyFile load_key_conf (string config_path_directory, string conf_name)
     {
         KeyFile kf = new KeyFile();
