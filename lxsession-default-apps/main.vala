@@ -90,7 +90,7 @@ namespace LDefaultApps
         {
 		    this.title = "LXSession configuration";
 		    this.window_position = Gtk.WindowPosition.CENTER;
-		    this.set_default_size (350, 70);
+		    this.set_default_size (600, 400);
             this.destroy.connect (Gtk.main_quit);
 
             var builder = new Builder ();
