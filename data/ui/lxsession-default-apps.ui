@@ -1274,7 +1274,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="webbrowser_button">
+                              <object class="GtkButton" id="webbrowser_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -1342,7 +1342,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="email_button">
+                              <object class="GtkButton" id="email_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2182,7 +2182,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="charmap_button">
+                              <object class="GtkButton" id="charmap_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2256,7 +2256,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="calculator_button">
+                              <object class="GtkButton" id="calculator_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2324,7 +2324,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="spreadsheet_button">
+                              <object class="GtkButton" id="spreadsheet_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2392,7 +2392,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="bittorent_button">
+                              <object class="GtkButton" id="bittorent_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2460,7 +2460,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="document_button">
+                              <object class="GtkButton" id="document_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2519,7 +2519,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="webcam_button">
+                              <object class="GtkButton" id="webcam_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2602,7 +2602,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="burn_button">
+                              <object class="GtkButton" id="burn_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2676,7 +2676,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="notes_button">
+                              <object class="GtkButton" id="notes_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2750,7 +2750,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="disk_utility_button">
+                              <object class="GtkButton" id="disk_utility_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -2818,7 +2818,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="tasks_button">
+                              <object class="GtkButton" id="tasks_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
