@@ -320,7 +320,7 @@ namespace Lxsession
                 set_generic_default("Session", "burn", "command", "string", "xfburn");
                 set_generic_default("Session", "notes", "command", "string", "xpad");
                 set_generic_default("Session", "disk_utility", "command", "string", "gnome-disks");
-                set_generic_default("Session", "webbrowser", "command", "string", "lxtask");
+                set_generic_default("Session", "tasks", "command", "string", "lxtask");
 
             }
             if (this.desktop_env_name == "LXDE")
