@@ -89,6 +89,62 @@ case "$1" in
 	echo "Launching im application 1"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"im1" string:'' > /dev/null 2>&1
     ;;
+"webcam")
+	echo "Launching webcam application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"webcam" string:'' > /dev/null 2>&1
+    ;;
+"video_player")
+	echo "Launching video player application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"video_player" string:'' > /dev/null 2>&1
+    ;;
+"audio_player")
+	echo "Launching audio player application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_player" string:'' > /dev/null 2>&1
+    ;;
+"pdf_reader")
+	echo "Launching pdf reader application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"pdf_reader" string:'' > /dev/null 2>&1
+    ;;
+"spreadsheet")
+	echo "Launching spreadsheet application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"spreadsheet" string:'' > /dev/null 2>&1
+    ;;
+"document")
+	echo "Launching document application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"document" string:'' > /dev/null 2>&1
+    ;;
+"bittorent")
+	echo "Launching bittorent application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"bittorent" string:'' > /dev/null 2>&1
+    ;;
+"notes")
+	echo "Launching notes application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"notes" string:'' > /dev/null 2>&1
+    ;;
+"disk_utility")
+	echo "Launching disk utility application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"disk_utility" string:'' > /dev/null 2>&1
+    ;;
+"images_display")
+	echo "Launching images application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"images_display" string:'' > /dev/null 2>&1
+    ;;
+"text_editor")
+	echo "Launching text editor application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"text_editor" string:'' > /dev/null 2>&1
+    ;;
+"archive")
+	echo "Launching archive application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"archive" string:'' > /dev/null 2>&1
+    ;;
+"calculator")
+	echo "Launching calculator application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"calculator" string:'' > /dev/null 2>&1
+    ;;
+"tasks")
+	echo "Launching tasks application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"tasks" string:'' > /dev/null 2>&1
+    ;;
 *)
     ;;
 esac
