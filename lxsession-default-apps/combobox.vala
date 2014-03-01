@@ -79,6 +79,8 @@ namespace LDefaultApps
         help_button.clicked.connect (() => {
             var help_window = new Window();
             help_window.window_position = Gtk.WindowPosition.CENTER;
+            help_window.set_default_size (350, 70);
+            help_window.set_skip_taskbar_hint(true);
             try
             {
                 help_window.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
