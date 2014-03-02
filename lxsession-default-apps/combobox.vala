@@ -505,6 +505,8 @@ namespace LDefaultApps
     {
         var window_mime = new Window();
         window_mime.window_position = Gtk.WindowPosition.CENTER;
+        window_mime.set_default_size (400, 200);
+        window_mime.set_skip_taskbar_hint(true);
         try
         {
             window_mime.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
@@ -513,8 +515,18 @@ namespace LDefaultApps
         {
             message ("Could not load application icon: %s\n", e.message);
         }
+
+        // The ScrolledWindow:
+		Gtk.ScrolledWindow scrolled = new Gtk.ScrolledWindow (null, null);
+        scrolled.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+		window_mime.add (scrolled);
+
+        var mime_view_port = new Gtk.Viewport(null, null);
+        mime_view_port.set_size_request (200, 200);
+        scrolled.add(mime_view_port);
+
         var mime_vbox = new Gtk.VBox(false, 0);
-        window_mime.add(mime_vbox);
+        mime_view_port.add(mime_vbox);
 
         var info_label = new Label("Do you want to assiociate the following Mimetype ?\n");
         mime_vbox.add(info_label);
