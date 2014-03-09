@@ -412,6 +412,7 @@ namespace LDefaultApps
                 {
                     known_apps_box.hide_all();
                 }
+                dbus_backend.Set("disable_autostart", "", return_combobox_text(disable_autostart_combobox));
             });
 
             /* TODO Make this generic */

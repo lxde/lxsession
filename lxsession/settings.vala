@@ -906,46 +906,73 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public override void on_update_string_set (string dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
     {
-        if (kf_key2 == null)
-        {
-            message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
-            kf.set_value (kf_categorie, kf_key1, dbus_arg);
-        }
-        else
-        {
-            message("Changing %s - %s - %s to %s" , kf_categorie, kf_key1, kf_key2, dbus_arg);
-            kf.set_value (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
-        }
+        switch (kf_key2)
+            {
+                case null:
+                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_value (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case "":
+                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_value (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case " ":
+                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_value (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                default:
+                    message("Changing %s - %s - %s to %s" , kf_categorie, kf_key1, kf_key2, dbus_arg);
+                    kf.set_value (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
+                    break;
+            }
         save_keyfile();
     }
 
     public override void on_update_string_list_set (string[] dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
     {
-        if (kf_key2 == null)
-        {
-            message("Changing %s - %s" , kf_categorie, kf_key1);
-            kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
-        }
-        else
-        {
-            message("Changing %s - %s - %s" , kf_categorie, kf_key1, kf_key2);
-            kf.set_string_list (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
-        }
+        switch (kf_key2)
+            {
+                case null:
+                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case "":
+                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case " ":
+                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                default:
+                    message("Changing %s - %s - %s" , kf_categorie, kf_key1, kf_key2);
+                    kf.set_string_list (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
+                    break;
+            }
         save_keyfile();
     }
 
     public override void on_update_int_set (int dbus_arg, string kf_categorie, string kf_key1, string? kf_key2)
     {
-        if (kf_key2 == null)
-        {
-            message("Changing %s - %s to %i" , kf_categorie, kf_key1, dbus_arg);
-            kf.set_integer (kf_categorie, kf_key1, dbus_arg);
-        }
-        else
-        {
-            message("Changing %s - %s - %s to %i" , kf_categorie, kf_key1, kf_key2, dbus_arg);
-            kf.set_integer (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
-        }
+        switch (kf_key2)
+            {
+                case null:
+                    message("Changing %s - %s to %i" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_integer (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case "":
+                    message("Changing %s - %s to %i" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_integer (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                case " ":
+                    message("Changing %s - %s to %i" , kf_categorie, kf_key1, dbus_arg);
+                    kf.set_integer (kf_categorie, kf_key1, dbus_arg);
+                    break;
+                default:
+                    message("Changing %s - %s - %s to %i" , kf_categorie, kf_key1, kf_key2, dbus_arg);
+                    kf.set_integer (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
+                    break;
+            }
         save_keyfile();
     }
 
