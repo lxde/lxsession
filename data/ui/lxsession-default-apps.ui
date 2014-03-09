@@ -3930,7 +3930,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="clipboard_manager_label">
+                              <object class="GtkLabel" id="clipboard_label">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">Clipboard manager</property>
@@ -3941,7 +3941,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="clipboard_manager_entry">
+                              <object class="GtkEntry" id="clipboard_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
@@ -3959,7 +3959,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="clipboard_manager_help_button">
+                              <object class="GtkButton" id="clipboard_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -3974,7 +3974,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="clipboard_manager_reload">
+                              <object class="GtkButton" id="clipboard_reload">
                                 <property name="label" translatable="yes">Reload</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -3989,7 +3989,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="clipboard_manager_more">
+                              <object class="GtkButton" id="clipboard_more">
                                 <property name="label" translatable="yes">More</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -4163,7 +4163,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="proxy_entry">
+                              <object class="GtkEntry" id="proxy_manager_entry">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
@@ -4181,7 +4181,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="proxy_help_button">
+                              <object class="GtkButton" id="proxy_manager_help_button">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -4196,7 +4196,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="proxy_reload">
+                              <object class="GtkButton" id="proxy_manager_reload">
                                 <property name="label" translatable="yes">Reload</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
@@ -4240,7 +4240,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="proxy_more">
+                              <object class="GtkButton" id="proxy_manager_more">
                                 <property name="label" translatable="yes">More</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
