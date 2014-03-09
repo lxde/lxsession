@@ -352,6 +352,18 @@ void on_enable_toggled(GtkCellRendererToggle* render,
         gtk_tree_model_get(GTK_TREE_MODEL(autostart_list), &it, COL_ENABLED, &enabled, -1 );
         gtk_list_store_set(autostart_list, &it, COL_ENABLED, !enabled, -1 );
     }
+
+    const char* session_name = NULL;
+    session_name = g_getenv("XDG_CURRENT_DESKTOP");
+    if(!session_name)
+    {
+        session_name = g_getenv("DESKTOP_SESSION");
+        if( G_UNLIKELY(!session_name) )
+            session_name = "LXDE";
+    }
+
+    save_autostart(session_name);
+
     gtk_tree_path_free(tp);
 }
 
