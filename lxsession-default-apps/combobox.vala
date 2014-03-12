@@ -110,6 +110,7 @@ namespace LDefaultApps
     {
         var window = new Gtk.Window();
         window.window_position = Gtk.WindowPosition.CENTER;
+        window.set_default_size (300, 500);
         try
         {
             window.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
@@ -118,8 +119,19 @@ namespace LDefaultApps
         {
             message ("Could not load application icon: %s\n", e.message);
         }
+
+
+        // The ScrolledWindow:
+		Gtk.ScrolledWindow more_scrolled = new Gtk.ScrolledWindow (null, null);
+        more_scrolled.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+		window.add (more_scrolled);
+
+        var more_view_port = new Gtk.Viewport(null, null);
+        more_scrolled.add(more_view_port);
+
         var master_vbox = new Gtk.VBox(false, 0);
-        window.add(master_vbox);
+        more_view_port.add(master_vbox);
+
         var help_message = new Label(message_help);
         master_vbox.add(help_message);
         for (int a = 0 ; a < more_list.length ; a++)
