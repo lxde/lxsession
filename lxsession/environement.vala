@@ -150,8 +150,30 @@ namespace Lxsession
             }
             else
             {
-                return_config = custom_config + ":" + config_dirs;
-                message ("custom_config :%s", custom_config);
+                string[] custom_config_array = custom_config.split_set(":",0);
+                string[] config_dirs_array = config_dirs.split_set(":",0);
+
+                string custom_config_check = "";
+
+                foreach (string custom_str in custom_config_array)
+                {
+                    bool delete_str = false;
+                    foreach (string config_str in config_dirs_array)
+                    {
+                        if (custom_str == config_str)
+                        {
+                            delete_str = true;
+                        }
+                    }
+
+                    if (delete_str == false)
+                    {
+                        custom_config_check = custom_config_check + custom_str +":";
+                    }
+                }
+
+                return_config = custom_config_check + config_dirs;
+                message ("custom_config :%s", custom_config_check);
                 message ("config_dirs :%s", config_dirs);
                 message ("confir_dirs not null, export : %s", return_config);
             }
@@ -169,8 +191,30 @@ namespace Lxsession
             }
             else
             {
-                return_data = custom_data + ":" + data_dirs;
-                message ("custom_data :%s", custom_data);
+                string[] custom_data_array = custom_data.split_set(":",0);
+                string[] data_dirs_array = data_dirs.split_set(":",0);
+
+                string custom_data_check = "";
+
+                foreach (string custom_data_str in custom_data_array)
+                {
+                    bool delete_data_str = false;
+                    foreach (string data_str in data_dirs_array)
+                    {
+                        if (custom_data_str == data_str)
+                        {
+                            delete_data_str = true;
+                        }
+                    }
+
+                    if (delete_data_str == false)
+                    {
+                        custom_data_check = custom_data_check + custom_data_str +":";
+                    }
+                }
+
+                return_data = custom_data_check + data_dirs;
+                message ("custom_data :%s", custom_data_check);
                 message ("data_dirs :%s", data_dirs);
                 message ("data_dirs not null, export : %s", return_data);
             }
