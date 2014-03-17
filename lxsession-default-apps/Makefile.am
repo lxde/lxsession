@@ -1,3 +1,4 @@
+AUTOMAKE_OPTIONS = subdir-objects
 if USE_GTK
 bin_PROGRAMS = lxsession-default-apps
 

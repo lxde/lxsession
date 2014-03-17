@@ -1,3 +1,4 @@
+AUTOMAKE_OPTIONS = subdir-objects
 bin_PROGRAMS = lxsession
 if USE_GTK
 if USE_BUILDIN_CLIPBOARD
