@@ -175,7 +175,7 @@ namespace LDefaultApps
             string composite_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "composite_manager", "", composite_manager_help_message, composite_manager_more, composite_manager_more_help_message, null);
 
-            string desktop_manager_help_message = "Desktop manager draw the desktop and manage the icons inside it. You can manage it with the file manager by setting filemanager";
+            string desktop_manager_help_message = "Desktop manager draw the desktop and manage the icons inside it.\nYou can manage it with the file manager by setting filemanager";
             string[] desktop_manager_more = {"wallpaper", "handle_desktop"};
             string desktop_manager_more_help_message = "Wallpaper: Set an image path to draw the wallpaper";
             init_application(builder, kf, dbus_backend, "desktop_manager", "", desktop_manager_help_message, desktop_manager_more, desktop_manager_more_help_message, null);
@@ -185,7 +185,7 @@ namespace LDefaultApps
             string screensaver_more_help_message = "";
             init_application(builder, kf, dbus_backend, "screensaver", "", screensaver_help_message, screensaver_more, screensaver_more_help_message, null);
 
-            string power_manager_help_message = "Power Manager helps you to reduce the ussage of batteries. you probably don't need one if you have a desktop computer. Auto will set it automaticly, depending of the laptop mode.";
+            string power_manager_help_message = "Power Manager helps you to reduce the ussage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automaticly, depending of the laptop mode.";
             string[] power_manager_more = {""};
             string power_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "power_manager", "", power_manager_help_message, power_manager_more, power_manager_more_help_message, null);
@@ -210,7 +210,7 @@ namespace LDefaultApps
             string im2_more_help_message = manual_setting_help + autostart_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "im2", "", im2_help_message, im2_more, im2_more_help_message, "im");
 
-            string terminal_manager_help_message = "Terminal by default to launch command line. ";
+            string terminal_manager_help_message = "Terminal by default to launch command line.";
             string[] terminal_manager_more = {"combobox_manual", "debian_default", "mime_association", "mime_available"};
             string terminal_manager_more_help_message = manual_setting_help + debian_default_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "terminal_manager", "", terminal_manager_help_message, terminal_manager_more, terminal_manager_more_help_message, null);
@@ -350,12 +350,12 @@ namespace LDefaultApps
             string clipboard_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "clipboard", "", clipboard_help_message, clipboard_more, clipboard_more_help_message, null);
 
-            string security_help_message = "Managing keyring support. Standart options available \"gnome\" for gnome-keyring suport  or \"ssh-agent\" for ssh-agent support";
+            string security_help_message = "Managing keyring support.\nStandart options available \"gnome\" for gnome-keyring suport  or \"ssh-agent\" for ssh-agent support";
             string[] security_more = {""};
             string security_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "keyring", "", security_help_message, security_more, security_more_help_message, null);
 
-            string a11y_help_message = "Managing support for accessibility. Stardart option are gnome, for stardart gnome support.";
+            string a11y_help_message = "Managing support for accessibility.\nStardart option are gnome, for stardart gnome support.";
             string[] a11y_more = {""};
             string a11y_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "a11y", "", a11y_help_message, a11y_more, a11y_more_help_message, null);
@@ -365,7 +365,7 @@ namespace LDefaultApps
             string proxy_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "proxy_manager", "", proxy_manager_help_message, proxy_manager_more, proxy_manager_more_help_message, null);
 
-            string xrandr_help_message = "Managing XRandr parameters";
+            string xrandr_help_message = "Managing XRandr parameters. Use a command like xrandr --something";
             string[] xrandr_more = {""};
             string xrandr_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "xrandr", "", xrandr_help_message, xrandr_more, xrandr_more_help_message, null);
