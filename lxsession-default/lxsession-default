@@ -145,6 +145,10 @@ case "$1" in
 	echo "Launching tasks application"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"tasks" string:'' > /dev/null 2>&1
     ;;
+"burn")
+	echo "Launching burning application"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"burn" string:'' > /dev/null 2>&1
+    ;;
 *)
     ;;
 esac
