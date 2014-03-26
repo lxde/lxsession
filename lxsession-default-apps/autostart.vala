@@ -125,7 +125,7 @@ namespace LDefaultApps
                         if (check.get_label()[0:1] != "#")
                         {
                                 update_autostart_conf(check.get_label(), "desactivate", builder);
-                                message("Desactivate : %s", check.get_label());
+                                message("Deactivate : %s", check.get_label());
                         }
                     }
                 });

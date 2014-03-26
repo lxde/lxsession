@@ -143,14 +143,14 @@ namespace LDefaultApps
             string manual_setting_help = "Manual Settings: Manual set the command (you need to restart lxsession-default-apps to see the change)\n";
             string session_string_help = "Session : specify the session\n";
             string extra_string_help = "Extra: Add extra parameter to the launch option\n";
-            string mime_association_help = "Mime association: Automaticly associate mime type to this application ?\n";
+            string mime_association_help = "Mime association: Automatically associate mime type to this application ?\n";
             string mime_available_help = "Available applications : Applications of this type available on your repositories\n";
             string handle_desktop_help = "Handle Desktop: Draw the desktop using the file manager ?\n";
             string autostart_help = "Autostart the application ?\n";
             string debian_default_help = "Set default program for Debian system (using update-alternatives, need root password)\n";
 
             /* New inits */
-            string windows_manager_help_message = "Windows manager draws and manage the windows. You can choose openbox, openbox-custom (for a custom openbox configuration, see More), kwin, compiz ...";
+            string windows_manager_help_message = "Windows manager draws and manage the windows. \nYou can choose openbox, openbox-custom (for a custom openbox configuration, see \"More\"), kwin, compiz ...";
             string[] windows_manager_more = {"session", "extras"};
             string windows_manager_more_help_message = session_string_help + extra_string_help;
             init_application(builder, kf, dbus_backend, "windows_manager", "", windows_manager_help_message, windows_manager_more, windows_manager_more_help_message, null);
@@ -165,17 +165,17 @@ namespace LDefaultApps
             string dock_more_help_message = session_string_help;
             init_application(builder, kf, dbus_backend, "dock", "", dock_help_message, dock_more, dock_more_help_message, null);
 
-            string file_manager_help_message = "File manager is the component which open the files. See More to add options to handle the desktop, or openning files ";
+            string file_manager_help_message = "File manager is the component which open the files.\nSee \"More\" to add options to handle the desktop, or openning files ";
             string[] file_manager_more = {"combobox_manual", "session", "extra", "handle_desktop", "mime_association", "mime_available"};
             string file_manager_more_help_message = manual_setting_help + session_string_help + extra_string_help + handle_desktop_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "file_manager", "", file_manager_help_message, file_manager_more, file_manager_more_help_message, null);
 
-            string composite_manager_help_message = "Composite manager enbale graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. Example: compton";
+            string composite_manager_help_message = "Composite manager enbale graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \nExample: compton";
             string[] composite_manager_more = {""};
             string composite_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "composite_manager", "", composite_manager_help_message, composite_manager_more, composite_manager_more_help_message, null);
 
-            string desktop_manager_help_message = "Desktop manager draw the desktop and manage the icons inside it.\nYou can manage it with the file manager by setting filemanager";
+            string desktop_manager_help_message = "Desktop manager draw the desktop and manage the icons inside it.\nYou can manage it with the file manager by setting \"filemanager\"";
             string[] desktop_manager_more = {"wallpaper", "handle_desktop"};
             string desktop_manager_more_help_message = "Wallpaper: Set an image path to draw the wallpaper";
             init_application(builder, kf, dbus_backend, "desktop_manager", "", desktop_manager_help_message, desktop_manager_more, desktop_manager_more_help_message, null);
@@ -185,12 +185,12 @@ namespace LDefaultApps
             string screensaver_more_help_message = "";
             init_application(builder, kf, dbus_backend, "screensaver", "", screensaver_help_message, screensaver_more, screensaver_more_help_message, null);
 
-            string power_manager_help_message = "Power Manager helps you to reduce the ussage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automaticly, depending of the laptop mode.";
+            string power_manager_help_message = "Power Manager helps you to reduce the ussage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automatically, depending of the laptop mode.";
             string[] power_manager_more = {""};
             string power_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "power_manager", "", power_manager_help_message, power_manager_more, power_manager_more_help_message, null);
 
-            string polkit_help_message = "Polkit agent provide authorisation to use some actions, like suspend, hibernate, using Consolekit";
+            string polkit_help_message = "Polkit agent provide authorisation to use some actions, like suspend, hibernate, using Consolekit ... It's not advised to make it blank.";
             string[] polkit_more = {""};
             string polkit_more_help_message = "";
             init_application(builder, kf, dbus_backend, "polkit", "", polkit_help_message, polkit_more, polkit_more_help_message, null);
@@ -230,7 +230,7 @@ namespace LDefaultApps
             string widget_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "widget1", "", widget_help_message, widget_more, widget_more_help_message, "widget");
 
-            string launcher_manager_help_message = "Utility to launch application, like synapse, kupfer ...";
+            string launcher_manager_help_message = "Utility to launch application, like synapse, kupfer ... \nFor using lxpanel or lxde default utility, use \"lxpanelctl\" ";
             string[] launcher_manager_more = {"autostart"};
             string launcher_manager_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "launcher_manager", "", launcher_manager_help_message, launcher_manager_more, launcher_manager_more_help_message, null);
@@ -350,7 +350,7 @@ namespace LDefaultApps
             string clipboard_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "clipboard", "", clipboard_help_message, clipboard_more, clipboard_more_help_message, null);
 
-            string security_help_message = "Managing keyring support.\nStandart options available \"gnome\" for gnome-keyring suport  or \"ssh-agent\" for ssh-agent support";
+            string security_help_message = "Managing keyring support.\nStandard options available \"gnome\" for gnome-keyring support  or \"ssh-agent\" for ssh-agent support";
             string[] security_more = {""};
             string security_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "keyring", "", security_help_message, security_more, security_more_help_message, null);
