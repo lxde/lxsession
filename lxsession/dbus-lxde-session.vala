@@ -54,7 +54,7 @@ namespace Lxsession
 
         public void ReloadSettingsDaemon()
         {
-            message ("Restart Xsettings Deamon");
+            message ("Restart Xsettings Daemon");
             XsettingsManagerActivate();
         }
 
@@ -806,7 +806,7 @@ namespace Lxsession
         private void DesktopReload()
         {
             message("Reload desktop manager");
-            if (global_settings.get_item_string("Session", "desktop", "command") == null)
+            if (global_settings.get_item_string("Session", "desktop_manager", "command") == null)
             {
                 warning("desktop manager not set");
             }
@@ -826,8 +826,8 @@ namespace Lxsession
 
         private void DesktopLaunchSettings()
         {
-            message("Launch settings for desktop manager");
-            if (global_settings.get_item_string("Session", "desktop", "command") == null)
+            message("Launch settings for desktop_manager");
+            if (global_settings.get_item_string("Session", "desktop_manager", "command") == null)
             {
                 warning("desktop manager not set");
             }
