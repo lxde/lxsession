@@ -510,6 +510,9 @@ namespace LDefaultApps
 
         });
 
+        /* Disconnect scroll event, to avoid changing item when we are scrolling the windows */
+        return_combobox.scroll_event.disconnect();
+
         return return_combobox;
     }
 
