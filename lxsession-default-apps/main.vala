@@ -185,7 +185,7 @@ namespace LDefaultApps
             string screensaver_more_help_message = "";
             init_application(builder, kf, dbus_backend, "screensaver", "", screensaver_help_message, screensaver_more, screensaver_more_help_message, null);
 
-            string power_manager_help_message = "Power Manager helps you to reduce the ussage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automatically, depending of the laptop mode.";
+            string power_manager_help_message = "Power Manager helps you to reduce the usage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automatically, depending of the laptop mode.";
             string[] power_manager_more = {""};
             string power_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "power_manager", "", power_manager_help_message, power_manager_more, power_manager_more_help_message, null);
