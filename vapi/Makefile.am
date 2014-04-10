@@ -1,4 +1,5 @@
 noinst_DATA = \
+	config.vapi \
 	lxclipboard.vapi \
 	lxpolkit.vapi \
 	lxsession-edit.vapi \

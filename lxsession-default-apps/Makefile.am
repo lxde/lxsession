@@ -18,6 +18,7 @@ lxsession_default_apps_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg posix \
 	--pkg lxsession-edit \
+	--pkg config \
 	$(NULL)
 
 lxsession_default_apps_CFLAGS = \

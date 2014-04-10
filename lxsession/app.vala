@@ -727,7 +727,6 @@ public class PolkitApp: SimpleAppObject
 #if BUILDIN_POLKIT
     public new void launch ()
     {
-        message("polkit build-in");
         policykit_agent_init();
     }
 #endif
@@ -1144,12 +1143,9 @@ public class ScreenshotManagerApp: SimpleAppObject
 
         string[] backup_command = this.command;
 
-        message("before scrot window");
-
         switch (screenshotmanager_command)
         {
             case "scrot":
-                message("Enter scrot window");
                 string create_window_command = "scrot -u -b";
                 this.command = create_window_command.split_set(" ",0);
                 break;
@@ -1158,9 +1154,7 @@ public class ScreenshotManagerApp: SimpleAppObject
                 break;
         }
 
-        message("after scrot window");
         this.launch();
-        message("after launch scrot window");
         this.command = backup_command;
     }
 }

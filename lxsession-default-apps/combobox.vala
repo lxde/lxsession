@@ -142,7 +142,7 @@ namespace LDefaultApps
                     var box = new Gtk.HBox(false, 0);
                     master_vbox.add(box);
 
-                    var label = new Label("Manual setting");
+                    var label = new Label(_("Manual setting"));
                     box.add(label);
 
                     string default_text = dbus_backend.Get(item, "command");
@@ -162,10 +162,10 @@ namespace LDefaultApps
                     var box = new Gtk.HBox(false, 0);
                     master_vbox.add(box);
 
-                    var label = new Label("Mime Association");
+                    var label = new Label(_("Mime Association"));
                     box.add(label);
 
-                    var button = new Gtk.Button.with_label("Apply");
+                    var button = new Gtk.Button.with_label(_("Apply"));
   
                     button.clicked.connect(() => {
                         string[] combobox_list;
@@ -192,7 +192,7 @@ namespace LDefaultApps
                     var box = new Gtk.VBox(false, 0);
                     master_vbox.add(box);
 
-                    var label = new Label("Available applications");
+                    var label = new Label(_("Available applications"));
                     box.add(label);
 
                     Gtk.ListStore list_store = new Gtk.ListStore (3, typeof(string), typeof(string), typeof(string));
@@ -238,7 +238,7 @@ namespace LDefaultApps
                     master_vbox.add(hbox);
 
                     var check_button = new Gtk.CheckButton();
-                    check_button.set_label("Autostart the application ?");
+                    check_button.set_label(_("Autostart the application ?"));
                     string default_text = dbus_backend.Get(item, "autostart");
                     if (default_text == "true")
                     {
@@ -259,7 +259,7 @@ namespace LDefaultApps
                     master_vbox.add(hbox);
 
                     var check_button = new Gtk.CheckButton();
-                    check_button.set_label("Handle the desktop with it ?");
+                    check_button.set_label(_("Handle the desktop with it ?"));
                     string default_text = dbus_backend.Get("desktop_manager", "command");
                     if (default_text == "filemanager")
                     {
@@ -279,10 +279,10 @@ namespace LDefaultApps
                     var box = new Gtk.HBox(false, 0);
                     master_vbox.add(box);
 
-                    var label = new Label("Set debian default programs");
+                    var label = new Label(_("Set debian default programs"));
                     box.add(label);
 
-                    var button = new Gtk.Button.with_label("Apply");
+                    var button = new Gtk.Button.with_label(_("Apply"));
   
                     button.clicked.connect(() => {
 
@@ -319,7 +319,6 @@ namespace LDefaultApps
                         var label = new Label(more_list[a]);
                         hbox.add(label);
                         var entry = new Entry();
-                        stdout.printf ("TEST: %s", more_list[a]);
                         string default_text = dbus_backend.Get(item, more_list[a]);
                         entry.set_text(default_text);
                         entry.changed.connect(() => {
@@ -408,7 +407,7 @@ namespace LDefaultApps
 
         /* First row, empty for not selected and for unselect */
         list_store.append (out iter);
-        list_store.set (iter, 0, "gtk-close" , 1, "Disable", 2, 0, 3,"");
+        list_store.set (iter, 0, "gtk-close" , 1, _("Disable"), 2, 0, 3,"");
 
         for (int a = 0 ; a < combobox_list.length ; a++)
         {
@@ -511,7 +510,11 @@ namespace LDefaultApps
         });
 
         /* Disconnect scroll event, to avoid changing item when we are scrolling the windows */
-        return_combobox.scroll_event.disconnect();
+        return_combobox.scroll_event.connect (() => {
+
+        return true;
+
+        });
 
         return return_combobox;
     }
@@ -543,7 +546,7 @@ namespace LDefaultApps
         var mime_vbox = new Gtk.VBox(false, 0);
         mime_view_port.add(mime_vbox);
 
-        var info_label = new Label("Do you want to assiociate the following Mimetype ?\n");
+        var info_label = new Label(_("Do you want to assiociate the following Mimetype ?\n"));
         mime_vbox.add(info_label);
 
         string[] mime_combobox_list;
@@ -592,7 +595,7 @@ namespace LDefaultApps
                     string base_name = Path.get_basename(default_path);
                     var hbox_buttons = new Gtk.HBox(false, 0);
                     var ok_button = new Gtk.Button.with_label("OK");
-                    var cancel_button = new Gtk.Button.with_label("Cancel");
+                    var cancel_button = new Gtk.Button.with_label(_("Cancel"));
                     mime_vbox.add(hbox_buttons);
                     hbox_buttons.add(ok_button);
                     hbox_buttons.add(cancel_button);
@@ -719,7 +722,6 @@ namespace LDefaultApps
 
         if (return_combobox_position(combobox) != 99)
         {
-            message ("Hide !");
             var entry_box = (Gtk.Widget) entry;
             entry_box.hide();
         }
@@ -768,7 +770,6 @@ namespace LDefaultApps
         /* Set default */
         if (default_index == -1)
         {
-            message ("Iter == -1");
             switch (by_default)
             {
                 case (null):

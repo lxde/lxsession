@@ -26,7 +26,7 @@ namespace LDefaultApps
 
 	    public UpdateWindows ()
         {
-	        this.title = "Update lxsession database";
+	        this.title = _("Update lxsession database");
 	        this.window_position = Gtk.WindowPosition.CENTER;
             try
             {
@@ -39,7 +39,7 @@ namespace LDefaultApps
 	        this.set_default_size (300, 70);
 
 	        // Widget content:
-	        this.add (new Gtk.Label ("Database updating, please wait"));
+	        this.add (new Gtk.Label (_("The database is updating, please wait")));
 
             kf = get_keyfile();
             update_database();
@@ -88,7 +88,7 @@ namespace LDefaultApps
     { 
 	    public MainWindows (KeyFile kf)
         {
-		    this.title = "LXSession configuration";
+		    this.title = _("LXSession configuration");
 		    this.window_position = Gtk.WindowPosition.CENTER;
 		    this.set_default_size (600, 400);
             this.destroy.connect (Gtk.main_quit);
@@ -140,102 +140,102 @@ namespace LDefaultApps
             autostart_core_applications(builder, dbus_backend);
 
             /* Common string */
-            string manual_setting_help = "Manual Settings: Manual set the command (you need to restart lxsession-default-apps to see the change)\n";
-            string session_string_help = "Session : specify the session\n";
-            string extra_string_help = "Extra: Add extra parameter to the launch option\n";
-            string mime_association_help = "Mime association: Automatically associate mime type to this application ?\n";
-            string mime_available_help = "Available applications : Applications of this type available on your repositories\n";
-            string handle_desktop_help = "Handle Desktop: Draw the desktop using the file manager ?\n";
-            string autostart_help = "Autostart the application ?\n";
-            string debian_default_help = "Set default program for Debian system (using update-alternatives, need root password)\n";
+            string manual_setting_help = _("Manual Settings: Manually sets the command (you need to restart lxsession-default-apps to see the change)\n");
+            string session_string_help = _("Session : specify the session\n");
+            string extra_string_help = _("Extra: Add an extra parameter to the launch option\n");
+            string mime_association_help = _("Mime association: Automatically associates mime types to this application ?\n");
+            string mime_available_help = _("Available applications : Applications of this type available on your repositories\n");
+            string handle_desktop_help = _("Handle Desktop: Draw the desktop using the file manager ?\n");
+            string autostart_help = _("Autostart the application ?\n");
+            string debian_default_help = _("Set default program for Debian system (using update-alternatives, need root password)\n");
 
             /* New inits */
-            string windows_manager_help_message = "Windows manager draws and manage the windows. \nYou can choose openbox, openbox-custom (for a custom openbox configuration, see \"More\"), kwin, compiz ...";
+            string windows_manager_help_message = _("Windows manager draws and manage the windows. \nYou can choose openbox, openbox-custom (for a custom openbox configuration, see \"More\"), kwin, compiz ...");
             string[] windows_manager_more = {"session", "extras"};
             string windows_manager_more_help_message = session_string_help + extra_string_help;
             init_application(builder, kf, dbus_backend, "windows_manager", "", windows_manager_help_message, windows_manager_more, windows_manager_more_help_message, null);
 
-            string panel_help_message = "Panel is the component usually at the botton of the screen which manager a list of opened windows, shortcuts, notification area ...";
+            string panel_help_message = _("Panel is the component usually at the bottom of the screen which manages a list of opened windows, shortcuts, notification area ...");
             string[] panel_more = {"session"};
             string panel_more_help_message = session_string_help;
             init_application(builder, kf, dbus_backend, "panel", "", panel_help_message, panel_more, panel_more_help_message, null);
 
-            string dock_help_message = "Dock is a second panel. It's used to launch a different program to handle a second type of panel.";
+            string dock_help_message = _("Dock is a second panel. It's used to launch a different program to handle a second type of panel.");
             string[] dock_more = {"session"};
             string dock_more_help_message = session_string_help;
             init_application(builder, kf, dbus_backend, "dock", "", dock_help_message, dock_more, dock_more_help_message, null);
 
-            string file_manager_help_message = "File manager is the component which open the files.\nSee \"More\" to add options to handle the desktop, or openning files ";
+            string file_manager_help_message = _("File manager is the component which open the files.\nSee \"More\" to add options to handle the desktop, or openning files ");
             string[] file_manager_more = {"combobox_manual", "session", "extra", "handle_desktop", "mime_association", "mime_available"};
             string file_manager_more_help_message = manual_setting_help + session_string_help + extra_string_help + handle_desktop_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "file_manager", "", file_manager_help_message, file_manager_more, file_manager_more_help_message, null);
 
-            string composite_manager_help_message = "Composite manager enbale graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \nExample: compton";
+            string composite_manager_help_message = _("Composite manager enables graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \nExample: compton");
             string[] composite_manager_more = {""};
             string composite_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "composite_manager", "", composite_manager_help_message, composite_manager_more, composite_manager_more_help_message, null);
 
-            string desktop_manager_help_message = "Desktop manager draw the desktop and manage the icons inside it.\nYou can manage it with the file manager by setting \"filemanager\"";
+            string desktop_manager_help_message = _("Desktop manager draws the desktop and manages the icons inside it.\nYou can manage it with the file manager by setting \"filemanager\"");
             string[] desktop_manager_more = {"wallpaper", "handle_desktop"};
-            string desktop_manager_more_help_message = "Wallpaper: Set an image path to draw the wallpaper";
+            string desktop_manager_more_help_message = _("Wallpaper: Set an image path to draw the wallpaper");
             init_application(builder, kf, dbus_backend, "desktop_manager", "", desktop_manager_help_message, desktop_manager_more, desktop_manager_more_help_message, null);
 
-            string screensaver_help_message = "Screensaver is a program which displays animations when your computer is idle";
+            string screensaver_help_message = _("Screensaver is a program which displays animations when your computer is idle");
             string[] screensaver_more = {""};
             string screensaver_more_help_message = "";
             init_application(builder, kf, dbus_backend, "screensaver", "", screensaver_help_message, screensaver_more, screensaver_more_help_message, null);
 
-            string power_manager_help_message = "Power Manager helps you to reduce the usage of batteries. you probably don't need one if you have a desktop computer.\nAuto will set it automatically, depending of the laptop mode.";
+            string power_manager_help_message = _("Power Manager helps you to reduce the usage of batteries. You probably don't need one if you have a desktop computer.\nAuto option will set it automatically, depending of the laptop mode option.");
             string[] power_manager_more = {""};
             string power_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "power_manager", "", power_manager_help_message, power_manager_more, power_manager_more_help_message, null);
 
-            string polkit_help_message = "Polkit agent provide authorisation to use some actions, like suspend, hibernate, using Consolekit ... It's not advised to make it blank.";
+            string polkit_help_message = _("Polkit agent provides authorisations to use some actions, like suspend, hibernate, using Consolekit ... It's not advised to make it blank.");
             string[] polkit_more = {""};
             string polkit_more_help_message = "";
             init_application(builder, kf, dbus_backend, "polkit", "", polkit_help_message, polkit_more, polkit_more_help_message, null);
 
-            string network_gui_help_message = "Set an utility to manager connections, such as nm-applet";
+            string network_gui_help_message = _("Set an utility to manager connections, such as nm-applet");
             string[] network_gui_more = {""};
             string network_gui_more_help_message = "";
             init_application(builder, kf, dbus_backend, "network_gui", "", network_gui_help_message, network_gui_more, network_gui_more_help_message, null);
 
-            string im1_help_message = "Use a communication software (an IRC client, an IM client ...)";
+            string im1_help_message = _("Use a communication software (an IRC client, an IM client ...)");
             string[] im1_more = {"combobox_manual", "autostart", "mime_association", "mime_available"};
             string im1_more_help_message = manual_setting_help + autostart_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "im1", "", im1_help_message, im1_more, im1_more_help_message, "im");
 
-            string im2_help_message = "Use another communication software (an IRC client, an IM client ...)";
+            string im2_help_message = _("Use another communication software (an IRC client, an IM client ...)");
             string[] im2_more = {"combobox_manual", "autostart", "mime_association", "mime_available"};
             string im2_more_help_message = manual_setting_help + autostart_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "im2", "", im2_help_message, im2_more, im2_more_help_message, "im");
 
-            string terminal_manager_help_message = "Terminal by default to launch command line.";
+            string terminal_manager_help_message = _("Terminal by default to launch command line.");
             string[] terminal_manager_more = {"combobox_manual", "debian_default", "mime_association", "mime_available"};
             string terminal_manager_more_help_message = manual_setting_help + debian_default_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "terminal_manager", "", terminal_manager_help_message, terminal_manager_more, terminal_manager_more_help_message, null);
 
-            string webbrowser_help_message = "Application to go to Internet, Google, Facebook, debian.org ...";
+            string webbrowser_help_message = _("Application to go to Internet, Google, Facebook, debian.org ...");
             string[] webbrowser_more = {"combobox_manual", "debian_default", "mime_association", "mime_available"};
             string webbrowser_more_help_message = manual_setting_help + debian_default_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "webbrowser", "", webbrowser_help_message, webbrowser_more, webbrowser_more_help_message, null);
 
-            string email_help_message = "Application to send mails";
+            string email_help_message = _("Application to send mails");
             string[] email_more = {"combobox_manual", "mime_association", "mime_available"};
             string email_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "email", "", email_help_message, email_more, email_more_help_message, null);
 
-            string widget_help_message = "Utility to launch gadgets, like conky, screenlets ...";
+            string widget_help_message = _("Utility to launch gadgets, like conky, screenlets ...");
             string[] widget_more = {"autostart"};
             string widget_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "widget1", "", widget_help_message, widget_more, widget_more_help_message, "widget");
 
-            string launcher_manager_help_message = "Utility to launch application, like synapse, kupfer ... \nFor using lxpanel or lxde default utility, use \"lxpanelctl\" ";
+            string launcher_manager_help_message = _("Utility to launch application, like synapse, kupfer ... \nFor using lxpanel or lxde default utility, use \"lxpanelctl\" ");
             string[] launcher_manager_more = {"autostart"};
             string launcher_manager_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "launcher_manager", "", launcher_manager_help_message, launcher_manager_more, launcher_manager_more_help_message, null);
 
-            string screenshot_manager_help_message = "Application for taking screeshot of your desktop, like scrot ...";
+            string screenshot_manager_help_message = _("Application for taking screeshot of your desktop, like scrot ...");
             string[] screenshot_manager_more = {""};
             string screenshot_manager_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "screenshot_manager", "", screenshot_manager_help_message, screenshot_manager_more, screenshot_manager_more_help_message, null);
@@ -245,127 +245,127 @@ namespace LDefaultApps
             string pdf_reader_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "pdf_reader", "", pdf_reader_help_message, pdf_reader_more, pdf_reader_more_help_message, null);
 
-            string video_player_help_message = "Video application";
+            string video_player_help_message = _("Video application");
             string[] video_player_more = {"combobox_manual", "mime_association", "mime_available"};
             string video_player_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "video_player", "", video_player_help_message, video_player_more, video_player_more_help_message, null);
 
-            string audio_player_help_message = "Audio application";
+            string audio_player_help_message = _("Audio application");
             string[] audio_player_more = {"combobox_manual", "mime_association", "mime_available"};
             string audio_player_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "audio_player", "", audio_player_help_message, audio_player_more, audio_player_more_help_message, null);
 
-            string image_display_help_message = "Application to display images";
+            string image_display_help_message = _("Application to display images");
             string[] image_display_more = {"combobox_manual", "mime_association", "mime_available"};
             string image_display_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "image_display", "", image_display_help_message, image_display_more, image_display_more_help_message, "image_display");
 
-            string text_editor_help_message = "Application to edit text";
+            string text_editor_help_message = _("Application to edit text");
             string[] text_editor_more = {"combobox_manual", "mime_association", "mime_available", "debian_default"};
             string text_editor_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "text_editor", "", text_editor_help_message, text_editor_more, text_editor_more_help_message, "text_editor");
 
-            string archive_help_message = "Application to create archives, like file-roller";
+            string archive_help_message = _("Application to create archives, like file-roller");
             string[] archive_more = {"combobox_manual", "mime_association", "mime_available"};
             string archive_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "archive", "", archive_help_message, archive_more, archive_more_help_message, null);
 
-            string charmap_help_message = "Charmap application";
+            string charmap_help_message = _("Charmap application");
             string[] charmap_more = {""};
             string charmap_more_help_message = "";
             init_application(builder, kf, dbus_backend, "charmap", "", charmap_help_message, charmap_more, charmap_more_help_message, null);
 
-            string calculator_help_message = "Calculator application";
+            string calculator_help_message = _("Calculator application");
             string[] calculator_more = {""};
             string calculator_more_help_message = "";
             init_application(builder, kf, dbus_backend, "calculator", "", calculator_help_message, calculator_more, calculator_more_help_message, null);
 
-            string spreadsheet_help_message = "Application to create spreedsheet, like gnumeric";
+            string spreadsheet_help_message = _("Application to create spreedsheet, like gnumeric");
             string[] spreadsheet_more = {"combobox_manual", "mime_association", "mime_available"};
             string spreadsheet_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "spreadsheet", "", spreadsheet_help_message, spreadsheet_more, spreadsheet_more_help_message, null);
 
-            string bittorent_help_message = "Application to manage bittorent, like transmission";
+            string bittorent_help_message = _("Application to manage bittorent, like transmission");
             string[] bittorent_more = {"combobox_manual", "mime_association", "mime_available"};
             string bittorent_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "bittorent", "", bittorent_help_message, bittorent_more, bittorent_more_help_message, null);
 
-            string document_help_message = "Application to manage office text, like abiword ";
+            string document_help_message = _("Application to manage office text, like abiword");
             string[] document_more = {"combobox_manual", "mime_association", "mime_available"};
             string document_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "document", "", document_help_message, document_more, document_more_help_message, null);
 
-            string webcam_help_message = "Application to manage webcam ";
+            string webcam_help_message = _("Application to manage webcam");
             string[] webcam_more = {""};
             string webcam_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "webcam", "", webcam_help_message, webcam_more, webcam_more_help_message, null);
 
-            string burn_help_message = "Application to manage burning CD/DVD utilty ";
+            string burn_help_message = _("Application to manage burning CD/DVD utilty ");
             string[] burn_more = {"combobox_manual", "mime_association", "mime_available"};
             string burn_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "burn", "", burn_help_message, burn_more, burn_more_help_message, null);
 
-            string notes_help_message = "Application to manage notes utility ";
+            string notes_help_message = _("Application to manage notes utility");
             string[] notes_more = {""};
             string notes_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "notes", "", notes_help_message, notes_more, notes_more_help_message, null);
 
-            string disk_utility_help_message = "Application to manage disks";
+            string disk_utility_help_message = _("Application to manage disks");
             string[] disk_utility_more = {""};
             string disk_utility_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "disk_utility", "", disk_utility_help_message, disk_utility_more, disk_utility_more_help_message, null);
 
-            string tasks_help_message = "Application to monitor tasks running on your system";
+            string tasks_help_message = _("Application to monitor tasks running on your system");
             string[] tasks_more = {"combobox_manual", "mime_association", "mime_available"};
             string tasks_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "tasks", "", tasks_help_message, tasks_more, tasks_more_help_message, null);
 
-            string lock_manager_help_message = "Application to lock your screen";
+            string lock_manager_help_message = _("Application to lock your screen");
             string[] lock_manager_more = {""};
             string lock_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "lock_manager", "", lock_manager_help_message, lock_manager_more, lock_manager_more_help_message, null);
 
-            string audio_manager_help_message = "Managing your audio configuration";
+            string audio_manager_help_message = _("Managing your audio configuration");
             string[] audio_manager_more = {""};
             string audio_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "audio_manager", "", audio_manager_help_message, audio_manager_more, audio_manager_more_help_message, null);
 
-            string workspace_manager_help_message = "Managing your workspace configuration";
+            string workspace_manager_help_message = _("Managing your workspace configuration");
             string[] workspace_manager_more = {""};
             string workspace_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "workspace_manager", "", workspace_manager_help_message, workspace_manager_more, workspace_manager_more_help_message, null);
 
-            string quit_manager_help_message = "Managing the application to quit your session";
+            string quit_manager_help_message = _("Managing the application to quit your session");
             string[] quit_manager_more = {""};
             string quit_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "quit_manager", "", quit_manager_help_message, quit_manager_more, quit_manager_more_help_message, null);
 
-            string upgrade_manager_help_message = "Managing the application to update and upgrade your system";
+            string upgrade_manager_help_message = _("Managing the application to update and upgrade your system");
             string[] upgrade_manager_more = {""};
             string upgrade_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "upgrade_manager", "", upgrade_manager_help_message, upgrade_manager_more, upgrade_manager_more_help_message, null);
 
-            string clipboard_help_message = "Managing clipboard support";
+            string clipboard_help_message = _("Managing clipboard support");
             string[] clipboard_more = {""};
             string clipboard_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "clipboard", "", clipboard_help_message, clipboard_more, clipboard_more_help_message, null);
 
-            string security_help_message = "Managing keyring support.\nStandard options available \"gnome\" for gnome-keyring support  or \"ssh-agent\" for ssh-agent support";
+            string security_help_message = _("Managing keyring support.\nStandard options available \"gnome\" for gnome-keyring support  or \"ssh-agent\" for ssh-agent support");
             string[] security_more = {""};
             string security_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "keyring", "", security_help_message, security_more, security_more_help_message, null);
 
-            string a11y_help_message = "Managing support for accessibility.\nStardart option are gnome, for stardart gnome support.";
+            string a11y_help_message = _("Managing support for accessibility.\nStardart option are gnome, for stardart gnome support.");
             string[] a11y_more = {""};
             string a11y_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "a11y", "", a11y_help_message, a11y_more, a11y_more_help_message, null);
 
-            string proxy_manager_help_message = "Managing proxy support";
+            string proxy_manager_help_message = _("Managing proxy support");
             string[] proxy_manager_more = {""};
             string proxy_manager_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "proxy_manager", "", proxy_manager_help_message, proxy_manager_more, proxy_manager_more_help_message, null);
 
-            string xrandr_help_message = "Managing XRandr parameters. Use a command like xrandr --something";
+            string xrandr_help_message = _("Managing XRandr parameters. Use a command like xrandr --something");
             string[] xrandr_more = {""};
             string xrandr_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "xrandr", "", xrandr_help_message, xrandr_more, xrandr_more_help_message, null);

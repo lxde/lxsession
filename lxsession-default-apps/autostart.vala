@@ -110,7 +110,6 @@ namespace LDefaultApps
                 }
 
                 check.toggled.connect (() => {
-                    message ("Click !");
                     message("Label to update : %s", check.get_label());
                     if (check.get_active())
                     {
@@ -134,7 +133,6 @@ namespace LDefaultApps
 
                 var button = new Button.from_stock("gtk-remove");
                 button.clicked.connect (() => {
-                    message ("Click !");
                     update_autostart_conf(check.get_label(), "remove", builder);
                     message ("try to remove : %s", check.get_label());
                 });
@@ -152,7 +150,6 @@ namespace LDefaultApps
             auto_vbox.pack_start(add_hbox, false, false, 0);
             auto_align.add(auto_vbox);
             add_button.clicked.connect (() => {
-                message ("Click !");
                 update_autostart_conf(add_entry.get_text(), "add", builder);
                 add_entry.set_text("");
             });
