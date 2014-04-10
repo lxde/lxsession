@@ -47,7 +47,7 @@ public class AppObject: GLib.Object
 
     public AppObject()
     {
-
+        init();
     }
 
     public void launch ()
@@ -57,9 +57,6 @@ public class AppObject: GLib.Object
 
     public void generic_launch (string? arg1)
     {
-        this.read_config_settings();
-        this.read_settings();
-
         if (this.name != null)
         {
             if (this.name != "")
@@ -717,18 +714,23 @@ public class PolkitApp: SimpleAppObject
                 this.command = create_command.split_set(" ",0);
                 break;
             case "lxpolkit":
-#if BUILDIN_POLKIT
-                policykit_agent_init();
-#else
+                message("polkit separate");
                 this.name = "lxpolkit";
                 string create_command = "lxpolkit";
                 this.command = create_command.split_set(" ",0);
-#endif
                 break;
         }
         this.guard = true;
 
     }
+
+#if BUILDIN_POLKIT
+    public new void launch ()
+    {
+        message("polkit build-in");
+        policykit_agent_init();
+    }
+#endif
 
     public void deactivate ()
     {
@@ -1135,13 +1137,19 @@ public class ScreenshotManagerApp: SimpleAppObject
                 break;
         }
     }
+
     public void window_launch()
     {
+        read_settings();
+
         string[] backup_command = this.command;
 
-        switch (this.name)
+        message("before scrot window");
+
+        switch (screenshotmanager_command)
         {
             case "scrot":
+                message("Enter scrot window");
                 string create_window_command = "scrot -u -b";
                 this.command = create_window_command.split_set(" ",0);
                 break;
@@ -1149,7 +1157,10 @@ public class ScreenshotManagerApp: SimpleAppObject
             default:
                 break;
         }
+
+        message("after scrot window");
         this.launch();
+        message("after launch scrot window");
         this.command = backup_command;
     }
 }
