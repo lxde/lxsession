@@ -31,6 +31,8 @@ case "$1" in
 "quit")
 	echo "Launching quit manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"quit_manager" string:'' > /dev/null 2>&1
+# Backward compatibility with previous API, make possible to reboot when lxsession-default is updated before restarting lxsession
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch > /dev/null 2>&1
     ;;
 "workspace")
 	echo "Launching workspace manager"
@@ -49,13 +51,13 @@ case "$1" in
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"upgrades_manager" string:'' > /dev/null 2>&1
     ;;
 "screenshot")
-    if ["$2" = "window"]
+    if [ "$2" = "window" ]
     then
 	    echo "Launching screenshot manager (current window)"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.SessionLaunch string:"windows_manager" string:''> /dev/null 2>&1
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'window'> /dev/null 2>&1
     else
 	    echo "Launching screenshot manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/ScreenshotManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'' > /dev/null 2>&1
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'' > /dev/null 2>&1
     fi
     ;;
 "file_manager")
