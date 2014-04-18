@@ -1,8 +1,11 @@
-LXSession is the default session manager of LXDE.
-(LXDE: Lightweight X11 Desktop Environment)
-http://lxde.org/
+LXSession
+=========
 
-What's LXSession and who needs this?
+The default LXDE session manager.
+
+
+### What's LXSession and who needs this?
+
 A session manager is used to automatically start a set of applications and
 set up a working desktop environment.
 Besides, LXSession has a built-in lightweight Xsettings daemon, which can 
@@ -15,7 +18,7 @@ xfce4-session and rox-session.
 
 LXSession can start a set of programs specified by the distribution
 makers or users. Furthermore, LXSession is more advanced than
-some of the other ones because it can ``guard'' the specified
+some of the other ones because it can "guard" the specified
 programs, and get them restarted if crashes happened.
 
 Besides, the major difference between LXSession and the preceding programs
@@ -29,15 +32,17 @@ Here we use our own desktop environment LXDE as a working example
 to tell you, step by step, how to create your own new desktop environment.
 
 Create a startup script for your desktop, and put it to /usr/bin.
-For example, we create a script '/usr/bin/startlxde'.
+For example, we create a script ``/usr/bin/startlxde``.
 
 Then, add the commands you want to execute *before* LXSession,
 such as setting up locales or others, and put "exec lxsession" in the last line.
 
 For example, our startlxde script looks like this:
 
+```sh
 #!/bin/sh
 exec /usr/bin/lxsession -s LXDE
+```
 
 Apparently, LXDE is the name of our desktop.
 Replace it with the name of your desktop.
@@ -46,12 +51,14 @@ Then, make a desktop entry file for it under '/usr/share/xsessions'.
 With this, you can select this desktop session from menu in GDM.
 For example, this is the content of our LXDE.desktop:
 
+```ini
 [Desktop Entry]
 Encoding=UTF-8
 Name=LXDE
 Comment=LXDE - Lightweight X11 desktop environment
 Exec=/usr/bin/startlxde
 Type=Application
+```
 
 Apparently, you can replace the name and description with your own.
 Exec should points to the startup script created in previous step.
@@ -93,7 +100,7 @@ overriden by user-specific ones. If the user specific config files are
 found in ~/.config/lxsession, the ones in /etc/xdg/lxsession will be overriden.
 So this leave some flexibility for the users.
 
-Another way to start programs on session startup is to add their *.desktop
+Another way to start programs on session startup is to add their .desktop
 files in ~/.config/autostart. Please refer to the Autostart spec.
 http://www.freedesktop.org/wiki/Specifications/autostart-spec
 
@@ -101,19 +108,22 @@ OK, it's time to login to your desktop environment. Please try it out.
 Wait!  How to logout from LXSession?
 
 Simply executing this command:
-lxsession-logout
+``lxsession-logout``
 
 This will give you a good-looking logout dialog.
 If gdm is installed, lxsession can do shutdown/reboot/suspend via gdm.
 (These options are not available if gdm is not running.)
 
 If you want to customize this logout box further, try this:
-lxsession-logout --prompt "Your custom message" --banner "Your logo" \
---side "left | top | right | bottom (The position of the logo)"
+``lxsession-logout --prompt "Your custom message" --banner "Your logo" \
+--side "left | top | right | bottom (The position of the logo)"``
 
-We create a script '/usr/bin/lxde-logut' to do this:
+We create a script ``/usr/bin/lxde-logout`` to do this:
+
+```sh
 #!/bin/sh
 /usr/bin/lxsession-logout --banner "/usr/share/lxde/images/logout-banner.png" --side top
+```
 
 You can put this logout script in the menu of your window manager or desktop panel.
 Then, you can logout via clicking from the menu.
