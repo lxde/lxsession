@@ -63,7 +63,6 @@ lxsession_SOURCES = \
     ../lxsettings-daemon/xsettings-common.c \
     ../lxsettings-daemon/xsettings-manager.c \
     ../lxsettings-daemon/xutils.c \
-    ../xdg-autostart/xdg-autostart.c \
     $(buildinclip_SOURCES) \
     $(buildinpolkit_SOURCES) \
     $(NULL)
@@ -74,7 +73,6 @@ lxsession_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg posix \
 	--pkg lxsettings-daemon \
-	--pkg xdg-autostart \
 	$(buildinclip_VALAFLAGS) \
 	$(buildinpolkit_VALAFLAGS) \
 	$(NULL)
