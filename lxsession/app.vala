@@ -188,7 +188,7 @@ public class GenericAppObject: AppObject
 
 public class GenericSimpleApp: SimpleAppObject
 {
-    string settings_command;
+    public string settings_command { get; set; default = "";}
 
     public GenericSimpleApp (string argument)
     {
