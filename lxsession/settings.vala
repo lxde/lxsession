@@ -255,7 +255,7 @@ namespace Lxsession
             set_generic_default("GTK", "sNet", "IconThemeName", "string", "nuoveXT2");
             set_generic_default("GTK", "iNet", "EnableEventSounds", "string", "1");
             set_generic_default("GTK", "iNet", "EnableInputFeedbackSounds", "string", "1");
-            set_generic_default("GTK", "iGtk", "ColorScheme", "string", "");
+            set_generic_default("GTK", "sGtk", "ColorScheme", "string", "");
             set_generic_default("GTK", "sGtk", "FontName", "string", "Sans 10");
             set_generic_default("GTK", "iGtk", "ToolbarStyle", "string", "3");
             set_generic_default("GTK", "iGtk", "ToolbarIconSize", "string", "3");
