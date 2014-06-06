@@ -757,6 +757,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "a11y", "command", "string");
         read_key_value(kf, "Session", "keyring", "command", "string");
         read_key_value(kf, "Session", "xrandr", "command", "string");
+        read_key_value(kf, "Session", "network_gui", "command", "string");
 
         /* Mime applications */
         read_key_value(kf, "Session", "webbrowser", "command", "string");
