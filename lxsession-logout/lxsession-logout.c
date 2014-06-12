@@ -19,6 +19,7 @@
 #include <config.h>
 #include <locale.h>
 #include <stdlib.h>
+#include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
@@ -760,6 +761,15 @@ int main(int argc, char * argv[])
     GtkWidget * cancel_button = gtk_button_new_from_stock(GTK_STOCK_CANCEL);
     gtk_button_set_alignment(GTK_BUTTON(cancel_button), 0.0, 0.5);
     g_signal_connect(G_OBJECT(cancel_button), "clicked", G_CALLBACK(cancel_clicked), NULL);
+    GtkAccelGroup* accel_group = gtk_accel_group_new();
+    gtk_window_add_accel_group(GTK_WINDOW(window), accel_group);
+#if GTK_CHECK_VERSION(3,0,0)
+    gtk_widget_add_accelerator(cancel_button, "activate", accel_group,
+        GDK_KEY_Escape, (GdkModifierType)0, GTK_ACCEL_VISIBLE);
+#else
+    gtk_widget_add_accelerator(cancel_button, "activate", accel_group,
+        GDK_Escape, (GdkModifierType)NULL, GTK_ACCEL_VISIBLE);
+#endif
     gtk_box_pack_start(GTK_BOX(controls), cancel_button, FALSE, FALSE, 4);
 
     /* Create the error text. */
