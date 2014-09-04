@@ -304,12 +304,12 @@ void xdg_autostart( const char* de_name_arg )
     GHashTable* hash = g_hash_table_new_full( g_str_hash, g_str_equal, g_free, g_free );
     de_name = de_name_arg;
 
+    /* get user-specific autostart files */
+    get_autostart_files_in_dir( hash, de_name, g_get_user_config_dir() );
+
      /* get system-wide autostart files */
 	for( dir = dirs; *dir; ++dir )
 		get_autostart_files_in_dir( hash, de_name, *dir );
-
-    /* get user-specific autostart files */
-    get_autostart_files_in_dir( hash, de_name, g_get_user_config_dir() );
 
     if( g_hash_table_size( hash ) > 0 )
     {
