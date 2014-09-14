@@ -427,6 +427,7 @@ CLEANFILES += \
     $(NULL)
 
 EXTRA_DIST += \
+    autogen.sh \
     lxclipboard/clipboard.h \
     lxpolkit/lxpolkit.h \
     lxpolkit/lxpolkit-listener.h \
