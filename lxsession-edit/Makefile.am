@@ -6,7 +6,7 @@ if USE_GTK
 bin_PROGRAMS = lxsession-edit
 
 lxsession_edit_CFLAGS = \
-	-I$(topsrcdir) \
+	-I$(top_srcdir) \
 	$(GTK_CFLAGS) \
 	$(ADDITIONAL_FLAGS) \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \

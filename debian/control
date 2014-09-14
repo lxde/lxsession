@@ -96,9 +96,3 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: simple tool to configure lxsession default applications 
  lxsession-default-apps is a simple session editor GUI for lxsession default
  applications.
-
-Package: lxsession-message-gtk
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: simple tool to display message from lxsession 
- lxsession-message-gtk is a simple tool to display message from lxsession
