@@ -47,6 +47,8 @@ Makefile
 */.deps/
 */*.o
 */*_vala.stamp
+*/.dirstamp
+lxsession-*.tar.xz
 autom4te.cache/
 debian/files
 debian/lxsession.debhelper.log
