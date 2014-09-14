@@ -168,22 +168,8 @@ AC_CONFIG_FILES([
   Makefile
   data/Makefile
   data/ui/Makefile
-  lxclipboard/Makefile
-  lxlock/Makefile
-  lxpolkit/Makefile
-  lxsession/Makefile
-  lxsession-db/Makefile
-  lxsession-default/Makefile
-  lxsession-default-apps/Makefile
-  lxsession-edit/Makefile
-  lxsession-logout/Makefile
-  lxsession-message/Makefile
-  lxsession-utils/Makefile
-  lxsettings-daemon/Makefile
   man/Makefile
   po/Makefile.in
-  vapi/Makefile
-  xdg-autostart/Makefile
 ])
 AC_OUTPUT
 
