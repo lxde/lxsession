@@ -1,24 +1,28 @@
 # Arabic translations for PACKAGE package.
 # Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
 #
+# أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+# Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2009-01-25 14:18+0200\n"
-"Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
-"Language-Team: Arabic\n"
-"Language: \n"
+"PO-Revision-Date: 2014-07-11 12:58+0300\n"
+"Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
+"n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "الرسالة المخصصة التي تظهر في مربع الحوار"
+msgstr "رسالة مخصّصة لتظهر في الحواري"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -26,7 +30,7 @@ msgstr "الرسالة"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "الشعار الذي يظهر على مربع الحوار"
+msgstr "الشعار ليظهر في الحواري"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -42,9 +46,9 @@ msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:691
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>الخروج من جلسة %s؟</big></b>"
+msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
@@ -68,7 +72,7 @@ msgstr "_بدّل المستخدم"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr ""
+msgstr "ا_قفل الشاشة"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -77,55 +81,56 @@ msgstr "ا_خرج"
 
 #: ../lxsession-edit/lxsession-edit-common.c:373
 msgid "Enabled"
-msgstr ""
+msgstr "ممكّن"
 
 #: ../lxsession-edit/lxsession-edit-common.c:378
 msgid "Application"
-msgstr ""
+msgstr "التطبيق"
 
 #: ../lxsession-edit/lxsession-edit-common.c:386
 msgid "Comment"
-msgstr ""
+msgstr "تعليق"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "خطأ: %s\n"
+msgstr "خطأ"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "معلومات"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "كلمة المرور:"
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "خطأ: %s\n"
+msgstr "المجموعة: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "إعدادات جلسة سطح المكتب"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "التطبيقات التي تبدأ آليًا بعد الدخول إلى سطح المكتب:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "التطبيقات التي تبدأ آليًا"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "مدير النوافذ:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"سطر الأوامر المُستخدَم لإطلاق مدير النوافذ\n"
+"(أمر مدير النوافذ الافتراضي لكسدي هو openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -134,22 +139,25 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>تحذير:</b> <b>لا تمس</b> هذا الخيار إلا إذا كنت تعي ما تفعل.\n"
+"\n"
+"<b>ملاحظة:</b> يُطبَّق هذا الإعداد بعد الولوج التالي."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "خيارات متقدّمة"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "الاستيثاق"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "الهويّة:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "Command"
-msgstr ""
+msgstr "الأمر"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Session"
@@ -157,15 +165,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "Apply"
-msgstr ""
+msgstr "طبّق"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr ""
+msgstr "أعد التحميل"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
-msgstr ""
+msgstr "<b>اللوحة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Extras"
@@ -173,19 +181,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "<b>Window Manager</b>"
-msgstr ""
+msgstr "<b>مدير النوافذ</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "<b>File Manager</b>"
-msgstr ""
+msgstr "<b>مدير الملفات</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "<b>Screensaver</b>"
-msgstr ""
+msgstr "<b>حافظ الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "<b>Polkit agent</b>"
-msgstr ""
+msgstr "<b>وكيل Polkit</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "<b>Dock</b>"
@@ -193,7 +201,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "Autostart"
-msgstr ""
+msgstr "البدء الآلي"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "<b>Composite Manager</b>"
@@ -201,39 +209,39 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Wallpaper"
-msgstr ""
+msgstr "الخلفية"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 msgid "<b>Desktop</b>"
-msgstr ""
+msgstr "<b>سطح المكتب</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "<b>Power Manager</b>"
-msgstr ""
+msgstr "<b>مدير الطاقة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "<b>Network GUI</b>"
-msgstr ""
+msgstr "<b>واجهة الشبكة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "<b>Communication 1</b>"
-msgstr ""
+msgstr "<b>التواصل 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "<b>Communication 2</b>"
-msgstr ""
+msgstr "<b>التواصل 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "<b>Widget 1</b>"
-msgstr ""
+msgstr "<b>الودجة 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Running applications"
-msgstr ""
+msgstr "التطبيقات التي تعمل"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "<b>Audio manager</b>"
-msgstr ""
+msgstr "<b>مدير الصوت</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Image"
@@ -245,31 +253,31 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "<b>Quit Manager</b>"
-msgstr ""
+msgstr "<b>مدير الإنهاء</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "<b>Workspace manager</b>"
-msgstr ""
+msgstr "<b>مدير مساحات العمل</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "<b>Launcher manager</b>"
-msgstr ""
+msgstr "<b>مدير الإطلاق</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "<b>Terminal manager</b>"
-msgstr ""
+msgstr "<b>مدير الطرفية</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "<b>Screenshot manager</b>"
-msgstr ""
+msgstr "<b>مدير لقطة الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "<b>Upgrade manager</b>"
-msgstr ""
+msgstr "<b>مدير الترقية</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "<b>Lock screen manager</b>"
-msgstr ""
+msgstr "<b>مدير قفل الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Launching applications"
@@ -277,7 +285,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -297,19 +305,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Mode"
-msgstr ""
+msgstr "الوضع"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Model"
-msgstr ""
+msgstr "الطراز"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Variant"
-msgstr ""
+msgstr "التنويعة"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Options"
-msgstr ""
+msgstr "خيارات"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "<b>Keymap</b>"
@@ -321,15 +329,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Keyring"
-msgstr ""
+msgstr "حلقة المفاتيح"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "<b>Security</b>"
-msgstr ""
+msgstr "<b>الأمن</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Type"
-msgstr ""
+msgstr "النوع"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "<b>a11y</b>"
@@ -337,11 +345,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Activate updates"
-msgstr ""
+msgstr "فعّل التحديثات"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "<b>Updates</b>"
-msgstr ""
+msgstr "<b>التحديثات</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "Http"
@@ -349,15 +357,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Proxy</b>"
-msgstr ""
+msgstr "<b>الوسيط</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "Laptop mode"
-msgstr ""
+msgstr "وضع الحاسوب المحمول"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>الإعدادات العامّة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
@@ -369,7 +377,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>البيئة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Settings"
@@ -377,15 +385,15 @@ msgstr ""
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "أدِر التطبيقات المحمّلة في جلسة سطح المكتب"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "تطبيقاات LXSession الافتراضية"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "غيّر تطبيقات لكسدي الافتراضية"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession ليس قيد التشغيل."
