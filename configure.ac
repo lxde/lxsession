@@ -111,7 +111,7 @@ fi
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 
-AM_PROG_VALAC([0.14.0])
+AM_PROG_VALAC([0.16.0])
 if test "x$VALAC" = "x"; then
   AC_MSG_ERROR([You need Vala compiler])
 fi
