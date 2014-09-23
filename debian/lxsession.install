@@ -7,3 +7,4 @@ usr/bin/lxsession-xsettings
 usr/bin/lxsession-db
 usr/bin/lxsettings-daemon
 usr/bin/lxsession-xdg-autostart
+usr/share/man/man1/lxsession.1
