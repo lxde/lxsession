@@ -5,10 +5,6 @@ AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign no-dist-gzip dist-xz])
 AC_PREREQ([2.68])
 IT_PROG_INTLTOOL([0.40.0],[no-xml])
 
-#Initialize libtool
-LT_PREREQ([2.2.6])
-LT_INIT()
-
 # Support silent build rules. Disable by either passing --disable-silent-rules
 # to configure or passing V=1 to make
 AM_SILENT_RULES([yes])
