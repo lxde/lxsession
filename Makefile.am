@@ -390,40 +390,6 @@ lxsession_lxsession_LDADD = \
     $(buildinpolkit_LDADD) \
     $(NULL)
 
-CLEANFILES += \
-    lxclipboard/main.c \
-    lxpolkit/main.c \
-    lxsession-db/main.c \
-    lxsession-db/desktop-files-backend.c \
-    lxsession-default-apps/autostart.c \
-    lxsession-default-apps/main.c \
-    lxsession-default-apps/combobox.c \
-    lxsession-default-apps/dbus-backend.c \
-    lxsession-default-apps/utils.c \
-    lxsession-default-apps/lxsession_default_apps_vala.stamp \
-    lxpolkit_lxpolkit_vala.stamp \
-    lxsession_db_lxsession_db_vala.stamp \
-    lxclipboard_lxclipboard_vala.stamp \
-    lxsettings-daemon/main.c \
-    xdg-autostart/main.c \
-    lxsession/main.c \
-    lxsession/app.c \
-    lxsession/autostart.c \
-    lxsession/conffiles.c \
-    lxsession/control.c \
-    lxsession/dbus-common.c \
-    lxsession/dbus-gnome-session.c \
-    lxsession/dbus-lxde-session.c \
-    lxsession/environement.c \
-    lxsession/options.c \
-    lxsession/process.c \
-    lxsession/settings.c \
-    lxsession/utils.c \
-    lxsettings_daemon_lxsettings_daemon_vala.stamp \
-    lxsession_lxsession_vala.stamp \
-    xdg_autostart_lxsession_xdg_autostart_vala.stamp \
-    $(NULL)
-
 EXTRA_DIST += \
     autogen.sh \
     lxclipboard/clipboard.h \
@@ -438,33 +404,3 @@ EXTRA_DIST += \
     lxsession-logout/lxsession-logout-dbus-interface.h \
     xdg-autostart/xdg-autostart.h \
     $(NULL)
-
-DISTCLEANFILES: \
-    lxsettings_daemon_lxsettings_daemon_vala.stamp \
-    lxsession_lxsession_vala.stamp \
-    xdg_autostart_lxsession_xdg_autostart_vala.stamp \
-    lxsession-default-apps/lxsession_default_apps_vala.stamp \
-    lxpolkit_lxpolkit_vala.stamp \
-    lxsession_db_lxsession_db_vala.stamp \
-    lxclipboard_lxclipboard_vala.stamp \
-    $(NULL)
-
-lxclipboard_lxclipboard_vala.stamp: $(top_srcdir)/config.h
-lxpolkit_lxpolkit_vala.stamp: $(top_srcdir)/config.h
-lxsession_db_lxsession_db_vala.stamp: $(top_srcdir)/config.h
-lxsession_default_apps_lxsession_default_apps_vala.stamp: $(top_srcdir)/config.h
-xdg_autostart_lxsession_xdg_autostart_vala.stamp: $(top_srcdir)/config.h
-lxsettings_daemon_lxsettings_daemon_vala.stamp: $(top_srcdir)/config.h
-lxsession_lxsession_vala.stamp: $(top_srcdir)/config.h
-
-# Below breaks distcheck (because autotools doesn't know how to handle vala without C files)
-# Need to be removed before checking distcheck
-dist-hook:
-	cd $(distdir) && \
-	rm $(lxclipboard_lxclipboard_vala_SOURCES:.vala=.c) lxclipboard_lxclipboard_vala.stamp
-	rm $(lxpolkit_lxpolkit_vala_SOURCES:.vala=.c) lxpolkit_lxpolkit_vala.stamp
-	rm $(lxsession_db_lxsession_db_SOURCES:.vala=.c) lxsession_db_lxsession_db_vala.stamp
-	rm $(lxsession_default_apps_lxsession_default_apps_vala_SOURCES:.vala=.c) lxsession_default_apps_lxsession_default_apps_vala.stamp
-	rm $(xdg_autostart_lxsession_xdg_autostart_vala_SOURCES:.vala=.c) xdg_autostart_lxsession_xdg_autostart_vala.stamp
-	rm $(lxsettings_daemon_lxsettings_daemon_vala_SOURCES:.vala=.c) lxsettings_daemon_lxsettings_daemon_vala.stamp
-	rm $(lxsession_lxsession_vala_SOURCES:.vala=.c) lxsession_lxsession_vala.stamp
