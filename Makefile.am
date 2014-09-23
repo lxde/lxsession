@@ -157,7 +157,6 @@ lxsession_edit_lxsession_edit_LDADD = \
 
 lxsession_edit_lxsession_edit_common_SOURCES = \
     lxsession-edit/lxsession-edit-common.c \
-    lxsession-edit/lxsession-edit-common.h \
     $(NULL)
 
 lxsession_edit_lxsession_edit_SOURCES = \
@@ -266,7 +265,6 @@ lxsession_logout_lxsession_logout_LDADD = \
 
 lxsession_logout_lxsession_logout_SOURCES= \
     lxsession-logout/lxsession-logout-dbus-interface.c \
-    lxsession-logout/lxsession-logout-dbus-interface.h \
     lxsession-logout/lxsession-logout.c
 
 CLEANFILES += \
@@ -436,6 +434,8 @@ EXTRA_DIST += \
     lxsettings-daemon/xsettings-common.h \
     lxsettings-daemon/xsettings-manager.h \
     lxsettings-daemon/xutils.h \
+    lxsession-edit/lxsession-edit-common.h \
+    lxsession-logout/lxsession-logout-dbus-interface.h \
     xdg-autostart/xdg-autostart.h \
     $(NULL)
 
