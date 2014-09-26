@@ -71,6 +71,19 @@ namespace Lxsession
             update_support_keys (categorie, key1, key2);
         }
 
+        public void delete_config_item (string categorie, string key1, string key2, string type)
+        {
+            /* only support string for now */
+            string item_key = categorie + ";" + key1 + ";" + key2 + ";";
+
+            if (config_item_db.contains(item_key) == true)
+            {
+                config_item_db.remove(item_key);
+                update_support_keys (categorie, key1, key2);
+
+            }
+        }
+
         public void get_item(string categorie, string key1, string? key2, out string variable, out string type)
         {
             /* only support string for now */
@@ -638,6 +651,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
+
+        /* Remove buggy keys */
+        if (read_keyfile_string_value(kf, "GTK", "iGtk", "ColorScheme", null) != null)
+        {
+            delete_config_item("GTK", "iGtk", "ColorScheme", "string");
+        }
 
         /* Windows manager */
         if (read_keyfile_string_value(kf, "Session", "windows_manager", "command", null) != null)
