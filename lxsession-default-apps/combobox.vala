@@ -301,11 +301,27 @@ namespace LDefaultApps
                         switch (item)
                         {
                             case "webbrowser":
-                                Process.spawn_command_line_async("gksu \"update-alternatives --set x-www-browser " + default_command + "\"");
+                                try
+                                {
+                                    Process.spawn_command_line_async(   "gksu \"update-alternatives --set x-www-browser "
+                                                                        + default_command + "\"");
+                                }
+                                catch (GLib.SpawnError err)
+                                {
+                                    warning (err.message);
+                                }
                                 break;
 
                             case "terminal_manager":
-                                Process.spawn_command_line_async("gksu \"update-alternatives --set x-terminal-emulator " + default_command + "\"");
+                                try
+                                {
+                                    Process.spawn_command_line_async(   "gksu \"update-alternatives --set x-terminal-emulator "
+                                                                        + default_command + "\"");
+                                }
+                                catch (GLib.SpawnError err)
+                                {
+                                    warning (err.message);
+                                }
                                 break;
                         }
                     });
@@ -694,7 +710,14 @@ namespace LDefaultApps
     {
         string keys = key1 + "/" + mode;
         string[] return_value = {};
-        return_value = kf.get_string_list("Mime", keys);
+        try
+        {
+            return_value = kf.get_string_list("Mime", keys);
+        }
+        catch (GLib.KeyFileError err)
+        {
+            warning (err.message);
+        }
         return return_value;
     }
 
