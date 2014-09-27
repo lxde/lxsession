@@ -1,5 +1,6 @@
 Makefile.in
 aclocal.m4
+m4/*.m4
 compile
 config.h.in
 configure
@@ -31,6 +32,8 @@ lxsession-db/*.c
 lxsession-db/lxsession-db
 lxsession-message/*.c
 lxsession-message/lxsession-message-gtk
+lxsettings-daemon/lxsettings-daemon
+lxsettings-daemon/main.c
 lxpolkit/lxpolkit
 lxpolkit/main.c
 man/Makefile
@@ -46,7 +49,11 @@ Makefile
 */*/Makefile
 */.deps/
 */*.o
-*/*_vala.stamp
+*_vala.stamp
+*/.dirstamp
+lxsession-*.tar.xz
+xdg-autostart/lxsession-xdg-autostart
+xdg-autostart/main.c
 autom4te.cache/
 debian/files
 debian/lxsession.debhelper.log

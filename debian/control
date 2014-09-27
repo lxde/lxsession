@@ -5,17 +5,16 @@ Maintainer: Debian LXDE Packaging Team <pkg-lxde-maintainers@lists.alioth.debian
 Uploaders: Andrew Lee (李健秋) <ajqlee@debian.org>
 Build-Depends: debhelper (>= 7.0.50~), 
 # needed by autogen.sh
-               autotools-dev,
+               dh-autoreconf,
                intltool,
-               libtool,
-# real build-depends
-               libgtk2.0-dev (>=2.6), 
-               libdbus-glib-1-dev (>=0.31),
-               libpolkit-agent-1-dev,
-               valac-0.20 | valac,
+               valac (>= 0.16),
                docbook-xsl,
                xsltproc,
                docbook-xml,
+# real build-depends
+               libgtk2.0-dev (>=2.6), 
+               libdbus-glib-1-dev (>=0.31),
+               libpolkit-agent-1-dev
 Standards-Version: 3.8.4
 Homepage: http://lxde.sf.net
 Vcs-Git: git://git.debian.org/git/collab-maint/lxsession.git

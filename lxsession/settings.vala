@@ -71,6 +71,19 @@ namespace Lxsession
             update_support_keys (categorie, key1, key2);
         }
 
+        public void delete_config_item (string categorie, string key1, string key2, string type)
+        {
+            /* only support string for now */
+            string item_key = categorie + ";" + key1 + ";" + key2 + ";";
+
+            if (config_item_db.contains(item_key) == true)
+            {
+                config_item_db.remove(item_key);
+                update_support_keys (categorie, key1, key2);
+
+            }
+        }
+
         public void get_item(string categorie, string key1, string? key2, out string variable, out string type)
         {
             /* only support string for now */
@@ -102,7 +115,7 @@ namespace Lxsession
 
             if (config_item_db.contains(item_key) == true)
             {
-                message ("Enter if of read_value for %s, %s, %s, %s, %s: ", categorie, key1, key2, type, dbus_arg);
+                // message ("Enter if of read_value for %s, %s, %s, %s, %s: ", categorie, key1, key2, type, dbus_arg);
                 if (config_item_db[item_key] != dbus_arg)
                 {
                     config_item_db[item_key] = dbus_arg;
@@ -356,7 +369,7 @@ namespace Lxsession
 
             string type = "string";
 
-            message ("key of set_value: %s", item_key);
+            // message ("key of set_value: %s", item_key);
 
             if (config_item_db.contains(item_key) == true)
             {
@@ -616,7 +629,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         if (config_item_db.contains(item_key) == false)
         {
-            message ("Create new config key: %s", item_key);
+            // message ("Create new config key: %s", item_key);
             create_config_item(categorie, key1, key2, type, null);
         }
         else
@@ -638,6 +651,12 @@ public class LxsessionConfigKeyFile: LxsessionConfig
     public void read_keyfile()
     {
         kf = load_keyfile (desktop_config_path);
+
+        /* Remove buggy keys */
+        if (read_keyfile_string_value(kf, "GTK", "iGtk", "ColorScheme", null) != null)
+        {
+            delete_config_item("GTK", "iGtk", "ColorScheme", "string");
+        }
 
         /* Windows manager */
         if (read_keyfile_string_value(kf, "Session", "windows_manager", "command", null) != null)
@@ -858,7 +877,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
     public void save_keyfile ()
     {
-        message ("Saving desktop file");
+        // message ("Saving desktop file");
         var str = kf.to_data (null);
         try
         {
@@ -910,19 +929,19 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         switch (kf_key2)
             {
                 case null:
-                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    // message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
                     kf.set_value (kf_categorie, kf_key1, dbus_arg);
                     break;
                 case "":
-                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    // message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
                     kf.set_value (kf_categorie, kf_key1, dbus_arg);
                     break;
                 case " ":
-                    message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
+                    // message("Changing %s - %s to %s" , kf_categorie, kf_key1, dbus_arg);
                     kf.set_value (kf_categorie, kf_key1, dbus_arg);
                     break;
                 default:
-                    message("Changing %s - %s - %s to %s" , kf_categorie, kf_key1, kf_key2, dbus_arg);
+                    // message("Changing %s - %s - %s to %s" , kf_categorie, kf_key1, kf_key2, dbus_arg);
                     kf.set_value (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
                     break;
             }
@@ -934,19 +953,19 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         switch (kf_key2)
             {
                 case null:
-                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    // message("Changing %s - %s" , kf_categorie, kf_key1);
                     kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
                     break;
                 case "":
-                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    // message("Changing %s - %s" , kf_categorie, kf_key1);
                     kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
                     break;
                 case " ":
-                    message("Changing %s - %s" , kf_categorie, kf_key1);
+                    // message("Changing %s - %s" , kf_categorie, kf_key1);
                     kf.set_string_list (kf_categorie, kf_key1, dbus_arg);
                     break;
                 default:
-                    message("Changing %s - %s - %s" , kf_categorie, kf_key1, kf_key2);
+                    // message("Changing %s - %s - %s" , kf_categorie, kf_key1, kf_key2);
                     kf.set_string_list (kf_categorie, kf_key1 + "/" + kf_key2, dbus_arg);
                     break;
             }

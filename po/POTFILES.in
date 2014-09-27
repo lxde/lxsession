@@ -9,6 +9,4 @@ lxpolkit/lxpolkit-listener.c
 data/lxsession-edit.desktop.in
 data/lxsession-default-apps.desktop.in
 lxsession-default-apps/main.vala
-lxsession-default-apps/main.c
 lxsession-default-apps/combobox.vala
-lxsession-default-apps/combobox.c

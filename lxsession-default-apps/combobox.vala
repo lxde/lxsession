@@ -170,7 +170,6 @@ namespace LDefaultApps
                     button.clicked.connect(() => {
                         string[] combobox_list;
                         combobox_list = get_mime_list(kf, item, "installed");
-                        string default_text = dbus_backend.Get(item, "command");
                         string default_path = "";
                         string default_exec = "";
 
@@ -301,11 +300,27 @@ namespace LDefaultApps
                         switch (item)
                         {
                             case "webbrowser":
-                                Process.spawn_command_line_async("gksu \"update-alternatives --set x-www-browser " + default_command + "\"");
+                                try
+                                {
+                                    Process.spawn_command_line_async(   "gksu \"update-alternatives --set x-www-browser "
+                                                                        + default_command + "\"");
+                                }
+                                catch (GLib.SpawnError err)
+                                {
+                                    warning (err.message);
+                                }
                                 break;
 
                             case "terminal_manager":
-                                Process.spawn_command_line_async("gksu \"update-alternatives --set x-terminal-emulator " + default_command + "\"");
+                                try
+                                {
+                                    Process.spawn_command_line_async(   "gksu \"update-alternatives --set x-terminal-emulator "
+                                                                        + default_command + "\"");
+                                }
+                                catch (GLib.SpawnError err)
+                                {
+                                    warning (err.message);
+                                }
                                 break;
                         }
                     });
@@ -551,7 +566,6 @@ namespace LDefaultApps
 
         string[] mime_combobox_list;
         mime_combobox_list = get_mime_list(kf, combobox_list_name, "installed");
-        string default_text = dbus_backend.Get(combobox_list_name, "command");
         string default_path = "";
 
         for (int b = 0 ; b < mime_combobox_list.length ; b++)
@@ -657,23 +671,6 @@ namespace LDefaultApps
         }
     }
 
-    int return_combobox_position(Gtk.ComboBox combo)
-    {
-        Gtk.TreeIter iter;
-        Gtk.ListStore model;
-        GLib.Value value1;
-        GLib.Value value1_position;
-
-        combo.get_active_iter (out iter);
-        model = (Gtk.ListStore) combo.get_model ();
-        model.get_value (iter, 0, out value1);
-        model.get_value (iter, 1, out value1_position);
-
-        message (" Return position for %s", (string) value1);
-
-        return (int) value1_position;
-    }
-
     string return_combobox_text(Gtk.ComboBox combo)
     {
         Gtk.TreeIter iter;
@@ -694,46 +691,17 @@ namespace LDefaultApps
     {
         string keys = key1 + "/" + mode;
         string[] return_value = {};
-        return_value = kf.get_string_list("Mime", keys);
+        try
+        {
+            return_value = kf.get_string_list("Mime", keys);
+        }
+        catch (GLib.KeyFileError err)
+        {
+            warning (err.message);
+        }
         return return_value;
     }
 
-    void init_combobox_gui(Builder builder, DbusBackend dbus_backend, string key1, string key2, string[] default_values)
-    {
-        var combobox = new Gtk.ComboBox();
-        var entry = builder.get_object (key1 + "_" + key2 + "_entry") as Entry;
-        string default_get = dbus_backend.Get(key1, key2);
-        combobox = ui_combobox_init(    builder,
-                                        key1 + "_" + key2 +"_combobox",
-                                        default_values,
-                                        key1 + "_" + key2 +"_entry",
-                                        default_get);
-
-        combobox.changed.connect (() => {
-            if (return_combobox_position(combobox) == 99)
-            {
-                dbus_backend.Set(key1, key2, entry.get_text());
-            }
-            else
-            {
-                dbus_backend.Set(key1, key2, return_combobox_text(combobox));
-            }
-        });
-
-        if (return_combobox_position(combobox) != 99)
-        {
-            var entry_box = (Gtk.Widget) entry;
-            entry_box.hide();
-        }
-    }
-
-    void init_launch_button(Builder builder, DbusBackend dbus_backend, string key1, string key2)
-    {
-        var button = builder.get_object(key1 + "_reload") as Gtk.Button;
-        button.clicked.connect (() => {
-            dbus_backend.Launch(key1, key2);
-        });
-    }
     public Gtk.ComboBox ui_combobox_init (  Gtk.Builder builder,
                                             string combobox_name,
                                             string[] combobox_list, 

@@ -243,7 +243,7 @@ namespace Lxsession
 
         private void constructor_dbus (string mode, string categorie, string key1, string? key2, string? default_value, out string command, out string type)
         {
-            message("Enter constructor_dbus, for %s, %s, %s and %s", mode, categorie, key1, key2);
+            // message("Enter constructor_dbus, for %s, %s, %s and %s", mode, categorie, key1, key2);
 
             type = null;
             command = null;
@@ -251,7 +251,7 @@ namespace Lxsession
             switch (mode)
             {
                 case "get":
-                    message ("try to look at config_item_db");
+                    // message ("try to look at config_item_db");
                     global_settings.get_item(categorie, key1, key2, out command, out type);
                     break;
                 case "launch":
@@ -266,7 +266,7 @@ namespace Lxsession
 
         private string GenericGet(string categorie, string key1, string key2)
         {
-            message ("Enter Get method");
+            // message ("Enter Get method");
 
             string command;
             Value tmp_value;
@@ -287,14 +287,14 @@ namespace Lxsession
                     command = "";
                     break;
             }
-            message ("Get %s %s: %s", key1, key2, command);
+            // message ("Get %s %s: %s", key1, key2, command);
 
             return command;
         }
 
         private void GenericSet(string categorie, string key1, string key2, string command_to_set)
         {
-            message ("Set %s %s", key1, key2);
+            // message ("Set %s %s", key1, key2);
 
             global_sig.generic_set_signal(categorie, key1, key2, "string", command_to_set);
          }

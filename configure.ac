@@ -5,10 +5,6 @@ AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign no-dist-gzip dist-xz])
 AC_PREREQ([2.68])
 IT_PROG_INTLTOOL([0.40.0],[no-xml])
 
-#Initialize libtool
-LT_PREREQ([2.2.6])
-LT_INIT()
-
 # Support silent build rules. Disable by either passing --disable-silent-rules
 # to configure or passing V=1 to make
 AM_SILENT_RULES([yes])
@@ -115,7 +111,7 @@ fi
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 
-AM_PROG_VALAC([0.14.0])
+AM_PROG_VALAC([0.16.0])
 if test "x$VALAC" = "x"; then
   AC_MSG_ERROR([You need Vala compiler])
 fi
@@ -168,22 +164,8 @@ AC_CONFIG_FILES([
   Makefile
   data/Makefile
   data/ui/Makefile
-  lxclipboard/Makefile
-  lxlock/Makefile
-  lxpolkit/Makefile
-  lxsession/Makefile
-  lxsession-db/Makefile
-  lxsession-default/Makefile
-  lxsession-default-apps/Makefile
-  lxsession-edit/Makefile
-  lxsession-logout/Makefile
-  lxsession-message/Makefile
-  lxsession-utils/Makefile
-  lxsettings-daemon/Makefile
   man/Makefile
   po/Makefile.in
-  vapi/Makefile
-  xdg-autostart/Makefile
 ])
 AC_OUTPUT
 

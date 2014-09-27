@@ -221,14 +221,14 @@ namespace Lxsession {
         /* Launching windows manager */
         if (global_settings.get_item_string("Session", "window_manager", null) != null)
         {
-            message("DEBUG1 : %s", global_settings.get_item_string("Session", "window_manager", null));
+            // message("DEBUG1 : %s", global_settings.get_item_string("Session", "window_manager", null));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
         }
         else if (global_settings.get_item_string("Session", "windows_manager", "command") != null)
         {
-            message("DEBUG2 : %s", global_settings.get_item_string("Session", "windows_manager", "command"));
+            // message("DEBUG2 : %s", global_settings.get_item_string("Session", "windows_manager", "command"));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
@@ -317,7 +317,7 @@ namespace Lxsession {
 
             if (global_settings.get_item_string("Session", "desktop_manager", "command") != null)
             {
-                message("DEBUG4 : %s", global_settings.get_item_string("Session", "desktop_manager", "command"));
+                // message("DEBUG4 : %s", global_settings.get_item_string("Session", "desktop_manager", "command"));
                 var desktopmanager = new DesktopApp();
                     global_desktop = desktopmanager;
                     global_desktop.launch();

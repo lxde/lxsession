@@ -281,7 +281,7 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
             if(g_str_has_suffix(name, ".desktop"))
             {
                 path = g_build_filename( dir_path, name, NULL );
-                printf("%s\n", path);
+                // printf("%s\n", path);
                 if (g_hash_table_contains( hash, g_strdup(name)))
                 {
                     /* desktop file already exist in a higher directory, do nothing */
