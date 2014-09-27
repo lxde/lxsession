@@ -428,9 +428,9 @@ public class PanelApp: SimpleAppObject
     public override void read_config_settings()
     {
         panel_command = global_settings.get_item_string("Session", "panel", "command");
-        message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "command"));
+        // message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "command"));
         panel_session = global_settings.get_item_string("Session", "panel", "session");
-        message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "session"));
+        // message("DEBUG6 : %s", global_settings.get_item_string("Session", "panel", "session"));
     }
 
     public override void read_settings()
