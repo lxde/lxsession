@@ -23,10 +23,10 @@ if [ "x${ACLOCAL_DIR}" != "x" ]; then
   ACLOCAL_ARG=-I ${ACLOCAL_DIR}
 fi
 
-AUTOMAKE=$AUTOMAKE intltoolize -c --automake --force
 ${ACLOCAL:-aclocal$AM_VERSION} ${ACLOCAL_ARG}
-${AUTOCONF:-autoconf$AC_VERSION}
 ${AUTOHEADER:-autoheader$AC_VERSION} --force
+AUTOMAKE=$AUTOMAKE intltoolize -c --automake --force
 $AUTOMAKE --add-missing --copy --include-deps
+${AUTOCONF:-autoconf$AC_VERSION}
 
 rm -rf autom4te.cache
