@@ -24,7 +24,7 @@
 #endif
 
 #include "lxpolkit-listener.h"
-#include <gtk/gtk.h>
+#include "lxpolkit.h"
 #include <glib/gi18n.h>
 #include <string.h>
 
@@ -85,7 +85,7 @@ static void on_completed(PolkitAgentSession* session, gboolean authorized, DlgDa
 
     if(!authorized && !g_cancellable_is_cancelled(data->cancellable))
     {
-        /* lxsession_show_msg(data->dlg, GTK_MESSAGE_ERROR, _("Authentication failed!\nWrong password?")); */
+        show_msg(data->dlg, GTK_MESSAGE_ERROR, _("Authentication failed!\nWrong password?"));
         /* initiate a new session */
         g_object_unref(data->session);
         data->session = NULL;
@@ -113,13 +113,13 @@ static void on_request(PolkitAgentSession* session, gchar* request, gboolean ech
 static void on_show_error(PolkitAgentSession* session, gchar* text, DlgData* data)
 {
     DEBUG("on error: %s", text);
-    /*lxsession_show_msg(data->dlg, GTK_MESSAGE_ERROR, text);*/
+    show_msg(data->dlg, GTK_MESSAGE_ERROR, text);
 }
 
 static void on_show_info(PolkitAgentSession* session, gchar* text, DlgData* data)
 {
     DEBUG("on info: %s", text);
-    /*lxsession_show_msg(data->dlg, GTK_MESSAGE_INFO, text);*/
+    show_msg(data->dlg, GTK_MESSAGE_INFO, text);
 }
 
 void on_dlg_response(GtkDialog* dlg, int response, DlgData* data)

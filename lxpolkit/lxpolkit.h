@@ -23,8 +23,11 @@
 #define __LXPOLKIT_H__
 
 #include <glib.h>
+#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
+
+void show_msg(GtkWindow* parent, GtkMessageType type, const char* msg);
 
 gboolean policykit_agent_init();
 void policykit_agent_finalize();
