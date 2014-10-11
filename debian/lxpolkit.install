@@ -1,1 +1,2 @@
-/usr/bin/lxpolkit
+etc/xdg/autostart/lxpolkit.desktop
+usr/bin/lxpolkit
