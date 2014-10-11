@@ -110,6 +110,12 @@ fi
 
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
+if test "$use_buildin_polkit" = "yes"; then
+  HIDE_LXPOLKIT_AUTOSTART=true
+else
+  HIDE_LXPOLKIT_AUTOSTART=false
+fi
+AC_SUBST(HIDE_LXPOLKIT_AUTOSTART)
 
 AM_PROG_VALAC([0.16.0])
 if test "x$VALAC" = "x"; then
@@ -160,10 +166,17 @@ fi
 
 AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
+dnl Fix invalid sysconfdir when --prefix=/usr
+if test `eval "echo $sysconfdir"` = /usr/etc
+then
+    sysconfdir=/etc
+fi
+
 AC_CONFIG_FILES([
   Makefile
   data/Makefile
   data/ui/Makefile
+  data/lxpolkit.desktop.in
   man/Makefile
   po/Makefile.in
 ])
@@ -173,6 +186,7 @@ echo
 echo LXSession.................................... : Version $VERSION
 echo
 echo Prefix....................................... : $prefix
+echo Sysconfdir................................... : $sysconfdir
 echo GTK support.................................. : $use_gtk
 echo GTK Cliboard build-in suport................. : $use_buildin_clipboard
 echo GTK Polkit-agent build-in suport............. : $use_buildin_polkit

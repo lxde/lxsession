@@ -10,10 +10,14 @@ desktop_in_files = \
 	lxsession-edit.desktop.in \
 	$(NULL)
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+autostartdir = $(sysconfdir)/xdg/autostart
+autostart_in_files = lxpolkit.desktop.in
+autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 DISTCLEANFILES = \
 	lxsession-default-apps.desktop \
 	lxsession-edit.desktop \
+	lxpolkit.desktop \
 	$(NULL)
 
 imagedir=$(datadir)/lxsession/images
@@ -30,5 +34,7 @@ EXTRA_DIST= \
 	conffiles.conf.example \
 	$(desktop_DATA) \
 	$(desktop_in_files) \
+	$(autostart_DATA) \
+	$(autostart_in_files) \
 	$(image_DATA) \
 	$(NULL)

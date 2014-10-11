@@ -18,6 +18,7 @@ config.log
 config.status
 config.sub
 data/*.desktop
+data/lxpolkit.desktop.in
 libtool
 lxclipboard/lxclipboard
 lxclipboard/main.c
