@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-24 02:33+0300\n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,6 +90,12 @@ msgstr ""
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
+msgstr ""
+
+#: ../lxpolkit/lxpolkit-listener.c:88
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
 msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
@@ -377,7 +383,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
-#: ../lxsession-default-apps/combobox.vala:285
+#: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
 msgstr ""
 
@@ -423,6 +429,14 @@ msgstr ""
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
+msgstr ""
+
+#: ../data/lxpolkit.desktop.in.h:1
+msgid "LXPolKit"
+msgstr ""
+
+#: ../data/lxpolkit.desktop.in.h:2
+msgid "Policykit Authentication Agent"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
@@ -690,30 +704,30 @@ msgstr ""
 msgid "Mime Association"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:195
+#: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:241
+#: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:262
+#: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:282
+#: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:410
+#: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:549
+#: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
 msgstr ""
 
-#: ../lxsession-default-apps/combobox.vala:598
+#: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr ""
