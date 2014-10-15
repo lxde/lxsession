@@ -1,3 +1,4 @@
 usr/bin/lxsession-default-apps
+usr/share/man/man1/lxsession-default-app.1
 usr/share/lxsession/ui/lxsession-default-apps.ui
 usr/share/applications/lxsession-default-apps.desktop

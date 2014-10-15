@@ -8,3 +8,7 @@ usr/bin/lxsession-db
 usr/bin/lxsettings-daemon
 usr/bin/lxsession-xdg-autostart
 usr/share/man/man1/lxsession.1
+usr/share/man/man1/lxsession-default.1
+usr/share/man/man1/lxsession-default-terminal.1
+usr/share/man/man1/lxlock.1
+usr/share/man/man1/lxclipboard.1
