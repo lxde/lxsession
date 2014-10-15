@@ -1,6 +1,11 @@
 man_MANS = \
 	lxsession.1 \
-	lxsession-logout.1
+	lxsession-logout.1 \
+	lxclipboard.1 \
+	lxlock.1 \
+	lxsession-default.1 \
+	lxsession-default-terminal.1 \
+	lxsession-default-app.1
 
 man_XMANS = \
 	lxsession.xml \
