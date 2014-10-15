@@ -254,8 +254,16 @@ namespace Lxsession
             {
                 foreach (string folder in default_available)
                 {
-                    message ("Scanning folder: %s", folder);
-                    list_desktop_files.begin (folder, "available");
+                    var dir_log = File.new_for_path (folder);
+                    if (dir_log.query_exists ())
+                    {
+                        message ("Scanning folder: %s", folder);
+                        list_desktop_files.begin (folder, "available");
+                    }
+                    else
+                    {
+                        message ("%s doesn't exist. Pass", folder);
+                    }
                 }
             }
             else
