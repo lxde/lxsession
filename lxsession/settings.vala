@@ -252,6 +252,7 @@ namespace Lxsession
             /* Keep old behavior for autostarted application if this option is not specify */
             set_generic_default("Session", "disable_autostart", null, "string", "no");
 
+            set_generic_default("Session", "polkit", "command", "string", "lxpolkit");
             set_generic_default("Session", "clipboard", "command", "string", "lxclipboard");
             set_generic_default("Session", "xsettings_manager", "command", "string", "build-in");
             set_generic_default("Session", "proxy_manager", "command", "string", "build-in");
