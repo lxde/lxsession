@@ -82,11 +82,12 @@ int main(int argc, char** argv)
     load_autostart(session_name);
     gtk_tree_view_set_model( (GtkTreeView*)autostarts, (GtkTreeModel*)get_autostart_list() );
 
+    kf = g_key_file_new();
+
     /* if we are running under LXSession */
     if( g_getenv("_LXSESSION_PID") )
     {
         /* wm settings (only show this when we are under lxsession) */
-        kf = g_key_file_new();
         cfg = g_build_filename( g_get_user_config_dir(), "lxsession", session_name, CONFIG_FILE_NAME, NULL );
         loaded = g_key_file_load_from_file(kf, cfg, 0, NULL);
         if( !loaded )
