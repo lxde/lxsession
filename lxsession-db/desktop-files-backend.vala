@@ -186,7 +186,7 @@ namespace Lxsession
 
         public void on_finish_scanning_installed()
         {
-            message("Signal finish scanning with mode: %s",this.mode);
+            message("Signal finish scanning installed with mode: %s",this.mode);
             if (this.mode == "display")
             {
                 print_values_installed ();
@@ -206,7 +206,7 @@ namespace Lxsession
 
         public void on_finish_scanning_available()
         {
-            message("Signal finish scanning with mode: %s",this.mode);
+            message("Signal finish scanning available with mode: %s",this.mode);
             if (this.mode == "display")
             {
                 global_db.print_values_available ();
@@ -263,6 +263,7 @@ namespace Lxsession
                     else
                     {
                         message ("%s doesn't exist. Pass", folder);
+                        finish_scanning_available();
                     }
                 }
             }
@@ -274,11 +275,11 @@ namespace Lxsession
 
         public void update ()
         {
-            update_installed();
             finish_scanning_installed.connect(on_finish_scanning_installed);
-
-            update_available();
             finish_scanning_available.connect(on_finish_scanning_available);
+
+            update_installed();
+            update_available();
         }
 
         private async void list_desktop_files (string path, string mode)
