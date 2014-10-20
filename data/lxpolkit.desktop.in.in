@@ -6,4 +6,4 @@ Exec=lxpolkit
 TryExec=lxpolkit
 Icon=gtk-dialog-authentication
 NotShowIn=GNOME;KDE;
-Hidden=@HIDE_LXPOLKIT_AUTOSTART@
+Hidden=true
