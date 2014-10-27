@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2013-12-27 15:14+0000\n"
-"Last-Translator: Sérgio <smarquespt@gmail.com>\n"
+"PO-Revision-Date: 2014-10-27 00:08+0000\n"
+"Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1388157266.0\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1414368484.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -100,6 +100,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Falha de autenticação!\n"
+"Senha errada?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -132,7 +134,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Linha de comandos a utilizar para iniciar o gestor de janelas\n"
-"(O comando pré-definido do gestor de janelas do lxde é openbox-lxde)"
+"(O comando pré-definido do gestor de janelas do LXDE é openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -141,9 +143,10 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Aviso:</b> <b>NÃO</b> mexa aqui a menos que saiba exatamente o que está a "
-"fazer\n"
-"<b>Nota:</b> esta opção produzirá efeito a partir da próxima sessão"
+"<b>Aviso:</b> <b>Não modifique</b> esta configuração a menos que saiba "
+"exatamente o que está a fazer.\n"
+"\n"
+"<b>Nota:</b> a definição será aplicada na próxima sessão."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -158,9 +161,8 @@ msgid "Identity:"
 msgstr "Identificação:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Gestor de ficheiros</b>"
+msgstr "Gestor de ficheiros"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -168,209 +170,187 @@ msgstr "Recarregar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Gestor de terminal</b>"
+msgstr "Gestor de terminal"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Navegador web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Correio eletrónico"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Comunicação 1</b>"
+msgstr "Comunicação 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Comunicação 2</b>"
+msgstr "Comunicação 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Widget 1</b>"
+msgstr "Widget 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Gestor de lançador</b>"
+msgstr "Gestor de lançador"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Gestor de captura de ecrã</b>"
+msgstr "Gestor de captura de ecrã"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Leitor PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Reprodutor de vídeo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Reprodutor de áudio"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "ficheiro de imagem"
+msgstr "Visualizador de imagens"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Editor de texto"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arquivo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Mapa de caracteres"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Folha de cálculo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorrent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Comentário"
+msgstr "Documento"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Câmara web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Gravação de discos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Notas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Utilitário de disco"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Monitor de tarefas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr ""
+msgstr "Abrir aplicações"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Gestor de janelas:"
+msgstr "Gestor de janelas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Painel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Doca"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Gestor de composição</b>"
+msgstr "Gestor de composição"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Gestor de janelas:"
+msgstr "Gestor de área de trabalho"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Proteção de ecrã</b>"
+msgstr "Proteção de ecrã"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Gestor de energia</b>"
+msgstr "Gestor de energia"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Agente polkit</b>"
+msgstr "Agente polkit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Interface de rede</b>"
+msgstr "Interface de rede"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Gestor de bloqueio de ecrã</b>"
+msgstr "Gestor de bloqueio de ecrã"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Gestor de áudio</b>"
+msgstr "Gestor de áudio"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Gestão da área de trabalho</b>"
+msgstr "Gestão da área de trabalho"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Sair do gestor</b>"
+msgstr "Gestor de saída"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Gestor de atualizações</b>"
+msgstr "Gestor de atualizações"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Gestor de área de transferência</b>"
+msgstr "Gestor de área de transferência"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Segurança (chaveiro)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Aplicação"
+msgstr "Aplicações principais"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -464,12 +444,11 @@ msgstr "Escolha as aplicações pré-definidas do LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Autenticação"
+msgstr "Agente de autenticação Policykit"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
