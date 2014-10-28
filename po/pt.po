@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-10-27 10:40+0000\n"
+"PO-Revision-Date: 2014-10-28 11:36+0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "Language: pt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1414406416.000000\n"
+"X-POOTLE-MTIME: 1414496205.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -509,6 +509,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Definir programa para sistemas Debian (através de update-alternatives, "
+"requer senha root)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -517,24 +519,33 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"O gestor de janelas pode criar e gerir as janelas.\n"
+"Pode optar por kwin, compiz, openbox, openbox-custom (para uma configuração "
+"personalizada, consulte \"Mais\")..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"O painel é o componente que, habitualmente, está na margem inferior do ecrã "
+"e no qual pode gerir as janelas abertas, atalhos, notificações..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"A doca é um painel secundário. Pode ser utilizado para iniciar um programa "
+"para gerir um segundo tipo deste painel."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"O gestor de ficheiros é o componente que abre os ficheiros e pastas.\n"
+"Consulte \"Mais\" para adicionar opções extra de gestão de ficheiros."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -542,21 +553,30 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"O gestor de composição ativa os efeitos gráficos como, por exemplo, a "
+"transparência e sombras, caso o seu gestor de janelas não o faça.\n"
+"Exemplo: compton."
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"O gestor do ambiente de trabalho serve para gerir o ecrã e os ícones "
+"existentes.\n"
+"Pode gerir o ambiente de trabalho com o gestor de ficheiros se definir \""
+"filemanager\"."
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Papel de parede: definir uma imagem para o ecrã."
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"A proteção de ecrã é um programa que mostra animações se o computador "
+"estiver inativo."
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -564,6 +584,9 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"O gestor de energia ajuda a reduzir a utilização da bateria. Se utilizar um "
+"computador de secretária, este componente não deve ser necessário.\n"
+"A opção automático define a gestão automática e depende do modo portátil."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
