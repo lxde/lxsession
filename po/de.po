@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-10-14 15:28+0000\n"
-"Last-Translator: H.Humpel <H.Humpel@gmx.de>\n"
+"PO-Revision-Date: 2014-10-31 11:54+0000\n"
+"Last-Translator: ubsy <ubsy@riseup.net>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1413300536.000000\n"
+"X-POOTLE-MTIME: 1414756493.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -44,7 +44,7 @@ msgstr "Bilddatei"
 #: ../lxsession-logout/lxsession-logout.c:50
 #, fuzzy
 msgid "Position of the banner"
-msgstr "Banner Position"
+msgstr "Position des Banners"
 
 # I think this is the error message.
 #: ../lxsession-logout/lxsession-logout.c:460
@@ -401,7 +401,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr ""
+msgstr "Laptop Modus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
@@ -427,11 +427,12 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Umgebung</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
+#, fuzzy
 msgid "Mode"
-msgstr ""
+msgstr "Mehr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
