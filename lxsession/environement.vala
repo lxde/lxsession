@@ -265,6 +265,10 @@ namespace Lxsession
             {
                 Environment.set_variable("UBUNTU_MENUPROXY", "libappmenu.so", true);
             }
+
+            /* Add some needed variables for LXQt / Qt */
+            Environment.set_variable("QT_PLATFORM_PLUGIN", "lxqt", true);
+            Environment.set_variable("QT_QPA_PLATFORMTHEME", "lxqt", true);
         }
     }
 
