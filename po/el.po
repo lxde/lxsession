@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-07 23:15+0000\n"
+"PO-Revision-Date: 2014-11-07 23:25+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415402132.000000\n"
+"X-POOTLE-MTIME: 1415402730.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -161,7 +161,7 @@ msgstr "Ταυτότητα:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
-msgstr ""
+msgstr "Διαχειριστής Αρχείων"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -169,27 +169,27 @@ msgstr "Επαναφόρτωση"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Περισσότερα"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "Διαχειριστής τερματικού"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Περιηγητής ιστοσελίδων"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Διεύθυνση ηλεκτρονικής αλληλογραφίας"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Επικοινωνία 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Επικοινωνία 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
@@ -197,7 +197,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Διαχειριστής εκτοξευτή"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
@@ -205,7 +205,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Αναγνώστης PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
@@ -272,8 +272,9 @@ msgid "Launching applications"
 msgstr "Εφαρμογές εκκίνησης"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
+#, fuzzy
 msgid "Windows Manager"
-msgstr ""
+msgstr "Διαχειριστής παραθύρων:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
