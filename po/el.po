@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-08 14:28+0000\n"
+"PO-Revision-Date: 2014-11-08 14:40+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415456932.000000\n"
+"X-POOTLE-MTIME: 1415457621.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -311,23 +311,23 @@ msgstr "Διαχείριση Δικτύου"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
-msgstr ""
+msgstr "Διαχειριστής κλειδώματος οθόνης"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Audio manager"
-msgstr ""
+msgstr "Διαχειριστής ήχου"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Workspace manager"
-msgstr ""
+msgstr "Διαχειριστής χώρου εργασίας"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Quit manager"
-msgstr ""
+msgstr "Διαχειριστής αποσύνδεσης"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"
-msgstr ""
+msgstr "Διαχειριστής αναβάθμισης"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
