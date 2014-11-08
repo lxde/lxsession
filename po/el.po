@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-08 14:56+0000\n"
+"PO-Revision-Date: 2014-11-08 21:54+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415458595.000000\n"
+"X-POOTLE-MTIME: 1415483679.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -470,6 +470,8 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Χειροκίνητες Ρυθμίσεις: Ρυθμίζει χειροκίνητα την εντολή (πρέπει να "
+"επανεκκινηθεί το lxsession-default-apps για να δείτε την αλλαγή)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
@@ -477,7 +479,7 @@ msgstr "Συνεδρία : προσδιόρισε τη συνεδρία\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Επιπλέον: Προσθήκη μίας επιπλέον παραμέτρου στις επιλογές εκκίνησης\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -489,10 +491,14 @@ msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Διαθέσιμες εφαρμογές: Εφαρμογές αυτού του τύπου είναι διαθέσιμες στο "
+"αποθετήριο"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Χειρισμός Επιφάνειας Εργασίας: Εμφάνισε την επιφάνεια εργασίας "
+"χρησιμοποιώνταςτο διαχειστή αρχείων\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -721,8 +727,9 @@ msgid "Available applications"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:240
+#, fuzzy
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "Αυτόματη εκκίνηση της εφαρμογής;\n"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
