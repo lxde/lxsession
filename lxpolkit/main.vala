@@ -18,12 +18,16 @@
  */
 using Gtk;
 
+const string GETTEXT_PACKAGE = "lxsession";
+
 namespace Lxsession
 {
     public class Main: GLib.Object
     {
         public static int main(string[] args)
         {
+            Intl.textdomain(GETTEXT_PACKAGE);
+            Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
             Gtk.init (ref args);
             policykit_agent_init();
 
