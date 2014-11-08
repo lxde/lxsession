@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-08 14:40+0000\n"
+"PO-Revision-Date: 2014-11-08 14:56+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415457621.000000\n"
+"X-POOTLE-MTIME: 1415458595.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -331,7 +331,7 @@ msgstr "Διαχειριστής αναβάθμισης"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
-msgstr ""
+msgstr "Διαχειριστής προχείρου"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
@@ -347,11 +347,11 @@ msgstr "Διαμεσολαβητής"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "Κύριες Εφαρμογές"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -453,16 +453,16 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Ενημέρωση βάσης δεδομένων lxsession"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Η βάση δεδομένων ενημερώνεται, παρακαλώ περιμένετε"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Ρύθμιση LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -473,7 +473,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Συνεδρία : προσδιόρισε τη συνεδρία\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
@@ -496,7 +496,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr ""
+msgstr "Αυτόματη εκκίνηση της εφαρμογής;\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -587,7 +587,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr ""
+msgstr "Εφαρμογή αποστολής μηνυμάτων ηλεκτρονικής αλληλογραφίας"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -605,15 +605,15 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
-msgstr ""
+msgstr "Εφαρμογή Βίντεο"
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Audio application"
-msgstr ""
+msgstr "Εφαρμογή ήχου"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Εφαρμογή προβολής εικόνων"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
