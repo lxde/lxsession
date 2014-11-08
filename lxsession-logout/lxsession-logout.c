@@ -24,6 +24,7 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
+#include <sys/file.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
@@ -441,6 +442,14 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
     return FALSE;
 }
 
+static char lockfile[PATH_MAX];
+
+/* Unlink lockfile on exit. */
+static void main_at_exit(void)
+{
+    unlink(lockfile);
+}
+
 /* Main program. */
 int main(int argc, char * argv[])
 {
@@ -470,6 +479,18 @@ int main(int argc, char * argv[])
     /* Get the lxsession PID. */
     const char * p = g_getenv("_LXSESSION_PID");
     if (p != NULL) handler_context.lxsession_pid = atoi(p);
+
+    /* Create lock file to prevent more than one logout dialog per lxsession process. */
+    sprintf(lockfile, "/tmp/.lxsession-logout-%d.lock", handler_context.lxsession_pid);
+    int fd = open(lockfile, O_RDONLY|O_CREAT, 00600);
+    if (fd >= 0)
+    {
+        if (flock(fd, LOCK_EX | LOCK_NB))
+        {
+            exit(EXIT_FAILURE);
+        }
+    }
+    atexit(main_at_exit);
 
     /* Initialize capabilities of the systemd mechanism. */
     if (dbus_systemd_CanPowerOff())
@@ -580,6 +601,7 @@ int main(int argc, char * argv[])
     gtk_window_set_default_size(GTK_WINDOW(window), gdk_screen_get_width(screen), gdk_screen_get_height(screen));
     gtk_widget_set_app_paintable(window, TRUE);
     g_signal_connect(G_OBJECT(window), "expose_event", G_CALLBACK(expose_event), pixbuf);
+    g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
     /* Toplevel container */
     GtkWidget* alignment = gtk_alignment_new(0.5, 0.5, 0.0, 0.0);
