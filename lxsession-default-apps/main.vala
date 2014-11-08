@@ -17,6 +17,8 @@
 using Gtk;
 using Posix;
 
+const string GETTEXT_PACKAGE = "lxsession";
+
 namespace LDefaultApps
 {
     public class UpdateWindows : Gtk.Window
@@ -546,6 +548,8 @@ namespace LDefaultApps
 
     public static int main(string[] args)
     {
+        Intl.textdomain(GETTEXT_PACKAGE);
+        Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
         /* Init GTK */
         Gtk.init (ref args);
 

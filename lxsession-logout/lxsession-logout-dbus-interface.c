@@ -189,7 +189,7 @@ systemd_query (const gchar *function, gboolean default_result, GError **error)
     if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(s)")))
     {
 			g_variant_get (result, "(s)", &str);
-			if (g_strcmp0 (str, "yes") || g_strcmp0 (str, "challenge"))
+			if ( g_strcmp0 (str, "yes") == 0 || g_strcmp0 (str, "challenge") == 0 )
 				function_result = TRUE;
 			else
 				function_result = default_result;

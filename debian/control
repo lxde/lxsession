@@ -60,7 +60,7 @@ Description : Common files for lxsession
 Package: lxsession-edit
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession-data
-Description: configure what application start up automaticlly in LXDE 
+Description: configure which applications start up automatically in LXDE
  LXSession-Edit is a simple session editor GUI for lxsession-lite which
  follows autostart specs from FreeDesktop.Org
 
