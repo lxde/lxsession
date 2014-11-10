@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-08 21:54+0000\n"
+"PO-Revision-Date: 2014-11-10 20:45+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415483679.000000\n"
+"X-POOTLE-MTIME: 1415652307.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -199,7 +199,7 @@ msgstr "Εφαρμογίδιο 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr "Διαχειριστής εκτοξευτή"
+msgstr "Διαχειριστής εκκινητή"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
@@ -509,6 +509,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Ορισμός προεπιλεγμένου προγράμματος για σύστημα Debian (χρησιμοποιείται το "
+"update-alternatives, χρειάζεται συνθηματικό διαχειριστή)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -517,24 +519,36 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Ο διαχειριστής παραθύρων σχεδιάζει και διαχειρίζεται τα παράθυρα.\n"
+"Μπορείτε να επιλέξετε openbox-custom (για προσωποποιημένη διαμόρφωση του "
+"openbox, δείτε «Περισσότερα»), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"H γραμμή εργασιών είναι το αντικείμενο, συνήθως στο κάτω της οθόνης, το "
+"οποίο διαχειρίζεται μία λίστα από ανοιγμένα παράθυρα, συντομεύσεις, χώρο "
+"ειδοποιήσεων ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Το Dock είναι μία δεύτερη γραμμή εργασιών. Χρησιμοποιείται για την εκκίνηση "
+"ενός διαφορετικού προγράμματος για τη διαχείριση ενός δευτέρου τύπου γραμμής "
+"εντολών."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Ο διαχειριστής αρχείων είναι το εργαλείο που χειρίζεται τα αρχεία.\n"
+"Δείτε «Περισσότερα» για να προσθέσετε επιλογές χειρισμού της επιφάνειας "
+"εργασίας, ή ανοίγματος αρχείων"
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
