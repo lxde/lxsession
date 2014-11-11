@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-10 20:45+0000\n"
+"PO-Revision-Date: 2014-11-11 20:51+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415652307.000000\n"
+"X-POOTLE-MTIME: 1415739115.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -556,21 +556,33 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Ο Διαχειριστής πολυσύνθετης απεικόνισης ενεργοποιεί τα γραφικά στοιχεία "
+"εντυπωσιασμού, όπως τη διαφάνεια και τις σκιές, εάν δεν μπορεί να χειριστεί "
+"ο διαχειριστής παραθύρων.\n"
+"Παράδειγμα: λέξη"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Ο διαχειριστής της επιφάνειας εργασίας σχεδιάζει την επιφάνεια εργασίας και "
+"διαχειρίζεται τα εικονίδιά της.\n"
+"Μπορείτε να τον διαχειριστείτε με το διαχειριστή αρχείων, ορίζοντας «"
+"διαχειριστή αρχείων»"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr ""
+"Παρασκήνιο επιφάνειας εργασίας: Ορίστε της διαδρομή μιας εικόνας για να "
+"σχεδιαστεί το παρασκήνιο επιφάνειας εργασίας"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Η προστασία οθόνης είναι μία εφαρμογή που εμφανίζει σχέδια όταν ο "
+"υπολογιστής σου είναι αδρανής"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
