@@ -492,7 +492,7 @@ msgid ""
 "repositories\n"
 msgstr ""
 "Διαθέσιμες εφαρμογές: Εφαρμογές αυτού του τύπου είναι διαθέσιμες στο "
-"αποθετήριο"
+"αποθετήριο\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
