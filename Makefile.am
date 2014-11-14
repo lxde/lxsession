@@ -65,12 +65,14 @@ lxclipboard_lxclipboard_SOURCES = \
 lxclipboard_lxclipboard_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
     --pkg gtk+-2.0 \
+    --pkg unique-1.0 \
     --pkg lxclipboard \
     $(NULL)
 
 lxclipboard_lxclipboard_CFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
+    $(UNIQUE_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -include config.h -w \
     $(NULL)
@@ -78,6 +80,7 @@ lxclipboard_lxclipboard_CFLAGS = \
 lxclipboard_lxclipboard_LDADD = \
     $(GTK_LIBS) \
     $(GLIB_LIBS) \
+    $(UNIQUE_LIBS) \
     $(X11_LIBS) \
     $(NULL)
 
