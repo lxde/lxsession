@@ -54,6 +54,9 @@ lxclipboard_lxclipboard_vala_SOURCES = \
     lxclipboard/main.vala \
     $(NULL)
 
+CLEANFILES += lxclipboard/main.c \
+    $(NULL)
+
 lxclipboard_lxclipboard_SOURCES = \
     $(lxclipboard_lxclipboard_vala_SOURCES) \
     lxclipboard/clipboard.c \
@@ -80,6 +83,9 @@ lxclipboard_lxclipboard_LDADD = \
 
 lxpolkit_lxpolkit_vala_SOURCES = \
     lxpolkit/main.vala \
+    $(NULL)
+
+CLEANFILES += lxpolkit/main.c \
     $(NULL)
 
 lxpolkit_lxpolkit_SOURCES = \
@@ -115,6 +121,11 @@ lxpolkit_lxpolkit_LDADD = \
 lxsession_db_lxsession_db_SOURCES = \
     lxsession-db/main.vala \
     lxsession-db/desktop-files-backend.vala \
+    $(NULL)
+
+CLEANFILES += \
+    lxsession-db/main.c \
+    lxsession-db/desktop-files-backend.c \
     $(NULL)
 
 lxsession_db_lxsession_db_VALAFLAGS = \
@@ -170,6 +181,14 @@ lxsession_default_apps_lxsession_default_apps_vala_SOURCES = \
     lxsession-default-apps/combobox.vala \
     lxsession-default-apps/dbus-backend.vala \
     lxsession-default-apps/utils.vala \
+    $(NULL)
+
+CLEANFILES += \
+    lxsession-default-apps/autostart.c \
+    lxsession-default-apps/main.c \
+    lxsession-default-apps/combobox.c \
+    lxsession-default-apps/dbus-backend.c \
+    lxsession-default-apps/utils.c \
     $(NULL)
 
 lxsession_default_apps_lxsession_default_apps_SOURCES = \
@@ -280,6 +299,10 @@ lxsettings_daemon_lxsettings_daemon_SOURCES = \
     $(lxsettings_daemon_lxsettings_daemon_commun_SOURCES) \
     $(NULL)
 
+CLEANFILES += \
+    lxsettings-daemon/main.c \
+    $(NULL)
+
 lxsettings_daemon_lxsettings_daemon_commun_SOURCES = \
     lxsettings-daemon/settings-daemon.c \
     lxsettings-daemon/xevent.c \
@@ -308,6 +331,10 @@ lxsettings_daemon_lxsettings_daemon_LDADD = \
 
 xdg_autostart_lxsession_xdg_autostart_vala_SOURCES = \
     xdg-autostart/main.vala \
+    $(NULL)
+
+CLEANFILES += \
+    xdg-autostart/main.c \
     $(NULL)
 
 xdg_autostart_lxsession_xdg_autostart_SOURCES = \
@@ -347,6 +374,22 @@ lxsession_lxsession_vala_SOURCES = \
     lxsession/process.vala \
     lxsession/settings.vala \
     lxsession/utils.vala \
+    $(NULL)
+
+CLEANFILES += \
+    lxsession/main.c \
+    lxsession/app.c \
+    lxsession/autostart.c \
+    lxsession/conffiles.c \
+    lxsession/control.c \
+    lxsession/dbus-common.c \
+    lxsession/dbus-gnome-session.c \
+    lxsession/dbus-lxde-session.c \
+    lxsession/environement.c \
+    lxsession/options.c \
+    lxsession/process.c \
+    lxsession/settings.c \
+    lxsession/utils.c \
     $(NULL)
 
 lxsession_lxsession_SOURCES = \
