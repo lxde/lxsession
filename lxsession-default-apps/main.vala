@@ -72,7 +72,12 @@ namespace LDefaultApps
             Process.close_pid (pid);
             MainWindows win = new MainWindows(kf);
             win.show_all();
+#if USE_GTK2
             this.hide_all();
+#endif
+#if USE_GTK3
+            this.hide();
+#endif
         }
 
         public KeyFile get_keyfile()
@@ -392,13 +397,24 @@ namespace LDefaultApps
             init_list_view(known_apps);
             load_autostart(Environment.get_variable("XDG_CURRENT_DESKTOP"));
             known_apps.set_model (get_autostart_list ());
+#if USE_GTK2
             known_apps_box.hide_all();
+#endif
+#if USE_GTK3
+            known_apps_box.hide();
+#endif
 
             disable_autostart_combobox.changed.connect (() => {
                 if (return_combobox_text(disable_autostart_combobox) == "all")
                 {
+#if USE_GTK2
                     auto_vbox.hide_all();
                     running_apps.hide_all();
+#endif
+#if USE_GTK3
+                    auto_vbox.hide();
+                    running_apps.hide();
+#endif
                 }
                 else
                 {
@@ -412,7 +428,12 @@ namespace LDefaultApps
                 }
                 else
                 {
+#if USE_GTK2
                     known_apps_box.hide_all();
+#endif
+#if USE_GTK3
+                    known_apps_box.hide();
+#endif
                 }
                 dbus_backend.Set("disable_autostart", "", return_combobox_text(disable_autostart_combobox));
             });

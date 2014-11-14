@@ -61,10 +61,6 @@ PKG_CHECK_MODULES(DBUS, [dbus-1])
 AC_SUBST(DBUS_CFLAGS)
 AC_SUBST(DBUS_LIBS)
 
-PKG_CHECK_MODULES(UNIQUE, [unique-1.0])
-AC_SUBST(UNIQUE_CFLAGS)
-AC_SUBST(UNIQUE_LIBS)
-
 AC_ARG_ENABLE(
     [gtk],
     AS_HELP_STRING([--enable-gtk],
@@ -84,14 +80,24 @@ else
       enable_gtk3=$enableval, enable_gtk3="no")
 
   if test "x$enable_gtk3" = "xyes" ; then
-    CFLAGS="$CFLAGS -DENABLE_GTK3"
+    CFLAGS="$CFLAGS -D USE_GTK3"
     gtk_modules="gtk+-3.0 >= 3.0.0"
+    VALA_GTK_LIBS="gtk+-3.0"
   else
+    CFLAGS="$CFLAGS -D USE_GTK2"
     gtk_modules="gtk+-2.0 >= 2.6.0"
+    VALA_GTK_LIBS="gtk+-2.0"
+
+    PKG_CHECK_MODULES(UNIQUE, [unique-1.0])
+    AC_SUBST(UNIQUE_CFLAGS)
+    AC_SUBST(UNIQUE_LIBS)
+
   fi
   PKG_CHECK_MODULES(GTK, [$gtk_modules])
   AC_SUBST(GTK_CFLAGS)
   AC_SUBST(GTK_LIBS)
+
+  AC_SUBST(VALA_GTK_LIBS)
 
   polkit_modules="polkit-agent-1"
   PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
@@ -114,6 +120,8 @@ fi
 
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
+AM_CONDITIONAL(USE_GTK3, test "$enable_gtk3" = "yes")
+
 if test "$use_buildin_polkit" = "yes"; then
   HIDE_LXPOLKIT_AUTOSTART=true
 else

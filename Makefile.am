@@ -64,15 +64,13 @@ lxclipboard_lxclipboard_SOURCES = \
 
 lxclipboard_lxclipboard_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
-    --pkg unique-1.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg lxclipboard \
     $(NULL)
 
 lxclipboard_lxclipboard_CFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
-    $(UNIQUE_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -include config.h -w \
     $(NULL)
@@ -80,9 +78,15 @@ lxclipboard_lxclipboard_CFLAGS = \
 lxclipboard_lxclipboard_LDADD = \
     $(GTK_LIBS) \
     $(GLIB_LIBS) \
-    $(UNIQUE_LIBS) \
     $(X11_LIBS) \
     $(NULL)
+
+if USE_GTK3
+else
+lxclipboard_lxclipboard_VALAFLAGS += --pkg unique-1.0
+lxclipboard_lxclipboard_CFLAGS += $(UNIQUE_CFLAGS)
+lxclipboard_lxclipboard_LDADD += $(UNIQUE_LIBS)
+endif
 
 lxpolkit_lxpolkit_vala_SOURCES = \
     lxpolkit/main.vala \
@@ -99,8 +103,7 @@ lxpolkit_lxpolkit_SOURCES = \
 
 lxpolkit_lxpolkit_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
-    --pkg unique-1.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg lxpolkit \
     $(NULL)
 
@@ -108,7 +111,6 @@ lxpolkit_lxpolkit_CFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(POLKIT_CFLAGS) \
-    $(UNIQUE_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
@@ -120,9 +122,15 @@ lxpolkit_lxpolkit_LDADD = \
     $(GTK_LIBS) \
     $(GLIB_LIBS) \
     $(POLKIT_LIBS) \
-    $(UNIQUE_LIBS) \
     $(X11_LIBS) \
     $(NULL)
+
+if USE_GTK3
+else
+lxpolkit_lxpolkit_VALAFLAGS += --pkg unique-1.0
+lxpolkit_lxpolkit_CFLAGS += $(UNIQUE_CFLAGS)
+lxpolkit_lxpolkit_LDADD += $(UNIQUE_LIBS)
+endif
 
 lxsession_db_lxsession_db_SOURCES = \
     lxsession-db/main.vala \
@@ -136,7 +144,7 @@ CLEANFILES += \
 
 lxsession_db_lxsession_db_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     $(NULL)
 
 lxsession_db_lxsession_db_CFLAGS = \
@@ -144,7 +152,6 @@ lxsession_db_lxsession_db_CFLAGS = \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
     -DPACKAGE_UI_DIR="\"$(datadir)/lxsession-default-apps/ui"\" \
     $(GTK_CFLAGS) \
-    $(GEE_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -include config.h -w \
@@ -152,7 +159,6 @@ lxsession_db_lxsession_db_CFLAGS = \
 
 lxsession_db_lxsession_db_LDADD = \
     $(GTK_LIBS) \
-    $(GEE_LIBS) \
     $(GLIB_LIBS) \
     $(X11_LIBS) \
     $(NULL)
@@ -204,7 +210,7 @@ lxsession_default_apps_lxsession_default_apps_SOURCES = \
 
 lxsession_default_apps_lxsession_default_apps_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg dbus-glib-1 \
     --pkg gio-2.0 \
     --pkg posix \
@@ -239,7 +245,7 @@ buildinclip_SOURCES = \
 
 buildinclip_VALAFLAGS = \
     --pkg lxclipboard \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     -D BUILDIN_CLIPBOARD \
     $(NULL)
 

@@ -17,7 +17,9 @@
  *      MA 02110-1301, USA.
  */
 using Gtk;
+#if USE_GTK2
 using Unique;
+#endif
 
 namespace Lxsession
 {
@@ -26,13 +28,18 @@ namespace Lxsession
         public static int main(string[] args)
         {
             Gtk.init (ref args);
-
+#if USE_GTK2
             Unique.App app = new Unique.App("org.lxde.lxclipboard", null);
 
             if(app.is_running)
             {
                 return 0;
             }
+#endif
+# if USE_GTK3
+            Application app = new Application ();
+            app.run (args);
+#endif
 
             clipboard_start ();
 

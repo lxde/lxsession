@@ -375,7 +375,7 @@ static GdkPixbuf * get_background_pixbuf(void)
 {
     /* Get the root window pixmap. */
     GdkScreen * screen = gdk_screen_get_default();
-#ifdef ENABLE_GTK3
+#ifdef USE_GTK3
     GdkPixbuf * pixbuf = gdk_pixbuf_get_from_window(
         gdk_get_default_root_window(),
         0,
