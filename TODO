@@ -9,4 +9,4 @@
         private AppType type;
     }
  * Implement stages from GNOME
- * Investigate the removal of LibGee
+ * Find a clean solution to the enable flags with automake (see http://lists.gnu.org/archive/html/bug-automake/2013-07/msg00002.html)
