@@ -97,6 +97,7 @@ lxpolkit_lxpolkit_SOURCES = \
 lxpolkit_lxpolkit_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
     --pkg gtk+-2.0 \
+    --pkg unique-1.0 \
     --pkg lxpolkit \
     $(NULL)
 
@@ -104,6 +105,7 @@ lxpolkit_lxpolkit_CFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(POLKIT_CFLAGS) \
+    $(UNIQUE_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
@@ -115,6 +117,7 @@ lxpolkit_lxpolkit_LDADD = \
     $(GTK_LIBS) \
     $(GLIB_LIBS) \
     $(POLKIT_LIBS) \
+    $(UNIQUE_LIBS) \
     $(X11_LIBS) \
     $(NULL)
 
