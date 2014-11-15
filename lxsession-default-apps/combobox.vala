@@ -767,7 +767,13 @@ namespace LDefaultApps
             if (entry_name != null)
             {
                 var entry_default = builder.get_object (entry_name) as Entry;
+#if USE_GTK2
                 entry_default.hide_all();
+#endif
+#if USE_GTK3
+                entry_default.hide();
+#endif
+
             }
         }
 
@@ -791,7 +797,12 @@ namespace LDefaultApps
                 }
                 else
                 {
+#if USE_GTK2
                     entry.hide_all();
+#endif
+#if USE_GTK3
+                    entry.hide();
+#endif
                 }
             }
         });

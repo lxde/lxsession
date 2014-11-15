@@ -14,8 +14,8 @@
 #
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-#
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
 
 echo $1  # first argument
 echo $2  # second argument
@@ -77,7 +77,11 @@ case "$1" in
     ;;
 "lock")
 	echo "Launching lock manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock"  string:'' > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
+    ;;
+"lock_manager")
+	echo "Launching lock manager"
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
     ;;
 "webbrowser")
 	echo "Launching webbrowser application"

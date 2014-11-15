@@ -54,6 +54,9 @@ lxclipboard_lxclipboard_vala_SOURCES = \
     lxclipboard/main.vala \
     $(NULL)
 
+CLEANFILES += lxclipboard/main.c \
+    $(NULL)
+
 lxclipboard_lxclipboard_SOURCES = \
     $(lxclipboard_lxclipboard_vala_SOURCES) \
     lxclipboard/clipboard.c \
@@ -61,7 +64,7 @@ lxclipboard_lxclipboard_SOURCES = \
 
 lxclipboard_lxclipboard_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg lxclipboard \
     $(NULL)
 
@@ -78,8 +81,18 @@ lxclipboard_lxclipboard_LDADD = \
     $(X11_LIBS) \
     $(NULL)
 
+if USE_GTK3
+else
+lxclipboard_lxclipboard_VALAFLAGS += --pkg unique-1.0
+lxclipboard_lxclipboard_CFLAGS += $(UNIQUE_CFLAGS)
+lxclipboard_lxclipboard_LDADD += $(UNIQUE_LIBS)
+endif
+
 lxpolkit_lxpolkit_vala_SOURCES = \
     lxpolkit/main.vala \
+    $(NULL)
+
+CLEANFILES += lxpolkit/main.c \
     $(NULL)
 
 lxpolkit_lxpolkit_SOURCES = \
@@ -90,7 +103,7 @@ lxpolkit_lxpolkit_SOURCES = \
 
 lxpolkit_lxpolkit_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg lxpolkit \
     $(NULL)
 
@@ -112,14 +125,26 @@ lxpolkit_lxpolkit_LDADD = \
     $(X11_LIBS) \
     $(NULL)
 
+if USE_GTK3
+else
+lxpolkit_lxpolkit_VALAFLAGS += --pkg unique-1.0
+lxpolkit_lxpolkit_CFLAGS += $(UNIQUE_CFLAGS)
+lxpolkit_lxpolkit_LDADD += $(UNIQUE_LIBS)
+endif
+
 lxsession_db_lxsession_db_SOURCES = \
     lxsession-db/main.vala \
     lxsession-db/desktop-files-backend.vala \
     $(NULL)
 
+CLEANFILES += \
+    lxsession-db/main.c \
+    lxsession-db/desktop-files-backend.c \
+    $(NULL)
+
 lxsession_db_lxsession_db_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     $(NULL)
 
 lxsession_db_lxsession_db_CFLAGS = \
@@ -127,7 +152,6 @@ lxsession_db_lxsession_db_CFLAGS = \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
     -DPACKAGE_UI_DIR="\"$(datadir)/lxsession-default-apps/ui"\" \
     $(GTK_CFLAGS) \
-    $(GEE_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
     -include config.h -w \
@@ -135,7 +159,6 @@ lxsession_db_lxsession_db_CFLAGS = \
 
 lxsession_db_lxsession_db_LDADD = \
     $(GTK_LIBS) \
-    $(GEE_LIBS) \
     $(GLIB_LIBS) \
     $(X11_LIBS) \
     $(NULL)
@@ -172,6 +195,14 @@ lxsession_default_apps_lxsession_default_apps_vala_SOURCES = \
     lxsession-default-apps/utils.vala \
     $(NULL)
 
+CLEANFILES += \
+    lxsession-default-apps/autostart.c \
+    lxsession-default-apps/main.c \
+    lxsession-default-apps/combobox.c \
+    lxsession-default-apps/dbus-backend.c \
+    lxsession-default-apps/utils.c \
+    $(NULL)
+
 lxsession_default_apps_lxsession_default_apps_SOURCES = \
     $(lxsession_default_apps_lxsession_default_apps_vala_SOURCES) \
     $(lxsession_edit_lxsession_edit_common_SOURCES) \
@@ -179,7 +210,7 @@ lxsession_default_apps_lxsession_default_apps_SOURCES = \
 
 lxsession_default_apps_lxsession_default_apps_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     --pkg dbus-glib-1 \
     --pkg gio-2.0 \
     --pkg posix \
@@ -214,7 +245,7 @@ buildinclip_SOURCES = \
 
 buildinclip_VALAFLAGS = \
     --pkg lxclipboard \
-    --pkg gtk+-2.0 \
+    --pkg @VALA_GTK_LIBS@ \
     -D BUILDIN_CLIPBOARD \
     $(NULL)
 
@@ -280,6 +311,10 @@ lxsettings_daemon_lxsettings_daemon_SOURCES = \
     $(lxsettings_daemon_lxsettings_daemon_commun_SOURCES) \
     $(NULL)
 
+CLEANFILES += \
+    lxsettings-daemon/main.c \
+    $(NULL)
+
 lxsettings_daemon_lxsettings_daemon_commun_SOURCES = \
     lxsettings-daemon/settings-daemon.c \
     lxsettings-daemon/xevent.c \
@@ -308,6 +343,10 @@ lxsettings_daemon_lxsettings_daemon_LDADD = \
 
 xdg_autostart_lxsession_xdg_autostart_vala_SOURCES = \
     xdg-autostart/main.vala \
+    $(NULL)
+
+CLEANFILES += \
+    xdg-autostart/main.c \
     $(NULL)
 
 xdg_autostart_lxsession_xdg_autostart_SOURCES = \
@@ -347,6 +386,22 @@ lxsession_lxsession_vala_SOURCES = \
     lxsession/process.vala \
     lxsession/settings.vala \
     lxsession/utils.vala \
+    $(NULL)
+
+CLEANFILES += \
+    lxsession/main.c \
+    lxsession/app.c \
+    lxsession/autostart.c \
+    lxsession/conffiles.c \
+    lxsession/control.c \
+    lxsession/dbus-common.c \
+    lxsession/dbus-gnome-session.c \
+    lxsession/dbus-lxde-session.c \
+    lxsession/environement.c \
+    lxsession/options.c \
+    lxsession/process.c \
+    lxsession/settings.c \
+    lxsession/utils.c \
     $(NULL)
 
 lxsession_lxsession_SOURCES = \

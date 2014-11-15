@@ -17,6 +17,9 @@
  *      MA 02110-1301, USA.
  */
 using Gtk;
+#if USE_GTK2
+using Unique;
+#endif
 
 const string GETTEXT_PACKAGE = "lxsession";
 
@@ -28,7 +31,21 @@ namespace Lxsession
         {
             Intl.textdomain(GETTEXT_PACKAGE);
             Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
+
             Gtk.init (ref args);
+#if USE_GTK2
+            Unique.App app = new Unique.App("org.lxde.lxpolkit", null);
+
+            if(app.is_running)
+            {
+                return 0;
+            }
+#endif
+# if USE_GTK3
+            Application app = new Application ();
+            app.run (args);
+#endif
+
             policykit_agent_init();
 
             /* start main loop */
