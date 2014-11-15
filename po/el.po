@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-11 20:51+0000\n"
+"PO-Revision-Date: 2014-11-15 22:23+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415739115.000000\n"
+"X-POOTLE-MTIME: 1416090235.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -590,32 +590,42 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Ο διαχειριστής ενέργειας βοηθά στη μείωση χρήσης των μπαταριών. Πιθανότατα "
+"δεν σας χρειάζεται εάν έχετε σταθερό υπολογιστή.\n"
+"Η επιλογή «αυτόματο» θα το ρυθμίσει αυτόματα, βασιζόμενο στην επιλογή "
+"κατάστασης του φορητού υπολογιστή."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Ο μεσολαβητής Polkit παρέχει εξουσιοδοτήσεις για να χρησιμοποιηθούν κάποιες "
+"ενέργειες όπως αναστολή, αδρανοποίηση χρησιμοποιώντας το Consolekit ... Δεν "
+"συνίσταται να το αφήσετε κενό."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Ορίστε μία εφαρμογή για τη διαχείριση συνδέσεων, όπως το nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Χρησιμοποιήστε λογισμικό επικοινωνίας (ένα πελάτη IRC, ένα πελάτη ΙΜ ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Χρησιμοποιήστε ένα άλλο λογισμικό επικοινωνίας (ένα πελάτη IRC, ένα πελάτη "
+"ΙΜ ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Εξ ορισμού τερματικό για εκτέλεση γραμμής εντολών."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Εφαρμογή για να πάτε στο Διαδίκτυο, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
