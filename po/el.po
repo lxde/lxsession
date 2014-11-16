@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-16 16:29+0000\n"
+"PO-Revision-Date: 2014-11-16 17:50+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416155388.000000\n"
+"X-POOTLE-MTIME: 1416160242.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -746,6 +746,8 @@ msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Διαχείριση υποστήριξης για βοηθητικές τεχνολογίες.\n"
+"Τυπική επιλογή είναι το gnome, για κανονική υποστήριξη του gnome."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
@@ -754,6 +756,7 @@ msgstr "Διαχείριση υποστήριξης διαμεσολαβητή"
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"Διαχείριση παραμέτρων XRandr. Χρησιμοποιήστε την εντολή xrandr --παράμετρος"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -781,7 +784,7 @@ msgstr "Ορισμός προεπιλεγμένων προγραμμάτων τ�
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Απενεργοποίηση"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
