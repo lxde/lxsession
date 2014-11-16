@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-16 17:50+0000\n"
+"PO-Revision-Date: 2014-11-16 18:23+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416160242.000000\n"
+"X-POOTLE-MTIME: 1416162224.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -335,11 +335,11 @@ msgstr "Διαχειριστής προχείρου"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Ασφάλεια (εφαρμογή πιστοποιητικών ασφαλείας)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
@@ -383,7 +383,7 @@ msgstr "<b>Γενικές ρυθμίσεις</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Type"
@@ -445,7 +445,7 @@ msgstr "Αλλαγή των προκαθορισμένων εφαρμογών σ
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
@@ -485,6 +485,8 @@ msgstr "Επιπλέον: Προσθήκη μίας επιπλέον παραμ�
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
+"Συσχέτιση πρωτοκόλλου μορφότυπων διαδικτύου. Αυτόματη συσχέτιση μορφότυπων "
+"διαδικτύου με αυτή την εφαρμογή;\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
@@ -740,6 +742,9 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Διαχείριση υποστήριξης εφαρμογής πιστοποιητικών ασφαλείας.\n"
+"Τυπικές επιλογές διαθέσιμες «gnome» για υποστήριξη gnome-keyring ή «ssh-"
+"agent» για υποστήριξη ssh-agent."
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
@@ -764,7 +769,7 @@ msgstr "Χειροκίνητη ρύθμιση"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Συσχέτιση Πρωτοκόλλου Μορφότυπων Διαδικτύου"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
@@ -788,7 +793,7 @@ msgstr "Απενεργοποίηση"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Επιθυμείτε να συσχετίσετε τον ακόλουθο μορφότυπο διαδικτύου;\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
