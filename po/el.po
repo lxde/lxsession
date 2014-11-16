@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-15 22:33+0000\n"
+"PO-Revision-Date: 2014-11-16 14:37+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416090811.000000\n"
+"X-POOTLE-MTIME: 1416148674.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -633,17 +633,22 @@ msgstr "Εφαρμογή αποστολής μηνυμάτων ηλεκτρον�
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Εφαρμογή εκκίνησης εφαρμογίδιων όπως το conky, τα screenlets ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Εφαρμογή εκκίνησης προγραμμάτων όπως το synapse, το kupfer ... \n"
+"Για χρήση του lxpanel ή την προεπιλεγμένη εφαρμογή του lxde, χρησιμοποιήστε "
+"το «lxpanelctl» "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
+"Εφαρμογή για λήψη στιγμιότυπων οθόνης της επιφάνειας εργασίας σας, όπως το "
+"scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -675,59 +680,59 @@ msgstr "Εφαρμογή αριθμομηχανής"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Εφαρμογή δημιουργίας λογιστικών φύλλων, όπως το gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης bittorrent, όπωςτο transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης κειμένου, όπως το abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης κάμερας ιστού"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης προγράμματος εγγραφής CD/DVD "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης προγράμματος σημειώσεων"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Εφαρμογή διαχείρισης δίσκων"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Εφαρμογή παρακολούθησης διεργασιών που τρέχουν στο σύστημά σας"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Εφαρμογή κλειδώματος της οθόνης σας"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Διαχείριση των ρυθμίσεων ήχου σας"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Διαχείριση των ρυθμίσεων της επιφάνειας εργασίας σας"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr ""
+msgstr "Διαχείριση της εφαρμογής κλεισίματος της συνεδρίας"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"
-msgstr ""
+msgstr "Διαχείριση της εφαρμογής ενημέρωσης και αναβάθμισης του συστήματός σας"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Διαχείριση της υποστήριξης προχείρου"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -763,9 +768,8 @@ msgid "Available applications"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Αυτόματη εκκίνηση της εφαρμογής;\n"
+msgstr "Αυτόματη εκκίνηση της εφαρμογής;"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
