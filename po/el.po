@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-16 14:37+0000\n"
+"PO-Revision-Date: 2014-11-16 16:29+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416148674.000000\n"
+"X-POOTLE-MTIME: 1416155388.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -757,7 +757,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Χειροκίνητη ρύθμιση"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
@@ -765,7 +765,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr ""
+msgstr "Διαθέσιμες εφαρμογές"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
@@ -773,11 +773,11 @@ msgstr "Αυτόματη εκκίνηση της εφαρμογής;"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Χειρισμός της επιφάνειας εργασίας με αυτό;"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Ορισμός προεπιλεγμένων προγραμμάτων του debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
@@ -789,7 +789,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Ματαίωση"
 
 #~ msgid "Comment"
 #~ msgstr "Σχόλιο"
