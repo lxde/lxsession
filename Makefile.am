@@ -55,6 +55,7 @@ lxclipboard_lxclipboard_vala_SOURCES = \
     $(NULL)
 
 CLEANFILES += lxclipboard/main.c \
+    lxclipboard_lxclipboard_vala.stamp \
     $(NULL)
 
 lxclipboard_lxclipboard_SOURCES = \
@@ -93,6 +94,7 @@ lxpolkit_lxpolkit_vala_SOURCES = \
     $(NULL)
 
 CLEANFILES += lxpolkit/main.c \
+    lxpolkit_lxpolkit_vala.stamp \
     $(NULL)
 
 lxpolkit_lxpolkit_SOURCES = \
@@ -140,6 +142,7 @@ lxsession_db_lxsession_db_SOURCES = \
 CLEANFILES += \
     lxsession-db/main.c \
     lxsession-db/desktop-files-backend.c \
+    lxsession_db_lxsession_db_vala.stamp \
     $(NULL)
 
 lxsession_db_lxsession_db_VALAFLAGS = \
@@ -201,6 +204,7 @@ CLEANFILES += \
     lxsession-default-apps/combobox.c \
     lxsession-default-apps/dbus-backend.c \
     lxsession-default-apps/utils.c \
+    lxsession_default_apps_lxsession_default_apps_vala.stamp \
     $(NULL)
 
 lxsession_default_apps_lxsession_default_apps_SOURCES = \
@@ -313,6 +317,7 @@ lxsettings_daemon_lxsettings_daemon_SOURCES = \
 
 CLEANFILES += \
     lxsettings-daemon/main.c \
+    lxsettings_daemon_lxsettings_daemon_vala.stamp \
     $(NULL)
 
 lxsettings_daemon_lxsettings_daemon_commun_SOURCES = \
@@ -347,6 +352,7 @@ xdg_autostart_lxsession_xdg_autostart_vala_SOURCES = \
 
 CLEANFILES += \
     xdg-autostart/main.c \
+    xdg_autostart_lxsession_xdg_autostart_vala.stamp \
     $(NULL)
 
 xdg_autostart_lxsession_xdg_autostart_SOURCES = \
@@ -402,6 +408,7 @@ CLEANFILES += \
     lxsession/process.c \
     lxsession/settings.c \
     lxsession/utils.c \
+    lxsession_lxsession_vala.stamp \
     $(NULL)
 
 lxsession_lxsession_SOURCES = \
