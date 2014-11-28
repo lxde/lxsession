@@ -7,37 +7,43 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2013-11-15 17:46+0000\n"
-"Last-Translator: Miguel Anxo <mbouzada@gmail.com>\n"
+"PO-Revision-Date: 2014-11-28 10:38+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1384537585.0\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1417171107.000000\n"
 
+# This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
 msgstr "Mensaxe personalizada para amosar no cadro de diálogo"
 
+# message = bubaka. 1 to 1 relationship between English and Luganda.
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
 msgstr "mensaxe"
 
+# This message prompts you to choose a banner that will appear in a dialog box.
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
 msgstr "Mensaxe para amosar no diálogo"
 
+# This is the prompt for you to indicate the file that contains the image
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
 msgstr "ficheiro de imaxe"
 
+# Prompt to indicate/set where the banner will sit
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
 msgstr "Posición da imaxe"
 
+# I think this is the error message.
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
 msgid "Error: %s\n"
@@ -48,29 +54,34 @@ msgstr "Erro: %s\n"
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Saír da sesión %s %s</big></b>"
 
+# Turn the machine completely off
 #: ../lxsession-logout/lxsession-logout.c:699
 msgid "Sh_utdown"
 msgstr "_Apagar"
 
+# Make the machine shut down and restart itself
 #: ../lxsession-logout/lxsession-logout.c:710
 msgid "_Reboot"
 msgstr "_Reiniciar"
 
+# Have the machine pause, leaving things exactly where they are
 #: ../lxsession-logout/lxsession-logout.c:721
 msgid "_Suspend"
 msgstr "S_uspender"
 
+# Have the machine close all jobs and go into a low energy state - still logged in
 #: ../lxsession-logout/lxsession-logout.c:732
 msgid "_Hibernate"
 msgstr "_Hibernar"
 
+# Work in another user account while keeping the current one open and read to return to
 #: ../lxsession-logout/lxsession-logout.c:743
 msgid "S_witch User"
-msgstr "_Cambiar usuario"
+msgstr "Cambiar de _usuario"
 
 #: ../lxsession-logout/lxsession-logout.c:754
 msgid "L_ock Screen"
-msgstr "Bl_oquear a pantalla"
+msgstr "_Bloquear a pantalla"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:763
@@ -83,7 +94,7 @@ msgstr "Activado"
 
 #: ../lxsession-edit/lxsession-edit-common.c:378
 msgid "Application"
-msgstr "Aplicativo"
+msgstr "Aplicación"
 
 #: ../lxsession-edit/lxsession-edit-common.c:386
 msgid "Comment"
@@ -101,6 +112,7 @@ msgstr "Información"
 msgid "Password: "
 msgstr "Contrasinal: "
 
+# I think this is the error message.
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
 msgid "Group: %s"
@@ -113,11 +125,11 @@ msgstr "Axustes da sesión de escritorio"
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
 msgstr ""
-"Aplicativos que iniciar a automaticamente despois de entrar no escritorio:"
+"Aplicacións que iniciar a automaticamente despois de entrar no escritorio:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Aplicativos que iniciar a automaticamente"
+msgstr "Aplicacións que iniciar a automaticamente"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -129,7 +141,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Liña de ordes para iniciar o xestor de xanelas\n"
-"(A orde predeterminada do xestor de xanelas do LXDE é openbox-lxde)"
+"(A orde predeterminada para o xestor de xanelas de LXDE é openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -138,8 +150,9 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Aviso:</b> <b>NON</b> modifique isto a non ser que saiba exactamente o "
-"que está a facer.\n"
+"<b>Aviso: NON</b> modifique isto a non ser que saiba exactamente o que está "
+"a facer.\n"
+"\n"
 "<b>Nota:</b> esta opción terá efecto a partir do próximo acceso."
 
 #: ../data/ui/lxsession-edit.ui.h:10
@@ -168,7 +181,7 @@ msgstr "Aplicar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
-msgstr "Cargar de novo"
+msgstr "Volver cargar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "<b>Panel</b>"
@@ -284,7 +297,7 @@ msgstr "Iniciando aplicativos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr "Desactivar o inicio automático de aplicativos?"
+msgstr "Desactivar o inicio automático de aplicacións?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -292,11 +305,11 @@ msgstr "<b>Axustes</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "<b>Manual autostarted applications</b>"
-msgstr "<b>Inicio manual de aplicativos automáticos</b>"
+msgstr "<b>Inicio manual de aplicacións automáticas</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
-msgstr "<b>Aplicativos coñecidos </b>"
+msgstr "<b>Aplicacións coñecidas </b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "<b>Clipboard manager</b>"
@@ -359,12 +372,14 @@ msgid "<b>Proxy</b>"
 msgstr "<b>Proxy</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
+#, fuzzy
 msgid "Laptop mode"
-msgstr "Modo portátil"
+msgstr "Laptop Modus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
+#, fuzzy
 msgid "<b>General settings</b>"
-msgstr "<b>Axustes xerais</b>"
+msgstr "<b>Allgemeine Einstellungen</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "<b>Dbus</b>"
@@ -379,20 +394,21 @@ msgid "<b>Environment</b>"
 msgstr "<b>Entorno</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
+#, fuzzy
 msgid "Settings"
-msgstr "Axustes"
+msgstr "Einstellungen"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr "Xestionar os aplicativos que cargar na sesión de escritorio"
+msgstr "Xestionar as aplicacións que cargar na sesión de escritorio"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "Aplicativos predeterminados para LXSession"
+msgstr "Aplicacións predeterminadas para LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr "Cambiar os aplicativos predeterminados no LXDE"
+msgstr "Cambiar as aplicacións predeterminadas no LXDE"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession non se está a executar."
