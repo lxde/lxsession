@@ -1,11 +1,10 @@
-LXSession
-=========
+# LXSession #
 
 The default LXDE session manager.
 
 Full documentation on http://wiki.lxde.org/en/index.php?title=LXSession
 
-== What's LXSession and who needs this? ==
+## What's LXSession and who needs this? ##
 
 A session manager is used to automatically start a set of applications and
 set up a working desktop environment.
@@ -68,7 +67,7 @@ Now you get an item 'LXDE' in the list of available sessions in gdm.
 NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart )
 
 
-== Compilation flags ==
+## Compilation flags ##
 * "--enable-man" : Generate man pages
 * "--enable-more-warnings" : Enable more compilation warning at build time
 * "--enable-gtk3" : Compile with GTK3 when the component is compatible (incomplete)
@@ -77,7 +76,7 @@ NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart
 * "--enable-debug" : Enable more debug
 * "--enable-gtk" : Enable GTK+ programs and compilation. Pass --disable-gtk to build without any GTK+ component (useful if you want lxsession on a Qt environnement).
 
-== Runtime arguments ==
+## Runtime arguments ##
 * --session or -s : Specify the session name (use for configuration, settings, log files ...). Default to LXDE
 * --de or -e : Specify the desktop environment name to use for desktop files (such as LXDE, GNOME, or XFCE).
 * --reload or -r : Reload configurations (for Xsettings daemon).
@@ -85,7 +84,7 @@ NOTE: Restart of gdm might be needed. ( On Debian:  sudo /etc/init.d/gdm restart
 * --noautostart or -a : Disable the autostart of applications (window-manager mode only)
 * --compatibility or -c : Specify a compatibility mode for settings (only razor-qt supported)
 
-== Configuration files ==
+## Configuration files ##
 The config files of LXSession are stored in
 '''~/.config/lxsession/''<Profile Name>'''''
 
@@ -93,7 +92,7 @@ If the config files are missing, LXSession loads system-wide config in '''/etc/x
 
 Note: If no <code>-session</code> has been passed on the command line to lxsession, the default profile name is LXDE.
 
-== Dbus interface ==
+## Dbus interface ##
 All settings are available via Dbus, using the Dbus interface org.lxde.SessionManager /org/lxde/SessionManager org.lxde.SessionManager
 There are several group of methods, which reflect the groups of the keyfile. All settings have 2 keys (key1/key2), the first one (level1) is the main one, the second one (level2) is linked to the first one and can be empty, depending of the settings.
 Example : composite_manager/command is the settings which contains the name of the executable to launch the composite manager. composite_manager/autostart is the one to manager the autostart of composite_manager
@@ -131,13 +130,13 @@ Session Manager methods:
 * Shutdown
 * ReloadSettingsDaemon
 
-== Options and settings ==
+## Options and settings ##
 All options are available on the desktop.conf.example : http://lxde.git.sourceforge.net/git/gitweb.cgi?p=lxde/lxsession;a=blob;f=data/desktop.conf.example;hb=HEAD
 
-== Custom configuration files ==
+## Custom configuration files ##
 You can use custom configuration files for some applications. LXsession will automatically copy them on the right place to be used by the applications. The configuration of those files are done in conffiles.conf, in /etc/xdg/lxsession/<profile>/ or ~/.config/lxsession/<profile>/.
 
-== Applications and binaries ==
+## Applications and binaries ##
 * lxclipboard : Application to enable a clipboard support, using GTK.
 * lxlock : Application to lock the screen, using external applications
 * lxpolkit : Polkit agent
@@ -147,10 +146,10 @@ You can use custom configuration files for some applications. LXsession will aut
 * lxsession-utils : Misc utilities for lxsession
 * lxsettings-daemon : Xsettings daemon
 
-== Autostarted applications using lxsession ==
+## Autostarted applications using lxsession ##
 Lxsession manages the application which are started on login. It's handle by several elements
 
-=== Settings ===
+### Settings ###
 You can enable, disable partly, or disable completely autostared application using the settings "disable_autostart", with different value :
 * all : disable all applications (home, system, specify in this config file)
 * config-only : disable applications from home and system (start only the ones in the desktop.conf config file)
@@ -158,7 +157,7 @@ You can enable, disable partly, or disable completely autostared application usi
 
 Using "all" and "config-only" will disable autostared applications from the 2 above methods.
 
-=== autostart configuration file ===
+### autostart configuration file ###
 This file stores the commands that will be executed at the beginning of the session.
 It is not a shell script, but each line represents a different command to be executed.
 If a line begins with @, the command following the @ will be automatically re-executed if
@@ -197,7 +196,7 @@ Exactly how autostart files are parsed, as of LXSession 0.4.9.2, is given by the
 
 Notice that lines are split on space characters, but no form of escaping or quoting is supported, nor are multi-line commands. So if you need, e.g., a command with a space in one of its arguments, put it in a shell script and invoke the shell script from the autostart file.
 
-=== autostart directories ===
+### autostart directories ###
 LXSession supports [http://www.freedesktop.org/ freedesktop.org] [http://www.freedesktop.org/wiki/Specifications/autostart-spec Autostart spec]. Put *.desktop files of those applications in ~/.config/autostart, and they will get executed when the session starts.
 
 '''Important note:'''
@@ -207,7 +206,7 @@ Some gnome applications have the "OnlyShowIn=GNOME" key in their *.desktop files
 If you cannot get an application automatically started and you already have a .desktop file for it in the autostart directory, then check the setting of the 'OnlyShowIn' key. Try commenting it out or removing the key.
 If the application still works ok then it's not really GNOME-specific - file a bug report for that application to its author and packager. As an example, the NetworkManager Applet (nm-applet) has the setting "OnlyShowIn=Gnome", but it works fine in LXDE. To make it autostart, just comment out or delete "OnlyShowIn=Gnome" in your ~/.config/autostart/nm-applet.desktop. If you are using different desktop environments on different sessions, and wish to use NetworkManager in LXDE, XFCE and Gnome, but not in KDE, you might want to add "OnlyShowIn=Gnome;XFCE;LXDE;" and/or "NotShowIn=KDE;"
 
-== Log out ==
+## Log out ##
 
 Simply executing this command:
 ``lxsession-logout``
