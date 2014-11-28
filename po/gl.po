@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-13 23:14+0100\n"
-"PO-Revision-Date: 2014-11-28 10:57+0000\n"
+"PO-Revision-Date: 2014-11-28 12:06+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417172261.000000\n"
+"X-POOTLE-MTIME: 1417176383.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -297,7 +297,7 @@ msgstr "Iniciando aplicativos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Disable autostarted applications ?"
-msgstr "Desactivar o inicio automático de aplicacións?"
+msgstr "Desactivar o inicio automático das aplicacións?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "<b>Settings</b>"
@@ -305,7 +305,7 @@ msgstr "<b>Axustes</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "<b>Manual autostarted applications</b>"
-msgstr "<b>Inicio manual de aplicacións automáticas</b>"
+msgstr "<b>Inicio manual de aplicacións con inicio automático</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "<b>Known Applications </b>"
