@@ -69,7 +69,7 @@ lxclipboard_lxclipboard_VALAFLAGS = \
     --pkg lxclipboard \
     $(NULL)
 
-lxclipboard_lxclipboard_CFLAGS = \
+lxclipboard_lxclipboard_CPPFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
@@ -85,7 +85,7 @@ lxclipboard_lxclipboard_LDADD = \
 if USE_GTK3
 else
 lxclipboard_lxclipboard_VALAFLAGS += --pkg unique-1.0
-lxclipboard_lxclipboard_CFLAGS += $(UNIQUE_CFLAGS)
+lxclipboard_lxclipboard_CPPFLAGS += $(UNIQUE_CFLAGS)
 lxclipboard_lxclipboard_LDADD += $(UNIQUE_LIBS)
 endif
 
@@ -109,7 +109,7 @@ lxpolkit_lxpolkit_VALAFLAGS = \
     --pkg lxpolkit \
     $(NULL)
 
-lxpolkit_lxpolkit_CFLAGS = \
+lxpolkit_lxpolkit_CPPFLAGS = \
     $(GTK_CFLAGS) \
     $(GLIB_CFLAGS) \
     $(POLKIT_CFLAGS) \
@@ -130,7 +130,7 @@ lxpolkit_lxpolkit_LDADD = \
 if USE_GTK3
 else
 lxpolkit_lxpolkit_VALAFLAGS += --pkg unique-1.0
-lxpolkit_lxpolkit_CFLAGS += $(UNIQUE_CFLAGS)
+lxpolkit_lxpolkit_CPPFLAGS += $(UNIQUE_CFLAGS)
 lxpolkit_lxpolkit_LDADD += $(UNIQUE_LIBS)
 endif
 
@@ -150,7 +150,7 @@ lxsession_db_lxsession_db_VALAFLAGS = \
     --pkg @VALA_GTK_LIBS@ \
     $(NULL)
 
-lxsession_db_lxsession_db_CFLAGS = \
+lxsession_db_lxsession_db_CPPFLAGS = \
     -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
     -DPACKAGE_UI_DIR="\"$(datadir)/lxsession-default-apps/ui"\" \
@@ -166,7 +166,7 @@ lxsession_db_lxsession_db_LDADD = \
     $(X11_LIBS) \
     $(NULL)
 
-lxsession_edit_lxsession_edit_CFLAGS = \
+lxsession_edit_lxsession_edit_CPPFLAGS = \
     -I$(top_srcdir) \
     $(GTK_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
@@ -222,7 +222,7 @@ lxsession_default_apps_lxsession_default_apps_VALAFLAGS = \
     --pkg config \
     $(NULL)
 
-lxsession_default_apps_lxsession_default_apps_CFLAGS = \
+lxsession_default_apps_lxsession_default_apps_CPPFLAGS = \
     -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
     -DPACKAGE_UI_DIR="\"$(datadir)/lxsession-default-apps/ui"\" \
@@ -284,7 +284,7 @@ buildinpolkit_LDADD = \
     $(NULL)
 endif
 
-lxsession_logout_lxsession_logout_CFLAGS = \
+lxsession_logout_lxsession_logout_CPPFLAGS = \
     $(GTK_CFLAGS) \
     $(SM_CFLAGS) \
     $(DBUS_CFLAGS) \
@@ -333,7 +333,7 @@ lxsettings_daemon_lxsettings_daemon_VALAFLAGS = \
     --pkg lxsettings-daemon \
     $(NULL)
 
-lxsettings_daemon_lxsettings_daemon_CFLAGS = \
+lxsettings_daemon_lxsettings_daemon_CPPFLAGS = \
     $(GLIB_CFLAGS) \
     $(GIO_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
@@ -365,7 +365,7 @@ xdg_autostart_lxsession_xdg_autostart_VALAFLAGS = \
     --pkg xdg-autostart \
     $(NULL)
 
-xdg_autostart_lxsession_xdg_autostart_CFLAGS = \
+xdg_autostart_lxsession_xdg_autostart_CPPFLAGS = \
     $(GLIB_CFLAGS) \
     $(GIO_CFLAGS) \
     $(ADDITIONAL_FLAGS) \
@@ -428,7 +428,7 @@ lxsession_lxsession_VALAFLAGS = \
     $(buildinpolkit_VALAFLAGS) \
     $(NULL)
 
-lxsession_lxsession_CFLAGS = \
+lxsession_lxsession_CPPFLAGS = \
     -DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
     -DPACKAGE_DATA_DIR="\"$(datadir)"\" \
     -DPACKAGE_UI_DIR="\"$(datadir)/lxsession/ui"\" \
