@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-30 16:17+0000\n"
+"PO-Revision-Date: 2014-11-30 16:50+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417364269.000000\n"
+"X-POOTLE-MTIME: 1417366238.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -685,9 +685,8 @@ msgid "Managing your workspace configuration"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
+msgstr "Administrar a aplicación para saír da sesión"
 
 #: ../lxsession-default-apps/main.vala:343
 #, fuzzy
@@ -728,9 +727,8 @@ msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Iniciando aplicativos"
+msgstr "Aplicacións dispoñíbeis"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
