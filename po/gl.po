@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-30 16:12+0000\n"
+"PO-Revision-Date: 2014-11-30 16:17+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417363975.000000\n"
+"X-POOTLE-MTIME: 1417364269.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -131,7 +131,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Aplicacións que iniciar a automaticamente"
+msgstr "Aplicacións que iniciar automaticamente"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -280,7 +280,7 @@ msgstr "Monitor de tarefas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr "Iniciando aplicativos"
+msgstr "Iniciando aplicacións"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
@@ -364,7 +364,7 @@ msgstr "Aplicacións básicas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr "Desactivar o inicio automático das aplicacións?"
+msgstr "Desactivar o inicio automático de aplicacións?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -462,7 +462,7 @@ msgstr "Axente Policykit de autenticación"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr "Actualizar a base de datos de Lxsession"
+msgstr "Actualizar a base de datos de LXSession"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
