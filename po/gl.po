@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-30 16:50+0000\n"
+"PO-Revision-Date: 2014-11-30 17:36+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417366238.000000\n"
+"X-POOTLE-MTIME: 1417368966.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -109,6 +109,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Produciuse un fallo de autenticación!\n"
+"Contrasinal incorrecto?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -479,29 +481,35 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Axustes manuais: Estabelece manualmente a orde (necesita reiniciar lxsession "
+"default-apps para ver o cambio)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sesión : especifique a sesión\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Adicional: Engadir un parámetro adicional para a opción de inicio\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
+"Asociación MIME: Asociar automaticamente os tipos MIME a esta aplicación?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Aplicacións dispoñíbeis: As aplicacións deste tipo dispoñíbeis nos "
+"repositorios\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Manexo do escritorio: Presentar o escritorio usando o xestor de ficheiros?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -512,6 +520,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Estabelecer o programa predeterminado para o sistema Debian (usando update-"
+"alternatives, necesita o contrasinal de administrador/root)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -555,11 +565,15 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr ""
+"Fondo de pantalla: Estabelecer a ruta a unha imaxe para determinar o fondo "
+"de pantalla"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"O protector de pantalla é un programa que presenta animacións mentres o seu "
+"computador permanece inactivo"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -577,22 +591,27 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
 msgstr ""
+"Estabelecer unha utilidade para administrar as conexións, como nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Utilizar un software de comunicación (un cliente de IRC, un cliente de "
+"mensaxería instantánea ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Utilizar outro software de comunicación (un cliente de IRC, un cliente de "
+"mensaxería instantánea ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Terminal predeterminado para executar liñas de ordes."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Aplicación para ie a Internet, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
@@ -600,7 +619,7 @@ msgstr "Aplicación para enviar correos"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Utilidade para iniciar trebellos, como conky ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
@@ -622,7 +641,7 @@ msgstr "Aplicación de son"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Aplicación para amosar imaxes"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
@@ -630,7 +649,7 @@ msgstr "Aplicación para editar texto"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Aplicación para crear arquivos, como file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
@@ -642,47 +661,47 @@ msgstr "Aplicación de calculadora"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Aplicación para crear follas de cálculo, como gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Aplicación para administrar bittorrent, como transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Aplicación para administrar texto de oficina, como abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Aplicación para administrar a cámara web"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Aplicación para administrar o gravador de CD/DVD "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Aplicación para administrar a utilidade de notas"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Aplicación para administrar discos"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Aplicación para monitorizar as tarefas en execución no seu sistema "
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Aplicación para bloquear a pantalla"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Administrar a configuración do son"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Administrar a configuración do espazo de traballo"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
@@ -695,7 +714,7 @@ msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Administrar a compatibilidade do portapapeis"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -712,7 +731,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Administrar a compatibilidade do proxy"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
@@ -720,11 +739,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Axuste manual"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Asociación MIME"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
@@ -740,19 +759,19 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Estabelecer os programas predeterminados de Debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Desactivar"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Quere asociar o seguinte tipo MIME?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #~ msgid "Command"
 #~ msgstr "Orde"
