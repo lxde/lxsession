@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-11-28 12:06+0000\n"
+"PO-Revision-Date: 2014-11-30 16:12+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417176383.000000\n"
+"X-POOTLE-MTIME: 1417363975.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -170,9 +170,8 @@ msgid "Identity:"
 msgstr "Identidade:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Administrador de ficheiros</b>"
+msgstr "Administrador de ficheiros"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -180,210 +179,188 @@ msgstr "Volver cargar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Máis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Administrador do terminal</b>"
+msgstr "Administrador do terminal"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Navegador web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Correo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Comunicación 1</b>"
+msgstr "Comunicación 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Comunicación 2</b>"
+msgstr "Comunicación 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Trebello 1</b>"
+msgstr "Trebello 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Administrador de iniciadores</b>"
+msgstr "Administrador de iniciadores"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Administrador de capturas de pantalla</b>"
+msgstr "Administrador de capturas de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Lector PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Reprodutor de vídeo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Reprodutor de son"
 
 # This is the prompt for you to indicate the file that contains the image
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "ficheiro de imaxe"
+msgstr "Visor de imaxes"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Editor de texto"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arquivo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Mapa de caracteres"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Folla de cálculo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Comentario"
+msgstr "Documento"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Cámara web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Utilidade de gravación"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Utilidade para notas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Utilidade de discos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Monitor de tarefas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Iniciando aplicativos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Xestor de xanelas:"
+msgstr "Administrador de xanelas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Doca"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Administrador de composición</b>"
+msgstr "Administrador de composición"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Xestor de xanelas:"
+msgstr "Administrador do escritorio"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Protector da pantalla</b>"
+msgstr "Protector da pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Administrador da enerxía</b>"
+msgstr "Administrador da enerxía"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Axente Polkit</b>"
+msgstr "Axente Polkit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>IGU da rede</b>"
+msgstr "IGU da rede"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Administrador do bloqueo de pantalla</b>"
+msgstr "Administrador do bloqueo de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Administrador do son</b>"
+msgstr "Administrador do son"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Administrador de espazos de traballo</b>"
+msgstr "Administrador do espazo de traballo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Saír do administrador</b>"
+msgstr "Saír do administrador"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Administrador de anovacións</b>"
+msgstr "Administrador de anovacións"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Administrador do portapapeis</b>"
+msgstr "Administrador do portapapeis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Seguridade (chaveiro)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Aplicación"
+msgstr "Aplicacións básicas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -406,14 +383,12 @@ msgid "Autostart"
 msgstr "Inicio automático"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
-#, fuzzy
 msgid "Laptop mode"
-msgstr "Laptop Modus"
+msgstr "Modo portátil"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
-#, fuzzy
 msgid "<b>General settings</b>"
-msgstr "<b>Allgemeine Einstellungen</b>"
+msgstr "<b>Axustes xerais</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
@@ -462,9 +437,8 @@ msgid "<b>Keymap</b>"
 msgstr "<b>Disposición do teclado</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
-#, fuzzy
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Axustes"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
@@ -480,25 +454,24 @@ msgstr "Cambiar as aplicacións predeterminadas no LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Autenticación"
+msgstr "Axente Policykit de autenticación"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Actualizar a base de datos de Lxsession"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Estase a actualizar a base de datos, agarde"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Configuración de LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -531,9 +504,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Desactivar o inicio automático das aplicacións?"
+msgstr "Iniciar automático a aplicación?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -623,9 +595,8 @@ msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Aplicación"
+msgstr "Aplicación para enviar correos"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -642,37 +613,32 @@ msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Aplicación"
+msgstr "Aplicación de vídeo"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Aplicación"
+msgstr "Aplicación de son"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Aplicación"
+msgstr "Aplicación para editar texto"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Aplicación"
+msgstr "Aplicación do mapa de caracteres"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Desactivar o inicio automático das aplicacións?"
+msgstr "Aplicación de calculadora"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
@@ -767,9 +733,8 @@ msgid "Available applications"
 msgstr "Iniciando aplicativos"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Desactivar o inicio automático das aplicacións?"
+msgstr "Iniciar automaticamente a aplicación?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
