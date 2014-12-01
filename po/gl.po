@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-01 11:12+0000\n"
+"PO-Revision-Date: 2014-12-01 11:19+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417432321.000000\n"
+"X-POOTLE-MTIME: 1417432754.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -629,10 +629,12 @@ msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Utilidade para iniciar unha aplicación, como synapse, kupfer ... \n"
+"Para usar lxpanel ou a utilidade predeterminada de lxde, use «lxpanelctl» "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Aplicación para facer capturas do seu escritorio, como scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -725,12 +727,17 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Administrar a compatibilidade do chaveiro.\n"
+"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con gnome-"
+"keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Administrar a compatibilidade para a accesibilidade.\n"
+"A opción estándar é «gnome», para a compatibilidade estándar con gnome."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
@@ -739,6 +746,7 @@ msgstr "Administrar a compatibilidade do proxy"
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"Administrar os parámetros de XRandr. Use unha orde como xrandr --something"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -758,7 +766,7 @@ msgstr "Iniciar automaticamente a aplicación?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Manexar o escritorio con ela?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
