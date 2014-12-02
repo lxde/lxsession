@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-02 13:14+0000\n"
+"PO-Revision-Date: 2014-11-30 18:48+0200\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417526055.000000\n"
+"X-Generator: Virtaal 0.7.0\n"
+"X-POOTLE-MTIME: 1417368966.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -530,35 +530,24 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
-"O xestor de xanelas presenta e administra as xanelas. \n"
-"Pode escoller openbox, openbox-custom (para unha configuración personalizada "
-"do openbox, vexa en «Máis»), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
-"Panel é o compoñente, situado xeralmente na parte inferior de la pantalla, "
-"que administra unha lista de xanelas abertas, accesos directos, área de "
-"notificación ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
-"A doca é un segundo panel. Utilizase para iniciar un programa diferente para "
-"manexar un segundo tipo de panel."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
-"O administrador de ficheiros é o compoñente para abrir os ficheiros.\n"
-"Vexa en «Máis» para engadir opcións para manexar o escritorio, ou abrir "
-"ficheiros "
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -721,9 +710,8 @@ msgid "Managing the application to quit your session"
 msgstr "Administrar a aplicación para saír da sesión"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
+msgstr "Administrar a aplicación para actualizar ou anovar o sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -736,8 +724,8 @@ msgid ""
 "agent\" for ssh-agent support"
 msgstr ""
 "Administrar a compatibilidade do chaveiro.\n"
-"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con gnome-"
-"keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
+"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con "
+"gnome-keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""

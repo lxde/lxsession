@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417526055.000000\n"
+"X-POOTLE-MTIME: 1417526043.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -721,9 +721,8 @@ msgid "Managing the application to quit your session"
 msgstr "Administrar a aplicación para saír da sesión"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
+msgstr "Administrar a aplicación para actualizar ou anovar o sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -736,8 +735,8 @@ msgid ""
 "agent\" for ssh-agent support"
 msgstr ""
 "Administrar a compatibilidade do chaveiro.\n"
-"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con gnome-"
-"keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
+"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con "
+"gnome-keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
