@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-03 12:53+0000\n"
+"PO-Revision-Date: 2014-12-04 15:29+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr ""
+msgstr "Sérsniðin skilaboð til að sýna á samskiptaglugga"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -26,7 +26,7 @@ msgstr "skilaboð"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr ""
+msgstr "Borði til að sýna á samskiptaglugga"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
@@ -34,7 +34,7 @@ msgstr "myndskrá"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr ""
+msgstr "Staðsetning borðans"
 
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
@@ -96,6 +96,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Auðkenning mistókst\n"
+"Er lykilorðið rangt?\n"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -108,15 +110,15 @@ msgstr "Hópur: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Skjáborðssetustillingar"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Forrit sem ræst eru sjálfkrafa við opnun á skjáborði:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Sjálfkrafa ræst forrit"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -174,15 +176,15 @@ msgstr "Tölvupóstur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Samskipti 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Samskipti 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr "Græja 1"
+msgstr "Viðmótshluti 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
@@ -218,7 +220,7 @@ msgstr "Safnskrá"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Stafatafla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
@@ -342,7 +344,7 @@ msgstr "Kjarnaforrit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Gera sjálfræst forrit óvirk?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -350,7 +352,7 @@ msgstr "<b>Stillingar</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>Handvirk sjálfræst forrit</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
@@ -424,11 +426,11 @@ msgstr ""
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Sjálfgefin forrit í LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Breyta sjálfgefnum forritum í LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
@@ -436,20 +438,20 @@ msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
-msgstr ""
+msgstr "PolicyKit auðkennisþjónn"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Uppfæra lxsession gagnagrunn"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Uppfæri gagnagrunn, bíddu aðeins"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "LXSession stillingar"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -460,7 +462,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Seta: Tilgreina setuna\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
