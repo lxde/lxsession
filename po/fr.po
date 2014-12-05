@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-24 02:33+0300\n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2014-09-28 17:24+0000\n"
 "Last-Translator: Julien Henry <Julius22@laposte.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,6 +92,12 @@ msgstr "Erreur"
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
 msgstr "Information"
+
+#: ../lxpolkit/lxpolkit-listener.c:88
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -385,7 +391,7 @@ msgstr "Préfixe du menu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
-#: ../lxsession-default-apps/combobox.vala:285
+#: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
 msgstr "Appliquer"
 
@@ -433,6 +439,15 @@ msgstr "Applications par défaut pour LXSession"
 msgid "Change the default applications on LXDE"
 msgstr "Modifier les applications par défaut dans LXDE"
 
+#: ../data/lxpolkit.desktop.in.h:1
+msgid "LXPolKit"
+msgstr ""
+
+#: ../data/lxpolkit.desktop.in.h:2
+#, fuzzy
+msgid "Policykit Authentication Agent"
+msgstr "Authentification"
+
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
 msgstr "Mettre la base de données de LXSession à jour"
@@ -461,7 +476,8 @@ msgstr "Session : spécifiez la session\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr "Supplément : ajoutez un paramètre supplémentaire pour lancer l'option\n"
+msgstr ""
+"Supplément : ajoutez un paramètre supplémentaire pour lancer l'option\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -549,8 +565,8 @@ msgid ""
 msgstr ""
 "Le gestionnaire de bureau dessine le bureau et gère les icônes qui sont "
 "dessus.\n"
-"Vous pouvez gérer cela avec le gestionnaire de fichiers en paramétrant « "
-"Gestionnaire de fichiers »"
+"Vous pouvez gérer cela avec le gestionnaire de fichiers en paramétrant "
+"« Gestionnaire de fichiers »"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
@@ -607,7 +623,8 @@ msgstr "Terminal par défaut pour lancer la ligne de commande."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr "Application pour aller sur Internet, Google, Facebook, debian.org, etc."
+msgstr ""
+"Application pour aller sur Internet, Google, Facebook, debian.org, etc."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
@@ -623,8 +640,8 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Utilitaire pour lancer des application, comme synapse ou kupfer \n"
-"Pour utiliser l'utilitaire par défaut de LXPanel ou bien de LXDE, utilisez « "
-"lxpanelctl » "
+"Pour utiliser l'utilitaire par défaut de LXPanel ou bien de LXDE, utilisez "
+"« lxpanelctl » "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -754,31 +771,31 @@ msgstr "Paramétrage manuel"
 msgid "Mime Association"
 msgstr "Association Mime"
 
-#: ../lxsession-default-apps/combobox.vala:195
+#: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
 msgstr "Applications disponibles"
 
-#: ../lxsession-default-apps/combobox.vala:241
+#: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
 msgstr "Démarrer l'application automatiquement ?"
 
-#: ../lxsession-default-apps/combobox.vala:262
+#: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
 msgstr "Gérer le bureau avec ?"
 
-#: ../lxsession-default-apps/combobox.vala:282
+#: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
 msgstr "Définir les programmes par défaut de Debian"
 
-#: ../lxsession-default-apps/combobox.vala:410
+#: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
 msgstr "Désactiver"
 
-#: ../lxsession-default-apps/combobox.vala:549
+#: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
 msgstr "Voulez-vous associer les types Mime suivants ?\n"
 
-#: ../lxsession-default-apps/combobox.vala:598
+#: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "Annuler"
 

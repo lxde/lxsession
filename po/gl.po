@@ -750,8 +750,8 @@ msgid ""
 "agent\" for ssh-agent support"
 msgstr ""
 "Administrar a compatibilidade do chaveiro.\n"
-"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con "
-"gnome-keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
+"As opcións estándar dispoñíbeis son «gnome» para a compatibilidade con gnome-"
+"keyring ou «ssh-agent» para a compatibilidade con ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""

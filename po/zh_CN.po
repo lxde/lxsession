@@ -508,13 +508,16 @@ msgid ""
 "see \"More\"), kwin, compiz ..."
 msgstr ""
 "窗口管理器绘制和管理窗口。\n"
-"您可以选择 openbox、openbox-custom(自定义 openbox 配置参见“更多”)、kwin、compiz..."
+"您可以选择 openbox、openbox-custom(自定义 openbox 配置参见“更多”)、kwin、"
+"compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
-msgstr "面板是一个管理打开窗口列表、快捷方式、通知区域等部件的东东，一般位于屏幕底部。"
+msgstr ""
+"面板是一个管理打开窗口列表、快捷方式、通知区域等部件的东东，一般位于屏幕底"
+"部。"
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
@@ -569,7 +572,9 @@ msgstr ""
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
-msgstr "Polkit 代理提供使用某些操作的授权，如挂起、休眠、使用Consolekit ... 建议设置一下。"
+msgstr ""
+"Polkit 代理提供使用某些操作的授权，如挂起、休眠、使用Consolekit ... 建议设置"
+"一下。"
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
@@ -870,7 +875,6 @@ msgstr "取消"
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession 不在运行。"
 
-#, c-format
 #~ msgid "<b><big>Logout %s session?</big></b>"
 #~ msgstr "<b><big>注销 %s 会话？</big></b>"
 

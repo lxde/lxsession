@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:14+0100\n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2014-07-11 12:58+0300\n"
 "Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && "
-"n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Lokalize 1.5\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -45,51 +45,47 @@ msgstr "موقع الشعار"
 msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:691
+#: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:699
+#: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
 msgstr "أ_طفئ"
 
-#: ../lxsession-logout/lxsession-logout.c:710
+#: ../lxsession-logout/lxsession-logout.c:713
 msgid "_Reboot"
 msgstr "أ_عد التشغيل"
 
-#: ../lxsession-logout/lxsession-logout.c:721
+#: ../lxsession-logout/lxsession-logout.c:724
 msgid "_Suspend"
 msgstr "_علّق"
 
-#: ../lxsession-logout/lxsession-logout.c:732
+#: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
 msgstr "أ_سبِت"
 
-#: ../lxsession-logout/lxsession-logout.c:743
+#: ../lxsession-logout/lxsession-logout.c:746
 msgid "S_witch User"
 msgstr "_بدّل المستخدم"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
 msgstr "ا_قفل الشاشة"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:763
+#: ../lxsession-logout/lxsession-logout.c:766
 msgid "_Logout"
 msgstr "ا_خرج"
 
-#: ../lxsession-edit/lxsession-edit-common.c:373
+#: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
 msgstr "ممكّن"
 
-#: ../lxsession-edit/lxsession-edit-common.c:378
+#: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
 msgstr "التطبيق"
-
-#: ../lxsession-edit/lxsession-edit-common.c:386
-msgid "Comment"
-msgstr "تعليق"
 
 #: ../lxpolkit/lxpolkit.c:43
 msgid "Error"
@@ -98,6 +94,12 @@ msgstr "خطأ"
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
 msgstr "معلومات"
+
+#: ../lxpolkit/lxpolkit-listener.c:88
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -156,230 +158,293 @@ msgid "Identity:"
 msgstr "الهويّة:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-msgid "Command"
-msgstr "الأمر"
+#, fuzzy
+msgid "File Manager"
+msgstr "<b>مدير الملفات</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
-msgid "Session"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:3
-msgid "Apply"
-msgstr "طبّق"
-
-#: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Reload"
 msgstr "أعد التحميل"
 
+#: ../data/ui/lxsession-default-apps.ui.h:3
+msgid "More"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:4
+#, fuzzy
+msgid "Terminal manager"
+msgstr "<b>مدير الطرفية</b>"
+
 #: ../data/ui/lxsession-default-apps.ui.h:5
-msgid "<b>Panel</b>"
-msgstr "<b>اللوحة</b>"
+msgid "Webbrowser"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
-msgid "Extras"
+msgid "Email"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-msgid "<b>Window Manager</b>"
-msgstr "<b>مدير النوافذ</b>"
+#, fuzzy
+msgid "Communication 1"
+msgstr "<b>التواصل 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-msgid "<b>File Manager</b>"
-msgstr "<b>مدير الملفات</b>"
+#, fuzzy
+msgid "Communication 2"
+msgstr "<b>التواصل 2</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-msgid "<b>Screensaver</b>"
-msgstr "<b>حافظ الشاشة</b>"
+#, fuzzy
+msgid "Widget 1"
+msgstr "<b>الودجة 1</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-msgid "<b>Polkit agent</b>"
-msgstr "<b>وكيل Polkit</b>"
+#, fuzzy
+msgid "Launcher manager"
+msgstr "<b>مدير الإطلاق</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-msgid "<b>Dock</b>"
-msgstr ""
+#, fuzzy
+msgid "Screenshot manager"
+msgstr "<b>مدير لقطة الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
-msgid "Autostart"
-msgstr "البدء الآلي"
+msgid "PDF Reader"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
-msgid "<b>Composite Manager</b>"
+msgid "Video player"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
-msgid "Wallpaper"
-msgstr "الخلفية"
+msgid "Audio player"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-msgid "<b>Desktop</b>"
-msgstr "<b>سطح المكتب</b>"
+#, fuzzy
+msgid "Image viewer"
+msgstr "ملف صورة"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
-msgid "<b>Power Manager</b>"
-msgstr "<b>مدير الطاقة</b>"
+msgid "Text editor"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
-msgid "<b>Network GUI</b>"
-msgstr "<b>واجهة الشبكة</b>"
+msgid "Archive"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
-msgid "<b>Communication 1</b>"
-msgstr "<b>التواصل 1</b>"
+msgid "Charmap"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
-msgid "<b>Communication 2</b>"
-msgstr "<b>التواصل 2</b>"
+msgid "Calculator"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
-msgid "<b>Widget 1</b>"
-msgstr "<b>الودجة 1</b>"
+msgid "Spreadsheet"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
-msgid "Running applications"
-msgstr "التطبيقات التي تعمل"
+msgid "Bittorent"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-msgid "<b>Audio manager</b>"
-msgstr "<b>مدير الصوت</b>"
+#, fuzzy
+msgid "Document"
+msgstr "تعليق"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
-msgid "Image"
+msgid "Webcam"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
-msgid "Layout"
+msgid "Burning utility"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
-msgid "<b>Quit Manager</b>"
-msgstr "<b>مدير الإنهاء</b>"
+msgid "Notes utility"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
-msgid "<b>Workspace manager</b>"
-msgstr "<b>مدير مساحات العمل</b>"
+msgid "Disks utility"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
-msgid "<b>Launcher manager</b>"
-msgstr "<b>مدير الإطلاق</b>"
+msgid "Tasks monitor"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
-msgid "<b>Terminal manager</b>"
-msgstr "<b>مدير الطرفية</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:29
-msgid "<b>Screenshot manager</b>"
-msgstr "<b>مدير لقطة الشاشة</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:30
-msgid "<b>Upgrade manager</b>"
-msgstr "<b>مدير الترقية</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:31
-msgid "<b>Lock screen manager</b>"
-msgstr "<b>مدير قفل الشاشة</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Launching applications"
 msgstr ""
 
+#: ../data/ui/lxsession-default-apps.ui.h:29
+#, fuzzy
+msgid "Windows Manager"
+msgstr "مدير النوافذ:"
+
+#: ../data/ui/lxsession-default-apps.ui.h:30
+msgid "Panel"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:31
+msgid "Dock"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:32
+msgid "Composite Manager"
+msgstr ""
+
 #: ../data/ui/lxsession-default-apps.ui.h:33
-msgid "Disable autostarted applications ?"
-msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
+#, fuzzy
+msgid "Desktop Manager"
+msgstr "مدير النوافذ:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-msgid "<b>Settings</b>"
-msgstr ""
+#, fuzzy
+msgid "Screensaver"
+msgstr "<b>حافظ الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+#, fuzzy
+msgid "Power Manager"
+msgstr "<b>مدير الطاقة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-msgid "<b>Known Applications </b>"
-msgstr ""
+#, fuzzy
+msgid "Polkit agent"
+msgstr "<b>وكيل Polkit</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-msgid "<b>Clipboard manager</b>"
-msgstr ""
+#, fuzzy
+msgid "Network GUI"
+msgstr "<b>واجهة الشبكة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-msgid "Mode"
-msgstr "الوضع"
+#, fuzzy
+msgid "Lock screen manager"
+msgstr "<b>مدير قفل الشاشة</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-msgid "Model"
-msgstr "الطراز"
+#, fuzzy
+msgid "Audio manager"
+msgstr "<b>مدير الصوت</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-msgid "Variant"
-msgstr "التنويعة"
+#, fuzzy
+msgid "Workspace manager"
+msgstr "<b>مدير مساحات العمل</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-msgid "Options"
-msgstr "خيارات"
+#, fuzzy
+msgid "Quit manager"
+msgstr "<b>مدير الإنهاء</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-msgid "<b>Keymap</b>"
-msgstr ""
+#, fuzzy
+msgid "Upgrade manager"
+msgstr "<b>مدير الترقية</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-msgid "<b>XRandr</b>"
+msgid "Clipboard manager"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
-msgid "Keyring"
-msgstr "حلقة المفاتيح"
+msgid "Security (keyring)"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
-msgid "<b>Security</b>"
-msgstr "<b>الأمن</b>"
+msgid "A11y"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
-msgid "Type"
-msgstr "النوع"
+msgid "Proxy"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
-msgid "<b>a11y</b>"
+msgid "Xrandr"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-msgid "Activate updates"
-msgstr "فعّل التحديثات"
+#, fuzzy
+msgid "Core applications"
+msgstr "التطبيق"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "<b>Updates</b>"
-msgstr "<b>التحديثات</b>"
+msgid "Disable autostarted applications ?"
+msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
-msgid "Http"
+msgid "<b>Settings</b>"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
-msgid "<b>Proxy</b>"
-msgstr "<b>الوسيط</b>"
+msgid "<b>Manual autostarted applications</b>"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
+msgid "<b>Known Applications </b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:53
+msgid "Autostart"
+msgstr "البدء الآلي"
+
+#: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
 msgstr "وضع الحاسوب المحمول"
 
-#: ../data/ui/lxsession-default-apps.ui.h:53
+#: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
 msgstr "<b>الإعدادات العامّة</b>"
 
-#: ../data/ui/lxsession-default-apps.ui.h:54
+#: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
 msgstr ""
 
-#: ../data/ui/lxsession-default-apps.ui.h:55
+#: ../data/ui/lxsession-default-apps.ui.h:57
+msgid "Type"
+msgstr "النوع"
+
+#: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
 msgstr ""
 
-#: ../data/ui/lxsession-default-apps.ui.h:56
+#: ../data/ui/lxsession-default-apps.ui.h:59
+#: ../lxsession-default-apps/combobox.vala:168
+#: ../lxsession-default-apps/combobox.vala:284
+msgid "Apply"
+msgstr "طبّق"
+
+#: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
 msgstr "<b>البيئة</b>"
 
-#: ../data/ui/lxsession-default-apps.ui.h:57
+#: ../data/ui/lxsession-default-apps.ui.h:61
+msgid "Mode"
+msgstr "الوضع"
+
+#: ../data/ui/lxsession-default-apps.ui.h:62
+msgid "Model"
+msgstr "الطراز"
+
+#: ../data/ui/lxsession-default-apps.ui.h:63
+msgid "Layout"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:64
+msgid "Variant"
+msgstr "التنويعة"
+
+#: ../data/ui/lxsession-default-apps.ui.h:65
+msgid "Options"
+msgstr "خيارات"
+
+#: ../data/ui/lxsession-default-apps.ui.h:66
+msgid "<b>Keymap</b>"
+msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
 msgstr ""
 
@@ -394,6 +459,349 @@ msgstr "تطبيقاات LXSession الافتراضية"
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
 msgstr "غيّر تطبيقات لكسدي الافتراضية"
+
+#: ../data/lxpolkit.desktop.in.h:1
+msgid "LXPolKit"
+msgstr ""
+
+#: ../data/lxpolkit.desktop.in.h:2
+#, fuzzy
+msgid "Policykit Authentication Agent"
+msgstr "الاستيثاق"
+
+#: ../lxsession-default-apps/main.vala:29
+msgid "Update lxsession database"
+msgstr ""
+
+#. Widget content:
+#: ../lxsession-default-apps/main.vala:42
+msgid "The database is updating, please wait"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:91
+msgid "LXSession configuration"
+msgstr ""
+
+#. Common string
+#: ../lxsession-default-apps/main.vala:143
+msgid ""
+"Manual Settings: Manually sets the command (you need to restart lxsession-"
+"default-apps to see the change)\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:144
+msgid "Session : specify the session\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:145
+msgid "Extra: Add an extra parameter to the launch option\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:146
+msgid ""
+"Mime association: Automatically associates mime types to this application ?\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:147
+msgid ""
+"Available applications : Applications of this type available on your "
+"repositories\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:148
+msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:149
+#, fuzzy
+msgid "Autostart the application ?\n"
+msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
+
+#: ../lxsession-default-apps/main.vala:150
+msgid ""
+"Set default program for Debian system (using update-alternatives, need root "
+"password)\n"
+msgstr ""
+
+#. New inits
+#: ../lxsession-default-apps/main.vala:153
+msgid ""
+"Windows manager draws and manage the windows. \n"
+"You can choose openbox, openbox-custom (for a custom openbox configuration, "
+"see \"More\"), kwin, compiz ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:158
+msgid ""
+"Panel is the component usually at the bottom of the screen which manages a "
+"list of opened windows, shortcuts, notification area ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:163
+msgid ""
+"Dock is a second panel. It's used to launch a different program to handle a "
+"second type of panel."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:168
+msgid ""
+"File manager is the component which open the files.\n"
+"See \"More\" to add options to handle the desktop, or openning files "
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:173
+msgid ""
+"Composite manager enables graphics effects, like transpacency and shadows, "
+"if the windows manager doesn't handle it. \n"
+"Example: compton"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:178
+msgid ""
+"Desktop manager draws the desktop and manages the icons inside it.\n"
+"You can manage it with the file manager by setting \"filemanager\""
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:180
+msgid "Wallpaper: Set an image path to draw the wallpaper"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:183
+msgid ""
+"Screensaver is a program which displays animations when your computer is idle"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:188
+msgid ""
+"Power Manager helps you to reduce the usage of batteries. You probably don't "
+"need one if you have a desktop computer.\n"
+"Auto option will set it automatically, depending of the laptop mode option."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:193
+msgid ""
+"Polkit agent provides authorisations to use some actions, like suspend, "
+"hibernate, using Consolekit ... It's not advised to make it blank."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:198
+msgid "Set an utility to manager connections, such as nm-applet"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:203
+msgid "Use a communication software (an IRC client, an IM client ...)"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:208
+msgid "Use another communication software (an IRC client, an IM client ...)"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:213
+msgid "Terminal by default to launch command line."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:218
+msgid "Application to go to Internet, Google, Facebook, debian.org ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:223
+#, fuzzy
+msgid "Application to send mails"
+msgstr "التطبيق"
+
+#: ../lxsession-default-apps/main.vala:228
+msgid "Utility to launch gadgets, like conky, screenlets ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:233
+msgid ""
+"Utility to launch application, like synapse, kupfer ... \n"
+"For using lxpanel or lxde default utility, use \"lxpanelctl\" "
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:238
+msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:248
+#, fuzzy
+msgid "Video application"
+msgstr "التطبيق"
+
+#: ../lxsession-default-apps/main.vala:253
+#, fuzzy
+msgid "Audio application"
+msgstr "التطبيق"
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Application to display images"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:263
+#, fuzzy
+msgid "Application to edit text"
+msgstr "التطبيق"
+
+#: ../lxsession-default-apps/main.vala:268
+msgid "Application to create archives, like file-roller"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:273
+#, fuzzy
+msgid "Charmap application"
+msgstr "التطبيق"
+
+#: ../lxsession-default-apps/main.vala:278
+#, fuzzy
+msgid "Calculator application"
+msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
+
+#: ../lxsession-default-apps/main.vala:283
+msgid "Application to create spreedsheet, like gnumeric"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:288
+msgid "Application to manage bittorent, like transmission"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:293
+msgid "Application to manage office text, like abiword"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:298
+msgid "Application to manage webcam"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:303
+msgid "Application to manage burning CD/DVD utilty "
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:308
+msgid "Application to manage notes utility"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:313
+msgid "Application to manage disks"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:318
+msgid "Application to monitor tasks running on your system"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:323
+msgid "Application to lock your screen"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:328
+msgid "Managing your audio configuration"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:333
+msgid "Managing your workspace configuration"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:338
+#, fuzzy
+msgid "Managing the application to quit your session"
+msgstr "أدِر التطبيقات المحمّلة في جلسة سطح المكتب"
+
+#: ../lxsession-default-apps/main.vala:343
+#, fuzzy
+msgid "Managing the application to update and upgrade your system"
+msgstr "أدِر التطبيقات المحمّلة في جلسة سطح المكتب"
+
+#: ../lxsession-default-apps/main.vala:348
+msgid "Managing clipboard support"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:353
+msgid ""
+"Managing keyring support.\n"
+"Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
+"agent\" for ssh-agent support"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:358
+msgid ""
+"Managing support for accessibility.\n"
+"Stardart option are gnome, for stardart gnome support."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:363
+msgid "Managing proxy support"
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:368
+msgid "Managing XRandr parameters. Use a command like xrandr --something"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:145
+msgid "Manual setting"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:165
+msgid "Mime Association"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:194
+#, fuzzy
+msgid "Available applications"
+msgstr "التطبيقات التي تعمل"
+
+#: ../lxsession-default-apps/combobox.vala:240
+#, fuzzy
+msgid "Autostart the application ?"
+msgstr "أأعطّل التطبيقات التي تبدأ آليًا؟"
+
+#: ../lxsession-default-apps/combobox.vala:261
+msgid "Handle the desktop with it ?"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:281
+msgid "Set debian default programs"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:425
+msgid "Disable"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:564
+msgid "Do you want to assiociate the following Mimetype ?\n"
+msgstr ""
+
+#: ../lxsession-default-apps/combobox.vala:612
+msgid "Cancel"
+msgstr ""
+
+#~ msgid "Command"
+#~ msgstr "الأمر"
+
+#~ msgid "<b>Panel</b>"
+#~ msgstr "<b>اللوحة</b>"
+
+#~ msgid "<b>Window Manager</b>"
+#~ msgstr "<b>مدير النوافذ</b>"
+
+#~ msgid "Wallpaper"
+#~ msgstr "الخلفية"
+
+#~ msgid "<b>Desktop</b>"
+#~ msgstr "<b>سطح المكتب</b>"
+
+#~ msgid "Keyring"
+#~ msgstr "حلقة المفاتيح"
+
+#~ msgid "<b>Security</b>"
+#~ msgstr "<b>الأمن</b>"
+
+#~ msgid "Activate updates"
+#~ msgstr "فعّل التحديثات"
+
+#~ msgid "<b>Updates</b>"
+#~ msgstr "<b>التحديثات</b>"
+
+#~ msgid "<b>Proxy</b>"
+#~ msgstr "<b>الوسيط</b>"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession ليس قيد التشغيل."

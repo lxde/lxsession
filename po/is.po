@@ -97,7 +97,7 @@ msgid ""
 "Wrong password?"
 msgstr ""
 "Auðkenning mistókst\n"
-"Er lykilorðið rangt?\n"
+"Er lykilorðið rangt?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -732,5 +732,3 @@ msgstr ""
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "Hætta við"
-
-

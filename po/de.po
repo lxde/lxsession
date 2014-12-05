@@ -53,7 +53,6 @@ msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
-#, c-format
 #, fuzzy, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Von der %s-Sitzung abmelden?</big></b>"
@@ -779,7 +778,6 @@ msgstr ""
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession tebindabinda."
 
-#, c-format
 #~ msgid "<b><big>Logout %s session?</big></b>"
 #~ msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
 

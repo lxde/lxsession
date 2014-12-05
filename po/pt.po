@@ -564,8 +564,8 @@ msgid ""
 msgstr ""
 "O gestor do ambiente de trabalho serve para gerir o ecrã e os ícones "
 "existentes.\n"
-"Pode gerir o ambiente de trabalho com o gestor de ficheiros se definir \""
-"filemanager\"."
+"Pode gerir o ambiente de trabalho com o gestor de ficheiros se definir "
+"\"filemanager\"."
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
