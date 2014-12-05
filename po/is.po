@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-04 15:29+0000\n"
+"PO-Revision-Date: 2014-12-05 17:43+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -96,7 +96,7 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
-"Auðkenning mistókst\n"
+"Auðkenning mistókst!\n"
 "Er lykilorðið rangt?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
@@ -164,7 +164,7 @@ msgstr "Meira"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "Skjáhermistjórnun"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
@@ -188,7 +188,7 @@ msgstr "Viðmótshluti 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Ræsistjórnun"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
@@ -485,7 +485,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr ""
+msgstr "Sjálfræsa forritið?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -572,11 +572,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Forrit til að vafra um internetið, Google, Fésbók, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr ""
+msgstr "Forrit til að senda tölvupóst"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -594,59 +594,59 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
-msgstr ""
+msgstr "Forrit fyrir myndskeið"
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Audio application"
-msgstr ""
+msgstr "Forrit fyrir hljóð"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Forrit til myndbirtinga"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
-msgstr ""
+msgstr "Forrit til að breyta texta"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Forrit til að sýsla með safnskrár, eins og file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
-msgstr ""
+msgstr "Forrit fyrir stafatöflu"
 
 #: ../lxsession-default-apps/main.vala:278
 msgid "Calculator application"
-msgstr ""
+msgstr "Reiknivél"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Forrit til að sýsla með töflureikna, eins og gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Forrit til að sýsla með torrent-strauma, eins og transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Forrit til að sýsla með ritvinnsluskjöl, eins og abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Forrit til að sýsla með vefmyndavél"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Forrit til að sýsla með diskabrennslu "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Forrit til að sýsla með minnispunkta"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Forrit til að sýsla með diska"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
@@ -654,7 +654,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Forrit til að læsa skjánum"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
@@ -699,19 +699,19 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Handvirkar stillingar"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "MIME-skráavensl"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr ""
+msgstr "Tiltæk forrit"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "Sjálfræsa forritið?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
@@ -732,3 +732,5 @@ msgstr ""
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "Hætta við"
+
+
