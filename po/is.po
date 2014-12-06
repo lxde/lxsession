@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-05 17:43+0000\n"
+"PO-Revision-Date: 2014-12-06 21:31+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Forrit til að taka skjámyndir af skjáborði, eins og scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -650,7 +650,7 @@ msgstr "Forrit til að sýsla með diska"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Forrit til að fylgjast með verkferlum í keyrslu á kerfinu"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
@@ -658,11 +658,11 @@ msgstr "Forrit til að læsa skjánum"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Sýsla með uppsetningu hljóðvinnslu"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Sýsla með uppsetningu vinnurýmis"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
@@ -674,7 +674,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Sýsla með stuðning við klippispjald"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -691,11 +691,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Sýsla með stuðning við milliþjóna (proxy)"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr ""
+msgstr "Sýsla með viðföng XRandr. Notaðu skipun á borð við xrandr --valkostur"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -715,11 +715,11 @@ msgstr "Sjálfræsa forritið?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Meðhöndla skjáborðið með því ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Stilla sjálfgefin debian forrit"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
@@ -727,7 +727,7 @@ msgstr "Gera óvirkt"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Viltu tengja þetta við eftirfarandi MIME-tegundir?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
