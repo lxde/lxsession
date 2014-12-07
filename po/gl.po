@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-02 13:44+0000\n"
+"PO-Revision-Date: 2014-12-07 07:37+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417527851.000000\n"
+"X-POOTLE-MTIME: 1417937878.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -735,9 +735,8 @@ msgid "Managing the application to quit your session"
 msgstr "Administrar a aplicación para saír da sesión"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
+msgstr "Administra a aplicación para actualizar e anovar o sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
