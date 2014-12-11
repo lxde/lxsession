@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-01-28 09:44+0000\n"
-"Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
+"PO-Revision-Date: 2014-12-11 13:08+0000\n"
+"Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1390902278.0\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1418303318.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -99,6 +99,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Authenticatie is mislukt.\n"
+"Verkeerd wachtwoord?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -162,9 +164,8 @@ msgid "Identity:"
 msgstr "Identiteit:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Bestandbeheerder</b>"
+msgstr "Bestandbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -172,209 +173,187 @@ msgstr "Herladen"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Meer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Terminalbeheerder</b>"
+msgstr "Terminalbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Webbrowser"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Communicatie 1</b>"
+msgstr "Communicatie 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Communicatie 2</b>"
+msgstr "Communicatie 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Minitoepassing 1</b>"
+msgstr "Minitoepassing 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Programmastartbeheerder</b>"
+msgstr "Programmastartbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Schermafdrukbeheerder</b>"
+msgstr "Schermafdrukbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF-lezer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Videospeler"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Audiospeler"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "afbeeldingbestand"
+msgstr "Afbeeldingkijker"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Tekstbewerker"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Archiveren"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Speciale tekens"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Rekenmachine"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Rekenblad"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Commentaar"
+msgstr "Document"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Webcamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Brandgereedschap"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Notitiehulpmiddel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Schijfgereedschap"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Taakbewaker"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Toepassingen starten"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Vensterbeheerder:"
+msgstr "Vensterbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Paneel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Dok"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Beheerder voor samengesteld beeld</b>"
+msgstr "Beheerder voor samengesteld beeld"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Vensterbeheerder:"
+msgstr "Bureaubladbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Schermbeveiliging</b>"
+msgstr "Schermbeveiliging"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Energiebeheerder</b>"
+msgstr "Energiebeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Polkit-agent</b>"
+msgstr "Polkit-agent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Grafische schil voor netwerk</b>"
+msgstr "Grafische schil voor netwerk"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Schermvergrendelingbeheerder</b>"
+msgstr "Schermvergrendelingbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Geluidbeheerder</b>"
+msgstr "Geluidbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Werkbladbeheerder</b>"
+msgstr "Werkbladbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Afsluitbeheerder</b>"
+msgstr "Afsluitbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Opwaardeerbeheerder</b>"
+msgstr "Opwaardeerbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Klembordbeheerder</b>"
+msgstr "Klembordbeheerder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Veiligheid (sleutelbos)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Toepassing"
+msgstr "Kerntoepassingen"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -468,25 +447,24 @@ msgstr "Wijzig de standaardtoepassingen voor LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Authenticatie"
+msgstr "Authenticatie-agent Policykit"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "lxsession-gegevensbank bijwerken"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "De gegevensbank wordt bijgewerkt, een ogenblik geduld a.u.b."
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Instellingen van LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -494,40 +472,47 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Handmatige instellingen: de opdracht handmatig instellen (u dient lxsession-"
+"default-apps te herstarten om de verandering te zien)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sessie: geef de sessie op\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Extra: voeg een extra parameter toe aan de opstartoptie\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
+"Mime-associatie: automatisch bestandtypen associëren met deze toepassing?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Beschikbare toepassingen: toepassingen van dit type die beschikbaar zijn in "
+"uw pakketbronnen\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Omgaan met werkomgeving: werkomgeving samenstellen met de bestandbeheerder?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Automatisch gestarte toepassingen uitschakelen?"
+msgstr "Toepassing automatisch starten?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Standaardprogramma instellen voor Debiansysteem (met update-alternatives, "
+"systeembeheerderswachtwoord is vereist)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -536,24 +521,35 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Vensterbeheerder stelt de vensters samen en beheert ze.\n"
+"U kunt kiezen voor openbox, openbox-custom (voor een aangepaste openbox-"
+"instelling, zie \"Meer\"), kwin, compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Paneel of werkbalk is de component die gewoonlijk onderaan het scherm staat "
+"en een lijst beheert van geopende vensters, snelkoppelingen, "
+"meldingengebied..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dok is een tweede paneel of werkbalk. Hij wordt gebruikt om een ander "
+"programma te starten voor het omgaan met een tweede soort paneel."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Bestandbeheerder is de component die de bestanden opent.\n"
+"Zie \"Meer\" om opties toe te voegen voor het omgaan met de werkomgeving of "
+"voor het openen van bestanden."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -561,21 +557,32 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"De beheerder voor samengesteld beeld schakelt grafische effecten in, zoals "
+"doorzichtigheid en schaduwen, indien de vensterbeheerder dat niet doet.\n"
+"Voorbeeld: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Bureaubladbeheerder stelt het bureaublad samen en beheert de pictogrammen "
+"die erop staan.\n"
+"U kunt hem beheren met de bestandbeheerder door \"filemanager\" in te "
+"stellen."
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr ""
+"Bureaubladachtergrond: stel een afbeelding in om als bureaubladachtergrond "
+"te dienen."
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Schermbeveiliging is een programma dat animaties weergeeft wanneer uw "
+"computer niets doet"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
