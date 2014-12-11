@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-11 13:08+0000\n"
+"PO-Revision-Date: 2014-12-11 13:31+0000\n"
 "Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1418303318.000000\n"
+"X-POOTLE-MTIME: 1418304662.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -590,24 +590,36 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Energiebeheerder helpt u om het accugebruik te verminderen. U hebt hem "
+"waarschijnlijk niet nodig wanneer u een bureaucomputer heeft.\n"
+"De optie Auto zal hem automatisch instellen, afhankelijk van de laptopmodus-"
+"optie."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit-agent levert machtigingen voor bepaalde handelingen, zoals "
+"pauzestand, slaapstand, het gebruik van Consolekit... Het wordt niet "
+"aangeraden om dit leeg te laten."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
 msgstr ""
+"Stel een hulpmiddel in voor het beheren van verbindingen, zoals nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Gebruik communicatieprogrammatuur (een IRC-cliënt, een Instantbericht-"
+"cliënt, ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Gebruik andere communicatieprogrammatuur (een IRC-cliënt, een instantbericht-"
+"cliënt, ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
