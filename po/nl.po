@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-11 13:31+0000\n"
+"PO-Revision-Date: 2014-12-14 18:45+0000\n"
 "Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1418304662.000000\n"
+"X-POOTLE-MTIME: 1418582706.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -623,121 +623,116 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Standaard-terminalvenster voor opdrachtregels."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Toepassing voor het bezoeken van websites"
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Toepassing"
+msgstr "Toepassing voor het versturen van e-mail"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Hulpmiddel voor het starten van minitoepassingen zoals Conky."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Hulpmiddel voor het starten van toepassingen.\n"
+"Voor het gebruik van lxpanel of het standaardhulpmiddel van lxde, gebruikt u "
+"'lxpanelctl'."
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Toepassing voor het maken van een schermafdruk van uw bureaublad"
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Toepassing"
+msgstr "Videotoepassing"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Toepassing"
+msgstr "Muziektoepassing"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Toepassing voor het weergeven van afbeeldingen"
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Toepassing"
+msgstr "Toepassing voor het bewerken van tekst"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Toepassing voor het maken van archiefbestanden, zoals file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Toepassing"
+msgstr "Toepassing voor bijzondere tekens"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Automatisch gestarte toepassingen uitschakelen?"
+msgstr "Rekenmachinetoepassing"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Toepassing voor het maken van een rekenblad, zoals gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Toepassing voor het beheren van bittorrent, zoals Transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Toepassing voor professionele documenten, zoals Abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Toepassing voor webcamera"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Toepassing voor het branden van CD's en DVD's"
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Toepassing voor notities"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Toepassing voor schijfbeheer"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Toepassing voor het bewaken van draaiende processen op uw systeem"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Toepassing voor schermvergrendeling"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Uw geluidinstellingen beheren"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Uw werkbladinstellingen beheren"
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Toepassingen beheren die geladen zijn in de bureaubladsessie"
+msgstr "De toepassing beheren waarmee u uw sessie sluit"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Toepassingen beheren die geladen zijn in de bureaubladsessie"
+msgstr "De toepassing beheren voor het bijwerken en opwaarderen van uw systeem"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Klembordondersteuning beheren"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -745,58 +740,62 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Sleutelbosondersteuning beheren.\n"
+"Beschikbare standaardopties: 'gnome' voor ondersteuning voor gnome-keyring "
+"of 'ssh-agent' voor ondersteuning vooor ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Ondersteuning voor toegankelijkheid beheren.\n"
+"De standaardoptie is gnome."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Proxy-ondersteuning beheren"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"XRandr-parameters beheren. Gebruik een opdracht als 'xrandr --huppelepup'."
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Handmatige instelling"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Associatie van bestandsoorten (MIME)"
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Toepassingen starten"
+msgstr "Beschikbare toepassingen"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Automatisch gestarte toepassingen uitschakelen?"
+msgstr "Toepassing automatisch starten?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Gebruiken voor het beheren van de werkomgeving?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Standaard-debianprogramma's instellen"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Uitschakelen"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Wilt u de volgende bestandsoort (MIME-type) associëren?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 #~ msgid "Command"
 #~ msgstr "Opdracht"
