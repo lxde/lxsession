@@ -523,7 +523,7 @@ msgid ""
 msgstr ""
 "Vensterbeheerder stelt de vensters samen en beheert ze.\n"
 "U kunt kiezen voor openbox, openbox-custom (voor een aangepaste openbox-"
-"instelling, zie \"Meer\"), kwin, compiz..."
+"instelling, zie 'Meer', kwin, compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
@@ -548,7 +548,7 @@ msgid ""
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
 "Bestandbeheerder is de component die de bestanden opent.\n"
-"Zie \"Meer\" om opties toe te voegen voor het omgaan met de werkomgeving of "
+"Zie 'Meer' om opties toe te voegen voor het omgaan met de werkomgeving of "
 "voor het openen van bestanden."
 
 #: ../lxsession-default-apps/main.vala:173
@@ -568,7 +568,7 @@ msgid ""
 msgstr ""
 "Bureaubladbeheerder stelt het bureaublad samen en beheert de pictogrammen "
 "die erop staan.\n"
-"U kunt hem beheren met de bestandbeheerder door \"filemanager\" in te "
+"U kunt hem beheren met de bestandbeheerder door 'filemanager' in te "
 "stellen."
 
 #: ../lxsession-default-apps/main.vala:180
@@ -783,7 +783,7 @@ msgstr "Gebruiken voor het beheren van de werkomgeving?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr "Standaard-debianprogramma's instellen"
+msgstr "Standaard-Debianprogramma's instellen"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
