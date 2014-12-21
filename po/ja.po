@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-21 01:45+0000\n"
+"PO-Revision-Date: 2014-12-21 02:55+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: ja_JP <LL@li.org>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1419126340.000000\n"
+"X-POOTLE-MTIME: 1419130552.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -54,32 +54,32 @@ msgstr "<b><big>%s %s セッションをログアウトしますか?</big></b>"
 # Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
-msgstr "シャットダウン(_U)"
+msgstr "シャットダウン（_U）"
 
 #: ../lxsession-logout/lxsession-logout.c:713
 msgid "_Reboot"
-msgstr "再起動(_R)"
+msgstr "再起動（_R）"
 
 #: ../lxsession-logout/lxsession-logout.c:724
 msgid "_Suspend"
-msgstr "サスペンド(_S)"
+msgstr "サスペンド（_S）"
 
 #: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
-msgstr "ハイバネート(_H)"
+msgstr "ハイバネート（_H）"
 
 #: ../lxsession-logout/lxsession-logout.c:746
 msgid "S_witch User"
-msgstr "ユーザの切り替え(_W)"
+msgstr "ユーザの切り替え（_W）"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr "スクリーンのロック(_O)"
+msgstr "スクリーンのロック（_O）"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
 msgid "_Logout"
-msgstr "ログアウト(_L)"
+msgstr "ログアウト（_L）"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
@@ -484,27 +484,28 @@ msgstr "Extra: 起動オプションに新たなパラメータを追加\n"
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "Mime association: このアプリケーションをmime typesに自動的に関連付けますか?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
-msgstr ""
+msgstr "Available applications : このタイプのアプリケーションはリポジトリ上で使用可能です\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
-msgstr ""
+msgstr "Handle Desktop: ファイルマネージャーを使用してデスクトップを描画しますか?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr "アプリケーションを自動起動させますか?\n"
+msgstr "アプリケーションを自動起動させますか ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Debianシステムのためのデフォルトのプログラムを設定します(update-alternativesの使用には、rootのパスワードが必要です)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -513,24 +514,29 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"ウィンドウマネージャーはウィンドウの管理をします。  \n"
+"openbox, openbox-custom (Openboxのカスタム版, \"More\" を見てください), kwin, compiz ... "
+"から選ぶことができます。"
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
-msgstr ""
+msgstr "パネルは通常、スクリーンの下に配置され、開いているウィンドウのリスト、ショートカット、通知エリア...の管理をします。"
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
-msgstr ""
+msgstr "Dockはもうひとつのパネルです。様々なプログラムを起動させるのに使用します。"
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"ファイルマネージャーはファイルを開く際に使用されるコンポーネントです。\n"
+"デスクトップでの取り扱い、ファイルを開く際のオプションを追加するには \"More\" を見てください。 "
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -538,21 +544,25 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Composite manager はウィンドウマネージャーが取り扱いできない透過や影などのグラフィック効果を可能にします。  \n"
+"例: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"デスクトップマネージャーはデスクトップとその上のアイコンの描画を行います。\n"
+"\"filemanager\" の設定によって管理を行うことができます。"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "壁紙: 壁紙を描画するには画像のパスを設定してください"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
-msgstr ""
+msgstr "スクリーンセーバーはコンピューターがアイドルの時に表示されるアニメーションプログラムです"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -560,32 +570,35 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"パワーマネージャーはバッテリー使用量の軽減を援助します。おそらくデスクトップコンピュータでは必要ではありません。\n"
+"ラップトップモードのオプションにtよって自動的に設定されます。"
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit agent はサスペンドやハイバーネート、Consolekitの使用など...に対して認証作業を与えます。ブランクにすることを推奨しません。"
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "nm-appletのような接続マネージャーを設定します"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "コミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用します"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "外のコミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用します"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "コマンドラインからの起動にはTerminalを使用します。"
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Internet, Google, Facebook, debian.org ...を訪れるためのアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
@@ -593,17 +606,19 @@ msgstr "メール送信用アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "conky, screenlets ...のようなガジェットを起動させるユーティリティー"
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"synapse, kupfer ... のようなアプリケーションを起動するユーティリティ \n"
+"lxpanel あるいはlxdeのデフォルトユーテリティーの起動のためには \"lxpanelctl\"を使用します。"
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "scrot ...のようなデスクトップ上でスクリーンショットを撮るためのアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -615,7 +630,7 @@ msgstr "オーディオアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "画像を表示するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
@@ -623,7 +638,7 @@ msgstr "テキスト編集アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "file-roller のようなアーカイブを作成するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
@@ -635,47 +650,47 @@ msgstr "電卓アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "gnumericのようなスプレッドシートを作成するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "transmissionのような、bittorentを管理するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "abiwordのような、オフィス文書を管理するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "webcamを管理するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "CD/DVDへの書き込みを管理するアプリケーション "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "notes ユーテリティーを管理するアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "ディスク管理アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "システム上のタスクをモニタするアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "スクリーンをロックするアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "オーディオ構成の管理"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "ワークスペース構成の管理"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
@@ -687,7 +702,7 @@ msgstr "システムのアップデート及びアップグレード時のアプ
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "クリップボードサポートの管理"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -695,28 +710,32 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"キーリングサポートの管理。\n"
+"標準オプションはgnome-keyringサポートのための\"gnome\" あるいはssh-agentサポートのための \"ssh-agent\"。"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"アクセシビリティのサポートの管理。\n"
+"標準オプションは、gnome 標準サポートのためのgnome。"
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "プロキシサポートの管理"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr ""
+msgstr " XRandr パラメータの管理。xrandr --somethingnのようにコマンドを使用する。"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "手動設定"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Mimeの関連づけ"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
@@ -728,23 +747,23 @@ msgstr "アプリケーションを自動起動しますか?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "これでデスクトップをハンドルしますか?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "debian デフォルトプログラムの設定"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "不可"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "以下のMimetypeを関連づけしますか?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "取り消し"
 
 #~ msgid "Command"
 #~ msgstr "コマンド"
