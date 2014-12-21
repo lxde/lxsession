@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-10-27 21:09+0000\n"
+"PO-Revision-Date: 2014-12-21 01:32+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: ja_JP <LL@li.org>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1414444181.000000\n"
+"X-POOTLE-MTIME: 1419125536.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -161,9 +161,8 @@ msgid "Identity:"
 msgstr "同一性:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>ファイルマネージャ</b>"
+msgstr "ファイルマネージャ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -174,9 +173,8 @@ msgid "More"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>端末の管理</b>"
+msgstr "ターミナルマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
@@ -187,29 +185,24 @@ msgid "Email"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>通信 1</b>"
+msgstr "通信 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>通信 2</b>"
+msgstr "通信 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>ウィジェット 1</b>"
+msgstr "ウィジェット 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>ランチャの管理</b>"
+msgstr "ランチャーマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>スクリーンショット</b>"
+msgstr "スクリーンショットマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
@@ -225,9 +218,8 @@ msgstr ""
 
 # tutto maiuscolo perché è un parametro per la riga di comando
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "画像ファイル"
+msgstr "画像ビューアー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
@@ -254,9 +246,8 @@ msgid "Bittorent"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "コメント"
+msgstr "文書"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
@@ -283,9 +274,8 @@ msgid "Launching applications"
 msgstr "立ち上げるアプリケーション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "ウィンドウマネージャ:"
+msgstr "ウィンドウマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
@@ -296,64 +286,52 @@ msgid "Dock"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>合成マネージャ</b>"
+msgstr "合成マネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "ウィンドウマネージャ:"
+msgstr "デスクトップマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>スクリーンセーバー</b>"
+msgstr "スクリーンセーバー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>電源管理</b>"
+msgstr "電源管理"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Polkit エージェント</b>"
+msgstr "Polkit エージェント"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>ネットワーク GUI</b>"
+msgstr "ネットワーク GUI"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>スクリーンロック</b>"
+msgstr "スクリーンロックマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>オーディオマネージャ</b>"
+msgstr "オーディオマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>ワークスペースの管理</b>"
+msgstr "ワークスペースの管理"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>終了マネージャ</b>"
+msgstr "終了マネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>更新マネージャ</b>"
+msgstr "アップデートマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>クリップボード・マネージャ</b>"
+msgstr "クリップボードマネージャー"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
@@ -372,9 +350,8 @@ msgid "Xrandr"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "アプリケーション"
+msgstr "コアアプリケーション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -471,9 +448,8 @@ msgid "LXPolKit"
 msgstr ""
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "認証"
+msgstr "Policykit 認証エージェント"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
@@ -519,9 +495,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "アプリケーションの自動立ちあげを無効にしますか?"
+msgstr "アプリケーションを自動起動させますか?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -611,9 +586,8 @@ msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "アプリケーション"
+msgstr "メール送信用アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -630,37 +604,32 @@ msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "アプリケーション"
+msgstr "動画アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "アプリケーション"
+msgstr "オーディオアプリケーション"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "アプリケーション"
+msgstr "テキスト編集アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "アプリケーション"
+msgstr "Charmap アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "アプリケーションの自動立ちあげを無効にしますか?"
+msgstr "電卓アプリケーション"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
@@ -707,14 +676,12 @@ msgid "Managing your workspace configuration"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "デスクトップセッションにロードされたアプリケーションを管理する"
+msgstr "セッション終了時のアプリケーションの管理"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "デスクトップセッションにロードされたアプリケーションを管理する"
+msgstr "システムのアップデート及びアップグレード時のアプリケーションの管理"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -750,14 +717,12 @@ msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "立ち上げるアプリケーション"
+msgstr "利用可能なアプリケーション"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "アプリケーションの自動立ちあげを無効にしますか?"
+msgstr "アプリケーションを自動起動しますか?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
