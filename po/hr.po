@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2013-12-24 06:03+0000\n"
-"Last-Translator: Ivica <ikoli@yahoo.com>\n"
+"PO-Revision-Date: 2014-12-27 22:56+0000\n"
+"Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1387865027.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1419721011.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -155,9 +155,8 @@ msgid "Identity:"
 msgstr "Identitet:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Upravitelj datoteka</b>"
+msgstr "Upravitelj datoteka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -168,9 +167,8 @@ msgid "More"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Upravitelj terminala</b>"
+msgstr "Upravitelj terminala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
@@ -181,29 +179,24 @@ msgid "Email"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Komunikacija 1</b>"
+msgstr "Komunikacija 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Komunikacija 2</b>"
+msgstr "Komunikacija 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Widget 1</b>"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Upravitelj pokretača</b>"
+msgstr "Upravitelj pokretača"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Upravitelj slika zaslona</b>"
+msgstr "Upravitelj slika zaslona"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
@@ -218,9 +211,8 @@ msgid "Audio player"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "slikovna datoteka"
+msgstr "Preglednik slika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
@@ -247,9 +239,8 @@ msgid "Bittorent"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Komentar"
+msgstr "Dokument"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
@@ -276,9 +267,8 @@ msgid "Launching applications"
 msgstr "Pokretanje programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Upravitelj prozora:"
+msgstr "Upravitelj prozora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
@@ -293,53 +283,44 @@ msgid "Composite Manager"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Upravitelj prozora:"
+msgstr "Upravitelj radnom površinom"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Čuvar zaslona</b>"
+msgstr "Čuvar zaslona"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Upravitelj energijom</b>"
+msgstr "Upravitelj energijom"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Grafičko sučelje mreže</b>"
+msgstr "Grafičko sučelje mreže"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "Z_akjlučaj zaslon"
+msgstr "Zaključaj upravitelja zaslona"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Audio upravitelj</b>"
+msgstr "Audio upravitelj"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Upravitelj radnim prostorom</b>"
+msgstr "Upravitelj radnim prostorom"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Audio upravitelj</b>"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Upravitelj nadogradnji</b>"
+msgstr "Upravitelj nadogradnji"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
@@ -362,9 +343,8 @@ msgid "Xrandr"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Program"
+msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -461,9 +441,8 @@ msgid "LXPolKit"
 msgstr ""
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Autentifikacija"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
@@ -509,9 +488,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Onemogućiti samopokrenute programe?"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -601,9 +579,8 @@ msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Program"
+msgstr "Program za slanje pošte"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -620,37 +597,32 @@ msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Program"
+msgstr "Video program"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Program"
+msgstr "Audio program"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Program"
+msgstr "Program za uređivanje teksta"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Program"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Onemogućiti samopokrenute programe?"
+msgstr "Program kalkulatora"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
@@ -697,14 +669,12 @@ msgid "Managing your workspace configuration"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Upravljaj programima koji su učitani u sesiji radne površine"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Upravljaj programima koji su učitani u sesiji radne površine"
+msgstr "Upravljaj programima za ažuriranje i nadogradnju vašega sustava"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -740,14 +710,12 @@ msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Pokretanje programa"
+msgstr "Dostupni programi"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Onemogućiti samopokrenute programe?"
+msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
