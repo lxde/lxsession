@@ -73,6 +73,7 @@ namespace Lxsession {
         static bool noxsettings = false;
         static bool autostart = false;
         static string compatibility = "";
+        static bool debug_mode = false;
 
         const OptionEntry[] option_entries = {
         { "session", 's', 0, OptionArg.STRING, ref session, "specify name of the desktop session profile", "NAME" },
@@ -81,6 +82,7 @@ namespace Lxsession {
         { "noxsettings", 'n', 0, OptionArg.NONE, ref noxsettings, "disable Xsettings daemon support", null },
         { "noautostart", 'a', 0, OptionArg.NONE, ref autostart, "autostart applications disable (window-manager mode only)", null },
         { "compatibility", 'c', 0, OptionArg.STRING, ref compatibility, "specify a compatibility mode for settings (only razor-qt supported)", "NAME" },
+        { "debug", 'd', 0, OptionArg.NONE, ref debug_mode, "Enable debug / verbose mode", null },
         { null }
         };
 
@@ -98,6 +100,7 @@ namespace Lxsession {
 
         message ("Session is %s",session);
         message ("DE is %s", desktop_environnement);
+        message ("Debug mode: %s", debug_mode.to_string());
 
         if (session == null)
         {
@@ -111,6 +114,43 @@ namespace Lxsession {
             desktop_environnement = "LXDE";
         }
 
+        /* Init Log */
+        var path = Path.build_filename (Environment.get_user_cache_dir (), "lxsession", session, null);
+        DirUtils.create_with_parents (path, 0700);
+        path = Path.build_filename (Environment.get_user_cache_dir (), "lxsession", session, "run.log", null);
+
+        GLib.stdout = FileStream.open(path, "w");
+        GLib.stderr = FileStream.open(path, "ab");
+
+        if (debug_mode == true)
+        {
+            Posix.stdout = Posix.FILE.open(path, "ab");
+            Posix.stderr = Posix.FILE.open(path, "ab");
+        }
+
+        Log.set_default_handler (
+            (domain, level, message) => {
+			switch (level)
+            {
+			case LogLevelFlags.LEVEL_MESSAGE:
+				print ("Message: %s\n", message);
+				break;
+			case LogLevelFlags.LEVEL_INFO:
+				print ("Info: %s\n", message);
+				break;
+			case LogLevelFlags.LEVEL_DEBUG:               
+                if (debug_mode == true)
+                {
+				    print ("Debug: %s\n", message);
+                }
+                break;
+            default:
+                    print ("Log: %s\n", message);
+				break;
+			}
+                
+        });
+
         session_global = session;
 
 #if BUILDIN_POLKIT
@@ -119,35 +159,6 @@ namespace Lxsession {
 #if BUILDIN_CLIPBOARD
         Gtk.init (ref args);
 #endif
-
-        /* 
-           Log on .log file
-        */
-        string log_directory = Path.build_filename(Environment.get_user_cache_dir(), "lxsession", session);
-        var dir_log = File.new_for_path (log_directory);
-
-        string log_path = Path.build_filename(log_directory, "run.log");
-
-        message ("log directory: %s",log_directory);
-        message ("log path: %s",log_path);
-
-        if (!dir_log.query_exists ())
-        {
-            try
-            {
-                dir_log.make_directory_with_parents();
-            }
-            catch (GLib.Error err)
-            {
-		        message (err.message);
-            }
-        }
-
-        int fint;
-        fint = open (log_path, O_WRONLY | O_CREAT | O_TRUNC, 0600);
-        dup2 (fint, STDOUT_FILENO);
-        dup2 (fint, STDERR_FILENO);
-        close(fint);
 
         /* Init signals */
         var sig = new LxSignals();
@@ -189,10 +200,11 @@ namespace Lxsession {
             return -1;
         }
 */
+
         /* 
            Export environnement variable
         */
-         environment.export_env();
+        environment.export_env();
 
         /* Conf Files */
         string conffiles_conf = get_config_path ("conffiles.conf");
@@ -221,14 +233,12 @@ namespace Lxsession {
         /* Launching windows manager */
         if (global_settings.get_item_string("Session", "window_manager", null) != null)
         {
-            // message("DEBUG1 : %s", global_settings.get_item_string("Session", "window_manager", null));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
         }
         else if (global_settings.get_item_string("Session", "windows_manager", "command") != null)
         {
-            // message("DEBUG2 : %s", global_settings.get_item_string("Session", "windows_manager", "command"));
             var windowsmanager = new WindowsManagerApp();
             global_windows_manager = windowsmanager;
             global_windows_manager.launch();
@@ -317,7 +327,6 @@ namespace Lxsession {
 
             if (global_settings.get_item_string("Session", "desktop_manager", "command") != null)
             {
-                // message("DEBUG4 : %s", global_settings.get_item_string("Session", "desktop_manager", "command"));
                 var desktopmanager = new DesktopApp();
                     global_desktop = desktopmanager;
                     global_desktop.launch();
