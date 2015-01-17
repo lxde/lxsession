@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-01-26 21:26+0000\n"
-"Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
+"PO-Revision-Date: 2015-01-17 21:11+0000\n"
+"Last-Translator:   <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: lg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1390771616.0\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1421529103.000000\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -52,7 +52,7 @@ msgstr "Kiremya: %s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Olutuula lwa %s %s lukome?</big></b>"
+msgstr "<b><big>Olutuula lwa %s %s lukome ?</big></b>"
 
 # Turn the machine completely off
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -109,6 +109,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Nnemedwa kukakasa!\n"
+"Ekyama ky'oyingizza kituufu?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -168,9 +170,8 @@ msgid "Identity:"
 msgstr "Obumanye:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Ekiteekateeka Fayiro</b>"
+msgstr "Kiteekateeka Fayiro"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -178,210 +179,189 @@ msgstr "Ddamu okutandika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Era"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Ekiteekateeka biwandikiro</b>"
+msgstr "Kiteekateeka biwandikiro"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Kalambula-neti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Yimeero"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "Enkakasa"
+msgstr "Mpulizigana 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "Enkakasa"
+msgstr "Mpuluzigana 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Katundua k'endabika 1</b>"
+msgstr "Katundua k'endabika 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Ekiteekateeka ttandikiro</b>"
+msgstr "Kiteekateeka ttandikiro"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Ekiteekateeka nkwata y'ebifaananyi eby'ebiri ku lutimbe</b>"
+msgstr "Kiteekateeka nkwata y'ebifaananyi eby'ebiri ku lutimbe"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Puloguramu ey'okusoma fayiro ez'ekika kya PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Puloguramu ey'okulaba vidiyo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Puloguramu ey'ebiwulirizibwa"
 
 # This is the prompt for you to indicate the file that contains the image
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "fayiro ekongojja ekifaananyi"
+msgstr "Puloguramu ey'okukebera bifaananyi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Puloguramu ey'okuwandika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Puloguramu ekola ku fayiro mpakire"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Nkwatagana y'obubonero n'amapeesa agawandisibwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Kaliculeeta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Puloguramu ekola ku mpapula ez'okubalirira"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Puloguramu eya bititorenti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Kunnyonyola"
+msgstr "Kiteekateekabiwandike"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Puloguramu efuga webcam"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Puloguramu eyokya siddi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Puloguramu ewandika eby'amangu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Puloguramu eteekateeka bibondo bya sisitemu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Kiteekateekamirimu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Kutandika puloguramu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Puloguramu eteekateeka madirisa:"
+msgstr "Puloguramu eteekateeka madirisa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Puloguramu eteekateeka lubaawo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Paaka ya puloguramu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Puloguramu ekwanaganya ebirabikira awakolerwa</b>"
+msgstr "Puloguramu ekwanaganya ebirabikira awakolerwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Puloguramu eteekateeka madirisa:"
+msgstr "Puloguramu eteekateeka awakolerwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Puloguramu ekisa awakolerwa</b>"
+msgstr "Puloguramu ekisa awakolerwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Ekiteekateeka nkozesa ya masanyalaze</b>"
+msgstr "Ekiteekateeka nkozesa ya masanyalaze"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Puloguramu Polkit gy'ekozesa okukusaba obukakafu</b>"
+msgstr "Puloguramu Polkit gy'ekozesa okukusaba obukakafu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>W'okolera ku bya Kayungirizi</b>"
+msgstr "W'okolera ku bya Kayungirizi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Kuteekateeka ekikis'awakolerwa</b>"
+msgstr "Ekiteekateeka ekikis'awakolerwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Ekiteekataaka bya kuwuliriza</b>"
+msgstr "Ekiteekataaka bya kuwuliriza"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Ekiteekateeka bitundu ebikolerwamu</b>"
+msgstr "Ekiteekateeka bitundu ebikolerwamu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Mala eby'okuteekateeka</b>"
+msgstr "Ekikola ku kumala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Kuteekateeka mutindo gwa sisitemu</b>"
+msgstr "Puloguramu ekola ku kuteekateeka mutindo gwa sisitemu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Teekateeka awaterekebwa ebikoppedwa</b>"
+msgstr "Puloguramu eteekateeka awaterekebwa ebikoppedwa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
 msgstr ""
+"Puloguramu ekola ku kukuuma byama (fayiro omukuumirwa bisumuluzo oba byama)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "Puloguramu etekateeka ebyanguya enkozesa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Masanganzira etuuka ku intaneti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Puloguramu eteekateka Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Puloguramu"
+msgstr "Puloguramu enkulu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -393,7 +373,7 @@ msgstr "<b>Ntegeka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>Tegeka puloguramu ezinaatandikirangawo buli lutuula</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
@@ -478,9 +458,8 @@ msgid "LXPolKit"
 msgstr ""
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Enkakasa"
+msgstr "Puloguramu ekolera PolicyKit eby'okakasa"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
@@ -526,9 +505,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Komya puloguramu ezitandikirwawo ?"
+msgstr "Puloguramu etandikirengawo buli lutuula ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -618,9 +596,8 @@ msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Puloguramu"
+msgstr "Puloguramu esindika yimeero"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -637,37 +614,32 @@ msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Puloguramu"
+msgstr "Puloguramu ey'okulaba vidiyo"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Puloguramu"
+msgstr "Puloguramu ey'ebiwulirizibwa"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Puloguramu"
+msgstr "Puloguramu ey'okuwandika"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Puloguramu"
+msgstr "Puloguramu ekola ku nkwatanagana y'obubonero n'amapeesa agawandisibwa"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Komya puloguramu ezitandikirwawo ?"
+msgstr "Puloguramu eya kaliculeeta"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
@@ -714,14 +686,14 @@ msgid "Managing your workspace configuration"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Teekateeka puloguramu eziba zitandika buli lutuula"
+msgstr "Puloguramu ekola ku by'okukomya olutuula lwo"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Teekateeka puloguramu eziba zitandika buli lutuula"
+msgstr ""
+"Puloguramu eteekako n'okugyako puloguramu ku sisitemu yo n'okuzitumbula "
+"mutindo"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -757,14 +729,12 @@ msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Kutandika puloguramu"
+msgstr "Puloguramu eziri ku sisitemu"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Komya puloguramu ezitandikirwawo ?"
+msgstr "Puloguramu etandikirengawo buli lutuula ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
