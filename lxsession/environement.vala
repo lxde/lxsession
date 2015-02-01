@@ -82,6 +82,7 @@ namespace Lxsession
             Environment.set_variable("XDG_MENU_PREFIX", global_settings.get_item_string("Environment", "menu_prefix", null), true);
 
             set_xdg_dirs ("all");
+            set_export();
             set_misc ();
 
         }
@@ -226,6 +227,34 @@ namespace Lxsession
             }
         }
 
+        public void set_export ()
+        {
+
+            KeyFile env_kf;
+
+            env_kf = load_keyfile (get_config_path ("desktop.conf"));
+
+            try
+            {
+                if (env_kf.get_keys("Environment_variable") != null)
+                {
+                    string[] env_list = env_kf.get_keys("Environment_variable");
+                    foreach (string entry in env_list)
+                    {
+                        if (entry != null)
+                        {
+                            debug("set_export, entry: %s", entry);
+                            Environment.set_variable(entry, env_kf.get_value("Environment_variable",entry), true);
+                        }
+	                }
+                }
+            }
+            catch (GLib.KeyFileError e)
+            {
+                message ("No entry in [Environment_variable]. %s", e.message);
+            }
+        }
+
         public void set_misc ()
         {
             /* Clean up number of desktop set by GDM */
@@ -240,7 +269,7 @@ namespace Lxsession
 
             if (dbus_path == null)
             {
-                if (dbus_env ==null)
+                if (dbus_env == null)
                 {
                     lxsession_spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
                 }

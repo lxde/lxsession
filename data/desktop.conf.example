@@ -175,6 +175,10 @@ menu_prefix=lxde-
 # Enable appmenu integration
 ubuntu_menuproxy=false
 
+[Environment_variable]
+# Export TEST variable with value test
+TEST=test
+
 [GTK]
 #iNet/DoubleClickTime=400
 #iNet/DoubleClickDistance
