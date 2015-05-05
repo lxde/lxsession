@@ -177,7 +177,7 @@ namespace LDefaultApps
             string file_manager_more_help_message = manual_setting_help + session_string_help + extra_string_help + handle_desktop_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "file_manager", "", file_manager_help_message, file_manager_more, file_manager_more_help_message, null);
 
-            string composite_manager_help_message = _("Composite manager enables graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \nExample: compton");
+            string composite_manager_help_message = _("Composite manager enables graphics effects, like transparency and shadows, if the windows manager doesn't handle it. \nExample: compton");
             string[] composite_manager_more = {""};
             string composite_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "composite_manager", "", composite_manager_help_message, composite_manager_more, composite_manager_more_help_message, null);
@@ -307,7 +307,7 @@ namespace LDefaultApps
             string webcam_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "webcam", "", webcam_help_message, webcam_more, webcam_more_help_message, null);
 
-            string burn_help_message = _("Application to manage burning CD/DVD utilty ");
+            string burn_help_message = _("Application to manage burning CD/DVD utility ");
             string[] burn_more = {"combobox_manual", "mime_association", "mime_available"};
             string burn_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "burn", "", burn_help_message, burn_more, burn_more_help_message, null);
