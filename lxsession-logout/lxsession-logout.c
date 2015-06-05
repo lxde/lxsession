@@ -22,6 +22,7 @@
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
+#include <gdk/gdkkeysyms.h>
 #include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <sys/file.h>
@@ -450,6 +451,13 @@ static void main_at_exit(void)
     unlink(lockfile);
 }
 
+static gboolean key_press(GtkWidget *win, GdkEventKey *ev)
+{
+    if (ev->keyval == GDK_KEY_Escape)
+        gtk_widget_destroy (win);
+    return FALSE;
+}
+
 /* Main program. */
 int main(int argc, char * argv[])
 {
@@ -798,6 +806,11 @@ int main(int argc, char * argv[])
     handler_context.error_label = gtk_label_new("");
     gtk_label_set_justify(GTK_LABEL(handler_context.error_label), GTK_JUSTIFY_CENTER);
     gtk_box_pack_start(GTK_BOX(controls), handler_context.error_label, FALSE, FALSE, 4);
+
+    /* Detect special keys. */
+    gtk_signal_connect (GTK_OBJECT (window), "key_press_event",
+        GTK_SIGNAL_FUNC (key_press),
+        NULL);
 
     /* Show everything. */
     gtk_widget_show_all(window);
