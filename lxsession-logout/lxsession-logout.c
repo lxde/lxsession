@@ -94,7 +94,11 @@ static void switch_user_clicked(GtkButton * button, HandlerContext * handler_con
 static void cancel_clicked(GtkButton * button, gpointer user_data);
 static GtkPositionType get_banner_position(void);
 static GdkPixbuf * get_background_pixbuf(void);
+#ifdef USE_GTK3
+gboolean draw(GtkWidget * widget, cairo_t * cr, GdkPixbuf * pixbuf);
+#else
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf);
+#endif
 
 /* Try to run lxlock command in order to lock the screen, return TRUE on
  * success, FALSE if command execution failed
@@ -419,13 +423,18 @@ static GdkPixbuf * get_background_pixbuf(void)
 }
 
 /* Handler for "expose_event" on background. */
+#ifdef USE_GTK3
+gboolean draw(GtkWidget * widget, cairo_t * cr, GdkPixbuf * pixbuf)
+#else
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf)
+#endif
 {
     if (pixbuf != NULL)
     {
         /* Copy the appropriate rectangle of the root window pixmap to the drawing area.
          * All drawing areas are immediate children of the toplevel window, so the allocation yields the source coordinates directly. */
-#if GTK_CHECK_VERSION(2,14,0)
+#ifdef USE_GTK3
+#elif GTK_CHECK_VERSION(2,14,0)
        cairo_t * cr = gdk_cairo_create (gtk_widget_get_window(widget));
 #else
        cairo_t * cr = gdk_cairo_create (widget->window);
@@ -437,7 +446,9 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
            0);
 
        cairo_paint (cr);
+#ifndef USE_GTK3
        cairo_destroy(cr);
+#endif
     }
     return FALSE;
 }
@@ -600,7 +611,11 @@ int main(int argc, char * argv[])
     GdkScreen* screen = gtk_widget_get_screen(window);
     gtk_window_set_default_size(GTK_WINDOW(window), gdk_screen_get_width(screen), gdk_screen_get_height(screen));
     gtk_widget_set_app_paintable(window, TRUE);
+#ifdef USE_GTK3
+    g_signal_connect(G_OBJECT(window), "draw", G_CALLBACK(draw), pixbuf);
+#else
     g_signal_connect(G_OBJECT(window), "expose_event", G_CALLBACK(expose_event), pixbuf);
+#endif
     g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
     /* Toplevel container */
@@ -609,6 +624,12 @@ int main(int argc, char * argv[])
 
     GtkWidget* center_area = gtk_event_box_new();
     gtk_container_add(GTK_CONTAINER(alignment), center_area);
+
+#ifdef USE_GTK3
+    GtkStyle* style = gtk_widget_get_style (window);
+    GdkColor color = style->bg[GTK_STATE_NORMAL];
+    gtk_widget_modify_bg(center_area, GTK_STATE_NORMAL, &color);
+#endif
 
     GtkWidget* center_vbox = gtk_vbox_new(FALSE, 6);
     gtk_container_set_border_width(GTK_CONTAINER(center_vbox), 12);
