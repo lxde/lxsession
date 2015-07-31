@@ -144,6 +144,9 @@ static gboolean verify_running(const char * display_manager, const char * execut
         char buffer[PATH_MAX];
         sprintf(buffer, "/var/run/%s.pid", display_manager);
 
+        if (!g_file_test (buffer, G_FILE_TEST_IS_REGULAR))
+            sprintf(buffer, "/var/run/%s/%s.pid", display_manager, display_manager);
+
         /* Open the pid file. */
         int fd = open(buffer, O_RDONLY);
         if (fd >= 0)
