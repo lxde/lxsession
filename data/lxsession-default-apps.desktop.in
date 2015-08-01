@@ -5,4 +5,4 @@ Exec=lxsession-default-apps
 _Name=Default applications for LXSession
 _Comment=Change the default applications on LXDE
 Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
-NotShowIn=GNOME;KDE;XFCE;
+OnlyShowIn=LXDE;
