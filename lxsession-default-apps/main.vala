@@ -32,7 +32,7 @@ namespace LDefaultApps
 	        this.window_position = Gtk.WindowPosition.CENTER;
             try
             {
-                this.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+                this.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
             }
             catch (Error e)
             {
@@ -97,6 +97,14 @@ namespace LDefaultApps
         {
 		    this.title = _("LXSession configuration");
 		    this.window_position = Gtk.WindowPosition.CENTER;
+            try
+            {
+                this.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
+            }
+            catch (Error e)
+            {
+                message ("Could not load application icon: %s\n", e.message);
+            }
 		    this.set_default_size (600, 400);
             this.destroy.connect (Gtk.main_quit);
 
