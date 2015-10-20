@@ -52,6 +52,7 @@ namespace Lxsession {
     GenericSimpleApp global_message_manager;
     ClipboardOption global_clipboard;
     KeymapOption global_keymap;
+    GenericSimpleApp global_im_manager;
     XrandrApp global_xrandr;
     KeyringApp global_keyring;
     A11yApp global_a11y;
@@ -399,6 +400,16 @@ namespace Lxsession {
                     var keybindings = new GenericSimpleApp(global_settings.get_item_string("Session", "keybindings", "command"));
                     global_keybindings = keybindings;
                     global_keybindings.launch();
+                }
+            }
+
+            if (global_settings.get_item_string("Session", "im_manager", "autostart") == "true")
+            {
+                if (global_settings.get_item_string("Session", "im_manager", "command") != null)
+                {
+                    var im_manager = new GenericSimpleApp(global_settings.get_item_string("Session", "im_manager", "command"));
+                    global_im_manager = im_manager;
+                    global_im_manager.launch();
                 }
             }
 

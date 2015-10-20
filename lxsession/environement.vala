@@ -295,6 +295,14 @@ namespace Lxsession
                 Environment.set_variable("UBUNTU_MENUPROXY", "libappmenu.so", true);
             }
 
+            /* Export variable for im manager */
+            if (global_settings.get_item_string("Session", "im_manager", "command") != null)
+            {
+                Environment.set_variable("GTK_IM_MODULE", global_settings.get_item_string("Session", "im_manager", "command") , true);
+                Environment.set_variable("QT_IM_MODULE", global_settings.get_item_string("Session", "im_manager", "command") , true);
+                Environment.set_variable("XMODIFIERS=@im", global_settings.get_item_string("Session", "im_manager", "command") , true);
+            }
+
             /* Add some needed variables for LXQt / Qt */
             Environment.set_variable("QT_PLATFORM_PLUGIN", "lxqt", true);
             Environment.set_variable("QT_QPA_PLATFORMTHEME", "lxqt", true);

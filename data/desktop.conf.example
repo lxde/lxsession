@@ -116,6 +116,10 @@ keyring/command=ssh-agent
 # Command to launch for configuring Xrandr ex: xrandr --mode ...
 xrandr/command=
 
+# Im method by default (fcitx, ibus)
+im_manager/command=
+im_manager/autostart=
+
 # Default web browser (desktop is the corresponding desktop file)
 webbrowser/command=
 webbrowser/desktop=

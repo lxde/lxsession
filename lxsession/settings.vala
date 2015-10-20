@@ -748,6 +748,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig
             read_key_value(kf, "Session", "keybindings", "autostart", "string");
         }
 
+        /* IM manager */
+        if (read_keyfile_string_value(kf, "Session", "im_manager", "command", null) != null)
+        {
+            read_key_value(kf, "Session", "im_manager", "command", "string");
+            read_key_value(kf, "Session", "im_manager", "autostart", "string");
+        }
+
         /* Other session applications */
         read_key_value(kf, "Session", "screensaver", "command", "string");
         read_key_value(kf, "Session", "power_manager", "command", "string");
