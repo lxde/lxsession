@@ -178,6 +178,8 @@ type=
 menu_prefix=lxde-
 # Enable appmenu integration
 ubuntu_menuproxy=false
+# Use this toolkit integration when only can be use, like LibreOffice (example : kde4, gtk2, gtk3)
+toolkit_integration=gtk2
 
 [Environment_variable]
 # Export TEST variable with value test

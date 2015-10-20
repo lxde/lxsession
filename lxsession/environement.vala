@@ -275,8 +275,42 @@ namespace Lxsession
                 }
             }
 
-            /* Enable GTK+2 integration for OpenOffice.org, if available. */
-            Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
+            if (global_settings.get_item_string("Environment", "toolkit_integration", null) == "true")
+            {
+            /* Enable toolkit integration for OpenOffice.org / LibreOffice, if available. */
+            string toolkit_variable = global_settings.get_item_string("Environment", "toolkit_integration", null);
+
+                switch (toolkit_variable)
+                {
+                    case "gtk2":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
+                        break;
+                    case "gtk3":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk3", true);
+                        break;
+                    case "gtk":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
+                        break;
+                    case "gen":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "gen", true);
+                        break;
+                    case "kde4":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "kde4", true);
+                        break;
+                    case "kde":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "kde4", true);
+                        break;
+                    case "qt":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "kde4", true);
+                        break;
+                    case "qt4":
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "kde4", true);
+                        break;
+                    default:
+                        Environment.set_variable("SAL_USE_VCLPLUGIN", "gtk", true);
+                        break;
+                }
+            }
 
             /* Add path for Qt plugins (usefull for razor session */
             string qt_plugin;
