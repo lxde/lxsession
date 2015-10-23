@@ -4,6 +4,7 @@
 #  Copyright (C) 1999, 2003 Olivier Fourdan (fourdan@xfce.org)
 #  Copyright (C) 2012 Julien Lavergne (gilir@ubuntu.com)
 #  Copyright (C) 2013 Jarno Suni (8@iki.fi)
+#  Copyright (C) 2014 Fabrizio Lungo (fab@lungo.co.uk)
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -23,18 +24,18 @@
 # Try to lock the screen with thos applications (in this order) :
 # light-locker-command, xscreensaver, gnome-screensaver, slock, xlock, i3lock and xdg-screensaver
 
-if pidof light-locker >/dev/null; then
+if pidof light-locker >/dev/null 2>&1; then
     light-locker-command -l >/dev/null 2>&1
-elif pidof xscreensaver >/dev/null; then
+elif pidof xscreensaver >/dev/null 2>&1; then
     xscreensaver-command -lock >/dev/null 2>&1
-elif pidof gnome-screensaver >/dev/null; then
-    gnome-screensaver-command --lock
-elif which slock >/dev/null; then
-    slock &
-elif which xlock 2>/dev/null; then
-    xlock $*
-elif which i3lock >/dev/null; then
-    i3lock -d
+elif pidof gnome-screensaver >/dev/null 2>&1; then
+    gnome-screensaver-command --lock >/dev/null 2>&1
+elif which slock >/dev/null 2>&1; then
+    slock >/dev/null 2>&1 &
+elif which xlock >/dev/null 2>&1; then
+    xlock $* >/dev/null 2>&1
+elif which i3lock >/dev/null 2>&1; then
+    i3lock -d >/dev/null 2>&1
 else
     # In the end, try to fallback to xscreensaver
 
