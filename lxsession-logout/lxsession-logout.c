@@ -69,6 +69,8 @@ typedef struct {
     int hibernate_systemd : 1;		/* Hibernate is available via systemd */
     int shutdown_ConsoleKit : 1;	/* Shutdown is available via ConsoleKit */
     int reboot_ConsoleKit : 1;		/* Reboot is available via ConsoleKit */
+    int suspend_ConsoleKit : 1;		/* Suspend is available via ConsoleKit */
+    int hibernate_ConsoleKit : 1;		/* Hibernate is available via ConsoleKit */
     int suspend_UPower : 1;		/* Suspend is available via UPower */
     int hibernate_UPower : 1;		/* Hibernate is available via UPower */
     int switch_user_GDM : 1;		/* Switch User is available via GDM */
@@ -276,6 +278,8 @@ static void suspend_clicked(GtkButton * button, HandlerContext * handler_context
     lock_screen();
     if (handler_context->suspend_UPower)
         dbus_UPower_Suspend(&err);
+    else if (handler_context->suspend_ConsoleKit)
+        dbus_ConsoleKit_Suspend(&err);
     else if (handler_context->suspend_systemd)
         dbus_systemd_Suspend(&err);
 
@@ -299,6 +303,8 @@ static void hibernate_clicked(GtkButton * button, HandlerContext * handler_conte
     lock_screen();
     if (handler_context->hibernate_UPower)
         dbus_UPower_Hibernate(&err);
+    else if (handler_context->hibernate_ConsoleKit)
+        dbus_ConsoleKit_Hibernate(&err);
     else if (handler_context->hibernate_systemd)
         dbus_systemd_Hibernate(&err);
 
@@ -524,6 +530,17 @@ int main(int argc, char * argv[])
     {
         handler_context.reboot_available = TRUE;
         handler_context.reboot_ConsoleKit = TRUE;
+    }
+
+    if (!handler_context.suspend_available && dbus_ConsoleKit_CanSuspend())
+    {
+        handler_context.suspend_available = TRUE;
+        handler_context.suspend_ConsoleKit = TRUE;
+    }
+    if (!handler_context.hibernate_available && dbus_ConsoleKit_CanHibernate())
+    {
+        handler_context.hibernate_available = TRUE;
+        handler_context.hibernate_ConsoleKit = TRUE;
     }
 
     /* Initialize capabilities of the UPower mechanism. */

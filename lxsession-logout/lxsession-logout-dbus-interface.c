@@ -93,7 +93,7 @@ dbus_UPower_Hibernate (GError **error)
 /*** ConsoleKit mechanism ***/
 
 static gboolean
-ck_call_function (const gchar *function, gboolean default_result, GError **error)
+ck_call_function (const gchar *function, GVariant *parameters, gboolean default_result, GError **error)
 {
     GVariant *result;
     gboolean function_result = FALSE;
@@ -114,7 +114,7 @@ ck_call_function (const gchar *function, gboolean default_result, GError **error
 
     result = g_dbus_proxy_call_sync (ck_proxy,
                                      function,
-                                     NULL,
+                                     parameters,
                                      G_DBUS_CALL_FLAGS_NONE,
                                      -1,
                                      NULL,
@@ -124,6 +124,13 @@ ck_call_function (const gchar *function, gboolean default_result, GError **error
 
     if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(b)")))
         g_variant_get (result, "(b)", &function_result);
+    else
+    if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(s)")))
+    {
+        gchar *r;
+        g_variant_get (result, "(&s)", &r);
+        function_result = g_strcmp0 (r, "yes") == 0 || g_strcmp0 (r, "challenge") == 0;
+    }
 
     g_variant_unref (result);
     return function_result;
@@ -132,25 +139,49 @@ ck_call_function (const gchar *function, gboolean default_result, GError **error
 gboolean
 dbus_ConsoleKit_CanRestart (void)
 {
-    return ck_call_function ("CanRestart", FALSE, NULL);
+    return ck_call_function ("CanRestart", NULL, FALSE, NULL);
 }
 
 gboolean
 dbus_ConsoleKit_Restart (GError **error)
 {
-    return ck_call_function ("Restart", TRUE, error);
+    return ck_call_function ("Restart", NULL, TRUE, error);
 }
 
 gboolean
 dbus_ConsoleKit_CanStop (void)
 {
-    return ck_call_function ("CanStop", FALSE, NULL);
+    return ck_call_function ("CanStop", NULL, FALSE, NULL);
 }
 
 gboolean
 dbus_ConsoleKit_Stop (GError **error)
 {
-    return ck_call_function ("Stop", TRUE, error);
+    return ck_call_function ("Stop", NULL, TRUE, error);
+}
+
+gboolean
+dbus_ConsoleKit_CanSuspend (void)
+{
+    return ck_call_function ("CanSuspend", NULL, FALSE, NULL);
+}
+
+gboolean
+dbus_ConsoleKit_Suspend (GError **error)
+{
+    return ck_call_function ("Suspend", g_variant_new("(b)", TRUE), TRUE, error);
+}
+
+gboolean
+dbus_ConsoleKit_CanHibernate (void)
+{
+    return ck_call_function ("CanHibernate", NULL, FALSE, NULL);
+}
+
+gboolean
+dbus_ConsoleKit_Hibernate (GError **error)
+{
+    return ck_call_function ("Hibernate", g_variant_new("(b)", TRUE), TRUE, error);
 }
 
 /*** Systemd mechanism ***/

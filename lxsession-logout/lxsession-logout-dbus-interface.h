@@ -21,11 +21,15 @@
 
 #include <glib.h>
 
-/* Interface to ConsoleKit for shutdown and reboot. */
+/* Interface to ConsoleKit v9 for shutdown, reboot, suspend and hibernate. */
 extern gboolean dbus_ConsoleKit_CanStop(void);
 extern gboolean dbus_ConsoleKit_CanRestart(void);
 extern gboolean dbus_ConsoleKit_Stop(GError **);
 extern gboolean dbus_ConsoleKit_Restart(GError **);
+extern gboolean dbus_ConsoleKit_CanSuspend(void);
+extern gboolean dbus_ConsoleKit_CanHibernate(void);
+extern gboolean dbus_ConsoleKit_Suspend(GError **);
+extern gboolean dbus_ConsoleKit_Hibernate(GError **);
 
 /* Interface to UPower for suspend and hibernate. */
 extern gboolean dbus_UPower_CanSuspend(void);
