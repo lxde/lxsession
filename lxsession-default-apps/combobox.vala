@@ -561,7 +561,7 @@ namespace LDefaultApps
         var mime_vbox = new Gtk.VBox(false, 0);
         mime_view_port.add(mime_vbox);
 
-        var info_label = new Label(_("Do you want to assiociate the following Mimetype ?\n"));
+        var info_label = new Label(_("Do you want to associate the following Mimetype ?\n"));
         mime_vbox.add(info_label);
 
         string[] mime_combobox_list;
