@@ -177,11 +177,7 @@ msgstr "Authentifizierung"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
-"<b>Warnung:</b> Ändern Sie dies <b>NICHT</b>, außer Sie wissen genau, was "
-"Sie tuen.\n"
-"\n"
-"<b>HINWEIS:</b> Diese Einstellung treten beim nächsten Anmelden ein."
+msgstr "Obumanye:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
