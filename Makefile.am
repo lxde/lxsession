@@ -388,6 +388,7 @@ lxsession_lxsession_vala_SOURCES = \
     lxsession/dbus-gnome-session.vala \
     lxsession/dbus-lxde-session.vala \
     lxsession/environement.vala \
+    lxsession/notifications.vala \
     lxsession/options.vala \
     lxsession/process.vala \
     lxsession/settings.vala \
@@ -426,6 +427,7 @@ lxsession_lxsession_VALAFLAGS = \
     --pkg lxsettings-daemon \
     $(buildinclip_VALAFLAGS) \
     $(buildinpolkit_VALAFLAGS) \
+    $(lxsession_gtk_lxsession_VALAFLAGS) \
     $(NULL)
 
 lxsession_lxsession_CPPFLAGS = \
@@ -440,6 +442,7 @@ lxsession_lxsession_CPPFLAGS = \
     $(ADDITIONAL_FLAGS) \
     $(buildinclip_CFLAGS) \
     $(buildinpolkit_CFLAGS) \
+    $(lxsession_gtk_lxsession_CFLAGS) \
     -include config.h -w \
     $(NULL)
 
@@ -450,7 +453,23 @@ lxsession_lxsession_LDADD = \
     $(X11_LIBS) \
     $(buildinclip_LDADD) \
     $(buildinpolkit_LDADD) \
+    $(lxsession_gtk_lxsession_LDADD) \
     $(NULL)
+
+if USE_GTK
+lxsession_lxsession_VALAFLAGS +=     \
+    --pkg @VALA_GTK_LIBS@ \
+    --pkg appindicator-0.1 \
+    -D USE_GTK
+
+lxsession_lxsession_CPPFLAGS += \
+    $(GTK_CFLAGS) \
+    $(INDICATORS_CFLAGS)
+
+lxsession_lxsession_LDADD += \
+    $(GTK_LIBS) \
+    $(INDICATORS_LIBS)
+endif
 
 EXTRA_DIST += \
     autogen.sh \

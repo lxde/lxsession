@@ -19,6 +19,10 @@
 using Posix;
 using Intl;
 
+#if USE_GTK
+using Gtk;
+#endif
+
 #if BUILDIN_POLKIT
 using Gtk;
 #endif
@@ -113,6 +117,10 @@ namespace Lxsession {
         }
 
         session_global = session;
+
+#if USE_GTK
+        Gtk.init (ref args);
+#endif
 
 #if BUILDIN_POLKIT
         Gtk.init (ref args);

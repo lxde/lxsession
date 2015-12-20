@@ -446,7 +446,7 @@ namespace Lxsession
             }
             else if (global_updates == null)
             {
-                message("Keyring doesn't exist, creating it");
+                message("Updates_manager doesn't exist, creating it");
                 var updates = new UpdatesManagerApp();
                 global_updates = updates;
                 global_updates.launch();
@@ -983,6 +983,14 @@ namespace Lxsession
         {
             message ("Check if package manager is running");
             is_running = check_package_manager_running();
+        }
+
+        /* Test interface */
+        public void TestIconNotification()
+        {
+            message("Test icon notification default");
+            var icon_test = new IconObject("gtk-info", "Test Info", "Info");
+            icon_test.init();
         }
     }
 

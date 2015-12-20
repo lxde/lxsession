@@ -99,6 +99,10 @@ else
 
   AC_SUBST(VALA_GTK_LIBS)
 
+  PKG_CHECK_MODULES(INDICATORS, [indicator-0.4 >= 0.4.93 appindicator-0.1])
+  AC_SUBST(INDICATORS_CFLAGS)
+  AC_SUBST(INDICATORS_LIBS)
+
   polkit_modules="polkit-agent-1"
   PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
   AC_SUBST(POLKIT_CFLAGS)
