@@ -1162,6 +1162,22 @@ public class ScreenshotManagerApp: SimpleAppObject
 public class UpdatesManagerApp: SimpleAppObject
 {
     string updatesmanager_command;
+    string upgrade_manager_command;
+    IconObject updates_icon;
+
+    string apt_update_path = "/var/lib/apt/periodic/update-success-stamp";
+    GLib.File apt_update_file ;
+    GLib.FileMonitor apt_update_monitor ;
+
+    string dpkg_update_path = "/var/lib/dpkg/status";
+    GLib.File dpkg_update_file ;
+    GLib.FileMonitor dpkg_update_monitor ;
+
+    string apt_lists_update_path = "/var/lib/apt/lists";
+    GLib.File apt_lists_update_file ;
+    GLib.FileMonitor apt_lists_update_monitor ;
+
+    int lock_check = 0;
 
     public UpdatesManagerApp ()
     {
@@ -1171,6 +1187,15 @@ public class UpdatesManagerApp: SimpleAppObject
     public override void read_settings()
     {
         updatesmanager_command = global_settings.get_item_string("Session", "updates_manager", "command");
+
+        if (global_settings.get_item_string("Session", "upgrade_manager", "command") != null)
+        {
+            upgrade_manager_command = global_settings.get_item_string("Session", "upgrade_manager", "command");
+        }
+        else
+        {
+            upgrade_manager_command = "";
+        }
 
         switch (updatesmanager_command)
         {
@@ -1182,6 +1207,7 @@ public class UpdatesManagerApp: SimpleAppObject
                 break;
             case "build-in":
                 setup_apt_config ();
+                run_check();
                 break;
             default:
                 string[] create_command = updatesmanager_command.split_set(" ",0);
@@ -1191,29 +1217,34 @@ public class UpdatesManagerApp: SimpleAppObject
         }
     }
 
-    public void on_apt_update_file_change ()
+    public void run_check()
+    {
+        if (this.lock_check == 0)
+        {
+            on_apt_update_file_change ();
+        }
+    }
+
+    public void on_apt_update_file_change()
     {
         /* Launch something that check if updates are available */
-        /* For now, use apt-check from update-notifier */
+        /* For now, use lxsession-apt-check, which is apt-check from update-notifier */
 
-        string command = "/usr/bin/nice" + " " + "/usr/bin/ionice" + " " + "-c3" + " " + "/usr/lib/update-notifier/apt-check";
-        string[] create_command = command.split_set(" ",0);
-        string standard_output = "";
-        string standard_error = "";
-        string[] updates_num;
+        string standard_output;
+        string standard_error;
         int exit_status;
 
-        try {
-            string[] spawn_env = Environ.get ();
-            Process.spawn_sync (
-                        null,
-                        create_command,
-                        spawn_env,
-                        SpawnFlags.STDOUT_TO_DEV_NULL,
-                        null, 
-                        out standard_output,
-                        out standard_error,
-                        out exit_status);
+        string init_updates_num = "0;0";
+        string[] updates_num = init_updates_num.split_set(";",2);
+
+        /* Lock the check process, to avoid launching the check many times when one is already running */
+        this.lock_check = 1;
+
+        string command = "/usr/bin/nice" + " " + "/usr/bin/ionice" + " " + "-c3" + " " + "/usr/bin/lxsession-apt-check";
+
+        try
+        {
+            Process.spawn_command_line_sync (command, out standard_output, out standard_error, out exit_status);
 
             message ("Launching %s", command);
             message ("Update state: %s", standard_error);
@@ -1231,25 +1262,78 @@ public class UpdatesManagerApp: SimpleAppObject
             message ("Number of upgrades: %s", updates_num[0]);
             message ("Number of security upgrades: %s", updates_num[1]);
         }
+
+        var updates_icon = new IconObject("software-update-available", "Updates", _("Launch upgrade manager"), upgrade_manager_command);
+        updates_icon.init();
+
+        if (updates_num[1].to_int() > 0)
+        {
+            updates_icon.set_icon("software-update-urgent");
+            updates_icon.activate();
+        }
+        else if (updates_num[0].to_int() > 0)
+        {
+            updates_icon.activate();
+        }
+        else
+        {
+            updates_icon.inactivate();
+        }
+
+        /* Unlock the check */
+        this.lock_check = 0;
     }
 
     public void setup_apt_config ()
     {
+        /* Note directories monitored by update-notifier :
+                "/var/lib/apt/lists/" ==> files of meta data of the repositories
+                "/var/lib/apt/lists/partial/"
+                "/var/cache/apt/archives/" ==> .deb in cache
+                "/var/cache/apt/archives/partial/"
+
+            Files monitored by update-notifier :
+              "/var/lib/dpkg/status" => big file of dpkg status
+              "/var/lib/update-notifier/dpkg-run-stamp" update-notifier stamp for dpkg ?
+              "/var/lib/apt/periodic/update-success-stamp" 
+        */
+
         try
         {
-            string apt_update_path = "/var/lib/apt/periodic/update-success-stamp";
-            GLib.File apt_update_file ;
-            GLib.FileMonitor apt_update_monitor ;
-
-            apt_update_file = File.new_for_path(apt_update_path);
-            apt_update_monitor = apt_update_file.monitor_file(GLib.FileMonitorFlags.NONE);
-            apt_update_monitor.changed.connect(on_apt_update_file_change);
+            this.apt_update_file = File.new_for_path(this.apt_update_path);
+            this.apt_update_monitor = apt_update_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            this.apt_update_monitor.changed.connect(run_check);
             message ("Monitoring apt changes");
         }
         catch (GLib.Error err)
         {
             message (err.message);
         }
+
+        try
+        {
+            this.dpkg_update_file = File.new_for_path(this.dpkg_update_path);
+            this.dpkg_update_monitor = dpkg_update_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            this.dpkg_update_monitor.changed.connect(run_check);
+            message ("Monitoring dpkg changes");
+        }
+        catch (GLib.Error err)
+        {
+            message (err.message);
+        }
+
+        try
+        {
+            this.apt_lists_update_file = File.new_for_path(this.apt_lists_update_path);
+            this.apt_lists_update_monitor = apt_lists_update_file.monitor_directory(GLib.FileMonitorFlags.NONE);
+            this.apt_lists_update_monitor.changed.connect(run_check);
+            message ("Monitoring apt_lists changes");
+        }
+        catch (GLib.Error err)
+        {
+            message (err.message);
+        }
+
     }
 }
 

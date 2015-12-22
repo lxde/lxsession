@@ -426,7 +426,14 @@ namespace Lxsession
                         break;
 
                     case "updates_manager":
-                        UpdatesActivate();
+                        if (option == "check")
+                        {
+                            UpdatesCheck();
+                        }
+                        else
+                        {
+                            UpdatesActivate();
+                        }
                         break;
 
                     default:
@@ -437,10 +444,10 @@ namespace Lxsession
             }
         }
 
-        public void UpdatesActivate()
+        private void UpdatesActivate()
         {
             message("Reload updates_manager");
-            if (global_settings.get_item_string("Session", "udpates_manager", "command") == null)
+            if (global_settings.get_item_string("Session", "updates_manager", "command") == null)
             {
                 warning("Updates_manager not set");
             }
@@ -453,8 +460,30 @@ namespace Lxsession
             }
             else
             {
-                message("Reload existing keyring");
+                message("Reload existing Updates_manager");
                 global_updates.reload();
+            }
+        }
+
+        private void UpdatesCheck()
+        {
+            message("Reload updates_manager");
+            if (global_settings.get_item_string("Session", "updates_manager", "command") == null)
+            {
+                warning("Updates_manager not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Updates_manager doesn't exist, creating it");
+                var updates = new UpdatesManagerApp();
+                global_updates = updates;
+                global_updates.launch();
+                global_updates.run_check();
+            }
+            else
+            {
+                message("Check Updates");
+                global_updates.run_check();
             }
         }
 
@@ -989,7 +1018,7 @@ namespace Lxsession
         public void TestIconNotification()
         {
             message("Test icon notification default");
-            var icon_test = new IconObject("gtk-info", "Test Info", "Info");
+            var icon_test = new IconObject("gtk-info", "Test Info", "Info", null);
             icon_test.init();
         }
     }

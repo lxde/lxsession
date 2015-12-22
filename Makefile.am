@@ -19,6 +19,7 @@ scripts= \
     lxsession-default/lxsession-default \
     lxsession-default/lxsession-default-terminal \
     lxsession-utils/lxsession-xsettings \
+    lxsession-utils/lxsession-apt-check \
     $(NULL)
 
 bin_SCRIPTS= $(scripts)

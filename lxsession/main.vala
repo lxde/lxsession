@@ -482,7 +482,7 @@ namespace Lxsession {
             global_proxy.launch();
         }
 
-        if (global_settings.get_item_string("Session", "udpates_manager", "command") != null)
+        if (global_settings.get_item_string("Session", "updates_manager", "command") != null)
         {
             var updates = new UpdatesManagerApp();
             global_updates = updates;

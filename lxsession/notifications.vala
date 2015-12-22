@@ -29,9 +29,12 @@ namespace Lxsession
         public string icon_name;
         public string tooltip_text;
         public string launch_menu_text;
+        public string launch_command;
+
+        public Indicator indicator;
         
 
-        public IconObject(string? icon_name_param, string? tooltip_text_param, string? launch_menu_text_param )
+        public IconObject(string? icon_name_param, string? tooltip_text_param, string? launch_menu_text_param, string? launch_command_param)
         {
             if (icon_name_param != null)
             {
@@ -59,14 +62,25 @@ namespace Lxsession
             {
                 this.launch_menu_text = "Launch";
             }
+
+            if (launch_command_param != null)
+            {
+                this.launch_command = launch_command_param;
+            }
+            else
+            {
+                this.launch_command = "Launch";
+            }
+
         }
 
         public void init()
         {
 #if USE_GTK
             message("Enter notification code");
+
             var indicator = new Indicator(this.tooltip_text, this.icon_name,
-                                          IndicatorCategory.APPLICATION_STATUS);
+                              IndicatorCategory.APPLICATION_STATUS);
 
             indicator.set_status(IndicatorStatus.ACTIVE);
 
@@ -74,7 +88,14 @@ namespace Lxsession
 
             var launch_menu = new Gtk.MenuItem.with_label(this.launch_menu_text);
             launch_menu.activate.connect(() => {
-                /* TODO Launch Read and program */ 
+                try
+                {
+                    Process.spawn_command_line_async(this.launch_command);
+                }
+                catch (SpawnError err)
+                {
+                    warning (err.message);
+                }
             });
             launch_menu.show();
             menu.append(launch_menu);
@@ -94,6 +115,21 @@ namespace Lxsession
  
         }
 
+        public void activate()
+        {
+            indicator.set_status(IndicatorStatus.ACTIVE);
+        }
+
+        public void inactivate()
+        {
+            indicator.set_status(IndicatorStatus.PASSIVE);
+        }
+
+        public void set_icon(string param_icon_name)
+        {
+            this.icon_name = param_icon_name;
+            indicator.icon_name = param_icon_name;
+        }
      }
 
 }
