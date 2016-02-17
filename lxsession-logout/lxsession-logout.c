@@ -629,9 +629,7 @@ int main(int argc, char * argv[])
     gtk_container_add(GTK_CONTAINER(alignment), center_area);
 
 #ifdef USE_GTK3
-    GtkStyle* style = gtk_widget_get_style (window);
-    GdkColor color = style->bg[GTK_STATE_NORMAL];
-    gtk_widget_modify_bg(center_area, GTK_STATE_NORMAL, &color);
+    gtk_style_context_add_class (gtk_widget_get_style_context (center_area), GTK_STYLE_CLASS_BACKGROUND);
 #endif
 
     GtkWidget* center_vbox = gtk_vbox_new(FALSE, 6);
