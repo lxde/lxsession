@@ -216,7 +216,7 @@ void update_enable_state(GKeyFile* kf, gboolean enabled, int flags, const char* 
                 if( strcmp(list[i], session_name) == 0 )
                 {
                     g_free(list[i]);
-                    memcpy( list + i, list + i + 1, (n-i) * sizeof(char*) );
+                    memmove( list + i, list + i + 1, (n-i) * sizeof(char*) );
                     --n;
                     break;
                 }
@@ -259,7 +259,7 @@ void update_enable_state(GKeyFile* kf, gboolean enabled, int flags, const char* 
                 if( strcmp(list[i], session_name) == 0 )
                 {
                     g_free(list[i]);
-                    memcpy( list + i, list + i + 1, (n-i) * sizeof(char*) );
+                    memmove( list + i, list + i + 1, (n-i) * sizeof(char*) );
                     --n;
                     break;
                 }
