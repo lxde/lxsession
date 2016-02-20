@@ -2,20 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2009-01-21 14:13+0100\n"
-"Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
+"PO-Revision-Date: 2014-12-05 13:08+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Danish\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1417784893.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -43,6 +44,7 @@ msgid "Error: %s\n"
 msgstr "Fejl: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
 #, fuzzy, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Log ud af %s session?</big></b>"
@@ -69,7 +71,7 @@ msgstr "Skift _bruger"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr ""
+msgstr "L_åseskærm"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
@@ -78,11 +80,11 @@ msgstr "_Log ud"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiveret"
 
 #: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
-msgstr ""
+msgstr "Program"
 
 #: ../lxpolkit/lxpolkit.c:43
 #, fuzzy
@@ -91,7 +93,7 @@ msgstr "Fejl: %s\n"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -101,28 +103,29 @@ msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Adgangskode: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
 #, fuzzy, c-format
 msgid "Group: %s"
 msgstr "Fejl: %s\n"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Indstillinger for skrivebordssession"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Programmer der startes automatisk efter opstart af skrivebord:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automatisk Startede Programmer"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Vindueshåndtering:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
@@ -140,15 +143,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Avancerede indstillinger"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Godkendelse"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identitet:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
@@ -156,11 +159,12 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
-msgstr ""
+msgstr "Genindlæs"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Tilstand"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -261,11 +265,12 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr ""
+msgstr "Start programmer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
+#, fuzzy
 msgid "Windows Manager"
-msgstr ""
+msgstr "Vindueshåndtering:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
@@ -349,7 +354,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Indstillinger</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
@@ -357,11 +362,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Kendte Programmer</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "Autostart"
-msgstr ""
+msgstr "Autostart"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
@@ -369,15 +374,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Generelle indstillinger</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
@@ -387,7 +392,7 @@ msgstr ""
 #: ../lxsession-default-apps/combobox.vala:168
 #: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
-msgstr ""
+msgstr "Anvend"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
@@ -395,11 +400,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
-msgstr ""
+msgstr "Tilstand"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"
@@ -407,7 +412,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:64
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #: ../data/ui/lxsession-default-apps.ui.h:65
 msgid "Options"
@@ -419,19 +424,19 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Håndter programmer indlæst i skrivebordssessionen"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Standardprogrammer for LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Skift standardprogrammer i LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"

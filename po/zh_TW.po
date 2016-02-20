@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-03-21 00:15+0000\n"
-"Last-Translator: <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2015-06-29 10:42+0000\n"
+"Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1426896942.000000\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1435574562.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -444,7 +444,7 @@ msgstr "管理在桌面工作階段載入的應用程式"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "LXSession 的預設應用程式"
+msgstr "LXSession 預設應用程式"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
@@ -470,7 +470,7 @@ msgstr "正在更新資料庫，請稍候"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr "LXSession 配置"
+msgstr "LXSession 設定"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -521,7 +521,7 @@ msgid ""
 "see \"More\"), kwin, compiz ..."
 msgstr ""
 "視窗管理員負責繪畫並管理視窗。 \n"
-"可選擇 openbox, openbox-custom (若要自訂 openbox 配置，見「更多」), kwin, compiz 等等..."
+"可選擇 openbox, openbox-custom (若要自訂 openbox 設定，見「更多」), kwin, compiz 等等..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
@@ -691,11 +691,11 @@ msgstr "螢幕鎖定程式"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr "音訊配置程式"
+msgstr "音訊設定程式"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr "工作區配置"
+msgstr "工作區設定"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"

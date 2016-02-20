@@ -1,10 +1,15 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2012-10-09 13:18+0200\n"
-"Last-Translator: Mișu <dumol@l10n.ro>\n"
+"PO-Revision-Date: 2014-12-05 13:30+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Romanian <LL@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1417786258.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -40,6 +46,7 @@ msgid "Error: %s\n"
 msgstr "Eroare: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
 #, fuzzy, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Ieșiți din sesiunea %s?</big></b>"
@@ -136,8 +143,8 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Atenție:</b> <b>NU</b> schimbați această opțiune în necunoștință de "
-"cauză.\n"
+"<b>Atenție:</b> <b>NU</b> schimbați această opțiune în necunoștință de cauză."
+"\n"
 "\n"
 "<b>NOTĂ:</b> Această opțiune va produce efecte după următoarea autentificare."
 
@@ -324,8 +331,9 @@ msgid "Workspace manager"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
+#, fuzzy
 msgid "Quit manager"
-msgstr ""
+msgstr "Manager de ferestre:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"

@@ -9,16 +9,17 @@ msgstr ""
 "Project-Id-Version: LXSession x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2013-11-24 09:55+0100\n"
-"Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2014-12-24 14:29+0000\n"
+"Last-Translator: markos <jezzivi@yahoo.com>\n"
 "Language-Team: \n"
-"Language: sr\n"
+"Language: sr@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1419431343.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -159,9 +160,8 @@ msgid "Identity:"
 msgstr "Identitet:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Upravnik datoteka</b>"
+msgstr "Upravnik datoteka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -172,9 +172,8 @@ msgid "More"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Upravnik emulatora terminala</b>"
+msgstr "Upravnik emulatora terminala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
@@ -185,29 +184,24 @@ msgid "Email"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Veza 1</b>"
+msgstr "Veza 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Veza 2</b>"
+msgstr "Veza 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Dodatak 1</b>"
+msgstr "Dodatak 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Upravnik za pokretanje programa</b>"
+msgstr "Upravnik za pokretanje programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Upravnik snimača ekrana</b>"
+msgstr "Upravnik snimača ekrana"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
@@ -293,9 +287,8 @@ msgid "Dock"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Kompozitni upravnik</b>"
+msgstr "Kompozitni upravnik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 #, fuzzy
@@ -303,54 +296,44 @@ msgid "Desktop Manager"
 msgstr "Upravljač prozora:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Čuvar ekrana</b>"
+msgstr "Čuvar ekrana"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Upravnik potrošnjom energije</b>"
+msgstr "Upravnik potrošnjom energije"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>PolisiKit Agent autentifikacije</b>"
+msgstr "PolisiKit Agent autentifikacije"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Mreža — grafičko sučelje</b>"
+msgstr "Grafičko sučelje mreže"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Upravnik ključara ekrana</b>"
+msgstr "Upravnik ključara ekrana"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Upravnik zvuka</b>"
+msgstr "Upravnik zvuka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Upravnik radne površi</b>"
+msgstr "Upravnik radne površi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Odjavljivač</b>"
+msgstr "Odjavljivač"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Upravnik nadgradnje</b>"
+msgstr "Upravnik nadgradnje"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Upravnik spremišta</b>"
+msgstr "Upravnik spremišta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
@@ -382,7 +365,6 @@ msgid "<b>Settings</b>"
 msgstr "<b>Podešavanja</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
-#, fuzzy
 msgid "<b>Manual autostarted applications</b>"
 msgstr "<b>Ručno podešeni početni programi</b>"
 
@@ -411,7 +393,6 @@ msgid "Type"
 msgstr "Vrsta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
-#, fuzzy
 msgid "Menu prefix"
 msgstr "Prefiks menija"
 
@@ -518,9 +499,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Onemogući početne programe?"
+msgstr "Onemogući početne programe ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
