@@ -516,7 +516,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr "Automatisk uppstart av program?"
+msgstr "Automatisk uppstart av program?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
