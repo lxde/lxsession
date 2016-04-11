@@ -566,7 +566,7 @@ int main(int argc, char * argv[])
         handler_context.switch_user_GDM = TRUE;
     }
 
-    /* lightdm can be find by the env */
+    /* lightdm can be found by the env */
     if (g_getenv("XDG_SEAT_PATH"))
     {
         handler_context.switch_user_available = TRUE;
