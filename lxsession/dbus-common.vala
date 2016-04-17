@@ -43,7 +43,7 @@ public class SessionObject: Object {
         try {
             can_shutdown_available = yield dbus_interface.can_stop ();
         }
-        catch (DBus.Error err) {
+        catch (IOError err) {
             warning ("%s", err.message);
             can_shutdown_available = false;
         }
@@ -55,7 +55,7 @@ public class SessionObject: Object {
         try {
             dbus_interface.stop ();
         }
-        catch (DBus.Error err) {
+        catch (IOError err) {
             warning ("%s", err.message);
         }
     }
@@ -64,7 +64,7 @@ public class SessionObject: Object {
         try {
             dbus_interface.restart ();
         }
-        catch (DBus.Error err) {
+        catch (IOError err) {
             warning ("%s", err.message);
         }
     }
@@ -77,10 +77,10 @@ public interface ConsoleKitObject: Object {
     public const string OBJECT_PATH = "/org/freedesktop/ConsoleKit/Manager";
     public const string INTERFACE_NAME = "org.freedesktop.ConsoleKit.Manager";
     
-    public abstract void restart () throws DBus.Error;
-    public abstract void stop () throws DBus.Error;
-    public abstract async bool can_restart () throws DBus.Error;
-    public abstract async bool can_stop () throws DBus.Error;
+    public abstract void restart () throws IOError;
+    public abstract void stop () throws IOError;
+    public abstract async bool can_restart () throws IOError;
+    public abstract async bool can_stop () throws IOError;
 }
 
 void on_bus_aquired (DBusConnection conn) {
