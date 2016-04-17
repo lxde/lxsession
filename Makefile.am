@@ -219,7 +219,6 @@ lxsession_default_apps_lxsession_default_apps_SOURCES = \
 lxsession_default_apps_lxsession_default_apps_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
     --pkg @VALA_GTK_LIBS@ \
-    --pkg dbus-glib-1 \
     --pkg gio-2.0 \
     --pkg posix \
     --pkg lxsession-edit \
