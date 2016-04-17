@@ -432,6 +432,8 @@ gboolean draw(GtkWidget * widget, cairo_t * cr, GdkPixbuf * pixbuf)
 gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pixbuf)
 #endif
 {
+    gint x, y;
+
     if (pixbuf != NULL)
     {
         /* Copy the appropriate rectangle of the root window pixmap to the drawing area.
@@ -439,14 +441,16 @@ gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, GdkPixbuf * pi
 #ifdef USE_GTK3
 #elif GTK_CHECK_VERSION(2,14,0)
        cairo_t * cr = gdk_cairo_create (gtk_widget_get_window(widget));
+       gdk_window_get_origin(gtk_widget_get_window(widget), &x, &y);
 #else
        cairo_t * cr = gdk_cairo_create (widget->window);
+       gdk_window_get_origin(widget->window, &x, &y);
 #endif
        gdk_cairo_set_source_pixbuf (
            cr,
            pixbuf,
-           0,
-           0);
+           -x,
+           -y);
 
        cairo_paint (cr);
 #ifndef USE_GTK3
@@ -611,8 +615,6 @@ int main(int argc, char * argv[])
     GtkWidget * window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_decorated(GTK_WINDOW(window), FALSE);
     gtk_window_fullscreen(GTK_WINDOW(window));
-    GdkScreen* screen = gtk_widget_get_screen(window);
-    gtk_window_set_default_size(GTK_WINDOW(window), gdk_screen_get_width(screen), gdk_screen_get_height(screen));
     gtk_widget_set_app_paintable(window, TRUE);
 #ifdef USE_GTK3
     g_signal_connect(G_OBJECT(window), "draw", G_CALLBACK(draw), pixbuf);
