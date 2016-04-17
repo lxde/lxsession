@@ -318,6 +318,12 @@ namespace Lxsession
                 Environment.set_variable("GTK_OVERLAY_SCROLLING", "0", true);
             }
 
+            /* Force theme for QT apps */
+            if (global_settings.get_item_string("Environment", "qt", "force_theme") != null)
+            {
+                Environment.set_variable("QT_STYLE_OVERRIDE", global_settings.get_item_string("Environment", "qt", "force_theme"), true);
+            }
+
             /* Add path for Qt plugins (usefull for razor session */
             string qt_plugin;
             qt_plugin = Environment.get_variable("QT_PLUGIN_PATH");

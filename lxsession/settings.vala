@@ -826,6 +826,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Environment", "ubuntu_menuproxy", null, "string");
         read_key_value(kf, "Environment", "toolkit_integration", null, "string");
         read_key_value(kf, "Environment", "gtk", "overlay_scrollbar_disable", "string");
+        read_key_value(kf, "Environment", "qt", "force_theme", "string");
 
         read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
         read_key_value(kf, "GTK", "sNet", "IconThemeName", "string");

@@ -191,6 +191,8 @@ ubuntu_menuproxy=false
 toolkit_integration=gtk2
 # Disable gtk3 overlay scrollbar (GTK_OVERLAY_SCROLLING=0) "true" or "false".
 gtk/overlay_scrollbar_disable=false
+# Force using theme for QT apps (example gtk by QT_STYLE_OVERRIDE=gtk)
+qt/force_theme=
 
 [Environment_variable]
 # Export TEST variable with value test
