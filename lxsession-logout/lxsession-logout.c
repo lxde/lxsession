@@ -478,19 +478,6 @@ int main(int argc, char * argv[])
     textdomain (GETTEXT_PACKAGE);
 #endif
 
-    /* Initialize GTK (via g_option_context_parse) and parse command line arguments. */
-    GOptionContext * context = g_option_context_new("");
-    g_option_context_add_main_entries(context, opt_entries, GETTEXT_PACKAGE);
-    g_option_context_add_group(context, gtk_get_option_group(TRUE));
-    GError * err = NULL;
-    if ( ! g_option_context_parse(context, &argc, &argv, &err))
-    {
-        g_print(_("Error: %s\n"), err->message);
-        g_error_free(err);
-        return 1;
-    }
-    g_option_context_free(context);
-
     HandlerContext handler_context;
     memset(&handler_context, 0, sizeof(handler_context));
 
@@ -509,6 +496,8 @@ int main(int argc, char * argv[])
         }
     }
     atexit(main_at_exit);
+
+    /* Query DBus before GTK+ initialization!!! Otherwise a race may occur. */
 
     /* Initialize capabilities of the systemd mechanism. */
     if (dbus_systemd_CanPowerOff())
@@ -604,6 +593,19 @@ int main(int argc, char * argv[])
     {
         handler_context.lock_screen = TRUE;
     }
+
+    /* Initialize GTK (via g_option_context_parse) and parse command line arguments. */
+    GOptionContext * context = g_option_context_new("");
+    g_option_context_add_main_entries(context, opt_entries, GETTEXT_PACKAGE);
+    g_option_context_add_group(context, gtk_get_option_group(TRUE));
+    GError * err = NULL;
+    if ( ! g_option_context_parse(context, &argc, &argv, &err))
+    {
+        g_print(_("Error: %s\n"), err->message);
+        g_error_free(err);
+        return 1;
+    }
+    g_option_context_free(context);
 
     /* Make the button images accessible. */
     gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxsession/images");
