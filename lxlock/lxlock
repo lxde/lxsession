@@ -35,6 +35,8 @@ elif which xlock 2>/dev/null; then
     xlock $*
 elif which i3lock >/dev/null; then
     i3lock -d
+elif which slimlock >/dev/null; then
+    slimlock
 else
     # In the end, try to fallback to xscreensaver
 
