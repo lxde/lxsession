@@ -29,11 +29,11 @@ elif pidof xscreensaver >/dev/null; then
     xscreensaver-command -lock >/dev/null 2>&1
 elif pidof gnome-screensaver >/dev/null; then
     gnome-screensaver-command --lock
-elif which slock >/dev/null; then
+elif which slock >/dev/null 2>&1; then
     slock &
-elif which xlock 2>/dev/null; then
+elif which xlock >/dev/null 2>&1; then
     xlock $*
-elif which i3lock >/dev/null; then
+elif which i3lock >/dev/null 2>&1; then
     i3lock -d
 elif which slimlock >/dev/null; then
     slimlock
