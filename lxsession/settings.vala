@@ -823,6 +823,8 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Dbus", "gnome", null, "string");
         read_key_value(kf, "Environment", "type", null, "string");
         read_key_value(kf, "Environment", "menu_prefix", null, "string");
+        read_key_value(kf, "Environment", "ubuntu_menuproxy", null, "string");
+        read_key_value(kf, "Environment", "toolkit_integration", null, "string");
         read_key_value(kf, "Environment", "gtk", "overlay_scrollbar_disable", "string");
 
         read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
