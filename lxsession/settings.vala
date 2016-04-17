@@ -54,7 +54,7 @@ namespace Lxsession
             return return_map;
         }
 
-        public void create_config_item (string categorie, string key1, string key2, string type, string? variable)
+        public void create_config_item (string categorie, string key1, string? key2, string type, string? variable)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
@@ -69,7 +69,7 @@ namespace Lxsession
             update_support_keys (categorie, key1, key2);
         }
 
-        public void delete_config_item (string categorie, string key1, string key2, string type)
+        public void delete_config_item (string categorie, string key1, string? key2, string type)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
