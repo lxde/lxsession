@@ -100,7 +100,7 @@
                     <property name="can_focus">True</property>
                     <property name="has_focus">True</property>
                     <property name="visibility">False</property>
-                    <property name="invisible_char">•</property>
+                    <property name="invisible_char">&#x2022;</property>
                     <property name="activates_default">True</property>
                   </object>
                   <packing>
