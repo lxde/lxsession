@@ -75,8 +75,17 @@ screenshot_manager/command=
 # Upgrade by default (dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.UpgradeManagerLaunch)
 upgrade_manager/command=
 
-# Updates checker, support build-in and update-notifier
+# Updates checker, support update-notifier-clone.
 updates_manager/command=
+# Timemout between the launch of the crash manager (to avoid running to often when the directory change)
+updates_manager/timeout=60
+
+# Crash report looging facility, launch crash report when a crash file is deteted (support apport-gtk only)
+crash_manager/command=
+# Add an option to delete the crash report, usefull for developers which crash apps too often
+crash_manager/dev_mode=
+# Timemout between the launch of the crash manager (to avoid running to often when the directory change)
+crash_manager/timeout=60
 
 # Clipboard support (use lxclipboard to use build-in support if enable at build time)
 clipboard/command=lxclipboard

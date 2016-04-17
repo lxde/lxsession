@@ -28,9 +28,9 @@ public class SessionObject: Object {
     {
         try
         {
-        dbus_interface = GLib.Bus.get_proxy_sync(   BusType.SYSTEM,
-                                                    "org.freedesktop.ConsoleKit",
-                                                    "/org/freedesktop/ConsoleKit/Manager");
+            dbus_interface = GLib.Bus.get_proxy_sync(   BusType.SYSTEM,
+                                                        "org.freedesktop.ConsoleKit",
+                                                        "/org/freedesktop/ConsoleKit/Manager");
         }
         catch (IOError e)
         {

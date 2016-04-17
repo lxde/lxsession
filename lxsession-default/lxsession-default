@@ -71,6 +71,16 @@ case "$1" in
 	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"desktop_manager" string:"settings" > /dev/null 2>&1
     fi
     ;;
+"crash_manager")
+    if [ "$2" = "report" ]
+    then
+	    echo "Launching crash manager reporter"
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'report'> /dev/null 2>&1
+    else
+	    echo "Launching crash manager"
+	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'' > /dev/null 2>&1
+    fi
+    ;;
 "windows_manager")
 	echo "Launching windows manager"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"windows_manager"  string:'' > /dev/null 2>&1

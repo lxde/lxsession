@@ -19,7 +19,6 @@ scripts= \
     lxsession-default/lxsession-default \
     lxsession-default/lxsession-default-terminal \
     lxsession-utils/lxsession-xsettings \
-    lxsession-utils/lxsession-apt-check \
     $(NULL)
 
 bin_SCRIPTS= $(scripts)
@@ -250,16 +249,7 @@ buildinclip_SOURCES = \
 
 buildinclip_VALAFLAGS = \
     --pkg lxclipboard \
-    --pkg @VALA_GTK_LIBS@ \
     -D BUILDIN_CLIPBOARD \
-    $(NULL)
-
-buildinclip_CFLAGS = \
-    $(GTK_CFLAGS) \
-    $(NULL)
-
-buildinclip_LDADD = \
-    $(GTK_LIBS) \
     $(NULL)
 endif
 
@@ -275,12 +265,10 @@ buildinpolkit_VALAFLAGS = \
     $(NULL)
 
 buildinpolkit_CFLAGS = \
-    $(GTK_CFLAGS) \
     $(POLKIT_CFLAGS) \
     $(NULL)
 
 buildinpolkit_LDADD = \
-    $(GTK_LIBS) \
     $(POLKIT_LIBS) \
     $(NULL)
 endif
@@ -406,6 +394,7 @@ CLEANFILES += \
     lxsession/dbus-gnome-session.c \
     lxsession/dbus-lxde-session.c \
     lxsession/environement.c \
+    lxsession/notifications.c \
     lxsession/options.c \
     lxsession/process.c \
     lxsession/settings.c \
@@ -461,14 +450,17 @@ if USE_GTK
 lxsession_lxsession_VALAFLAGS +=     \
     --pkg @VALA_GTK_LIBS@ \
     --pkg appindicator-0.1 \
+    --pkg libnotify \
     -D USE_GTK
 
 lxsession_lxsession_CPPFLAGS += \
     $(GTK_CFLAGS) \
+    $(LIBNOTIFY_CFLAGS) \
     $(INDICATORS_CFLAGS)
 
 lxsession_lxsession_LDADD += \
     $(GTK_LIBS) \
+    $(LIBNOTIFY_LIBS) \
     $(INDICATORS_LIBS)
 endif
 

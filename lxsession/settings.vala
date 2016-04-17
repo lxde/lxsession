@@ -771,6 +771,10 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "message_manager", "command", "string");
         read_key_value(kf, "Session", "upgrade_manager", "command", "string");
         read_key_value(kf, "Session", "updates_manager", "command", "string");
+        read_key_value(kf, "Session", "updates_manager", "timeout", "string");
+        read_key_value(kf, "Session", "crash_manager", "command", "string");
+        read_key_value(kf, "Session", "crash_manager", "dev_mode", "string");
+        read_key_value(kf, "Session", "crash_manager", "timeout", "string");
         read_key_value(kf, "Session", "clipboard", "command", "string");
         read_key_value(kf, "Session", "disable_autostart", null, "string");
         read_key_value(kf, "Session", "upstart_user_session", null, "string");

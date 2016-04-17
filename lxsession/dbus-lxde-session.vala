@@ -430,10 +430,25 @@ namespace Lxsession
                         {
                             UpdatesCheck();
                         }
-                        else
+                        else if (option == "activate")
+                            {
+                                UpdatesAct();
+                            }
+                            else if (option == "inactivate")
+                                {
+                                    UpdatesInactivate();
+                                }
+                        break;
+
+                    case "crash_manager":
+                        if (option == "activate")
                         {
-                            UpdatesActivate();
+                            CrashManagerActivate();
                         }
+                        else if (option == "inactivate")
+                            {
+                                CrashManagerInactivate();
+                            }
                         break;
 
                     default:
@@ -484,6 +499,111 @@ namespace Lxsession
             {
                 message("Check Updates");
                 global_updates.run_check();
+            }
+        }
+
+        private void UpdatesAct()
+        {
+            message("Reload updates_manager");
+            if (global_settings.get_item_string("Session", "updates_manager", "command") == null)
+            {
+                warning("Updates_manager not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Updates_manager doesn't exist, creating it");
+                var updates = new UpdatesManagerApp();
+                global_updates = updates;
+                global_updates.test_activate();
+            }
+            else
+            {
+                message("Check Updates");
+                global_updates.test_activate();
+            }
+        }
+
+        private void UpdatesInactivate()
+        {
+            message("Reload updates_manager");
+            if (global_settings.get_item_string("Session", "updates_manager", "command") == null)
+            {
+                warning("Updates_manager not set");
+            }
+            else if (global_updates == null)
+            {
+                message("Updates_manager doesn't exist, creating it");
+                var updates = new UpdatesManagerApp();
+                global_updates = updates;
+                global_updates.test_inactivate();
+            }
+            else
+            {
+                message("Check Updates");
+                global_updates.test_inactivate();
+            }
+        }
+
+        public void CrashManagerLaunch()
+        {
+            message("Launch crash manager");
+            if (global_settings.get_item_string("Session", "crash_manager", "command") == null)
+            {
+                warning("Crash manager not set");
+            }
+            else if (global_crash == null)
+            {
+                message("Crash manager doesn't exist, creating it");
+                var crash = new CrashManagerApp();
+                global_crash = crash;
+                global_crash.launch();
+            }
+            else
+            {
+                message("Reload existing crash manager");
+                global_crash.reload();
+            }
+        }
+
+        public void CrashManagerActivate()
+        {
+            message("Launch crash manager reporter");
+            if (global_settings.get_item_string("Session", "crash_manager", "command") == null)
+            {
+                warning("Crash manager not set");
+            }
+            else if (global_crash == null)
+            {
+                message("Crash manager doesn't exist, creating it and activate");
+                var crash = new CrashManagerApp();
+                global_crash = crash;
+                global_crash.test_activate();
+            }
+            else
+            {
+                message("Launching crash manager activate");
+                global_crash.test_activate();
+            }
+        }
+
+        public void CrashManagerInactivate()
+        {
+            message("Launch crash manager reporter");
+            if (global_settings.get_item_string("Session", "crash_manager", "command") == null)
+            {
+                warning("Crash manager not set");
+            }
+            else if (global_crash == null)
+            {
+                message("Crash manager doesn't exist, creating it and inactivate");
+                var crash = new CrashManagerApp();
+                global_crash = crash;
+                global_crash.test_inactivate();
+            }
+            else
+            {
+                message("Launching crash manager inactivate");
+                global_crash.test_inactivate();
             }
         }
 
@@ -1018,7 +1138,7 @@ namespace Lxsession
         public void TestIconNotification()
         {
             message("Test icon notification default");
-            var icon_test = new IconObject("gtk-info", "Test Info", "Info", null);
+            var icon_test = new IconObject("gtk-info", "Info", null, null);
             icon_test.init();
         }
     }

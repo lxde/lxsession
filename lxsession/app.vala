@@ -1162,8 +1162,13 @@ public class ScreenshotManagerApp: SimpleAppObject
 public class UpdatesManagerApp: SimpleAppObject
 {
     string updatesmanager_command;
-    string upgrade_manager_command;
+
     IconObject updates_icon;
+    MenuObject icon_menu;
+
+    IconObject language_icon;
+
+    IconObject reboot_icon;
 
     string apt_update_path = "/var/lib/apt/periodic/update-success-stamp";
     GLib.File apt_update_file ;
@@ -1173,9 +1178,19 @@ public class UpdatesManagerApp: SimpleAppObject
     GLib.File dpkg_update_file ;
     GLib.FileMonitor dpkg_update_monitor ;
 
+    string dpkg_run_path = "/var/lib/update-notifier/dpkg-run-stamp";
+    GLib.File dpkg_run_file ;
+    GLib.FileMonitor dpkg_run_monitor ;
+
     string apt_lists_update_path = "/var/lib/apt/lists";
     GLib.File apt_lists_update_file ;
     GLib.FileMonitor apt_lists_update_monitor ;
+
+    string reboot_path = "/var/run/reboot-required";
+    GLib.File reboot_file ;
+    GLib.FileMonitor reboot_monitor ;
+
+    string dpkg_lock_file = "/var/lib/dpkg/lock";
 
     int lock_check = 0;
 
@@ -1188,15 +1203,6 @@ public class UpdatesManagerApp: SimpleAppObject
     {
         updatesmanager_command = global_settings.get_item_string("Session", "updates_manager", "command");
 
-        if (global_settings.get_item_string("Session", "upgrade_manager", "command") != null)
-        {
-            upgrade_manager_command = global_settings.get_item_string("Session", "upgrade_manager", "command");
-        }
-        else
-        {
-            upgrade_manager_command = "";
-        }
-
         switch (updatesmanager_command)
         {
             case null:
@@ -1205,8 +1211,9 @@ public class UpdatesManagerApp: SimpleAppObject
                 break;
             case " ":
                 break;
-            case "build-in":
-                setup_apt_config ();
+            case "update-notifier-clone":
+                setup_apt_config();
+                setup_reboot_config();
                 run_check();
                 break;
             default:
@@ -1217,15 +1224,183 @@ public class UpdatesManagerApp: SimpleAppObject
         }
     }
 
+    public void test_inactivate()
+    {
+        updates_icon.inactivate();
+    }
+
+    public void test_activate()
+    {
+        updates_icon.activate();
+    }
+
     public void run_check()
     {
         if (this.lock_check == 0)
         {
-            on_apt_update_file_change ();
+            if (check_lock_file(dpkg_lock_file) == true)
+            {
+                this.lock_check = 1;
+                int timeout = 60;
+                if (global_settings.get_item_string("Session", "updates_manager", "timeout") != null)
+                {
+                    timeout = int.parse(global_settings.get_item_string("Session", "updates_manager", "timeout"));
+                }
+                GLib.Timeout.add_seconds(timeout, on_apt_update_file_change);
+            }
         }
     }
 
-    public void on_apt_update_file_change()
+    public void reboot_launch()
+    {
+        var session = new SessionObject();
+        session.lxsession_restart();
+    }
+
+    public void run_check_reboot()
+    {
+        string notification_text ="";
+
+        if (this.reboot_file.query_exists ())
+        {
+            if (this.reboot_icon == null)
+            {
+                var reboot_icon_menu = new MenuObject() ;
+                string line = _("Reboot required");
+
+                try
+                {
+                    var dis = new DataInputStream (this.reboot_file.read ());
+                    line = dis.read_line ();
+                }
+                catch (GLib.Error e)
+                {
+                    message ("Error: %s\n", e.message);
+                }
+
+                if (line != null)
+                {
+                    notification_text = line;
+                }
+
+                var menu_item = new MenuItemObject();
+                menu_item.set_label(notification_text);
+                menu_item.activate.connect(() => {
+                    reboot_launch();
+                });
+                menu_item.show();
+                reboot_icon_menu.add(menu_item);
+
+                this.reboot_icon = new IconObject("RebootIcon", "system-reboot", notification_text, reboot_icon_menu);
+                this.reboot_icon.init();
+                this.reboot_icon.clear_actions ();
+                this.reboot_icon.add_action ("launch_reboot", _("Reboot"), () =>
+                {
+                    reboot_launch();
+                });
+                this.reboot_icon.activate();
+            }
+        }
+        else
+        {
+            if (this.reboot_icon != null)
+            {
+                this.reboot_icon.inactivate();
+            }
+        }
+    }
+
+    public void language_launch()
+    {
+        if (this.language_icon != null)
+        {
+            try
+            {
+                Process.spawn_command_line_async("gnome-language-selector");
+                this.language_icon.inactivate();
+            }
+            catch (SpawnError err)
+            {
+                warning (err.message);
+            }
+        }
+    }
+
+    public void check_language_support()
+    {
+        string command = "check-language-support";
+
+        string standard_output;
+        string standard_error;
+        int exit_status;
+
+        string launch_string = _("Launch language support");
+
+        try
+        {
+            Process.spawn_command_line_sync (command, out standard_output, out standard_error, out exit_status);
+
+            message ("Launching %s", command);
+            message ("Language state: %s", standard_error);
+            message ("Language exit status: %i", exit_status);
+            message ("Language output: %s", standard_output);
+
+        }
+        catch (SpawnError err)
+        {
+            warning (err.message);
+        }
+
+        if (standard_output != null)
+        {
+            if (standard_output.length >= 3)
+            {
+                if (this.language_icon == null)
+                {
+                    var language_icon_menu = new MenuObject() ;
+
+                    var menu_item = new MenuItemObject();
+                    menu_item.set_label(launch_string);
+                    menu_item.activate.connect(() => {
+                        language_launch();
+                    });
+                    menu_item.show();
+                    language_icon_menu.add(menu_item);
+
+                    this.language_icon = new IconObject("LanguageIcon", "preferences-desktop-locale", _("Language support missing"), language_icon_menu);
+                    this.language_icon.init();
+                    this.language_icon.clear_actions ();
+                    this.language_icon.add_action ("launch_language_support", launch_string, () =>
+                    {
+                        language_launch();
+                    });
+                    this.language_icon.activate();
+                }
+            }
+            else if (this.language_icon != null)
+                {
+                    this.language_icon.inactivate();
+                }
+        }
+        else if (this.language_icon != null)
+            {
+                this.language_icon.inactivate();
+            }
+    }
+
+    public void upgrade_launch (string upgrade_manager_command)
+    {
+        try
+        {
+            Process.spawn_command_line_async(upgrade_manager_command);
+        }
+        catch (SpawnError err)
+        {
+            warning (err.message);
+        }
+    }
+
+    public bool on_apt_update_file_change()
     {
         /* Launch something that check if updates are available */
         /* For now, use lxsession-apt-check, which is apt-check from update-notifier */
@@ -1234,13 +1409,41 @@ public class UpdatesManagerApp: SimpleAppObject
         string standard_error;
         int exit_status;
 
-        string init_updates_num = "0;0";
-        string[] updates_num = init_updates_num.split_set(";",2);
+        string notification_text = _("Updates available");
+
+        string launch_string = _("Launch Update Manager");
+        string upgrade_manager_command = "";
+
+        string[] updates_num;
+        int updates_urgent = 0;
+        int updates_normal = 0;
+        int updates_state = 0;
+        int number_updates = 0;
 
         /* Lock the check process, to avoid launching the check many times when one is already running */
         this.lock_check = 1;
 
-        string command = "/usr/bin/nice" + " " + "/usr/bin/ionice" + " " + "-c3" + " " + "/usr/bin/lxsession-apt-check";
+        if (this.icon_menu == null)
+        {
+            this.icon_menu = new MenuObject();
+
+            if (global_settings.get_item_string("Session", "upgrade_manager", "command") != null)
+            {
+                upgrade_manager_command = global_settings.get_item_string("Session", "upgrade_manager", "command");
+
+                var menu_item = new MenuItemObject();
+                menu_item.set_label(launch_string);
+                menu_item.activate.connect(() => {
+                    upgrade_launch (upgrade_manager_command);
+                });
+                menu_item.show();
+                icon_menu.add(menu_item);
+            }
+        }
+
+        string command = "/usr/bin/nice" + " " + "/usr/bin/ionice" + " " + "-c3" + " " + "/usr/lib/update-notifier/apt-check";
+
+        string error_string = "";
 
         try
         {
@@ -1256,32 +1459,118 @@ public class UpdatesManagerApp: SimpleAppObject
             warning (err.message);
         }
 
-        if (standard_error != "")
+        if (this.updates_icon == null)
         {
-            updates_num = standard_error.split_set(";",2);
-            message ("Number of upgrades: %s", updates_num[0]);
-            message ("Number of security upgrades: %s", updates_num[1]);
-        }
-
-        var updates_icon = new IconObject("software-update-available", "Updates", _("Launch upgrade manager"), upgrade_manager_command);
-        updates_icon.init();
-
-        if (updates_num[1].to_int() > 0)
-        {
-            updates_icon.set_icon("software-update-urgent");
-            updates_icon.activate();
-        }
-        else if (updates_num[0].to_int() > 0)
-        {
-            updates_icon.activate();
+            this.updates_icon = new IconObject("UpdatesIcon", "software-update-available", notification_text, this.icon_menu);
+            this.updates_icon.init();
+            if (global_settings.get_item_string("Session", "upgrade_manager", "command") != null)
+            {
+                upgrade_manager_command = global_settings.get_item_string("Session", "upgrade_manager", "command");
+                this.updates_icon.clear_actions ();
+                this.updates_icon.add_action ("launch_upgrade_manager", launch_string, () =>
+                {
+                    upgrade_launch (upgrade_manager_command);
+                });
+            }
+            this.updates_icon.inactivate();
         }
         else
         {
-            updates_icon.inactivate();
+            this.updates_icon.inactivate();
         }
+
+        if (standard_error != "")
+        {
+            if (standard_error[0:1] == "E")
+            {
+                updates_urgent = 0;
+                updates_normal = 0;
+                updates_state = 1;
+                error_string =   _("An error occurred, please run Package Manager from the left-click menu or apt-get in a terminal to see what is wrong.");
+                if (standard_error.length > 3)
+                {
+                    notification_text = error_string + "\n" + _("The error message was: ") + standard_error;
+                }
+                else
+                {
+                    notification_text = error_string;
+                }
+            }
+            else
+                {
+                    updates_num = standard_error.split_set(";",2);
+                    message ("Number of upgrades: %s", updates_num[0]);
+                    message ("Number of security upgrades: %s", updates_num[1]);
+                    updates_num[2] = "0";
+
+                    updates_urgent = int.parse(updates_num[1]);
+                    updates_normal = int.parse(updates_num[0]);
+                    number_updates = updates_normal + updates_urgent;
+
+                    if (number_updates == 1)
+                    {
+                        notification_text = number_updates.to_string() + _(" Update available");
+                    }
+                    else if (number_updates > 1)
+                        {
+                            notification_text = number_updates.to_string() + (" ") + _("Updates available");
+                        }
+                }
+
+        }
+        else
+        {
+            updates_state = 1;
+        }
+
+
+        if (number_updates > 0)
+        {
+            message("Activate icon because of updates available");
+            this.updates_icon.set_notification_body(notification_text);
+            this.updates_icon.activate();
+        }
+
+        if (updates_urgent > 0)
+        {
+            message("Set urgent icon");
+            this.updates_icon.set_icon("software-update-urgent");
+            this.updates_icon.set_notification_body(notification_text);
+        }
+
+
+        if (updates_state > 0)
+        {
+            message("Problem in package state");
+            this.updates_icon.set_icon("software-update-urgent");
+            this.updates_icon.set_notification_body(notification_text);
+            this.updates_icon.clear_actions ();
+            this.updates_icon.add_action ("launch_upgrade_manager", launch_string, () =>
+            {
+                upgrade_launch ("synaptic-pkexec");
+            });
+            var new_menu = new MenuObject();
+            var new_menu_item = new MenuItemObject();
+            new_menu_item.set_label(launch_string);
+            new_menu_item.activate.connect(() => {
+                upgrade_launch ("synaptic-pkexec");
+            });
+            new_menu_item.show();
+            new_menu.add(new_menu_item);
+            this.updates_icon.set_menu(new_menu);
+            this.updates_icon.activate();
+        }
+
+        /* Check if language support is complete */
+        check_language_support();
+
+        /* Check if a reboot is requiered */
+        run_check_reboot();
 
         /* Unlock the check */
         this.lock_check = 0;
+
+        return false;
     }
 
     public void setup_apt_config ()
@@ -1324,6 +1613,18 @@ public class UpdatesManagerApp: SimpleAppObject
 
         try
         {
+            this.dpkg_run_file = File.new_for_path(this.dpkg_run_path);
+            this.dpkg_run_monitor = dpkg_run_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            this.dpkg_run_monitor.changed.connect(run_check);
+            message ("Monitoring dpkg run changes");
+        }
+        catch (GLib.Error err)
+        {
+            message (err.message);
+        }
+
+        try
+        {
             this.apt_lists_update_file = File.new_for_path(this.apt_lists_update_path);
             this.apt_lists_update_monitor = apt_lists_update_file.monitor_directory(GLib.FileMonitorFlags.NONE);
             this.apt_lists_update_monitor.changed.connect(run_check);
@@ -1333,8 +1634,292 @@ public class UpdatesManagerApp: SimpleAppObject
         {
             message (err.message);
         }
+    }
+
+    public void setup_reboot_config ()
+    {
+        try
+        {
+            this.reboot_file = File.new_for_path(this.reboot_path);
+            this.reboot_monitor = reboot_file.monitor_file(GLib.FileMonitorFlags.NONE);
+            this.reboot_monitor.changed.connect(run_check_reboot);
+            message ("Monitoring reboot changes");
+        }
+        catch (GLib.Error err)
+        {
+            message (err.message);
+        }
+    }
+
+    /* From https://mail.gnome.org/archives/vala-list/2010-October/msg00036.html */
+    public bool check_lock_file(string check_file)
+    {
+            
+            string lock_file_name = check_file;
+            int fd = Posix.open (lock_file_name, Posix.O_RDWR); 
+            if (fd == -1)
+            {
+              print ("There was an error opening the file '"  
+                + lock_file_name + " (Error number "  
+                + Posix.errno.to_string() + ")\n");
+              return true;
+            }
+                    
+            // Try to get a lock
+            Posix.Flock fl = Posix.Flock();
+            fl.l_type = Posix.F_WRLCK;
+            fl.l_whence = Posix.SEEK_SET;
+            fl.l_start = 100;
+            fl.l_len = 0;
+                    
+            int fcntl_return = Posix.fcntl (fd, Posix.F_SETLK, fl);
+            if (fcntl_return == -1) 
+                    return true;
+                    
+            // Release the lock again
+            fl.l_type = Posix.F_UNLCK;
+            fl.l_whence = Posix.SEEK_SET;
+            fl.l_start = 100;
+            fl.l_len = 0;
+            fcntl_return = Posix.fcntl (fd, Posix.F_SETLK, fl);
+
+            return false;
+    }
+
+}
+public class CrashManagerApp: SimpleAppObject
+{
+    string crash_manager_command;
+    IconObject crash_icon;
+
+    string crash_dir_path = "/var/crash/";
+    GLib.File crash_dir_file ;
+    GLib.FileMonitor crash_dir_monitor ;
+
+    int lock_crash_check = 0;
+
+    public CrashManagerApp ()
+    {
+        init();
+    }
+
+    public override void read_settings()
+    {
+        crash_manager_command = global_settings.get_item_string("Session", "crash_manager", "command");
+
+        switch (crash_manager_command)
+        {
+            case null:
+                break;
+            case "":
+                break;
+            case " ":
+                break;
+            case "apport-gtk":
+                setup_crash_log_config ();
+                run_crash_check();
+                break;
+            default:
+                string[] create_command = crash_manager_command.split_set(" ",0);
+                this.name = create_command[0];
+                this.command = create_command;
+                break;
+        }
+    }
+
+    public void test_activate ()
+    {
+        if (this.crash_icon != null)
+        {
+            this.crash_icon.activate();
+        }
+    }
+
+    public void test_inactivate ()
+    {
+        if (this.crash_icon != null)
+        {
+            this.crash_icon.inactivate();
+        }
+    }
+
+    public void setup_crash_log_config ()
+    {
+        try
+        {
+            this.crash_dir_file = File.new_for_path(this.crash_dir_path);
+            this.crash_dir_monitor = crash_dir_file.monitor_directory(GLib.FileMonitorFlags.NONE);
+            this.crash_dir_monitor.changed.connect(run_crash_check);
+            message ("Monitoring crash dir changes");
+        }
+        catch (GLib.Error err)
+        {
+            message (err.message);
+        }
+    }
+
+    public void run_crash_check()
+    {
+        if (this.lock_crash_check == 0)
+        {
+            this.lock_crash_check = 1;
+            int timeout = 60;
+            if (global_settings.get_item_string("Session", "crash_manager", "timeout") != null)
+            {
+                timeout = int.parse(global_settings.get_item_string("Session", "crash_manager", "timeout"));
+            }
+            GLib.Timeout.add_seconds(timeout, on_crash_file_change);
+        }
+    }
+
+    public List<string> check_crash_file()
+    {
+        List<string> crash_list = new List<string> ();
+        List<string> final_crash_list = new List<string> ();
+        string[] uploaded_list = {};
+        string file_name;
+
+        if (this.crash_dir_file != null)
+        {
+            try
+            {
+                var directory = File.new_for_path (crash_dir_path);
+                var enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+
+                FileInfo file_info;
+                while ((file_info = enumerator.next_file ()) != null)
+                {
+                    file_name = file_info.get_name();
+                    if (file_name != ".lock")
+                    {
+                        if (file_name.has_suffix(".crash"))
+                        {
+                            message("Add to crash_list: %s", file_name);
+                            crash_list.append(file_name);
+                        }
+                        else if (file_name.has_suffix(".uploaded"))
+                        {
+                            uploaded_list += file_name.replace(".uploaded", ".crash");
+                            message("Added to upload_list: %s", file_name.replace(".uploaded", ".crash"));
+                        }
+                    }
+                }
+            }
+            catch (Error e)
+            {
+                message ("Error: %s\n", e.message);
+            }
+        }
+
+        foreach (string element in crash_list)
+        {
+            message("Check element in crash_list: %s", element);
+            if (uploaded_list != null)
+            {
+                if (element in uploaded_list)   
+                {
+                    message("Remove element in crash_list: %s", element);
+                }
+                else
+                {
+                    final_crash_list.append(element);
+                }
+            }
+            else
+            {
+                final_crash_list.append(element);
+            }
+        }
+
+        return final_crash_list;
+    }
+
+    public void crash_report_launch (string command)
+    {
+        try
+        {
+            Process.spawn_command_line_async(command);
+            message ("Launching crash command : %s", command);
+        }
+        catch (SpawnError err)
+        {
+            warning (err.message);
+        }
+    }
+
+    public MenuObject build_menu(List<string> crash_list)
+    {
+        uint len = crash_list.length();
+        var menu = new MenuObject();
+
+        if (len >= 1)
+        {
+            foreach (string element in crash_list)
+            {
+                string command = "/usr/bin/pkexec /usr/share/apport/apport-gtk" + " " + this.crash_dir_path + element;
+
+                var menu_item = new MenuItemObject();
+                menu_item.set_label(_("Report ") + element);
+                menu_item.activate.connect(() => {
+                        crash_report_launch(command);
+                });
+                menu_item.show();
+                menu.add(menu_item);
+            }
+        }
+
+        return menu;
 
     }
-}
 
+    public bool on_crash_file_change ()
+    {
+        List<string> crash_list;
+        uint len;
+        MenuObject crash_menu;
+
+        /* Lock the check process, to avoid launching the check many times when one is already running */
+        this.lock_crash_check = 1;
+
+        crash_list = check_crash_file();
+        len = crash_list.length();
+        uint last_item = len - 1;
+
+        if (len >= 1)
+        {
+            crash_menu = build_menu(crash_list);
+            string command =  "/usr/bin/pkexec /usr/share/apport/apport-gtk" + " " + this.crash_dir_path + crash_list.nth_data(last_item) ;
+            string remove_command = "/usr/bin/pkexec rm -f " + this.crash_dir_path + crash_list.nth_data(last_item);
+
+            string launch_string = "Report last crash";
+            string remove_string = "Remove last crash";
+
+            if (this.crash_icon == null)
+            { 
+                this.crash_icon = new IconObject("CrashIcon", "apport", _("Crash files available for report"), crash_menu);
+                this.crash_icon.init();
+            }
+            this.crash_icon.set_menu(crash_menu);
+            /* TODO Make a window dialog to be able to really report bug on notification screen (and also add the remove mode)
+
+            this.crash_icon.clear_actions ();
+            this.crash_icon.add_action ("launch_crash_report", launch_string, () =>
+            {
+                crash_report_launch (command);
+            });
+            */
+            if (global_settings.get_item_string("Session", "crash_manager", "dev_mode") == "yes")
+            {
+                this.crash_icon.add_action ("remove_crash_report", remove_string, () =>
+                {
+                    crash_report_launch (remove_command);
+                });
+            }
+            this.crash_icon.activate();
+        }
+        /* Unlock the check */
+        this.lock_crash_check = 0;
+        return false;
+    }
+}
 }

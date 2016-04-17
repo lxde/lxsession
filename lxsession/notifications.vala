@@ -19,117 +19,220 @@
 #if USE_GTK
 using Gtk;
 using AppIndicator;
+using Notify;
 #endif
 
-namespace Lxsession 
+namespace Lxsession
 {
-    [Compact]
+#if USE_GTK
+    public class MenuItemObject : Gtk.MenuItem
+#else
+    public class MenuItemObject : MenuItemGenericObject
+#endif
+    {
+        public MenuItemObject ()
+        {
+
+        }
+    }
+
+    public class MenuItemGenericObject
+    {
+        public MenuItemGenericObject ()
+        {
+
+        } 
+    }
+
+
+#if USE_GTK
+    public class MenuObject : Gtk.Menu
+#else
+    public class MenuObject : MenuGenericObject
+#endif
+    {
+        public MenuObject ()
+        {
+
+        }
+    }
+
+    public class MenuGenericObject : GLib.Object
+    {
+        public delegate void ActionCallback ();
+
+        public void add_item (string text, owned ActionCallback callback)
+        {
+            warning("Not implemented");
+        }
+    }
+
     public class IconObject : GLib.Object
     {
-        public string icon_name;
-        public string tooltip_text;
-        public string launch_menu_text;
-        public string launch_command;
+        public string name;
+        public string icon_name;    
+        public string notification_text;
 
+        public MenuObject menu;
+#if USE_GTK
         public Indicator indicator;
-        
+        public Notify.Notification notification;
+#endif
 
-        public IconObject(string? icon_name_param, string? tooltip_text_param, string? launch_menu_text_param, string? launch_command_param)
+        public delegate void ActionCallback ();
+        
+        public IconObject(string name_param, string? icon_name_param, string? notification_param, MenuObject? menu_param)
         {
+            this.name = name_param;
+
             if (icon_name_param != null)
             {
                 this.icon_name = icon_name_param;
             }
             else
             {
-                this.icon_name = "gtk-warning";
+                this.icon_name = "dialog-warning";
             }
 
-            if (tooltip_text_param != null)
+            if (notification_param != null)
             {
-                this.tooltip_text = tooltip_text_param;
-            }
-            else
-            {
-                this.tooltip_text = "";
+                this.notification_text = notification_param;
             }
 
-            if (launch_menu_text_param != null)
-            {
-                this.launch_menu_text = launch_menu_text_param;
-            }
-            else
-            {
-                this.launch_menu_text = "Launch";
-            }
-
-            if (launch_command_param != null)
-            {
-                this.launch_command = launch_command_param;
-            }
-            else
-            {
-                this.launch_command = "Launch";
-            }
-
+            this.menu = menu_param;
+#if USE_GTK
+            this.indicator = new Indicator(this.name, this.icon_name, IndicatorCategory.APPLICATION_STATUS);
+            this.notification = new Notify.Notification ("LXsession", this.notification_text, this.icon_name);
+            this.notification.set_timeout(6000);
+#endif
         }
 
+#if USE_GTK
         public void init()
         {
-#if USE_GTK
-            message("Enter notification code");
+            if (this.indicator == null)
+            {
+                this.indicator = new Indicator(this.name, this.icon_name, IndicatorCategory.APPLICATION_STATUS);
+            }
 
-            var indicator = new Indicator(this.tooltip_text, this.icon_name,
-                              IndicatorCategory.APPLICATION_STATUS);
+            this.indicator.set_status(IndicatorStatus.ACTIVE);
 
-            indicator.set_status(IndicatorStatus.ACTIVE);
-
-            var menu = new Gtk.Menu();
-
-            var launch_menu = new Gtk.MenuItem.with_label(this.launch_menu_text);
-            launch_menu.activate.connect(() => {
-                try
-                {
-                    Process.spawn_command_line_async(this.launch_command);
-                }
-                catch (SpawnError err)
-                {
-                    warning (err.message);
-                }
-            });
-            launch_menu.show();
-            menu.append(launch_menu);
-
-            /*  Hack: Set an IndicatorStatus.ATTENTION, but don't show it, otherwise it doesn't show ...
-                TODO See if the indicator type is the cause
-            */
-            var item = new Gtk.MenuItem.with_label("Dummy");
-            item.activate.connect(() => {
-                indicator.set_status(IndicatorStatus.ATTENTION);
-            });
-            menu.append(item);
-
-            indicator.set_menu(menu);
-#endif
-//TODO Make it work without GTK
- 
+            if (this.menu != null)
+            {
+                this.indicator.set_menu(this.menu);
+            }
         }
 
         public void activate()
         {
-            indicator.set_status(IndicatorStatus.ACTIVE);
+            message("Try activate");
+            if (this.indicator != null)
+            {
+                message("Activate");
+                this.indicator.set_status(IndicatorStatus.ACTIVE);
+                try
+                {
+                    this.notification.show ();
+                }
+                catch (GLib.Error e)
+                {
+                    message ("Error: %s\n", e.message);
+                }
+                message("Activate done");
+            }
         }
 
         public void inactivate()
         {
-            indicator.set_status(IndicatorStatus.PASSIVE);
+            message("Try inactivate");
+            if (this.indicator != null)
+            {
+                message("Inactivate");
+                this.indicator.set_status(IndicatorStatus.PASSIVE);
+                message("Inactivate done");
+            }
         }
 
         public void set_icon(string param_icon_name)
         {
-            this.icon_name = param_icon_name;
-            indicator.icon_name = param_icon_name;
+            this.icon_name = param_icon_name;   
+            message("Set new icon");
+            this.indicator.icon_name = param_icon_name;
         }
-     }
 
+        public void set_menu(MenuObject param_menu)
+        {
+            this.menu = param_menu;
+            this.indicator.set_menu(param_menu);
+        }
+
+        public void add_action (string action, string label, owned ActionCallback callback)
+        {
+            if (this.notification != null)
+            {
+                this.notification.add_action (action, label, (n, a) => 
+                {
+                    callback ();
+                });
+            }
+        }
+
+        public void set_notification_body(string text)
+        {
+            if (this.notification != null)
+            {
+                this.notification_text = text;
+                this.notification.body = text;
+            }
+        }
+
+        public void clear_actions ()
+        {
+            if (this.notification != null)
+            {
+                this.notification.clear_actions() ;
+            }
+        }
+#else
+        public void init()
+        {
+
+        }
+
+        public void activate()
+        {
+
+        }
+
+        public void inactivate()
+        {
+
+        }
+
+        public void set_icon(string param_icon_name)
+        {
+
+        }
+
+        public void set_menu(MenuObject param_menu)
+        {
+
+        }
+
+        public void add_action (string action, string label, owned ActionCallback callback)
+        {
+
+        }
+
+        public void set_notification_body(string text)
+        {
+
+        }
+
+        public void clear_actions ()
+        {
+
+        }
+#endif
+    }    
 }

@@ -23,13 +23,7 @@ using Intl;
 using Gtk;
 #endif
 
-#if BUILDIN_POLKIT
-using Gtk;
-#endif
-
-#if BUILDIN_CLIPBOARD
-using Gtk;
-#endif
+const string GETTEXT_PACKAGE = "lxsession";
 
 namespace Lxsession {
 
@@ -61,6 +55,7 @@ namespace Lxsession {
     KeyringApp global_keyring;
     A11yApp global_a11y;
     UpdatesManagerApp global_updates;
+    CrashManagerApp global_crash;
     GenericSimpleApp global_im1;
     GenericSimpleApp global_im2;
     GenericSimpleApp global_widget1;
@@ -91,6 +86,9 @@ namespace Lxsession {
 
     public static int main(string[] args) {
 
+        Intl.textdomain(GETTEXT_PACKAGE);
+        Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
+
         try {
             var options_args = new OptionContext("- Lightweight Session manager");
             options_args.set_help_enabled(true);
@@ -120,13 +118,7 @@ namespace Lxsession {
 
 #if USE_GTK
         Gtk.init (ref args);
-#endif
-
-#if BUILDIN_POLKIT
-        Gtk.init (ref args);
-#endif
-#if BUILDIN_CLIPBOARD
-        Gtk.init (ref args);
+        Notify.init ("LXsession");
 #endif
 
         /* 
@@ -486,7 +478,14 @@ namespace Lxsession {
         {
             var updates = new UpdatesManagerApp();
             global_updates = updates;
-            global_updates.launch();
+            //global_updates.launch();
+        }
+
+        if (global_settings.get_item_string("Session", "crash_manager", "command") != null)
+        {
+            var crash = new CrashManagerApp();
+            global_crash = crash;
+            //global_crash.launch();
         }
 
         if (global_settings.get_item_string("Session", "upstart_user_session", null) == "true")
