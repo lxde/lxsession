@@ -189,6 +189,8 @@ menu_prefix=lxde-
 ubuntu_menuproxy=false
 # Use this toolkit integration when only can be use, like LibreOffice (example : kde4, gtk2, gtk3)
 toolkit_integration=gtk2
+# Disable gtk3 overlay scrollbar (GTK_OVERLAY_SCROLLING=0) "true" or "false".
+gtk/overlay_scrollbar_disable=false
 
 [Environment_variable]
 # Export TEST variable with value test
