@@ -2,6 +2,7 @@ lxsession-logout/lxsession-logout.c
 lxsession-edit/lxsession-edit.c
 lxsession-edit/lxsession-edit-common.c
 lxpolkit/lxpolkit.c
+lxpolkit/main.c
 lxpolkit/lxpolkit-listener.c
 [type: gettext/glade]data/ui/lxsession-edit.ui
 [type: gettext/glade]data/ui/lxpolkit.ui
