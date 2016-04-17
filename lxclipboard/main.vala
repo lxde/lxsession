@@ -33,6 +33,7 @@ namespace Lxsession
 
             if(app.is_running)
             {
+                message("lxclipboard is already running. Existing");
                 return 0;
             }
 #endif
@@ -44,6 +45,7 @@ namespace Lxsession
 
             if(app.is_remote)
             {
+                message("lxclipboard is already running. Existing");
                 return 0;
             }
 #endif
