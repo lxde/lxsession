@@ -43,10 +43,6 @@
 static char * prompt = NULL;
 static char * banner_side = NULL;
 static char * banner_path = NULL;
-
-// https://developer.gnome.org/glib/stable/glib-Commandline-option-parser.html
-// http://stackoverflow.com/questions/1088622/how-do-i-create-an-array-of-strings-in-c
-// http://stackoverflow.com/questions/5935933/dynamically-create-an-array-of-strings-with-malloc
 static char **hide_button = NULL;
 
 static GOptionEntry opt_entries[] =
@@ -639,7 +635,6 @@ int main(int argc, char * argv[])
     GtkWidget* controls = gtk_vbox_new(FALSE, 6);
 
     /* Hide buttons */
-    // https://developer.gnome.org/glib/stable/glib-String-Utility-Functions.html#g-strv-length
     if (hide_button != NULL) {
       for (int i = 0; i < g_strv_length(hide_button); i++) {
         if (strcmp(hide_button[i], "shutdown") == 0) {
