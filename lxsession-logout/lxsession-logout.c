@@ -39,17 +39,22 @@
 #include <X11/Xlib.h>
 
 #include "lxsession-logout-dbus-interface.h"
-
 /* Command parameters. */
 static char * prompt = NULL;
 static char * banner_side = NULL;
 static char * banner_path = NULL;
+
+// https://developer.gnome.org/glib/stable/glib-Commandline-option-parser.html
+// http://stackoverflow.com/questions/1088622/how-do-i-create-an-array-of-strings-in-c
+// http://stackoverflow.com/questions/5935933/dynamically-create-an-array-of-strings-with-malloc
+static char **hide_button = NULL;
 
 static GOptionEntry opt_entries[] =
 {
     { "prompt", 'p', 0, G_OPTION_ARG_STRING, &prompt, N_("Custom message to show on the dialog"), N_("message") },
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner_path, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &banner_side, N_("Position of the banner"), "top|left|right|bottom" },
+    { "hide-button", 'H', 0, G_OPTION_ARG_STRING_ARRAY, &hide_button, N_("Hide button"), "shutdown|reboot|logout|hibernate|suspend|switch_user|lock_screen" },
     { NULL }
 };
 
@@ -632,6 +637,31 @@ int main(int argc, char * argv[])
     gtk_container_add(GTK_CONTAINER(center_area), center_vbox);
 
     GtkWidget* controls = gtk_vbox_new(FALSE, 6);
+
+    /* Hide buttons */
+    // https://developer.gnome.org/glib/stable/glib-String-Utility-Functions.html#g-strv-length
+    if (hide_button != NULL) {
+      for (int i = 0; i < g_strv_length(hide_button); i++) {
+        if (strcmp(hide_button[i], "shutdown") == 0) {
+          handler_context.shutdown_available = FALSE;
+        }
+        if (strcmp(hide_button[i], "reboot") == 0) {
+          handler_context.reboot_available = FALSE;
+        }
+        if (strcmp(hide_button[i], "hibernate") == 0) {
+          handler_context.hibernate_available = FALSE;
+        }
+        if (strcmp(hide_button[i],"suspend") == 0) {
+          handler_context.suspend_available = FALSE;
+        }
+        if (strcmp(hide_button[i], "switch_user") == 0) {
+          handler_context.switch_user_available = FALSE;
+        }
+        if (strcmp(hide_button[i], "lock_screen") == 0) {
+          handler_context.lock_screen = FALSE;
+        }
+      }
+    } 
 
     /* If specified, apply a user-specified banner image. */
     if (banner_path != NULL)
