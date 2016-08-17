@@ -118,7 +118,9 @@ namespace Lxsession {
 
 #if USE_GTK
         Gtk.init (ref args);
+#if USE_ADVANCED_NOTIFICATIONS
         Notify.init ("LXsession");
+#endif
 #endif
 
         /* 

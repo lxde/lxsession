@@ -452,19 +452,28 @@ lxsession_lxsession_LDADD = \
 if USE_GTK
 lxsession_lxsession_VALAFLAGS +=     \
     --pkg @VALA_GTK_LIBS@ \
-    --pkg appindicator-0.1 \
-    --pkg libnotify \
     -D USE_GTK
 
 lxsession_lxsession_CPPFLAGS += \
-    $(GTK_CFLAGS) \
+    $(GTK_CFLAGS)
+
+lxsession_lxsession_LDADD += \
+    $(GTK_LIBS)
+
+if USE_ADVANCED_NOTIFICATIONS
+lxsession_lxsession_VALAFLAGS +=     \
+    --pkg appindicator-0.1 \
+    --pkg libnotify \
+    -D USE_ADVANCED_NOTIFICATIONS
+
+lxsession_lxsession_CPPFLAGS += \
     $(LIBNOTIFY_CFLAGS) \
     $(INDICATORS_CFLAGS)
 
 lxsession_lxsession_LDADD += \
-    $(GTK_LIBS) \
     $(LIBNOTIFY_LIBS) \
     $(INDICATORS_LIBS)
+endif
 endif
 
 EXTRA_DIST += \

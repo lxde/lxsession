@@ -18,8 +18,10 @@
  */
 #if USE_GTK
 using Gtk;
+#if USE_ADVANCED_NOTIFICATIONS
 using AppIndicator;
 using Notify;
+#endif
 #endif
 
 namespace Lxsession
@@ -75,8 +77,10 @@ namespace Lxsession
 
         public MenuObject menu;
 #if USE_GTK
+#if USE_ADVANCED_NOTIFICATIONS
         public Indicator indicator;
         public Notify.Notification notification;
+#endif
 #endif
 
         public delegate void ActionCallback ();
@@ -101,13 +105,16 @@ namespace Lxsession
 
             this.menu = menu_param;
 #if USE_GTK
+#if USE_ADVANCED_NOTIFICATIONS
             this.indicator = new Indicator(this.name, this.icon_name, IndicatorCategory.APPLICATION_STATUS);
             this.notification = new Notify.Notification ("LXsession", this.notification_text, this.icon_name);
             this.notification.set_timeout(6000);
 #endif
+#endif
         }
 
 #if USE_GTK
+#if USE_ADVANCED_NOTIFICATIONS
         public void init()
         {
             if (this.indicator == null)
