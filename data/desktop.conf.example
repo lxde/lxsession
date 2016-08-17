@@ -193,6 +193,8 @@ toolkit_integration=gtk2
 gtk/overlay_scrollbar_disable=false
 # Force using theme for QT apps (example gtk by QT_STYLE_OVERRIDE=gtk)
 qt/force_theme=
+# Set Qt platform settings
+qt/platform=lxqt
 
 [Environment_variable]
 # Export TEST variable with value test

@@ -350,8 +350,11 @@ namespace Lxsession
             }
 
             /* Add some needed variables for LXQt / Qt */
-            Environment.set_variable("QT_PLATFORM_PLUGIN", "lxqt", true);
-            Environment.set_variable("QT_QPA_PLATFORMTHEME", "lxqt", true);
+            if (global_settings.get_item_string("Environment", "qt", "platform") != null)
+            {
+                Environment.set_variable("QT_PLATFORM_PLUGIN", global_settings.get_item_string("Environment", "qt", "platform"), true);
+                Environment.set_variable("QT_QPA_PLATFORMTHEME", global_settings.get_item_string("Environment", "qt", "platform"), true);
+            }
         }
     }
 
