@@ -144,7 +144,6 @@ int main(int argc, char** argv)
                 g_key_file_set_string( kf, "Session", "windows_manager/command", wm_cmd );
                 data = g_key_file_to_data(kf, &len, NULL);
                 g_file_set_contents(cfg, data, len, NULL);
-                g_free( wm_cmd );
             }
         }
     }
