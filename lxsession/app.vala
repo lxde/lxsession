@@ -258,43 +258,47 @@ public class WindowsManagerApp: SimpleAppObject
                         switch (session)
                         {
                             case "LXDE":
-                                session_command = "--config-file " + xdg_config_env + "/openbox/lxde-rc.xml";
+                                session_command = " --config-file " + xdg_config_env + "/openbox/lxde-rc.xml";
                                 break;
                             case "Lubuntu":
-                                session_command = "--config-file " + xdg_config_env + "/openbox/lubuntu-rc.xml";
+                                session_command = " --config-file " + xdg_config_env + "/openbox/lubuntu-rc.xml";
                                 break;
                             default:
-                                session_command = "";
+                                session_command = " ";
                                 break;
                         }
                         break;
+
                     case "openbox-custom":
                         switch (session)
                         {
                             default:
-                                session_command = "--config-file " + session;
+                                session_command = " --config-file " + session;
                                 break;
                         }
                         break;
+
                     default:
-                        session_command = "";
+                        session_command = null;
                         break;
                 }
-                    switch (extras)
-                    {
-                        case null:
-                            create_command = wm_command + " " + session_command;
-                            break;
-                        case "":
-                            create_command = wm_command + " " + session_command;
-                            break;
-                        case " ":
-                            create_command = wm_command + " " + session_command;
-                            break;
-                        default:
-                            create_command = wm_command + " " + session_command + " " + extras;
-                            break;
-                    }
+
+                switch (extras)
+                {
+                    case null:
+                        create_command = wm_command + session_command;
+                        break;
+                    case "":
+                        create_command = wm_command + session_command;
+                        break;
+                    case " ":
+                        create_command = wm_command + session_command;
+                        break;
+                    default:
+                        create_command = wm_command + session_command + " " + extras;
+                        break;
+                }
+
                 this.command = create_command.split_set(" ",0);
             }
         }
