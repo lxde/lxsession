@@ -61,11 +61,6 @@ namespace Lxsession
 
             config_item_db[item_key] = variable;
 
-            if (variable != null)
-            {
-                on_update_generic(variable, categorie, key1, key2);
-            }
-
             update_support_keys (categorie, key1, key2);
         }
 
@@ -118,6 +113,29 @@ namespace Lxsession
                 {
                     config_item_db[item_key] = dbus_arg;
                     on_update_generic(dbus_arg, categorie, key1, key2);
+                }
+            }
+            else
+            {
+                create_config_item(categorie, key1, key2, type, dbus_arg);
+            }
+         }
+
+        public void set_config_item_value_on_starting (string categorie, string key1, string? key2, string type, string dbus_arg)
+        {
+            /*
+                Update config_item_db, or create the config_item if it's not exist.
+            */
+            string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+            // DEBUG message ("key of read_value: %s", item_key);
+
+            if (config_item_db.contains(item_key) == true)
+            {
+                // message ("Enter if of read_value for %s, %s, %s, %s, %s: ", categorie, key1, key2, type, dbus_arg);
+                if (config_item_db[item_key] != dbus_arg)
+                {
+                    config_item_db[item_key] = dbus_arg;
                 }
             }
             else
@@ -623,16 +641,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-        if (config_item_db.contains(item_key) == false)
-        {
-            // message ("Create new config key: %s", item_key);
-            create_config_item(categorie, key1, key2, type, null);
-        }
-        else
-        {
-            get_item(categorie, key1, key2, out default_variable, out type_output);
-        }
-
         switch (type)
         {
             case "string":
@@ -640,7 +648,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig
                 break;
         }
 
-        set_config_item_value(categorie, key1, key2, type, final_variable);
+        if (config_item_db.contains(item_key) == false)
+        {
+            // message ("Create new config key: %s", item_key);
+            create_config_item(categorie, key1, key2, type, final_variable);
+        }
+        else
+        {
+            get_item(categorie, key1, key2, out default_variable, out type_output);
+            set_config_item_value_on_starting(categorie, key1, key2, type, final_variable);
+        }
 
     }
 
@@ -1122,6 +1139,13 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
+        switch (type)
+        {
+            case "string":
+                final_variable = read_razor_keyfile_bool_value(kf, categorie_razor, key1_razor, key2_razor, default_variable);
+                break;
+        }
+
         if (config_item_db.contains(item_key))
         {
             message ("Create new config key: %s", item_key);
@@ -1130,16 +1154,9 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
         else
         {
             get_item(categorie, key1, key2, out default_variable, out type_output);
+            set_config_item_value(categorie, key1, key2, type, final_variable);
         }
 
-        switch (type)
-        {
-            case "string":
-                final_variable = read_razor_keyfile_bool_value(kf, categorie_razor, key1_razor, key2_razor, default_variable);
-                break;
-        }
-
-        set_config_item_value(categorie, key1, key2, type, final_variable);
     }
 
     public override void read_secondary_keyfile()
