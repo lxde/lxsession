@@ -18,10 +18,13 @@ scripts= \
     lxlock/lxlock \
     lxsession-default/lxsession-default \
     lxsession-default/lxsession-default-terminal \
-    lxsession-utils/lxsession-xsettings \
     $(NULL)
 
 bin_SCRIPTS= $(scripts)
+
+pkglibexec_SCRIPTS = \
+    lxsession-utils/lxsession-xsettings \
+    $(NULL)
 
 noinst_DATA = \
     vapi/config.vapi \
