@@ -12,4 +12,6 @@ usr/share/man/man1/lxsession-default.1
 usr/share/man/man1/lxsession-default-terminal.1
 usr/share/man/man1/lxlock.1
 usr/share/man/man1/lxclipboard.1
+usr/share/man/man1/lxsession-db.1
 usr/share/man/man1/lxsettings-daemon.1
+usr/share/man/man1/lxsession-xdg-autostart.1

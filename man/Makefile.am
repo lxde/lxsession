@@ -8,7 +8,9 @@ man_MANS = \
 	lxsession-default-apps.1 \
 	lxsettings-daemon.1 \
 	lxpolkit.1 \
-	lxsession-edit.1
+	lxsession-edit.1 \
+	lxsession-db.1 \
+	lxsession-xdg-autostart.1
 
 man_XMANS = \
 	lxsession.xml \
