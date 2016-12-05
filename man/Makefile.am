@@ -5,7 +5,8 @@ man_MANS = \
 	lxlock.1 \
 	lxsession-default.1 \
 	lxsession-default-terminal.1 \
-	lxsession-default-apps.1
+	lxsession-default-apps.1 \
+	lxsettings-daemon.1
 
 man_XMANS = \
 	lxsession.xml \
