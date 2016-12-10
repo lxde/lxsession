@@ -1,4 +1,4 @@
-AC_INIT([lxsession],[0.5.2],[],[lxsession])
+AC_INIT([lxsession],[0.5.3],[],[lxsession])
 
 # Autotols programs
 AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign no-dist-gzip dist-xz])
