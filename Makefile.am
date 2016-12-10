@@ -41,6 +41,7 @@ CLEANFILES = \
 EXTRA_DIST = \
     $(noinst_DATA) \
     $(scripts) \
+    lxsession-utils/lxsession-xsettings \
     $(NULL)
 
 if USE_GTK
