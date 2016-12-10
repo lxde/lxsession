@@ -506,7 +506,7 @@ msgstr "Док-панель - это вторая панель. Она испо�
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Файловый менеджер - это компонент, который открывает файлы.\n"
 "Смотрите \"Ещё\" чтобы добавить параметры для обработки рабочего стола или открытия файлов"

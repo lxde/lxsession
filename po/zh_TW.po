@@ -538,7 +538,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "「檔案管理員」負責開啟檔案。\n"
 "有關如何處理桌面、或開啟檔案的更多資訊，見「更多」 "

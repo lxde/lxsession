@@ -503,7 +503,7 @@ namespace Lxsession {
             Bus.own_name (BusType.SESSION, "org.lxde.SessionManager", BusNameOwnerFlags.NONE,
                           on_bus_aquired,
                           () => {},
-                          () => warning ("Could not aquire name\n"));
+                          () => warning ("Could not acquire name\n"));
         }
 
         if (global_settings.get_item_string("Dbus", "gnome", null) == "true") 
@@ -512,7 +512,7 @@ namespace Lxsession {
             Bus.own_name (BusType.SESSION, "org.gnome.SessionManager", BusNameOwnerFlags.NONE,
                           on_gnome_bus_aquired,
                           () => {},
-                          () => warning ("Could not aquire name\n"));
+                          () => warning ("Could not acquire name\n"));
 
         }
 

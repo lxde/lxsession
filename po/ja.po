@@ -533,7 +533,7 @@ msgstr "Dockはもうひとつのパネルです。様々なプログラムを�
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "ファイルマネージャーはファイルを開く際に使用されるコンポーネントです。\n"
 "デスクトップでの取り扱い、ファイルを開く際のオプションを追加するには \"More\" を見てください。 "

@@ -526,7 +526,7 @@ msgstr "도크는 두번째 패널입니다. 다른 형식의 패널을 다루�
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "파일 관리자는 파일을 여는 구성 요소입니다.\n"
 "데스크톱 또는 파일을 열어볼 때 옵션을 추가하려면 \"더 보기\"를 참고하십시오 "

@@ -540,7 +540,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "El gestor de archivos es el componente que abre los archivos.\n"
 "Véase «Más» para añadir opciones de gestión del escritorio y apertura de "
