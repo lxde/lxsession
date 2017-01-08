@@ -752,7 +752,7 @@ msgid "Disable"
 msgstr "비활성화"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to assiociate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype ?\n"
 msgstr "다음 MIME 형식에 할당하시겠습니까?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

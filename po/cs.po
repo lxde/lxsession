@@ -771,7 +771,7 @@ msgid "Disable"
 msgstr "Zakázat"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to assiociate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype ?\n"
 msgstr "Chcete přiřadit následující typ MIME?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
