@@ -90,9 +90,6 @@ if USE_GTK3
 lxclipboard_lxclipboard_VALAFLAGS += --define USE_GTK3
 else
 lxclipboard_lxclipboard_VALAFLAGS += --define USE_GTK2
-lxclipboard_lxclipboard_VALAFLAGS += --pkg unique-1.0
-lxclipboard_lxclipboard_CPPFLAGS += $(UNIQUE_CFLAGS)
-lxclipboard_lxclipboard_LDADD += $(UNIQUE_LIBS)
 endif
 
 lxpolkit_lxpolkit_vala_SOURCES = \
@@ -137,9 +134,6 @@ if USE_GTK3
 lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK3
 else
 lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK2
-lxpolkit_lxpolkit_VALAFLAGS += --pkg unique-1.0
-lxpolkit_lxpolkit_CPPFLAGS += $(UNIQUE_CFLAGS)
-lxpolkit_lxpolkit_LDADD += $(UNIQUE_LIBS)
 endif
 
 lxsession_db_lxsession_db_SOURCES = \

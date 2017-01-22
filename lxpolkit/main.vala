@@ -17,9 +17,6 @@
  *      MA 02110-1301, USA.
  */
 using Gtk;
-#if USE_GTK2
-using Unique;
-#endif
 
 const string GETTEXT_PACKAGE = "lxsession";
 
@@ -33,17 +30,7 @@ namespace Lxsession
             Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
 
             Gtk.init (ref args);
-#if USE_GTK2
-            Unique.App app = new Unique.App("org.lxde.lxpolkit", null);
-
-            if(app.is_running)
-            {
-                message(_("lxpolkit is already running. Existing"));
-                return 0;
-            }
-#endif
-# if USE_GTK3
-            Gtk.Application app = new Gtk.Application (
+            GLib.Application app = new GLib.Application (
                 "org.lxde.lxpolkit",
                 GLib.ApplicationFlags.FLAGS_NONE);
             app.register ();
@@ -53,7 +40,6 @@ namespace Lxsession
                 message(_("lxpolkit is already running. Existing"));
                 return 0;
             }
-#endif
 
             policykit_agent_init();
 
