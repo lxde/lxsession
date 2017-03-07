@@ -83,7 +83,7 @@ namespace LDefaultApps
             help_window.set_skip_taskbar_hint(true);
             try
             {
-                help_window.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+                help_window.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
             }
             catch (Error e)
             {
@@ -113,7 +113,7 @@ namespace LDefaultApps
         window.set_default_size (300, 500);
         try
         {
-            window.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+            window.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
         }
         catch (Error e)
         {
@@ -422,7 +422,7 @@ namespace LDefaultApps
 
         /* First row, empty for not selected and for unselect */
         list_store.append (out iter);
-        list_store.set (iter, 0, "gtk-close" , 1, _("Disable"), 2, 0, 3,"");
+        list_store.set (iter, 0, "window-close" , 1, _("Disable"), 2, 0, 3,"");
 
         for (int a = 0 ; a < combobox_list.length ; a++)
         {
@@ -542,7 +542,7 @@ namespace LDefaultApps
         window_mime.set_skip_taskbar_hint(true);
         try
         {
-            window_mime.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+            window_mime.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
         }
         catch (Error e)
         {

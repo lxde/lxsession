@@ -15,7 +15,6 @@
 #include <config.h>
 #include <glib.h>
 #include <string.h>
-#include <dbus/dbus.h>
 #include <gio/gio.h>
 
 /*** Mechanism independent ***/
@@ -93,10 +92,11 @@ dbus_UPower_Hibernate (GError **error)
 /*** ConsoleKit mechanism ***/
 
 static gboolean
-ck_call_function (const gchar *function, GVariant *parameters, gboolean default_result, GError **error)
+ck_query (const gchar *function, gboolean default_result, GError **error)
 {
     GVariant *result;
     gboolean function_result = FALSE;
+    const gchar *str;
 
     if (!ck_proxy)
     {
@@ -122,66 +122,95 @@ ck_call_function (const gchar *function, GVariant *parameters, gboolean default_
     if (!result)
         return default_result;
 
-    if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(b)")))
-        g_variant_get (result, "(b)", &function_result);
-    else
     if (g_variant_is_of_type (result, G_VARIANT_TYPE ("(s)")))
     {
-        gchar *r;
-        g_variant_get (result, "(&s)", &r);
-        function_result = g_strcmp0 (r, "yes") == 0 || g_strcmp0 (r, "challenge") == 0;
-    }
+			g_variant_get (result, "(s)", &str);
+			if ( g_strcmp0 (str, "yes") == 0 || g_strcmp0 (str, "challenge") == 0 )
+				function_result = TRUE;
+			else
+				function_result = default_result;
+		}
 
     g_variant_unref (result);
     return function_result;
 }
 
-gboolean
-dbus_ConsoleKit_CanRestart (void)
+static void
+ck_call_function (const gchar *function, gboolean value, GError **error)
 {
-    return ck_call_function ("CanRestart", NULL, FALSE, NULL);
+    GVariant *result;
+
+    if (!ck_proxy)
+    {
+        ck_proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+                                                      G_DBUS_PROXY_FLAGS_NONE,
+                                                      NULL,
+                                                      "org.freedesktop.ConsoleKit",
+                                                      "/org/freedesktop/ConsoleKit",
+                                                      "org.freedesktop.ConsoleKit.Manager",
+                                                      NULL,
+                                                      error);
+        if (!ck_proxy)
+            return;
+    }
+
+    result = g_dbus_proxy_call_sync (ck_proxy,
+                                     function,
+                                     g_variant_new ("(b)", value),
+                                     G_DBUS_CALL_FLAGS_NONE,
+                                     -1,
+                                     NULL,
+                                     error);
+    g_variant_unref (result);
+    return;
 }
 
 gboolean
-dbus_ConsoleKit_Restart (GError **error)
+dbus_ConsoleKit_CanPowerOff (void)
 {
-    return ck_call_function ("Restart", NULL, TRUE, error);
+    return ck_query ("CanPowerOff", FALSE, NULL);
+}
+
+void
+dbus_ConsoleKit_PowerOff (GError **error)
+{
+    ck_call_function ("PowerOff", TRUE, error);
 }
 
 gboolean
-dbus_ConsoleKit_CanStop (void)
+dbus_ConsoleKit_CanReboot (void)
 {
-    return ck_call_function ("CanStop", NULL, FALSE, NULL);
+    return ck_query ("CanReboot", FALSE, NULL);
 }
 
-gboolean
-dbus_ConsoleKit_Stop (GError **error)
+void
+dbus_ConsoleKit_Reboot (GError **error)
 {
-    return ck_call_function ("Stop", NULL, TRUE, error);
+    ck_call_function ("Reboot", TRUE, error);
 }
 
 gboolean
 dbus_ConsoleKit_CanSuspend (void)
 {
-    return ck_call_function ("CanSuspend", NULL, FALSE, NULL);
+    return ck_query ("CanSuspend", FALSE, NULL);
 }
 
-gboolean
+void
 dbus_ConsoleKit_Suspend (GError **error)
 {
-    return ck_call_function ("Suspend", g_variant_new("(b)", TRUE), TRUE, error);
+    ck_call_function ("Suspend", TRUE, error);
 }
 
 gboolean
 dbus_ConsoleKit_CanHibernate (void)
 {
-    return ck_call_function ("CanHibernate", NULL, FALSE, NULL);
+    return ck_query ("CanHibernate", FALSE, NULL);
 }
 
-gboolean
+void
 dbus_ConsoleKit_Hibernate (GError **error)
 {
-    return ck_call_function ("Hibernate", g_variant_new("(b)", TRUE), TRUE, error);
+    ck_call_function ("Hibernate", TRUE, error);
 }
 
 /*** Systemd mechanism ***/

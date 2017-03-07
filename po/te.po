@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2011-09-17 11:49+0200\n"
-"Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2015-06-19 08:59+0000\n"
+"Last-Translator: Praveen Illa <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1434704366.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -44,9 +45,9 @@ msgid "Error: %s\n"
 msgstr "దోషం: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>%s చర్యాకాలం నిష్క్రమించాలా?</big></b>"
+msgstr "<b><big>%s %s చర్యాకాలం నుండి నిష్క్రమించాలా?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
@@ -70,7 +71,7 @@ msgstr "వాడుకరిని మార్చు (_w)"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr ""
+msgstr "తెరకు తాళంవేయి (_o)"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
@@ -79,51 +80,53 @@ msgstr "నిష్క్రమించు (_L)"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
-msgstr ""
+msgstr "చేతనించబడింది"
 
 #: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
-msgstr ""
+msgstr "అనువర్తనం"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "దోషం: %s\n"
+msgstr "దోషం"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "సమాచారం"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"ధృవీకరణ విఫలమైంది!\n"
+"తప్పుడు సంకేతపదం?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "సంకేతపదం: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "దోషం: %s\n"
+msgstr "సమూహం: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "డెస్క్‌టాప్ చర్యాకాలం అమరికలు"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
 msgstr ""
+"డెస్క్‌టాపులోకి ప్రవేశించిన తరువాత స్వయంచాలకంగా ప్రారంభమయ్యే అనువర్తనాలు:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "స్వయంచాలకంగా ప్రారంభమయ్యే అనువర్తనాలు"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "కిటికీ నిర్వాహకం:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
@@ -141,80 +144,79 @@ msgstr ""
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "ఉన్నత ఐచ్ఛికాలు"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "ధృవీకరణ"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "గుర్తింపు:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
-msgstr ""
+msgstr "దస్త్ర నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
-msgstr ""
+msgstr "తిరిగినింపు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "మరిన్ని"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "టెర్మినల్ నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "జాల విహారకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "ఈమెయిలు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "సమాచారవ్యవస్థ 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "సమాచారవ్యవస్థ 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr ""
+msgstr "కీలుబొమ్మ 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "ప్రారంభక నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
-msgstr ""
+msgstr "తెరపట్టు నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "పిడియఫ్ చదువకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "దృశ్య ప్రదర్శకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "శ్రవ్య ప్రదర్శకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "బొమ్మ ఫైల్"
+msgstr "బొమ్మల చూపకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "పాఠ్య కూర్పకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
@@ -222,221 +224,221 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "అక్షరపటం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "గణనయంత్రం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "స్ప్రెడ్‌షీటు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "బిట్‌టోరెంటు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
-msgstr ""
+msgstr "పత్రం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "వెబ్‌క్యామ్"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "బర్నింగు యుటిలిటీ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "గమనికల వినియోగం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "డిస్కుల వినియోగం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "పనుల పర్యవేక్షకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr ""
+msgstr "అనువర్తనాలను ప్రారంభిస్తున్నా"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
-msgstr ""
+msgstr "కిటికీల నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "ఫలకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "డాక్"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
-msgstr ""
+msgstr "కూర్పుల నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Desktop Manager"
-msgstr ""
+msgstr "డెస్క్‌టాప్ నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
-msgstr ""
+msgstr "తెరకాపరి"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "Power Manager"
-msgstr ""
+msgstr "విద్యుత్ నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr ""
+msgstr "పోల్కిట్ వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr ""
+msgstr "నెట్‌వర్క్ GUI"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
-msgstr ""
+msgstr "తెర తాళం నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Audio manager"
-msgstr ""
+msgstr "శ్రవ్య నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Workspace manager"
-msgstr ""
+msgstr "కార్యక్షేత్ర నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Quit manager"
-msgstr ""
+msgstr "నిర్వాహకం నిష్క్రమణ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"
-msgstr ""
+msgstr "ఉన్నతీకరణ నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
-msgstr ""
+msgstr "క్లిప్‌బోర్డ్ నిర్వాహకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "భద్రత (కీలకవలయం)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "ప్రతినిధి"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "అంతర్భాగ అనువర్తనాలు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "స్వయంగా ప్రారంభమయ్యే అనువర్తనాలను అచేతనించాలా?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>అమరికలు</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>మానవీయంగా స్వయంగా ప్రారంభమయ్యే అనువర్తనాలు</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>తెలిసిన అనువర్తనాలు</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "Autostart"
-msgstr ""
+msgstr "స్వీయప్రారంభం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr ""
+msgstr "ల్యాప్‌టాప్ రీతి"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>సాధారణ అమరికలు</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>డీబస్</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Type"
-msgstr ""
+msgstr "రకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
-msgstr ""
+msgstr "జాబితా మునుజేర్పు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
 #: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
-msgstr ""
+msgstr "అనువర్తించు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>ఆవరణం</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
-msgstr ""
+msgstr "రీతి"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
-msgstr ""
+msgstr "మోడలు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"
-msgstr ""
+msgstr "నమూనా"
 
 #: ../data/ui/lxsession-default-apps.ui.h:64
 msgid "Variant"
-msgstr ""
+msgstr "చరాంకం"
 
 #: ../data/ui/lxsession-default-apps.ui.h:65
 msgid "Options"
-msgstr ""
+msgstr "ఐచ్ఛికాలు"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>మీటలపటం</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
-msgstr ""
+msgstr "అమరికలు"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "డెస్క్‌టాప్ చర్యాకాలంలో లోడయిన అనువర్తనాలను నిర్వహించండి"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "ఎల్ఎక్స్‌చర్యాకాలం కోసం అప్రమేయ అనువర్తనాలు"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "ఎల్ఎక్స్‌డియి పై అప్రమేయ అనువర్తనాలను మార్చండి"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "ఎల్ఎక్స్‌పోల్‌కిట్"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
@@ -444,16 +446,16 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "ఎల్ఎక్స్‌చర్యాకాలం దత్తకోశం నవీకరించండి"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "దత్తకోశం నవీకరించబడుతోంది, దయచేసి వేచివుండండి"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "ఎల్ఎక్స్‌చర్యాకాలం స్వరూపణం"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143

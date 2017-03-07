@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-09-28 17:24+0000\n"
+"PO-Revision-Date: 2015-08-12 15:38+0000\n"
 "Last-Translator: Julien Henry <Julius22@laposte.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fr\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1411925063.000000\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439393926.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -98,10 +98,12 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"L'authentification a échoué !\n"
+"Mauvais mot de passe ?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr "Mot de passe :"
+msgstr "Mot de passe : "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
@@ -441,12 +443,11 @@ msgstr "Modifier les applications par défaut dans LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Authentification"
+msgstr "Agent d'authentification Policykit"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
@@ -476,8 +477,7 @@ msgstr "Session : spécifiez la session\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
-"Supplément : ajoutez un paramètre supplémentaire pour lancer l'option\n"
+msgstr "Supplément : ajoutez un paramètre supplémentaire pour lancer l'option\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -542,7 +542,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Le gestionnaire de fichiers est le composant qui ouvre les fichiers.\n"
 "Voir « Plus » pour ajouter des options pour gérer le bureau ou ouvrir des "
@@ -565,8 +565,8 @@ msgid ""
 msgstr ""
 "Le gestionnaire de bureau dessine le bureau et gère les icônes qui sont "
 "dessus.\n"
-"Vous pouvez gérer cela avec le gestionnaire de fichiers en paramétrant "
-"« Gestionnaire de fichiers »"
+"Vous pouvez gérer cela avec le gestionnaire de fichiers en paramétrant « "
+"Gestionnaire de fichiers »"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
@@ -623,8 +623,7 @@ msgstr "Terminal par défaut pour lancer la ligne de commande."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
-"Application pour aller sur Internet, Google, Facebook, debian.org, etc."
+msgstr "Application pour aller sur Internet, Google, Facebook, debian.org, etc."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
@@ -640,8 +639,8 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Utilitaire pour lancer des application, comme synapse ou kupfer \n"
-"Pour utiliser l'utilitaire par défaut de LXPanel ou bien de LXDE, utilisez "
-"« lxpanelctl » "
+"Pour utiliser l'utilitaire par défaut de LXPanel ou bien de LXDE, utilisez « "
+"lxpanelctl » "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."

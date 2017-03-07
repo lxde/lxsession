@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-09-04 14:33+0000\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"PO-Revision-Date: 2014-12-05 13:19+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1409841214.000000\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1417785569.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -166,8 +166,9 @@ msgid "Reload"
 msgstr "Muat Ulang"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
+#, fuzzy
 msgid "More"
-msgstr ""
+msgstr "Mode"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 #, fuzzy

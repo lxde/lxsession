@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
+"X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1417608623.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -528,7 +528,7 @@ msgstr "Dock 是第二面板。它用于启动另一种类型的面板程序。"
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "文件管理器是用来打开文件的组件。\n"
 "查看“更多”来添加管理桌面或打开文件的选项 "

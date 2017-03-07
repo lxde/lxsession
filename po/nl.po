@@ -9,14 +9,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2014-12-14 18:45+0000\n"
-"Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
+"Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
+"X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1418582706.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -523,7 +523,7 @@ msgid ""
 msgstr ""
 "Vensterbeheerder stelt de vensters samen en beheert ze.\n"
 "U kunt kiezen voor openbox, openbox-custom (voor een aangepaste openbox-"
-"instelling, zie 'Meer', kwin, compiz..."
+"instelling, zie \"Meer\"), kwin, compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
@@ -545,10 +545,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Bestandbeheerder is de component die de bestanden opent.\n"
-"Zie 'Meer' om opties toe te voegen voor het omgaan met de werkomgeving of "
+"Zie \"Meer\" om opties toe te voegen voor het omgaan met de werkomgeving of "
 "voor het openen van bestanden."
 
 #: ../lxsession-default-apps/main.vala:173
@@ -568,7 +568,7 @@ msgid ""
 msgstr ""
 "Bureaubladbeheerder stelt het bureaublad samen en beheert de pictogrammen "
 "die erop staan.\n"
-"U kunt hem beheren met de bestandbeheerder door 'filemanager' in te "
+"U kunt hem beheren met de bestandbeheerder door \"filemanager\" in te "
 "stellen."
 
 #: ../lxsession-default-apps/main.vala:180
@@ -783,7 +783,7 @@ msgstr "Gebruiken voor het beheren van de werkomgeving?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr "Standaard-Debianprogramma's instellen"
+msgstr "Standaard-debianprogramma's instellen"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"

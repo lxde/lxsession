@@ -35,7 +35,6 @@ namespace Lxsession
         public HashTable<string, string> state_support_item_db;
         public HashTable<string, string> dbus_support_item_db;
         public HashTable<string, string> keymap_support_item_db;
-        public HashTable<string, string> updates_support_item_db;
         public HashTable<string, string> environment_support_item_db;
 
         public LxsessionConfig ()
@@ -46,7 +45,6 @@ namespace Lxsession
             state_support_item_db = init_item_db();
             dbus_support_item_db = init_item_db();
             keymap_support_item_db = init_item_db();
-            updates_support_item_db = init_item_db();
             environment_support_item_db = init_item_db();
         }
 
@@ -56,22 +54,17 @@ namespace Lxsession
             return return_map;
         }
 
-        public void create_config_item (string categorie, string key1, string key2, string type, string? variable)
+        public void create_config_item (string categorie, string key1, string? key2, string type, string? variable)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
 
             config_item_db[item_key] = variable;
 
-            if (variable != null)
-            {
-                on_update_generic(variable, categorie, key1, key2);
-            }
-
             update_support_keys (categorie, key1, key2);
         }
 
-        public void delete_config_item (string categorie, string key1, string key2, string type)
+        public void delete_config_item (string categorie, string key1, string? key2, string type)
         {
             /* only support string for now */
             string item_key = categorie + ";" + key1 + ";" + key2 + ";";
@@ -128,6 +121,29 @@ namespace Lxsession
             }
          }
 
+        public void set_config_item_value_on_starting (string categorie, string key1, string? key2, string type, string dbus_arg)
+        {
+            /*
+                Update config_item_db, or create the config_item if it's not exist.
+            */
+            string item_key = categorie + ";" + key1 + ";" + key2 +";";
+
+            // DEBUG message ("key of read_value: %s", item_key);
+
+            if (config_item_db.contains(item_key) == true)
+            {
+                // message ("Enter if of read_value for %s, %s, %s, %s, %s: ", categorie, key1, key2, type, dbus_arg);
+                if (config_item_db[item_key] != dbus_arg)
+                {
+                    config_item_db[item_key] = dbus_arg;
+                }
+            }
+            else
+            {
+                create_config_item(categorie, key1, key2, type, dbus_arg);
+            }
+         }
+
         public HashTable<string, string> get_support_db(string categorie)
         {
             var support_db = new HashTable<string, string> (str_hash, str_equal);
@@ -159,9 +175,6 @@ namespace Lxsession
                     break;
                 case "Keymap":
                     support_db = keymap_support_item_db;
-                    break;
-                case "Updates":
-                    support_db = updates_support_item_db;
                     break;
                 case "Environment":
                     support_db = environment_support_item_db;
@@ -628,16 +641,6 @@ public class LxsessionConfigKeyFile: LxsessionConfig
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
-        if (config_item_db.contains(item_key) == false)
-        {
-            // message ("Create new config key: %s", item_key);
-            create_config_item(categorie, key1, key2, type, null);
-        }
-        else
-        {
-            get_item(categorie, key1, key2, out default_variable, out type_output);
-        }
-
         switch (type)
         {
             case "string":
@@ -645,7 +648,16 @@ public class LxsessionConfigKeyFile: LxsessionConfig
                 break;
         }
 
-        set_config_item_value(categorie, key1, key2, type, final_variable);
+        if (config_item_db.contains(item_key) == false)
+        {
+            // message ("Create new config key: %s", item_key);
+            create_config_item(categorie, key1, key2, type, final_variable);
+        }
+        else
+        {
+            get_item(categorie, key1, key2, out default_variable, out type_output);
+            set_config_item_value_on_starting(categorie, key1, key2, type, final_variable);
+        }
 
     }
 
@@ -775,6 +787,11 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "lock_manager", "command", "string");
         read_key_value(kf, "Session", "message_manager", "command", "string");
         read_key_value(kf, "Session", "upgrade_manager", "command", "string");
+        read_key_value(kf, "Session", "updates_manager", "command", "string");
+        read_key_value(kf, "Session", "updates_manager", "timeout", "string");
+        read_key_value(kf, "Session", "crash_manager", "command", "string");
+        read_key_value(kf, "Session", "crash_manager", "dev_mode", "string");
+        read_key_value(kf, "Session", "crash_manager", "timeout", "string");
         read_key_value(kf, "Session", "clipboard", "command", "string");
         read_key_value(kf, "Session", "disable_autostart", null, "string");
         read_key_value(kf, "Session", "upstart_user_session", null, "string");
@@ -821,9 +838,13 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "State", "guess_default", null, "string");
         read_key_value(kf, "Dbus", "lxde", null, "string");
         read_key_value(kf, "Dbus", "gnome", null, "string");
-        read_key_value(kf, "Updates", "type", null, "string");
         read_key_value(kf, "Environment", "type", null, "string");
         read_key_value(kf, "Environment", "menu_prefix", null, "string");
+        read_key_value(kf, "Environment", "ubuntu_menuproxy", null, "string");
+        read_key_value(kf, "Environment", "toolkit_integration", null, "string");
+        read_key_value(kf, "Environment", "gtk", "overlay_scrollbar_disable", "string");
+        read_key_value(kf, "Environment", "qt", "force_theme", "string");
+        read_key_value(kf, "Environment", "qt", "platform", "string");
 
         read_key_value(kf, "GTK", "sNet", "ThemeName", "string");
         read_key_value(kf, "GTK", "sNet", "IconThemeName", "string");
@@ -1118,6 +1139,13 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
 
         string item_key = categorie + ";" + key1 + ";" + key2 +";";
 
+        switch (type)
+        {
+            case "string":
+                final_variable = read_razor_keyfile_bool_value(kf, categorie_razor, key1_razor, key2_razor, default_variable);
+                break;
+        }
+
         if (config_item_db.contains(item_key))
         {
             message ("Create new config key: %s", item_key);
@@ -1126,16 +1154,9 @@ public class RazorQtConfigKeyFile: LxsessionConfigKeyFile
         else
         {
             get_item(categorie, key1, key2, out default_variable, out type_output);
+            set_config_item_value(categorie, key1, key2, type, final_variable);
         }
 
-        switch (type)
-        {
-            case "string":
-                final_variable = read_razor_keyfile_bool_value(kf, categorie_razor, key1_razor, key2_razor, default_variable);
-                break;
-        }
-
-        set_config_item_value(categorie, key1, key2, type, final_variable);
     }
 
     public override void read_secondary_keyfile()

@@ -33,12 +33,21 @@ namespace Lxsession
 
             if(app.is_running)
             {
+                message("lxclipboard is already running. Existing");
                 return 0;
             }
 #endif
 # if USE_GTK3
-            Application app = new Application ();
-            app.run (args);
+            Gtk.Application app = new Gtk.Application (
+                "org.lxde.lxclipboard",
+                GLib.ApplicationFlags.FLAGS_NONE);
+            app.register ();
+
+            if(app.is_remote)
+            {
+                message("lxclipboard is already running. Existing");
+                return 0;
+            }
 #endif
 
             clipboard_start ();

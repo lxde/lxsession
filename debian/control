@@ -15,7 +15,10 @@ Build-Depends: debhelper (>= 7.0.50~),
                libgtk2.0-dev (>=2.6), 
                libdbus-glib-1-dev (>=0.31),
                libpolkit-agent-1-dev,
-               libunique-dev
+               libunique-dev,
+               libappindicator-dev,
+               libindicator-dev,
+               libnotify-dev
 Standards-Version: 3.8.4
 Homepage: http://lxde.sf.net
 Vcs-Git: git://git.debian.org/git/collab-maint/lxsession.git
@@ -55,7 +58,7 @@ Package: lxsession-data
 Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Replaces: lxsession (<< 0.4.7)
-Description : Common files for lxsession
+Description: Common files for lxsession
  Common files for lxsession
 
 Package: lxsession-edit
@@ -96,3 +99,14 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: simple tool to configure lxsession default applications 
  lxsession-default-apps is a simple session editor GUI for lxsession default
  applications.
+
+Package: lxsession-update-notifier-compat
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, lxsession, update-notifier-common
+Provides: update-notifier
+Replaces: update-notifier
+Conflicts: update-notifier
+Description: compatibility package for update-notifier functionnalities
+ lxsession-update-notifier-compat install the needed files to replace
+ update-notifier functionnalities. You also need to use update-notifier-clone
+ for update-manager/command in lxsession settings.

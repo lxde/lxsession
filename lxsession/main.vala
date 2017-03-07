@@ -19,13 +19,11 @@
 using Posix;
 using Intl;
 
-#if BUILDIN_POLKIT
+#if USE_GTK
 using Gtk;
 #endif
 
-#if BUILDIN_CLIPBOARD
-using Gtk;
-#endif
+const string GETTEXT_PACKAGE = "lxsession";
 
 namespace Lxsession {
 
@@ -57,6 +55,7 @@ namespace Lxsession {
     KeyringApp global_keyring;
     A11yApp global_a11y;
     UpdatesManagerApp global_updates;
+    CrashManagerApp global_crash;
     GenericSimpleApp global_im1;
     GenericSimpleApp global_im2;
     GenericSimpleApp global_widget1;
@@ -87,6 +86,9 @@ namespace Lxsession {
 
     public static int main(string[] args) {
 
+        Intl.textdomain(GETTEXT_PACKAGE);
+        Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
+
         try {
             var options_args = new OptionContext("- Lightweight Session manager");
             options_args.set_help_enabled(true);
@@ -114,11 +116,11 @@ namespace Lxsession {
 
         session_global = session;
 
-#if BUILDIN_POLKIT
+#if USE_GTK
         Gtk.init (ref args);
+#if USE_ADVANCED_NOTIFICATIONS
+        Notify.init ("LXsession");
 #endif
-#if BUILDIN_CLIPBOARD
-        Gtk.init (ref args);
 #endif
 
         /* 
@@ -474,11 +476,18 @@ namespace Lxsession {
             global_proxy.launch();
         }
 
-        if (global_settings.get_item_string("Session", "udpates_manager", "command") != null)
+        if (global_settings.get_item_string("Session", "updates_manager", "command") != null)
         {
             var updates = new UpdatesManagerApp();
             global_updates = updates;
-            global_updates.launch();
+            //global_updates.launch();
+        }
+
+        if (global_settings.get_item_string("Session", "crash_manager", "command") != null)
+        {
+            var crash = new CrashManagerApp();
+            global_crash = crash;
+            //global_crash.launch();
         }
 
         if (global_settings.get_item_string("Session", "upstart_user_session", null) == "true")
@@ -494,7 +503,7 @@ namespace Lxsession {
             Bus.own_name (BusType.SESSION, "org.lxde.SessionManager", BusNameOwnerFlags.NONE,
                           on_bus_aquired,
                           () => {},
-                          () => warning ("Could not aquire name\n"));
+                          () => warning ("Could not acquire name\n"));
         }
 
         if (global_settings.get_item_string("Dbus", "gnome", null) == "true") 
@@ -503,7 +512,7 @@ namespace Lxsession {
             Bus.own_name (BusType.SESSION, "org.gnome.SessionManager", BusNameOwnerFlags.NONE,
                           on_gnome_bus_aquired,
                           () => {},
-                          () => warning ("Could not aquire name\n"));
+                          () => warning ("Could not acquire name\n"));
 
         }
 

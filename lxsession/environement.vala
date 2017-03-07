@@ -312,6 +312,18 @@ namespace Lxsession
                 }
             }
 
+            /* Disable GTK+ 3 overlay scrollbar */
+            if (global_settings.get_item_string("Environment", "gtk", "overlay_scrollbar_disable") == "true")
+            {
+                Environment.set_variable("GTK_OVERLAY_SCROLLING", "0", true);
+            }
+
+            /* Force theme for QT apps */
+            if (global_settings.get_item_string("Environment", "qt", "force_theme") != null)
+            {
+                Environment.set_variable("QT_STYLE_OVERRIDE", global_settings.get_item_string("Environment", "qt", "force_theme"), true);
+            }
+
             /* Add path for Qt plugins (usefull for razor session */
             string qt_plugin;
             qt_plugin = Environment.get_variable("QT_PLUGIN_PATH");
@@ -338,8 +350,11 @@ namespace Lxsession
             }
 
             /* Add some needed variables for LXQt / Qt */
-            Environment.set_variable("QT_PLATFORM_PLUGIN", "lxqt", true);
-            Environment.set_variable("QT_QPA_PLATFORMTHEME", "lxqt", true);
+            if (global_settings.get_item_string("Environment", "qt", "platform") != null)
+            {
+                Environment.set_variable("QT_PLATFORM_PLUGIN", global_settings.get_item_string("Environment", "qt", "platform"), true);
+                Environment.set_variable("QT_QPA_PLATFORMTHEME", global_settings.get_item_string("Environment", "qt", "platform"), true);
+            }
         }
     }
 

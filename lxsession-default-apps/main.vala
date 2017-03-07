@@ -32,7 +32,7 @@ namespace LDefaultApps
 	        this.window_position = Gtk.WindowPosition.CENTER;
             try
             {
-                this.icon = IconTheme.get_default ().load_icon ("xfwm4", 48, 0);
+                this.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
             }
             catch (Error e)
             {
@@ -97,6 +97,14 @@ namespace LDefaultApps
         {
 		    this.title = _("LXSession configuration");
 		    this.window_position = Gtk.WindowPosition.CENTER;
+            try
+            {
+                this.icon = IconTheme.get_default ().load_icon ("preferences-desktop", 48, 0);
+            }
+            catch (Error e)
+            {
+                message ("Could not load application icon: %s\n", e.message);
+            }
 		    this.set_default_size (600, 400);
             this.destroy.connect (Gtk.main_quit);
 
@@ -172,7 +180,7 @@ namespace LDefaultApps
             string dock_more_help_message = session_string_help;
             init_application(builder, kf, dbus_backend, "dock", "", dock_help_message, dock_more, dock_more_help_message, null);
 
-            string file_manager_help_message = _("File manager is the component which open the files.\nSee \"More\" to add options to handle the desktop, or openning files ");
+            string file_manager_help_message = _("File manager is the component which open the files.\nSee \"More\" to add options to handle the desktop, or opening files ");
             string[] file_manager_more = {"combobox_manual", "session", "extra", "handle_desktop", "mime_association", "mime_available"};
             string file_manager_more_help_message = manual_setting_help + session_string_help + extra_string_help + handle_desktop_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "file_manager", "", file_manager_help_message, file_manager_more, file_manager_more_help_message, null);

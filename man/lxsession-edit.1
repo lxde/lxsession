@@ -1,0 +1,31 @@
+.\" Process this file with
+.\" groff -man -Tascii lxhotkey.1
+.\"
+.TH "lxsession-edit" 1
+.SH NAME
+lxsession-edit \- a simple session editor GUI for LXDE which follows
+autostart specs from FreeDesktop.Org
+.SH SYNOPSIS
+.B lxsession-edit
+[ DE ]
+.SH DESCRIPTION
+.B lxsession-edit
+is an application to change list of applications which will be ran on
+session start. Session name may be retrieved from command line, from
+environment variables \fIXDG_CURRENT_DESKTOP\fP or \fIDESKTOP_SESSION\fP,
+otherwise "\fBLXDE\fP" is assumed.
+.SH OPTIONS
+.TP 10
+.B DE
+provide desktop session name to edit autostart list
+.SH ENVIRONMENT
+.PD 0
+.TP
+.I XDG_CURRENT_DESKTOP
+default variable to get session name
+.TP
+.I DESKTOP_SESSION
+fallback variable to get session name
+
+.SH AUTHORS
+This manual page is written by Andriy Grytsenko <andrej@rep.kiev.ua>.

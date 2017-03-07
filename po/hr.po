@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-27 22:56+0000\n"
+"PO-Revision-Date: 2015-03-11 09:08+0000\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1419721011.000000\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1426064909.000000\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -96,6 +96,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Neuspjela provjera!\n"
+"Pogrešna lozinka?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -164,7 +166,7 @@ msgstr "Ponovo učitaj"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Više"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -172,11 +174,11 @@ msgstr "Upravitelj terminala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Web preglednik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -200,7 +202,7 @@ msgstr "Upravitelj slika zaslona"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF čitač"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
@@ -216,11 +218,11 @@ msgstr "Preglednik slika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Uređivač teksta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arhiv"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
@@ -228,7 +230,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulator"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
@@ -236,7 +238,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
@@ -244,7 +246,7 @@ msgstr "Dokument"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Web kamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
@@ -260,7 +262,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Nadzor zadataka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
@@ -272,7 +274,7 @@ msgstr "Upravitelj prozora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Ploča"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
@@ -336,7 +338,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
@@ -344,11 +346,11 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "Osnovni programi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr "Onemogućiti samopokrenute programe?"
+msgstr "Onemogućiti samopokrenute programe ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -446,16 +448,16 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Ažuriraj lxsession bazu podataka"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Baza podataka se ažurira, molim pričekajte"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "LXSession konfiguracija"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -463,14 +465,16 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Ručne postavke: Ručno postavlja naredbu (morate ponovno pokrenuti lxsession-"
+"default-apps da biste vidjeli promjenu)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sesija: odredi sesiju\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Dodatno: Dodaj dodatni parametar u opciju pokretanja\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -482,6 +486,7 @@ msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Dostupni programi: Programi ovoga tipa dostupni su u vašim repozitorijima\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
@@ -489,13 +494,15 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr ""
+msgstr "Samopokretanje programa ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Postavi zadani program za Debian sustav ( koristeći update-alternatives, "
+"potrebna je root lozinka)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -606,7 +613,7 @@ msgstr "Audio program"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Program za prikaz slika"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
@@ -630,7 +637,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Program za bitorrent upravljanjem, poput transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
@@ -650,7 +657,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Program za upravljanje diskovima"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
@@ -662,11 +669,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Upravljanje vašom audio konfiguracijom"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Upravljanje vašom konfiguracijom radnih prostora"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
@@ -695,7 +702,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Upravljanje proxy podrškom"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
@@ -703,7 +710,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Ručno postavljanje"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
@@ -715,7 +722,7 @@ msgstr "Dostupni programi"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "Samopokretanje programa ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
@@ -723,11 +730,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Postavi debian zadane programe"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Onemogući"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
@@ -735,7 +742,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #~ msgid "Command"
 #~ msgstr "Naredba"

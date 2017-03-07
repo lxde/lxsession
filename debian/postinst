@@ -8,6 +8,10 @@ if [ "$1" = configure ]; then
 
 fi
 
+if [ -f /usr/share/update-notifier/notify-reboot-required ]; then
+	exec /usr/share/update-notifier/notify-reboot-required
+fi
+
 #DEBHELPER#
 
 exit 0

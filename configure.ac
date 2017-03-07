@@ -1,4 +1,4 @@
-AC_INIT([lxsession],[0.5.2],[],[lxsession])
+AC_INIT([lxsession],[0.5.3],[],[lxsession])
 
 # Autotols programs
 AM_INIT_AUTOMAKE([1.11.1 -Wall -Werror foreign no-dist-gzip dist-xz])
@@ -52,14 +52,6 @@ AC_SUBST(GLIB_LIBS)
 PKG_CHECK_MODULES(GIO, [gio-unix-2.0])
 AC_SUBST(GIO_CFLAGS)
 AC_SUBST(GIO_LIBS)
-
-PKG_CHECK_MODULES(DBUSGLIB, [dbus-glib-1])
-AC_SUBST(DBUSGLIB_CFLAGS)
-AC_SUBST(DBUSGLIB_LIBS)
-
-PKG_CHECK_MODULES(DBUS, [dbus-1])
-AC_SUBST(DBUS_CFLAGS)
-AC_SUBST(DBUS_LIBS)
 
 AC_ARG_ENABLE(
     [gtk],
@@ -116,11 +108,28 @@ else
                      [Build with build-in polkit-agent support (default: no)]),
       use_buildin_polkit=$enableval, use_buildin_polkit="no")
 
+  AC_ARG_ENABLE(
+      [advanced-notifications],
+      AS_HELP_STRING([--enable-advanced-notifications],
+                     [Build with advanced notification using indicators and libnotify (default: no)]),
+      use_advanced_notifications=$enableval, use_advanced_notifications="no")
+
 fi
 
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 AM_CONDITIONAL(USE_GTK3, test "$enable_gtk3" = "yes")
+AM_CONDITIONAL(USE_ADVANCED_NOTIFICATIONS, test "$use_advanced_notifications" = "yes")
+
+if test "$use_advanced_notifications" = "yes"; then
+  PKG_CHECK_MODULES(INDICATORS, [indicator-0.4 >= 0.4.93 appindicator-0.1])
+  AC_SUBST(INDICATORS_CFLAGS)
+  AC_SUBST(INDICATORS_LIBS)
+
+  PKG_CHECK_MODULES(LIBNOTIFY, [libnotify])
+  AC_SUBST(LIBNOTIFY_CFLAGS)
+  AC_SUBST(LIBNOTIFY_LIBS)
+fi
 
 if test "$use_buildin_polkit" = "yes"; then
   HIDE_LXPOLKIT_AUTOSTART=true

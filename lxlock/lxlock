@@ -28,14 +28,16 @@ if pidof light-locker >/dev/null 2>&1; then
     light-locker-command -l >/dev/null 2>&1
 elif pidof xscreensaver >/dev/null 2>&1; then
     xscreensaver-command -lock >/dev/null 2>&1
-elif pidof gnome-screensaver >/dev/null 2>&1; then
-    gnome-screensaver-command --lock >/dev/null 2>&1
+elif pidof gnome-screensaver >/dev/null; then
+    gnome-screensaver-command --lock
 elif which slock >/dev/null 2>&1; then
-    slock >/dev/null 2>&1 &
+    slock &
 elif which xlock >/dev/null 2>&1; then
-    xlock $* >/dev/null 2>&1
+    xlock $*
 elif which i3lock >/dev/null 2>&1; then
-    i3lock -d >/dev/null 2>&1
+    i3lock -d
+elif which slimlock >/dev/null; then
+    slimlock
 else
     # In the end, try to fallback to xscreensaver
 

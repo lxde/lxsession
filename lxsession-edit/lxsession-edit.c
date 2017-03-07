@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     gtk_dialog_set_alternative_button_order((GtkDialog*)dlg, GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
 
     /* Set icon name for main (dlg) window so it displays in the panel. */
-    gtk_window_set_icon_name(GTK_WINDOW(dlg), "xfwm4");
+    gtk_window_set_icon_name(GTK_WINDOW(dlg), "preferences-desktop");
 
     /* autostart list */
     init_list_view((GtkTreeView*)autostarts);

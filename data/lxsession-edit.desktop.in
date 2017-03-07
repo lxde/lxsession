@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Icon=xfwm4
+Icon=preferences-desktop
 Exec=lxsession-edit
 _Name=Desktop Session Settings
 _Comment=Manage applications loaded in desktop session
 Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
-NotShowIn=GNOME;KDE;XFCE;
+OnlyShowIn=LXDE;

@@ -18,10 +18,13 @@ scripts= \
     lxlock/lxlock \
     lxsession-default/lxsession-default \
     lxsession-default/lxsession-default-terminal \
-    lxsession-utils/lxsession-xsettings \
     $(NULL)
 
 bin_SCRIPTS= $(scripts)
+
+pkglibexec_SCRIPTS = \
+    lxsession-utils/lxsession-xsettings \
+    $(NULL)
 
 noinst_DATA = \
     vapi/config.vapi \
@@ -38,6 +41,7 @@ CLEANFILES = \
 EXTRA_DIST = \
     $(noinst_DATA) \
     $(scripts) \
+    lxsession-utils/lxsession-xsettings \
     $(NULL)
 
 if USE_GTK
@@ -83,7 +87,9 @@ lxclipboard_lxclipboard_LDADD = \
     $(NULL)
 
 if USE_GTK3
+lxclipboard_lxclipboard_VALAFLAGS += --define USE_GTK3
 else
+lxclipboard_lxclipboard_VALAFLAGS += --define USE_GTK2
 lxclipboard_lxclipboard_VALAFLAGS += --pkg unique-1.0
 lxclipboard_lxclipboard_CPPFLAGS += $(UNIQUE_CFLAGS)
 lxclipboard_lxclipboard_LDADD += $(UNIQUE_LIBS)
@@ -128,7 +134,9 @@ lxpolkit_lxpolkit_LDADD = \
     $(NULL)
 
 if USE_GTK3
+lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK3
 else
+lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK2
 lxpolkit_lxpolkit_VALAFLAGS += --pkg unique-1.0
 lxpolkit_lxpolkit_CPPFLAGS += $(UNIQUE_CFLAGS)
 lxpolkit_lxpolkit_LDADD += $(UNIQUE_LIBS)
@@ -215,7 +223,6 @@ lxsession_default_apps_lxsession_default_apps_SOURCES = \
 lxsession_default_apps_lxsession_default_apps_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
     --pkg @VALA_GTK_LIBS@ \
-    --pkg dbus-glib-1 \
     --pkg gio-2.0 \
     --pkg posix \
     --pkg lxsession-edit \
@@ -249,16 +256,7 @@ buildinclip_SOURCES = \
 
 buildinclip_VALAFLAGS = \
     --pkg lxclipboard \
-    --pkg @VALA_GTK_LIBS@ \
     -D BUILDIN_CLIPBOARD \
-    $(NULL)
-
-buildinclip_CFLAGS = \
-    $(GTK_CFLAGS) \
-    $(NULL)
-
-buildinclip_LDADD = \
-    $(GTK_LIBS) \
     $(NULL)
 endif
 
@@ -274,12 +272,10 @@ buildinpolkit_VALAFLAGS = \
     $(NULL)
 
 buildinpolkit_CFLAGS = \
-    $(GTK_CFLAGS) \
     $(POLKIT_CFLAGS) \
     $(NULL)
 
 buildinpolkit_LDADD = \
-    $(GTK_LIBS) \
     $(POLKIT_LIBS) \
     $(NULL)
 endif
@@ -388,6 +384,7 @@ lxsession_lxsession_vala_SOURCES = \
     lxsession/dbus-gnome-session.vala \
     lxsession/dbus-lxde-session.vala \
     lxsession/environement.vala \
+    lxsession/notifications.vala \
     lxsession/options.vala \
     lxsession/process.vala \
     lxsession/settings.vala \
@@ -404,6 +401,7 @@ CLEANFILES += \
     lxsession/dbus-gnome-session.c \
     lxsession/dbus-lxde-session.c \
     lxsession/environement.c \
+    lxsession/notifications.c \
     lxsession/options.c \
     lxsession/process.c \
     lxsession/settings.c \
@@ -426,6 +424,7 @@ lxsession_lxsession_VALAFLAGS = \
     --pkg lxsettings-daemon \
     $(buildinclip_VALAFLAGS) \
     $(buildinpolkit_VALAFLAGS) \
+    $(lxsession_gtk_lxsession_VALAFLAGS) \
     $(NULL)
 
 lxsession_lxsession_CPPFLAGS = \
@@ -440,6 +439,7 @@ lxsession_lxsession_CPPFLAGS = \
     $(ADDITIONAL_FLAGS) \
     $(buildinclip_CFLAGS) \
     $(buildinpolkit_CFLAGS) \
+    $(lxsession_gtk_lxsession_CFLAGS) \
     -include config.h -w \
     $(NULL)
 
@@ -450,7 +450,35 @@ lxsession_lxsession_LDADD = \
     $(X11_LIBS) \
     $(buildinclip_LDADD) \
     $(buildinpolkit_LDADD) \
+    $(lxsession_gtk_lxsession_LDADD) \
     $(NULL)
+
+if USE_GTK
+lxsession_lxsession_VALAFLAGS +=     \
+    --pkg @VALA_GTK_LIBS@ \
+    -D USE_GTK
+
+lxsession_lxsession_CPPFLAGS += \
+    $(GTK_CFLAGS)
+
+lxsession_lxsession_LDADD += \
+    $(GTK_LIBS)
+
+if USE_ADVANCED_NOTIFICATIONS
+lxsession_lxsession_VALAFLAGS +=     \
+    --pkg appindicator-0.1 \
+    --pkg libnotify \
+    -D USE_ADVANCED_NOTIFICATIONS
+
+lxsession_lxsession_CPPFLAGS += \
+    $(LIBNOTIFY_CFLAGS) \
+    $(INDICATORS_CFLAGS)
+
+lxsession_lxsession_LDADD += \
+    $(LIBNOTIFY_LIBS) \
+    $(INDICATORS_LIBS)
+endif
+endif
 
 EXTRA_DIST += \
     autogen.sh \
