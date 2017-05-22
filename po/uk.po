@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-10-12 14:40+0000\n"
-"Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
+"PO-Revision-Date: 2017-05-22 22:13+0000\n"
+"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1413124809.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495491198.566601\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -184,27 +184,27 @@ msgstr "Ел. пошта"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Зв'язок 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Зв'язок 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr ""
+msgstr "Віджет 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Менеджер запуску"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
-msgstr ""
+msgstr "Менеджер знімків екрану"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Переглядач PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
@@ -228,7 +228,7 @@ msgstr "Архів"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Мапа символів"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
@@ -240,7 +240,7 @@ msgstr "Електронні таблиці"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
@@ -252,7 +252,7 @@ msgstr "Веб-камера"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Знаряддя для запису компакт-дисків"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
@@ -344,7 +344,7 @@ msgstr "Проксі"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
@@ -352,7 +352,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr "Вимкнути автоматично запущені програми?"
+msgstr "Вимкнути запущені автоматично програми?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -442,7 +442,7 @@ msgstr "Виберіть типові програми для LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"

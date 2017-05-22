@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-05 13:17+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2017-05-22 21:20+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1417785472.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1495488058.318469\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -158,9 +158,8 @@ msgid "Identity:"
 msgstr "זהות:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>מנהל הקבצים</b>"
+msgstr "מנהל הקבצים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
@@ -172,9 +171,8 @@ msgid "More"
 msgstr "מצב"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>מנהל המסופים</b>"
+msgstr "מנהל המסופים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
@@ -185,29 +183,24 @@ msgid "Email"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>תקשורת 1</b>"
+msgstr "תקשורת 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>תקשורת 2</b>"
+msgstr "תקשורת 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>וידג׳ט 1</b>"
+msgstr "וידג׳ט 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>מנהל המשגר</b>"
+msgstr "מנהל המשגר"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>מנהל צילומי המסך</b>"
+msgstr "מנהל צילומי המסך"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
@@ -293,9 +286,8 @@ msgid "Dock"
 msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>מנהל הרכבה</b>"
+msgstr "מנהל הרכבה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 #, fuzzy
@@ -303,14 +295,12 @@ msgid "Desktop Manager"
 msgstr "מנהל חלונות:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>שומר מסך</b>"
+msgstr "שומר מסך"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>מנהל צריכת חשמל</b>"
+msgstr "מנהל צריכת חשמל"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 #, fuzzy
@@ -323,9 +313,8 @@ msgid "Network GUI"
 msgstr "<b>מנשק גרפי לרשת</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>מנהל מסך הנעילה</b>"
+msgstr "מנהל מסך הנעילה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 #, fuzzy
@@ -348,9 +337,8 @@ msgid "Upgrade manager"
 msgstr "<b>מנהל השדרוגים</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>מנהל לוח הגזירים</b>"
+msgstr "מנהל לוח הגזירים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
