@@ -710,7 +710,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
-"Stardart option are gnome, for stardart gnome support."
+"Standard option are gnome, for standard gnome support."
 msgstr ""
 "접근성 지원을 관리합니다.\n"
 "표준 옵션은 표준 그놈을 지원하는 gnome 입니다."

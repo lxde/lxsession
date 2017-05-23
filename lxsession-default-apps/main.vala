@@ -370,7 +370,7 @@ namespace LDefaultApps
             string security_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "keyring", "", security_help_message, security_more, security_more_help_message, null);
 
-            string a11y_help_message = _("Managing support for accessibility.\nStardart option are gnome, for stardart gnome support.");
+            string a11y_help_message = _("Managing support for accessibility.\nStandard option are gnome, for standard gnome support.");
             string[] a11y_more = {""};
             string a11y_more_help_message = manual_setting_help;
             init_application(builder, kf, dbus_backend, "a11y", "", a11y_help_message, a11y_more, a11y_more_help_message, null);

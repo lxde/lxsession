@@ -1,3 +1,10 @@
+lxsession (0.4.9.3-1ubuntu1) UNRELEASED; urgency=medium
+
+  * lxsession-default-apps/main.vala and po/*:
+    - Corrected spelling of "standard." 
+
+ -- Walter Lapchynski <wxl@ubuntu.com>  Tue, 24 Mar 2015 08:15:36 -0700
+
 lxsession (0.4.9.3-1) unstable; urgency=low
 
   * New lxsession (testing packages)
