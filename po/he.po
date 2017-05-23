@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-22 21:20+0000\n"
+"PO-Revision-Date: 2017-05-23 06:56+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495488058.318469\n"
+"X-POOTLE-MTIME: 1495522580.959416\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -44,10 +44,9 @@ msgid "Error: %s\n"
 msgstr "שגיאה: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
-#, c-format
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>האם לצאת מההפעלה %s %s?</big></b>"
+msgstr "<b><big>האם לצאת מההפעלה %s %s ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
@@ -99,6 +98,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"האימות נכשל!\n"
+"ססמה שגויה?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -166,9 +167,8 @@ msgid "Reload"
 msgstr "רענון"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
-#, fuzzy
 msgid "More"
-msgstr "מצב"
+msgstr "עוד"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -176,11 +176,11 @@ msgstr "מנהל המסופים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "דפדפן אינטרנט"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "דוא״ל"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -204,95 +204,91 @@ msgstr "מנהל צילומי המסך"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "קורא PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "נגן וידאו"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "נגן שמע"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "קובץ תמונה"
+msgstr "מציג תמונות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "עורך טקסט"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "ארכיון"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "מפת תווים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "מחשבון"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "גיליון אלקטרוני"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "ביטורנט"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "הערה"
+msgstr "מסמך"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "מצלמת רשת"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "כלי צריבה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "כלי פתקיות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "כלי כוננים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "מפקח על משימות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "הפעלת יישומים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "מנהל חלונות:"
+msgstr "מנהל חלונות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "לוח"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "מעגן"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
 msgstr "מנהל הרכבה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "מנהל חלונות:"
+msgstr "מנהל שולחן העבודה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
@@ -303,38 +299,32 @@ msgid "Power Manager"
 msgstr "מנהל צריכת חשמל"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>סוכן ערכת מדיניות</b>"
+msgstr "סוכן ערכת מדיניות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>מנשק גרפי לרשת</b>"
+msgstr "מנשק גרפי לרשת"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
 msgstr "מנהל מסך הנעילה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>מנהל שמע</b>"
+msgstr "מנהל שמע"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>מנהל סביבות העבודה</b>"
+msgstr "מנהל סביבות העבודה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>מנהל היציאה</b>"
+msgstr "מנהל היציאה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>מנהל השדרוגים</b>"
+msgstr "מנהל השדרוגים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
@@ -342,24 +332,23 @@ msgstr "מנהל לוח הגזירים"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "אבטחה (קבוצת מפתחות)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "נגישות"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "מתווך"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "יישום"
+msgstr "יישומי ליבה"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -453,25 +442,24 @@ msgstr "החלפת יישומי בררת המחדל ב־LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "אימות"
+msgstr "סוכן אימות מול ערכת מדיניות"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "עדכון מסד הנתונים של lxsession"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "מסד הנתונים מתעדכן, נא להמתין"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "תצורת LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -504,9 +492,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "האם לנטרל יישומים שמופעלים אוטומטית?"
+msgstr "להפעיל את היישום אוטומטית עם עליית המערכת?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
