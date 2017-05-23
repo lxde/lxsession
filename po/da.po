@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-22 23:02+0000\n"
+"PO-Revision-Date: 2017-05-23 17:35+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495494135.181711\n"
+"X-POOTLE-MTIME: 1495560958.141456\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -152,24 +152,23 @@ msgstr "Identitet:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
-msgstr ""
+msgstr "Filhåndtering"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
 msgstr "Genindlæs"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
-#, fuzzy
 msgid "More"
-msgstr "Tilstand"
+msgstr "Flere"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "Terminalhåndtering"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Webbrowser"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
@@ -177,15 +176,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Kommunikation 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Kommunikation 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr ""
+msgstr "Widget 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
@@ -197,28 +196,27 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF-læser"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Videoafspiller"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Lydafspiller"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "Billedfil"
+msgstr "Billedfremviser"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Tekstredigeringsprogram"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
@@ -226,27 +224,27 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Lommeregner"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Regneark"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Webkamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Brændingsværktøj"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
@@ -254,28 +252,27 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Diskværktøj"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Opgaveovervågning"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Start programmer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Vindueshåndtering:"
+msgstr "Vindueshåndtering"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Dok"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
@@ -283,15 +280,15 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Desktop Manager"
-msgstr ""
+msgstr "Skrivebordshåndtering"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
-msgstr ""
+msgstr "Pauseskærm"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "Power Manager"
-msgstr ""
+msgstr "Strømstyring"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
@@ -299,7 +296,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr ""
+msgstr "Netværksbrugerflade"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
@@ -335,7 +332,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
@@ -343,7 +340,7 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "Kerneprogrammer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -393,7 +390,7 @@ msgstr "Anvend"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Miljø</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
@@ -405,7 +402,7 @@ msgstr "Model"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"
-msgstr ""
+msgstr "Layout"
 
 #: ../data/ui/lxsession-default-apps.ui.h:64
 msgid "Variant"
@@ -413,7 +410,7 @@ msgstr "Variant"
 
 #: ../data/ui/lxsession-default-apps.ui.h:65
 msgid "Options"
-msgstr ""
+msgstr "Valgmuligheder"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
@@ -437,7 +434,7 @@ msgstr "Skift standardprogrammer i LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
@@ -726,7 +723,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivér"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"

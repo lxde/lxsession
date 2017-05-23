@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-23 02:03+0000\n"
+"PO-Revision-Date: 2017-05-23 16:35+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495505034.176768\n"
+"X-POOTLE-MTIME: 1495557309.258920\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -98,6 +98,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Аутентификация сәтсіз!\n"
+"Пароль қате ма?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -164,9 +166,8 @@ msgid "Reload"
 msgstr "Жаңарту"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
-#, fuzzy
 msgid "More"
-msgstr "Режимі"
+msgstr "Көбірек"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -174,47 +175,43 @@ msgstr "Терминал басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Веб браузері"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Эл. пошта"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
 msgstr "Байланысу 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Байланысу 2</b>"
+msgstr "Байланысу 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Виджет 1</b>"
+msgstr "Виджет 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Жөнелту басқарушысы</b>"
+msgstr "Жөнелту басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Скриншоттар басқарушысы</b>"
+msgstr "Скриншоттар басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF оқу сайманы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Видео плеері"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Аудио плеері"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
 #, fuzzy
