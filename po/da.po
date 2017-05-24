@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-23 17:35+0000\n"
+"PO-Revision-Date: 2017-05-23 23:36+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495560958.141456\n"
+"X-POOTLE-MTIME: 1495582593.508089\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -98,6 +98,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Autentifikation mislykkedes!\n"
+"Forkert adgangskode?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -144,7 +146,7 @@ msgstr "Avancerede indstillinger"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr "Godkendelse"
+msgstr "Autentifikation"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
@@ -172,7 +174,7 @@ msgstr "Webbrowser"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "E-post"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -576,7 +578,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr ""
+msgstr "Program til at sende e-mails"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -707,11 +709,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr ""
+msgstr "Tilgængelige programmer"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "Start programmet automatisk?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
