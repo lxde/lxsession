@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-23 23:36+0000\n"
+"PO-Revision-Date: 2017-05-24 10:42+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495582593.508089\n"
+"X-POOTLE-MTIME: 1495622555.458923\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -190,7 +190,7 @@ msgstr "Widget 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Programstarterhåndtering"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
@@ -366,7 +366,7 @@ msgstr "Autostart"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr ""
+msgstr "Bærbar-tilstand"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
@@ -382,7 +382,7 @@ msgstr "Type"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
-msgstr ""
+msgstr "Menupræfiks"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
@@ -701,11 +701,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Manuel indstilling"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Mime-tilknytning"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"

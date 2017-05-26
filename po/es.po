@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-23 01:48+0000\n"
+"PO-Revision-Date: 2017-05-25 23:00+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495504135.098245\n"
+"X-POOTLE-MTIME: 1495753210.088857\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -728,20 +728,26 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Gestión del llavero.\n"
+"Las opciones disponibles son «gnome» para admitir gnome-keyring y «ssh-agent»"
+" para admitir ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Gestion de compatibilidad de accesibilidad.\n"
+"Las opciones disponibles son «gnome», para admitir Gnome."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Gestión de compatibilidad con «proxy»"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"Gestión de parámetros de XRandr. Utilice una orden como «xrandr --opción»"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"

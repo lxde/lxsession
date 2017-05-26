@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-23 16:35+0000\n"
+"PO-Revision-Date: 2017-05-25 17:03+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495557309.258920\n"
+"X-POOTLE-MTIME: 1495731835.926491\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -214,156 +214,140 @@ msgid "Audio player"
 msgstr "Аудио плеері"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "сурет файлы"
+msgstr "Суреттерді көрсету бағдарламасы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Мәтін түзеткіші"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Архив"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Таңбалар кестесі"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Калькулятор"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Электрондық кесте"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Битторент"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Түсіндірме"
+msgstr "Құжат"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Вебкамера"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Дисктерді жазу утилитасы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Естеліктер утилитасы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Дисктер утилитасы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Тапсырмалар бақылаушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Қолданбаларды жөнелту"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Терезелер басқарушысы:"
+msgstr "Терезелер басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Панель"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Қалқымалы панель"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Композиттік менеджер</b>"
+msgstr "Композиттік менеджер"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Терезелер басқарушысы:"
+msgstr "Жұмыс үстел басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Экран қорғаушысы</b>"
+msgstr "Экран қорғаушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Эл. қоректі басқарушысы</b>"
+msgstr "Эл. қоректі басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Polkit агенті</b>"
+msgstr "Polkit агенті"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Желіні басқару</b>"
+msgstr "Желіні басқару"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Экранды блоктау басқарушысы</b>"
+msgstr "Экранды блоктау басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Аудио басқарушысы</b>"
+msgstr "Аудио басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Жұмыс орындар басқарушысы</b>"
+msgstr "Жұмыс орындар басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Шығу</b>"
+msgstr "Шығу менеджері"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Жаңартулар басқарушысы</b>"
+msgstr "Жаңартулар басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Алмасу буферін басқарушысы</b>"
+msgstr "Алмасу буферін басқарушысы"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Қауіпсіздік (кілттер)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Прокси"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Қолданба"
+msgstr "Базалық қолданбалар"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -457,25 +441,24 @@ msgstr "LXDE үшін үнсіз келісім қолданбаларын та�
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Аутенфикация"
+msgstr "PolicyKit аутентификация агенті"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "lxsession дерекқорын жаңарту"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Дерекқор жаңартылуда, күте тұрыңыз"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "LXSession баптаулары"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -508,9 +491,8 @@ msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Қолданбалардың іске автоқосылуын сөндіру керек пе?"
+msgstr "Қолданбаны автожөнелту керек пе ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -619,14 +601,12 @@ msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Қолданба"
+msgstr "Видео қолданбасы"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Қолданба"
+msgstr "Аудио қолданбасы"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
@@ -642,22 +622,20 @@ msgid "Application to create archives, like file-roller"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Қолданба"
+msgstr "Таңбалар кестесі қолданбасы"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Қолданбалардың іске автоқосылуын сөндіру керек пе?"
+msgstr "Калькулятор қолданбасы"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Электрондық кестелерді жасау қолданбасы, gnumeric сияқты"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Битторренттерді басқару қолданбасы, transmission сияқты"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
@@ -739,14 +717,12 @@ msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Қолданбаларды жөнелту"
+msgstr "Қолжетерлік қолданбалар"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Қолданбалардың іске автоқосылуын сөндіру керек пе?"
+msgstr "Қолданба іске автоқосылуы керек пе?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
@@ -758,7 +734,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Сөндіру"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
@@ -766,7 +742,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Бас тарту"
 
 #~ msgid "Command"
 #~ msgstr "Команда"
