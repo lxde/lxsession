@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-05 13:24+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2017-05-29 21:25+0000\n"
+"Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lietuvių\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1417785841.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1496093112.134474\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
-msgstr "Tekstas, rodomas dialogo viršuje"
+msgstr "Tinkintas pranešimas, rodomas dialoge"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "message"
@@ -30,15 +30,15 @@ msgstr "pranešimas"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "Banner to show on the dialog"
-msgstr "Paveiksliukas rodomas dialoge"
+msgstr "Plakatas rodomas dialoge"
 
 #: ../lxsession-logout/lxsession-logout.c:49
 msgid "image file"
-msgstr "paveiksliuko failas"
+msgstr "paveikslo failas"
 
 #: ../lxsession-logout/lxsession-logout.c:50
 msgid "Position of the banner"
-msgstr "Paveiksliuko vieta"
+msgstr "Plakato vieta"
 
 #: ../lxsession-logout/lxsession-logout.c:460
 #, c-format
@@ -52,7 +52,7 @@ msgstr "<b><big>Atjungti %s %s seansą ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
-msgstr "_Išjungti"
+msgstr "Išj_ungti"
 
 #: ../lxsession-logout/lxsession-logout.c:713
 msgid "_Reboot"
@@ -60,11 +60,11 @@ msgstr "_Paleisti iš naujo"
 
 #: ../lxsession-logout/lxsession-logout.c:724
 msgid "_Suspend"
-msgstr "_Užmigdyti"
+msgstr "_Pristabdyti"
 
 #: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
-msgstr "_Hibernuoti"
+msgstr "Už_migdyti"
 
 #: ../lxsession-logout/lxsession-logout.c:746
 msgid "S_witch User"
@@ -100,6 +100,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Tapatybės nustatymas nepavyko!\n"
+"Neteisingas slaptažodis?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -116,23 +118,23 @@ msgstr "Darbalaukio seanso nustatymai"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr "Programos kurios automatiškai paleidžiamos atvėrus darbastalį:"
+msgstr "Programos, kurios automatiškai paleidžiamos įėjus į darbalaukį:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Automatiškai paleistos programos"
+msgstr "Automatiškai paleidžiamos programos"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr "Langų tvarkyklė:"
+msgstr "Langų tvarkytuvė:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Komandinė eilutė kuria paleidžiama langų tvarkyklė\n"
-"(Numatyta LXDE langų tvarkyklės turėtų būti openbox-lxde)"
+"Komandų eilutė, naudojama paleisti langų tvarkytuvę\n"
+"(Numatytoji LXDE langų tvarkytuvės komanda turėtų būti openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -141,241 +143,218 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Įspėjimas:</b> <b>Nelieskite</b> nebent tiksliai žinote ką darote.\n"
+"<b>Įspėjimas:</b> Nieko čia <b>nelieskite</b>, nebent tiksliai žinote ką "
+"darote.\n"
 "\n"
-"<b>PASTABA:</b> Šis nustatymas įsigalios kitą kart prisijungus."
+"<b>PASTABA:</b> Šis nustatymas įsigalios kitą kartą prisijungus."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr "Sudėtingesnės parinktys"
+msgstr "Išplėstinės parinktys"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr "Tapatumo nustatymas"
+msgstr "Tapatybės nustatymas"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
 msgstr "Tapatybė:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
 msgid "File Manager"
-msgstr "<b>Failų tvarkyklė</b>"
+msgstr "Failų tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
 msgstr "Įkelti iš naujo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
-#, fuzzy
 msgid "More"
-msgstr "Režimas"
+msgstr "Daugiau"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
-#, fuzzy
 msgid "Terminal manager"
-msgstr "<b>Terminalo tvarkyklė</b>"
+msgstr "Terminalo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Saityno naršyklė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "El. paštas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
 msgid "Communication 1"
-msgstr "<b>Bendravimas 1</b>"
+msgstr "Bendravimas 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
-#, fuzzy
 msgid "Communication 2"
-msgstr "<b>Bendravimas 2</b>"
+msgstr "Bendravimas 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
-#, fuzzy
 msgid "Widget 1"
-msgstr "<b>Valdiklis 1</b>"
+msgstr "Valdiklis 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
-#, fuzzy
 msgid "Launcher manager"
-msgstr "<b>Paleidėjo tvarkyklė</b>"
+msgstr "Paleidimo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
-#, fuzzy
 msgid "Screenshot manager"
-msgstr "<b>Ekranvaizdžio tvarkyklė</b>"
+msgstr "Ekrano kopijų tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF skaityklė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Vaizdo grotuvas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Garso grotuvas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "paveiksliuko failas"
+msgstr "Paveikslų žiūryklė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Tekstų redaktorius"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Archyvuoti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Simbolių lentelė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Skaičiuotuvas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Skaičiuoklė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Komentaras"
+msgstr "Dokumentas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Internetinė vaizdo kamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Rašymo į diskus programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Užrašų programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Diskų programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Užduočių prižiūryklė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Paleidžiamos programos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Langų tvarkyklė:"
+msgstr "Langų tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Skydelis"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Dokas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>„Composite“ tvarkyklė</b>"
+msgstr "Kompozicionavimo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Langų tvarkyklė:"
+msgstr "Darbalaukio tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
-#, fuzzy
 msgid "Screensaver"
-msgstr "<b>Ekrano užsklanda</b>"
+msgstr "Ekrano užsklanda"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
 msgid "Power Manager"
-msgstr "<b>Energijos valdymas</b>"
+msgstr "Maitinimo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
-#, fuzzy
 msgid "Polkit agent"
-msgstr "<b>Polkit agentas</b>"
+msgstr "Polkit agentas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
-#, fuzzy
 msgid "Network GUI"
-msgstr "<b>Tinklo grafinė sąsaja</b>"
+msgstr "Tinklo grafinė sąsaja"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
-#, fuzzy
 msgid "Lock screen manager"
-msgstr "<b>Ekrano užrakinimo tvarkyklė</b>"
+msgstr "Ekrano užrakinimo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
-msgstr "<b>Garso tvarkyklė</b>"
+msgstr "Garso tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
-#, fuzzy
 msgid "Workspace manager"
-msgstr "<b>Darbo lauko tvarkyklė</b>"
+msgstr "Darbo sričių tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Išėjimo tvarkyklė</b>"
+msgstr "Išėjimo tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
-#, fuzzy
 msgid "Upgrade manager"
-msgstr "<b>Atnaujinimų tvarkyklė</b>"
+msgstr "Atnaujinimų tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
-#, fuzzy
 msgid "Clipboard manager"
-msgstr "<b>Iškarpinės tvarkyklė</b>"
+msgstr "Iškarpinės tvarkytuvė"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Saugumas (raktinė)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "Prieinamumas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Įgaliotasis serveris"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Programa"
+msgstr "Pagrindinės programos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr "Uždrausti automatiškai paleistas programas?"
+msgstr "Išjungti automatiškai paleidžiamas programas ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -383,7 +362,7 @@ msgstr "<b>Nustatymai</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr "<b>Rankiniu būdu paleistos programos</b>"
+msgstr "<b>Rankiniu būdu automatiškai paleidžiamos programos</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
@@ -395,7 +374,7 @@ msgstr "Automatinis paleidimas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr "Nešiojamo kompiuterio režimas"
+msgstr "Nešiojamojo kompiuterio veiksena"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
@@ -417,7 +396,7 @@ msgstr "Meniu priešdėlis"
 #: ../lxsession-default-apps/combobox.vala:168
 #: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
-msgstr "Pritaikyti"
+msgstr "Taikyti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
@@ -425,7 +404,7 @@ msgstr "<b>Aplinka</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
-msgstr "Režimas"
+msgstr "Veiksena"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
@@ -445,7 +424,7 @@ msgstr "Parinktys"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
-msgstr "<b>Simbolių žemėlapis</b>"
+msgstr "<b>Simbolių lentelė</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
@@ -453,7 +432,7 @@ msgstr "Nustatymai"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr "Tvarkykite darbastalio sesijos programas"
+msgstr "Tvarkyti darbalaukio seanse įkeliamas programas"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
@@ -461,29 +440,28 @@ msgstr "Numatytosios LXSession programos"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr "Pakeisti numatytąsias LXDE programas"
+msgstr "Keisti numatytąsias LXDE programas"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Tapatumo nustatymas"
+msgstr "Policykit tapatybės nustatymo agentas"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Atnaujinti lxsession duomenų bazę"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Duomenų bazė yra atnaujinama, prašome palaukti"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "LXSession konfigūracija"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -491,40 +469,44 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Rankiniai nustatymai: Rankiniu būdu nustato komandą (norėdami pamatyti "
+"pakeitimus, turite iš naujo paleisti lxsession-default-apps)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Seansas : nurodykite seansą\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Papildoma: Pridėkite paleidimo parinkčiai papildomą parametrą\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "Mime susiejimas: Automatiškai susieja mime tipus su šia programa ?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
-msgstr ""
+msgstr "Prieinamos programos : Šio tipo programos, prieinamos jūsų saugyklose\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Apdoroti darbalaukį: Atvaizduoti darbalaukį, naudojant failų tvarkytuvę ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-#, fuzzy
 msgid "Autostart the application ?\n"
-msgstr "Uždrausti automatiškai paleistas programas?"
+msgstr "Paleisti programą automatiškai ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Nustatyti numatytąją programą Debian sistemai (naudojant update-"
+"alternatives, reikalauja root slaptažodžio)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -533,24 +515,34 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Langų tvarkytuvė atvaizduoja ir tvarko langus. \n"
+"Jūs galite pasirinkti openbox, openbox-custom (tinkintai openbox "
+"konfigūracijai, žiūrėkite \"Daugiau\"), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Skydelis yra komponentas, esantis ,dažniausiai, ekrano apačioje, kuris "
+"tvarko atvertų langų sąrašą, trumpinius, pranešimų sritį ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dokas yra antras skydelis. Jis yra naudojamas įvairių programų paleidimui ir "
+"apdoroti antrojo tipo skydelį."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Failų tvarkytuvė yra komponentas, atveriantis failus.\n"
+"Norėdami pridėti parinktis, skirtas apdoroti darbalaukį ar failų atvėrimą, "
+"žiūrėkite \"Daugiau\""
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -558,21 +550,31 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Kompozicionavimo tvarkytuvė įjungia grafinius efektus, tokius kaip "
+"permatomumas ir šešėliai, jei langų tvarkytuvė jų nepalaiko. \n"
+"Pavyzdys: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Darbalaukio tvarkytuvė atvaizduoja darbalaukį ir tvarko jo viduje esančias "
+"piktogramas.\n"
+"Jūs galite jį tvarkyti, naudojant failų tvarkytuvę, nustačius \"filemanager\""
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr ""
+"Darbalaukio fonas: Nustatykite paveikslo, kuris bus atvaizduojamas kaip "
+"darbalaukio fonas, kelią"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Ekrano užsklanda yra programa, kuri jūsų kompiuterio neveiklumo metu rodo "
+"animacijas"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -580,142 +582,153 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Maitinimo tvarkytuvė padeda sumažinti baterijos naudojimą. Jums, "
+"tikriausiai, jos nereikia, jeigu turite stalinį kompiuterį.\n"
+"Automatinė parinktis nustatys ją automatiškai, priklausomai nuo nešiojamojo "
+"kompiuterio parinkties."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit agentas, naudodamas Consolekit kai kuriems veiksmams, tokiems kaip "
+"pristabdyti ar užmigdyti pateikia prieigos teisių suteikimą ... Nėra "
+"patartina palikti jį tuščią."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
 msgstr ""
+"Nustatykite ryšių tvarkymui skirtą paslaugų programą, tokią kaip nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Naudokite bendravimo programinę įrangą (IRC klientą, ar tikralaikių pokalbių "
+"klientą ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Naudokite kitą bendravimo programinę įrangą (IRC klientą, ar tikralaikių "
+"pokalbių klientą ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Numatytasis terminalas, skirtas paleisti komandų eilutę."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Programa, skirta pereiti į internetą, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Programa"
+msgstr "Programa, skirta siųsti el. paštą"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
 msgstr ""
+"Paslaugų programa, skirta paleisti įtaisus, tokius kaip conky, ekrano "
+"programėles ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Paslaugų programa, skirta paleisti programą, tokią kaip synapse, kupfer ... "
+"\n"
+"Norėdami naudoti lxpanel ar lxde numatytąją paslaugų programą, naudokite \""
+"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
+"Jūsų darbalaukio ekrano kopijoms daryti skirta programa, tokia kaip scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Programa"
+msgstr "Vaizdo įrašų programa"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Programa"
+msgstr "Garso įrašų programa"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Programa, skirta rodyti paveikslus"
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Programa"
+msgstr "Programa, skirta redaguoti tekstus"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Programa, skirta kurti archyvus, tokia kaip file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Programa"
+msgstr "Simbolių lentelės programa"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Uždrausti automatiškai paleistas programas?"
+msgstr "Skaičiuotuvo programa"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Skaičiuoklėms kurti skirta programa, tokia kaip gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Bittorrent tvarkymui skirta programa, tokia kaip transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Biuro teksto tvarkymui skirta programa, tokia kaip abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Programa, skirta tvarkyti internetinę vaizdo kamerą"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Programa, skirta rašyti į CD/DVD kompaktinius diskus"
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Programa, skirta tvarkyti užrašus"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Programa, skirta tvarkyti diskus"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Programa, skirta stebėti jūsų kompiuteryje vykdomas užduotis"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Programa, skirta užrakinti jūsų ekraną"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Jūsų garso konfigūracijos tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Jūsų darbo sričių konfigūracijos tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Tvarkykite darbastalio sesijos programas"
+msgstr "Programos, skirtos išėjimui iš jūsų seanso, tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Tvarkykite darbastalio sesijos programas"
+msgstr "Programos, skirtos jūsų sistemos naujinimui, tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Iškarpinės palaikymo tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -723,58 +736,63 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Raktinės palaikymo tvarkymas.\n"
+"Standartinės prieinamos parinktys yra \"gnome\", skirta gnome-keyring "
+"palaikymui  arba \"ssh-agent\", skirta ssh-agent palaikymui"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Prieinamumo palaikymo tvarkymas.\n"
+"Standartinė parinktis yra gnome, skirta standartiniam gnome palaikymui."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Įgaliotojo serverio palaikymo tvarkymas"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"XRandr parametrų tvarkymas. Naudokite komandų eilutę, tokią kaip xrandr "
+"--something"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Rankinis nustatymas"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Mime susiejimas"
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Paleidžiamos programos"
+msgstr "Prieinamos programos"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Uždrausti automatiškai paleistas programas?"
+msgstr "Paleisti programą automatiškai ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Apdoroti kartu ir darbalaukį ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Nustatyti debian numatytąsias programas"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Išjungti"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Ar norite susieti šiuos Mime tipus ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #~ msgid "Command"
 #~ msgstr "Komanda"

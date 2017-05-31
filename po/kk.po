@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-25 17:03+0000\n"
+"PO-Revision-Date: 2017-05-28 17:23+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495731835.926491\n"
+"X-POOTLE-MTIME: 1495992226.868729\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -466,14 +466,16 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Қолдан баптаулар: Қолмен көрсетілген команда (өзгерісті көру үшін, сізге "
+"lxsession-default-apps қайта қосу керек)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Сессия: сессияны көрсетіңіз\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Экстра: жөнелту опциясына экстра параметрді қосыңыз\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -563,11 +565,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Байланыстар басқарушысы утилитасын көрсетіңіз, nm-applet сияқты"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Хабарласу БҚ қолдану (IRC не IM клиенті сияқты ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
