@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-06-05 08:53+0000\n"
+"PO-Revision-Date: 2017-06-01 16:04+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: ca\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1433494431.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1496333092.074427\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -70,7 +70,7 @@ msgstr "Can_via d'usuari"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr ""
+msgstr "_Bloqueja la pantalla"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
@@ -79,11 +79,11 @@ msgstr "Su_rt"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitat"
 
 #: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
-msgstr ""
+msgstr "Aplicació"
 
 #: ../lxpolkit/lxpolkit.c:43
 msgid "Error"
@@ -91,17 +91,19 @@ msgstr "Error"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Informació"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Ha fallat l'autenticació!\n"
+"Contrasenya incorrecta?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Contrasenya: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format, c-format
@@ -110,25 +112,28 @@ msgstr "Grup: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Paràmetres generals de la sessió"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Aplicacions iniciades automàticament després d'entrar a l'escriptori:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Aplicacions inciades automàticament"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Gestor de finestres:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Línia d'ordres usada per llançar el gestor de finestres\n"
+"(L'odre predeterminada per al gestor de finestres de l'LXDE hauria de ser "
+"openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -137,322 +142,325 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Avís:</b> <b>NO</b> modifiqueu aquesta configuració si no és que sabeu el "
+"que feu.\n"
+"\n"
+"<b>NOTA:</b> aquesta configuració tindrà efecte a l'entrada següent."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Opcions avançades"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticació"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identitat:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
-msgstr ""
+msgstr "Gestor de fitxers"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
-msgstr ""
+msgstr "Torna-ho a carregar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Més"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "Gestor del terminal"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Navegador web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Correu electrònic"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Comunicació 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Comunicació 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr ""
+msgstr "Giny 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Gestor del llançador"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
-msgstr ""
+msgstr "Gestor de captures de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Lector de PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Reproductor de vídeo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Reproductor d'àudio"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "fitxer d'imatge"
+msgstr "Visualitzador d'imatges"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Editor de text"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arxiu"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Taula de caràcters"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Calculadora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Full de càlcul"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
-msgstr ""
+msgstr "Document"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Càmera web"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Utilitat de gravació"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Utilitat de notes"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Utilitat de discs"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Monitor de tasques"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr ""
+msgstr "Llançament d'aplicacions"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
-msgstr ""
+msgstr "Gestor de finestres"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Plafó"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Acoblador"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
-msgstr ""
+msgstr "Gestor de composició"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Desktop Manager"
-msgstr ""
+msgstr "Gestor d'escriptori"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
-msgstr ""
+msgstr "Estalvi de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "Power Manager"
-msgstr ""
+msgstr "Gestió d'energia"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr ""
+msgstr "Agent de Polkit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr ""
+msgstr "Xarxa IGU"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
-msgstr ""
+msgstr "Gestor de bloqueig de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Audio manager"
-msgstr ""
+msgstr "Gestor d'àudio"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Workspace manager"
-msgstr ""
+msgstr "Gestor dels espais de treball"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Quit manager"
-msgstr ""
+msgstr "Gestor de sortida"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"
-msgstr ""
+msgstr "Gestor d'actualitzacions"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
-msgstr ""
+msgstr "Gestor del porta-retalls"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Seguretat (anell de claus)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Servidor intermediari"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "Aplicacions de base"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Voleu desactivar les aplicacions d'inici automàtic?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Configuració</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>Aplicacions autoiniciades manuals</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Aplicacions conegudes</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "Autostart"
-msgstr ""
+msgstr "Inici automàtic"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr ""
+msgstr "Mode de portàtil"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Configuració general</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Type"
-msgstr ""
+msgstr "Tipus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
-msgstr ""
+msgstr "Prefix del menú"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
 #: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
-msgstr ""
+msgstr "Aplica"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Entorn</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
-msgstr ""
+msgstr "Mode"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"
-msgstr ""
+msgstr "Disposició"
 
 #: ../data/ui/lxsession-default-apps.ui.h:64
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #: ../data/ui/lxsession-default-apps.ui.h:65
 msgid "Options"
-msgstr ""
+msgstr "Opcions"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Mapa de tecles</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
-msgstr ""
+msgstr "Configuració"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Gestioneu les aplicacions carregades a la sessió d'escriptori"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Aplicacions per defecte per a la sessió LX"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Canvieu les aplicacions per defecte de l'LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
-msgstr ""
+msgstr "Agent d'autenticació de Policykit"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Actualitza la base de dades de la sessió lx"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "La base de dades s'actualitza. Espereu, si us plau."
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Configuració de la sessió LX"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -460,39 +468,48 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Configuració manual: estableix manualment l'ordre (caldrà reiniciar "
+"lxsession-default-apps perquè els canvis tinguin efecte).\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sessió: especiqueu la sessió\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Extra: afegeix un paràmetre extra a l'opció de llançament\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
+"Associació MIME: s'associen automàticament els tipus MIME a aquesta "
+"aplicació?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Aplicacions disponibles: aplicaciones d'aquest tipus disponibles als "
+"repositoris\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Gestió d'escriptori: es traça l'escriptori usant el gestor de fitxers?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr ""
+msgstr "Voleu que l'aplicació s'iniciï automàticament?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Estableix el programa per defecte per a sistemes Debian (amb update-"
+"alternatives, cal la contrasenya d'arrel)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -501,24 +518,35 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"El gestor de finestres traça i gestiona les finestres.\n"
+"Podeu trinar entre l'openbox, l'openbox-custom (per personalitzar l'openbox, "
+"vegeu «Més»), el kwin, el compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"El plafó és el component que s'ubica normalment a la part inferior de la "
+"pantalla i que gestiona una llista de finestres obertes, dreceres, l'àrea de "
+"notificacions..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"L'acoblador és un segon plafó. S'usa per llançar un programa diferent per "
+"gestionar un segon tipus de plafó."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"El gestor de fitxers és el component que obre els fitxers.\n"
+"Vegeu \"Més\" per afegir-hi opcions de gestió de l'escriptori o d'obertura "
+"de fitxers."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
