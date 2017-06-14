@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-06-01 16:04+0000\n"
+"PO-Revision-Date: 2017-06-09 11:39+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1496333092.074427\n"
+"X-POOTLE-MTIME: 1497008387.314076\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -112,7 +112,7 @@ msgstr "Grup: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Paràmetres generals de la sessió"
+msgstr "Paràmetres de la sessió d'escriptori"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
@@ -142,8 +142,8 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Avís:</b> <b>NO</b> modifiqueu aquesta configuració si no és que sabeu el "
-"que feu.\n"
+"<b>Avís:</b> <b>NO</b> modifiqueu aquesta configuració si no és que sabeu "
+"exactament el que feu.\n"
 "\n"
 "<b>NOTA:</b> aquesta configuració tindrà efecte a l'entrada següent."
 
@@ -468,7 +468,7 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
-"Configuració manual: estableix manualment l'ordre (caldrà reiniciar "
+"Configuració manual: estableix l'ordre manualment (caldrà reiniciar "
 "lxsession-default-apps perquè els canvis tinguin efecte).\n"
 
 #: ../lxsession-default-apps/main.vala:144
@@ -554,21 +554,29 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"El gestor de composició habilita els efectes gràfics, com ara la "
+"transparència i l'ombreig, si el gestor de finestres no ho gestiona.\n"
+"Exemple: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"El gestor de l'escriptori traça l'escriptori i gestiona les icones que hi ha."
+"\n"
+"El podeu gestionar amb el gestor de fitxers establint \"filemanager\"."
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Fons de pantalla: establiu un camí d'una imatge per al fons de pantalla"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"L'Screensaver és un programa que mostra animacions quan l'ordinador no està "
+"actiu."
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -576,134 +584,145 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"El gestor d'energia us ajuda a reduir l'ús de les bateries. Potser no us en "
+"cal cap si feu servir un ordinador d'escriptori.\n"
+"L'opció \"auto\" l'establirà automàticament segons l'opció de mode de "
+"portàtil."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"L'agent Polkit proporciona autoritzacions per usar algunes accions, com ara "
+"suspèn, hiberna, usant Consolekit... No és recomanable no deixar-ho en blanc."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Establiu una utilitat per gestionar les connexions, com ara nm-applet."
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Useu programari de comunicació (un client d'IRC, un client de MI...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr ""
+"Useu un altre programari de comunicació (un client IRC, un client d'MI...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Terminal per defecte per obrir la línia d'ordres."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Aplicació per anar a Internet, Google, Facebook, debian.org..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr ""
+msgstr "Aplicació per enviar missatges de correu"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Utilitat per iniciar ginys, com ara el conky, l'screenlets..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Utilitat per iniciar aplicacions, com ara el synapse, el kupfer...\n"
+"Per utilitzar lxpanel o la utilitat per defecte de l'Lxde, useu \""
+"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
+"Aplicació per fer captures de pantalla de l'escriptori, com ara l'scrot..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
-msgstr ""
+msgstr "Aplicació de vídeo"
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Audio application"
-msgstr ""
+msgstr "Aplicació d'àudio"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Aplicació per mostrar imatges"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
-msgstr ""
+msgstr "Aplicació per editar text"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Aplicació per crear arxius, com ara el file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
-msgstr ""
+msgstr "Aplicació de mapa de caràcters"
 
 #: ../lxsession-default-apps/main.vala:278
 msgid "Calculator application"
-msgstr ""
+msgstr "Aplicació de calculadora"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Aplicació per crear un full de càlcul, com ara el gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Aplicació per gestionar el bittorent, com ara el transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Aplicació per gestionar text, com ara l'abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Aplicació per gestionar la càmera web"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Aplicació per gestionar la utilitat de gravació de CD / DVD"
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Aplicació per gestionar la utilitat de notes"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Aplicació per gestionar els discs"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Aplicació per monitorar tasques en execució al sistema"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Aplicació per bloquejar la pantalla"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Gestió de la configuració de l'àudio"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Gestió de la configuració de l'espai de treball"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr ""
+msgstr "Gestió de l'aplicació per sortir de la sessió"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"
-msgstr ""
+msgstr "Gestió de l'aplicació per actualitzar el sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Gestió del porta-retalls"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -711,56 +730,62 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Gestió de l'anell de claus.\n"
+"Opcions estàndard disponibles: \"gnome\" per a gnome-keyring o \"ssh-agent\" "
+"per a ssh-agent."
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Gestió de l'accessibilitat.\n"
+"L'opció estàndard és gnome, per a suport estàndard del GNOME."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Gestió del servidor intermediari"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"Gestió dels paràmetres d'XRandr. Useu una ordre com ara xrandr --alguna cosa"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Configuració manual"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Associacions MIME"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr ""
+msgstr "Aplicacions disponibles"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "S'inicia automàticament l'aplicació?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "S'hi gestiona l'escriptori?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Estableix els programes per defecte de Debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Inhabilita"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Voleu associar el tipus MIME següent?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel·la"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "No s'està executant LXSession"
