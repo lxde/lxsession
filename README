@@ -132,7 +132,7 @@ Session Manager methods:
 * ReloadSettingsDaemon
 
 == Options and settings ==
-All options are available on the desktop.conf.example : http://lxde.git.sourceforge.net/git/gitweb.cgi?p=lxde/lxsession;a=blob;f=data/desktop.conf.example;hb=HEAD
+All options are available on the desktop.conf.example : https://github.com/lxde/lxsession/blob/master/data/desktop.conf.example
 
 == Custom configuration files ==
 You can use custom configuration files for some applications. LXsession will automatically copy them on the right place to be used by the applications. The configuration of those files are done in conffiles.conf, in /etc/xdg/lxsession/<profile>/ or ~/.config/lxsession/<profile>/.
