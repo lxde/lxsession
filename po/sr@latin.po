@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LXSession x\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-24 14:29+0000\n"
-"Last-Translator: markos <jezzivi@yahoo.com>\n"
+"PO-Revision-Date: 2017-06-27 11:13+0000\n"
+"Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1419431343.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1498562019.543761\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -61,7 +61,7 @@ msgstr "Ponovo pok_reni"
 
 #: ../lxsession-logout/lxsession-logout.c:724
 msgid "_Suspend"
-msgstr "_Suspenduj računar"
+msgstr "Obu_stavi"
 
 #: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
@@ -101,10 +101,12 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Nisam uspeo da se identifikujem!\n"
+"Da li je lozinka valjana?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr "Lozinka:"
+msgstr "Lozinka: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
@@ -125,14 +127,14 @@ msgstr "Samopokrenuti programi"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr "Upravljač prozora:"
+msgstr "Upravnik prozora:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
-"Naredba za pokretanje upravljača prozora\n"
+"Naredba za pokretanje upravnika prozora\n"
 "(Podrazumevana naredba za LIks-DE okruženje je „openbox-lxde“)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
@@ -153,7 +155,7 @@ msgstr "Napredne postavke"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr "Autentifikacija"
+msgstr "Potvrdi identitet"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
@@ -169,7 +171,7 @@ msgstr "Učitaj ponovo"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Još..."
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -177,11 +179,11 @@ msgstr "Upravnik emulatora terminala"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Veb-preglednik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "E-pošta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -205,95 +207,91 @@ msgstr "Upravnik snimača ekrana"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF-preglednik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Video reprodukcija"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Reprodukcija zvuka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "slika"
+msgstr "Preglednik slika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Uređivanje teksta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arhivator"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Preglednik mape znakova"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulator"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Uređivanje tabela"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Torent klijent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Primedba"
+msgstr "Preglednik dokumenata"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Upotreba veb-kamere"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Narezivanje diskova"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Beležnica"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Rad sa čvrstim diskovima"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Praćenje zadataka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Pokretanje programa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Upravljač prozora:"
+msgstr "Upravnik prozora"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Polica"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
 msgstr "Kompozitni upravnik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Upravljač prozora:"
+msgstr "Upravnik radne površi:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
@@ -305,11 +303,11 @@ msgstr "Upravnik potrošnjom energije"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr "PolisiKit Agent autentifikacije"
+msgstr "Agent identifikacije (Pol-Kit)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr "Grafičko sučelje mreže"
+msgstr "Mreža — grafičko sučelje"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
@@ -337,24 +335,23 @@ msgstr "Upravnik spremišta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Bezbednost (keyring)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Posrednik"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Podešavanje monitora („Xrandr“)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Program"
+msgstr "Osnovni programi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -394,7 +391,7 @@ msgstr "Vrsta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
-msgstr "Prefiks menija"
+msgstr "Prefiks izbornika"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
@@ -440,7 +437,7 @@ msgstr "Upravljanje pokrenutim programima u sesiji"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "Podrazumevani programi LIks-Sesije"
+msgstr "Podrazumevani programi LIks-sesije"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
@@ -448,25 +445,24 @@ msgstr "Postavite podrazumevane programe za LIks-DE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LIks-Pol-Kit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Autentifikacija"
+msgstr "Polisikitov agent za identifikaciju"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Osveži bazu LIks-sesije"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Osvežavam bazu... Sačekajte..."
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Podešavanja LIks-sesije"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -474,39 +470,47 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Ručno podešavanje: Ručne postavke naredbe (za pregled izmena neophodno je "
+"ponovno pokretanje „lxsession-default-apps“)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sesija: odredite sesiju\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Posebno: Dodajte poseban parametar za postavku pokretanja\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
+"MIME pridruživanje: Da li da sam povežem MIME vrste sa ovim programom?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Dostupni programi: U Vašim skladištima dostupni su programi ovih vrsta\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Upravnik radne površi: Da li da upotrebim upravnik datoteka za upravljanje "
+"radnom površi?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr "Onemogući početne programe ?\n"
+msgstr "Da li da sam pokrenem program?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Postavka podrazumevanog programa Debijan sistema (upotrebom „update-"
+"alternatives“ uz unos lozinke)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -515,18 +519,25 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Upravnik prozora iscrtava prozore i rukuje njima. \n"
+"Na raspolaganju imate „openbox“, „openbox-custom“ (za prilagođene Openboks "
+"postavke, pogledajte „Još...“), „kwin“, „compiz“..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Panel je prozorče uz ivicu ekrana, a sadrži spisak otvorenih prozora, "
+"prečice do programa, obaveštajnu zonu..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Polica je dodatni panel. Upotrebljava se za pokretanje raznih programa "
+"kojima i upravlja."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
@@ -540,21 +551,30 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Ako upravnik prozora to ne radi, posebne efekte (providnost, senke...) "
+"obezbeđuje kompozitni upravnik.\n"
+"Na primer: „compton“"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Upravnik radne površi iscrtava radnu površ i upravlja njom (ikone...)\n"
+"Njom možete da upravljate i preko upravnika datoteka ako postavite "
+"„filemanager“"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr ""
+"Pozadinska slika: Za prikaz slike na radnoj površi, postavite putanju do nje"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Čuvar ekrana je program koji prikazuje pokretne slike kada je računar "
+"neuposlen"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -562,142 +582,142 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Upravnik potrošnjom energije pomaže da usporite pražnjenje baterije. Za "
+"stone računare Vam verovatno nije neophodan.\n"
+"„Auto“ opcija će ga sama postaviti, zavisno od postavke za režim prenosnika "
+"(„laptop mode“)."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Pol-Kit agent obezbeđuje dozvole za izvršenje nekih radnji, kao Obustavi, "
+"Zamrzni, preko Consolekit ... Nije poželjno njegovo nepostavljanje."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Postavka upravnika mrežama (npr. „nm-applet“)"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Postavke programa za ćaskanje (IRC, IM...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Postavke dodatnog programa za ćaskanje (IRC, IM...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Podrazumevani emulator terminala za unos naredbi."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Program za pregledanje Internet stranica (npr. „debian.org“ ...)"
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Program"
+msgstr "Program za slanje e-pisama"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Programčići na radnoj površi (npr. „conky“...)"
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Alatka za pokretanje programa, kao „synapse“, „kupfer“... \n"
+"Unesite \"lxpanelctl\" za upotrebu podrazumevane LIks-DE alatke "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Program za slikanje Vaše radne površi, kao „scrot“..."
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Program"
+msgstr "Program za reprodukciju pokretnih slika"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Program"
+msgstr "Program za zvučnu reprodukciju"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Program za prikaz slika"
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Program"
+msgstr "Program za uređivanje teksta"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Program za upravljanje arhivama, kao „file-roller“"
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Program"
+msgstr "Program za prikaz mape znakova"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Onemogući početne programe?"
+msgstr "Program za računanje — kalkulator"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Program za stvaranje tabela proračuna, kao „gnumeric“"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Program za rukovanje torent-datotekama, kao „transmission“"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Program za rukovanje uredskim tekst.datotekama, kao „abiword“"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Program za rukovanje veb-kamerom"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Program za narezivanje diskova (CD, DVD...) "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Program za rukovanje beležnicama"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Program za rukovanje čvrstim diskovima"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Program za nadgledanje pokrenutih procesa i zadataka"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Program za zaključavanje ekrana"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Upravljanje podešavanjima zvuka"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Upravljanje podešavanjima radnog prostora"
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Upravljanje pokrenutim programima u sesiji"
+msgstr "Upravljanje programom za odjavljivanje sesije"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Upravljanje pokrenutim programima u sesiji"
+msgstr "Upravljanje programom za osvežavanje i nadgradnju sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Upravljanje klipbord podrškom"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -705,58 +725,62 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Upravljanje keyring podrškom.\n"
+"Uobičajene postavke su „gnome“ za gnome-keyring podršku   ili „ssh-agent“ za "
+"ssh-agent podršku"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Upravljanje podrškom za „Pristupačnost“.\n"
+"Uobičajene postavke su „gnome“, za podrazumevanu Gnomovu podršku."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Upravljanje posredničkom, proksi podrškom"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"Upravljanje XRandr parametrima. Možete da upotrebite naredbu xrandr --nešto"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Ručne postavke"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "MIME pridruživanje"
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Pokretanje programa"
+msgstr "Dostupni programi"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Onemogući početne programe?"
+msgstr "Da li da omogućim samopokretanje programa?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Da rukujem radnom površi pomoću njega ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Postavi podrazumevane programe sa debijana"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Isključi"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Želite li da pridružite sledeću MIME-vrstu?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Poništi"
 
 #~ msgid "Command"
 #~ msgstr "Naredba"

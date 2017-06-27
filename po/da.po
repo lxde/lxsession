@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-24 10:42+0000\n"
+"PO-Revision-Date: 2017-06-21 21:48+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: da\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495622555.458923\n"
+"X-POOTLE-MTIME: 1498081694.586715\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -46,7 +46,7 @@ msgstr "Fejl: %s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Log ud af %s %s session?</big></b>"
+msgstr "<b><big>Log ud af %s %s-session?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
@@ -70,7 +70,7 @@ msgstr "Skift _bruger"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr "L_åseskærm"
+msgstr "L_ås skærm"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
