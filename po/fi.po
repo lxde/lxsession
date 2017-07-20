@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-06-10 10:57+0000\n"
+"PO-Revision-Date: 2017-07-19 16:44+0000\n"
 "Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -15,8 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1433933871.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1500482679.706056\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -283,9 +283,8 @@ msgid "Dock"
 msgstr "Telakka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
 msgid "Composite Manager"
-msgstr "<b>Komposiittihallinta</b>"
+msgstr "Komposiittihallinta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Desktop Manager"
@@ -320,9 +319,8 @@ msgid "Workspace manager"
 msgstr "Työtilojenhallinta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
 msgid "Quit manager"
-msgstr "<b>Lopeta hallintaohjelma</b>"
+msgstr "Lopeta hallintaohjelma"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"
@@ -349,9 +347,8 @@ msgid "Xrandr"
 msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Sovellus"
+msgstr "Perussovellukset"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -448,9 +445,8 @@ msgid "LXPolKit"
 msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Todennus"
+msgstr "PolicyKit-tunnistautumisohjelma"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
