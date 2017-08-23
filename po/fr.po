@@ -62,7 +62,7 @@ msgstr "_Suspendre"
 
 #: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
-msgstr "_Hiberner"
+msgstr "_Veille prolongée"
 
 #: ../lxsession-logout/lxsession-logout.c:746
 msgid "S_witch User"
@@ -75,7 +75,7 @@ msgstr "_Verrouiller l'écran"
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
 msgid "_Logout"
-msgstr "Se _déconnecter"
+msgstr "_Se déconnecter"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
@@ -249,7 +249,7 @@ msgstr "Document"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr "Cybercaméra"
+msgstr "Caméra"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
