@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2015-08-12 15:38+0000\n"
-"Last-Translator: Julien Henry <Julius22@laposte.net>\n"
+"Last-Translator: CISZEK Anthony <lrtcfr@protonmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: templates\n"
 "MIME-Version: 1.0\n"
@@ -497,7 +497,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
-"Gérer le bureau : dessiner le bureau en utilisant le gestionnaire de "
+"Gérer le bureau : dessiner le bureau à l'aide du gestionnaire de "
 "fichiers ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
@@ -510,7 +510,7 @@ msgid ""
 "password)\n"
 msgstr ""
 "Définir le programme par défaut pour le système Debian (en utilisant update-"
-"alternatives ; nécessite le mot de passe de root)\n"
+"alternatives ; nécessite le mot de passe root)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
