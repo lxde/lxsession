@@ -44,12 +44,14 @@
 static char * prompt = NULL;
 static char * banner_side = NULL;
 static char * banner_path = NULL;
+static gchar *action = NULL;
 
 static GOptionEntry opt_entries[] =
 {
     { "prompt", 'p', 0, G_OPTION_ARG_STRING, &prompt, N_("Custom message to show on the dialog"), N_("message") },
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner_path, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &banner_side, N_("Position of the banner"), "top|left|right|bottom" },
+    { "action", 'a', 0, G_OPTION_ARG_STRING, &action, N_("Action to do(it will just do the action and won't show any dialog)"), "shutdown|reboot|suspend|hibernate|switch|logout"},
     { NULL }
 };
 
@@ -459,6 +461,7 @@ int main(int argc, char * argv[])
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain (GETTEXT_PACKAGE);
 #endif
+    
 
     /* Initialize GTK (via g_option_context_parse) and parse command line arguments. */
     GOptionContext * context = g_option_context_new("");
@@ -587,6 +590,49 @@ int main(int argc, char * argv[])
         handler_context.lock_screen = TRUE;
     }
 
+    if (action){
+        int exit_status = EXIT_SUCCESS;
+        if (!strcmp(action, "switch")){
+            if (handler_context.switch_user_available){
+                switch_user_clicked(NULL, &handler_context);
+            }else{
+                exit_status = EXIT_FAILURE;
+            }
+        }else if(!strcmp(action, "logout")){
+            logout_clicked(NULL, &handler_context);
+        }else if(!strcmp(action, "shutdown")){
+            if (handler_context.shutdown_available){
+                shutdown_clicked(NULL, &handler_context);
+            }else{
+                exit_status = EXIT_FAILURE;
+            }
+        }else if(!strcmp(action, "reboot")){
+            if (handler_context.reboot_available){
+                reboot_clicked(NULL, &handler_context);
+            }else{
+                exit_status = EXIT_FAILURE;
+            }
+        }else if(!strcmp(action, "suspend")){
+            if (handler_context.suspend_available){
+                suspend_clicked(NULL, &handler_context);
+            }else{
+                exit_status = EXIT_FAILURE;
+            }
+        }else if(!strcmp(action, "hibernate")){
+            if (handler_context.hibernate_available){
+                hibernate_clicked(NULL, &handler_context);
+            }else{
+                exit_status = EXIT_FAILURE;
+            }
+        }else{
+            fprintf(stderr, "Unknown action. see --help.\n");
+            return EXIT_FAILURE;
+        }
+        if (exit_status == EXIT_FAILURE){
+            fprintf(stderr, "%s is not available.\n", action);
+        }
+        return exit_status;
+    }
     /* Make the button images accessible. */
     gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxsession/images");
 
