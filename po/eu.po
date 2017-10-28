@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-05-05 20:51+0000\n"
+"PO-Revision-Date: 2017-10-11 19:42+0000\n"
 "Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1430859085.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1507750926.794830\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -423,7 +423,7 @@ msgstr "Aukerak"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Teklatu-mapa</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
@@ -482,17 +482,20 @@ msgstr "Gehigarria: Gehitu parametro gehigarri bat abioko aukerari\n"
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "Mime asoziazioa: Mime motak aplikazio honi automatikoki lotu?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Aplikazio eskuragarriak: Errepositorioan eskuragarri dauden mota honetako "
+"aplikazioak\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Maneiatu mahaigaina: Mahaigaina fitxategi-kudeatzailea erabiliz marraztu?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -503,6 +506,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Ezarri Debian sistemaren programa lehenetsia (update-alternatives erabiliz, "
+"root pasahitza behar du)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -511,24 +516,35 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Leiho-kudeatzaileak leihoak marraztu eta kudeatzen ditu.\n"
+"Hauetako bat aukera dezakezu: openbox, openbox-custom (openbox konfigurazio "
+"pertsonalizaturako, ikusi \"Gehiago\"), kwin, compiz..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Panela normalean pantailaren beheko aldean egoten den osagaia da, "
+"ondorengoak kudeatzen dituena: irekitako leihoen zerrenda, lasterbideak, "
+"jakinarazpen-area..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dock bigarren panela da. Bigarren panel mota bat maneiatzeko erabiltzen den "
+"programa bat abiarazteko erabiltzen da."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Fitxategi-kudeatzailea fitxategiak irekitzen dituen osagaia da.\n"
+"Ikusi \"Gehiago\" mahaigaina kudeatu edo fitxategiak irekitzeko aukerak "
+"gehitzeko."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -536,21 +552,30 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Konposizio-kudeatzaileak gardentasuna eta itzalak bezala efektuak gaitzen "
+"ditu, leiho-kudeatzaileak ez baditu maneiatzen.\n"
+"Adibidea: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Mahaigain kudeatzaileak mahaigaina marrazten du eta bertako ikonoak "
+"kudeatzen ditu.\n"
+"Fitxategi-kudeatzailearekin kudeatu dezakezu \"fitxategi-kudeatzailea\" "
+"ezarriz"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Horma-papera: Ezarri horma-papera marrazteko irudiaren bidea"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Pantaila-babeslea ordenagailua inaktibo dagoenean animazioak bistaratzen "
+"dituen programa da"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -558,12 +583,18 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Energia-kudeatzaileak bateria aurrezten laguntzen dizu. Mahaigaineko "
+"ordenagailu bat erabiltzen ari bazara ez duzu behar.\n"
+"Auto aukerak eramangarri moduaren aukeraren arabera automatikoki ezarriko du."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit agenteak zenbait ekintzetarako baimenak ematen ditu, hala nola, "
+"esekitzea, hibernatzea, Consolekit erabiltzea... Ez da gomendagarria hutsik "
+"uztea."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
@@ -592,13 +623,15 @@ msgstr "E-postak bidaltzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Trepetak abiarazteko tresna. Adibidez, conky, screenlets..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Aplikazioak abiarazteko tresna. Adibidez, synapse, kupfer...\n"
+"lxpanel eta lxde-ren tresna lehenetsia erabiltzeko hautatu \"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -625,9 +658,8 @@ msgid "Application to create archives, like file-roller"
 msgstr "Artxiboak sortzeko aplikazioa, adibidez, file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Aplikazioa"
+msgstr "Karaktere-mapa aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:278
 msgid "Calculator application"
@@ -643,7 +675,7 @@ msgstr "BitTorrent kudeaketzeko aplikazioa, adibidez, transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Testu-prozesatzaile aplikazioa, adibidez, AbiWord"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
@@ -651,11 +683,11 @@ msgstr "Web-kamera kudeatzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "CD/DVDak grabatzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Oharrak kudeatzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
@@ -663,7 +695,7 @@ msgstr "Diskoak kudeatzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Sisteman exekutatzen ari diren atazak kontrolatzeko aplikazioa"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
@@ -695,20 +727,26 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Gako-sorta kudeatzeko euskarria.\n"
+"Erabilgarri dauden aukera estandarrak: \"gnome\" gnome-keyring euskarrirako "
+"eta \"ssh-agent\" ssh-agent euskarrirako"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Erabilerraztasun euskarria kudeatzea.\n"
+"Aukera estandarra gnome da, gnome euskarri estandarrerako."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Proxy euskarria kudeatzea"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
+"XRandr parametroak kudeatzea. Erabili xrandr --zerbait moduko komando bat"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -740,7 +778,7 @@ msgstr "Desgaitu"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Ondorengo MIME motarekin lotu nahi duzu?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"

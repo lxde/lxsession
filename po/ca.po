@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-06-09 11:39+0000\n"
+"PO-Revision-Date: 2017-09-14 14:06+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1497008387.314076\n"
+"X-POOTLE-MTIME: 1505397975.823072\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -658,7 +658,7 @@ msgstr "Aplicació per editar text"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr "Aplicació per crear arxius, com ara el file-roller"
+msgstr "Aplicació per crear arxius, com ara el File-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"

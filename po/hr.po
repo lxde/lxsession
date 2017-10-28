@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-03-11 09:08+0000\n"
+"PO-Revision-Date: 2017-09-30 16:46+0000\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -13,8 +13,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1426064909.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1506789964.898622\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -342,7 +342,7 @@ msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
@@ -529,6 +529,8 @@ msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Upravitelj datotekama je komponenta koja otvara datoteke.\n"
+"Vidi \"Više\" za dodavanje opcija na radnu površinu, ili otvaranje datoteka"
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -551,6 +553,8 @@ msgstr ""
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Čuvar zaslona je program koji prikazuje animacije dok je vaše računalo u "
+"stanju mirovanja"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -571,19 +575,19 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Koristi komunikacijski software ( IRC klijent, IM klijent ..."
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Koristi ostali komunikacijski software (IRC klijent, IM klijent ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Terminal kao zadano pokreće naredbeni redak."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Program za odlazak na internet, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
@@ -601,7 +605,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Program koji radi slike zaslona vaše radne povešine, kao scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -621,7 +625,7 @@ msgstr "Program za uređivanje teksta"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Program za stvaranje arhiva, poput file-roller-a"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
@@ -641,11 +645,11 @@ msgstr "Program za bitorrent upravljanjem, poput transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Program za upravljanje uredskim tekstom, poput abiword-a"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Program za upravljanje web kamerom"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
@@ -661,11 +665,11 @@ msgstr "Program za upravljanje diskovima"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Program koji nadgleda zadatke koji su pokrenuti u vašem sustavu"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Program koji zaključava vaš zaslon"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
