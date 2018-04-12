@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-25 09:00+0000\n"
+"PO-Revision-Date: 2018-02-05 17:27+0000\n"
 "Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian Translation Team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1419498030.000000\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1517851632.555432\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -99,6 +99,8 @@ msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Autentimine ebaõnnestus!\n"
+"Vale parool?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -166,9 +168,8 @@ msgid "Reload"
 msgstr "Uuestilaadimine"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
-#, fuzzy
 msgid "More"
-msgstr "Viis"
+msgstr "Rohkem"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
@@ -176,11 +177,11 @@ msgstr "Terminali haldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Veebibrauseris"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "E-kiri"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -204,95 +205,91 @@ msgstr "Ekraanipildi haldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "PDF lugeja"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Videomängija"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Helipaneel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "pildifail"
+msgstr "Pildivaataja"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Tekstiredaktor"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Arhiiv"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Märgikaart"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulaator"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Arvutustabel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
-#, fuzzy
 msgid "Document"
-msgstr "Kommentaar"
+msgstr "Dokument"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Veebikaamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Kettakirjutamise rakendus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Märkmete haldamise rakendus"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Kettautiliit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Tegumite kuvar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
 msgstr "Rakenduste käivitamine"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
-#, fuzzy
 msgid "Windows Manager"
-msgstr "Aknahaldur:"
+msgstr "Aknahaldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Paneel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Dokk"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
 msgstr "Komposiidi haldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
 msgid "Desktop Manager"
-msgstr "Aknahaldur:"
+msgstr "Töölauahaldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
@@ -336,24 +333,23 @@ msgstr "Lõikelaua haldur"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Turvalisus (võtmehoidja)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Puhverserver"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "XRandR"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
-#, fuzzy
 msgid "Core applications"
-msgstr "Programm"
+msgstr "Tuumrakendused"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
@@ -447,25 +443,24 @@ msgstr "LXDE vaikimisi rakenduste muutmine"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
-#, fuzzy
 msgid "Policykit Authentication Agent"
-msgstr "Autentimine"
+msgstr "Policykit Autentimise Agent"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "LXSession andmebaasi uuendamine"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Toimub andmebaasi uuendamine. Palun oota"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "LXSession seadistused"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -473,29 +468,31 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Manuaalsed seaded: käsitsi määrab käskluse (muudatuse nägemiseks tuleb "
+"lxsession-default-apps uuesti käivitada)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Seanss : seansi määratlemine\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Extra: lisage käivitusvalikule lisaparameeter\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "Mime seos: automaatselt seob MIME tüübid selle rakendusega?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
-msgstr ""
+msgstr "Saadaval rakendused : Seda tüüpi rakendused on hoidlates saadaval\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
-msgstr ""
+msgstr "Töölaua käitlemine: joonista töölaud failihalduriga?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -506,6 +503,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Määrake Debiani süsteemi vaikimisi programm (kasutades update-alternatiive, "
+"vaja root parooli)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -514,24 +513,34 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Windowsi haldur joonistab ja haldab aknaid.\n"
+"Võite valida openbox, openbox-custom (kohandatud avatudboxi seadistuste "
+"jaoks vt \"Rohkem\"), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Paneel on tavaliselt ekraani allservas olev komponent, mis haldab avatud "
+"akende, otseteede, teavitusalade loendi ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dokk on teine paneel. Seda kasutatakse teistsuguse paneeli käitlemiseks "
+"teise programmi käivitamiseks."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Failihaldur on komponent, mis avab failid.\n"
+"Tööriistaribade või avatavate failide käsitsemise võimaluste lisamiseks "
+"vaadake \"Veel\""
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -539,21 +548,26 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Komposiitjuht võimaldab graafika efekte, nagu näiteks transpacency ja "
+"varjud, kui Windowsi juht ei tegele sellega.\n"
+"Näide: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Töölauahaldur joonistab töölaua ja haldab selle sees olevaid ikoone.\n"
+"Saate seda failihalduriga hallata, seades \"filemanager\""
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Taustpilt: määrake taustapildi joonistamiseks pildi asukoht kettal"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
-msgstr ""
+msgstr "Ekraanisäästja on programm, mis kuvab animatsioone, kui arvuti on jõude"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -561,142 +575,142 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Power Manager aitab teil vähendada patareide kasutamist. Ilmselt ei pea te "
+"seda, kui teil on lauaarvuti.\n"
+"Automaatne valik seab selle automaatselt sõltuvalt sülearvuti režiimi "
+"valikust."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit agent annab volitused kasutada mõnda toimingut, nagu näiteks peatada, "
+"hibernate, kasutades Consolekit ... See ei ole soovitav teha tühjaks."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Määrake haldurühenduste jaoks utiliit, näiteks nm-aplett"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Kasutage sidetehnoloogiat (IRC klient, IM klient ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Kasutage mõnda muud sidetehnoloogiat (IRC klient, IM klient ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Vaikimisi käsurea terminaliemulaator."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Rakendus Internetis, Google'is, Facebookis, debian.org'is ..."
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Programm"
+msgstr "Kirjade saatmise rakendus"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Utiliit käivitada vidinaid, nagu conky, screenlets ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Rakenduse käivitamiseks kasulikkust, nagu sünapsi, kupferit ...\n"
+"Vaikimisi kasutab lxpanel või lxde kasutamine \"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Taotlus teie töölauale ekraanipildi tegemiseks, nt ..."
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Programm"
+msgstr "Videorakendus"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Programm"
+msgstr "Helirakendus"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Piltide kuvamise rakendus"
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Programm"
+msgstr "Tekstitöötluse rakendus"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Rakendus arhiivide loomiseks, näiteks failide rullimiseks"
 
 #: ../lxsession-default-apps/main.vala:273
-#, fuzzy
 msgid "Charmap application"
-msgstr "Programm"
+msgstr "Märgikaardi rakendus"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Kas keela automaatselt käivitatavad rakendused?"
+msgstr "Kalkulaator"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Taotlus arvutustabeli loomiseks, näiteks gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Bittorrenti haldamise rakendus, nagu näiteks edastamine"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Rakendus Office'i teksti haldamiseks, nagu abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Veebikaamera haldamise rakendus"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "CD- ja DVD-kirjutamise rakendus "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Märkmete haldamise rakendus"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Ketaste haldamise rakendus"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Rakendus teie süsteemis töötavate ülesannete jälgimiseks"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Ekraani lukustamise rakendus"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Heliseadistuste haldamine"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Tööruumi konfiguratsiooni haldamine"
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Töölauaseansi programmide haldamine"
+msgstr "Seansi lõpetamiseks rakenduse haldamine"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Töölauaseansi programmide haldamine"
+msgstr "Rakenduse haldamine teie süsteemi värskendamiseks ja täiendamiseks"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Lõikepuhvri haldamine"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -704,58 +718,61 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Võtmerõnga toe haldamine.\n"
+"Standardvariantid gnome-võtmerõnga tugi jaoks saadaval \"gnome\" või \"ssh-"
+"agent\" toe jaoks \"ssh-agent\""
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Juurdepääsu toetamine.\n"
+"Stardart valik on gnome, stardart gnome toetuseks."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Proksi haldamine"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr ""
+msgstr "XRandri parameetrite haldamine. Kasuta käsku xrandr - midagi"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Käsitsi seadistus"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Mime seos"
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Rakenduste käivitamine"
+msgstr "Saadaolevad rakendused"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Kas keela automaatselt käivitatavad rakendused?"
+msgstr "Rakenduse automaatne käivitamine?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Kas kasutada töölaua haldamiseks?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Määra Debiani vaikimisi programmid"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Keela"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Kas soovid siduda järgmise MIME tüübi ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Tühista"
 
 #~ msgid "Command"
 #~ msgstr "Käsk"
