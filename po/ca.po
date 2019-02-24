@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-09-14 14:06+0000\n"
+"PO-Revision-Date: 2018-09-28 11:31+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1505397975.823072\n"
+"X-POOTLE-MTIME: 1538134306.498423\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -112,7 +112,7 @@ msgstr "Grup: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Paràmetres de la sessió d'escriptori"
+msgstr "Configuració de la sessió d'escriptori"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
@@ -632,8 +632,7 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Utilitat per iniciar aplicacions, com ara el synapse, el kupfer...\n"
-"Per utilitzar lxpanel o la utilitat per defecte de l'Lxde, useu \""
-"lxpanelctl\" "
+"Per usar lxpanel o la utilitat per defecte de l'Lxde, useu \"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -749,7 +748,7 @@ msgstr "Gestió del servidor intermediari"
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
 msgstr ""
-"Gestió dels paràmetres d'XRandr. Useu una ordre com ara xrandr --alguna cosa"
+"Gestió dels paràmetres d'XRandr. Useu una ordre com ara xrandr --alguna_cosa"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"

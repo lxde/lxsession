@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2015-08-17 01:30+0000\n"
-"Last-Translator: Anonymous Pootle User\n"
+"PO-Revision-Date: 2019-01-17 22:46+0000\n"
+"Last-Translator: mirek <mirek@cnl.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1439775036.646270\n"
+"X-Generator: Pootle 2.8\n"
+"X-POOTLE-MTIME: 1547765164.014128\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -45,9 +45,9 @@ msgid "Error: %s\n"
 msgstr "Chyba: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
-#, fuzzy, c-format
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr "<b><big>Odhlásiť reláciu %s?</big></b>"
+msgstr "<b><big>Odhlásiť sa z relácie %s %s?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
@@ -71,7 +71,7 @@ msgstr "Pr_epnúť používateľa"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr ""
+msgstr "Zamknúť _obrazovku"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
@@ -80,39 +80,40 @@ msgstr "_Odhlásiť"
 
 #: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
-msgstr ""
+msgstr "Povolené"
 
 #: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
-msgstr ""
+msgstr "Aplikácia"
 
 #: ../lxpolkit/lxpolkit.c:43
-#, fuzzy
 msgid "Error"
-msgstr "Chyba: %s\n"
+msgstr "Chyba"
 
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
-msgstr ""
+msgstr "Informácia"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
 "Authentication failed!\n"
 "Wrong password?"
 msgstr ""
+"Autentifikácia zlyhala!\n"
+"Nesprávne heslo?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr ""
+msgstr "Heslo:"
 
 #: ../lxpolkit/lxpolkit-listener.c:251
-#, fuzzy, c-format
+#, c-format
 msgid "Group: %s"
-msgstr "Chyba: %s\n"
+msgstr "Skupina: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr ""
+msgstr "Nastavenia sedenia"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
@@ -120,17 +121,20 @@ msgstr ""
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr ""
+msgstr "Automaticky spustené aplikácie"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr ""
+msgstr "Správca okien:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Príkazový riadok na spustenie správcu okien\n"
+"(Príkaz na spustenie predvoleného správcu okien pre LXDE by mal byť openbox-"
+"lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -139,50 +143,53 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Upozornenie:</b> <b>NEDOTÝKAŤ SA</b> pokiaľ naozaj neviete, čo robíte.\n"
+"\n"
+"<b>POZNÁMKA:</b> Toto nastavenie sa prejaví pri ďalšom prihlásení."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
-msgstr ""
+msgstr "Pokročilé nastavenia"
 
 #: ../data/ui/lxpolkit.ui.h:1
 msgid "Authentication"
-msgstr ""
+msgstr "Autentifikácia"
 
 #: ../data/ui/lxpolkit.ui.h:2
 msgid "Identity:"
-msgstr ""
+msgstr "Identita:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
-msgstr ""
+msgstr "Správca súborov"
 
 #: ../data/ui/lxsession-default-apps.ui.h:2
 msgid "Reload"
-msgstr ""
+msgstr "Obnoviť"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 msgid "More"
-msgstr ""
+msgstr "Viac"
 
 #: ../data/ui/lxsession-default-apps.ui.h:4
 msgid "Terminal manager"
-msgstr ""
+msgstr "Terminál"
 
 #: ../data/ui/lxsession-default-apps.ui.h:5
 msgid "Webbrowser"
-msgstr ""
+msgstr "Webový prehliadač"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
-msgstr ""
+msgstr "Komunikátor 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:8
 msgid "Communication 2"
-msgstr ""
+msgstr "Komunikátor 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
@@ -190,88 +197,87 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr ""
+msgstr "Spúšťač"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
-msgstr ""
+msgstr "Správca snímiek obrazovky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
-msgstr ""
+msgstr "Prehliadač PDF"
 
 #: ../data/ui/lxsession-default-apps.ui.h:13
 msgid "Video player"
-msgstr ""
+msgstr "Prehrávač videa"
 
 #: ../data/ui/lxsession-default-apps.ui.h:14
 msgid "Audio player"
-msgstr ""
+msgstr "Prehrávač zvuku"
 
 #: ../data/ui/lxsession-default-apps.ui.h:15
-#, fuzzy
 msgid "Image viewer"
-msgstr "súbor obrázka"
+msgstr "Prehliadač obrázkov"
 
 #: ../data/ui/lxsession-default-apps.ui.h:16
 msgid "Text editor"
-msgstr ""
+msgstr "Textový editor"
 
 #: ../data/ui/lxsession-default-apps.ui.h:17
 msgid "Archive"
-msgstr ""
+msgstr "Správca archívov"
 
 #: ../data/ui/lxsession-default-apps.ui.h:18
 msgid "Charmap"
-msgstr ""
+msgstr "Mapa znakov"
 
 #: ../data/ui/lxsession-default-apps.ui.h:19
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulačka"
 
 #: ../data/ui/lxsession-default-apps.ui.h:20
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Tabuľkový procesor"
 
 #: ../data/ui/lxsession-default-apps.ui.h:21
 msgid "Bittorent"
-msgstr ""
+msgstr "Bittorent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:22
 msgid "Document"
-msgstr ""
+msgstr "Textový procesor"
 
 #: ../data/ui/lxsession-default-apps.ui.h:23
 msgid "Webcam"
-msgstr ""
+msgstr "Webová kamera"
 
 #: ../data/ui/lxsession-default-apps.ui.h:24
 msgid "Burning utility"
-msgstr ""
+msgstr "Aplikácia na napaľovanie"
 
 #: ../data/ui/lxsession-default-apps.ui.h:25
 msgid "Notes utility"
-msgstr ""
+msgstr "Poznámky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:26
 msgid "Disks utility"
-msgstr ""
+msgstr "Správa diskov"
 
 #: ../data/ui/lxsession-default-apps.ui.h:27
 msgid "Tasks monitor"
-msgstr ""
+msgstr "Monitor systému"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr ""
+msgstr "Spúšťanie aplikácií"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
-msgstr ""
+msgstr "Správca okien"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
@@ -279,107 +285,107 @@ msgstr ""
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
-msgstr ""
+msgstr "Kompozitný správca"
 
 #: ../data/ui/lxsession-default-apps.ui.h:33
 msgid "Desktop Manager"
-msgstr ""
+msgstr "Správca plochy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:34
 msgid "Screensaver"
-msgstr ""
+msgstr "Šetrič obrazovky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "Power Manager"
-msgstr ""
+msgstr "Správca napájania"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr ""
+msgstr "Polkit agent"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr ""
+msgstr "GUI správca sieťových rozhraní"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
-msgstr ""
+msgstr "Správca zamknutia obrazovky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Audio manager"
-msgstr ""
+msgstr "Správca zvuku"
 
 #: ../data/ui/lxsession-default-apps.ui.h:40
 msgid "Workspace manager"
-msgstr ""
+msgstr "Správca pracovnej plochy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:41
 msgid "Quit manager"
-msgstr ""
+msgstr "Ukončenie sedenia"
 
 #: ../data/ui/lxsession-default-apps.ui.h:42
 msgid "Upgrade manager"
-msgstr ""
+msgstr "Správca aktualizácií"
 
 #: ../data/ui/lxsession-default-apps.ui.h:43
 msgid "Clipboard manager"
-msgstr ""
+msgstr "Správca schránky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:44
 msgid "Security (keyring)"
-msgstr ""
+msgstr "Bezpečnosť (keyring)"
 
 #: ../data/ui/lxsession-default-apps.ui.h:45
 msgid "A11y"
-msgstr ""
+msgstr "A11y"
 
 #: ../data/ui/lxsession-default-apps.ui.h:46
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
 msgid "Xrandr"
-msgstr ""
+msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr ""
+msgstr "Hlavné aplikácie"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr ""
+msgstr "Zakázať automaticky spúšťané aplikácie ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
-msgstr ""
+msgstr "<b>Nastavenia</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr ""
+msgstr "<b>Manuálne spustené aplikácie</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
-msgstr ""
+msgstr "<b>Známe aplikácie</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "Autostart"
-msgstr ""
+msgstr "Po spustení"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
 msgid "Laptop mode"
-msgstr ""
+msgstr "Režim prenosného počítača"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
-msgstr ""
+msgstr "<b>Všeobecné nastavenia</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
 msgid "<b>Dbus</b>"
-msgstr ""
+msgstr "<b>Dbus</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:57
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
@@ -389,55 +395,55 @@ msgstr ""
 #: ../lxsession-default-apps/combobox.vala:168
 #: ../lxsession-default-apps/combobox.vala:284
 msgid "Apply"
-msgstr ""
+msgstr "Použiť"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr ""
+msgstr "<b>Prostredie</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
-msgstr ""
+msgstr "Režim"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"
-msgstr ""
+msgstr "Rozloženie klávesnice"
 
 #: ../data/ui/lxsession-default-apps.ui.h:64
 msgid "Variant"
-msgstr ""
+msgstr "Varianta"
 
 #: ../data/ui/lxsession-default-apps.ui.h:65
 msgid "Options"
-msgstr ""
+msgstr "Možnosti"
 
 #: ../data/ui/lxsession-default-apps.ui.h:66
 msgid "<b>Keymap</b>"
-msgstr ""
+msgstr "<b>Rozloženie klávesnice</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:67
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Spravovať aplikácie načítané v sedení"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr ""
+msgstr "Predvolené aplikácie pre LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr ""
+msgstr "Zmeniť predvolené aplikácie LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
-msgstr ""
+msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
@@ -445,16 +451,16 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr ""
+msgstr "Aktualizovať databázu lxsession"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
 msgid "The database is updating, please wait"
-msgstr ""
+msgstr "Databáza sa aktualizuje, prosím čakajte"
 
 #: ../lxsession-default-apps/main.vala:91
 msgid "LXSession configuration"
-msgstr ""
+msgstr "Konfigurácia LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
@@ -462,10 +468,12 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Manuálne nastavenia: Manuálne nastaví príkaz (aby sa zmeny prejavili, musíte "
+"reštartovať lxsession-default-apps)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sedenie : špecifikujte sedenie\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
@@ -474,27 +482,33 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "Priradenie MIME: Automaticky priradiť MIME typy tejto aplikácii ?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Dostupné aplikácie : Aplikácie tohto typu sú dostupné vo vašich "
+"repozitároch\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
+"Správa pracovnej plochy: Vykreslovať pracovnú plochu pomocou správcu súborov "
+"?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr ""
+msgstr "Spustiť aplikáciu automaticky ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Nastaviť predvolený program pre systém Debian (pomocou update-alternatives, "
+"vyžaduje sa heslo používateľa root)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -503,12 +517,17 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Správca okien vykresľuje a spravuje okná.\n"
+"Môžete vybrať openbox, openbox-custom (pre vlastnú konfiguráciu openbox-u "
+"kliknite na \"Viac\"), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Panel je komponent, ktorý sa obyčajne nachádza na spodnej časti obrazovky a "
+"spravuje zoznam otvorených okien, spúšťače aplikácií, notifikačnú oblasť ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
@@ -521,6 +540,9 @@ msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or openning files "
 msgstr ""
+"Správca súborov je aplikácia na otváranie súborov.\n"
+"Kliknite na \"Viac\" pre pridanie možností na správu pracovnej plochy alebo "
+"otvárania súborov."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -528,21 +550,28 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Kompozitný správca povoľuje grafické efekty, ako je priehľadnosť a tiene, ak "
+"sa o ne nestará správca okien.\n"
+"Príklad: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Správca plochy vykresľuje plochu a stará sa o ikony na nej.\n"
+"Môžete ju spravovať pomocou správcu súborov nastavením Správcu súborov"
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Tapeta: Nastavte cestu k obrázku pre vykreslenie tapety"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"Šetrič obrazovky je program, ktorý počas nečinnosti vášho počítača zobrazí "
+"animáciu"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -550,134 +579,144 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Správca napájania vám pomôže znížiť spotrebu batérií. Pravedpodobne ho "
+"nebudete potrebovať ak používate stolný počítač.\n"
+"Voľba Automaticky ho nastaví automaticky na základe režimu prenosného "
+"počítača."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit agent overí použitie niektorých akcií, ako je uspatie, hibernácia, "
+"použitie Consolekit ... Neodporúča sa ponechať ho prázdny."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Nastavte nástroj pre správu pripojení, ako je nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Komunikačný softvér (IRC klient, IM klient ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Ďalší komunikačný softvér (IRC klient, IM klient ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Terminál na spustenie príkazového riadku."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr ""
+"Aplikácia, s ktorou sa dá ísť na internet, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr ""
+msgstr "Aplikácia na posielanie emailov"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "Program na spúšťanie gadget-ov, ako je conky, screenlets ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Program na spúšťanie aplikácií, ako synapse, kupfer ...\n"
+"Pre použitie predvoleného programu pre lxpanel alebo lxde použite \""
+"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Aplikácia pre vytváranie snímiek obrazovky, ako scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
-msgstr ""
+msgstr "Aplikácia na prehrávanie videa"
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Audio application"
-msgstr ""
+msgstr "Aplikácia na prehrávanie zvuku"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Aplikácia na zobrazovanie obrázkov"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
-msgstr ""
+msgstr "Aplikácia na úpravu textu"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Aplikácia na tvorbu archívov, ako file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
-msgstr ""
+msgstr "Aplikácia na zobrazenie mapy znakov"
 
 #: ../lxsession-default-apps/main.vala:278
 msgid "Calculator application"
-msgstr ""
+msgstr "Kalkulačka"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr ""
+msgstr "Aplikácia na tvorbu tabuliek, ako gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Aplikácia na správu bittorent-ov, ako je transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr ""
+msgstr "Aplikácia na prácu s textovými dokumentmi, ako je abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Aplikácia na prácu s webovou kamerou"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr ""
+msgstr "Aplikácia na napaľovanie CD/DVD"
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr ""
+msgstr "Aplikácia na tvorbu poznámok"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Aplikácia na správu diskov"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr ""
+msgstr "Aplikácia na monitorovanie bežiacich úloh na vašom systéme"
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Aplikácia na zamknutie vašej obrazovky"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Aplikácia pre nastavenie zvuku"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Aplikácia na správu vašej pracovnej plochy"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr ""
+msgstr "Aplikácia na ukončenie vášho sedenia"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"
-msgstr ""
+msgstr "Aplikácia na aktualizáciu vášho systému"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
-msgstr ""
+msgstr "Správa podpory schránky"
 
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
@@ -685,56 +724,61 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Správa podpory pre keyring.\n"
+"Štandardné dostupné možnosti sú \"gnome\" pre podporu gnome-keyring alebo \""
+"ssh-agent\" pre podporu ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Správa podpory pre prístupnosť.\n"
+"Štandardná voľba je gnome pre štandardnú podporu gnome."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
-msgstr ""
+msgstr "Správa podpory pre proxy"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr ""
+msgstr "Správa XRandr parametrov. Použite príkaz ako xrandr --niečo"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Manuálne nastavenie"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
-msgstr ""
+msgstr "Priradenie MIME"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr ""
+msgstr "Dostupné aplikácie"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr ""
+msgstr "Spustiť aplikáciu automaticky ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
-msgstr ""
+msgstr "Spravovať s ním pracovnú plochu ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Nastaviť predvolené programy Debian-u"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Vypnúť"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
-msgstr ""
+msgstr "Chcete priradiť nasledujúci typ MIME ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession nebeží."
