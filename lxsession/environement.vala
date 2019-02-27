@@ -261,19 +261,25 @@ namespace Lxsession
             lxsession_spawn_command_line_async("xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP");
 
             /* Start Dbus */
+/* It actually never worked so let it be commented out
             string dbus_path;
             string dbus_env;
 
             dbus_path = Environment.find_program_in_path("dbus-launch");
-            dbus_env = Environment.get_variable("DBUS_SESSION_BUS_ADDRESS");
+            dbus_env = Environment.get_variable("XDG_RUNTIME_DIR");
 
-            if (dbus_path == null)
+            if (dbus_path != null)
             {
-                if (dbus_env == null)
+                if (dbus_env != null)
                 {
-                    lxsession_spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
+                    string dbus_socket = dbus_env + "/bus";
+                    if (!FileUtils.test (dbus_socket, FileTest.EXISTS))
+                    {
+                        lxsession_spawn_command_line_async("dbus-launch --sh-syntax --exit-with-session");
+                    }
                 }
             }
+*/
 
             if (global_settings.get_item_string("Environment", "toolkit_integration", null) == "true")
             {
