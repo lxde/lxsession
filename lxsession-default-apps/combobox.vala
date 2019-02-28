@@ -440,7 +440,7 @@ namespace LDefaultApps
                 }
         }
 
-        message ("Defaut = %s", by_default);
+        message ("Default = %s", by_default);
 
         if (by_default == "" )
         {
@@ -725,7 +725,7 @@ namespace LDefaultApps
         list_store.append (out iter);
         list_store.set (iter, 0, "Other", 1, 99);
 
-        message ("Defaut = %s", by_default);
+        message ("Default = %s", by_default);
 
         var return_combobox = builder.get_object (combobox_name) as Gtk.ComboBox;
         return_combobox.set_model (list_store);
