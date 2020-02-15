@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2019-02-22 09:51+0000\n"
+"PO-Revision-Date: 2019-10-11 11:36+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
-"Language: gl\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1550829075.998118\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -94,7 +94,7 @@ msgstr "Activado"
 
 #: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
-msgstr "Aplicativo"
+msgstr "Aplicación"
 
 #: ../lxpolkit/lxpolkit.c:43
 msgid "Error"
@@ -128,11 +128,11 @@ msgstr "Axustes da sesión de escritorio"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr "Aplicativos que iniciar a automaticamente após entrar no escritorio:"
+msgstr "Aplicacións que iniciar a automaticamente após entrar no escritorio:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Aplicativos que iniciar automaticamente"
+msgstr "Aplicacións que iniciar automaticamente"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -208,7 +208,7 @@ msgstr "Trebello 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
-msgstr "Administrador de iniciadores"
+msgstr "Administrador de lanzadores"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
@@ -281,7 +281,7 @@ msgstr "Monitor de tarefas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:28
 msgid "Launching applications"
-msgstr "Iniciando aplicativos"
+msgstr "Iniciando aplicacións"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
@@ -361,11 +361,11 @@ msgstr "Xrandr"
 
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
-msgstr "Aplicativos básicos"
+msgstr "Aplicacións básicas"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 msgid "Disable autostarted applications ?"
-msgstr "Desactivar o inicio automático de aplicativos?"
+msgstr "Desactivar o inicio automático de aplicacións?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -373,11 +373,11 @@ msgstr "<b>Axustes</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr "<b>Inicio manual de aplicativos con inicio automático</b>"
+msgstr "<b>Inicio manual de aplicacións con inicio automático</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
-msgstr "<b>Aplicativos coñecidos </b>"
+msgstr "<b>Aplicacións coñecidas </b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:53
 msgid "Autostart"
@@ -411,7 +411,7 @@ msgstr "Aplicar"
 
 #: ../data/ui/lxsession-default-apps.ui.h:60
 msgid "<b>Environment</b>"
-msgstr "<b>Entorno</b>"
+msgstr "<b>Contorno</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:61
 msgid "Mode"
@@ -443,15 +443,15 @@ msgstr "Axustes"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr "Administrar os aplicativos que cargar na sesión de escritorio"
+msgstr "Administrar as aplicacións que cargar na sesión de escritorio"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "Aplicativos predeterminados para LXSession"
+msgstr "Aplicacións predeterminadas para LXSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr "Cambiar os aplicativos predeterminados no LXDE"
+msgstr "Cambiar as aplicacións predeterminadas no LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
@@ -495,14 +495,14 @@ msgstr "Adicional: Engadir un parámetro adicional para a opción de inicio\n"
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
 msgstr ""
-"Asociación MIME: Asociar automaticamente os tipos MIME a este aplicativo?\n"
+"Asociación MIME: Asociar automaticamente os tipos MIME a esta aplicación?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
-"Aplicativos dispoñíbeis: Os aplicativos deste tipo dispoñíbeis nos "
+"Aplicacións dispoñíbeis: As aplicacións deste tipo dispoñíbeis nos "
 "repositorios\n"
 
 #: ../lxsession-default-apps/main.vala:148
@@ -512,7 +512,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
-msgstr "Iniciar automaticamente o aplicativo?\n"
+msgstr "lanzador automaticamente a aplicación?\n"
 
 #: ../lxsession-default-apps/main.vala:150
 msgid ""
@@ -635,11 +635,11 @@ msgstr "Terminal predeterminado para executar liñas de ordes."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr "Aplicativo para ir á Internet, Google, Facebook, debian.org ..."
+msgstr "Aplicación para ir á Internet, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
 msgid "Application to send mails"
-msgstr "Aplicativo para enviar correos"
+msgstr "Aplicación para enviar correos"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -650,76 +650,76 @@ msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
-"Utilidade para iniciar un aplicativo, como synapse, kupfer ... \n"
+"Utilidade para iniciar unha aplicación, como synapse, kupfer ... \n"
 "Para usar lxpanel ou a utilidade predeterminada de lxde, use «lxpanelctl» "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr "Aplicativo para facer capturas do seu escritorio, como scrot ..."
+msgstr "Aplicación para facer capturas do seu escritorio, como scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
-msgstr "Aplicativo de vídeo"
+msgstr "Aplicación de vídeo"
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Audio application"
-msgstr "Aplicativo de son"
+msgstr "Aplicación de son"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr "Aplicativo para amosar imaxes"
+msgstr "Aplicación para amosar imaxes"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Application to edit text"
-msgstr "Aplicativo para editar texto"
+msgstr "Aplicación para editar texto"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr "Aplicativo para crear arquivos, como file-roller"
+msgstr "Aplicación para crear arquivos, como file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 msgid "Charmap application"
-msgstr "Aplicativo do mapa de caracteres"
+msgstr "Aplicación do mapa de caracteres"
 
 #: ../lxsession-default-apps/main.vala:278
 msgid "Calculator application"
-msgstr "Aplicativo de calculadora"
+msgstr "Aplicación de calculadora"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
-msgstr "Aplicativo para crear follas de cálculo, como gnumeric"
+msgstr "Aplicación para crear follas de cálculo, como gnumeric"
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr "Aplicativo para administrar bittorrent, como transmission"
+msgstr "Aplicación para administrar bittorrent, como transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
-msgstr "Aplicativo para administrar texto de oficina, como abiword"
+msgstr "Aplicación para administrar texto de oficina, como abiword"
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr "Aplicativo para administrar a cámara web"
+msgstr "Aplicación para administrar a cámara web"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr "Aplicativo para administrar o gravador de CD/DVD "
+msgstr "Aplicación para administrar o gravador de CD/DVD "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
-msgstr "Aplicativo para administrar a utilidade de notas"
+msgstr "Aplicación para administrar a utilidade de notas"
 
 #: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage disks"
-msgstr "Aplicativo para administrar discos"
+msgstr "Aplicación para administrar discos"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
-msgstr "Aplicativo para monitorizar as tarefas en execución no seu sistema "
+msgstr "Aplicación para monitorizar as tarefas en execución no seu sistema "
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr "Aplicativo para bloquear a pantalla"
+msgstr "Aplicación para bloquear a pantalla"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
@@ -731,11 +731,11 @@ msgstr "Administrar a configuración do espazo de traballo"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr "Administrar o aplicativo para saír da sesión"
+msgstr "Administrar a aplicación para saír da sesión"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"
-msgstr "Administrar o aplicativo para actualizar e anovar o sistema"
+msgstr "Administrar a aplicación para actualizar e anovar o sistema"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -778,11 +778,11 @@ msgstr "Asociación MIME"
 
 #: ../lxsession-default-apps/combobox.vala:194
 msgid "Available applications"
-msgstr "Aplicativos dispoñíbeis"
+msgstr "Aplicacións dispoñíbeis"
 
 #: ../lxsession-default-apps/combobox.vala:240
 msgid "Autostart the application ?"
-msgstr "Iniciar automaticamente o aplicativo?"
+msgstr "Iniciar automaticamente a aplicación?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"

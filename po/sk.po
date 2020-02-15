@@ -2,22 +2,21 @@
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxsession package.
 # Ivan Masár <helix84@centrum.sk>, 2007, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2019-01-17 22:46+0000\n"
+"PO-Revision-Date: 2019-06-16 22:57+0000\n"
 "Last-Translator: mirek <mirek@cnl.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
-"Language: sk\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1547765164.014128\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -117,7 +116,7 @@ msgstr "Nastavenia sedenia"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr ""
+msgstr "Aplikácie spustené automaticky po zobrazení pracovnej plochy:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
@@ -536,9 +535,10 @@ msgid ""
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:168
+#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Správca súborov je aplikácia na otváranie súborov.\n"
 "Kliknite na \"Viac\" pre pridanie možností na správu pracovnej plochy alebo "

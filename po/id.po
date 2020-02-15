@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-06-04 13:43+0000\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"PO-Revision-Date: 2019-06-04 06:39+0000\n"
+"Last-Translator: Syahmin Sukhairi <syahmin@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
-"Language: id\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1496583796.360850\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -472,7 +472,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
-msgstr ""
+msgstr "Sesi : nyatakan sesi\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
@@ -515,24 +515,35 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Manajer jendela menggambar dan mengelola jendela. \n"
+"Anda bisa memilih openbox, openbox-custom (untuk konfigurasi openbox ubahan, "
+"lihat \"Lebih Jauh\"), kwin, compiz, ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Panel adalah komponen yang biasanya ada di bagian dasar layar yang mengelola "
+"daftar jendela yang terbuka, pintasan, wilayah pemberitahaun, ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dok adalah panel ke dua. Itu dipakai untuk meluncurkan program lain untuk "
+"menangani tipe kedua panel."
 
 #: ../lxsession-default-apps/main.vala:168
+#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
+"Manajer berkas adalah komponen yang membuka berkas.\n"
+"Lihat \"Lebih Jauh\" untuk menambahkan opsi-opsi untuk menangani desktop, "
+"atau membuka berkas."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -540,6 +551,9 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Manajer komposit memfungsikan efek-efek grafis, seperti transparan dan "
+"bayangan, bila manajer jendela tidak menanganinya. \n"
+"Contoh: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
@@ -555,6 +569,8 @@ msgstr ""
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
+"screen saver adalah program yang menampilkan animasi ketika komputer anda "
+"tidak digunakan"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -575,11 +591,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Gunakan aplikasi komunikasi (klien IRC, klien IM ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Gunakan aplikasi komunikasi yang lain (klien IRC, klien IM ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
@@ -587,12 +603,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "Aplikasi untuk menggunakan Internet, Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:223
-#, fuzzy
 msgid "Application to send mails"
-msgstr "Aplikasi"
+msgstr "Aplikasi untuk mengirimkan surat"
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
@@ -606,30 +621,27 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr ""
+msgstr "Aplikasi untuk mengambil tampilan layar anda, seperti scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid "Video application"
-msgstr "Aplikasi"
+msgstr "Aplikasi Video"
 
 #: ../lxsession-default-apps/main.vala:253
-#, fuzzy
 msgid "Audio application"
-msgstr "Aplikasi"
+msgstr "Aplikasi Audio"
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Application to display images"
-msgstr ""
+msgstr "Aplikasi untuk menampilkan gambar"
 
 #: ../lxsession-default-apps/main.vala:263
-#, fuzzy
 msgid "Application to edit text"
-msgstr "Aplikasi"
+msgstr "Aplikasi untuk mengedit teks"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Application to create archives, like file-roller"
-msgstr ""
+msgstr "Aplikasi untuk membuat arsip, seperti file-roller"
 
 #: ../lxsession-default-apps/main.vala:273
 #, fuzzy
@@ -637,9 +649,8 @@ msgid "Charmap application"
 msgstr "Aplikasi"
 
 #: ../lxsession-default-apps/main.vala:278
-#, fuzzy
 msgid "Calculator application"
-msgstr "Nonaktifkan aplikasi yang otomatis dijalankan?"
+msgstr "Aplikasi kalkulator"
 
 #: ../lxsession-default-apps/main.vala:283
 msgid "Application to create spreedsheet, like gnumeric"
@@ -647,7 +658,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:288
 msgid "Application to manage bittorent, like transmission"
-msgstr ""
+msgstr "Aplikasi untuk mengatur bittorent, seperti transmission"
 
 #: ../lxsession-default-apps/main.vala:293
 msgid "Application to manage office text, like abiword"
@@ -655,7 +666,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:298
 msgid "Application to manage webcam"
-msgstr ""
+msgstr "Aplikasi untuk mengatur webcam"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
@@ -666,8 +677,9 @@ msgid "Application to manage notes utility"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:313
+#, fuzzy
 msgid "Application to manage disks"
-msgstr ""
+msgstr "Aplikasi untuk mengatur webcam"
 
 #: ../lxsession-default-apps/main.vala:318
 msgid "Application to monitor tasks running on your system"
@@ -675,25 +687,23 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:323
 msgid "Application to lock your screen"
-msgstr ""
+msgstr "Aplikasi untuk mengunci layar anda"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr ""
+msgstr "Mengelola konfigurasi audio anda"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr ""
+msgstr "Mengatur konfigurasi ruang kerja anda"
 
 #: ../lxsession-default-apps/main.vala:338
-#, fuzzy
 msgid "Managing the application to quit your session"
-msgstr "Atur aplikasi yang dimuat di sesi dektop"
+msgstr "Mengelola aplikasi ketika keluar dari sesi anda"
 
 #: ../lxsession-default-apps/main.vala:343
-#, fuzzy
 msgid "Managing the application to update and upgrade your system"
-msgstr "Atur aplikasi yang dimuat di sesi dektop"
+msgstr "Mengatur aplikasi untuk memperbarui dan meningkatkan sistem anda"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -718,25 +728,23 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr ""
+msgstr "Mengatur parameter XRandr. Gunakan perintah seperti xrandr --sesuatu"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
-msgstr ""
+msgstr "Pengaturan manual"
 
 #: ../lxsession-default-apps/combobox.vala:165
 msgid "Mime Association"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:194
-#, fuzzy
 msgid "Available applications"
-msgstr "Meluncurkan aplikasi"
+msgstr "Aplikasi Yang Tersedia"
 
 #: ../lxsession-default-apps/combobox.vala:240
-#, fuzzy
 msgid "Autostart the application ?"
-msgstr "Nonaktifkan aplikasi yang otomatis dijalankan?"
+msgstr "Jalankan aplikasi secara otomatis?"
 
 #: ../lxsession-default-apps/combobox.vala:261
 msgid "Handle the desktop with it ?"
@@ -744,11 +752,11 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr ""
+msgstr "Atur program bawaan debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
-msgstr ""
+msgstr "Non aktifkan"
 
 #: ../lxsession-default-apps/combobox.vala:564
 msgid "Do you want to assiociate the following Mimetype ?\n"
@@ -756,7 +764,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #~ msgid "Command"
 #~ msgstr "Perintah"

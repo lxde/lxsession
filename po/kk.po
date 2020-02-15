@@ -10,13 +10,13 @@ msgstr ""
 "PO-Revision-Date: 2017-05-28 17:23+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
-"Language: kk\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1495992226.868729\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -525,7 +525,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:173
@@ -572,8 +572,9 @@ msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr "Хабарласу БҚ қолдану (IRC не IM клиенті сияқты ...)"
 
 #: ../lxsession-default-apps/main.vala:208
+#, fuzzy
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Хабарласу БҚ қолдану (IRC не IM клиенті сияқты ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."

@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2018-09-28 11:31+0000\n"
+"PO-Revision-Date: 2019-07-19 09:04+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
-"Language: ca\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.8\n"
-"X-POOTLE-MTIME: 1538134306.498423\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -44,6 +44,7 @@ msgid "Error: %s\n"
 msgstr "Error: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
 #, c-format, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Voleu sortir de la sessió %s %s?</big></b>"
@@ -106,6 +107,7 @@ msgid "Password: "
 msgstr "Contrasenya: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
 #, c-format, c-format
 msgid "Group: %s"
 msgstr "Grup: %s"
@@ -132,7 +134,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Línia d'ordres usada per llançar el gestor de finestres\n"
-"(L'odre predeterminada per al gestor de finestres de l'LXDE hauria de ser "
+"(L'odre per defecte per al gestor de finestres de l'LXDE hauria de ser "
 "openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
@@ -435,11 +437,11 @@ msgstr "Gestioneu les aplicacions carregades a la sessió d'escriptori"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "Aplicacions per defecte per a la sessió LX"
+msgstr "Aplicacions predeterminades per a la sessió d'LX"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr "Canvieu les aplicacions per defecte de l'LXDE"
+msgstr "Canvieu les aplicacions predeterminades de l'LXDE"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
@@ -508,7 +510,7 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
-"Estableix el programa per defecte per a sistemes Debian (amb update-"
+"Estableix el programa predeterminat per a sistemes Debian (amb update-"
 "alternatives, cal la contrasenya d'arrel)\n"
 
 #. New inits
@@ -540,9 +542,10 @@ msgstr ""
 "gestionar un segon tipus de plafó."
 
 #: ../lxsession-default-apps/main.vala:168
+#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "El gestor de fitxers és el component que obre els fitxers.\n"
 "Vegeu \"Més\" per afegir-hi opcions de gestió de l'escriptori o d'obertura "
@@ -612,7 +615,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr "Terminal per defecte per obrir la línia d'ordres."
+msgstr "Terminal predeterminat per obrir la línia d'ordres."
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
@@ -632,7 +635,7 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Utilitat per iniciar aplicacions, com ara el synapse, el kupfer...\n"
-"Per usar lxpanel o la utilitat per defecte de l'Lxde, useu \"lxpanelctl\" "
+"Per usar lxpanel o la utilitat predeterminada de l'Lxde, useu \"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -772,7 +775,7 @@ msgstr "S'hi gestiona l'escriptori?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr "Estableix els programes per defecte de Debian"
+msgstr "Estableix els programes predeterminats de Debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"

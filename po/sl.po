@@ -2,23 +2,22 @@
 # Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lxsession package.
 # Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-13 23:14+0100\n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2014-10-26 18:29+0000\n"
 "Last-Translator: system user <>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
-"Language: sl\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
 "X-Generator: Pootle 2.7\n"
-"X-POOTLE-MTIME: 1414348154.000000\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -45,50 +44,48 @@ msgstr "Položaj slike"
 msgid "Error: %s\n"
 msgstr "Napaka: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:691
+#: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
 #, fuzzy, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Ali se želite odjaviti iz seje %s?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:699
+#: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
 msgstr "_Izklop"
 
-#: ../lxsession-logout/lxsession-logout.c:710
+#: ../lxsession-logout/lxsession-logout.c:713
 msgid "_Reboot"
 msgstr "Ponovni _zagon"
 
-#: ../lxsession-logout/lxsession-logout.c:721
+#: ../lxsession-logout/lxsession-logout.c:724
 msgid "_Suspend"
 msgstr "_Pripravljenost"
 
-#: ../lxsession-logout/lxsession-logout.c:732
+#: ../lxsession-logout/lxsession-logout.c:735
 msgid "_Hibernate"
 msgstr "_Mirovanje"
 
-#: ../lxsession-logout/lxsession-logout.c:743
+#: ../lxsession-logout/lxsession-logout.c:746
 msgid "S_witch User"
 msgstr "Zamenjaj _uporabnika"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
 msgstr "_Zakleni zaslon"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:763
+#: ../lxsession-logout/lxsession-logout.c:766
 msgid "_Logout"
 msgstr "_Odjava"
 
-#: ../lxsession-edit/lxsession-edit-common.c:373
+#: ../lxsession-edit/lxsession-edit-common.c:385
 msgid "Enabled"
 msgstr "Omogočeno"
 
-#: ../lxsession-edit/lxsession-edit-common.c:378
+#: ../lxsession-edit/lxsession-edit-common.c:390
 msgid "Application"
 msgstr "Program"
-
-#~ msgid "Comment"
-#~ msgstr "Opomba"
 
 #: ../lxpolkit/lxpolkit.c:43
 #, fuzzy
@@ -98,6 +95,12 @@ msgstr "Napaka: %s\n"
 #: ../lxpolkit/lxpolkit.c:46
 msgid "Information"
 msgstr "Podatki"
+
+#: ../lxpolkit/lxpolkit-listener.c:88
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -157,264 +160,12 @@ msgid "Identity:"
 msgstr "Istovetnost:"
 
 #: ../data/ui/lxsession-default-apps.ui.h:1
-#, fuzzy
-msgid "Command"
-msgstr "Opomba"
-
-#: ../data/ui/lxsession-default-apps.ui.h:2
-msgid "Session"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:3
-msgid "Apply"
-msgstr "Uveljavi"
-
-#: ../data/ui/lxsession-default-apps.ui.h:4
-msgid "Reload"
-msgstr "Ponovno naloži"
-
-#: ../data/ui/lxsession-default-apps.ui.h:5
-msgid "<b>Panel</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:6
-msgid "Extras"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:7
-#, fuzzy
-msgid "<b>Window Manager</b>"
-msgstr "Upravljalnik oken:"
-
-#: ../data/ui/lxsession-default-apps.ui.h:8
-msgid "<b>File Manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:9
-msgid "<b>Screensaver</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:10
-msgid "<b>Polkit agent</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:11
-msgid "<b>Dock</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:12
-msgid "Autostart"
-msgstr "Samodejni zagon"
-
-#: ../data/ui/lxsession-default-apps.ui.h:13
-msgid "<b>Composite Manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:14
-msgid "Wallpaper"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:15
-msgid "<b>Desktop</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:16
-msgid "<b>Power Manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:17
-msgid "<b>Network GUI</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:18
-msgid "<b>Communication 1</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:19
-msgid "<b>Communication 2</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:20
-msgid "<b>Widget 1</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:21
-#, fuzzy
-msgid "Running applications"
-msgstr "Program"
-
-#: ../data/ui/lxsession-default-apps.ui.h:22
-msgid "<b>Audio manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:23
-msgid "Image"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:24
-msgid "Layout"
-msgstr "Razporeditev"
-
-#: ../data/ui/lxsession-default-apps.ui.h:25
-msgid "<b>Quit Manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:26
-msgid "<b>Workspace manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:27
-msgid "<b>Launcher manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:28
-msgid "<b>Terminal manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:29
-msgid "<b>Screenshot manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:30
-msgid "<b>Upgrade manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:31
-msgid "<b>Lock screen manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:32
-#, fuzzy
-msgid "Launching applications"
-msgstr "Program"
-
-#: ../data/ui/lxsession-default-apps.ui.h:33
-#, fuzzy
-msgid "Disable autostarted applications ?"
-msgstr "Samodejno zagnani programi"
-
-#: ../data/ui/lxsession-default-apps.ui.h:34
-msgid "<b>Settings</b>"
-msgstr "<b>Nastavitve</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:35
-#, fuzzy
-msgid "<b>Manual autostarted applications</b>"
-msgstr "Samodejno zagnani programi"
-
-#: ../data/ui/lxsession-default-apps.ui.h:36
-msgid "<b>Known Applications </b>"
-msgstr "<b>Znani programi</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:37
-msgid "<b>Clipboard manager</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:38
-msgid "Mode"
-msgstr "Način"
-
-#: ../data/ui/lxsession-default-apps.ui.h:39
-msgid "Model"
-msgstr "Model"
-
-#: ../data/ui/lxsession-default-apps.ui.h:40
-msgid "Variant"
-msgstr "Različica"
-
-#: ../data/ui/lxsession-default-apps.ui.h:41
-#, fuzzy
-msgid "Options"
-msgstr "Napredne možnosti"
-
-#: ../data/ui/lxsession-default-apps.ui.h:42
-msgid "<b>Keymap</b>"
-msgstr "<b>Razporeditev tipk</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:43
-msgid "<b>XRandr</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:44
-msgid "Keyring"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:45
-msgid "<b>Security</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:46
-msgid "Type"
-msgstr "Vrsta"
-
-#: ../data/ui/lxsession-default-apps.ui.h:47
-msgid "<b>a11y</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:48
-msgid "Activate updates"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "<b>Updates</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:50
-msgid "Http"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:51
-msgid "<b>Proxy</b>"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:52
-msgid "Laptop mode"
-msgstr "Način prenosnega računalnika"
-
-#: ../data/ui/lxsession-default-apps.ui.h:53
-msgid "<b>General settings</b>"
-msgstr "<b>Splošne nastavitve</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:54
-msgid "<b>Dbus</b>"
-msgstr "<b>D-Bus</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:55
-msgid "Menu prefix"
-msgstr "Predpona menija"
-
-#: ../data/ui/lxsession-default-apps.ui.h:56
-msgid "<b>Environment</b>"
-msgstr "<b>Okolje</b>"
-
-#: ../data/ui/lxsession-default-apps.ui.h:57
-msgid "Settings"
-msgstr "Nastavitve"
-
-#: ../data/lxsession-edit.desktop.in.h:2
-msgid "Manage applications loaded in desktop session"
-msgstr "Upravljajte s programi, naloženimi v namizni seji"
-
-#: ../data/lxsession-default-apps.desktop.in.h:1
-msgid "Default applications for LXSession"
-msgstr "Privzeti programi za LXSession"
-
-#: ../data/lxsession-default-apps.desktop.in.h:2
-msgid "Change the default applications on LXDE"
-msgstr "Spremenite privzete programe"
-
-#~ msgid "LXSession is not running."
-#~ msgstr "LXSession se ne izvaja."
-
-#: ../lxpolkit/lxpolkit-listener.c:88
-msgid ""
-"Authentication failed!\n"
-"Wrong password?"
-msgstr ""
-
-#: ../data/ui/lxsession-default-apps.ui.h:1
 msgid "File Manager"
 msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:2
+msgid "Reload"
+msgstr "Ponovno naloži"
 
 #: ../data/ui/lxsession-default-apps.ui.h:3
 #, fuzzy
@@ -517,6 +268,11 @@ msgstr ""
 msgid "Tasks monitor"
 msgstr ""
 
+#: ../data/ui/lxsession-default-apps.ui.h:28
+#, fuzzy
+msgid "Launching applications"
+msgstr "Program"
+
 #: ../data/ui/lxsession-default-apps.ui.h:29
 #, fuzzy
 msgid "Windows Manager"
@@ -597,6 +353,99 @@ msgstr ""
 #: ../data/ui/lxsession-default-apps.ui.h:48
 msgid "Core applications"
 msgstr ""
+
+#: ../data/ui/lxsession-default-apps.ui.h:49
+#, fuzzy
+msgid "Disable autostarted applications ?"
+msgstr "Samodejno zagnani programi"
+
+#: ../data/ui/lxsession-default-apps.ui.h:50
+msgid "<b>Settings</b>"
+msgstr "<b>Nastavitve</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:51
+#, fuzzy
+msgid "<b>Manual autostarted applications</b>"
+msgstr "Samodejno zagnani programi"
+
+#: ../data/ui/lxsession-default-apps.ui.h:52
+msgid "<b>Known Applications </b>"
+msgstr "<b>Znani programi</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:53
+msgid "Autostart"
+msgstr "Samodejni zagon"
+
+#: ../data/ui/lxsession-default-apps.ui.h:54
+msgid "Laptop mode"
+msgstr "Način prenosnega računalnika"
+
+#: ../data/ui/lxsession-default-apps.ui.h:55
+msgid "<b>General settings</b>"
+msgstr "<b>Splošne nastavitve</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:56
+msgid "<b>Dbus</b>"
+msgstr "<b>D-Bus</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:57
+msgid "Type"
+msgstr "Vrsta"
+
+#: ../data/ui/lxsession-default-apps.ui.h:58
+msgid "Menu prefix"
+msgstr "Predpona menija"
+
+#: ../data/ui/lxsession-default-apps.ui.h:59
+#: ../lxsession-default-apps/combobox.vala:168
+#: ../lxsession-default-apps/combobox.vala:284
+msgid "Apply"
+msgstr "Uveljavi"
+
+#: ../data/ui/lxsession-default-apps.ui.h:60
+msgid "<b>Environment</b>"
+msgstr "<b>Okolje</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:61
+msgid "Mode"
+msgstr "Način"
+
+#: ../data/ui/lxsession-default-apps.ui.h:62
+msgid "Model"
+msgstr "Model"
+
+#: ../data/ui/lxsession-default-apps.ui.h:63
+msgid "Layout"
+msgstr "Razporeditev"
+
+#: ../data/ui/lxsession-default-apps.ui.h:64
+msgid "Variant"
+msgstr "Različica"
+
+#: ../data/ui/lxsession-default-apps.ui.h:65
+#, fuzzy
+msgid "Options"
+msgstr "Napredne možnosti"
+
+#: ../data/ui/lxsession-default-apps.ui.h:66
+msgid "<b>Keymap</b>"
+msgstr "<b>Razporeditev tipk</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:67
+msgid "Settings"
+msgstr "Nastavitve"
+
+#: ../data/lxsession-edit.desktop.in.h:2
+msgid "Manage applications loaded in desktop session"
+msgstr "Upravljajte s programi, naloženimi v namizni seji"
+
+#: ../data/lxsession-default-apps.desktop.in.h:1
+msgid "Default applications for LXSession"
+msgstr "Privzeti programi za LXSession"
+
+#: ../data/lxsession-default-apps.desktop.in.h:2
+msgid "Change the default applications on LXDE"
+msgstr "Spremenite privzete programe"
 
 #: ../data/lxpolkit.desktop.in.h:1
 msgid "LXPolKit"
@@ -682,7 +531,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
-"See \"More\" to add options to handle the desktop, or openning files "
+"See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:173
@@ -898,3 +747,21 @@ msgstr ""
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr ""
+
+#~ msgid "Comment"
+#~ msgstr "Opomba"
+
+#, fuzzy
+#~ msgid "Command"
+#~ msgstr "Opomba"
+
+#, fuzzy
+#~ msgid "<b>Window Manager</b>"
+#~ msgstr "Upravljalnik oken:"
+
+#, fuzzy
+#~ msgid "Running applications"
+#~ msgstr "Program"
+
+#~ msgid "LXSession is not running."
+#~ msgstr "LXSession se ne izvaja."

@@ -1,18 +1,24 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 10:46+0000\n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
 "PO-Revision-Date: 2015-12-14 14:47+0300\n"
 "Last-Translator: AlexL <loginov.alex.valer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: ru\n"
+"Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
-"X-Pootle-Path: /ru/lxsession/po/ru.po\n"
+"X-Generator: Pootle 2.7\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
 "X-Pootle-Revision: 682\n"
+"X-Pootle-Path: /ru/lxsession/po/ru.po\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
 msgid "Custom message to show on the dialog"
@@ -35,10 +41,12 @@ msgid "Position of the banner"
 msgstr "Расположение баннера"
 
 #: ../lxsession-logout/lxsession-logout.c:460
+#, c-format
 msgid "Error: %s\n"
 msgstr "Ошибка: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
 msgstr "<b><big>Завершить сеанс %s %s?</big></b>"
 
@@ -100,11 +108,11 @@ msgid "Password: "
 msgstr "Пароль: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
 msgid "Group: %s"
 msgstr "Группа: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1
-#: ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
 msgstr "Настройка параметров сессии рабочего стола"
 
@@ -130,13 +138,16 @@ msgstr ""
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
-"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you are doing.\n"
+"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
+"are doing.\n"
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>Предупреждение:</b> Do <b>НЕ</b> изменяйте это, если не знаете зачем вы это делаете.\n"
+"<b>Предупреждение:</b> Do <b>НЕ</b> изменяйте это, если не знаете зачем вы "
+"это делаете.\n"
 "\n"
-"<b>ПРИМЕЧАНИЕ:</b> Эти настройки будут применены при следующем входе в систему."
+"<b>ПРИМЕЧАНИЕ:</b> Эти настройки будут применены при следующем входе в "
+"систему."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -455,8 +466,12 @@ msgstr "Конфигурация LXSession"
 
 #. Common string
 #: ../lxsession-default-apps/main.vala:143
-msgid "Manual Settings: Manually sets the command (you need to restart lxsession-default-apps to see the change)\n"
-msgstr "Ручные настройки: Команда, установленная вручную (вам требуется перезагрузить lxsession-default-apps, чтобы увидеть изменения)\n"
+msgid ""
+"Manual Settings: Manually sets the command (you need to restart lxsession-"
+"default-apps to see the change)\n"
+msgstr ""
+"Ручные настройки: Команда, установленная вручную (вам требуется "
+"перезагрузить lxsession-default-apps, чтобы увидеть изменения)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
@@ -467,41 +482,63 @@ msgid "Extra: Add an extra parameter to the launch option\n"
 msgstr "Экстра: Добавьте экстра параметр к опции запуска\n"
 
 #: ../lxsession-default-apps/main.vala:146
-msgid "Mime association: Automatically associates mime types to this application ?\n"
-msgstr "Ассоциация mime: Автоматически ассоциировать типы mime с этим приложением?\n"
+msgid ""
+"Mime association: Automatically associates mime types to this application ?\n"
+msgstr ""
+"Ассоциация mime: Автоматически ассоциировать типы mime с этим приложением?\n"
 
 #: ../lxsession-default-apps/main.vala:147
-msgid "Available applications : Applications of this type available on your repositories\n"
-msgstr "Доступные приложения: Приложения этого типа, доступные в ваших репозиториях\n"
+msgid ""
+"Available applications : Applications of this type available on your "
+"repositories\n"
+msgstr ""
+"Доступные приложения: Приложения этого типа, доступные в ваших репозиториях\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
-msgstr "Обработчик рабочего стола: Нарисовать рабочий стол, используя менеджер файлов?\n"
+msgstr ""
+"Обработчик рабочего стола: Нарисовать рабочий стол, используя менеджер "
+"файлов?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
 msgstr "Автоматически стартовать приложение ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
-msgid "Set default program for Debian system (using update-alternatives, need root password)\n"
-msgstr "Установить программу по умолчанию для системы Debian (используя update-alternatives, требуется пароль администратора)\n"
+msgid ""
+"Set default program for Debian system (using update-alternatives, need root "
+"password)\n"
+msgstr ""
+"Установить программу по умолчанию для системы Debian (используя update-"
+"alternatives, требуется пароль администратора)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
 msgid ""
 "Windows manager draws and manage the windows. \n"
-"You can choose openbox, openbox-custom (for a custom openbox configuration, see \"More\"), kwin, compiz ..."
+"You can choose openbox, openbox-custom (for a custom openbox configuration, "
+"see \"More\"), kwin, compiz ..."
 msgstr ""
 "Менеджер окон рисует и управляет окнами.\n"
-"Вы можете выбрать openbox, openbox-custom (для пользовательской конфигурации openbox смотрите \"Ещё\"), kwin, compiz ..."
+"Вы можете выбрать openbox, openbox-custom (для пользовательской конфигурации "
+"openbox смотрите \"Ещё\"), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
-msgid "Panel is the component usually at the bottom of the screen which manages a list of opened windows, shortcuts, notification area ..."
-msgstr "Панель представляет собой компонент, как правило, в нижней части экрана, который управляет списком открытых окон, горячими клавишами, областью уведомлений ..."
+msgid ""
+"Panel is the component usually at the bottom of the screen which manages a "
+"list of opened windows, shortcuts, notification area ..."
+msgstr ""
+"Панель представляет собой компонент, как правило, в нижней части экрана, "
+"который управляет списком открытых окон, горячими клавишами, областью "
+"уведомлений ..."
 
 #: ../lxsession-default-apps/main.vala:163
-msgid "Dock is a second panel. It's used to launch a different program to handle a second type of panel."
-msgstr "Док-панель - это вторая панель. Она используется для запуска другой программы для обработки второго типа панели."
+msgid ""
+"Dock is a second panel. It's used to launch a different program to handle a "
+"second type of panel."
+msgstr ""
+"Док-панель - это вторая панель. Она используется для запуска другой "
+"программы для обработки второго типа панели."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
@@ -509,14 +546,17 @@ msgid ""
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Файловый менеджер - это компонент, который открывает файлы.\n"
-"Смотрите \"Ещё\" чтобы добавить параметры для обработки рабочего стола или открытия файлов"
+"Смотрите \"Ещё\" чтобы добавить параметры для обработки рабочего стола или "
+"открытия файлов"
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
-"Composite manager enables graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \n"
+"Composite manager enables graphics effects, like transpacency and shadows, "
+"if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
-"Композитный менеджер включает графические эффекты, такие как прозрачность и тени, если менеджер окон не обрабатывает это.\n"
+"Композитный менеджер включает графические эффекты, такие как прозрачность и "
+"тени, если менеджер окон не обрабатывает это.\n"
 "Пример: compton"
 
 #: ../lxsession-default-apps/main.vala:178
@@ -524,7 +564,8 @@ msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
-"Менеджер рабочего стола рисует рабочий стол и управляет иконками внутри него.\n"
+"Менеджер рабочего стола рисует рабочий стол и управляет иконками внутри него."
+"\n"
 "Вы можете управлять им через менеджер файлов, установив \"менеджер файлов\""
 
 #: ../lxsession-default-apps/main.vala:180
@@ -532,20 +573,31 @@ msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr "Обои: Установить путь к изображению чтобы нарисовать обои"
 
 #: ../lxsession-default-apps/main.vala:183
-msgid "Screensaver is a program which displays animations when your computer is idle"
-msgstr "Хранитель экрана представляет собой программу, которая отображает анимацию, когда компьютер простаивает"
+msgid ""
+"Screensaver is a program which displays animations when your computer is idle"
+msgstr ""
+"Хранитель экрана представляет собой программу, которая отображает анимацию, "
+"когда компьютер простаивает"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
-"Power Manager helps you to reduce the usage of batteries. You probably don't need one if you have a desktop computer.\n"
+"Power Manager helps you to reduce the usage of batteries. You probably don't "
+"need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
-"Менеджера питания поможет вам уменьшить использование батарей. Вы, наверное, не нуждаетесь в нём, если у вас настольный компьютер.\n"
-"Авто опция будет установлена автоматически в зависимости от опции режима ноутбука."
+"Менеджера питания поможет вам уменьшить использование батарей. Вы, наверное, "
+"не нуждаетесь в нём, если у вас настольный компьютер.\n"
+"Авто опция будет установлена автоматически в зависимости от опции режима "
+"ноутбука."
 
 #: ../lxsession-default-apps/main.vala:193
-msgid "Polkit agent provides authorisations to use some actions, like suspend, hibernate, using Consolekit ... It's not advised to make it blank."
-msgstr "Агент Polkit обеспечивает авторизации на использование некоторых действий, таких как приостановка, спящий режим, использование ConsoleKit ... Не рекомендуется оставлять это поле пустым."
+msgid ""
+"Polkit agent provides authorisations to use some actions, like suspend, "
+"hibernate, using Consolekit ... It's not advised to make it blank."
+msgstr ""
+"Агент Polkit обеспечивает авторизации на использование некоторых действий, "
+"таких как приостановка, спящий режим, использование ConsoleKit ... Не "
+"рекомендуется оставлять это поле пустым."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
@@ -553,11 +605,14 @@ msgstr "Установить утилиту для менеджера соеди
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr "Использовать программное обеспечение для связи (IRC-клиент, IM-клиент ...)"
+msgstr ""
+"Использовать программное обеспечение для связи (IRC-клиент, IM-клиент ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr "Использовать другое программное обеспечение для связи (IRC-клиент, IM-клиент ...)"
+msgstr ""
+"Использовать другое программное обеспечение для связи (IRC-клиент, IM-клиент "
+"...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
@@ -581,7 +636,8 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Утилита для запуска приложений, таких как synapse, kupfer ... \n"
-"Для использования lxpanel или утилиты по умолчанию lxde, используйте \"lxpanelctl\" "
+"Для использования lxpanel или утилиты по умолчанию lxde, используйте \""
+"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -674,10 +730,12 @@ msgstr "Управление поддержкой буфера обмена"
 #: ../lxsession-default-apps/main.vala:353
 msgid ""
 "Managing keyring support.\n"
-"Standard options available \"gnome\" for gnome-keyring support  or \"ssh-agent\" for ssh-agent support"
+"Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
+"agent\" for ssh-agent support"
 msgstr ""
 "Управление поддержкой ключей.\n"
-"Стандартные варианты \"gnome\" для поддержки gnome-keyring, или \"ssh-agent\" для поддержки ssh-agent"
+"Стандартные варианты \"gnome\" для поддержки gnome-keyring, или \"ssh-agent\""
+" для поддержки ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
@@ -693,7 +751,8 @@ msgstr "Управление поддержкой прокси"
 
 #: ../lxsession-default-apps/main.vala:368
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr "Управление параметрами XRandr. Используйте команду подобную xrandr --нечто"
+msgstr ""
+"Управление параметрами XRandr. Используйте команду подобную xrandr --нечто"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -730,4 +789,3 @@ msgstr "Вы хотите ассоциировать следующий тип m
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "Отмена"
-
