@@ -427,7 +427,8 @@ namespace Lxsession {
             else
             {
                 /* Autostart applications in system-wide directories */
-                lxsession_spawn_command_line_async("lxsession-xdg-autostart");
+                string autostart_cmd = "lxsession-xdg-autostart -d " + desktop_environnement;
+                lxsession_spawn_command_line_async(autostart_cmd);
             }
         }
 
