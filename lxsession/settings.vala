@@ -336,7 +336,7 @@ namespace Lxsession
                 set_generic_default("Session", "pdf_reader", "command", "string", "evince");
                 set_generic_default("Session", "video_player", "command", "string", "gnome-mplayer");
                 set_generic_default("Session", "audio_player", "command", "string", "audacious");
-                set_generic_default("Session", "images_display", "command", "string", "gpicview");
+                set_generic_default("Session", "image_display", "command", "string", "gpicview");
                 set_generic_default("Session", "text_editor", "command", "string", "leafpad");
                 set_generic_default("Session", "archive", "command", "string", "file-roller");
                 set_generic_default("Session", "calculator", "command", "string", "galculator");
@@ -809,7 +809,7 @@ public class LxsessionConfigKeyFile: LxsessionConfig
         read_key_value(kf, "Session", "pdf_reader", "command", "string");
         read_key_value(kf, "Session", "video_player", "command", "string");
         read_key_value(kf, "Session", "audio_player", "command", "string");
-        read_key_value(kf, "Session", "images_display", "command", "string");
+        read_key_value(kf, "Session", "image_display", "command", "string");
         read_key_value(kf, "Session", "text_editor", "command", "string");
         read_key_value(kf, "Session", "archive", "command", "string");
         read_key_value(kf, "Session", "charmap", "command", "string");

@@ -141,9 +141,9 @@ case "$1" in
 	echo "Launching disk utility application"
 	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"disk_utility" string:'' > /dev/null 2>&1
     ;;
-"images_display")
+"image_display")
 	echo "Launching images application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"images_display" string:'' > /dev/null 2>&1
+	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"image_display" string:'' > /dev/null 2>&1
     ;;
 "text_editor")
 	echo "Launching text editor application"
