@@ -497,8 +497,7 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
-"Gérer le bureau : dessiner le bureau à l'aide du gestionnaire de "
-"fichiers ?\n"
+"Gérer le bureau : dessiner le bureau à l'aide du gestionnaire de fichiers ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"

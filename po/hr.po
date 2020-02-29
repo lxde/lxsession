@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-09-30 16:46+0000\n"
+"PO-Revision-Date: 2020-02-28 00:25+0000\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: templates\n"
@@ -518,6 +518,8 @@ msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Ploča je komponenta koja je obično smještena na dnu ekrana koja upravlja "
+"listom otvorenih prozora, prečacima, područjem obavijesti..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
@@ -526,13 +528,12 @@ msgid ""
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:168
-#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Upravitelj datotekama je komponenta koja otvara datoteke.\n"
-"Vidi \"Više\" za dodavanje opcija na radnu površinu, ili otvaranje datoteka"
+"Vidi \"Više\" za dodavanje opcija na radnu površinu, ili otvaranje datoteka "
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -577,7 +578,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr "Koristi komunikacijski software ( IRC klijent, IM klijent ..."
+msgstr "Koristi komunikacijski software ( IRC klijent, IM klijent ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
@@ -683,7 +684,7 @@ msgstr "Upravljanje vašom konfiguracijom radnih prostora"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr ""
+msgstr "Upravljanje aplikacijom za prekid vaše sesije"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"

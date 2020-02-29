@@ -403,8 +403,9 @@ msgid "Mode"
 msgstr "Több"
 
 #: ../data/ui/lxsession-default-apps.ui.h:62
+#, fuzzy
 msgid "Model"
-msgstr ""
+msgstr "Több"
 
 #: ../data/ui/lxsession-default-apps.ui.h:63
 msgid "Layout"

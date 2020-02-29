@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2017-05-29 21:25+0000\n"
+"PO-Revision-Date: 2020-02-17 17:15+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lietuvių\n"
 "Language: templates\n"
@@ -536,12 +536,11 @@ msgstr ""
 "apdoroti antrojo tipo skydelį."
 
 #: ../lxsession-default-apps/main.vala:168
-#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
-"Failų tvarkytuvė yra komponentas, atveriantis failus.\n"
+"Failų tvarkytuvė yra komponentas, kuris atveria failus.\n"
 "Norėdami pridėti parinktis, skirtas apdoroti darbalaukį ar failų atvėrimą, "
 "žiūrėkite \"Daugiau\""
 

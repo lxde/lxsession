@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2019-05-18 22:11+0000\n"
+"PO-Revision-Date: 2020-02-17 18:35+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <vidarjb@gmail.com>\n"
 "Language: templates\n"
@@ -537,12 +537,11 @@ msgstr ""
 "håndtere en anden type panel."
 
 #: ../lxsession-default-apps/main.vala:168
-#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
-"Filhåndtering er komponenten til at åbne filerne.\n"
+"Filhåndtering er komponenten som åbner filerne.\n"
 "Se \"Mere\" for at tilføje valgmuligheder til at håndtere skrivebordet eller "
 "til at åbne filer "
 

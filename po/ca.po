@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2019-07-19 09:04+0000\n"
+"PO-Revision-Date: 2020-02-24 18:02+0000\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: templates\n"
@@ -542,13 +542,12 @@ msgstr ""
 "gestionar un segon tipus de plafó."
 
 #: ../lxsession-default-apps/main.vala:168
-#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "El gestor de fitxers és el component que obre els fitxers.\n"
-"Vegeu \"Més\" per afegir-hi opcions de gestió de l'escriptori o d'obertura "
+"Vegeu \"Més\" per afegir-hi opcions per gestionar l'escriptori o per obrir "
 "de fitxers."
 
 #: ../lxsession-default-apps/main.vala:173
