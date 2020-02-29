@@ -266,7 +266,7 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
     }
 }
 
-static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, const char* base_dir )
+static void get_autostart_files_in_dir( GHashTable* hash, const char* base_dir )
 {
     char* dir_path = g_build_filename( base_dir, "autostart", NULL );
     GDir* dir = g_dir_open( dir_path, 0, NULL );
@@ -280,14 +280,14 @@ static void get_autostart_files_in_dir( GHashTable* hash, const char* de_name, c
         {
             if(g_str_has_suffix(name, ".desktop"))
             {
-                path = g_build_filename( dir_path, name, NULL );
-                // printf("%s\n", path);
-                if (g_hash_table_contains( hash, g_strdup(name)))
+                if (g_hash_table_contains( hash, name))
                 {
                     /* desktop file already exist in a higher directory, do nothing */
                 }
                 else
                 {
+                    path = g_build_filename( dir_path, name, NULL );
+                    // printf("%s\n", path);
                     g_hash_table_replace( hash, g_strdup(name), path );
                 }
             }
@@ -305,11 +305,11 @@ void xdg_autostart( const char* de_name_arg )
     de_name = de_name_arg;
 
     /* get user-specific autostart files */
-    get_autostart_files_in_dir( hash, de_name, g_get_user_config_dir() );
+    get_autostart_files_in_dir( hash, g_get_user_config_dir() );
 
      /* get system-wide autostart files */
 	for( dir = dirs; *dir; ++dir )
-		get_autostart_files_in_dir( hash, de_name, *dir );
+		get_autostart_files_in_dir( hash, *dir );
 
     if( g_hash_table_size( hash ) > 0 )
     {
