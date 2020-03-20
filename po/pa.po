@@ -524,7 +524,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
-"Composite manager enables graphics effects, like transpacency and shadows, "
+"Composite manager enables graphics effects, like transparency and shadows, "
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""

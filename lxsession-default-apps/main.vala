@@ -185,7 +185,7 @@ namespace LDefaultApps
             string file_manager_more_help_message = manual_setting_help + session_string_help + extra_string_help + handle_desktop_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "file_manager", "", file_manager_help_message, file_manager_more, file_manager_more_help_message, null);
 
-            string composite_manager_help_message = _("Composite manager enables graphics effects, like transpacency and shadows, if the windows manager doesn't handle it. \nExample: compton");
+            string composite_manager_help_message = _("Composite manager enables graphics effects, like transparency and shadows, if the windows manager doesn't handle it. \nExample: compton");
             string[] composite_manager_more = {""};
             string composite_manager_more_help_message = "";
             init_application(builder, kf, dbus_backend, "composite_manager", "", composite_manager_help_message, composite_manager_more, composite_manager_more_help_message, null);

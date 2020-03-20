@@ -544,12 +544,13 @@ msgstr ""
 "vaadake \"Veel\""
 
 #: ../lxsession-default-apps/main.vala:173
+#, fuzzy
 msgid ""
-"Composite manager enables graphics effects, like transpacency and shadows, "
+"Composite manager enables graphics effects, like transparency and shadows, "
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
-"Komposiitjuht võimaldab graafika efekte, nagu näiteks transpacency ja "
+"Komposiitjuht võimaldab graafika efekte, nagu näiteks transparency ja "
 "varjud, kui Windowsi juht ei tegele sellega.\n"
 "Näide: compton"
 
