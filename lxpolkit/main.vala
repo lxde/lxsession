@@ -37,7 +37,7 @@ namespace Lxsession
 
             if(app.is_remote)
             {
-                message(_("lxpolkit is already running. Existing"));
+                message(_("lxpolkit is already running. Exiting"));
                 return 0;
             }
 
