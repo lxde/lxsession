@@ -37,6 +37,8 @@ elif which i3lock >/dev/null 2>&1; then
     i3lock -d
 elif which slimlock >/dev/null 2>&1; then
     slimlock
+elif which xtrlock >/dev/null 2>&1; then
+    xtrlock
 else
     # In the end, try to fallback to xscreensaver
 
