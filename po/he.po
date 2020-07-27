@@ -71,7 +71,7 @@ msgstr "ה_חלפת משתמש"
 
 #: ../lxsession-logout/lxsession-logout.c:757
 msgid "L_ock Screen"
-msgstr "מסך _נעילה"
+msgstr "_נעילת המסך"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:766
