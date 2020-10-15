@@ -477,6 +477,8 @@ static void main_at_exit(void)
 /* Main program. */
 int main(int argc, char * argv[])
 {
+    GdkColor color;
+
 #ifdef ENABLE_NLS
     setlocale(LC_ALL, "");
     bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -840,6 +842,15 @@ int main(int argc, char * argv[])
     handler_context.error_label = gtk_label_new("");
     gtk_label_set_justify(GTK_LABEL(handler_context.error_label), GTK_JUSTIFY_CENTER);
     gtk_box_pack_start(GTK_BOX(controls), handler_context.error_label, FALSE, FALSE, 4);
+
+    /* Avoid "flickering" caused by drawing the window with its normal
+     * (e.g. gray) background fullscreen at position (0,0) first and
+     * then drawing it to the center of the screen in expose_event().
+     * With a black background and window size 0 the screen is just black
+     * when entering expose_event(). */
+    gdk_color_parse("black", &color);
+    gtk_widget_modify_bg(window, GTK_STATE_NORMAL, &color);
+    gtk_widget_set_size_request(window, 0, 0);
 
     /* Show everything. */
     gtk_widget_show_all(window);
