@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2020-10-11 15:42+0200\n"
+"PO-Revision-Date: 2020-10-16 19:43+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: templates\n"
@@ -124,15 +124,15 @@ msgstr "Gruppe: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
 msgid "Desktop Session Settings"
-msgstr "Desktopsitzungseinstellungen"
+msgstr "Arbeitssitzungs-Einstellungen"
 
 #: ../data/ui/lxsession-edit.ui.h:2
 msgid "Applications automatically started after entering desktop:"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr "Nach Start der Arbeitsfläche automatisch ausgeführte Anwendungen:"
 
 #: ../data/ui/lxsession-edit.ui.h:3
 msgid "Automatically Started Applications"
-msgstr "Anwendungen die beim Starten automatisch ausgeführt werden:"
+msgstr "Automatisch ausgeführte Anwendungen:"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
@@ -445,7 +445,7 @@ msgstr "Einstellungen"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr "In Desktopsitzung geladene Anwendungen verwalten"
+msgstr "Verwaltung von in der Arbeitssitzung geladenen Anwendungen"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
