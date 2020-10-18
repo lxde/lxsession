@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2020-10-16 19:43+0200\n"
+"PO-Revision-Date: 2020-10-18 18:37+0200\n"
 "Last-Translator: Ingo Brückl <ib@wupperonline.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: templates\n"
@@ -136,7 +136,7 @@ msgstr "Automatisch ausgeführte Anwendungen:"
 
 #: ../data/ui/lxsession-edit.ui.h:4
 msgid "Window Manager:"
-msgstr "Fensterverwalter:"
+msgstr "Fenstermanager:"
 
 #: ../data/ui/lxsession-edit.ui.h:5
 msgid ""
@@ -144,7 +144,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Befehlszeile zum Starten der Fensterverwaltung\n"
-"(Der Standfensterverwaltungsbefehl für LXDE sollte openbox-lxde sein)"
+"(Der Standardbefehl zur Fensterverwaltung für LXDE sollte openbox-lxde sein.)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -285,7 +285,7 @@ msgstr "Anwendungen starten"
 
 #: ../data/ui/lxsession-default-apps.ui.h:29
 msgid "Windows Manager"
-msgstr "Fensterverwalter"
+msgstr "Fenstermanager"
 
 #: ../data/ui/lxsession-default-apps.ui.h:30
 msgid "Panel"
