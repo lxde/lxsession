@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2019-06-16 22:57+0000\n"
-"Last-Translator: mirek <mirek@cnl.sk>\n"
+"PO-Revision-Date: 2020-12-20 14:02+0100\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
-"Language: templates\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.7\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -103,7 +103,7 @@ msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
-msgstr "Heslo:"
+msgstr "Heslo: "
 
 #: ../lxpolkit/lxpolkit-listener.c:251
 #, c-format
@@ -192,7 +192,7 @@ msgstr "Komunikátor 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr ""
+msgstr "Ovládací prvok 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
@@ -200,7 +200,7 @@ msgstr "Spúšťač"
 
 #: ../data/ui/lxsession-default-apps.ui.h:11
 msgid "Screenshot manager"
-msgstr "Správca snímiek obrazovky"
+msgstr "Správca snímok obrazovky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:12
 msgid "PDF Reader"
@@ -280,7 +280,7 @@ msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:31
 msgid "Dock"
-msgstr ""
+msgstr "Panel"
 
 #: ../data/ui/lxsession-default-apps.ui.h:32
 msgid "Composite Manager"
@@ -360,7 +360,7 @@ msgstr "<b>Nastavenia</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:51
 msgid "<b>Manual autostarted applications</b>"
-msgstr "<b>Manuálne spustené aplikácie</b>"
+msgstr "<b>Ručne spustené aplikácie</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
 msgid "<b>Known Applications </b>"
@@ -388,7 +388,7 @@ msgstr "Typ"
 
 #: ../data/ui/lxsession-default-apps.ui.h:58
 msgid "Menu prefix"
-msgstr ""
+msgstr "Predpona ponuky"
 
 #: ../data/ui/lxsession-default-apps.ui.h:59
 #: ../lxsession-default-apps/combobox.vala:168
@@ -446,7 +446,7 @@ msgstr "LXPolKit"
 
 #: ../data/lxpolkit.desktop.in.h:2
 msgid "Policykit Authentication Agent"
-msgstr ""
+msgstr "Autentifikačný agent Policykit"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
@@ -476,7 +476,7 @@ msgstr "Sedenie : špecifikujte sedenie\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Dodatočné: Pridať k možnostiam spustenia ďalší parameter\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
@@ -494,8 +494,8 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
 msgstr ""
-"Správa pracovnej plochy: Vykreslovať pracovnú plochu pomocou správcu súborov "
-"?\n"
+"Správa pracovnej plochy: Vykreslovať pracovnú plochu pomocou správcu "
+"súborov ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -533,16 +533,17 @@ msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Dok je druhý panel. Používa sa na spustenie iného programu pre správu "
+"druhého typu panelu."
 
 #: ../lxsession-default-apps/main.vala:168
-#, fuzzy
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "Správca súborov je aplikácia na otváranie súborov.\n"
 "Kliknite na \"Viac\" pre pridanie možností na správu pracovnej plochy alebo "
-"otvárania súborov."
+"otvárania súborov "
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -627,12 +628,12 @@ msgid ""
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "Program na spúšťanie aplikácií, ako synapse, kupfer ...\n"
-"Pre použitie predvoleného programu pre lxpanel alebo lxde použite \""
-"lxpanelctl\""
+"Pre použitie predvoleného programu pre lxpanel alebo lxde použite "
+"\"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr "Aplikácia pre vytváranie snímiek obrazovky, ako scrot ..."
+msgstr "Aplikácia pre vytváranie snímok obrazovky, ako scrot ..."
 
 #: ../lxsession-default-apps/main.vala:248
 msgid "Video application"
@@ -680,7 +681,7 @@ msgstr "Aplikácia na prácu s webovou kamerou"
 
 #: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage burning CD/DVD utilty "
-msgstr "Aplikácia na napaľovanie CD/DVD"
+msgstr "Aplikácia na napaľovanie CD/DVD "
 
 #: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage notes utility"
@@ -725,8 +726,8 @@ msgid ""
 "agent\" for ssh-agent support"
 msgstr ""
 "Správa podpory pre keyring.\n"
-"Štandardné dostupné možnosti sú \"gnome\" pre podporu gnome-keyring alebo \""
-"ssh-agent\" pre podporu ssh-agent"
+"Štandardné dostupné možnosti sú \"gnome\" pre podporu gnome-keyring alebo "
+"\"ssh-agent\" pre podporu ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
