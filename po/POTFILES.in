@@ -2,14 +2,14 @@ lxsession-logout/lxsession-logout.c
 lxsession-edit/lxsession-edit.c
 lxsession-edit/lxsession-edit-common.c
 lxpolkit/lxpolkit.c
-lxpolkit/main.c
+lxpolkit/main.vala
 lxpolkit/lxpolkit-listener.c
 [type: gettext/glade]data/ui/lxsession-edit.ui
 [type: gettext/glade]data/ui/lxpolkit.ui
 [type: gettext/glade]data/ui/lxsession-default-apps.ui
 data/lxsession-edit.desktop.in
 data/lxsession-default-apps.desktop.in
-data/lxpolkit.desktop.in
+data/lxpolkit.desktop.in.in
 lxsession-default-apps/main.vala
 lxsession-default-apps/combobox.vala
-lxsession/app.c
+lxsession/app.vala
