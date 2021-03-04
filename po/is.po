@@ -1,20 +1,21 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Sveinn í Felli <sv1@fellsnet.is>, 2014.
+# Icelandic translation for LXSession package.
+# Copyright (C) 2021 Free Software Foundation, Inc.
+# This file is distributed under the same license as the lxsession package.
+# Sveinn í Felli <sv1@fellsnet.is>, 2014, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-11 15:47+0300\n"
-"PO-Revision-Date: 2014-12-06 21:34+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"PO-Revision-Date: 2021-03-04 16:57+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: templates\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
+"X-Generator: Lokalize 2.0\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:48
@@ -45,7 +46,7 @@ msgstr "Villa: %s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 msgid "<b><big>Logout %s %s session ?</big></b>"
-msgstr ""
+msgstr "<b><big>Skrá út úr %s %s setu ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
 msgid "Sh_utdown"
@@ -130,6 +131,8 @@ msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
+"Skipanalína notuð til að ræsa gluggastjóra\n"
+"(Sjálfgefin gluggastjóraskipun LXDE ætti að vera openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -138,6 +141,10 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
+"<b>Aðvörun:</b> Alls <b>EKKI</b> snerta þetta nema þú sért mjög viss um hvað"
+" þú er að gera.\n"
+"\n"
+"<b>ATHUGIÐ:</b> Þessi stilling tekur gildi í næsta skipti sem skráð er inn."
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -289,11 +296,11 @@ msgstr "Skjáhvíla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:35
 msgid "Power Manager"
-msgstr "Orkustýring"
+msgstr "Aflstýring"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr ""
+msgstr "Polkit-umsýsla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
@@ -423,7 +430,7 @@ msgstr "Stillingar"
 
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
-msgstr ""
+msgstr "Sýsla með forrit sem hlaðið er inn í skjáborðssetu"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
@@ -443,7 +450,7 @@ msgstr "PolicyKit auðkennisþjónn"
 
 #: ../lxsession-default-apps/main.vala:29
 msgid "Update lxsession database"
-msgstr "Uppfæra lxsession gagnagrunn"
+msgstr "Uppfæra lxsession-gagnagrunn"
 
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:42
@@ -460,6 +467,9 @@ msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
 msgstr ""
+"Handvirkar stillingar: Stillir handvirkt skipunina (þú þarft að endurræsa"
+" lxsession-"
+"default-apps til að sjá breytingu)\n"
 
 #: ../lxsession-default-apps/main.vala:144
 msgid "Session : specify the session\n"
@@ -467,22 +477,24 @@ msgstr "Seta: tilgreina setuna\n"
 
 #: ../lxsession-default-apps/main.vala:145
 msgid "Extra: Add an extra parameter to the launch option\n"
-msgstr ""
+msgstr "Auka: Bæta viðbótarrofa við ræsiskipun\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
 "Mime association: Automatically associates mime types to this application ?\n"
-msgstr ""
+msgstr "MIME-skráavensl: Tengja þessar MIME-tegundir við þetta forrit ?\n"
 
 #: ../lxsession-default-apps/main.vala:147
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr ""
+"Tiltæk forrit : Forrit af þessari tegund sem tiltæk eru í hugbúnaðarsöfnum"
+" þínum\n"
 
 #: ../lxsession-default-apps/main.vala:148
 msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
-msgstr ""
+msgstr "Meðhöndlun skjáborðs: Teikna skjáborðið með skráastjóranum ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
 msgid "Autostart the application ?\n"
@@ -493,6 +505,8 @@ msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
+"Setja sjálfgefið forrit fyrir Debian-kerfi (með update-alternatives, þarf"
+" lykilorð kerfisstjóra)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:153
@@ -501,24 +515,35 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
+"Gluggastjóri teiknar og sýslar með glugga. \n"
+"Þú getur valið openbox, openbox-custom (til að skoða sérsniðna uppsetningu á"
+" openbox, "
+"skaltu skoða \"Meira\"), kwin, compiz ..."
 
 #: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
 msgstr ""
+"Skjástikan (panel) er viðmótseining á skjánum, oftast neðst en stundum efst,"
+" sem sér um lista yfir opna glugga, flýtileiðir, tilkynningasvæði, o.fl. ..."
 
 #: ../lxsession-default-apps/main.vala:163
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
 msgstr ""
+"Tengispjaldið (dock) er önnur skjástika. Það er notað til að ræsa annað"
+" forrit sem meðhöndlar aðra gerð af skjástiku."
 
 #: ../lxsession-default-apps/main.vala:168
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
+"Skráastjóri er einingin sem sýnir og opnar skrárnar.\n"
+"Skoðaðu \"Meira\" til að bæta við valkostum varðandi meðhöndlun skjáborðs,"
+" eða við að opna skrár "
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -526,21 +551,27 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
+"Samsetningarstjóri virkjar myndrænar brellur á borð við gegnsæi og skugga, "
+"þ.e.a.s. ef gluggastjórinn sér ekki um það. \n"
+"Dæmi: compton"
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
+"Skjáborðsstjóri teiknar skjáborðið og sér um táknmyndir innan þess.\n"
+"Þú getur stýrt þessu innan skráastjórans með því að stilla þetta á"
+" \"filemanager\""
 
 #: ../lxsession-default-apps/main.vala:180
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr ""
+msgstr "Bakgrunnsmynd: Setja slóð á mynd sem verður bakgrunnur skjáborðsins"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
-msgstr ""
+msgstr "Skjáhvíla er forrit sem birtir hreyfingar þegar tölvan er iðjulaus"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -548,28 +579,36 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
+"Aflstýring (Power Manager) hjálpar þér að spara notkun á rafhlöðum."
+" Væntanlega þarf ekki á því að halda ef um borðtölvu er að ræða.\n"
+"Sjálfvirki kosturinn mun stilla þetta eftir þörfum, í samhengi við"
+" fartölvuhaminn (laptop mode)."
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
+"Polkit-umsýslan gefur heimildir til að nota ýmsar aðgerðir, eins og að setja"
+" í bið (suspend), "
+"setja í dvala (hibernate), nota Consolekit ... Ekki er mælt með að þetta sé"
+" autt."
 
 #: ../lxsession-default-apps/main.vala:198
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr ""
+msgstr "Stillir hvaða hjálparforrit stýrir tengingum, eins og t.d. nm-applet"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Nota samskiptahugbúnað (IRC-forrit, smáskilaboð ...)"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr ""
+msgstr "Nota annan samskiptahugbúnað (IRC-forrit, smáskilaboð ...)"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Terminal by default to launch command line."
-msgstr ""
+msgstr "Skjáhermir/Útstöð sem sjálfgefið ræsir skipanalínu"
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
@@ -582,12 +621,16 @@ msgstr "Forrit til að senda tölvupóst"
 #: ../lxsession-default-apps/main.vala:228
 msgid "Utility to launch gadgets, like conky, screenlets ..."
 msgstr ""
+"Hjálparforrit til að ræsa græjur á borð við conky, skjágræjur (screenlets),"
+" o.s.frv. ..."
 
 #: ../lxsession-default-apps/main.vala:233
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
+"Nytjatól til að keyra forrit, eins og synapse, kupfer ... \n"
+"Til að nota lxpanel eða sjálfgefið tól lxde, skaltu nota \"lxpanelctl\" "
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -659,19 +702,19 @@ msgstr "Forrit til að læsa skjánum"
 
 #: ../lxsession-default-apps/main.vala:328
 msgid "Managing your audio configuration"
-msgstr "Sýsla með uppsetningu hljóðvinnslu"
+msgstr "Sýslar með uppsetningu hljóðvinnslu"
 
 #: ../lxsession-default-apps/main.vala:333
 msgid "Managing your workspace configuration"
-msgstr "Sýsla með uppsetningu vinnurýmis"
+msgstr "Sýslar með uppsetningu vinnurýmis"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Managing the application to quit your session"
-msgstr ""
+msgstr "Sýslar með forritið sem lætur hætta í setu"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing the application to update and upgrade your system"
-msgstr ""
+msgstr "Sýslar með forritið sem sér um að uppfæra kerfið"
 
 #: ../lxsession-default-apps/main.vala:348
 msgid "Managing clipboard support"
@@ -683,12 +726,17 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
+"Stýrir stuðningi við auðkennageymslu (keyring).\n"
+"Staðlaðir kostir eru \"gnome\" fyrir stuðning við gnome-keyring eða \"ssh-"
+"agent\" fyrir stuðning við ssh-agent umsýslu"
 
 #: ../lxsession-default-apps/main.vala:358
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
 msgstr ""
+"Sýslar með stuðning við aðgengi.\n"
+"Staðlaður valkostur er gnome, fyrir venjulegan gnome-stuðning."
 
 #: ../lxsession-default-apps/main.vala:363
 msgid "Managing proxy support"
@@ -733,3 +781,4 @@ msgstr "Viltu tengja þetta við eftirfarandi MIME-tegundir ?\n"
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "Hætta við"
+
