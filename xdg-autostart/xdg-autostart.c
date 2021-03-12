@@ -175,7 +175,7 @@ _finish:
 }
 #endif
 
-static void launch_autostart_file( const char* desktop_id, const char* desktop_file, GKeyFile* kf)
+static void launch_autostart_file_internal( const char* desktop_id, const char* desktop_file, GKeyFile* kf)
 {
     if( g_key_file_load_from_file( kf, desktop_file, 0, NULL ) )
     {
@@ -266,6 +266,14 @@ static void launch_autostart_file( const char* desktop_id, const char* desktop_f
     }
 }
 
+static void launch_autostart_file( const char* desktop_id, const char* desktop_file )
+{
+    GKeyFile* kf = g_key_file_new();
+    launch_autostart_file_internal( desktop_id, desktop_file, kf );
+    g_key_file_free( kf );
+}
+
+
 static void get_autostart_files_in_dir( GHashTable* hash, const char* base_dir )
 {
     char* dir_path = g_build_filename( base_dir, "autostart", NULL );
@@ -313,9 +321,7 @@ void xdg_autostart( const char* de_name_arg )
 
     if( g_hash_table_size( hash ) > 0 )
     {
-        GKeyFile* kf = g_key_file_new();
-        g_hash_table_foreach( hash, (GHFunc)launch_autostart_file, kf);
-        g_key_file_free( kf );
+        g_hash_table_foreach( hash, (GHFunc)launch_autostart_file, NULL );
     }
 
     g_hash_table_destroy( hash );
