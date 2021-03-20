@@ -136,9 +136,10 @@ void get_autostart_files_in_dir( GHashTable* hash, const char* session_name, con
     g_free( dir_path );
 }
 
-void add_autostart_file(char* desktop_id, char* file, GKeyFile* kf)
+void add_autostart_file(char* desktop_id, char* file )
 {
     GtkTreeIter it;
+    GKeyFile* kf = g_key_file_new();
 
     const char* session_name_local = NULL;
 
@@ -176,6 +177,7 @@ void add_autostart_file(char* desktop_id, char* file, GKeyFile* kf)
             g_free(comment);
         }
     }
+    g_key_file_free( kf );
 }
 
 void load_autostart(const char* session_name)
@@ -193,9 +195,7 @@ void load_autostart(const char* session_name)
 
     if( g_hash_table_size( hash ) > 0 )
     {
-        GKeyFile* kf = g_key_file_new();
-        g_hash_table_foreach( hash, (GHFunc)add_autostart_file, kf );
-        g_key_file_free( kf );
+        g_hash_table_foreach( hash, (GHFunc)add_autostart_file, NULL );
     }
     g_hash_table_destroy( hash );
 }
