@@ -716,35 +716,14 @@ int main(int argc, char * argv[])
         if (session_name == NULL)
             session_name = "LXDE";
 
-        gchar *output = NULL;
+        gchar *os_name = NULL;
+#if GLIB_CHECK_VERSION(2, 64, 0)
+        os_name = g_get_os_info(G_OS_INFO_KEY_PRETTY_NAME);
+#endif
 
-        if (g_find_program_in_path("lsb_release"))
-        {
-            const gchar *command_line = "lsb_release -r -s";
-            GError *error;
-            if (!g_spawn_command_line_sync( command_line,
-                                            &output,
-                                            NULL,
-                                            NULL,
-                                            &error))
-            {
+        prompt = g_strdup_printf(_("<b><big>Logout %s %s session ?</big></b>"), session_name, os_name ? os_name : "");
 
-                fprintf (stderr, "Error: %s\n", error->message);
-                g_error_free (error);
-
-            }
-        }
-
-        if (output == NULL)
-        {
-            output = "";
-        }
-        else
-        {
-            output[strlen ( output ) - 1] = '\0';
-        }
-
-        prompt = g_strdup_printf(_("<b><big>Logout %s %s session ?</big></b>"), session_name, output);
+        g_free(os_name);
     }
     gtk_label_set_markup(GTK_LABEL(label), prompt);
     gtk_box_pack_start(GTK_BOX(controls), label, FALSE, FALSE, 4);
