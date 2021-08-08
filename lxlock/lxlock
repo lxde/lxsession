@@ -34,7 +34,7 @@ elif which slock >/dev/null 2>&1; then
 elif which xlock >/dev/null 2>&1; then
     xlock $*
 elif which i3lock >/dev/null 2>&1; then
-    i3lock -d
+    i3lock
 elif which slimlock >/dev/null 2>&1; then
     slimlock
 elif which xtrlock >/dev/null 2>&1; then
