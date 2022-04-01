@@ -44,9 +44,11 @@
 static char * prompt = NULL;
 static char * banner_side = NULL;
 static char * banner_path = NULL;
+static gboolean disable_power = False;
 
 static GOptionEntry opt_entries[] =
 {
+    { "disable-power", 'P', 0, G_OPTION_ARG_NONE, &disable_power, N_("Do not include Shutdown, Reboot, Suspend, or Hibernate buttons"), NULL },
     { "prompt", 'p', 0, G_OPTION_ARG_STRING, &prompt, N_("Custom message to show on the dialog"), N_("message") },
     { "banner", 'b', 0, G_OPTION_ARG_STRING, &banner_path, N_("Banner to show on the dialog"), N_("image file") },
     { "side", 's', 0, G_OPTION_ARG_STRING, &banner_side, N_("Position of the banner"), "top|left|right|bottom" },
@@ -729,7 +731,7 @@ int main(int argc, char * argv[])
     gtk_box_pack_start(GTK_BOX(controls), label, FALSE, FALSE, 4);
 
     /* Create the Shutdown button. */
-    if (handler_context.shutdown_available)
+    if (handler_context.shutdown_available && !disable_power)
     {
         GtkWidget * shutdown_button = gtk_button_new_with_mnemonic(_("Sh_utdown"));
         GtkWidget * image = gtk_image_new_from_icon_name("system-shutdown", GTK_ICON_SIZE_BUTTON);
@@ -740,7 +742,7 @@ int main(int argc, char * argv[])
     }
 
     /* Create the Reboot button. */
-    if (handler_context.reboot_available)
+    if (handler_context.reboot_available && !disable_power)
     {
         GtkWidget * reboot_button = gtk_button_new_with_mnemonic(_("_Reboot"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-reboot", GTK_ICON_SIZE_BUTTON);
@@ -751,7 +753,7 @@ int main(int argc, char * argv[])
     }
 
     /* Create the Suspend button. */
-    if (handler_context.suspend_available && !handler_context.ltsp)
+    if (handler_context.suspend_available && !handler_context.ltsp && !disable_power)
     {
         GtkWidget * suspend_button = gtk_button_new_with_mnemonic(_("_Suspend"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-suspend", GTK_ICON_SIZE_BUTTON);
@@ -762,7 +764,7 @@ int main(int argc, char * argv[])
     }
 
     /* Create the Hibernate button. */
-    if (handler_context.hibernate_available && !handler_context.ltsp)
+    if (handler_context.hibernate_available && !handler_context.ltsp && !disable_power)
     {
         GtkWidget * hibernate_button = gtk_button_new_with_mnemonic(_("_Hibernate"));
         GtkWidget * image = gtk_image_new_from_icon_name("gnome-session-hibernate", GTK_ICON_SIZE_BUTTON);
