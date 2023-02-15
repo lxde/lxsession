@@ -1,0 +1,782 @@
+# Georgian translation for lxsession.
+# Copyright (C) 2023, lxsession authors.
+# This file is distributed under the same license as the lxsession package.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxsession\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-11 15:47+0300\n"
+"PO-Revision-Date: 2023-02-15 10:32+0100\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "Custom message to show on the dialog"
+msgstr "ფანჯარაზე საჩვენებელი შეტყობინების მითითება"
+
+#: ../lxsession-logout/lxsession-logout.c:48
+msgid "message"
+msgstr "შეტყობინება"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "Banner to show on the dialog"
+msgstr "ფანჯარაზე საჩვენებელი ბანერი"
+
+#: ../lxsession-logout/lxsession-logout.c:49
+msgid "image file"
+msgstr "ასლის ფაილი"
+
+#: ../lxsession-logout/lxsession-logout.c:50
+msgid "Position of the banner"
+msgstr "ბარენის მდებარეობა"
+
+#: ../lxsession-logout/lxsession-logout.c:460
+#, c-format
+msgid "Error: %s\n"
+msgstr "შეცდომა: %s\n"
+
+#: ../lxsession-logout/lxsession-logout.c:694
+#, c-format
+msgid "<b><big>Logout %s %s session ?</big></b>"
+msgstr "<b><big>გავიდე %s %s სესიიდან ?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:702
+msgid "Sh_utdown"
+msgstr "_გამორთვა"
+
+#: ../lxsession-logout/lxsession-logout.c:713
+msgid "_Reboot"
+msgstr "_გადატვირთვა"
+
+#: ../lxsession-logout/lxsession-logout.c:724
+msgid "_Suspend"
+msgstr "_ძილი"
+
+#: ../lxsession-logout/lxsession-logout.c:735
+msgid "_Hibernate"
+msgstr "ჰიბერნაცია"
+
+#: ../lxsession-logout/lxsession-logout.c:746
+msgid "S_witch User"
+msgstr "-მომხმარებლის გადართვა"
+
+#: ../lxsession-logout/lxsession-logout.c:757
+msgid "L_ock Screen"
+msgstr "_ეკრანის დაბლოკვა"
+
+#. Create the Logout button.
+#: ../lxsession-logout/lxsession-logout.c:766
+msgid "_Logout"
+msgstr "_გასვლა"
+
+#: ../lxsession-edit/lxsession-edit-common.c:385
+msgid "Enabled"
+msgstr "აქტიური"
+
+#: ../lxsession-edit/lxsession-edit-common.c:390
+msgid "Application"
+msgstr "აპლიკაცია"
+
+#: ../lxpolkit/lxpolkit.c:43
+msgid "Error"
+msgstr "შეცდომა"
+
+#: ../lxpolkit/lxpolkit.c:46
+msgid "Information"
+msgstr "ინფორმაცია"
+
+#: ../lxpolkit/lxpolkit-listener.c:88
+msgid ""
+"Authentication failed!\n"
+"Wrong password?"
+msgstr ""
+"ავთენტიკაციის შეცდომა!\n"
+"პაროლი არასწორია?"
+
+#: ../lxpolkit/lxpolkit-listener.c:106
+msgid "Password: "
+msgstr "პაროლი: "
+
+#: ../lxpolkit/lxpolkit-listener.c:251
+#, c-format
+msgid "Group: %s"
+msgstr "ჯგუფი: %s"
+
+#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "სამუშაო მაგიდის სესიის მორგება"
+
+#: ../data/ui/lxsession-edit.ui.h:2
+msgid "Applications automatically started after entering desktop:"
+msgstr "სამუშაო მაგიდის ჩატვირთვისას გაშვებული აპლიკაციები:"
+
+#: ../data/ui/lxsession-edit.ui.h:3
+msgid "Automatically Started Applications"
+msgstr "ავტომატურად გაშვებადი აპლიკაციები"
+
+#: ../data/ui/lxsession-edit.ui.h:4
+msgid "Window Manager:"
+msgstr "ფანჯრის მმართველი:"
+
+#: ../data/ui/lxsession-edit.ui.h:5
+msgid ""
+"Command line used to launch window manager\n"
+"(The default window manager command for LXDE should be openbox-lxde)"
+msgstr ""
+"ფანჯრების მმართველის გაშვების ბრძანების სტრიქონი\n"
+"(LXDE-ის ნაგულისხმები ფანჯრების მმართველია openbox-lxde)"
+
+#: ../data/ui/lxsession-edit.ui.h:7
+msgid ""
+"<b>Warning:</b> Do <b>NOT</b> touch this unless you know exactly what you "
+"are doing.\n"
+"\n"
+"<b>NOTE:</b> This setting will take effect on next login."
+msgstr ""
+"<b>გაფრთხილება:</b> <b>არ</b> შეეხოთ, თუ დარწმუნებული არ ბრძანდებით, რას "
+"აკეთებთ.\n"
+"\n"
+"<b>დაიმახსოვრეთ:</b> პარამეტრები ძალაში მხოლოდ შემდეგი შესვლისას შევა."
+
+#: ../data/ui/lxsession-edit.ui.h:10
+msgid "Advanced Options"
+msgstr "დამატებითი პარამეტრები"
+
+#: ../data/ui/lxpolkit.ui.h:1
+msgid "Authentication"
+msgstr "ავთენტიკაცია"
+
+#: ../data/ui/lxpolkit.ui.h:2
+msgid "Identity:"
+msgstr "იდენტიფიკაცია:"
+
+#: ../data/ui/lxsession-default-apps.ui.h:1
+msgid "File Manager"
+msgstr "ფაილების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:2
+msgid "Reload"
+msgstr "თავიდან ჩატვირთვა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:3
+msgid "More"
+msgstr "მეტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:4
+msgid "Terminal manager"
+msgstr "ტერმინალის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:5
+msgid "Webbrowser"
+msgstr "ვებბრაუზერი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:6
+msgid "Email"
+msgstr "ელფოტა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:7
+msgid "Communication 1"
+msgstr "კომუნიკაცია 1"
+
+#: ../data/ui/lxsession-default-apps.ui.h:8
+msgid "Communication 2"
+msgstr "კომუნიკაცია 2"
+
+#: ../data/ui/lxsession-default-apps.ui.h:9
+msgid "Widget 1"
+msgstr "ვიჯეტი 1"
+
+#: ../data/ui/lxsession-default-apps.ui.h:10
+msgid "Launcher manager"
+msgstr "გამშვების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:11
+msgid "Screenshot manager"
+msgstr "ეკრანის ანაბეჭდების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:12
+msgid "PDF Reader"
+msgstr "PDF-ის გამხსნელი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:13
+msgid "Video player"
+msgstr "ვიდეო დამკვრელი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:14
+msgid "Audio player"
+msgstr "მუსიკის დამკვრელი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:15
+msgid "Image viewer"
+msgstr "სურათების გალერეა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:16
+msgid "Text editor"
+msgstr "ტექსტური რედაქტორი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:17
+msgid "Archive"
+msgstr "არქივი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:18
+msgid "Charmap"
+msgstr "სიმბოლოების რუკა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:19
+msgid "Calculator"
+msgstr "კალკულატორი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:20
+msgid "Spreadsheet"
+msgstr "ელცხრილი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:21
+msgid "Bittorent"
+msgstr "ტორენტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:22
+msgid "Document"
+msgstr "დოკუმენტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:23
+msgid "Webcam"
+msgstr "ვებ-კამერა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:24
+msgid "Burning utility"
+msgstr "ამოწვის პროგრამა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:25
+msgid "Notes utility"
+msgstr "შენიშვნების პროგრამა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:26
+msgid "Disks utility"
+msgstr "დისკის პროგრამა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:27
+msgid "Tasks monitor"
+msgstr "ამოცანების მონიტორი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:28
+msgid "Launching applications"
+msgstr "აპლიკაციების გაშვება"
+
+#: ../data/ui/lxsession-default-apps.ui.h:29
+msgid "Windows Manager"
+msgstr "ფანჯრების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:30
+msgid "Panel"
+msgstr "ზოლი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:31
+msgid "Dock"
+msgstr "მიმაგრება"
+
+#: ../data/ui/lxsession-default-apps.ui.h:32
+msgid "Composite Manager"
+msgstr "კომპოზიტური მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:33
+msgid "Desktop Manager"
+msgstr "სამუშაო მაგიდის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:34
+msgid "Screensaver"
+msgstr "ეკრანის დამცველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:35
+msgid "Power Manager"
+msgstr "კვების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:36
+msgid "Polkit agent"
+msgstr "Polkit-ის აგენტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:37
+msgid "Network GUI"
+msgstr "ქსელის ინტერფეისი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:38
+msgid "Lock screen manager"
+msgstr "ეკრანის დაბლოკვის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:39
+msgid "Audio manager"
+msgstr "ხმის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:40
+msgid "Workspace manager"
+msgstr "სამუშაო სივრცის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:41
+msgid "Quit manager"
+msgstr "მმართველიდან გასვლა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:42
+msgid "Upgrade manager"
+msgstr "განახლების მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:43
+msgid "Clipboard manager"
+msgstr "ბუფერის მმართველი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:44
+msgid "Security (keyring)"
+msgstr "უსაფრთხოება (ბრელოკი)"
+
+#: ../data/ui/lxsession-default-apps.ui.h:45
+msgid "A11y"
+msgstr "A11y"
+
+#: ../data/ui/lxsession-default-apps.ui.h:46
+msgid "Proxy"
+msgstr "პროქსი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:47
+msgid "Xrandr"
+msgstr "Xrandr"
+
+#: ../data/ui/lxsession-default-apps.ui.h:48
+msgid "Core applications"
+msgstr "ძირითადი აპლიკაციები"
+
+#: ../data/ui/lxsession-default-apps.ui.h:49
+msgid "Disable autostarted applications ?"
+msgstr "გამოვრთო ავტომატურად გაშვებული აპლიკაციები?"
+
+#: ../data/ui/lxsession-default-apps.ui.h:50
+msgid "<b>Settings</b>"
+msgstr "<b>მორგება</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:51
+msgid "<b>Manual autostarted applications</b>"
+msgstr "<b>ხელით ავტომატურად გაშვებული აპლიკაციები</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:52
+msgid "<b>Known Applications </b>"
+msgstr "<b>ცნობილი აპლიკაციები </b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:53
+msgid "Autostart"
+msgstr "ავტოსტარტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:54
+msgid "Laptop mode"
+msgstr "ლეპტოპის რეჟიმი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:55
+msgid "<b>General settings</b>"
+msgstr "<b>საერთო პარამეტრები</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:56
+msgid "<b>Dbus</b>"
+msgstr "<b>Dbus</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:57
+msgid "Type"
+msgstr "ტიპი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:58
+msgid "Menu prefix"
+msgstr "მენიუს პრეფიქსი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:59
+#: ../lxsession-default-apps/combobox.vala:168
+#: ../lxsession-default-apps/combobox.vala:284
+msgid "Apply"
+msgstr "დართვა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:60
+msgid "<b>Environment</b>"
+msgstr "<b>გარემო</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:61
+msgid "Mode"
+msgstr "რეჟიმი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:62
+msgid "Model"
+msgstr "მოდელი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:63
+msgid "Layout"
+msgstr "განლაგება"
+
+#: ../data/ui/lxsession-default-apps.ui.h:64
+msgid "Variant"
+msgstr "ვარიანტი"
+
+#: ../data/ui/lxsession-default-apps.ui.h:65
+msgid "Options"
+msgstr "გამართვა"
+
+#: ../data/ui/lxsession-default-apps.ui.h:66
+msgid "<b>Keymap</b>"
+msgstr "<b>ღილაკების რუკა</b>"
+
+#: ../data/ui/lxsession-default-apps.ui.h:67
+msgid "Settings"
+msgstr "&მორგება"
+
+#: ../data/lxsession-edit.desktop.in.h:2
+msgid "Manage applications loaded in desktop session"
+msgstr "სამუშაო მაგიდის სესიაში ჩატვირთული აპლიკაციების მართვა"
+
+#: ../data/lxsession-default-apps.desktop.in.h:1
+msgid "Default applications for LXSession"
+msgstr "LXSession-ის ნაგულისხმები აპლიკაციები"
+
+#: ../data/lxsession-default-apps.desktop.in.h:2
+msgid "Change the default applications on LXDE"
+msgstr "LXDE-ის ნაგულისხმები აპლიკაციების შეცვლა"
+
+#: ../data/lxpolkit.desktop.in.h:1
+msgid "LXPolKit"
+msgstr "LXPolKit"
+
+#: ../data/lxpolkit.desktop.in.h:2
+msgid "Policykit Authentication Agent"
+msgstr "Policykit-ის ავთენტიკაციის აგენტი"
+
+#: ../lxsession-default-apps/main.vala:29
+msgid "Update lxsession database"
+msgstr "LXSession-ის ბაზის განახლება"
+
+#. Widget content:
+#: ../lxsession-default-apps/main.vala:42
+msgid "The database is updating, please wait"
+msgstr "მიმდინარეობს ბაზის განახლება. მოითმინეთ"
+
+#: ../lxsession-default-apps/main.vala:91
+msgid "LXSession configuration"
+msgstr "LXSession-ის მორგება"
+
+#. Common string
+#: ../lxsession-default-apps/main.vala:143
+msgid ""
+"Manual Settings: Manually sets the command (you need to restart lxsession-"
+"default-apps to see the change)\n"
+msgstr ""
+"ხელიტ მორგება: ბრძანებების ხელით დაყენება (ცვლილებების დასანახავად საჭიროა "
+"lxsession-default-apps-ის თავიდან გაშვება)\n"
+
+#: ../lxsession-default-apps/main.vala:144
+msgid "Session : specify the session\n"
+msgstr "სესია : მიუთითეთ სესია\n"
+
+#: ../lxsession-default-apps/main.vala:145
+msgid "Extra: Add an extra parameter to the launch option\n"
+msgstr "დამატებით: გაშვების პარამეტრებში დამატებითი მნიშვნელობის ჩამატება\n"
+
+#: ../lxsession-default-apps/main.vala:146
+msgid ""
+"Mime association: Automatically associates mime types to this application ?\n"
+msgstr ""
+"MIME-ს ასოცირება: MIME-ის ტიპების ავტომატურად ასოცირება ამ აპლიკაციასთან\n"
+
+#: ../lxsession-default-apps/main.vala:147
+msgid ""
+"Available applications : Applications of this type available on your "
+"repositories\n"
+msgstr ""
+"ხელმისაწვდომი აპლიკაციები : ამ ტიპის აპლიკაციები ხელმისაწვდომია თქვენს "
+"რეპოზიტორიებში\n"
+
+#: ../lxsession-default-apps/main.vala:148
+msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgstr "სამუშაო მაგიდის მართვა: დავხატო სამუშაო მაგიდა ფაილების მმართველით?\n"
+
+#: ../lxsession-default-apps/main.vala:149
+msgid "Autostart the application ?\n"
+msgstr "გავუშვა აპლიკაცია ავტომატურად?\n"
+
+#: ../lxsession-default-apps/main.vala:150
+msgid ""
+"Set default program for Debian system (using update-alternatives, need root "
+"password)\n"
+msgstr ""
+"Debian-ის ნაგულისხმები პროგრამების დაყენება (იყენებს update-alternatives-ს, "
+"ესაჭიროება root-ის პაროლი)\n"
+
+#. New inits
+#: ../lxsession-default-apps/main.vala:153
+msgid ""
+"Windows manager draws and manage the windows. \n"
+"You can choose openbox, openbox-custom (for a custom openbox configuration, "
+"see \"More\"), kwin, compiz ..."
+msgstr ""
+"ფანჯრების მმართველი ფანჯრებს ხატავს და მართავს.\n"
+"შეგიძლიათ აირჩიოთ openbox, openbox-custom (კონფიგურაციის მეტი "
+"პარამეტრებისთვის. იხ \"მეტი\"), kwin, compiz..."
+
+#: ../lxsession-default-apps/main.vala:158
+msgid ""
+"Panel is the component usually at the bottom of the screen which manages a "
+"list of opened windows, shortcuts, notification area ..."
+msgstr ""
+"პანელი კომპონენტია, რომელიც ჩვეულებრივ ეკრანის ქვედა მხარეს იმყოფება და "
+"მართავს გახსნილ ფანჯრებს, მალსახმობებს, შეტყობინებებს და ა.შ ..."
+
+#: ../lxsession-default-apps/main.vala:163
+msgid ""
+"Dock is a second panel. It's used to launch a different program to handle a "
+"second type of panel."
+msgstr "დოკი მეორე პანელია. ის სხვადასხვა პროგრამების გასაშვებად გამოიყენება."
+
+#: ../lxsession-default-apps/main.vala:168
+msgid ""
+"File manager is the component which open the files.\n"
+"See \"More\" to add options to handle the desktop, or opening files "
+msgstr ""
+"ფაილების მმართველი კომპონენტია, რომელიც ფაილებს ხსნის.\n"
+"იხილეთ \"მეტი\", რათ დაამატოთ პარამეტრები, ან ფაილის გახსნაში "
+
+#: ../lxsession-default-apps/main.vala:173
+msgid ""
+"Composite manager enables graphics effects, like transparency and shadows, "
+"if the windows manager doesn't handle it. \n"
+"Example: compton"
+msgstr ""
+"კომპოზიტური მმართველი რთავს გრაფიკულ ეფექტებს, როგორიცაა გამჭვირვალობა და "
+"ჩრდილები, თუ ამას ფანჯრების მმართველი არ აკეთებს.\n"
+"მაგ: compton"
+
+#: ../lxsession-default-apps/main.vala:178
+msgid ""
+"Desktop manager draws the desktop and manages the icons inside it.\n"
+"You can manage it with the file manager by setting \"filemanager\""
+msgstr ""
+"სამუშაო მაგიდის მმართველი სამუშაო მაგიდას ხატავს და მასში ხატულებს მარტავს.\n"
+"მისი მართვა ფაილების მმართველითაც შეგიძლიათ. ამისათვის დააყენეთ "
+"\"filemanager\""
+
+#: ../lxsession-default-apps/main.vala:180
+msgid "Wallpaper: Set an image path to draw the wallpaper"
+msgstr "ფონის სურათი: დააყენეთ ფონის სურათი"
+
+#: ../lxsession-default-apps/main.vala:183
+msgid ""
+"Screensaver is a program which displays animations when your computer is idle"
+msgstr ""
+"ეკრანის შემნახველი აპლიკაციაა, რომელის ეკრანზე, როცა ის უქმედაა, ანიმაციებს "
+"აჩვენებს"
+
+#: ../lxsession-default-apps/main.vala:188
+msgid ""
+"Power Manager helps you to reduce the usage of batteries. You probably don't "
+"need one if you have a desktop computer.\n"
+"Auto option will set it automatically, depending of the laptop mode option."
+msgstr ""
+"კვების მართვა თქვენი კომპიუტერის ელემენტის გახარჯვას შეამცირებს. ამისი ქონა "
+"დიდი ალბათობით სამაგიდო კომპიუტერზე არასოდეს დაგჭირდებათ.\n"
+"პარამეტრი auto მას ავტომატურად მოირგებს, თქვენი ლეპტოპის მოდელზე "
+"დამოკიდებულებით."
+
+#: ../lxsession-default-apps/main.vala:193
+msgid ""
+"Polkit agent provides authorisations to use some actions, like suspend, "
+"hibernate, using Consolekit ... It's not advised to make it blank."
+msgstr ""
+"Polkit-ის აგენტი საშუალებას აძლევს ავტორიზაციას მეტი ქმედება განახორციელოს. "
+"მაგ: შეჩერება, პროგრამული ძილი, Consolekit-ის გამოყენება... გირჩევთ, ცარიელი "
+"არასოდეს დატოვოთ."
+
+#: ../lxsession-default-apps/main.vala:198
+msgid "Set an utility to manager connections, such as nm-applet"
+msgstr "მიერთებების მართვის აპლიკაციის დაყენება (მაგ: nm-applet)"
+
+#: ../lxsession-default-apps/main.vala:203
+msgid "Use a communication software (an IRC client, an IM client ...)"
+msgstr "კომუნიკაციის პროგრამების (IRC კლიენტის, IM კლიენტის...) გამოყენება"
+
+#: ../lxsession-default-apps/main.vala:208
+msgid "Use another communication software (an IRC client, an IM client ...)"
+msgstr ""
+"სხვა კომუნიკაციის პროგრამების (IRC კლიენტის, IM კლიენტის...) გამოყენება"
+
+#: ../lxsession-default-apps/main.vala:213
+msgid "Terminal by default to launch command line."
+msgstr "ბრძანების სტრიქონის ნაგულისხმებად ტერმინალში გაშვება."
+
+#: ../lxsession-default-apps/main.vala:218
+msgid "Application to go to Internet, Google, Facebook, debian.org ..."
+msgstr ""
+"ინტერნეტში, Google-ზე, Facebook-ზე, Debian.org-ზე შესასვლელი აპლიკაცია..."
+
+#: ../lxsession-default-apps/main.vala:223
+msgid "Application to send mails"
+msgstr "ელფოსტების გასაგზავნი აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:228
+msgid "Utility to launch gadgets, like conky, screenlets ..."
+msgstr "გაჯეტების გასაშვები აპლიკაცია. მაგ: conky, screenlets..."
+
+#: ../lxsession-default-apps/main.vala:233
+msgid ""
+"Utility to launch application, like synapse, kupfer ... \n"
+"For using lxpanel or lxde default utility, use \"lxpanelctl\" "
+msgstr ""
+"პროგრამა აპლიკაციის გასაშვებად. მაგ: synapse, kypfer…\n"
+"lxpanel-ის და lxde-ს გამოსაყენებლად შეიყვანეთ 'lxpanelctl' "
+
+#: ../lxsession-default-apps/main.vala:238
+msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+"თქვენი სამუშაო მაგიდის ეკრანის ანაბეჭდის გადასაღები პროგრამა, მაგ: scrot..."
+
+#: ../lxsession-default-apps/main.vala:248
+msgid "Video application"
+msgstr "ვიდეო აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:253
+msgid "Audio application"
+msgstr "აუდიო აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Application to display images"
+msgstr "სურათების საჩვენებელი აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:263
+msgid "Application to edit text"
+msgstr "ტექსტის რედაქტორები"
+
+#: ../lxsession-default-apps/main.vala:268
+msgid "Application to create archives, like file-roller"
+msgstr "არქივებთან სამუშაო აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:273
+msgid "Charmap application"
+msgstr "სიმბოლოების რუკის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:278
+msgid "Calculator application"
+msgstr "კალკულატორის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:283
+msgid "Application to create spreedsheet, like gnumeric"
+msgstr "ელცხრილებთან სამუშაო აპლიკაცია. მაგ: gnumeric"
+
+#: ../lxsession-default-apps/main.vala:288
+msgid "Application to manage bittorent, like transmission"
+msgstr "ტორენტების სამართავი აპლიკაცია. მაგ: transmission"
+
+#: ../lxsession-default-apps/main.vala:293
+msgid "Application to manage office text, like abiword"
+msgstr "ოფისის ტექსტის სამართავი აპლიკაცია. მაგ: abiword"
+
+#: ../lxsession-default-apps/main.vala:298
+msgid "Application to manage webcam"
+msgstr "ვებკამერის სამართავი აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:303
+msgid "Application to manage burning CD/DVD utilty "
+msgstr "CD/DVD-ის ამოწვის მართვის აპლიკაცია "
+
+#: ../lxsession-default-apps/main.vala:308
+msgid "Application to manage notes utility"
+msgstr "შენიშვნების მართვის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:313
+msgid "Application to manage disks"
+msgstr "დისკების მართვის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:318
+msgid "Application to monitor tasks running on your system"
+msgstr "სისტემაში გაშვებული ამოცანების მონიტორინგის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:323
+msgid "Application to lock your screen"
+msgstr "ეკრანის დაბლოკვის აპლიკაცია"
+
+#: ../lxsession-default-apps/main.vala:328
+msgid "Managing your audio configuration"
+msgstr "თქვენი ხმის კონფიგურაციის მორგება"
+
+#: ../lxsession-default-apps/main.vala:333
+msgid "Managing your workspace configuration"
+msgstr "თქვენი სამუშაო სივრცის მორგება"
+
+#: ../lxsession-default-apps/main.vala:338
+msgid "Managing the application to quit your session"
+msgstr "სესიიდან გასვლის აპლიკაციის მართვა"
+
+#: ../lxsession-default-apps/main.vala:343
+msgid "Managing the application to update and upgrade your system"
+msgstr "სისტემის განახლების აპლიკაციის მართვა"
+
+#: ../lxsession-default-apps/main.vala:348
+msgid "Managing clipboard support"
+msgstr "ბუფერის მხარდაჭერის მართვა"
+
+#: ../lxsession-default-apps/main.vala:353
+msgid ""
+"Managing keyring support.\n"
+"Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
+"agent\" for ssh-agent support"
+msgstr ""
+"ბრელოკის მხარდაჭერის მართვა.\n"
+"სტანდარტული პარამეტრებია: \"gnome\", თუ ხმარობთ gnome-keyring-ს ან \"ssh-"
+"agent\""
+
+#: ../lxsession-default-apps/main.vala:358
+msgid ""
+"Managing support for accessibility.\n"
+"Stardart option are gnome, for stardart gnome support."
+msgstr ""
+"წვდომადობის მხარდაჭერის მართვა.\n"
+"სტანდარტული მნიშვნელობაა \"gnome\", GNOME-ის მხარდაჭერისთვის."
+
+#: ../lxsession-default-apps/main.vala:363
+msgid "Managing proxy support"
+msgstr "პროქსის მხარდაჭერის მართვა"
+
+#: ../lxsession-default-apps/main.vala:368
+msgid "Managing XRandr parameters. Use a command like xrandr --something"
+msgstr "XRandr-ის პარამეტრების მართვა. გამოიყენეთ ბრძანება, მაგ: xrandr --რამე"
+
+#: ../lxsession-default-apps/combobox.vala:145
+msgid "Manual setting"
+msgstr "ხელით მორგება"
+
+#: ../lxsession-default-apps/combobox.vala:165
+msgid "Mime Association"
+msgstr "Mime-ების ასოცირება"
+
+#: ../lxsession-default-apps/combobox.vala:194
+msgid "Available applications"
+msgstr "ხელმისაწვდომი აპლიკაციები"
+
+#: ../lxsession-default-apps/combobox.vala:240
+msgid "Autostart the application ?"
+msgstr "გავუშვა აპლიკაცია ავტომატურად?"
+
+#: ../lxsession-default-apps/combobox.vala:261
+msgid "Handle the desktop with it ?"
+msgstr "დავამუშაო სამუშაო მაგიდა მისით?"
+
+#: ../lxsession-default-apps/combobox.vala:281
+msgid "Set debian default programs"
+msgstr "Debian-ის ნაგულისხმები პროგრამების დაყენება"
+
+#: ../lxsession-default-apps/combobox.vala:425
+msgid "Disable"
+msgstr "გამორთვა"
+
+#: ../lxsession-default-apps/combobox.vala:564
+msgid "Do you want to associate the following Mimetype ?\n"
+msgstr "გნებავთ შემდეგ mimetype-სთან ასოცირება?\n"
+
+#: ../lxsession-default-apps/combobox.vala:612
+msgid "Cancel"
+msgstr "შეწყვეტა"
