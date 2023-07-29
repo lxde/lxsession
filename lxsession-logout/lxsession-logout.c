@@ -664,7 +664,7 @@ int main(int argc, char * argv[])
 
     /* Hide buttons */
     if (hide_button != NULL) {
-      for (int i = 0; i < g_strv_length(hide_button); i++) {
+      for (guint i = 0; i < g_strv_length(hide_button); i++) {
         if (strcmp(hide_button[i], "shutdown") == 0) {
           handler_context.shutdown_available = FALSE;
         }
