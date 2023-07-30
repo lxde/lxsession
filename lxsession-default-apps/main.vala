@@ -158,10 +158,10 @@ namespace LDefaultApps
             string manual_setting_help = _("Manual Settings: Manually sets the command (you need to restart lxsession-default-apps to see the change)\n");
             string session_string_help = _("Session : specify the session\n");
             string extra_string_help = _("Extra: Add an extra parameter to the launch option\n");
-            string mime_association_help = _("Mime association: Automatically associates mime types to this application ?\n");
+            string mime_association_help = _("Mime association: Automatically associates mime types to this application?\n");
             string mime_available_help = _("Available applications : Applications of this type available on your repositories\n");
-            string handle_desktop_help = _("Handle Desktop: Draw the desktop using the file manager ?\n");
-            string autostart_help = _("Autostart the application ?\n");
+            string handle_desktop_help = _("Handle Desktop: Draw the desktop using the file manager?\n");
+            string autostart_help = _("Autostart the application?\n");
             string debian_default_help = _("Set default program for Debian system (using update-alternatives, need root password)\n");
 
             /* New inits */

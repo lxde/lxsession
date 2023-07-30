@@ -46,7 +46,7 @@ msgstr "Greška: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Odjavljujete li  %s %s sesiju?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -352,7 +352,7 @@ msgid "Core applications"
 msgstr "Osnovni programi"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Onemogući početne programe?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -481,7 +481,7 @@ msgstr "Posebno: Dodajte poseban parametar za postavku pokretanja\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr ""
 "MIME pridruživanje: Da li da sam povežem MIME vrste sa ovim programom?\n"
 
@@ -493,13 +493,13 @@ msgstr ""
 "Dostupni programi: U Vašim skladištima dostupni su programi ovih vrsta\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 "Upravnik radne površi: Da li da upotrebim upravnik datoteka za upravljanje "
 "radnom površi?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Da li da sam pokrenem program?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -757,11 +757,11 @@ msgid "Available applications"
 msgstr "Dostupni programi"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Da li da omogućim samopokretanje programa?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Da rukujem radnom površi pomoću njega ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -773,7 +773,7 @@ msgid "Disable"
 msgstr "Isključi"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Želite li da pridružite sledeću MIME-vrstu?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

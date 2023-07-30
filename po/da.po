@@ -46,7 +46,7 @@ msgstr "Fejl: %s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 #, c-format, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Log ud af %s %s-session?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -353,7 +353,7 @@ msgid "Core applications"
 msgstr "Kerneprogrammer"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Deaktivér programmer som er blevet startet automatisk?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -482,7 +482,7 @@ msgstr "Ekstra: Tilføj en ekstra paramater til start-tilvalget\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME-tilknytning: Tilknyt automatisk MIME-typer til dette program?\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -494,11 +494,11 @@ msgstr ""
 "repositories\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "Håndtér skrivebord: Tegn skrivebordet ved brug af filhåndteringen?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Start programmet automatisk?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -756,11 +756,11 @@ msgid "Available applications"
 msgstr "Tilgængelige programmer"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Start programmet automatisk?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Håndtér skrivebordet med den?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -772,7 +772,7 @@ msgid "Disable"
 msgstr "Deaktivér"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Vil du tilknytte følgende MIME-type?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

@@ -48,7 +48,7 @@ msgstr "エラー: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s セッションをログアウトしますか?</big></b>"
 
 # Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
@@ -355,7 +355,7 @@ msgid "Core applications"
 msgstr "コアアプリケーション"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "アプリケーションの自動立ちあげを無効にしますか?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -482,7 +482,7 @@ msgstr "Extra: 起動オプションに新たなパラメータを追加\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "Mime association: このアプリケーションをmime typesに自動的に関連付けますか?\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -492,11 +492,11 @@ msgid ""
 msgstr "Available applications : このタイプのアプリケーションはリポジトリ上で使用可能です\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "Handle Desktop: ファイルマネージャーを使用してデスクトップを描画しますか?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "アプリケーションを自動起動させますか ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -741,11 +741,11 @@ msgid "Available applications"
 msgstr "利用可能なアプリケーション"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "アプリケーションを自動起動しますか?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "これでデスクトップをハンドルしますか?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -757,7 +757,7 @@ msgid "Disable"
 msgstr "不可"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "以下のMimetypeを関連づけしますか?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

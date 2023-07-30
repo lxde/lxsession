@@ -46,7 +46,7 @@ msgstr "Ошибка: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Завершить сеанс %s %s?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -353,7 +353,7 @@ msgid "Core applications"
 msgstr "Базовые приложения"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Отключить автостартующие приложения?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -482,7 +482,7 @@ msgstr "Экстра: Добавьте экстра параметр к опци
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr ""
 "Ассоциация mime: Автоматически ассоциировать типы mime с этим приложением?\n"
 
@@ -494,13 +494,13 @@ msgstr ""
 "Доступные приложения: Приложения этого типа, доступные в ваших репозиториях\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 "Обработчик рабочего стола: Нарисовать рабочий стол, используя менеджер "
 "файлов?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Автоматически стартовать приложение ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -766,11 +766,11 @@ msgid "Available applications"
 msgstr "Доступные приложения"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Автоматически стартующие приложение?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Рабочий стол должен обрабатывать это?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -782,7 +782,7 @@ msgid "Disable"
 msgstr "Отключить"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Вы хотите ассоциировать следующий тип mime?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

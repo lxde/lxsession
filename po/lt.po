@@ -47,7 +47,7 @@ msgstr "Klaida: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Atjungti %s %s seansą ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -353,7 +353,7 @@ msgid "Core applications"
 msgstr "Pagrindinės programos"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Išjungti automatiškai paleidžiamas programas ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -482,7 +482,7 @@ msgstr "Papildoma: Pridėkite paleidimo parinkčiai papildomą parametrą\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "Mime susiejimas: Automatiškai susieja mime tipus su šia programa ?\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -492,12 +492,12 @@ msgid ""
 msgstr "Prieinamos programos : Šio tipo programos, prieinamos jūsų saugyklose\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 "Apdoroti darbalaukį: Atvaizduoti darbalaukį, naudojant failų tvarkytuvę ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Paleisti programą automatiškai ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -771,11 +771,11 @@ msgid "Available applications"
 msgstr "Prieinamos programos"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Paleisti programą automatiškai ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Apdoroti kartu ir darbalaukį ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -787,7 +787,7 @@ msgid "Disable"
 msgstr "Išjungti"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Ar norite susieti šiuos Mime tipus ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

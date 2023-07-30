@@ -45,7 +45,7 @@ msgstr "Σφάλμα: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Αποσύνδεση συνεδρίας %s %s;</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -354,7 +354,7 @@ msgid "Core applications"
 msgstr "Κύριες Εφαρμογές"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Απενεργοποίηση εφαρμογών που εκκινούν αυτόματα ;"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -483,7 +483,7 @@ msgstr "Επιπλέον: Προσθήκη μίας επιπλέον παραμ�
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr ""
 "Συσχέτιση πρωτοκόλλου μορφότυπων διαδικτύου. Αυτόματη συσχέτιση μορφότυπων "
 "διαδικτύου με αυτή την εφαρμογή;\n"
@@ -497,13 +497,13 @@ msgstr ""
 "αποθετήριο\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 "Χειρισμός Επιφάνειας Εργασίας: Εμφάνισε την επιφάνεια εργασίας "
 "χρησιμοποιώνταςτο διαχειστή αρχείων\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Αυτόματη εκκίνηση της εφαρμογής;\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -776,11 +776,11 @@ msgid "Available applications"
 msgstr "Διαθέσιμες εφαρμογές"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Αυτόματη εκκίνηση της εφαρμογής;"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Χειρισμός της επιφάνειας εργασίας με αυτό;"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -792,7 +792,7 @@ msgid "Disable"
 msgstr "Απενεργοποίηση"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Επιθυμείτε να συσχετίσετε τον ακόλουθο μορφότυπο διαδικτύου;\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

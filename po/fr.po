@@ -45,7 +45,7 @@ msgstr "Erreur : %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Quitter la session %s %s ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -352,7 +352,7 @@ msgid "Core applications"
 msgstr "Applications principales"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Désactiver les applications au démarrage ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -481,7 +481,7 @@ msgstr "Supplément : ajoutez un paramètre supplémentaire pour lancer l'optio
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr ""
 "Association Mime : associer automatiquement des types Mime à cette "
 "application ?\n"
@@ -495,12 +495,12 @@ msgstr ""
 "dépôts\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 "Gérer le bureau : dessiner le bureau à l'aide du gestionnaire de fichiers ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Démarrer l'application automatiquement ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -774,11 +774,11 @@ msgid "Available applications"
 msgstr "Applications disponibles"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Démarrer l'application automatiquement ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Gérer le bureau avec ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -790,7 +790,7 @@ msgid "Disable"
 msgstr "Désactiver"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Voulez-vous associer les types Mime suivants ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

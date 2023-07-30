@@ -747,7 +747,7 @@ int main(int argc, char * argv[])
         os_name = g_get_os_info(G_OS_INFO_KEY_PRETTY_NAME);
 #endif
 
-        prompt = g_strdup_printf(_("<b><big>Logout %s %s session ?</big></b>"), session_name, os_name ? os_name : "");
+        prompt = g_strdup_printf(_("<b><big>Logout %s %s session?</big></b>"), session_name, os_name ? os_name : "");
 
         g_free(os_name);
     }

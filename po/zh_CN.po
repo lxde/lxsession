@@ -45,7 +45,7 @@ msgstr "错误：%s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>注销 %s %s会话？</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -350,7 +350,7 @@ msgid "Core applications"
 msgstr "核心应用程序"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "禁用自动启动的应用程序？"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -477,7 +477,7 @@ msgstr "额外：添加额外的启动参数\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME 关联：自动将 MIME 类型与该应用程序关联吗？\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -487,11 +487,11 @@ msgid ""
 msgstr "可用应用程序：您的仓库中有的这类应用程序\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "管理桌面：用桌面管理器绘制桌面吗？\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "自动启动该应用程序？\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -733,11 +733,11 @@ msgid "Available applications"
 msgstr "可用应用程序"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "自动启动该应用程序？"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "用它管理桌面？"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -749,7 +749,7 @@ msgid "Disable"
 msgstr "禁用"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "您想关联以下 MIME 类型吗？\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

@@ -237,7 +237,7 @@ namespace LDefaultApps
                     master_vbox.add(hbox);
 
                     var check_button = new Gtk.CheckButton();
-                    check_button.set_label(_("Autostart the application ?"));
+                    check_button.set_label(_("Autostart the application?"));
                     string default_text = dbus_backend.Get(item, "autostart");
                     if (default_text == "true")
                     {
@@ -258,7 +258,7 @@ namespace LDefaultApps
                     master_vbox.add(hbox);
 
                     var check_button = new Gtk.CheckButton();
-                    check_button.set_label(_("Handle the desktop with it ?"));
+                    check_button.set_label(_("Handle the desktop with it?"));
                     string default_text = dbus_backend.Get("desktop_manager", "command");
                     if (default_text == "filemanager")
                     {
@@ -561,7 +561,7 @@ namespace LDefaultApps
         var mime_vbox = new Gtk.VBox(false, 0);
         mime_view_port.add(mime_vbox);
 
-        var info_label = new Label(_("Do you want to associate the following Mimetype ?\n"));
+        var info_label = new Label(_("Do you want to associate the following Mimetype?\n"));
         mime_vbox.add(info_label);
 
         string[] mime_combobox_list;

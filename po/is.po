@@ -45,7 +45,7 @@ msgstr "Villa: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Skrá út úr %s %s setu ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -351,7 +351,7 @@ msgid "Core applications"
 msgstr "Kjarnaforrit"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Gera sjálfræst forrit óvirk ?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -481,7 +481,7 @@ msgstr "Auka: Bæta viðbótarrofa við ræsiskipun\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME-skráavensl: Tengja þessar MIME-tegundir við þetta forrit ?\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -493,11 +493,11 @@ msgstr ""
 " þínum\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "Meðhöndlun skjáborðs: Teikna skjáborðið með skráastjóranum ?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Sjálfræsa forritið ?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -759,11 +759,11 @@ msgid "Available applications"
 msgstr "Tiltæk forrit"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Sjálfræsa forritið ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "Meðhöndla skjáborðið með því ?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -775,7 +775,7 @@ msgid "Disable"
 msgstr "Gera óvirkt"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "Viltu tengja þetta við eftirfarandi MIME-tegundir ?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

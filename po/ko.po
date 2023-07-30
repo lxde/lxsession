@@ -46,7 +46,7 @@ msgstr "오류: %s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 #, c-format, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s 세션을 로그아웃하시겠습니까?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -351,7 +351,7 @@ msgid "Core applications"
 msgstr "핵심 프로그램"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "프로그램 자동 시작을 비활성화하시겠습니까?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -478,7 +478,7 @@ msgstr "추가: 실행 옵션에 추가 매개 변수를 추가합니다\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME 할당: 이 프로그램에 MIME 형식을 자동으로 할당하시겠습니까?\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -488,11 +488,11 @@ msgid ""
 msgstr "기존 프로그램: 저장소에 있는 이 형식의 프로그램\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "데스크톱 처리: 파일 관리자를 데스크톱에 표시할까요?\n"
 
 #: ../lxsession-default-apps/main.vala:149
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "프로그램을 자동으로 시작하시겠습니까?\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -737,11 +737,11 @@ msgid "Available applications"
 msgstr "기존 프로그램"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "프로그램을 자동으로 시작하시겠습니까 ?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "이 프로그램으로 데스크톱의 작업을 처리하시겠습니까?"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -753,7 +753,7 @@ msgid "Disable"
 msgstr "비활성화"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "다음 MIME 형식에 할당하시겠습니까?\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

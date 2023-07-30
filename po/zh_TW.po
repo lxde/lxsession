@@ -46,7 +46,7 @@ msgstr "錯誤：%s\n"
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
 #, c-format, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>登出 %s %s 作業階段？</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:702
@@ -356,7 +356,7 @@ msgstr "核心應用程式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
 #, fuzzy
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "是否不再自動啟動應用程式？"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -490,7 +490,7 @@ msgstr "額外：在啟動選項加入額外參數\n"
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME 關聯：是否自動為應用程式設定關聯 MIME 類型？\n"
 
 #: ../lxsession-default-apps/main.vala:147
@@ -500,12 +500,12 @@ msgid ""
 msgstr "可用應用程式：在軟體庫可提供的此類型應用程式\n"
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "處理桌面：是否以檔案管理員繪畫桌面？\n"
 
 #: ../lxsession-default-apps/main.vala:149
 #, fuzzy
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "是否自動啟動該應用程式？\n"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -748,11 +748,11 @@ msgid "Available applications"
 msgstr "可用程式"
 
 #: ../lxsession-default-apps/combobox.vala:240
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "是否自動啟動該程式？"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr "是否以之處理桌面？"
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -764,7 +764,7 @@ msgid "Disable"
 msgstr "停用"
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr "是否關聯以下 MIME 類型？\n"
 
 #: ../lxsession-default-apps/combobox.vala:612

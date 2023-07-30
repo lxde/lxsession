@@ -48,7 +48,7 @@ msgstr "Errore: %s\n"
 
 #: ../lxsession-logout/lxsession-logout.c:694
 #, c-format
-msgid "<b><big>Logout %s %s session ?</big></b>"
+msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Chiudere la sessione %s %s?</big></b>"
 
 # Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
@@ -375,7 +375,7 @@ msgid "Core applications"
 msgstr "Applicazione"
 
 #: ../data/ui/lxsession-default-apps.ui.h:49
-msgid "Disable autostarted applications ?"
+msgid "Disable autostarted applications?"
 msgstr "Disabilitare applicazioni avviate automaticamente?"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
@@ -503,7 +503,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:146
 msgid ""
-"Mime association: Automatically associates mime types to this application ?\n"
+"Mime association: Automatically associates mime types to this application?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:147
@@ -513,12 +513,12 @@ msgid ""
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:148
-msgid "Handle Desktop: Draw the desktop using the file manager ?\n"
+msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:149
 #, fuzzy
-msgid "Autostart the application ?\n"
+msgid "Autostart the application?\n"
 msgstr "Disabilitare applicazioni avviate automaticamente?"
 
 #: ../lxsession-default-apps/main.vala:150
@@ -754,11 +754,11 @@ msgstr "Lancio applicazioni"
 
 #: ../lxsession-default-apps/combobox.vala:240
 #, fuzzy
-msgid "Autostart the application ?"
+msgid "Autostart the application?"
 msgstr "Disabilitare applicazioni avviate automaticamente?"
 
 #: ../lxsession-default-apps/combobox.vala:261
-msgid "Handle the desktop with it ?"
+msgid "Handle the desktop with it?"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:281
@@ -770,7 +770,7 @@ msgid "Disable"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:564
-msgid "Do you want to associate the following Mimetype ?\n"
+msgid "Do you want to associate the following Mimetype?\n"
 msgstr ""
 
 #: ../lxsession-default-apps/combobox.vala:612

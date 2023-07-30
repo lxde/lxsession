@@ -4363,7 +4363,7 @@
                                           <object class="GtkLabel" id="label54">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">Disable autostarted applications ?</property>
+                                            <property name="label" translatable="yes">Disable autostarted applications?</property>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
