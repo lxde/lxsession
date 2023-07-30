@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-11 15:47+0300\n"
+"POT-Creation-Date: 2023-07-30 16:12+0200\n"
 "PO-Revision-Date: 2015-07-20 14:38+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: \n"
-"Language: templates\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,63 +18,66 @@ msgstr ""
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:51
 msgid "Custom message to show on the dialog"
 msgstr "대화상자에 표시할 사용자 정의 메시지"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:51
 msgid "message"
 msgstr "메시지"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Banner to show on the dialog"
 msgstr "대화상자에 표시할 배너"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "image file"
 msgstr "그림 파일"
 
-#: ../lxsession-logout/lxsession-logout.c:50
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Position of the banner"
 msgstr "배너의 위치"
 
-#: ../lxsession-logout/lxsession-logout.c:460
+#: ../lxsession-logout/lxsession-logout.c:54
+msgid "Hide button"
+msgstr ""
+
+#: ../lxsession-logout/lxsession-logout.c:624
 #, c-format
 msgid "Error: %s\n"
 msgstr "오류: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:694
+#: ../lxsession-logout/lxsession-logout.c:750
 #, c-format
-#, c-format, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s 세션을 로그아웃하시겠습니까?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:702
+#: ../lxsession-logout/lxsession-logout.c:760
 msgid "Sh_utdown"
 msgstr "종료(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:713
+#: ../lxsession-logout/lxsession-logout.c:771
 msgid "_Reboot"
 msgstr "재시작(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:724
+#: ../lxsession-logout/lxsession-logout.c:782
 msgid "_Suspend"
 msgstr "대기(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:735
+#: ../lxsession-logout/lxsession-logout.c:793
 msgid "_Hibernate"
 msgstr "최대 절전(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:746
+#: ../lxsession-logout/lxsession-logout.c:804
 msgid "S_witch User"
 msgstr "사용자 전환(_W)"
 
-#: ../lxsession-logout/lxsession-logout.c:757
+#: ../lxsession-logout/lxsession-logout.c:815
 msgid "L_ock Screen"
 msgstr "화면 잠금(_O)"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:766
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "_Logout"
 msgstr "로그아웃(_L)"
 
@@ -86,13 +89,17 @@ msgstr "활성화"
 msgid "Application"
 msgstr "프로그램"
 
-#: ../lxpolkit/lxpolkit.c:43
+#: ../lxpolkit/lxpolkit.c:44
 msgid "Error"
 msgstr "오류"
 
-#: ../lxpolkit/lxpolkit.c:46
+#: ../lxpolkit/lxpolkit.c:47
 msgid "Information"
 msgstr "정보"
+
+#: ../lxpolkit/main.vala:40
+msgid "lxpolkit is already running. Exiting"
+msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -142,7 +149,8 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>경고:</b> 무슨 행동을 하는지 확실히 알기 전에는 건드리지 <b>마십시오</b>.\n"
+"<b>경고:</b> 무슨 행동을 하는지 확실히 알기 전에는 건드리지 <b>마십시오</"
+"b>.\n"
 "\n"
 "<b>참고:</b> 이 설정은 다음에 로그인 할 때 적용됩니다."
 
@@ -440,91 +448,99 @@ msgstr "LXSession 기본 프로그램"
 msgid "Change the default applications on LXDE"
 msgstr "LXDE 기본 프로그램 바꾸기"
 
-#: ../data/lxpolkit.desktop.in.h:1
+#: ../data/lxpolkit.desktop.in.in.h:1
 msgid "LXPolKit"
 msgstr "LXPolKit"
 
-#: ../data/lxpolkit.desktop.in.h:2
+#: ../data/lxpolkit.desktop.in.in.h:2
 msgid "Policykit Authentication Agent"
 msgstr "Policykit 인증 대리자"
 
-#: ../lxsession-default-apps/main.vala:29
+#: ../lxsession-default-apps/main.vala:31
 msgid "Update lxsession database"
 msgstr "lxsession 데이터베이스 업데이트"
 
 #. Widget content:
-#: ../lxsession-default-apps/main.vala:42
+#: ../lxsession-default-apps/main.vala:44
 msgid "The database is updating, please wait"
 msgstr "데이터베이스를 업데이트 중입니다. 잠시만 기다리십시오."
 
-#: ../lxsession-default-apps/main.vala:91
+#: ../lxsession-default-apps/main.vala:98
 msgid "LXSession configuration"
 msgstr "LXSession 설정"
 
 #. Common string
-#: ../lxsession-default-apps/main.vala:143
+#: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
-msgstr "직접 설정: 명령을 직접 설정합니다(바뀐 상태를 보려면 lxsession-default-apps를 다시 시작해야합니다)\n"
+msgstr ""
+"직접 설정: 명령을 직접 설정합니다(바뀐 상태를 보려면 lxsession-default-apps"
+"를 다시 시작해야합니다)\n"
 
-#: ../lxsession-default-apps/main.vala:144
+#: ../lxsession-default-apps/main.vala:159
 msgid "Session : specify the session\n"
 msgstr "세션: 세션을 지정합니다\n"
 
-#: ../lxsession-default-apps/main.vala:145
+#: ../lxsession-default-apps/main.vala:160
 msgid "Extra: Add an extra parameter to the launch option\n"
 msgstr "추가: 실행 옵션에 추가 매개 변수를 추가합니다\n"
 
-#: ../lxsession-default-apps/main.vala:146
+#: ../lxsession-default-apps/main.vala:161
 msgid ""
 "Mime association: Automatically associates mime types to this application?\n"
 msgstr "MIME 할당: 이 프로그램에 MIME 형식을 자동으로 할당하시겠습니까?\n"
 
-#: ../lxsession-default-apps/main.vala:147
+#: ../lxsession-default-apps/main.vala:162
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
 msgstr "기존 프로그램: 저장소에 있는 이 형식의 프로그램\n"
 
-#: ../lxsession-default-apps/main.vala:148
+#: ../lxsession-default-apps/main.vala:163
 msgid "Handle Desktop: Draw the desktop using the file manager?\n"
 msgstr "데스크톱 처리: 파일 관리자를 데스크톱에 표시할까요?\n"
 
-#: ../lxsession-default-apps/main.vala:149
+#: ../lxsession-default-apps/main.vala:164
 msgid "Autostart the application?\n"
 msgstr "프로그램을 자동으로 시작하시겠습니까?\n"
 
-#: ../lxsession-default-apps/main.vala:150
+#: ../lxsession-default-apps/main.vala:165
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
-msgstr "데비안 시스템 기본 프로그램 설정(update-alternatives를 사용하므로 루트 암호가 필요함)\n"
+msgstr ""
+"데비안 시스템 기본 프로그램 설정(update-alternatives를 사용하므로 루트 암호"
+"가 필요함)\n"
 
 #. New inits
-#: ../lxsession-default-apps/main.vala:153
+#: ../lxsession-default-apps/main.vala:168
 msgid ""
 "Windows manager draws and manage the windows. \n"
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
 "창 관리자는 창을 화면에 표시하며 관리합니다.\n"
-"openbox, openbox-custom(개별 openbox 설정은 \"더 보기\"를 참고), kwin, compiz 등을 선택할 수 "
-"있습니다."
+"openbox, openbox-custom(개별 openbox 설정은 \"더 보기\"를 참고), kwin, "
+"compiz 등을 선택할 수 있습니다."
 
-#: ../lxsession-default-apps/main.vala:158
+#: ../lxsession-default-apps/main.vala:173
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
-msgstr "패널은 보통 화면에 열어둔 창, 바로가기 아이콘, 알림 영역 목록을 관리하는 화면 하단의 구성요소입니다."
+msgstr ""
+"패널은 보통 화면에 열어둔 창, 바로가기 아이콘, 알림 영역 목록을 관리하는 화"
+"면 하단의 구성요소입니다."
 
-#: ../lxsession-default-apps/main.vala:163
+#: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
-msgstr "도크는 두번째 패널입니다. 다른 형식의 패널을 다루려 종종 다른 프로그램을 사용합니다."
+msgstr ""
+"도크는 두번째 패널입니다. 다른 형식의 패널을 다루려 종종 다른 프로그램을 사용"
+"합니다."
 
-#: ../lxsession-default-apps/main.vala:168
+#: ../lxsession-default-apps/main.vala:183
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
@@ -532,16 +548,17 @@ msgstr ""
 "파일 관리자는 파일을 여는 구성 요소입니다.\n"
 "데스크톱 또는 파일을 열어볼 때 옵션을 추가하려면 \"더 보기\"를 참고하십시오 "
 
-#: ../lxsession-default-apps/main.vala:173
+#: ../lxsession-default-apps/main.vala:188
 msgid ""
 "Composite manager enables graphics effects, like transparency and shadows, "
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
-"합성 효과 관리자는 창 관리자에서 투명 또는 그림자를 처리하지 못할 경우 이런 그래픽 효과를 활성화합니다.\n"
+"합성 효과 관리자는 창 관리자에서 투명 또는 그림자를 처리하지 못할 경우 이런 "
+"그래픽 효과를 활성화합니다.\n"
 "예시: compton"
 
-#: ../lxsession-default-apps/main.vala:178
+#: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
@@ -549,61 +566,64 @@ msgstr ""
 "데스크톱 관리자는 데스크톱을 화면에 표시하며 화면의 아이콘을 관리합니다.\n"
 "\"파일 관리자\"를 설정하여 파일 관리자에서 데스크톱을 관리할 수 있습니다"
 
-#: ../lxsession-default-apps/main.vala:180
+#: ../lxsession-default-apps/main.vala:195
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr "바탕 화면: 바탕 화면에 표시할 그림의 경로를 설정합니다"
 
-#: ../lxsession-default-apps/main.vala:183
+#: ../lxsession-default-apps/main.vala:198
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
-msgstr "화면 보호기는 컴퓨터가 대기 상태일 때 움직이는 화면을 나타내는 프로그램입니다"
+msgstr ""
+"화면 보호기는 컴퓨터가 대기 상태일 때 움직이는 화면을 나타내는 프로그램입니다"
 
-#: ../lxsession-default-apps/main.vala:188
+#: ../lxsession-default-apps/main.vala:203
 msgid ""
 "Power Manager helps you to reduce the usage of batteries. You probably don't "
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
-"전원 관리자는 배터리 사용을 줄일 수 있도록 합니다. 데스크톱 컴퓨터에서는 필요하지 않을 수도 있습니다.\n"
+"전원 관리자는 배터리 사용을 줄일 수 있도록 합니다. 데스크톱 컴퓨터에서는 필요"
+"하지 않을 수도 있습니다.\n"
 "자동 옵션은 랩톱 모드 옵션에 따라 자동으로 설정합니다."
 
-#: ../lxsession-default-apps/main.vala:193
+#: ../lxsession-default-apps/main.vala:208
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
-"Polkit 대리자는 대기, 최대 절전 등의 상태에서 일부 동작을 취할 때 Consolekit을 통한 인증기반을 제공합니다. 이 설정 "
-"부분을 그대로 비워두지 말 것을 권합니다."
+"Polkit 대리자는 대기, 최대 절전 등의 상태에서 일부 동작을 취할 때 Consolekit"
+"을 통한 인증기반을 제공합니다. 이 설정 부분을 그대로 비워두지 말 것을 권합니"
+"다."
 
-#: ../lxsession-default-apps/main.vala:198
+#: ../lxsession-default-apps/main.vala:213
 msgid "Set an utility to manager connections, such as nm-applet"
 msgstr "nm-applet 같은 연결 관리자 설정"
 
-#: ../lxsession-default-apps/main.vala:203
+#: ../lxsession-default-apps/main.vala:218
 msgid "Use a communication software (an IRC client, an IM client ...)"
 msgstr "통신 프로그램 사용(IRC 클라이언트, 인스턴트 메신저 클라이언트 등)"
 
-#: ../lxsession-default-apps/main.vala:208
+#: ../lxsession-default-apps/main.vala:223
 msgid "Use another communication software (an IRC client, an IM client ...)"
 msgstr "다른 통신 프로그램 사용(IRC 클라이언트, 인스턴트 메신저 클라이언트 등)"
 
-#: ../lxsession-default-apps/main.vala:213
+#: ../lxsession-default-apps/main.vala:228
 msgid "Terminal by default to launch command line."
 msgstr "명령줄을 기본으로 실행할 터미널입니다."
 
-#: ../lxsession-default-apps/main.vala:218
+#: ../lxsession-default-apps/main.vala:233
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
 msgstr "구글, 페이스북, debian.org 등 위치로 이동할 프로그램"
 
-#: ../lxsession-default-apps/main.vala:223
+#: ../lxsession-default-apps/main.vala:238
 msgid "Application to send mails"
 msgstr "전자 메일을 보낼 프로그램"
 
-#: ../lxsession-default-apps/main.vala:228
+#: ../lxsession-default-apps/main.vala:243
 msgid "Utility to launch gadgets, like conky, screenlets ..."
 msgstr "콘키, screenlets 등의 가젯을 실행할 유틸리티"
 
-#: ../lxsession-default-apps/main.vala:233
+#: ../lxsession-default-apps/main.vala:248
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
@@ -611,104 +631,105 @@ msgstr ""
 "synapse, kupfer 등의 프로그램을 실행할 유틸리티\n"
 "lxpanel 또는 lxde 기본 유틸리티를 사용하려면 \"lxpanelctl\"을 실행하십시오 "
 
-#: ../lxsession-default-apps/main.vala:238
+#: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "scrot과 같은 데스크톱 스크린샷 프로그램"
 
-#: ../lxsession-default-apps/main.vala:248
+#: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
 msgstr "동영상 프로그램"
 
-#: ../lxsession-default-apps/main.vala:253
+#: ../lxsession-default-apps/main.vala:268
 msgid "Audio application"
 msgstr "오디오 프로그램"
 
-#: ../lxsession-default-apps/main.vala:258
+#: ../lxsession-default-apps/main.vala:273
 msgid "Application to display images"
 msgstr "그림을 볼 때 쓰는 프로그램"
 
-#: ../lxsession-default-apps/main.vala:263
+#: ../lxsession-default-apps/main.vala:278
 msgid "Application to edit text"
 msgstr "텍스트 편집 프로그램"
 
-#: ../lxsession-default-apps/main.vala:268
+#: ../lxsession-default-apps/main.vala:283
 msgid "Application to create archives, like file-roller"
 msgstr "file-roller와 같은 압축 파일을 만들 프로그램"
 
-#: ../lxsession-default-apps/main.vala:273
+#: ../lxsession-default-apps/main.vala:288
 msgid "Charmap application"
 msgstr "문자표 프로그램"
 
-#: ../lxsession-default-apps/main.vala:278
+#: ../lxsession-default-apps/main.vala:293
 msgid "Calculator application"
 msgstr "계산기 프로그램"
 
-#: ../lxsession-default-apps/main.vala:283
+#: ../lxsession-default-apps/main.vala:298
 msgid "Application to create spreedsheet, like gnumeric"
 msgstr "gnumeric과 같이 스프레드시트를 만드는 프로그램"
 
-#: ../lxsession-default-apps/main.vala:288
+#: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage bittorent, like transmission"
 msgstr "transmission과 같은 비트 토런트 관리 프로그램"
 
-#: ../lxsession-default-apps/main.vala:293
+#: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage office text, like abiword"
 msgstr "abiword와 같은 사무 문서 관리 프로그램"
 
-#: ../lxsession-default-apps/main.vala:298
+#: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage webcam"
 msgstr "webcam을 관리하는 프로그램"
 
-#: ../lxsession-default-apps/main.vala:303
+#: ../lxsession-default-apps/main.vala:318
 msgid "Application to manage burning CD/DVD utilty "
 msgstr "CD/DVD를 굽는 유틸리티 관리 프로그램"
 
-#: ../lxsession-default-apps/main.vala:308
+#: ../lxsession-default-apps/main.vala:323
 msgid "Application to manage notes utility"
 msgstr "간단한 기록을 관리하는 프로그램"
 
-#: ../lxsession-default-apps/main.vala:313
+#: ../lxsession-default-apps/main.vala:328
 msgid "Application to manage disks"
 msgstr "디스크 관리 프로그램"
 
-#: ../lxsession-default-apps/main.vala:318
+#: ../lxsession-default-apps/main.vala:333
 msgid "Application to monitor tasks running on your system"
 msgstr "시스템에서 실행 중인 작업을 감시하는 프로그램"
 
-#: ../lxsession-default-apps/main.vala:323
+#: ../lxsession-default-apps/main.vala:338
 msgid "Application to lock your screen"
 msgstr "화면 잠그기 프로그램"
 
-#: ../lxsession-default-apps/main.vala:328
+#: ../lxsession-default-apps/main.vala:343
 msgid "Managing your audio configuration"
 msgstr "오디오 설정 관리"
 
-#: ../lxsession-default-apps/main.vala:333
+#: ../lxsession-default-apps/main.vala:348
 msgid "Managing your workspace configuration"
 msgstr "작업 공간 설정 관리"
 
-#: ../lxsession-default-apps/main.vala:338
+#: ../lxsession-default-apps/main.vala:353
 msgid "Managing the application to quit your session"
 msgstr "세션을 빠져나갈 프로그램 관리"
 
-#: ../lxsession-default-apps/main.vala:343
+#: ../lxsession-default-apps/main.vala:358
 msgid "Managing the application to update and upgrade your system"
 msgstr "시스템을 업데이트 또는 업그레이드 하는 프로그램 관리"
 
-#: ../lxsession-default-apps/main.vala:348
+#: ../lxsession-default-apps/main.vala:363
 msgid "Managing clipboard support"
 msgstr "클립보드 지원 관리"
 
-#: ../lxsession-default-apps/main.vala:353
+#: ../lxsession-default-apps/main.vala:368
 msgid ""
 "Managing keyring support.\n"
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
 "키 모음 지원을 관리합니다.\n"
-"표준 옵션은 gnome-keyring을 지원하는 \"gnome\" 또는 ssh-agent를 지원하는 \"ssh-agent\"에 있습니다"
+"표준 옵션은 gnome-keyring을 지원하는 \"gnome\" 또는 ssh-agent를 지원하는 "
+"\"ssh-agent\"에 있습니다"
 
-#: ../lxsession-default-apps/main.vala:358
+#: ../lxsession-default-apps/main.vala:373
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
@@ -716,13 +737,14 @@ msgstr ""
 "접근성 지원을 관리합니다.\n"
 "표준 옵션은 표준 그놈을 지원하는 gnome 입니다."
 
-#: ../lxsession-default-apps/main.vala:363
+#: ../lxsession-default-apps/main.vala:378
 msgid "Managing proxy support"
 msgstr "프록시 지원 관리"
 
-#: ../lxsession-default-apps/main.vala:368
+#: ../lxsession-default-apps/main.vala:383
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr "xrandr 매개 변수를 관리합니다. xrandr --삐리리 같은 명령을 사용하십시오"
+msgstr ""
+"xrandr 매개 변수를 관리합니다. xrandr --삐리리 같은 명령을 사용하십시오"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -759,6 +781,58 @@ msgstr "다음 MIME 형식에 할당하시겠습니까?\n"
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "취소"
+
+#: ../lxsession/app.vala:1273
+msgid "Reboot required"
+msgstr ""
+
+#: ../lxsession/app.vala:1301
+#, fuzzy
+#| msgid "_Reboot"
+msgid "Reboot"
+msgstr "재시작(_R)"
+
+#: ../lxsession/app.vala:1341
+#, fuzzy
+#| msgid "Launcher manager"
+msgid "Launch language support"
+msgstr "프로그램 실행 관리자"
+
+#: ../lxsession/app.vala:1374
+msgid "Language support missing"
+msgstr ""
+
+#: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
+msgid "Updates available"
+msgstr ""
+
+#: ../lxsession/app.vala:1418
+#, fuzzy
+#| msgid "Launcher manager"
+msgid "Launch Update Manager"
+msgstr "프로그램 실행 관리자"
+
+#: ../lxsession/app.vala:1493
+msgid ""
+"An error occurred, please run Package Manager from the left-click menu or "
+"apt-get in a terminal to see what is wrong."
+msgstr ""
+
+#: ../lxsession/app.vala:1496
+msgid "The error message was: "
+msgstr ""
+
+#: ../lxsession/app.vala:1516
+msgid " Update available"
+msgstr ""
+
+#: ../lxsession/app.vala:1866
+msgid "Report "
+msgstr ""
+
+#: ../lxsession/app.vala:1903
+msgid "Crash files available for report"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Command"

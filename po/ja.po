@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-11 15:47+0300\n"
+"POT-Creation-Date: 2023-07-30 16:12+0200\n"
 "PO-Revision-Date: 2015-05-04 04:40+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: ja_JP <LL@li.org>\n"
-"Language: templates\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,65 +19,69 @@ msgstr ""
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:51
 msgid "Custom message to show on the dialog"
 msgstr "ダイアログに表示するメッセージの設定"
 
 # tutto maiuscolo perché è un parametro per la riga di comando
-#: ../lxsession-logout/lxsession-logout.c:48
+#: ../lxsession-logout/lxsession-logout.c:51
 msgid "message"
 msgstr "メッセージ"
 
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Banner to show on the dialog"
 msgstr "表示するダイアログのバナー"
 
 # tutto maiuscolo perché è un parametro per la riga di comando
-#: ../lxsession-logout/lxsession-logout.c:49
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "image file"
 msgstr "画像ファイル"
 
-#: ../lxsession-logout/lxsession-logout.c:50
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Position of the banner"
 msgstr "バナーの位置"
 
-#: ../lxsession-logout/lxsession-logout.c:460
+#: ../lxsession-logout/lxsession-logout.c:54
+msgid "Hide button"
+msgstr ""
+
+#: ../lxsession-logout/lxsession-logout.c:624
 #, c-format
 msgid "Error: %s\n"
 msgstr "エラー: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:694
+#: ../lxsession-logout/lxsession-logout.c:750
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s セッションをログアウトしますか?</big></b>"
 
 # Sono comandi e comunque l'infinito non torna con l'ultimo pulsante che è "Annulla" dallo stock
-#: ../lxsession-logout/lxsession-logout.c:702
+#: ../lxsession-logout/lxsession-logout.c:760
 msgid "Sh_utdown"
 msgstr "シャットダウン（_U）"
 
-#: ../lxsession-logout/lxsession-logout.c:713
+#: ../lxsession-logout/lxsession-logout.c:771
 msgid "_Reboot"
 msgstr "再起動（_R）"
 
-#: ../lxsession-logout/lxsession-logout.c:724
+#: ../lxsession-logout/lxsession-logout.c:782
 msgid "_Suspend"
 msgstr "サスペンド（_S）"
 
-#: ../lxsession-logout/lxsession-logout.c:735
+#: ../lxsession-logout/lxsession-logout.c:793
 msgid "_Hibernate"
 msgstr "ハイバネート（_H）"
 
-#: ../lxsession-logout/lxsession-logout.c:746
+#: ../lxsession-logout/lxsession-logout.c:804
 msgid "S_witch User"
 msgstr "ユーザの切り替え（_W）"
 
-#: ../lxsession-logout/lxsession-logout.c:757
+#: ../lxsession-logout/lxsession-logout.c:815
 msgid "L_ock Screen"
 msgstr "スクリーンのロック（_O）"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:766
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "_Logout"
 msgstr "ログアウト（_L）"
 
@@ -89,13 +93,17 @@ msgstr "有効"
 msgid "Application"
 msgstr "アプリケーション"
 
-#: ../lxpolkit/lxpolkit.c:43
+#: ../lxpolkit/lxpolkit.c:44
 msgid "Error"
 msgstr "エラー"
 
-#: ../lxpolkit/lxpolkit.c:46
+#: ../lxpolkit/lxpolkit.c:47
 msgid "Information"
 msgstr "情報"
+
+#: ../lxpolkit/main.vala:40
+msgid "lxpolkit is already running. Exiting"
+msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -145,7 +153,8 @@ msgid ""
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
 msgstr ""
-"<b>警告:</b> 何をしているか分からないときはこの設定を<b>変更しないでください</b>。\n"
+"<b>警告:</b> 何をしているか分からないときはこの設定を<b>変更しないでください"
+"</b>。\n"
 "\n"
 "<b>注意:</b> この設定は次回ログイン以降有効になります。"
 
@@ -444,109 +453,121 @@ msgstr "LXSession のデフォルトのアプリケーション"
 msgid "Change the default applications on LXDE"
 msgstr "LXDE のデフォルトのアプリケーションを変更する"
 
-#: ../data/lxpolkit.desktop.in.h:1
+#: ../data/lxpolkit.desktop.in.in.h:1
 msgid "LXPolKit"
 msgstr "LXpolkit"
 
-#: ../data/lxpolkit.desktop.in.h:2
+#: ../data/lxpolkit.desktop.in.in.h:2
 msgid "Policykit Authentication Agent"
 msgstr "Policykit 認証エージェント"
 
-#: ../lxsession-default-apps/main.vala:29
+#: ../lxsession-default-apps/main.vala:31
 msgid "Update lxsession database"
 msgstr "lxsession データベースの更新"
 
 #. Widget content:
-#: ../lxsession-default-apps/main.vala:42
+#: ../lxsession-default-apps/main.vala:44
 msgid "The database is updating, please wait"
 msgstr "データベース更新中，お待ちください"
 
-#: ../lxsession-default-apps/main.vala:91
+#: ../lxsession-default-apps/main.vala:98
 msgid "LXSession configuration"
 msgstr "LXSession 設定"
 
 #. Common string
-#: ../lxsession-default-apps/main.vala:143
+#: ../lxsession-default-apps/main.vala:158
 msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
-msgstr "手動設定: コマンドによる手動設定 (変更を反映させるためにデフォルトのlxsession アプリケーションを再起動する必要があります\n"
+msgstr ""
+"手動設定: コマンドによる手動設定 (変更を反映させるためにデフォルトの"
+"lxsession アプリケーションを再起動する必要があります\n"
 
-#: ../lxsession-default-apps/main.vala:144
+#: ../lxsession-default-apps/main.vala:159
 msgid "Session : specify the session\n"
 msgstr "Session: セッションを指定 \n"
 
-#: ../lxsession-default-apps/main.vala:145
+#: ../lxsession-default-apps/main.vala:160
 msgid "Extra: Add an extra parameter to the launch option\n"
 msgstr "Extra: 起動オプションに新たなパラメータを追加\n"
 
-#: ../lxsession-default-apps/main.vala:146
+#: ../lxsession-default-apps/main.vala:161
 msgid ""
 "Mime association: Automatically associates mime types to this application?\n"
-msgstr "Mime association: このアプリケーションをmime typesに自動的に関連付けますか?\n"
+msgstr ""
+"Mime association: このアプリケーションをmime typesに自動的に関連付けますか?\n"
 
-#: ../lxsession-default-apps/main.vala:147
+#: ../lxsession-default-apps/main.vala:162
 msgid ""
 "Available applications : Applications of this type available on your "
 "repositories\n"
-msgstr "Available applications : このタイプのアプリケーションはリポジトリ上で使用可能です\n"
+msgstr ""
+"Available applications : このタイプのアプリケーションはリポジトリ上で使用可能"
+"です\n"
 
-#: ../lxsession-default-apps/main.vala:148
+#: ../lxsession-default-apps/main.vala:163
 msgid "Handle Desktop: Draw the desktop using the file manager?\n"
-msgstr "Handle Desktop: ファイルマネージャーを使用してデスクトップを描画しますか?\n"
+msgstr ""
+"Handle Desktop: ファイルマネージャーを使用してデスクトップを描画しますか?\n"
 
-#: ../lxsession-default-apps/main.vala:149
+#: ../lxsession-default-apps/main.vala:164
 msgid "Autostart the application?\n"
 msgstr "アプリケーションを自動起動させますか ?\n"
 
-#: ../lxsession-default-apps/main.vala:150
+#: ../lxsession-default-apps/main.vala:165
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
 msgstr ""
-"Debianシステムのためのデフォルトのプログラムを設定します(update-alternativesの使用には、rootのパスワードが必要です)\n"
+"Debianシステムのためのデフォルトのプログラムを設定します(update-alternatives"
+"の使用には、rootのパスワードが必要です)\n"
 
 #. New inits
-#: ../lxsession-default-apps/main.vala:153
+#: ../lxsession-default-apps/main.vala:168
 msgid ""
 "Windows manager draws and manage the windows. \n"
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
 "ウィンドウマネージャーはウィンドウの管理をします。  \n"
-"openbox, openbox-custom (Openboxのカスタム版, \"More\" を見てください), kwin, compiz ... "
-"から選ぶことができます。"
+"openbox, openbox-custom (Openboxのカスタム版, \"More\" を見てください), "
+"kwin, compiz ... から選ぶことができます。"
 
-#: ../lxsession-default-apps/main.vala:158
+#: ../lxsession-default-apps/main.vala:173
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
-msgstr "パネルは通常、スクリーンの下に配置され、開いているウィンドウのリスト、ショートカット、通知エリア...の管理をします。"
+msgstr ""
+"パネルは通常、スクリーンの下に配置され、開いているウィンドウのリスト、ショー"
+"トカット、通知エリア...の管理をします。"
 
-#: ../lxsession-default-apps/main.vala:163
+#: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
-msgstr "Dockはもうひとつのパネルです。様々なプログラムを起動させるのに使用します。"
+msgstr ""
+"Dockはもうひとつのパネルです。様々なプログラムを起動させるのに使用します。"
 
-#: ../lxsession-default-apps/main.vala:168
+#: ../lxsession-default-apps/main.vala:183
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
 "ファイルマネージャーはファイルを開く際に使用されるコンポーネントです。\n"
-"デスクトップでの取り扱い、ファイルを開く際のオプションを追加するには \"More\" を見てください。 "
+"デスクトップでの取り扱い、ファイルを開く際のオプションを追加するには \"More"
+"\" を見てください。 "
 
-#: ../lxsession-default-apps/main.vala:173
+#: ../lxsession-default-apps/main.vala:188
 msgid ""
 "Composite manager enables graphics effects, like transparency and shadows, "
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
-"Composite manager はウィンドウマネージャーが取り扱いできない透過や影などのグラフィック効果を可能にします。  \n"
+"Composite manager はウィンドウマネージャーが取り扱いできない透過や影などのグ"
+"ラフィック効果を可能にします。  \n"
 "例: compton"
 
-#: ../lxsession-default-apps/main.vala:178
+#: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
@@ -554,165 +575,178 @@ msgstr ""
 "デスクトップマネージャーはデスクトップとその上のアイコンの描画を行います。\n"
 "\"filemanager\" の設定によって管理を行うことができます。"
 
-#: ../lxsession-default-apps/main.vala:180
+#: ../lxsession-default-apps/main.vala:195
 msgid "Wallpaper: Set an image path to draw the wallpaper"
 msgstr "壁紙: 壁紙を描画するには画像のパスを設定してください"
 
-#: ../lxsession-default-apps/main.vala:183
+#: ../lxsession-default-apps/main.vala:198
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
-msgstr "スクリーンセーバーはコンピューターがアイドルの時に表示されるアニメーションプログラムです"
+msgstr ""
+"スクリーンセーバーはコンピューターがアイドルの時に表示されるアニメーションプ"
+"ログラムです"
 
-#: ../lxsession-default-apps/main.vala:188
+#: ../lxsession-default-apps/main.vala:203
 msgid ""
 "Power Manager helps you to reduce the usage of batteries. You probably don't "
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
-"パワーマネージャーはバッテリー使用量の軽減を援助します。おそらくデスクトップコンピュータでは必要ではありません。\n"
+"パワーマネージャーはバッテリー使用量の軽減を援助します。おそらくデスクトップ"
+"コンピュータでは必要ではありません。\n"
 "ラップトップモードのオプションにtよって自動的に設定されます。"
 
-#: ../lxsession-default-apps/main.vala:193
+#: ../lxsession-default-apps/main.vala:208
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
 msgstr ""
-"Polkit agent はサスペンドやハイバーネート、Consolekitの使用など...に対して認証作業を与えます。ブランクにすることを推奨しません。"
+"Polkit agent はサスペンドやハイバーネート、Consolekitの使用など...に対して認"
+"証作業を与えます。ブランクにすることを推奨しません。"
 
-#: ../lxsession-default-apps/main.vala:198
+#: ../lxsession-default-apps/main.vala:213
 msgid "Set an utility to manager connections, such as nm-applet"
 msgstr "nm-appletのような接続マネージャーを設定します"
 
-#: ../lxsession-default-apps/main.vala:203
+#: ../lxsession-default-apps/main.vala:218
 msgid "Use a communication software (an IRC client, an IM client ...)"
-msgstr "コミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用します"
+msgstr ""
+"コミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用しま"
+"す"
 
-#: ../lxsession-default-apps/main.vala:208
+#: ../lxsession-default-apps/main.vala:223
 msgid "Use another communication software (an IRC client, an IM client ...)"
-msgstr "外のコミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用します"
+msgstr ""
+"外のコミュニケーションソフトウェア(IRCクライアント、IMクライアント ...)を使用"
+"します"
 
-#: ../lxsession-default-apps/main.vala:213
+#: ../lxsession-default-apps/main.vala:228
 msgid "Terminal by default to launch command line."
 msgstr "コマンドラインからの起動にはTerminalを使用します。"
 
-#: ../lxsession-default-apps/main.vala:218
+#: ../lxsession-default-apps/main.vala:233
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr "Internet, Google, Facebook, debian.org ...を訪れるためのアプリケーション"
+msgstr ""
+"Internet, Google, Facebook, debian.org ...を訪れるためのアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:223
+#: ../lxsession-default-apps/main.vala:238
 msgid "Application to send mails"
 msgstr "メール送信用アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:228
+#: ../lxsession-default-apps/main.vala:243
 msgid "Utility to launch gadgets, like conky, screenlets ..."
 msgstr "conky, screenlets ...のようなガジェットを起動させるユーティリティー"
 
-#: ../lxsession-default-apps/main.vala:233
+#: ../lxsession-default-apps/main.vala:248
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
 "synapse, kupfer ... のようなアプリケーションを起動するユーティリティ \n"
-"lxpanel あるいはlxdeのデフォルトユーテリティーの起動のためには \"lxpanelctl\"を使用します。 "
+"lxpanel あるいはlxdeのデフォルトユーテリティーの起動のためには \"lxpanelctl"
+"\"を使用します。 "
 
-#: ../lxsession-default-apps/main.vala:238
+#: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
-msgstr "scrot ...のようなデスクトップ上でスクリーンショットを撮るためのアプリケーション"
+msgstr ""
+"scrot ...のようなデスクトップ上でスクリーンショットを撮るためのアプリケーショ"
+"ン"
 
-#: ../lxsession-default-apps/main.vala:248
+#: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
 msgstr "動画アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:253
+#: ../lxsession-default-apps/main.vala:268
 msgid "Audio application"
 msgstr "オーディオアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:258
+#: ../lxsession-default-apps/main.vala:273
 msgid "Application to display images"
 msgstr "画像を表示するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:263
+#: ../lxsession-default-apps/main.vala:278
 msgid "Application to edit text"
 msgstr "テキスト編集アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:268
+#: ../lxsession-default-apps/main.vala:283
 msgid "Application to create archives, like file-roller"
 msgstr "file-roller のようなアーカイブを作成するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:273
+#: ../lxsession-default-apps/main.vala:288
 msgid "Charmap application"
 msgstr "Charmap アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:278
+#: ../lxsession-default-apps/main.vala:293
 msgid "Calculator application"
 msgstr "電卓アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:283
+#: ../lxsession-default-apps/main.vala:298
 msgid "Application to create spreedsheet, like gnumeric"
 msgstr "gnumericのようなスプレッドシートを作成するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:288
+#: ../lxsession-default-apps/main.vala:303
 msgid "Application to manage bittorent, like transmission"
 msgstr "transmissionのような、bittorentを管理するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:293
+#: ../lxsession-default-apps/main.vala:308
 msgid "Application to manage office text, like abiword"
 msgstr "abiwordのような、オフィス文書を管理するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:298
+#: ../lxsession-default-apps/main.vala:313
 msgid "Application to manage webcam"
 msgstr "webcamを管理するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:303
+#: ../lxsession-default-apps/main.vala:318
 msgid "Application to manage burning CD/DVD utilty "
 msgstr "CD/DVDへの書き込みを管理するアプリケーション "
 
-#: ../lxsession-default-apps/main.vala:308
+#: ../lxsession-default-apps/main.vala:323
 msgid "Application to manage notes utility"
 msgstr "notes ユーテリティーを管理するアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:313
+#: ../lxsession-default-apps/main.vala:328
 msgid "Application to manage disks"
 msgstr "ディスク管理アプリケーション"
 
-#: ../lxsession-default-apps/main.vala:318
+#: ../lxsession-default-apps/main.vala:333
 msgid "Application to monitor tasks running on your system"
 msgstr "システム上のタスクをモニタするアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:323
+#: ../lxsession-default-apps/main.vala:338
 msgid "Application to lock your screen"
 msgstr "スクリーンをロックするアプリケーション"
 
-#: ../lxsession-default-apps/main.vala:328
+#: ../lxsession-default-apps/main.vala:343
 msgid "Managing your audio configuration"
 msgstr "オーディオ構成の管理"
 
-#: ../lxsession-default-apps/main.vala:333
+#: ../lxsession-default-apps/main.vala:348
 msgid "Managing your workspace configuration"
 msgstr "ワークスペース構成の管理"
 
-#: ../lxsession-default-apps/main.vala:338
+#: ../lxsession-default-apps/main.vala:353
 msgid "Managing the application to quit your session"
 msgstr "セッション終了時のアプリケーションの管理"
 
-#: ../lxsession-default-apps/main.vala:343
+#: ../lxsession-default-apps/main.vala:358
 msgid "Managing the application to update and upgrade your system"
 msgstr "システムのアップデート及びアップグレード時のアプリケーションの管理"
 
-#: ../lxsession-default-apps/main.vala:348
+#: ../lxsession-default-apps/main.vala:363
 msgid "Managing clipboard support"
 msgstr "クリップボードサポートの管理"
 
-#: ../lxsession-default-apps/main.vala:353
+#: ../lxsession-default-apps/main.vala:368
 msgid ""
 "Managing keyring support.\n"
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
 "キーリングサポートの管理。\n"
-"標準オプションはgnome-keyringサポートのための\"gnome\" あるいはssh-agentサポートのための \"ssh-agent\"。"
+"標準オプションはgnome-keyringサポートのための\"gnome\" あるいはssh-agentサ"
+"ポートのための \"ssh-agent\"。"
 
-#: ../lxsession-default-apps/main.vala:358
+#: ../lxsession-default-apps/main.vala:373
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
@@ -720,13 +754,14 @@ msgstr ""
 "アクセシビリティのサポートの管理。\n"
 "標準オプションは、gnome 標準サポートのためのgnome。"
 
-#: ../lxsession-default-apps/main.vala:363
+#: ../lxsession-default-apps/main.vala:378
 msgid "Managing proxy support"
 msgstr "プロキシサポートの管理"
 
-#: ../lxsession-default-apps/main.vala:368
+#: ../lxsession-default-apps/main.vala:383
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr " XRandr パラメータの管理。xrandr --something のようにコマンドを使用する。 "
+msgstr ""
+" XRandr パラメータの管理。xrandr --something のようにコマンドを使用する。 "
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -763,6 +798,58 @@ msgstr "以下のMimetypeを関連づけしますか?\n"
 #: ../lxsession-default-apps/combobox.vala:612
 msgid "Cancel"
 msgstr "取り消し"
+
+#: ../lxsession/app.vala:1273
+msgid "Reboot required"
+msgstr ""
+
+#: ../lxsession/app.vala:1301
+#, fuzzy
+#| msgid "_Reboot"
+msgid "Reboot"
+msgstr "再起動（_R）"
+
+#: ../lxsession/app.vala:1341
+#, fuzzy
+#| msgid "Launcher manager"
+msgid "Launch language support"
+msgstr "ランチャーマネージャー"
+
+#: ../lxsession/app.vala:1374
+msgid "Language support missing"
+msgstr ""
+
+#: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
+msgid "Updates available"
+msgstr ""
+
+#: ../lxsession/app.vala:1418
+#, fuzzy
+#| msgid "Launcher manager"
+msgid "Launch Update Manager"
+msgstr "ランチャーマネージャー"
+
+#: ../lxsession/app.vala:1493
+msgid ""
+"An error occurred, please run Package Manager from the left-click menu or "
+"apt-get in a terminal to see what is wrong."
+msgstr ""
+
+#: ../lxsession/app.vala:1496
+msgid "The error message was: "
+msgstr ""
+
+#: ../lxsession/app.vala:1516
+msgid " Update available"
+msgstr ""
+
+#: ../lxsession/app.vala:1866
+msgid "Report "
+msgstr ""
+
+#: ../lxsession/app.vala:1903
+msgid "Crash files available for report"
+msgstr ""
 
 #~ msgid "Command"
 #~ msgstr "コマンド"
