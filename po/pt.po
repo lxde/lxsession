@@ -1,23 +1,24 @@
 # Portuguese translations for lxsession-lite package.
 # Copyright (C) 2009 THE lxsession-lite'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxsession-lite package.
-# <alvarommorais@gmail.com>, 2009.
-# Sérgio Marques <smarquespt@gmail.com> 2010
+# Álvaro Morais <alvarommorais@gmail.com>, 2009.
+# Sérgio Marques <smarquespt@gmail.com>, 2010.
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023.
 # Adaptado ao acordo ortográfico de 1990
 msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite 0.3.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-30 16:12+0200\n"
-"PO-Revision-Date: 2015-03-26 13:36+0000\n"
-"Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
-"Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
+"PO-Revision-Date: 2023-08-01 15:53+0100\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese PT\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:51
@@ -42,7 +43,7 @@ msgstr "Posição da imagem"
 
 #: ../lxsession-logout/lxsession-logout.c:54
 msgid "Hide button"
-msgstr ""
+msgstr "Ocultar botão"
 
 #: ../lxsession-logout/lxsession-logout.c:624
 #, c-format
@@ -101,7 +102,7 @@ msgstr "Informação"
 
 #: ../lxpolkit/main.vala:40
 msgid "lxpolkit is already running. Exiting"
-msgstr ""
+msgstr "lxpolkit já está em execução. A sair"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -142,7 +143,7 @@ msgid ""
 "(The default window manager command for LXDE should be openbox-lxde)"
 msgstr ""
 "Linha de comandos a utilizar para iniciar o gestor de janelas\n"
-"(O comando pré-definido do gestor de janelas do LXDE é openbox-lxde)"
+"(O comando predefinido do gestor de janelas do LXDE é openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -444,11 +445,11 @@ msgstr "Gerir aplicações carregadas ao iniciar a sessão"
 
 #: ../data/lxsession-default-apps.desktop.in.h:1
 msgid "Default applications for LXSession"
-msgstr "Aplicações pré-definidas de LxSession"
+msgstr "Aplicações predefinidas de LxSession"
 
 #: ../data/lxsession-default-apps.desktop.in.h:2
 msgid "Change the default applications on LXDE"
-msgstr "Escolha as aplicações pré-definidas do LXDE"
+msgstr "Escolha as aplicações predefinidas do LXDE"
 
 #: ../data/lxpolkit.desktop.in.in.h:1
 msgid "LXPolKit"
@@ -465,7 +466,7 @@ msgstr "Atualizar base de dados lxsession"
 #. Widget content:
 #: ../lxsession-default-apps/main.vala:44
 msgid "The database is updating, please wait"
-msgstr "Atualização em curso. Por favor aguarde."
+msgstr "A base de dados está a ser atualizada, aguarde"
 
 #: ../lxsession-default-apps/main.vala:98
 msgid "LXSession configuration"
@@ -552,8 +553,9 @@ msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
 msgstr ""
-"O gestor de ficheiros é o componente que abre os ficheiros e pastas.\n"
-"Consulte \"Mais\" para adicionar opções extra de gestão de ficheiros."
+"O gestor de ficheiros é o componente que abre os ficheiros.\n"
+"Consulte \"Mais\" para adicionar opções para gerir o ambiente de trabalho ou "
+"abrir ficheiros"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
@@ -563,7 +565,7 @@ msgid ""
 msgstr ""
 "O gestor de composição ativa os efeitos gráficos como, por exemplo, a "
 "transparência e sombras, caso o seu gestor de janelas não o faça.\n"
-"Exemplo: compton."
+"Exemplo: compton"
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
@@ -577,14 +579,14 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:195
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr "Papel de parede: definir uma imagem para o ecrã."
+msgstr "Papel de parede: definir uma imagem para o ecrã"
 
 #: ../lxsession-default-apps/main.vala:198
 msgid ""
 "Screensaver is a program which displays animations when your computer is idle"
 msgstr ""
 "A proteção de ecrã é um programa que mostra animações se o computador "
-"estiver inativo."
+"estiver inativo"
 
 #: ../lxsession-default-apps/main.vala:203
 msgid ""
@@ -607,7 +609,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Set an utility to manager connections, such as nm-applet"
-msgstr "Definir o utilitário para gerir ligações, por exemplo nm-applet."
+msgstr "Definir o utilitário para gerir ligações, por exemplo nm-applet"
 
 #: ../lxsession-default-apps/main.vala:218
 msgid "Use a communication software (an IRC client, an IM client ...)"
@@ -638,7 +640,7 @@ msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
-"Utilitário para iniciar uma aplicação. Por exemplo synapse, kupfer...\n"
+"Utilitário para iniciar uma aplicação. Por exemplo synapse, kupfer ...\n"
 "Para lxpanel ou o utilitário lxde, utilize \"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:253
@@ -736,9 +738,9 @@ msgid ""
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
 msgstr ""
-"Gerir o chaveiro.\n"
-"As opções padrão são \"gnome\" para o gnome-keyring ou \"ssh-agent\" para "
-"suporte ssh-agent."
+"Gerir o suporte do chaveiro.\n"
+"As opções predefinidas são \"gnome\" para o suporte gnome-keyring ou \"ssh-"
+"agent\" para suporte ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:373
 msgid ""
@@ -754,7 +756,7 @@ msgstr "Gerir suporte de proxy"
 
 #: ../lxsession-default-apps/main.vala:383
 msgid "Managing XRandr parameters. Use a command like xrandr --something"
-msgstr "Gerir parâmetros XRandr. Utilize um comando do tipo xrandr --comando."
+msgstr "Gerir parâmetros XRandr. Utilize um comando do tipo xrandr --algo"
 
 #: ../lxsession-default-apps/combobox.vala:145
 msgid "Manual setting"
@@ -778,7 +780,7 @@ msgstr "Gerir área de trabalho com esta aplicação?"
 
 #: ../lxsession-default-apps/combobox.vala:281
 msgid "Set debian default programs"
-msgstr "Definir programas pré-definidos debian"
+msgstr "Definir programas predefinidos debian"
 
 #: ../lxsession-default-apps/combobox.vala:425
 msgid "Disable"
@@ -794,55 +796,51 @@ msgstr "Cancelar"
 
 #: ../lxsession/app.vala:1273
 msgid "Reboot required"
-msgstr ""
+msgstr "É necessário reiniciar"
 
 #: ../lxsession/app.vala:1301
-#, fuzzy
-#| msgid "_Reboot"
 msgid "Reboot"
-msgstr "_Reiniciar"
+msgstr "Reiniciar"
 
 #: ../lxsession/app.vala:1341
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch language support"
-msgstr "Gestor de lançador"
+msgstr "Iniciar suporte ao idioma"
 
 #: ../lxsession/app.vala:1374
 msgid "Language support missing"
-msgstr ""
+msgstr "Suporte ao idioma em falta"
 
 #: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
 msgid "Updates available"
-msgstr ""
+msgstr "Actualizações disponíveis"
 
 #: ../lxsession/app.vala:1418
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch Update Manager"
-msgstr "Gestor de lançador"
+msgstr "Iniciar o gestor de atualizações"
 
 #: ../lxsession/app.vala:1493
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
 msgstr ""
+"Ocorreu um erro. Execute o gestor de pacotes a partir do menu do botão "
+"esquerdo do rato ou apt-get num terminal para ver o que está errado."
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
-msgstr ""
+msgstr "A mensagem de erro foi: "
 
 #: ../lxsession/app.vala:1516
 msgid " Update available"
-msgstr ""
+msgstr "Atualização disponível"
 
 #: ../lxsession/app.vala:1866
 msgid "Report "
-msgstr ""
+msgstr "Reportar"
 
 #: ../lxsession/app.vala:1903
 msgid "Crash files available for report"
-msgstr ""
+msgstr "Ficheiros de falhas disponíveis para reportar"
 
 #~ msgid "Command"
 #~ msgstr "Comando"
