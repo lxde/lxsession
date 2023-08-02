@@ -1,5 +1,6 @@
 /**
  * Copyright (c) 2010 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (C) 2020 Ingo Brückl
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
