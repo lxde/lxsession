@@ -5,5 +5,5 @@ _Comment=Policykit Authentication Agent
 Exec=lxpolkit
 TryExec=lxpolkit
 Icon=gtk-dialog-authentication
-OnlyShowIn=LXDE;
+NotShowIn=GNOME;KDE;MATE;
 Hidden=true
