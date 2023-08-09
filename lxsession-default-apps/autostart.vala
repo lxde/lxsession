@@ -89,16 +89,18 @@ namespace LDefaultApps
 
     public void manual_autostart_init (Builder builder)
     {
-        if (read_autostart_conf() == null)
+        var autostart_conf = read_autostart_conf();
+
+        if (autostart_conf == null)
         {
             message("Can't find an autostart file, abort");
         }
         else
         {
-            FileStream stream = FileStream.open (read_autostart_conf(), "r");
+            FileStream stream = FileStream.open (autostart_conf, "r");
 	        assert (stream != null);
 
-            message ("Autostart conf file : %s", read_autostart_conf());
+            message ("Autostart conf file : %s", autostart_conf);
 
             var auto_align = builder.get_object("autostart_alignment") as Gtk.Alignment;
             var auto_vbox = builder.get_object("manual_autostart_vbox") as Gtk.VBox;
