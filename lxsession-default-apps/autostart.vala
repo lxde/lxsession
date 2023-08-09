@@ -31,6 +31,20 @@ namespace LDefaultApps
             if (config_system_path == null)
             {
                 /* No system file and no home file, create a blank file in home */
+                var config_parent = config_file.get_parent();
+
+                if (!config_parent.query_exists ())
+                {
+                    try
+                    {
+                        config_parent.make_directory_with_parents ();
+                    }
+                    catch (GLib.Error e)
+                    {
+                        message (e.message);
+                    }
+                }
+
                 try
                 {
                     message("Create blank file");
