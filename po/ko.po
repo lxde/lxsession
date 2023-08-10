@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 16:12+0200\n"
+"POT-Creation-Date: 2023-08-10 19:24+0200\n"
 "PO-Revision-Date: 2015-07-20 14:38+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: \n"
@@ -18,66 +18,70 @@ msgstr ""
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
 msgstr "대화상자에 표시할 사용자 정의 메시지"
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "message"
 msgstr "메시지"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Banner to show on the dialog"
 msgstr "대화상자에 표시할 배너"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "image file"
 msgstr "그림 파일"
 
-#: ../lxsession-logout/lxsession-logout.c:53
+#: ../lxsession-logout/lxsession-logout.c:54
 msgid "Position of the banner"
 msgstr "배너의 위치"
 
-#: ../lxsession-logout/lxsession-logout.c:54
+#: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:624
+#: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
 msgid "Error: %s\n"
 msgstr "오류: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:750
+#: ../lxsession-logout/lxsession-logout.c:752
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s 세션을 로그아웃하시겠습니까?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:760
+#: ../lxsession-logout/lxsession-logout.c:754
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>%s 세션을 로그아웃하시겠습니까?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:764
 msgid "Sh_utdown"
 msgstr "종료(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:771
+#: ../lxsession-logout/lxsession-logout.c:775
 msgid "_Reboot"
 msgstr "재시작(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:782
+#: ../lxsession-logout/lxsession-logout.c:786
 msgid "_Suspend"
 msgstr "대기(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:793
+#: ../lxsession-logout/lxsession-logout.c:797
 msgid "_Hibernate"
 msgstr "최대 절전(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:804
+#: ../lxsession-logout/lxsession-logout.c:808
 msgid "S_witch User"
 msgstr "사용자 전환(_W)"
 
-#: ../lxsession-logout/lxsession-logout.c:815
+#: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
 msgstr "화면 잠금(_O)"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:824
+#: ../lxsession-logout/lxsession-logout.c:828
 msgid "_Logout"
 msgstr "로그아웃(_L)"
 

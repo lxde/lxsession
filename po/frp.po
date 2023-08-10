@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 16:12+0200\n"
+"POT-Creation-Date: 2023-08-10 19:24+0200\n"
 "PO-Revision-Date: 2014-12-05 13:00+0000\n"
 "Last-Translator: system user <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,67 +17,72 @@ msgstr ""
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "message"
 msgstr "messâjo"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 #, fuzzy
 msgid "Banner to show on the dialog"
 msgstr "Bandèra a mohtrar a devesar"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "image file"
 msgstr "fichèr d'imaji"
 
-#: ../lxsession-logout/lxsession-logout.c:53
+#: ../lxsession-logout/lxsession-logout.c:54
 msgid "Position of the banner"
 msgstr "posicion de la bandèra"
 
-#: ../lxsession-logout/lxsession-logout.c:54
+#: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:624
+#: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
 msgid "Error: %s\n"
 msgstr "Errór: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:750
+#: ../lxsession-logout/lxsession-logout.c:752
 #, fuzzy, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Modar la session %s?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:760
+#: ../lxsession-logout/lxsession-logout.c:754
+#, fuzzy, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Modar la session %s?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:764
 msgid "Sh_utdown"
 msgstr "S_arrar"
 
-#: ../lxsession-logout/lxsession-logout.c:771
+#: ../lxsession-logout/lxsession-logout.c:775
 msgid "_Reboot"
 msgstr "Rem_prendre"
 
-#: ../lxsession-logout/lxsession-logout.c:782
+#: ../lxsession-logout/lxsession-logout.c:786
 msgid "_Suspend"
 msgstr "G_anganar"
 
-#: ../lxsession-logout/lxsession-logout.c:793
+#: ../lxsession-logout/lxsession-logout.c:797
 msgid "_Hibernate"
 msgstr "Hi_vernar"
 
-#: ../lxsession-logout/lxsession-logout.c:804
+#: ../lxsession-logout/lxsession-logout.c:808
 msgid "S_witch User"
 msgstr "C_hanjèr d'usór"
 
-#: ../lxsession-logout/lxsession-logout.c:815
+#: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
 msgstr ""
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:824
+#: ../lxsession-logout/lxsession-logout.c:828
 msgid "_Logout"
 msgstr "_Modar"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 16:12+0200\n"
+"POT-Creation-Date: 2023-08-10 19:24+0200\n"
 "PO-Revision-Date: 2020-10-18 18:37+0200\n"
 "Last-Translator: Maik Wagner <maiktapwagner@aol.com>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -20,76 +20,80 @@ msgstr ""
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
 msgstr "Benutzerdefinierte Meldung zur Anzeige im Dialogfenster"
 
 # message = bubaka. 1 to 1 relationship between English and Luganda.
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "message"
 msgstr "Meldung"
 
 # This message prompts you to choose a banner that will appear in a dialog box.
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Banner to show on the dialog"
 msgstr "Banner zur Anzeige im Dialogfenster"
 
 # This is the prompt for you to indicate the file that contains the image
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "image file"
 msgstr "Bilddatei"
 
 # Prompt to indicate/set where the banner will sit
-#: ../lxsession-logout/lxsession-logout.c:53
+#: ../lxsession-logout/lxsession-logout.c:54
 msgid "Position of the banner"
 msgstr "Position des Banners"
 
-#: ../lxsession-logout/lxsession-logout.c:54
+#: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
 msgstr ""
 
 # I think this is the error message.
-#: ../lxsession-logout/lxsession-logout.c:624
+#: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:750
+#: ../lxsession-logout/lxsession-logout.c:752
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Von der %s-%s-Sitzung abmelden?</big></b>"
 
+#: ../lxsession-logout/lxsession-logout.c:754
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Von der %s-Sitzung abmelden?</big></b>"
+
 # Turn the machine completely off
-#: ../lxsession-logout/lxsession-logout.c:760
+#: ../lxsession-logout/lxsession-logout.c:764
 msgid "Sh_utdown"
 msgstr "Her_unterfahren"
 
 # Make the machine shut down and restart itself
-#: ../lxsession-logout/lxsession-logout.c:771
+#: ../lxsession-logout/lxsession-logout.c:775
 msgid "_Reboot"
 msgstr "Neusta_rt"
 
 # Have the machine pause, leaving things exactly where they are
-#: ../lxsession-logout/lxsession-logout.c:782
+#: ../lxsession-logout/lxsession-logout.c:786
 msgid "_Suspend"
 msgstr "Bereit_schaft"
 
 # Have the machine close all jobs and go into a low energy state - still logged in
-#: ../lxsession-logout/lxsession-logout.c:793
+#: ../lxsession-logout/lxsession-logout.c:797
 msgid "_Hibernate"
 msgstr "Ru_hezustand"
 
 # Work in another user account while keeping the current one open and read to return to
-#: ../lxsession-logout/lxsession-logout.c:804
+#: ../lxsession-logout/lxsession-logout.c:808
 msgid "S_witch User"
 msgstr "Benutzer _wechseln"
 
-#: ../lxsession-logout/lxsession-logout.c:815
+#: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
 msgstr "_Bildschirm sperren"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:824
+#: ../lxsession-logout/lxsession-logout.c:828
 msgid "_Logout"
 msgstr "Abme_lden"
 

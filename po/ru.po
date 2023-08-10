@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 16:12+0200\n"
+"POT-Creation-Date: 2023-08-10 19:24+0200\n"
 "PO-Revision-Date: 2015-12-14 14:47+0300\n"
 "Last-Translator: AlexL <loginov.alex.valer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,66 +19,70 @@ msgstr ""
 "X-Pootle-Revision: 682\n"
 "X-Pootle-Path: /ru/lxsession/po/ru.po\n"
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
 msgstr "Собственное сообщение для отображения в диалоге"
 
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "message"
 msgstr "сообщение"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Banner to show on the dialog"
 msgstr "Баннер для отображения в диалоге"
 
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "image file"
 msgstr "файл изображения"
 
-#: ../lxsession-logout/lxsession-logout.c:53
+#: ../lxsession-logout/lxsession-logout.c:54
 msgid "Position of the banner"
 msgstr "Расположение баннера"
 
-#: ../lxsession-logout/lxsession-logout.c:54
+#: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:624
+#: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
 msgid "Error: %s\n"
 msgstr "Ошибка: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:750
+#: ../lxsession-logout/lxsession-logout.c:752
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Завершить сеанс %s %s?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:760
+#: ../lxsession-logout/lxsession-logout.c:754
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Завершить сеанс %s?</big></b>"
+
+#: ../lxsession-logout/lxsession-logout.c:764
 msgid "Sh_utdown"
 msgstr "Вы_ключить"
 
-#: ../lxsession-logout/lxsession-logout.c:771
+#: ../lxsession-logout/lxsession-logout.c:775
 msgid "_Reboot"
 msgstr "_Перезагрузить"
 
-#: ../lxsession-logout/lxsession-logout.c:782
+#: ../lxsession-logout/lxsession-logout.c:786
 msgid "_Suspend"
 msgstr "_Ждущий режим"
 
-#: ../lxsession-logout/lxsession-logout.c:793
+#: ../lxsession-logout/lxsession-logout.c:797
 msgid "_Hibernate"
 msgstr "_Спящий режим"
 
-#: ../lxsession-logout/lxsession-logout.c:804
+#: ../lxsession-logout/lxsession-logout.c:808
 msgid "S_witch User"
 msgstr "С_менить пользователя"
 
-#: ../lxsession-logout/lxsession-logout.c:815
+#: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
 msgstr "_Заблокировать экран"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:824
+#: ../lxsession-logout/lxsession-logout.c:828
 msgid "_Logout"
 msgstr "_Выйти"
 

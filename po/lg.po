@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-30 16:12+0200\n"
+"POT-Creation-Date: 2023-08-10 19:24+0200\n"
 "PO-Revision-Date: 2015-04-30 20:32+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -19,76 +19,81 @@ msgstr ""
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
 msgstr "Obubaka bw'oyagala bulabike"
 
 # message = bubaka. 1 to 1 relationship between English and Luganda.
-#: ../lxsession-logout/lxsession-logout.c:51
+#: ../lxsession-logout/lxsession-logout.c:52
 msgid "message"
 msgstr "bubaka"
 
 # This message prompts you to choose a banner that will appear in a dialog box.
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "Banner to show on the dialog"
 msgstr "Ekipande ky'oyagala kirabike"
 
 # This is the prompt for you to indicate the file that contains the image
-#: ../lxsession-logout/lxsession-logout.c:52
+#: ../lxsession-logout/lxsession-logout.c:53
 msgid "image file"
 msgstr "fayiro ekongojja ekifaananyi"
 
 # Prompt to indicate/set where the banner will sit
-#: ../lxsession-logout/lxsession-logout.c:53
+#: ../lxsession-logout/lxsession-logout.c:54
 msgid "Position of the banner"
 msgstr "Ekipande we kinaabeera"
 
-#: ../lxsession-logout/lxsession-logout.c:54
+#: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
 msgstr ""
 
 # I think this is the error message.
-#: ../lxsession-logout/lxsession-logout.c:624
+#: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
 msgid "Error: %s\n"
 msgstr "Kiremya: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:750
+#: ../lxsession-logout/lxsession-logout.c:752
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Olutuula lwa %s %s lukome ?</big></b>"
 
+#: ../lxsession-logout/lxsession-logout.c:754
+#, c-format
+msgid "<b><big>Logout %s session?</big></b>"
+msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
+
 # Turn the machine completely off
-#: ../lxsession-logout/lxsession-logout.c:760
+#: ../lxsession-logout/lxsession-logout.c:764
 msgid "Sh_utdown"
 msgstr "_Gyako kompyuta"
 
 # Make the machine shut down and restart itself
-#: ../lxsession-logout/lxsession-logout.c:771
+#: ../lxsession-logout/lxsession-logout.c:775
 msgid "_Reboot"
 msgstr "_Damu-okukoleeza kompyuta"
 
 # Have the machine pause, leaving things exactly where they are
-#: ../lxsession-logout/lxsession-logout.c:782
+#: ../lxsession-logout/lxsession-logout.c:786
 msgid "_Suspend"
 msgstr "Kompyuta gi_yimirizemu"
 
 # Have the machine close all jobs and go into a low energy state - still logged in
-#: ../lxsession-logout/lxsession-logout.c:793
+#: ../lxsession-logout/lxsession-logout.c:797
 msgid "_Hibernate"
 msgstr "_Kompyuta gyebase"
 
 # Work in another user account while keeping the current one open and read to return to
-#: ../lxsession-logout/lxsession-logout.c:804
+#: ../lxsession-logout/lxsession-logout.c:808
 msgid "S_witch User"
 msgstr "Kolera mu akawunti e_ndala"
 
-#: ../lxsession-logout/lxsession-logout.c:815
+#: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
 msgstr "Olutimbe L_usaanikire"
 
 #. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:824
+#: ../lxsession-logout/lxsession-logout.c:828
 msgid "_Logout"
 msgstr "Komya _olutuula luno"
 
@@ -879,9 +884,6 @@ msgstr ""
 # Message telling you that there is no LXSession running at the moment.
 #~ msgid "LXSession is not running."
 #~ msgstr "LXSession tebindabinda."
-
-#~ msgid "<b><big>Logout %s session?</big></b>"
-#~ msgstr "<b><big>Olutuula lwa %s lukome?</big></b>"
 
 #~ msgid "Logout"
 #~ msgstr "Abmelden"
