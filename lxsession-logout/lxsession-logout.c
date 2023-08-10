@@ -745,7 +745,7 @@ int main(int argc, char * argv[])
 
         gchar *os_name = NULL;
 #if GLIB_CHECK_VERSION(2, 64, 0)
-        os_name = g_get_os_info(G_OS_INFO_KEY_PRETTY_NAME);
+        os_name = g_get_os_info(G_OS_INFO_KEY_VERSION_ID);
 #endif
 
         prompt = g_strdup_printf(_("<b><big>Logout %s %s session?</big></b>"), session_name, os_name ? os_name : "");
