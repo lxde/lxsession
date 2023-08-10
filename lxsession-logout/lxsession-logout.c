@@ -748,7 +748,10 @@ int main(int argc, char * argv[])
         os_name = g_get_os_info(G_OS_INFO_KEY_VERSION_ID);
 #endif
 
-        prompt = g_strdup_printf(_("<b><big>Logout %s %s session?</big></b>"), session_name, os_name ? os_name : "");
+        if (os_name)
+            prompt = g_strdup_printf(_("<b><big>Logout %s %s session?</big></b>"), session_name, os_name);
+        else
+            prompt = g_strdup_printf(_("<b><big>Logout %s session?</big></b>"), session_name);
 
         g_free(os_name);
     }
