@@ -38,8 +38,6 @@ lxsettings-daemon/main.c
 lxpolkit/lxpolkit
 lxpolkit/main.c
 man/Makefile
-man/lxsession.1
-man/lxsession-logout.1
 po/LINGUAS
 po/POTFILES
 po/*.gmo
