@@ -133,7 +133,7 @@ else
 fi
 AC_SUBST(HIDE_LXPOLKIT_AUTOSTART)
 
-AM_PROG_VALAC([0.16.0])
+AM_PROG_VALAC([0.20.0])
 if test "x$VALAC" = "x"; then
   AC_MSG_ERROR([You need Vala compiler])
 fi
