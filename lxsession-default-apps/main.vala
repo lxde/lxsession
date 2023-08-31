@@ -255,7 +255,7 @@ namespace LDefaultApps
             string screenshot_manager_more_help_message = autostart_help;
             init_application(builder, kf, dbus_backend, "screenshot_manager", "", screenshot_manager_help_message, screenshot_manager_more, screenshot_manager_more_help_message, null);
 
-            string pdf_reader_help_message = "Viewer for PDF, like evince";
+            string pdf_reader_help_message = _("Viewer for PDF, like evince");
             string[] pdf_reader_more = {"combobox_manual", "mime_association", "mime_available"};
             string pdf_reader_more_help_message = manual_setting_help + mime_association_help + mime_available_help;
             init_application_combobox (builder, kf, dbus_backend, "pdf_reader", "", pdf_reader_help_message, pdf_reader_more, pdf_reader_more_help_message, null);
