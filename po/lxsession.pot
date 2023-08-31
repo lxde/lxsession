@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,8 @@ msgstr ""
 msgid "Group: %s"
 msgstr ""
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr ""
 
@@ -432,6 +433,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr ""
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr ""
@@ -602,6 +607,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
