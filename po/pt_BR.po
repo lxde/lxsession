@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2015-05-23 00:47+0000\n"
 "Last-Translator: Felipe Braga <fbobraga@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -54,6 +54,7 @@ msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Sair da sessão %s %s ?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:754
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Sair da sessão %s ?</big></b>"
 
@@ -123,7 +124,10 @@ msgstr "Senha: "
 msgid "Group: %s"
 msgstr "Grupo: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Configurações da Sessão de Desktop"
 
@@ -442,6 +446,10 @@ msgstr "<b>Mapa de teclado</b>"
 msgid "Settings"
 msgstr "Configurações"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Configurações da Sessão de Desktop"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Gerenciar aplicações carregadas na sessão desktop"
@@ -652,6 +660,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "Aplicação para gerar capturas de tela, como \"scrot\" ..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"

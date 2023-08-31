@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2017-05-22 22:13+0000\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: Ukrainian\n"
@@ -124,7 +124,10 @@ msgstr "Пароль: "
 msgid "Group: %s"
 msgstr "Група: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Налаштування сесії робочого столу"
 
@@ -441,6 +444,10 @@ msgstr "<b>Клавіатура</b>"
 msgid "Settings"
 msgstr "Налаштування"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Налаштування сесії робочого столу"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Керування програмами, що завантажені під час сесії"
@@ -611,6 +618,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263

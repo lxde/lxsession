@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2014-12-05 13:30+0000\n"
 "Last-Translator: system user <>\n"
 "Language-Team: Romanian <LL@li.org>\n"
@@ -123,7 +123,10 @@ msgstr "Parolă: "
 msgid "Group: %s"
 msgstr "Grup: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Opțiuni pentru sesiunile de desktop"
 
@@ -456,6 +459,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Opțiuni pentru sesiunile de desktop"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Alegeți ce programe să pornească în sesiunea de desktop"
@@ -629,6 +636,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263

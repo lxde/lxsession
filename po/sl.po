@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2014-10-26 18:29+0000\n"
 "Last-Translator: system user <>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -123,7 +123,10 @@ msgstr "Geslo: "
 msgid "Group: %s"
 msgstr "Skupina: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Nastavitve namizne seje"
 
@@ -447,6 +450,10 @@ msgstr "<b>Razporeditev tipk</b>"
 msgid "Settings"
 msgstr "Nastavitve"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Nastavitve namizne seje"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Upravljajte s programi, naloženimi v namizni seji"
@@ -617,6 +624,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263

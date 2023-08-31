@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXSession x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2015-06-22 09:12+0000\n"
 "Last-Translator: markos <jezzivi@yahoo.com>\n"
 "Language-Team: \n"
@@ -54,6 +54,7 @@ msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Одјављујете ли  %s %s сесију?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:754
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Одјављујете ли  %s сесију?</big></b>"
 
@@ -123,7 +124,10 @@ msgstr "Лозинка: "
 msgid "Group: %s"
 msgstr "Група: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Поставке сесије радне површи"
 
@@ -441,6 +445,10 @@ msgstr "<b>Мапа тастера</b>"
 msgid "Settings"
 msgstr "Подешавања"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Поставке сесије радне површи"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Управљање покренутим програмима у сесији"
@@ -646,6 +654,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "Програм за сликање Ваше радне површи, као „scrot“..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"

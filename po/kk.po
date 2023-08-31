@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2017-05-28 17:23+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
@@ -123,7 +123,10 @@ msgstr "Пароль: "
 msgid "Group: %s"
 msgstr "Топ: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Жұмыс үстелі сессиясының баптаулары"
 
@@ -440,6 +443,10 @@ msgstr "<b>Жайма</b>"
 msgid "Settings"
 msgstr "Баптаулар"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Жұмыс үстелі сессиясының баптаулары"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Жұмыс үстелі сессиясында жүктелетін қолданбаларды басқару"
@@ -614,6 +621,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263

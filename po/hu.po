@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2015-05-04 19:58+0000\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -54,6 +54,7 @@ msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Kijelentkezik a(z) %s %s munkamenetből?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:754
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Kijelentkezik a(z) %s munkamenetből?</big></b>"
 
@@ -123,7 +124,8 @@ msgstr "Jelszó: "
 msgid "Group: %s"
 msgstr "Csoport: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr ""
 
@@ -437,6 +439,10 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr ""
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr ""
@@ -607,6 +613,10 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
+msgstr ""
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
 msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2020-02-17 17:15+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lietuvių\n"
@@ -125,7 +125,10 @@ msgstr "Slaptažodis: "
 msgid "Group: %s"
 msgstr "Grupė: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Darbalaukio seanso nustatymai"
 
@@ -443,6 +446,10 @@ msgstr "<b>Simbolių lentelė</b>"
 msgid "Settings"
 msgstr "Nustatymai"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Darbalaukio seanso nustatymai"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Tvarkyti darbalaukio seanse įkeliamas programas"
@@ -659,6 +666,10 @@ msgstr ""
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr ""
 "Jūsų darbalaukio ekrano kopijoms daryti skirta programa, tokia kaip scrot ..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"

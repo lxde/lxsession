@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2019-06-04 06:39+0000\n"
 "Last-Translator: Syahmin Sukhairi <syahmin@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -123,7 +123,10 @@ msgstr "Sandi: "
 msgid "Group: %s"
 msgstr "Grup: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Pengaturan Sesi Desktop"
 
@@ -441,6 +444,10 @@ msgstr "<b>Peta tombol</b>"
 msgid "Settings"
 msgstr "Pengaturan"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Pengaturan Sesi Desktop"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Atur aplikasi yang dimuat di sesi dektop"
@@ -635,6 +642,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "Aplikasi untuk mengambil tampilan layar anda, seperti scrot ..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"

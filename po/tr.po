@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2015-07-27 23:13+0000\n"
 "Last-Translator: nyucel <necdetyucel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,7 +123,10 @@ msgstr "Parola: "
 msgid "Group: %s"
 msgstr "Grup: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Masaüstü Oturum Ayarları"
 
@@ -441,6 +444,10 @@ msgstr "<b>Tuş haritası</b>"
 msgid "Settings"
 msgstr "Ayarlar"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Masaüstü Oturum Ayarları"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Masaüstü oturumuna yüklenen uygulamaları yönet"
@@ -652,6 +659,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "Masaüstünüzün görüntüsünü alabileceğiniz araç ..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"

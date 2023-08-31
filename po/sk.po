@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 19:24+0200\n"
+"POT-Creation-Date: 2023-08-31 13:41+0200\n"
 "PO-Revision-Date: 2020-12-20 14:02+0100\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -53,6 +53,7 @@ msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Odhlásiť sa z relácie %s %s?</big></b>"
 
 #: ../lxsession-logout/lxsession-logout.c:754
+#, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Odhlásiť sa z relácie %s?</big></b>"
 
@@ -122,7 +123,10 @@ msgstr "Heslo: "
 msgid "Group: %s"
 msgstr "Skupina: %s"
 
-#: ../data/ui/lxsession-edit.ui.h:1 ../data/lxsession-edit.desktop.in.h:1
+#: ../data/ui/lxsession-edit.ui.h:1
+#, fuzzy
+#| msgid "Desktop Session Settings"
+msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Nastavenia sedenia"
 
@@ -440,6 +444,10 @@ msgstr "<b>Rozloženie klávesnice</b>"
 msgid "Settings"
 msgstr "Nastavenia"
 
+#: ../data/lxsession-edit.desktop.in.h:1
+msgid "Desktop Session Settings"
+msgstr "Nastavenia sedenia"
+
 #: ../data/lxsession-edit.desktop.in.h:2
 msgid "Manage applications loaded in desktop session"
 msgstr "Spravovať aplikácie načítané v sedení"
@@ -646,6 +654,10 @@ msgstr ""
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
 msgstr "Aplikácia pre vytváranie snímok obrazovky, ako scrot ..."
+
+#: ../lxsession-default-apps/main.vala:258
+msgid "Viewer for PDF, like evince"
+msgstr ""
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
