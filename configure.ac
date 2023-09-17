@@ -72,7 +72,7 @@ else
       enable_gtk3=$enableval, enable_gtk3="no")
 
   if test "x$enable_gtk3" = "xyes" ; then
-    CFLAGS="$CFLAGS -D USE_GTK3"
+    CFLAGS="$CFLAGS -D USE_GTK3 -Wno-deprecated-declarations"
     gtk_modules="gtk+-3.0 >= 3.0.0"
     VALA_GTK_LIBS="gtk+-3.0"
   else
@@ -136,6 +136,9 @@ AC_SUBST(HIDE_LXPOLKIT_AUTOSTART)
 AM_PROG_VALAC([0.20.0])
 if test "x$VALAC" = "x"; then
   AC_MSG_ERROR([You need Vala compiler])
+else
+  VALAFLAGS="$VALAFLAGS --enable-deprecated"
+  AC_SUBST(VALAFLAGS)
 fi
 
 # debug flags
