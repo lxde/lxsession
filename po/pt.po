@@ -7,10 +7,10 @@
 # Adaptado ao acordo ortográfico de 1990
 msgid ""
 msgstr ""
-"Project-Id-Version: lxsession-lite 0.3.6\n"
+"Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2023-08-01 15:53+0100\n"
+"PO-Revision-Date: 2024-03-22 12:21+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese PT\n"
 "Language: pt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:52
@@ -127,8 +127,6 @@ msgid "Group: %s"
 msgstr "Grupo: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1
-#, fuzzy
-#| msgid "Desktop Session Settings"
 msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Definições da sessão"
@@ -661,7 +659,7 @@ msgstr "Aplicação para obter capturas de ecrã. Por exemplo: scrot..."
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Viewer for PDF, like evince"
-msgstr ""
+msgstr "Visualizador de PDF, como o evince"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
