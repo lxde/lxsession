@@ -39,6 +39,8 @@ elif which slimlock >/dev/null 2>&1; then
     slimlock
 elif which xtrlock >/dev/null 2>&1; then
     xtrlock
+elif which xsecurelock >/dev/null 2>&1; then
+    xsecurelock
 else
     # In the end, try to fallback to xscreensaver
 
