@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2015-06-29 10:42+0000\n"
-"Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2024-06-28 10:42+0000\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgstr "顯示圖片的位置"
 
 #: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
-msgstr ""
+msgstr "隱藏按鈕"
 
 #: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
@@ -104,7 +104,7 @@ msgstr "資訊"
 
 #: ../lxpolkit/main.vala:40
 msgid "lxpolkit is already running. Exiting"
-msgstr ""
+msgstr "lxpolkit 已在執行中。正在結束"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -124,8 +124,6 @@ msgid "Group: %s"
 msgstr "群組：%s"
 
 #: ../data/ui/lxsession-edit.ui.h:1
-#, fuzzy
-#| msgid "Desktop Session Settings"
 msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "桌面工作階段設定"
@@ -195,7 +193,7 @@ msgstr "網頁瀏覽器"
 
 #: ../data/ui/lxsession-default-apps.ui.h:6
 msgid "Email"
-msgstr "電郵"
+msgstr "電子郵件"
 
 #: ../data/ui/lxsession-default-apps.ui.h:7
 msgid "Communication 1"
@@ -207,7 +205,7 @@ msgstr "通訊 2"
 
 #: ../data/ui/lxsession-default-apps.ui.h:9
 msgid "Widget 1"
-msgstr "器件 1"
+msgstr "小工具 1"
 
 #: ../data/ui/lxsession-default-apps.ui.h:10
 msgid "Launcher manager"
@@ -317,18 +315,17 @@ msgstr "電源管理員"
 
 #: ../data/ui/lxsession-default-apps.ui.h:36
 msgid "Polkit agent"
-msgstr "Polkit 代理"
+msgstr "Polkit 代理程式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:37
 msgid "Network GUI"
-msgstr "網路圖像化使用者介面"
+msgstr "網路圖形化使用者介面"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
 msgstr "螢幕鎖定管理員"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
-#, fuzzy
 msgid "Audio manager"
 msgstr "音訊管理員"
 
@@ -361,7 +358,6 @@ msgid "Proxy"
 msgstr "代理程式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:47
-#, fuzzy
 msgid "Xrandr"
 msgstr "Xrandr"
 
@@ -372,7 +368,7 @@ msgstr "核心應用程式"
 #: ../data/ui/lxsession-default-apps.ui.h:49
 #, fuzzy
 msgid "Disable autostarted applications?"
-msgstr "是否不再自動啟動應用程式？"
+msgstr "是否停用自動啟動的應用程式？"
 
 #: ../data/ui/lxsession-default-apps.ui.h:50
 msgid "<b>Settings</b>"
@@ -384,7 +380,6 @@ msgid "<b>Manual autostarted applications</b>"
 msgstr "<b>手動自動啟動的應用程式</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:52
-#, fuzzy
 msgid "<b>Known Applications </b>"
 msgstr "<b>已知應用程式</b>"
 
@@ -393,16 +388,14 @@ msgid "Autostart"
 msgstr "自動啟動"
 
 #: ../data/ui/lxsession-default-apps.ui.h:54
-#, fuzzy
 msgid "Laptop mode"
-msgstr "手提電腦模式"
+msgstr "筆記型電腦模式"
 
 #: ../data/ui/lxsession-default-apps.ui.h:55
 msgid "<b>General settings</b>"
 msgstr "<b>一般設定</b>"
 
 #: ../data/ui/lxsession-default-apps.ui.h:56
-#, fuzzy
 msgid "<b>Dbus</b>"
 msgstr "<b>Dbus</b>"
 
@@ -471,7 +464,6 @@ msgid "Change the default applications on LXDE"
 msgstr "變更 LXDE 的預設應用程式"
 
 #: ../data/lxpolkit.desktop.in.in.h:1
-#, fuzzy
 msgid "LXPolKit"
 msgstr "LXPolKit"
 
@@ -521,10 +513,9 @@ msgstr "可用應用程式：在軟體庫可提供的此類型應用程式\n"
 
 #: ../lxsession-default-apps/main.vala:163
 msgid "Handle Desktop: Draw the desktop using the file manager?\n"
-msgstr "處理桌面：是否以檔案管理員繪畫桌面？\n"
+msgstr "處理桌面：是否以檔案管理員繪製桌面？\n"
 
 #: ../lxsession-default-apps/main.vala:164
-#, fuzzy
 msgid "Autostart the application?\n"
 msgstr "是否自動啟動該應用程式？\n"
 
@@ -532,7 +523,7 @@ msgstr "是否自動啟動該應用程式？\n"
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
-msgstr "為 Debian 系統設定預設程式 (以 update-alternatives，需要 root 密碼)\n"
+msgstr "為 Debian 系統設定預設程式 (使用 update-alternatives，需要 root 密碼)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:168
@@ -541,8 +532,8 @@ msgid ""
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
 msgstr ""
-"視窗管理員負責繪畫並管理視窗。 \n"
-"可選擇 openbox, openbox-custom (若要自訂 openbox 設定，見「更多」), kwin, "
+"視窗管理員負責繪製並管理視窗。\n"
+"您可以選擇 openbox, openbox-custom (若要自訂 openbox 設定，見「更多」), kwin, "
 "compiz 等等..."
 
 #: ../lxsession-default-apps/main.vala:173
@@ -572,7 +563,7 @@ msgid ""
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
 msgstr ""
-"「組合管理員」負責處理視窗管理員以外的圖像特效，例如透明度、陰影等。 \n"
+"「組合管理員」負責處理視窗管理員以外的圖像特效，例如透明度、陰影等。\n"
 "例子有 compton"
 
 #: ../lxsession-default-apps/main.vala:193
@@ -580,12 +571,12 @@ msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
 msgstr ""
-"「桌面管理員」負責繪畫桌面並管理當中的圖示。\n"
+"「桌面管理員」負責繪製桌面並管理當中的圖示。\n"
 "將之設為 filemanager 即可以檔案管理員擔當此工作"
 
 #: ../lxsession-default-apps/main.vala:195
 msgid "Wallpaper: Set an image path to draw the wallpaper"
-msgstr "牆紙：設定牆紙圖片的路徑"
+msgstr "桌布：設定桌布圖片的路徑"
 
 #: ../lxsession-default-apps/main.vala:198
 msgid ""
@@ -598,8 +589,8 @@ msgid ""
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
 msgstr ""
-"「電源管理員」助您為電池省電。在桌面電腦用處不大。\n"
-"視乎筆記簿電腦，通常會設為「自動」。"
+"「電源管理員」將幫您為電池省電。在桌上型電腦用處不大。\n"
+"依據不同的筆記型電腦，通常會設為「自動」。"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid ""
@@ -623,11 +614,11 @@ msgstr "使用另一個通訊軟體 (網路聊天 IRC 用戶端、即時通訊 I
 
 #: ../lxsession-default-apps/main.vala:228
 msgid "Terminal by default to launch command line."
-msgstr "預設用執行指令的終端機軟體。"
+msgstr "預設用來執行指令的終端機軟體。"
 
 #: ../lxsession-default-apps/main.vala:233
 msgid "Application to go to Internet, Google, Facebook, debian.org ..."
-msgstr ""
+msgstr "用來上網的應用程式，例如 Google, Facebook, debian.org ..."
 
 #: ../lxsession-default-apps/main.vala:238
 msgid "Application to send mails"
@@ -635,16 +626,15 @@ msgstr "寄送電子郵件的應用程式"
 
 #: ../lxsession-default-apps/main.vala:243
 msgid "Utility to launch gadgets, like conky, screenlets ..."
-msgstr ""
+msgstr "啟動小工具的程式，例如 conky, screenlets ..."
 
 #: ../lxsession-default-apps/main.vala:248
-#, fuzzy
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
 msgstr ""
-"啟動應用程式的工具，例如 synapse, kupfer ... \n"
-"要使用 lxpanel 或 lxde 預設工具，輸入 lxpanelctl "
+"啟動應用程式的工具，例如 synapse, kupfer ... \n"
+"要使用 lxpanel 或 lxde 預設工具，輸入 \"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -652,11 +642,11 @@ msgstr "用來截取螢幕的程式，例如 scrot 等等..."
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Viewer for PDF, like evince"
-msgstr ""
+msgstr "PDF 檢視器，例如 evince"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
-msgstr "視訊程式"
+msgstr "影片程式"
 
 #: ../lxsession-default-apps/main.vala:268
 msgid "Audio application"
@@ -802,55 +792,49 @@ msgstr "取消"
 
 #: ../lxsession/app.vala:1273
 msgid "Reboot required"
-msgstr ""
+msgstr "需要重新啟動"
 
 #: ../lxsession/app.vala:1301
-#, fuzzy
-#| msgid "_Reboot"
 msgid "Reboot"
 msgstr "重新啟動(_R)"
 
 #: ../lxsession/app.vala:1341
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch language support"
-msgstr "啟動器管理員"
+msgstr "啟動語言支援"
 
 #: ../lxsession/app.vala:1374
 msgid "Language support missing"
-msgstr ""
+msgstr "缺少語言支援"
 
 #: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
 msgid "Updates available"
-msgstr ""
+msgstr "有可用更新"
 
 #: ../lxsession/app.vala:1418
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch Update Manager"
-msgstr "啟動器管理員"
+msgstr "啟動更新管理員"
 
 #: ../lxsession/app.vala:1493
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
-msgstr ""
+msgstr "發生錯誤，請從左鍵選單中執行套件管理員或在終端機中使用 apt-get 查看問題。"
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
-msgstr ""
+msgstr "錯誤訊息是："
 
 #: ../lxsession/app.vala:1516
 msgid " Update available"
-msgstr ""
+msgstr "有可用更新"
 
 #: ../lxsession/app.vala:1866
 msgid "Report "
-msgstr ""
+msgstr "回報 "
 
 #: ../lxsession/app.vala:1903
 msgid "Crash files available for report"
-msgstr ""
+msgstr "有可用的崩潰檔案可供回報"
 
 #~ msgid "Command"
 #~ msgstr "指令"
