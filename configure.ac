@@ -143,7 +143,7 @@ fi
 
 # debug flags
 AC_ARG_ENABLE(debug,
-    [AS_HELP_STRING([--enable-debug],[build libfm with debug support @<:@default=no@:>@])],
+    [AS_HELP_STRING([--enable-debug],[build lxsession with debug support @<:@default=no@:>@])],
     [enable_debug="${enableval}"],
     [enable_debug=no]
 )
