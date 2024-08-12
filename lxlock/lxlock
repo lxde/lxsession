@@ -20,8 +20,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 
-# Try to lock the screen with thos applications (in this order) :
-# light-locker-command, xscreensaver, gnome-screensaver, slock, xlock, i3lock and xdg-screensaver
+# Try to lock the screen with these applications (in this order):
 
 if pidof light-locker >/dev/null; then
     light-locker-command -l >/dev/null 2>&1
