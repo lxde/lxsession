@@ -1,9 +1,0 @@
-#!/bin/sh -e
-
-if [ "$1" = "remove" ] || [ "$1" = upgrade ]; then
-  update-alternatives --remove x-session-manager /usr/bin/lxsession 
-fi
-
-#DEBHELPER#
-
-exit 0
