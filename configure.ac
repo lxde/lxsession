@@ -45,7 +45,7 @@ PKG_CHECK_MODULES(X11, [x11])
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)
 
-PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.28.0])
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= 2.32.0])
 AC_SUBST(GLIB_CFLAGS)
 AC_SUBST(GLIB_LIBS)
 
@@ -77,7 +77,7 @@ else
     VALA_GTK_LIBS="gtk+-3.0"
   else
     CFLAGS="$CFLAGS -D USE_GTK2"
-    gtk_modules="gtk+-2.0 >= 2.6.0"
+    gtk_modules="gtk+-2.0 >= 2.12.0"
     VALA_GTK_LIBS="gtk+-2.0"
   fi
   PKG_CHECK_MODULES(GTK, [$gtk_modules])
