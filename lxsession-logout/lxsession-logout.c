@@ -17,6 +17,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#define _GNU_SOURCE
+
 #include <config.h>
 #include <locale.h>
 #include <stdlib.h>
@@ -24,10 +26,15 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
+#if defined(GDK_WINDOWING_WAYLAND) && (defined(__linux__) || defined(__FreeBSD__))
+#include <gdk/gdkwayland.h>
+#endif
 #include <glib/gi18n.h>
 #include <sys/file.h>
 #include <sys/types.h>
+#include <sys/socket.h>
 #include <sys/stat.h>
+#include <sys/un.h>
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -194,6 +201,89 @@ static gboolean verify_running(const char * display_manager, const char * execut
     return FALSE;
 }
 
+#if defined(GDK_WINDOWING_WAYLAND) && (defined(__linux__) || defined(__FreeBSD__))
+#define pathlen ((int) sizeof(((struct sockaddr_un *) NULL)->sun_path))
+
+#ifdef __FreeBSD__
+#include <sys/ucred.h>
+#define ucred xucred
+#define pid cr_pid
+#define SO_PEERCRED LOCAL_PEERCRED
+#undef SOL_SOCKET
+#define SOL_SOCKET SOL_LOCAL
+#endif
+
+static void wayland_logout()
+{
+    // Based on code from https://github.com/soreau/wayland-logout/blob/64eb1c3c9a4d68613afa226a984d6f3ae4cb9950/wayland-logout.c
+    char socket_path[pathlen];
+    char *xdg_runtime_dir = getenv("XDG_RUNTIME_DIR");
+    char *wayland_display = getenv("WAYLAND_DISPLAY");
+
+    if (!wayland_display)
+    {
+        g_critical("WAYLAND_DISPLAY not set");
+        return;
+    }
+
+    // WAYLAND_DISPLAY can be an absolute path
+    int wl_display_abs = wayland_display[0] == '/';
+
+    if (!wl_display_abs && !xdg_runtime_dir)
+    {
+        g_critical("WAYLAND_DISPLAY is not an absolute path and XDG_RUNTIME_DIR is not set");
+        return;
+    }
+
+    if (wl_display_abs)
+    {
+        if (snprintf(socket_path, pathlen, "%s", wayland_display) >= pathlen)
+        {
+            g_critical("WAYLAND_DISPLAY path \"%s\" is too long (max is %d)", wayland_display, pathlen);
+            return;
+        }
+    }
+    else if (snprintf(socket_path, pathlen, "%s/%s", xdg_runtime_dir, wayland_display) >= pathlen)
+    {
+        g_critical("XDG_RUNTIME_DIR/WAYLAND_DISPLAY path \"%s/%s\" is too long (max is %d)", xdg_runtime_dir, wayland_display, pathlen);
+        return;
+    }
+
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
+    if (fd == -1)
+    {
+        g_critical("Failed to create socket");
+        return;
+    }
+
+    struct sockaddr_un socket = { 0 };
+    socket.sun_family = AF_UNIX;
+    // string length was checked in snprintf
+    strcpy(socket.sun_path, socket_path);
+
+    int ret = connect(fd, (struct sockaddr *) &socket, sizeof(socket));
+    if (ret == -1)
+    {
+        g_critical("Failed to connect to socket %s: %m\n", socket.sun_path);
+        return;
+    }
+
+    struct ucred peer_cred;
+    socklen_t optlen = sizeof(peer_cred);
+
+    ret = getsockopt(fd, SOL_SOCKET, SO_PEERCRED, &peer_cred, &optlen);
+    if (ret == -1)
+    {
+        g_critical("Error getting credentials for peer: %m\n");
+        return;
+    }
+
+    ret = kill(peer_cred.pid, SIGTERM);
+    if (ret == -1)
+        g_critical("Error killing pid %d: %m\n", peer_cred.pid);
+}
+#endif
+
 /* Handler for "clicked" signal on Logout button. */
 static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
 {
@@ -201,6 +291,10 @@ static void logout_clicked(GtkButton * button, HandlerContext * handler_context)
     {
         kill(handler_context->lxsession_pid, SIGTERM);
     }
+#if defined(GDK_WINDOWING_WAYLAND) && (defined(__linux__) || defined(__FreeBSD__))
+    else if (GDK_IS_WAYLAND_DISPLAY(gtk_widget_get_display(GTK_WIDGET(button))))
+        wayland_logout();
+#endif
     else
     {
         /* Assume we are under openbox */
