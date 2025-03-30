@@ -1,21 +1,21 @@
 # Icelandic translation for LXSession package.
-# Copyright (C) 2021 Free Software Foundation, Inc.
+# Copyright (C) 2025 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lxsession package.
-# Sveinn í Felli <sv1@fellsnet.is>, 2014, 2021.
+# SPDX-FileCopyrightText: 2014, 2021, 2025 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2021-03-04 16:57+0000\n"
+"PO-Revision-Date: 2025-03-30 15:25+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 2.0\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:52
@@ -40,7 +40,7 @@ msgstr "Staðsetning borðans"
 
 #: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
-msgstr ""
+msgstr "Fela hnapp"
 
 #: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
@@ -104,7 +104,7 @@ msgstr "Upplýsingar"
 
 #: ../lxpolkit/main.vala:40
 msgid "lxpolkit is already running. Exiting"
-msgstr ""
+msgstr "lxpolkit er þegar í gangi. Hætti."
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -124,7 +124,6 @@ msgid "Group: %s"
 msgstr "Hópur: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1
-#, fuzzy
 #| msgid "Desktop Session Settings"
 msgctxt "Title"
 msgid "Desktop Session Settings"
@@ -655,7 +654,7 @@ msgstr "Forrit til að taka skjámyndir af skjáborði, eins og scrot ..."
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Viewer for PDF, like evince"
-msgstr ""
+msgstr "PDF-skoðari, líkist evince"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
@@ -805,52 +804,52 @@ msgstr "Hætta við"
 
 #: ../lxsession/app.vala:1273
 msgid "Reboot required"
-msgstr ""
+msgstr "Endurræsing nauðsynleg"
 
 #: ../lxsession/app.vala:1301
-#, fuzzy
 #| msgid "_Reboot"
 msgid "Reboot"
-msgstr "Endu_rræsa"
+msgstr "Endurræsa"
 
 #: ../lxsession/app.vala:1341
-#, fuzzy
 #| msgid "Launcher manager"
 msgid "Launch language support"
-msgstr "Ræsistjórnun"
+msgstr "Tungumálastuðningur ræsingar"
 
 #: ../lxsession/app.vala:1374
 msgid "Language support missing"
-msgstr ""
+msgstr "Vantar tungumálastuðning"
 
 #: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
 msgid "Updates available"
-msgstr ""
+msgstr "Uppfærslur tiltækar"
 
 #: ../lxsession/app.vala:1418
-#, fuzzy
 #| msgid "Launcher manager"
 msgid "Launch Update Manager"
-msgstr "Ræsistjórnun"
+msgstr "Uppfærslustýring ræsingar"
 
 #: ../lxsession/app.vala:1493
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
 msgstr ""
+"Villa kom upp, keyrðu Pakkastjórann með valmynd vinstri-smells valmynd eða"
+" apt-"
+"get í skjáhermi/útstöð til þess að sjá hvað fór úrskeiðis."
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
-msgstr ""
+msgstr "Villumeldingin var: "
 
 #: ../lxsession/app.vala:1516
 msgid " Update available"
-msgstr ""
+msgstr " Uppfærsla tiltæk"
 
 #: ../lxsession/app.vala:1866
 msgid "Report "
-msgstr ""
+msgstr "Tilkynna "
 
 #: ../lxsession/app.vala:1903
 msgid "Crash files available for report"
-msgstr ""
+msgstr "Hrunskýrslur í boði fyrir tilkynninguna"
