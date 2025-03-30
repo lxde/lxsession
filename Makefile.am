@@ -243,6 +243,12 @@ lxsession_default_apps_lxsession_default_apps_LDADD = \
     $(X11_LIBS) \
     $(NULL)
 
+if USE_GTK3
+lxsession_default_apps_lxsession_default_apps_VALAFLAGS += --define USE_GTK3
+else
+lxsession_default_apps_lxsession_default_apps_VALAFLAGS += --define USE_GTK2
+endif
+
 if USE_BUILDIN_CLIPBOARD
 buildinclip_SOURCES = \
     lxclipboard/clipboard.c \
