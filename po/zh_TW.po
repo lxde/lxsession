@@ -547,7 +547,7 @@ msgstr ""
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
-msgstr ""
+msgstr "「Dock」是第二個面板。它用於啟動不同程式來處理另一種類型的面板。"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""

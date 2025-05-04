@@ -40,7 +40,7 @@ msgstr "图片的位置"
 
 #: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
-msgstr ""
+msgstr "隐藏按钮"
 
 #: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
@@ -104,7 +104,7 @@ msgstr "信息"
 
 #: ../lxpolkit/main.vala:40
 msgid "lxpolkit is already running. Exiting"
-msgstr ""
+msgstr "lxpolkit 已经运行。退出中"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -638,7 +638,7 @@ msgstr "对桌面截图的应用程序，如 scrot..."
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Viewer for PDF, like evince"
-msgstr ""
+msgstr "PDF 查看器，如 evince"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
@@ -787,7 +787,7 @@ msgstr "取消"
 
 #: ../lxsession/app.vala:1273
 msgid "Reboot required"
-msgstr ""
+msgstr "需要重新启动"
 
 #: ../lxsession/app.vala:1301
 #, fuzzy
@@ -803,11 +803,11 @@ msgstr "启动器管理器"
 
 #: ../lxsession/app.vala:1374
 msgid "Language support missing"
-msgstr ""
+msgstr "语言支持缺失"
 
 #: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
 msgid "Updates available"
-msgstr ""
+msgstr "有可用更新"
 
 #: ../lxsession/app.vala:1418
 #, fuzzy
@@ -819,23 +819,23 @@ msgstr "启动器管理器"
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
-msgstr ""
+msgstr "发生错误，请从左键菜单中启动软件包管理器或使用终端运行 apt-get 查看错误。"
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
-msgstr ""
+msgstr "错误信息："
 
 #: ../lxsession/app.vala:1516
 msgid " Update available"
-msgstr ""
+msgstr "有可用更新"
 
 #: ../lxsession/app.vala:1866
 msgid "Report "
-msgstr ""
+msgstr "反馈 "
 
 #: ../lxsession/app.vala:1903
 msgid "Crash files available for report"
-msgstr ""
+msgstr "有可用的崩溃文件供反馈"
 
 #~ msgid "Comment"
 #~ msgstr "注释"
@@ -949,7 +949,7 @@ msgstr ""
 #~ msgstr "<b>代理</b>"
 
 #~ msgid "LXSession is not running."
-#~ msgstr "LXSession 不在运行。"
+#~ msgstr "LXSession 没有运行。"
 
 #~ msgid "Logout"
 #~ msgstr "注销"
