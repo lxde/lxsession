@@ -418,7 +418,6 @@ lxsession_lxsession_SOURCES = \
 
 lxsession_lxsession_VALAFLAGS = \
     --vapidir=$(srcdir)/vapi \
-    --pkg dbus-glib-1 \
     --pkg gio-2.0 \
     --pkg posix \
     --pkg lxsettings-daemon \
