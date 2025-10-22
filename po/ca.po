@@ -4,10 +4,10 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2020-02-24 18:02+0000\n"
+"PO-Revision-Date: 2025-10-22 10:33+0200\n"
 "Last-Translator: Davidmp <rbndavid@gmail.com>\n"
 "Language-Team: LXDE Catalan translators group\n"
 "Language: ca\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7\n"
+"X-Generator: Poedit 3.6\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
 
 #: ../lxsession-logout/lxsession-logout.c:52
@@ -40,7 +40,7 @@ msgstr "Posició del rètol"
 
 #: ../lxsession-logout/lxsession-logout.c:55
 msgid "Hide button"
-msgstr ""
+msgstr "Amaga el botó"
 
 #: ../lxsession-logout/lxsession-logout.c:625
 #, c-format
@@ -79,7 +79,7 @@ msgstr "Can_via d'usuari"
 
 #: ../lxsession-logout/lxsession-logout.c:819
 msgid "L_ock Screen"
-msgstr "_Bloqueja la pantalla"
+msgstr "Bl_oca la pantalla"
 
 #. Create the Logout button.
 #: ../lxsession-logout/lxsession-logout.c:828
@@ -104,7 +104,7 @@ msgstr "Informació"
 
 #: ../lxpolkit/main.vala:40
 msgid "lxpolkit is already running. Exiting"
-msgstr ""
+msgstr "lxpolkit ja s'executa. Se surt."
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -124,8 +124,6 @@ msgid "Group: %s"
 msgstr "Grup: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1
-#, fuzzy
-#| msgid "Desktop Session Settings"
 msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Configuració de la sessió d'escriptori"
@@ -325,7 +323,7 @@ msgstr "Xarxa IGU"
 
 #: ../data/ui/lxsession-default-apps.ui.h:38
 msgid "Lock screen manager"
-msgstr "Gestor de bloqueig de pantalla"
+msgstr "Gestor de blocatge de pantalla"
 
 #: ../data/ui/lxsession-default-apps.ui.h:39
 msgid "Audio manager"
@@ -662,7 +660,7 @@ msgstr ""
 
 #: ../lxsession-default-apps/main.vala:258
 msgid "Viewer for PDF, like evince"
-msgstr ""
+msgstr "Visualitzador per a PDF, com ara evince"
 
 #: ../lxsession-default-apps/main.vala:263
 msgid "Video application"
@@ -726,7 +724,7 @@ msgstr "Aplicació per monitorar tasques en execució al sistema"
 
 #: ../lxsession-default-apps/main.vala:338
 msgid "Application to lock your screen"
-msgstr "Aplicació per bloquejar la pantalla"
+msgstr "Aplicació per blocar la pantalla"
 
 #: ../lxsession-default-apps/main.vala:343
 msgid "Managing your audio configuration"
@@ -813,55 +811,51 @@ msgstr "Cancel·la"
 
 #: ../lxsession/app.vala:1273
 msgid "Reboot required"
-msgstr ""
+msgstr "Cal reiniciar"
 
 #: ../lxsession/app.vala:1301
-#, fuzzy
-#| msgid "_Reboot"
 msgid "Reboot"
-msgstr "_Reinicia"
+msgstr "Reinicia"
 
 #: ../lxsession/app.vala:1341
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch language support"
-msgstr "Gestor del llançador"
+msgstr "Obre el suport de llengües"
 
 #: ../lxsession/app.vala:1374
 msgid "Language support missing"
-msgstr ""
+msgstr "Manca suport de llengua"
 
 #: ../lxsession/app.vala:1416 ../lxsession/app.vala:1520
 msgid "Updates available"
-msgstr ""
+msgstr "Actualitzacions disponibles"
 
 #: ../lxsession/app.vala:1418
-#, fuzzy
-#| msgid "Launcher manager"
 msgid "Launch Update Manager"
-msgstr "Gestor del llançador"
+msgstr "Obre el gestor d'actualitzacions"
 
 #: ../lxsession/app.vala:1493
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
 msgstr ""
+"Hi ha hagut un error. Executeu el Gestor de paquets des del menú contextual "
+"o premeu apt-get en un terminal per veure què passa."
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
-msgstr ""
+msgstr "El missatge d'error era aquest: "
 
 #: ../lxsession/app.vala:1516
 msgid " Update available"
-msgstr ""
+msgstr "Actualització disponible"
 
 #: ../lxsession/app.vala:1866
 msgid "Report "
-msgstr ""
+msgstr "Informe"
 
 #: ../lxsession/app.vala:1903
 msgid "Crash files available for report"
-msgstr ""
+msgstr "Fitxers d'error disponibles per a l'informe"
 
 #~ msgid "LXSession is not running."
 #~ msgstr "No s'està executant LXSession"
