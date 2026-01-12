@@ -28,17 +28,17 @@ elif pidof xscreensaver >/dev/null; then
     xscreensaver-command -lock >/dev/null 2>&1
 elif pidof gnome-screensaver >/dev/null; then
     gnome-screensaver-command --lock
-elif which slock >/dev/null 2>&1; then
+elif command -v slock >/dev/null 2>&1; then
     slock &
-elif which xlock >/dev/null 2>&1; then
+elif command -v xlock >/dev/null 2>&1; then
     xlock $*
-elif which i3lock >/dev/null 2>&1; then
+elif command -v i3lock >/dev/null 2>&1; then
     i3lock
-elif which slimlock >/dev/null 2>&1; then
+elif command -v slimlock >/dev/null 2>&1; then
     slimlock
-elif which xtrlock >/dev/null 2>&1; then
+elif command -v xtrlock >/dev/null 2>&1; then
     xtrlock
-elif which xsecurelock >/dev/null 2>&1; then
+elif command -v xsecurelock >/dev/null 2>&1; then
     xsecurelock
 else
     # In the end, try to fallback to xscreensaver
