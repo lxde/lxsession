@@ -26,8 +26,6 @@ if pidof light-locker >/dev/null; then
     light-locker-command -l >/dev/null 2>&1
 elif pidof xscreensaver >/dev/null; then
     xscreensaver-command -lock >/dev/null 2>&1
-elif pidof gnome-screensaver >/dev/null; then
-    gnome-screensaver-command --lock
 elif which slock >/dev/null 2>&1; then
     slock &
 elif which xlock >/dev/null 2>&1; then
@@ -42,8 +40,6 @@ elif which xsecurelock >/dev/null 2>&1; then
     xsecurelock
 else
     # In the end, try to fallback to xscreensaver
-
-    # assert: gnome-screensaver is not running
     xscreensaver -nosplash >/dev/null 2>&1 &
     xscreensaver-command -lock >/dev/null 2>&1
 fi
