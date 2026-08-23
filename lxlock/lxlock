@@ -4,6 +4,7 @@
 #  Copyright (C) 1999, 2003 Olivier Fourdan (fourdan@xfce.org)
 #  Copyright (C) 2012 Julien Lavergne (gilir@ubuntu.com)
 #  Copyright (C) 2013 Jarno Suni (8@iki.fi)
+#  Copyright (C) 2026 Ingo Brückl
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -23,21 +24,21 @@
 # Try to lock the screen with these applications (in this order):
 
 if pidof light-locker >/dev/null; then
-    light-locker-command -l >/dev/null 2>&1
+    light-locker-command --lock >/dev/null 2>&1
 elif pidof xscreensaver >/dev/null; then
     xscreensaver-command -lock >/dev/null 2>&1
 elif which xtrlock >/dev/null 2>&1; then
-    xtrlock
+    xtrlock -b
 elif which i3lock >/dev/null 2>&1; then
-    i3lock
+    i3lock -n -c 000000
 elif which slock >/dev/null 2>&1; then
-    slock &
+    slock
 elif which xsecurelock >/dev/null 2>&1; then
-    xsecurelock
+    xsecurelock >/dev/null 2>&1
 elif which slimlock >/dev/null 2>&1; then
-    slimlock
+    slimlock >/dev/null 2>&1
 elif which xlock >/dev/null 2>&1; then
-    xlock $*
+    xlock
 else
     # In the end, try to fallback to xscreensaver
     xscreensaver -nosplash >/dev/null 2>&1 &
