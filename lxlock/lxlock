@@ -43,5 +43,6 @@ else
     # In the end, try to fallback to xscreensaver
     xscreensaver -nosplash >/dev/null 2>&1 &
     xscreensaver-command -lock >/dev/null 2>&1
+    exit
 fi
 exit 0
