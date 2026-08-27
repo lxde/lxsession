@@ -63,8 +63,8 @@ typedef struct {
     int shutdown_available : 1;		/* Shutdown is available */
     int reboot_available : 1;		/* Reboot is available */
     int logout_available : 1;		/* Logout is available */
-    int suspend_available : 1;		/* Suspend is available */
     int hibernate_available : 1;	/* Hibernate is available */
+    int suspend_available : 1;		/* Suspend is available */
     int switch_user_available : 1;	/* Switch User is available */
     int lock_screen_available : 1;	/* Lock screen is available */
 
