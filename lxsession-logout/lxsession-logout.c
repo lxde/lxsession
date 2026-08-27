@@ -66,6 +66,7 @@ typedef struct {
     int suspend_available : 1;		/* Suspend is available */
     int hibernate_available : 1;	/* Hibernate is available */
     int switch_user_available : 1;	/* Switch User is available */
+    int lock_screen_available : 1;	/* Lock screen is available */
 
     int shutdown_systemd : 1;		/* Shutdown is available via systemd */
     int reboot_systemd : 1;		/* Reboot is available via systemd */
@@ -82,9 +83,6 @@ typedef struct {
     int switch_user_KDM : 1;		/* Switch User is available via LIGHTDM */
     int switch_user_LXDM : 1;		/* Switch User is available via LXDM */
     int ltsp : 1;			/* Shutdown and reboot is accomplished via LTSP */
-
-    int lock_screen : 1;                /* Lock screen available */
-
 } HandlerContext;
 
 static gboolean lock_screen(void);
@@ -613,7 +611,7 @@ int main(int argc, char * argv[])
     const gchar* very_lock_screen = determine_lock_screen();
     if (very_lock_screen)
     {
-        handler_context.lock_screen = TRUE;
+        handler_context.lock_screen_available = TRUE;
     }
 
     /* Logout is available. */
@@ -689,7 +687,7 @@ int main(int argc, char * argv[])
           handler_context.switch_user_available = FALSE;
         }
         if (strcmp(hide_button[i], "lock_screen") == 0) {
-          handler_context.lock_screen = FALSE;
+          handler_context.lock_screen_available = FALSE;
         }
       }
     }
@@ -821,7 +819,7 @@ int main(int argc, char * argv[])
     }
 
     /* Create the Lock Screen button. */
-    if (handler_context.lock_screen && !handler_context.ltsp)
+    if (handler_context.lock_screen_available && !handler_context.ltsp)
     {
         GtkWidget * lock_screen_button = gtk_button_new_with_mnemonic(_("L_ock Screen"));
         GtkWidget * image = gtk_image_new_from_icon_name("system-lock-screen", GTK_ICON_SIZE_BUTTON);
