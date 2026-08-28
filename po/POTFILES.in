@@ -1,3 +1,4 @@
+lxclipboard/main.vala
 lxsession-logout/lxsession-logout.c
 lxsession-edit/lxsession-edit.c
 lxsession-edit/lxsession-edit-common.c
