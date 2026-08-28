@@ -22,7 +22,7 @@ echo $2  # second argument
 
 case "$1" in
 "audio")
-    if ["$2" = "preferences"  ]
+    if [ "$2" = "preferences"  ]
     then
 	    echo "Launching audio preferences"
 	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_manager" string:'' > /dev/null 2>&1
