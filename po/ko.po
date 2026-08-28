@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
 "PO-Revision-Date: 2015-07-20 14:38+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: \n"
@@ -17,6 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -42,47 +46,46 @@ msgstr "배너의 위치"
 msgid "Hide button"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "오류: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>%s %s 세션을 로그아웃하시겠습니까?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>%s 세션을 로그아웃하시겠습니까?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "종료(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "재시작(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "대기(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "최대 절전(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "사용자 전환(_W)"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "화면 잠금(_O)"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "로그아웃(_L)"
 
@@ -103,7 +106,7 @@ msgid "Information"
 msgstr "정보"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
+msgid "lxpolkit is already running."
 msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:88

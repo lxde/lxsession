@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2025-03-30 15:25+0000\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
+"PO-Revision-Date: 2026-08-28 19:04+0200\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 23.08.5\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr "lxclipboard er þegar í gangi."
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -42,47 +46,46 @@ msgstr "Staðsetning borðans"
 msgid "Hide button"
 msgstr "Fela hnapp"
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "Villa: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Skrá út úr %s %s setu ?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Skrá út úr %s setu ?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "_Slökkva"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "Endu_rræsa"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "_Hvíla"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "Le_ggja í dvala"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "Skipta um _notanda"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "_Læsa skjá"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "S_krá út"
 
@@ -103,8 +106,8 @@ msgid "Information"
 msgstr "Upplýsingar"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
-msgstr "lxpolkit er þegar í gangi. Hætti."
+msgid "lxpolkit is already running."
+msgstr "lxpolkit er þegar í gangi."
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -124,7 +127,6 @@ msgid "Group: %s"
 msgstr "Hópur: %s"
 
 #: ../data/ui/lxsession-edit.ui.h:1
-#| msgid "Desktop Session Settings"
 msgctxt "Title"
 msgid "Desktop Session Settings"
 msgstr "Skjáborðssetustillingar"
@@ -807,12 +809,10 @@ msgid "Reboot required"
 msgstr "Endurræsing nauðsynleg"
 
 #: ../lxsession/app.vala:1301
-#| msgid "_Reboot"
 msgid "Reboot"
 msgstr "Endurræsa"
 
 #: ../lxsession/app.vala:1341
-#| msgid "Launcher manager"
 msgid "Launch language support"
 msgstr "Tungumálastuðningur ræsingar"
 
@@ -825,7 +825,6 @@ msgid "Updates available"
 msgstr "Uppfærslur tiltækar"
 
 #: ../lxsession/app.vala:1418
-#| msgid "Launcher manager"
 msgid "Launch Update Manager"
 msgstr "Uppfærslustýring ræsingar"
 
@@ -834,9 +833,8 @@ msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
 msgstr ""
-"Villa kom upp, keyrðu Pakkastjórann með valmynd vinstri-smells valmynd eða"
-" apt-"
-"get í skjáhermi/útstöð til þess að sjá hvað fór úrskeiðis."
+"Villa kom upp, keyrðu Pakkastjórann með valmynd vinstri-smells valmynd eða "
+"apt-get í skjáhermi/útstöð til þess að sjá hvað fór úrskeiðis."
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "

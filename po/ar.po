@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXSession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
 "PO-Revision-Date: 2015-06-15 06:30+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr ""
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -44,47 +48,46 @@ msgstr "موقع الشّعار"
 msgid "Hide button"
 msgstr ""
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "خطأ: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>أأخرج من جلسة %s %s؟</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>أأخرج من جلسة %s؟</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "أ_طفئ"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "أ_عد التّشغيل"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "_علّق"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "أ_سبِت"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "_بدّل المستخدم"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "ا_قفل الشّاشة"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "ا_خرج"
 
@@ -105,7 +108,7 @@ msgid "Information"
 msgstr "معلومات"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
+msgid "lxpolkit is already running."
 msgstr ""
 
 #: ../lxpolkit/lxpolkit-listener.c:88

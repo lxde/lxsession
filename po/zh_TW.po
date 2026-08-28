@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2024-06-28 10:42+0000\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
+"PO-Revision-Date: 2026-08-28 19:04+0200\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr "lxclipboard 已在執行中。"
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -42,47 +46,46 @@ msgstr "顯示圖片的位置"
 msgid "Hide button"
 msgstr "隱藏按鈕"
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "錯誤：%s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>登出 %s %s 作業階段？</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>登出 %s 作業階段？</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "關機(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "重新啟動(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "暫停(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "休眠(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "切換使用者(_W)"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "鎖定螢幕(_O)"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "登出(_L)"
 
@@ -103,8 +106,8 @@ msgid "Information"
 msgstr "資訊"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
-msgstr "lxpolkit 已在執行中。正在結束"
+msgid "lxpolkit is already running."
+msgstr "lxpolkit 已在執行中。"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -523,7 +526,8 @@ msgstr "是否自動啟動該應用程式？\n"
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
-msgstr "為 Debian 系統設定預設程式 (使用 update-alternatives，需要 root 密碼)\n"
+msgstr ""
+"為 Debian 系統設定預設程式 (使用 update-alternatives，需要 root 密碼)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:168
@@ -533,8 +537,8 @@ msgid ""
 "see \"More\"), kwin, compiz ..."
 msgstr ""
 "視窗管理員負責繪製並管理視窗。\n"
-"您可以選擇 openbox, openbox-custom (若要自訂 openbox 設定，見「更多」), kwin, "
-"compiz 等等..."
+"您可以選擇 openbox, openbox-custom (若要自訂 openbox 設定，見「更多」), "
+"kwin, compiz 等等..."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
@@ -818,7 +822,8 @@ msgstr "啟動更新管理員"
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
-msgstr "發生錯誤，請從左鍵選單中執行套件管理員或在終端機中使用 apt-get 查看問題。"
+msgstr ""
+"發生錯誤，請從左鍵選單中執行套件管理員或在終端機中使用 apt-get 查看問題。"
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "

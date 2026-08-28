@@ -7,14 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2025-12-17 20:05+0700\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
+"PO-Revision-Date: 2026-08-28 19:04+0200\n"
 "Last-Translator: # Warut Bunprasert <warut.b@disroot.org>, 2025\n"
 "Language-Team: th <LL@li.org>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr "lxclipboard กำลังทำงานอยู่ "
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -40,47 +44,46 @@ msgstr "ตำแหน่งของแบนเนอร์"
 msgid "Hide button"
 msgstr "ปุ่มซ่อน"
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "ข้อผิดพลาด: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>ออกจากวาระของ %s %s</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>ออกจากวาระของ %s</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "_ปิดเครื่อง"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "_รีบูต"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "_หยุดชั่วคราว"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "_จำศีล"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "ผู้ใช้_สลับ"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "_ล็อคหน้าจอ"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "_ออกจากระบบ"
 
@@ -101,14 +104,16 @@ msgid "Information"
 msgstr "ข้อมูล"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
+msgid "lxpolkit is already running."
 msgstr "lxpolkit กำลังทำงานอยู่ "
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
 "Authentication failed!\n"
 "Wrong password?"
-msgstr "การตรวจสอบสิทธิ์ล้มเหลว!\nรหัสผ่านผิด?"
+msgstr ""
+"การตรวจสอบสิทธิ์ล้มเหลว!\n"
+"รหัสผ่านผิด?"
 
 #: ../lxpolkit/lxpolkit-listener.c:106
 msgid "Password: "
@@ -140,7 +145,9 @@ msgstr "ตัวจัดการหน้าต่าง:"
 msgid ""
 "Command line used to launch window manager\n"
 "(The default window manager command for LXDE should be openbox-lxde)"
-msgstr "บรรทัดคำสั่งที่ใช้ในการเปิดตัวจัดการหน้าต่าง\n(คำสั่งตัวจัดการหน้าต่างเริ่มต้นสำหรับ LXDE ควรเป็น openbox-lxde)"
+msgstr ""
+"บรรทัดคำสั่งที่ใช้ในการเปิดตัวจัดการหน้าต่าง\n"
+"(คำสั่งตัวจัดการหน้าต่างเริ่มต้นสำหรับ LXDE ควรเป็น openbox-lxde)"
 
 #: ../data/ui/lxsession-edit.ui.h:7
 msgid ""
@@ -148,7 +155,10 @@ msgid ""
 "are doing.\n"
 "\n"
 "<b>NOTE:</b> This setting will take effect on next login."
-msgstr "<b>คำเตือน:</b> กรุณา <b>อย่า</b> แตะสิ่งนี้ เว้นแต่คุณจะรู้แน่ชัดว่าคุณกำลังทำอะไรอยู่\n\n<b>หมายเหตุ:</b> การตั้งค่านี้จะมีผลในการเข้าสู่ระบบครั้งถัดไป"
+msgstr ""
+"<b>คำเตือน:</b> กรุณา <b>อย่า</b> แตะสิ่งนี้ เว้นแต่คุณจะรู้แน่ชัดว่าคุณกำลังทำอะไรอยู่\n"
+"\n"
+"<b>หมายเหตุ:</b> การตั้งค่านี้จะมีผลในการเข้าสู่ระบบครั้งถัดไป"
 
 #: ../data/ui/lxsession-edit.ui.h:10
 msgid "Advanced Options"
@@ -474,7 +484,9 @@ msgstr "การกำหนดค่า LXSession"
 msgid ""
 "Manual Settings: Manually sets the command (you need to restart lxsession-"
 "default-apps to see the change)\n"
-msgstr "การตั้งค่าด้วยตนเอง: ตั้งค่าคำสั่งด้วยตนเอง (คุณต้องรีสตาร์ท lxsession-default-apps เพื่อดูการเปลี่ยนแปลง)\n"
+msgstr ""
+"การตั้งค่าด้วยตนเอง: ตั้งค่าคำสั่งด้วยตนเอง (คุณต้องรีสตาร์ท lxsession-default-apps "
+"เพื่อดูการเปลี่ยนแปลง)\n"
 
 #: ../lxsession-default-apps/main.vala:159
 msgid "Session : specify the session\n"
@@ -507,7 +519,8 @@ msgstr "เริ่มต้นแอปพลิเคชันอัตโน
 msgid ""
 "Set default program for Debian system (using update-alternatives, need root "
 "password)\n"
-msgstr "ตั้งค่าโปรแกรมเริ่มต้นสำหรับระบบ Debian (โดยใช้ทางเลือกในการอัปเดต ต้องใช้รหัสผ่านรูท)\n"
+msgstr ""
+"ตั้งค่าโปรแกรมเริ่มต้นสำหรับระบบ Debian (โดยใช้ทางเลือกในการอัปเดต ต้องใช้รหัสผ่านรูท)\n"
 
 #. New inits
 #: ../lxsession-default-apps/main.vala:168
@@ -515,39 +528,50 @@ msgid ""
 "Windows manager draws and manage the windows. \n"
 "You can choose openbox, openbox-custom (for a custom openbox configuration, "
 "see \"More\"), kwin, compiz ..."
-msgstr "ตัวจัดการ Windows ดึงและจัดการหน้าต่าง \n คุณสามารถเลือก (สำหรับการตั้งค่า openbox แบบกำหนดเอง "
-"ให้ศึกษาที่ \"เพิ่มเติม\"), kwin, compiz ..."
+msgstr ""
+"ตัวจัดการ Windows ดึงและจัดการหน้าต่าง \n"
+" คุณสามารถเลือก (สำหรับการตั้งค่า openbox แบบกำหนดเอง ให้ศึกษาที่ \"เพิ่มเติม\"), kwin, "
+"compiz ..."
 
 #: ../lxsession-default-apps/main.vala:173
 msgid ""
 "Panel is the component usually at the bottom of the screen which manages a "
 "list of opened windows, shortcuts, notification area ..."
-msgstr "พาเนลเป็นส่วนประกอบซึ่งโดยปกติจะอยู่ที่ด้านล่างของหน้าจอซึ่งจัดการรายการหน้าต่างที่เปิดอยู่ ทางลัด พื้นที่แจ้งเตือน ..."
+msgstr ""
+"พาเนลเป็นส่วนประกอบซึ่งโดยปกติจะอยู่ที่ด้านล่างของหน้าจอซึ่งจัดการรายการหน้าต่างที่เปิดอยู่ ทางลัด "
+"พื้นที่แจ้งเตือน ..."
 
 #: ../lxsession-default-apps/main.vala:178
 msgid ""
 "Dock is a second panel. It's used to launch a different program to handle a "
 "second type of panel."
-msgstr "แบบด็อกเป็นพาเนลที่สอง สำหรับการเรียกใช้โปรแกรมที่แตกต่างออกไป ที่ได้จัดไว้ในพาเนลอีกที่หนึ่ง"
+msgstr ""
+"แบบด็อกเป็นพาเนลที่สอง สำหรับการเรียกใช้โปรแกรมที่แตกต่างออกไป ที่ได้จัดไว้ในพาเนลอีกที่หนึ่ง"
 
 #: ../lxsession-default-apps/main.vala:183
 msgid ""
 "File manager is the component which open the files.\n"
 "See \"More\" to add options to handle the desktop, or opening files "
-msgstr "ตัวจัดการไฟล์เป็นส่วนประกอบที่ใช้เปิดไฟล์\nดู \"เพิ่มเติม\" เพื่อเพิ่มตัวเลือกในการจัดการเดสก์ท็อปหรือเปิดไฟล์"
+msgstr ""
+"ตัวจัดการไฟล์เป็นส่วนประกอบที่ใช้เปิดไฟล์\n"
+"ดู \"เพิ่มเติม\" เพื่อเพิ่มตัวเลือกในการจัดการเดสก์ท็อปหรือเปิดไฟล์"
 
 #: ../lxsession-default-apps/main.vala:188
 msgid ""
 "Composite manager enables graphics effects, like transparency and shadows, "
 "if the windows manager doesn't handle it. \n"
 "Example: compton"
-msgstr "โปรแกรมจัดการคอมโพสิต จะเปิดใช้งานเอฟเฟกต์กราฟิก เช่น ความโปร่งใสและเงา หากตัวจัดการหน้าต่างไม่สามารถจัดการได้ เช่น compton"
+msgstr ""
+"โปรแกรมจัดการคอมโพสิต จะเปิดใช้งานเอฟเฟกต์กราฟิก เช่น ความโปร่งใสและเงา "
+"หากตัวจัดการหน้าต่างไม่สามารถจัดการได้ เช่น compton"
 
 #: ../lxsession-default-apps/main.vala:193
 msgid ""
 "Desktop manager draws the desktop and manages the icons inside it.\n"
 "You can manage it with the file manager by setting \"filemanager\""
-msgstr "ตัวจัดการเดสก์ท็อปจะดึงเดสก์ท็อปและจัดการไอคอนภายในนั้น\nคุณสามารถจัดการได้ด้วยตัวจัดการไฟล์โดยการตั้งค่า \"ตัวจัดการไฟล์\""
+msgstr ""
+"ตัวจัดการเดสก์ท็อปจะดึงเดสก์ท็อปและจัดการไอคอนภายในนั้น\n"
+"คุณสามารถจัดการได้ด้วยตัวจัดการไฟล์โดยการตั้งค่า \"ตัวจัดการไฟล์\""
 
 #: ../lxsession-default-apps/main.vala:195
 msgid "Wallpaper: Set an image path to draw the wallpaper"
@@ -563,13 +587,17 @@ msgid ""
 "Power Manager helps you to reduce the usage of batteries. You probably don't "
 "need one if you have a desktop computer.\n"
 "Auto option will set it automatically, depending of the laptop mode option."
-msgstr "โปรแกรมจัดการพลังงาน ช่วยให้คุณลดการใช้แบตเตอรี่ คุณอาจไม่จำเป็นต้องใช้หากคอมพิวเตอร์ของคุณมีการตั้งค่าพลังงานแบบอัตโนมัติอยู่แล้ว"
+msgstr ""
+"โปรแกรมจัดการพลังงาน ช่วยให้คุณลดการใช้แบตเตอรี่ "
+"คุณอาจไม่จำเป็นต้องใช้หากคอมพิวเตอร์ของคุณมีการตั้งค่าพลังงานแบบอัตโนมัติอยู่แล้ว"
 
 #: ../lxsession-default-apps/main.vala:208
 msgid ""
 "Polkit agent provides authorisations to use some actions, like suspend, "
 "hibernate, using Consolekit ... It's not advised to make it blank."
-msgstr "ตัวแทน Polkit ให้สิทธิ์ในการใช้การกระทำบางอย่าง เช่น หยุดชั่วคราว จำศีล สำหรับการใช้ Consolekit ... ไม่แนะนำให้เว้นว่างไว้"
+msgstr ""
+"ตัวแทน Polkit ให้สิทธิ์ในการใช้การกระทำบางอย่าง เช่น หยุดชั่วคราว จำศีล สำหรับการใช้ "
+"Consolekit ... ไม่แนะนำให้เว้นว่างไว้"
 
 #: ../lxsession-default-apps/main.vala:213
 msgid "Set an utility to manager connections, such as nm-applet"
@@ -603,7 +631,9 @@ msgstr "ยูทิลิตี้สำหรับเรียกใช้ Ga
 msgid ""
 "Utility to launch application, like synapse, kupfer ... \n"
 "For using lxpanel or lxde default utility, use \"lxpanelctl\" "
-msgstr "ยูทิลิตี้เพื่อเปิดแอปพลิเคชัน เช่น synapse, kupfer ... \nสำหรับการใช้ยูทิลิตี้เริ่มต้น lxpanel หรือ lxde ให้ใช้ \"lxpanelctl\""
+msgstr ""
+"ยูทิลิตี้เพื่อเปิดแอปพลิเคชัน เช่น synapse, kupfer ... \n"
+"สำหรับการใช้ยูทิลิตี้เริ่มต้น lxpanel หรือ lxde ให้ใช้ \"lxpanelctl\""
 
 #: ../lxsession-default-apps/main.vala:253
 msgid "Application for taking screeshot of your desktop, like scrot ..."
@@ -702,13 +732,18 @@ msgid ""
 "Managing keyring support.\n"
 "Standard options available \"gnome\" for gnome-keyring support  or \"ssh-"
 "agent\" for ssh-agent support"
-msgstr "การจัดการการสนับสนุนพวงกุญแจ\nมีตัวเลือกมาตรฐาน \"gnome\" สำหรับการสนับสนุน gnome-keyring หรือ \"ssh-agent\" สำหรับการสนับสนุน ssh-agent"
+msgstr ""
+"การจัดการการสนับสนุนพวงกุญแจ\n"
+"มีตัวเลือกมาตรฐาน \"gnome\" สำหรับการสนับสนุน gnome-keyring หรือ \"ssh-agent\" "
+"สำหรับการสนับสนุน ssh-agent"
 
 #: ../lxsession-default-apps/main.vala:373
 msgid ""
 "Managing support for accessibility.\n"
 "Stardart option are gnome, for stardart gnome support."
-msgstr "การจัดการการสนับสนุนสำหรับการเข้าถึง\nตัวเลือก Stardart คือ gnome สำหรับการสนับสนุน stardart gnome"
+msgstr ""
+"การจัดการการสนับสนุนสำหรับการเข้าถึง\n"
+"ตัวเลือก Stardart คือ gnome สำหรับการสนับสนุน stardart gnome"
 
 #: ../lxsession-default-apps/main.vala:378
 msgid "Managing proxy support"
@@ -782,7 +817,9 @@ msgstr "เปิดตัวจัดการการอัปเดต"
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
-msgstr "เกิดข้อผิดพลาด โปรดเรียกใช้ Package Manager จากเมนูคลิกซ้ายหรือ apt-get ในเทอร์มินัลเพื่อดูว่ามีอะไรผิดปกติ"
+msgstr ""
+"เกิดข้อผิดพลาด โปรดเรียกใช้ Package Manager จากเมนูคลิกซ้ายหรือ apt-get "
+"ในเทอร์มินัลเพื่อดูว่ามีอะไรผิดปกติ"
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "

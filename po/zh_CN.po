@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession-lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2014-12-03 12:10+0000\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
+"PO-Revision-Date: 2026-08-28 19:04+0200\n"
 "Last-Translator: Wylmer Wang <wantinghard@gmail.com>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "Language: zh_CN\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.7\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr "lxclipboard 已经运行。"
 
 #: ../lxsession-logout/lxsession-logout.c:52
 msgid "Custom message to show on the dialog"
@@ -42,47 +46,46 @@ msgstr "图片的位置"
 msgid "Hide button"
 msgstr "隐藏按钮"
 
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "错误：%s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>注销 %s %s会话？</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>注销 %s 会话？</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "关机(_U)"
 
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "重新启动(_R)"
 
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "挂起(_S)"
 
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "休眠(_H)"
 
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "切换用户(_W)"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "锁定屏幕(_O)"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "注销(_L)"
 
@@ -103,8 +106,8 @@ msgid "Information"
 msgstr "信息"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
-msgstr "lxpolkit 已经运行。退出中"
+msgid "lxpolkit is already running."
+msgstr "lxpolkit 已经运行。"
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
@@ -819,7 +822,8 @@ msgstr "启动器管理器"
 msgid ""
 "An error occurred, please run Package Manager from the left-click menu or "
 "apt-get in a terminal to see what is wrong."
-msgstr "发生错误，请从左键菜单中启动软件包管理器或使用终端运行 apt-get 查看错误。"
+msgstr ""
+"发生错误，请从左键菜单中启动软件包管理器或使用终端运行 apt-get 查看错误。"
 
 #: ../lxsession/app.vala:1496
 msgid "The error message was: "
