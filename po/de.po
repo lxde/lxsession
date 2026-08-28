@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxsession\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-31 13:41+0200\n"
-"PO-Revision-Date: 2023-08-31 15:32+0200\n"
+"POT-Creation-Date: 2026-08-28 19:04+0200\n"
+"PO-Revision-Date: 2026-08-28 19:15+0200\n"
 "Last-Translator: Ingo Brückl <ib@oddnet.de>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-POOTLE-MTIME: 1439775037.646574\n"
+
+#: ../lxclipboard/main.vala:35
+msgid "lxclipboard is already running."
+msgstr "lxclipboard wird bereits ausgeführt."
 
 # This message prompts you to write a message that you would like to appear in a dialogue box.
 #: ../lxsession-logout/lxsession-logout.c:52
@@ -47,52 +51,51 @@ msgid "Hide button"
 msgstr "Schaltfläche verbergen"
 
 # I think this is the error message.
-#: ../lxsession-logout/lxsession-logout.c:625
+#: ../lxsession-logout/lxsession-logout.c:627
 #, c-format
 msgid "Error: %s\n"
 msgstr "Fehler: %s\n"
 
-#: ../lxsession-logout/lxsession-logout.c:752
+#: ../lxsession-logout/lxsession-logout.c:757
 #, c-format
 msgid "<b><big>Logout %s %s session?</big></b>"
 msgstr "<b><big>Von der %s-%s-Sitzung abmelden?</big></b>"
 
-#: ../lxsession-logout/lxsession-logout.c:754
+#: ../lxsession-logout/lxsession-logout.c:759
 #, c-format
 msgid "<b><big>Logout %s session?</big></b>"
 msgstr "<b><big>Von der %s-Sitzung abmelden?</big></b>"
 
 # Turn the machine completely off
-#: ../lxsession-logout/lxsession-logout.c:764
+#: ../lxsession-logout/lxsession-logout.c:769
 msgid "Sh_utdown"
 msgstr "Her_unterfahren"
 
 # Make the machine shut down and restart itself
-#: ../lxsession-logout/lxsession-logout.c:775
+#: ../lxsession-logout/lxsession-logout.c:780
 msgid "_Reboot"
 msgstr "Neusta_rt"
 
 # Have the machine pause, leaving things exactly where they are
-#: ../lxsession-logout/lxsession-logout.c:786
+#: ../lxsession-logout/lxsession-logout.c:791
 msgid "_Suspend"
 msgstr "Bereit_schaft"
 
 # Have the machine close all jobs and go into a low energy state - still logged in
-#: ../lxsession-logout/lxsession-logout.c:797
+#: ../lxsession-logout/lxsession-logout.c:802
 msgid "_Hibernate"
 msgstr "Ru_hezustand"
 
 # Work in another user account while keeping the current one open and read to return to
-#: ../lxsession-logout/lxsession-logout.c:808
+#: ../lxsession-logout/lxsession-logout.c:813
 msgid "S_witch User"
 msgstr "Benutzer _wechseln"
 
-#: ../lxsession-logout/lxsession-logout.c:819
+#: ../lxsession-logout/lxsession-logout.c:824
 msgid "L_ock Screen"
 msgstr "_Bildschirm sperren"
 
-#. Create the Logout button.
-#: ../lxsession-logout/lxsession-logout.c:828
+#: ../lxsession-logout/lxsession-logout.c:835
 msgid "_Logout"
 msgstr "Abme_lden"
 
@@ -113,8 +116,8 @@ msgid "Information"
 msgstr "Information"
 
 #: ../lxpolkit/main.vala:40
-msgid "lxpolkit is already running. Exiting"
-msgstr "lxpolkit wird bereits ausgeführt. Programmende"
+msgid "lxpolkit is already running."
+msgstr "lxpolkit wird bereits ausgeführt."
 
 #: ../lxpolkit/lxpolkit-listener.c:88
 msgid ""
