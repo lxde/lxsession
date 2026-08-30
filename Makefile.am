@@ -46,7 +46,6 @@ EXTRA_DIST = \
 
 if USE_GTK
 bin_PROGRAMS += \
-    lxpolkit/lxpolkit \
     lxsession-db/lxsession-db \
     lxsession-edit/lxsession-edit \
     lxsession-logout/lxsession-logout \
@@ -92,6 +91,10 @@ else
 lxclipboard_lxclipboard_VALAFLAGS += --define USE_GTK2
 endif
 
+if HAVE_POLKIT
+bin_PROGRAMS += \
+    lxpolkit/lxpolkit
+
 lxpolkit_lxpolkit_vala_SOURCES = \
     lxpolkit/main.vala \
     $(NULL)
@@ -135,6 +138,7 @@ lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK3
 else
 lxpolkit_lxpolkit_VALAFLAGS += --define USE_GTK2
 endif
+endif # HAVE_POLKIT
 
 lxsession_db_lxsession_db_SOURCES = \
     lxsession-db/main.vala \

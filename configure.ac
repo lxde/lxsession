@@ -87,7 +87,7 @@ else
   AC_SUBST(VALA_GTK_LIBS)
 
   polkit_modules="polkit-agent-1"
-  PKG_CHECK_MODULES(POLKIT, [$polkit_modules])
+  PKG_CHECK_MODULES(POLKIT, [$polkit_modules], HAVE_POLKIT=yes, HAVE_POLKIT=no)
   AC_SUBST(POLKIT_CFLAGS)
   AC_SUBST(POLKIT_LIBS)
 
@@ -111,6 +111,7 @@ else
 
 fi
 
+AM_CONDITIONAL(HAVE_POLKIT, test "$HAVE_POLKIT" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_CLIPBOARD, test "$use_buildin_clipboard" = "yes")
 AM_CONDITIONAL(USE_BUILDIN_POLKIT, test "$use_buildin_polkit" = "yes")
 AM_CONDITIONAL(USE_GTK3, test "$enable_gtk3" = "yes")

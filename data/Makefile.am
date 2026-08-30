@@ -10,9 +10,11 @@ desktop_in_files = \
 	lxsession-edit.desktop.in \
 	$(NULL)
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+if HAVE_POLKIT
 autostartdir = $(sysconfdir)/xdg/autostart
 autostart_in_files = lxpolkit.desktop.in
 autostart_DATA = $(autostart_in_files:.desktop.in=.desktop)
+endif
 @INTLTOOL_DESKTOP_RULE@
 DISTCLEANFILES = \
 	lxsession-default-apps.desktop \

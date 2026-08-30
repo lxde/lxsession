@@ -7,10 +7,14 @@ man_MANS = \
 	lxsession-default-terminal.1 \
 	lxsession-default-apps.1 \
 	lxsettings-daemon.1 \
-	lxpolkit.1 \
 	lxsession-edit.1 \
 	lxsession-db.1 \
 	lxsession-xdg-autostart.1
+
+if HAVE_POLKIT
+man_MANS += \
+	lxpolkit.1
+endif
 
 man_XMANS = \
 	lxsession.xml \
