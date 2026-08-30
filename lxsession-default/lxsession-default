@@ -25,148 +25,157 @@ case "$1" in
     if [ "$2" = "preferences"  ]
     then
 	    echo "Launching audio preferences"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_manager" string:'' > /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_manager" string:'' > /dev/null 2>&1
     fi
+    echo 'lxsession-default audio does nothing, pass "preferences" as option (second argument)' >&2
+    exit 1
     ;;
 "quit")
 	echo "Launching quit manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"quit_manager" string:'' > /dev/null 2>&1
+	if dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"quit_manager" string:'' > /dev/null 2>&1; then
+	    exit 0
+	fi
 # Backward compatibility with previous API, make possible to reboot when lxsession-default is updated before restarting lxsession
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.QuitManagerLaunch > /dev/null 2>&1
     ;;
 "workspace")
 	echo "Launching workspace manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"workspace_manager" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"workspace_manager" string:'' > /dev/null 2>&1
     ;;
 "launcher")
 	echo "Launching launcher manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"launcher_manager" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"launcher_manager" string:'' > /dev/null 2>&1
     ;;
 "terminal")
 	echo "Launching terminal manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"terminal_manager" string:"$PWD"> /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"terminal_manager" string:"$PWD"> /dev/null 2>&1
     ;;
 "upgrades")
 	echo "Launching upgrades manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"upgrades_manager" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"upgrades_manager" string:'' > /dev/null 2>&1
     ;;
 "screenshot")
     if [ "$2" = "window" ]
     then
 	    echo "Launching screenshot manager (current window)"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'window'> /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'window'> /dev/null 2>&1
     else
 	    echo "Launching screenshot manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'' > /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"screenshot_manager" string:'' > /dev/null 2>&1
     fi
     ;;
 "file_manager")
 	echo "Launching file manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"file_manager" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"file_manager" string:'' > /dev/null 2>&1
     ;;
 "desktop_manager")
     if [ "$2" = "settings" ]
     then
 	    echo "Launching settings for desktop manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"desktop_manager" string:"settings" > /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"desktop_manager" string:"settings" > /dev/null 2>&1
     fi
+    echo 'lxsession-default desktop_manager does nothing, pass "settings" as option (second argument)' >&2
+    exit 1
     ;;
 "crash_manager")
     if [ "$2" = "report" ]
     then
 	    echo "Launching crash manager reporter"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'report'> /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'report'> /dev/null 2>&1
     else
 	    echo "Launching crash manager"
-	    dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'' > /dev/null 2>&1
+	    exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"crash_manager" string:'' > /dev/null 2>&1
     fi
     ;;
 "windows_manager")
 	echo "Launching windows manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"windows_manager"  string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"windows_manager"  string:'' > /dev/null 2>&1
     ;;
 "lock")
 	echo "Launching lock manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
     ;;
 "lock_manager")
 	echo "Launching lock manager"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"lock_manager"  string:'' > /dev/null 2>&1
     ;;
 "webbrowser")
 	echo "Launching webbrowser application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'webbrowser' string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'webbrowser' string:'' > /dev/null 2>&1
     ;;
 "email")
 	echo "Launching email application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'email' string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:'email' string:'' > /dev/null 2>&1
     ;;
 "im1")
 	echo "Launching im application 1"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"im1" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"im1" string:'' > /dev/null 2>&1
     ;;
 "webcam")
 	echo "Launching webcam application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"webcam" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"webcam" string:'' > /dev/null 2>&1
     ;;
 "video_player")
 	echo "Launching video player application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"video_player" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"video_player" string:'' > /dev/null 2>&1
     ;;
 "audio_player")
 	echo "Launching audio player application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_player" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"audio_player" string:'' > /dev/null 2>&1
     ;;
 "pdf_reader")
 	echo "Launching pdf reader application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"pdf_reader" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"pdf_reader" string:'' > /dev/null 2>&1
     ;;
 "spreadsheet")
 	echo "Launching spreadsheet application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"spreadsheet" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"spreadsheet" string:'' > /dev/null 2>&1
     ;;
 "document")
 	echo "Launching document application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"document" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"document" string:'' > /dev/null 2>&1
     ;;
 "bittorent")
 	echo "Launching bittorent application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"bittorent" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"bittorent" string:'' > /dev/null 2>&1
     ;;
 "notes")
 	echo "Launching notes application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"notes" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"notes" string:'' > /dev/null 2>&1
     ;;
 "disk_utility")
 	echo "Launching disk utility application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"disk_utility" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"disk_utility" string:'' > /dev/null 2>&1
     ;;
 "image_display")
 	echo "Launching images application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"image_display" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"image_display" string:'' > /dev/null 2>&1
     ;;
 "text_editor")
 	echo "Launching text editor application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"text_editor" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"text_editor" string:'' > /dev/null 2>&1
     ;;
 "archive")
 	echo "Launching archive application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"archive" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"archive" string:'' > /dev/null 2>&1
     ;;
 "calculator")
 	echo "Launching calculator application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"calculator" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"calculator" string:'' > /dev/null 2>&1
     ;;
 "tasks")
 	echo "Launching tasks application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"tasks" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"tasks" string:'' > /dev/null 2>&1
     ;;
 "burn")
 	echo "Launching burning application"
-	dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"burn" string:'' > /dev/null 2>&1
+	exec dbus-send --session --print-reply --dest="org.lxde.SessionManager" /org/lxde/SessionManager org.lxde.SessionManager.SessionLaunch string:"burn" string:'' > /dev/null 2>&1
     ;;
 *)
+    echo "Unsupported lxsession-default command: $1" >&2
+    exit 1
     ;;
 esac
 
-exit 0
+# Should be unreachable
+exit 1
