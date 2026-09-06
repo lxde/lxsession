@@ -23,7 +23,7 @@ public class Main: GLib.Object
 
         const OptionEntry[] option_entries = {
         { "file", 'f', 0, OptionArg.STRING, ref file, "path of the configuration file", "NAME" },
-        { "persistent", 'p', 0, OptionArg.NONE, ref persistent, "reload configuration on file change", null },
+//        { "persistent", 'p', 0, OptionArg.NONE, ref persistent, "reload configuration on file change", null },
         { null }
         };
 
