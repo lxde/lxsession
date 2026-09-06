@@ -31,7 +31,7 @@ public class Main: GLib.Object
     {
         if (file == null)
         {
-            critical("Error, you need to specify a configuration file using -f argument. Exit");
+            critical("Error: A configuration file must be specified using the -f option.");
             return -1;
         }
         else
@@ -45,13 +45,13 @@ public class Main: GLib.Object
             catch (KeyFileError err)
             {
                 warning (err.message);
-                critical("Problem when loading the configuration file. Exit");
+                critical("Problem when loading the configuration file.");
                 return -1;
             }
             catch (FileError err)
             {
                 warning (err.message);
-                critical("Problem when loading the configuration file. Exit");
+                critical("Problem when loading the configuration file.");
                 return -1;
             }
 
