@@ -1,59 +1,101 @@
 <?xml version="1.0"?>
-<refentry>  <refentryinfo>    <address>      <email>grandpaul@gmail.com</email>
+<refentry>
+  <refentryinfo>
+    <address>
+      <email>grandpaul@gmail.com</email>
     </address>
-    <author>      <firstname>Ying-Chun</firstname>
-      <surname>Liu</surname>
-    </author>
-    <copyright>      <year>2008</year>
-      <holder>paulliu</holder>
-    </copyright>
     <date>March  2, 2008</date>
   </refentryinfo>
-  <refmeta>    <refentrytitle>LXSESSION</refentrytitle>
-<refmiscinfo class="source">http://LXDE.org</refmiscinfo>
-
+  <refmeta>
     <manvolnum>1</manvolnum>
+    <refentrytitle>lxsession</refentrytitle>
+    <refmiscinfo class="source">https://lxde.org</refmiscinfo>
+    <refmiscinfo class="manual">General Commands Manual</refmiscinfo>
   </refmeta>
-  <refnamediv>    <refname>lxsession</refname>
-
-    <refpurpose>a lightweight X session manager</refpurpose>
+  <refnamediv>
+    <refname>lxsession</refname>
+    <refpurpose>lightweight X session manager</refpurpose>
   </refnamediv>
-  <refsynopsisdiv>    <cmdsynopsis>      <command>lxsession</command>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>lxsession</command>
+      <arg rep="repeat">
+        <option><replaceable>OPTIONS</replaceable></option>
+      </arg>
     </cmdsynopsis>
   </refsynopsisdiv>
-  <refsect1>    <title>DESCRIPTION</title>
-
-    <para>This manual page documents briefly the
-      <command>lxsession</command> command.</para>
-
-    <para><command>lxsession</command> is a program that provides a X11
-    session manager. It is the default X11 session manager of LXDE.
+  <refsect1>
+    <title>DESCRIPTION</title>
+    <para>
+      <command>lxsession</command> is a program that provides an X session
+      manager. It is the default X session manager for LXDE.
     </para>
-
-    <para>A session manager is used to automatically start a set of 
-		applications and
-		set up a working desktop environment. Moreover, when 
-		the user logout, it
-		remembers the applications in use, and restart them 
-		the next time you login.
+    <para>
+      A session manager automatically starts a set of applications and sets
+      up a working desktop environment. Additionally, when a user logs out,
+      the session manager remembers which applications were in use and
+      restarts them the next time the user logs in.
     </para>
-   
   </refsect1>
-  <refsect1>    <title>SEE ALSO</title>
-
-    <para>lxpanel (1), lxsession-logout(1).</para>
-
+  <refsect1>
+    <title>OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term><option>-a</option>, <option>--noautostart</option></term>
+        <listitem>
+          <para>disable autostart of applications (window-manager mode only)</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-c</option>, <option>--compatibility <parameter>name</parameter></option></term>
+        <listitem>
+          <para>specify a compatibility mode for settings (only <parameter>razor-qt</parameter> is supported)</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-e</option>, <option>--de <parameter>name</parameter></option></term>
+        <listitem>
+          <para>name of the desktop environnement (<parameter>LXDE</parameter> is the default)</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-n</option>, <option>--noxsettings</option></term>
+        <listitem>
+          <para>disable Xsettings daemon support</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-r</option>, <option>--reload</option></term>
+        <listitem>
+          <para>reload configurations (for Xsettings daemon)</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-s</option>, <option>--session <parameter>name</parameter></option></term>
+        <listitem>
+          <para>name of the desktop session profile</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </refsect1>
-  <refsect1>    <title>AUTHOR</title>
-
-    <para>This manual page was written by paulliu <email>grandpaul@gmail.com</email> for
-      the <productname>Debian</productname> system (but may be used by others).  Permission is
-      granted to copy, distribute and/or modify this document under
-      the terms of the <acronym>GNU</acronym> General Public License, Version 2 any 
-      later version published by the Free Software Foundation.
+  <refsect1>
+    <title>AUTHORS</title>
+    <para>Ying-Chun Liu</para>
+    <para>
+      This manual page was written by paulliu <email>grandpaul@gmail.com</email>.
     </para>
-    <para>	  On Debian systems, the complete text of the GNU General Public
-	  License can be found in /usr/share/common-licenses/GPL.
+  </refsect1>
+  <refsect1>
+    <title>COPYRIGHT</title>
+    <para>&#xA9; 2008 paulliu</para>
+    <para>
+      Permission is granted to copy, distribute and/or modify this document
+      under the terms of the <acronym>GNU</acronym> General Public License,
+      Version 2 any later version published by the Free Software Foundation.
     </para>
-
-  </refsect1></refentry>
+  </refsect1>
+  <refsect1>
+    <title>SEE ALSO</title>
+    <para><option>lxpanel</option>(1), <option>lxsession-logout</option>(1)</para>
+  </refsect1>
+</refentry>

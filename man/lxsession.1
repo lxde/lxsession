@@ -1,13 +1,13 @@
 '\" t
-.\"     Title: LXSESSION
-.\"    Author: Ying-Chun Liu
+.\"     Title: lxsession
+.\"    Author: [see the "AUTHORS" section]
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
 .\"      Date: March  2, 2008
-.\"    Manual: http://LXDE.org
-.\"    Source: http://LXDE.org
+.\"    Manual: General Commands Manual
+.\"    Source: https://lxde.org
 .\"  Language: English
 .\"
-.TH "LXSESSION" "1" "March 2, 2008" "http://LXDE\&.org" "http://LXDE.org"
+.TH "LXSESSION" "1" "March 2, 2008" "https://lxde\&.org" "General Commands Manual"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -28,41 +28,64 @@
 .\" * MAIN CONTENT STARTS HERE *
 .\" -----------------------------------------------------------------
 .SH "NAME"
-lxsession \- a lightweight X session manager
+lxsession \- lightweight X session manager
 .SH "SYNOPSIS"
 .HP \w'\fBlxsession\fR\ 'u
-\fBlxsession\fR
+\fBlxsession\fR [\fB\fIOPTIONS\fR\fR...]
 .SH "DESCRIPTION"
 .PP
-This manual page documents briefly the
 \fBlxsession\fR
-command\&.
+is a program that provides an X session manager\&. It is the default X session manager for LXDE\&.
 .PP
-\fBlxsession\fR
-is a program that provides a X11 session manager\&. It is the default X11 session manager of LXDE\&.
+A session manager automatically starts a set of applications and sets up a working desktop environment\&. Additionally, when a user logs out, the session manager remembers which applications were in use and restarts them the next time the user logs in\&.
+.SH "OPTIONS"
 .PP
-A session manager is used to automatically start a set of applications and set up a working desktop environment\&. Moreover, when the user logout, it remembers the applications in use, and restart them the next time you login\&.
-.SH "SEE ALSO"
+\fB\-a\fR, \fB\-\-noautostart\fR
+.RS 4
+disable autostart of applications (window\-manager mode only)
+.RE
 .PP
-lxpanel (1), lxsession\-logout(1)\&.
-.SH "AUTHOR"
+\fB\-c\fR, \fB\-\-compatibility \fR\fB\fIname\fR\fR
+.RS 4
+specify a compatibility mode for settings (only
+\fIrazor\-qt\fR
+is supported)
+.RE
+.PP
+\fB\-e\fR, \fB\-\-de \fR\fB\fIname\fR\fR
+.RS 4
+name of the desktop environnement (\fILXDE\fR
+is the default)
+.RE
+.PP
+\fB\-n\fR, \fB\-\-noxsettings\fR
+.RS 4
+disable Xsettings daemon support
+.RE
+.PP
+\fB\-r\fR, \fB\-\-reload\fR
+.RS 4
+reload configurations (for Xsettings daemon)
+.RE
+.PP
+\fB\-s\fR, \fB\-\-session \fR\fB\fIname\fR\fR
+.RS 4
+name of the desktop session profile
+.RE
+.SH "AUTHORS"
+.PP
+Ying\-Chun Liu
 .PP
 This manual page was written by paulliu
-<grandpaul@gmail\&.com>
-for the
-Debian
-system (but may be used by others)\&. Permission is granted to copy, distribute and/or modify this document under the terms of the
+<grandpaul@gmail\&.com>\&.
+.SH "COPYRIGHT"
+.PP
+\(co 2008 paulliu
+.PP
+Permission is granted to copy, distribute and/or modify this document under the terms of the
 GNU
 General Public License, Version 2 any later version published by the Free Software Foundation\&.
+.SH "SEE ALSO"
 .PP
-On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common\-licenses/GPL\&.
-.SH "AUTHOR"
-.PP
-\fBYing\-Chun Liu\fR
-.RS 4
-Author.
-.RE
-.SH "COPYRIGHT"
-.br
-Copyright \(co 2008 paulliu
-.br
+\fBlxpanel\fR(1),
+\fBlxsession\-logout\fR(1)

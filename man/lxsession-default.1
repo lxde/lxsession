@@ -1,27 +1,31 @@
 .TH "lxsession-default" 1
 .SH NAME
-lxsession-default \- Launching default applications set by LXSession
+lxsession-default \- launch default applications set by LXSession
 .SH SYNOPSIS
 .B lxsession-default
-[COMMAND]
-[OPTIONS]
-
+[\fICOMMAND\fR]
+[\fIOPTION\fR]
 .SH DESCRIPTION
-
 .B lxsession-default
-is a wrapper around LXSession D-Bus interface, which launch default
-applications set by LXsession.
-
-COMMAND is the application you want to launch, and the ones available are
-define in desktop.conf.examples.
-
-OPTIONS are available if the COMMAND accept it.
-
-Example :
-To launch file_manager/command set in desktop.conf, use :
-lxsession-default file_manager
-
+is a wrapper around the LXSession D-Bus interface that launches the default
+applications set by LXsession. The application to be launched is defined by
+.IR COMMAND ,
+and the available commands are defined in
+.IR \%desktop.conf.examples .
+An
+.I OPTION
+is available if the
+.I COMMAND
+accepts it.
+.SH EXAMPLES
+To launch
+.I file_manager/command
+set in
+.IR desktop.conf ", use:"
+.PP
+.RS
+.B lxsession-default file_manager
 .SH AUTHORS
-Julien Lavergne <gilir@ubuntu.com>
-
-Man page written to conform with Debian by Julien Lavergne.
+Julien Lavergne <gilir@ubuntu.com>,
+.br
+man page written to conform with Debian

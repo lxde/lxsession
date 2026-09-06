@@ -28,6 +28,7 @@ lxsession.1: lxsession.xml
 
 lxsession-logout.1: lxsession-logout.xml
 	$(XSLTPROC) -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $<        
+	sed -i "s:|@@:|\n.br\n.ti +18\n:" $@
 
 CLEANFILES = lxsession.1 \
 	lxsession-logout.1

@@ -1,13 +1,13 @@
 '\" t
-.\"     Title: LXSESSION
-.\"    Author: Ying-Chun Liu
+.\"     Title: lxsession-logout
+.\"    Author: [see the "AUTHORS" section]
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
 .\"      Date: March  2, 2008
-.\"    Manual: http://LXDE.org
-.\"    Source: http://LXDE.org
+.\"    Manual: General Commands Manual
+.\"    Source: https://lxde.org
 .\"  Language: English
 .\"
-.TH "LXSESSION" "1" "March 2, 2008" "http://LXDE\&.org" "http://LXDE.org"
+.TH "LXSESSION\-LOGOUT" "1" "March 2, 2008" "https://lxde\&.org" "General Commands Manual"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -28,59 +28,51 @@
 .\" * MAIN CONTENT STARTS HERE *
 .\" -----------------------------------------------------------------
 .SH "NAME"
-lxsession-logout \- program to logout from LXSession
+lxsession-logout \- log out of LXSession
 .SH "SYNOPSIS"
 .HP \w'\fBlxsession\-logout\fR\ 'u
-\fBlxsession\-logout\fR [\fBoptions\fR...]
+\fBlxsession\-logout\fR [\fB\fIOPTIONS\fR\fR...]
 .SH "DESCRIPTION"
 .PP
-This manual page documents briefly the
 \fBlxsession\-logout\fR
-command\&.
-.PP
-\fBlxsession\-logout\fR
-is a program that to logout from LXSession\&. It gives a good\-looking logout dialog\&.
+displays a dialog that allows you to log out of your session\&.
 .SH "OPTIONS"
 .PP
-These programs follow the usual
-GNU
-command line syntax, with long options starting with two dashes (`\-\*(Aq)\&. A summary of options is included below\&.
-.PP
-\fB\-\-prompt \fR\fB\fIYour custom message\fR\fR
+\fB\-b\fR, \fB\-\-banner \fR\fB\fIlogo\fR\fR
 .RS 4
-Customize the logout message\&.
+logo to customize the dialog
 .RE
 .PP
-\fB\-\-banner \fR\fB\fIYour logo\fR\fR
+\fB\-H\fR, \fB\-\-hide\-button\ \&\fR\fB\fIshutdown\fR\fR\fB|\fR\fB\fIreboot\fR\fR\fB|\fR\fB\fIlogout\fR\fR\fB|\fR\fB\fIhibernate\fR\fR\fB|
+.br
+.ti +18
+\fR\fB\fIsuspend\fR\fR\fB|\fR\fB\fIswitch_user\fR\fR\fB|\fR\fB\fIlock_screen\fR\fR
 .RS 4
-Customize the logout logo\&.
+button to be hidden from the dialog (can be used repeatedly)
 .RE
 .PP
-\fB\-\-side left|top|right|bottom\fR
+\fB\-p\fR, \fB\-\-prompt \fR\fB\fImessage\fR\fR
 .RS 4
-The position of the logo\&.
+message to customize the dialog
 .RE
-.SH "SEE ALSO"
 .PP
-lxsession (1)\&.
-.SH "AUTHOR"
+\fB\-s\fR, \fB\-\-side \fR\fB\fIleft\fR\fR\fB|\fR\fB\fItop\fR\fR\fB|\fR\fB\fIright\fR\fR\fB|\fR\fB\fIbottom\fR\fR
+.RS 4
+position of the logo
+.RE
+.SH "AUTHORS"
+.PP
+Ying\-Chun Liu
 .PP
 This manual page was written by paulliu
-<grandpaul@gmail\&.com>
-for the
-Debian
-system (but may be used by others)\&. Permission is granted to copy, distribute and/or modify this document under the terms of the
+<grandpaul@gmail\&.com>\&.
+.SH "COPYRIGHT"
+.PP
+\(co 2008 paulliu
+.PP
+Permission is granted to copy, distribute and/or modify this document under the terms of the
 GNU
 General Public License, Version 2 any later version published by the Free Software Foundation\&.
+.SH "SEE ALSO"
 .PP
-On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common\-licenses/GPL\&.
-.SH "AUTHOR"
-.PP
-\fBYing\-Chun Liu\fR
-.RS 4
-Author.
-.RE
-.SH "COPYRIGHT"
-.br
-Copyright \(co 2008 paulliu
-.br
+\fBlxsession\fR(1)

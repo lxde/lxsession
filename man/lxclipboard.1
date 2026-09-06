@@ -3,28 +3,28 @@
 lxclipboard \- clipboard utility for LXSession and LXDE
 .SH SYNOPSIS
 .B lxclipboard
-
 .SH DESCRIPTION
-
 .B lxclipboard
-is a clipboard utility, to be able to do copy/paste operation between GTK+
+is a clipboard utility that enables copy and paste operations between X
 applications.
-lxcliboard is only useful when lxsession is not compile with clipboard
-build-in support. If lxsession is compile with clipboard build-in lxclipboard
-functionality will be automatically launched, without the need to launch
-lxclipboard.
-
+.br
+Since \fIlxsession\fR usually has this support built in, you only need
+\fBlxclipboard\fR if you are not using \fIlxsession\fR or if your
+\fIlxsession\fR lacks this support. If you receive a message stating that
+another clipboard manager is already running when you start
+\fBlxclipboard\fR, then you don't need it.
 .SH AUTHORS
 William Jon McCann <mccann@jhu.edu>
-
+.br
 Matthias Clasen
-
+.br
 Anders Carlsson
-
+.br
 Rodrigo Moya
-
+.br
 Nick Schermer <nick@xfce.org>
+.br
 
-Julien Lavergne (gilir@ubuntu.com)
-
-Man page written to conform with Debian by Julien Lavergne.
+Julien Lavergne (gilir@ubuntu.com),
+.br
+man page written to conform with Debian

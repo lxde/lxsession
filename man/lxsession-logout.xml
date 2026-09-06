@@ -1,79 +1,82 @@
 <?xml version="1.0"?>
-<refentry>  <refentryinfo>    <address>      <email>grandpaul@gmail.com</email>
+<refentry>
+  <refentryinfo>
+    <address>
+      <email>grandpaul@gmail.com</email>
     </address>
-    <author>      <firstname>Ying-Chun</firstname>
-      <surname>Liu</surname>
-    </author>
-    <copyright>      <year>2008</year>
-      <holder>paulliu</holder>
-    </copyright>
     <date>March  2, 2008</date>
   </refentryinfo>
-  <refmeta>    <refentrytitle>LXSESSION</refentrytitle>
-<refmiscinfo class="source">http://LXDE.org</refmiscinfo>
-
+  <refmeta>
     <manvolnum>1</manvolnum>
+    <refentrytitle>lxsession-logout</refentrytitle>
+    <refmiscinfo class="source">https://lxde.org</refmiscinfo>
+    <refmiscinfo class="manual">General Commands Manual</refmiscinfo>
   </refmeta>
-  <refnamediv>    <refname>lxsession-logout</refname>
-
-    <refpurpose>program to logout from LXSession</refpurpose>
+  <refnamediv>
+    <refname>lxsession-logout</refname>
+    <refpurpose>log out of LXSession</refpurpose>
   </refnamediv>
-  <refsynopsisdiv>    <cmdsynopsis>      <command>lxsession-logout</command>
-      <arg rep="repeat"><option>options</option></arg>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>lxsession-logout</command>
+      <arg rep="repeat">
+        <option><replaceable>OPTIONS</replaceable></option>
+      </arg>
     </cmdsynopsis>
   </refsynopsisdiv>
-  <refsect1>    <title>DESCRIPTION</title>
-
-    <para>This manual page documents briefly the
-      <command>lxsession-logout</command> command.</para>
-
-    <para><command>lxsession-logout</command> is a program that to logout 
-	from LXSession. It gives a good-looking logout dialog.
+  <refsect1>
+    <title>DESCRIPTION</title>
+    <para>
+      <command>lxsession-logout</command> displays a dialog that allows you
+      to log out of your session.
     </para>
-   
   </refsect1>
-
-  <refsect1>    <title>OPTIONS</title>
-
-    <para>These programs follow the usual <acronym>GNU</acronym> command line syntax,
-      with long options starting with two dashes (`-').  A summary of
-      options is included below.  
-    </para>
-
-    <variablelist>      <varlistentry>        <term>          <option>--prompt <replaceable>Your custom message</replaceable></option>
-        </term>
-        <listitem>          <para>Customize the logout message.</para>
+  <refsect1>
+    <title>OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term><option>-b</option>, <option>--banner <parameter>logo</parameter></option></term>
+        <listitem>
+          <para>logo to customize the dialog</para>
         </listitem>
       </varlistentry>
-      <varlistentry>        <term>          <option>--banner <replaceable>Your logo</replaceable></option>
-        </term>
-        <listitem>          <para>Customize the logout logo.</para>
+      <varlistentry>
+        <term><option>-H</option>, <option>--hide-button&#xA0;<parameter>shutdown</parameter>|<parameter>reboot</parameter>|<parameter>logout</parameter>|<parameter>hibernate</parameter>|@@<parameter>suspend</parameter>|<parameter>switch_user</parameter>|<parameter>lock_screen</parameter></option></term>
+        <listitem>
+          <para>button to be hidden from the dialog (can be used repeatedly)</para>
         </listitem>
       </varlistentry>
-      <varlistentry>        <term>          <option>--side left|top|right|bottom</option>
-        </term>
-        <listitem>          <para>The position of the logo.</para>
+      <varlistentry>
+        <term><option>-p</option>, <option>--prompt <parameter>message</parameter></option></term>
+        <listitem>
+          <para>message to customize the dialog</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>-s</option>, <option>--side <parameter>left</parameter>|<parameter>top</parameter>|<parameter>right</parameter>|<parameter>bottom</parameter></option></term>
+        <listitem>
+          <para>position of the logo</para>
         </listitem>
       </varlistentry>
     </variablelist>
   </refsect1>
-
-
-  <refsect1>    <title>SEE ALSO</title>
-
-    <para>lxsession (1).</para>
-
+  <refsect1>
+    <title>AUTHORS</title>
+    <para>Ying-Chun Liu</para>
+    <para>
+      This manual page was written by paulliu <email>grandpaul@gmail.com</email>.
+    </para>
   </refsect1>
-  <refsect1>    <title>AUTHOR</title>
-
-    <para>This manual page was written by paulliu <email>grandpaul@gmail.com</email> for
-      the <productname>Debian</productname> system (but may be used by others).  Permission is
-      granted to copy, distribute and/or modify this document under
-      the terms of the <acronym>GNU</acronym> General Public License, Version 2 any 
-      later version published by the Free Software Foundation.
+  <refsect1>
+    <title>COPYRIGHT</title>
+    <para>&#xA9; 2008 paulliu</para>
+    <para>Permission is granted to copy, distribute and/or modify this document
+      under the terms of the <acronym>GNU</acronym> General Public License,
+      Version 2 any later version published by the Free Software Foundation.
     </para>
-    <para>	  On Debian systems, the complete text of the GNU General Public
-	  License can be found in /usr/share/common-licenses/GPL.
-    </para>
-
-  </refsect1></refentry>
+  </refsect1>
+  <refsect1>
+    <title>SEE ALSO</title>
+    <para><option>lxsession</option>(1)</para>
+  </refsect1>
+</refentry>
