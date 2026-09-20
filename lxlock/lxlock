@@ -24,25 +24,24 @@
 # Try to lock the screen with these applications (in this order):
 
 if pidof light-locker >/dev/null; then
-    light-locker-command --lock >/dev/null 2>&1
+    exec light-locker-command --lock >/dev/null 2>&1
 elif pidof xscreensaver >/dev/null; then
-    xscreensaver-command -lock >/dev/null 2>&1
+    exec xscreensaver-command -lock >/dev/null 2>&1
 elif which xtrlock >/dev/null 2>&1; then
-    xtrlock -b
+    exec xtrlock -b
 elif which i3lock >/dev/null 2>&1; then
-    i3lock -n -c 000000
+    exec i3lock -n -c 000000
 elif which slock >/dev/null 2>&1; then
-    slock
+    exec slock
 elif which xsecurelock >/dev/null 2>&1; then
-    xsecurelock >/dev/null 2>&1
+    exec xsecurelock >/dev/null 2>&1
 elif which slimlock >/dev/null 2>&1; then
-    slimlock >/dev/null 2>&1
+    exec slimlock >/dev/null 2>&1
 elif which xlock >/dev/null 2>&1; then
-    xlock
-else
-    # In the end, try to fallback to xscreensaver
+    exec xlock
+elif which xscreensaver >/dev/null 2>&1; then
     xscreensaver -nosplash >/dev/null 2>&1 &
-    xscreensaver-command -lock >/dev/null 2>&1
-    exit
+    exec xscreensaver-command -lock >/dev/null 2>&1
 fi
-exit 0
+echo "Found no known screen locker" >&2
+exit 1
